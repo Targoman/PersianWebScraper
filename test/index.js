@@ -1,0 +1,232 @@
+/*
+
+clear; rm -rf .db corpora; yarn dev && yarn start farsnews
+clear; rm -rf .db corpora; yarn dev && yarn start farsnews -u https://www.farsnews.ir/photo/14020721000443
+clear; rm -rf .db corpora; yarn dev && yarn start farsnews -u https://www.farsnews.ir/news/14020720000031
+
+clear; rm -rf .db corpora; yarn dev && yarn start hamshahrionline
+clear; rm -rf .db corpora; yarn dev && yarn start hamshahrionline -u https://www.hamshahrionline.ir/news/796538
+clear; rm -rf .db corpora; yarn dev && yarn start hamshahrionline -u https://www.hamshahrionline.ir/news/796069
+clear; rm -rf .db corpora; yarn dev && yarn start hamshahrionline -u https://www.hamshahrionline.ir/news/796968
+clear; rm -rf .db corpora; yarn dev && yarn start hamshahrionline -u https://www.hamshahrionline.ir/photo/796513
+
+clear; rm -rf .db corpora; yarn dev && yarn start irna
+clear; rm -rf .db corpora; yarn dev && yarn start irna -u https://www.irna.ir/news/85257749
+clear; rm -rf .db corpora; yarn dev && yarn start irna -u https://www.irna.ir/news/85257642
+clear; rm -rf .db corpora; yarn dev && yarn start irna -u https://www.irna.ir/photo/85257337
+
+clear; rm -rf .db corpora; yarn dev && yarn start mashreghnews
+clear; rm -rf .db corpora; yarn dev && yarn start mashreghnews -u https://www.mashreghnews.ir/news/1533757
+clear; rm -rf .db corpora; yarn dev && yarn start mashreghnews -u https://www.mashreghnews.ir/news/15355
+clear; rm -rf .db corpora; yarn dev && yarn start mashreghnews -u https://www.mashreghnews.ir/photo/1535504/
+
+clear; rm -rf .db corpora; yarn dev && yarn start khabaronline
+clear; rm -rf .db corpora; yarn dev && yarn start khabaronline -u https://www.khabaronline.ir/photo/1824525
+clear; rm -rf .db corpora; yarn dev && yarn start khabaronline -u https://www.khabaronline.ir/news/1824603
+clear; rm -rf .db corpora; yarn dev && yarn start khabaronline -u https://www.khabaronline.ir/news/18246
+true
+clear; rm -rf .db corpora; yarn dev && yarn start mehrnews
+clear; rm -rf .db corpora; yarn dev && yarn start mehrnews -u https://www.mehrnews.com/photo/5911239
+clear; rm -rf .db corpora; yarn dev && yarn start mehrnews -u https://www.mehrnews.com/news/5909142
+clear; rm -rf .db corpora; yarn dev && yarn start mehrnews -u https://www.mehrnews.com/photo/5867770
+
+clear; rm -rf .db corpora; yarn dev && yarn start aftabnews
+clear; rm -rf .db corpora; yarn dev && yarn start aftabnews -u https://aftabnews.ir/fa/news/864705/
+clear; rm -rf .db corpora; yarn dev && yarn start aftabnews -u https://aftabnews.ir/fa/news/865255
+clear; rm -rf .db corpora; yarn dev && yarn start aftabnews -u https://aftabnews.ir/fa/news/866499
+
+clear; rm -rf .db corpora; yarn dev && yarn start seratnews
+clear; rm -rf .db corpora; yarn dev && yarn start seratnews -u https://www.seratnews.com/fa/news/636300/
+clear; rm -rf .db corpora; yarn dev && yarn start seratnews -u https://www.seratnews.com/fa/news/636462/
+clear; rm -rf .db corpora;  yarn dev && yarn start seratnews -u https://www.seratnews.com/fa/news/6364/
+clear; rm -rf .db corpora; yarn dev && yarn start seratnews -uhttps://www.seratnews.com/fa/news/636969
+
+clear; rm -rf .db corpora; yarn dev && yarn start alef
+clear; rm -rf .db corpora; yarn dev && yarn start alef -u https://www.alef.ir/news/4020719042.html
+clear; rm -rf .db corpora; yarn dev && yarn start alef -u https://www.alef.ir/news/4020719080.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start mojnews
+clear; rm -rf .db corpora; yarn dev && yarn start mojnews -u https://www.mojnews.com/%D8%A8%D8%AE%D8%B4-%D8%B3%DB%8C%D8%A7%D8%B3%DB%8C-3/512938-%D8%B7%D9%88%D9%81%D8%A7%D9%86-%D8%A7%D9%84%D8%A7%D9%82%D8%B5%DB%8C-%D9%87%DB%8C%D9%85%D9%86%D9%87-%D9%BE%D9%88%D8%B4%D8%A7%D9%84%DB%8C-%D8%B1%DA%98%DB%8C%D9%85-%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%DB%8C%D9%84-%D8%B1%D8%A7-%D9%81%D8%B1%D9%88-%D8%B1%DB%8C%D8%AE%D8%AA
+clear; rm -rf .db corpora; yarn dev && yarn start mojnews -u https://www.mojnews.com/%D8%A8%D8%AE%D8%B4-%D8%B3%DB%8C%D8%A7%D8%B3%DB%8C-3/512938-%D8%B7%D9%88%D9%81%D8%A7%D9%86-%D8%A7%D9%84%D8%A7%D9%82%D8%B5%DB%8C-%D9%87%DB%8C%D9%85%D9%86%D9%87-%D9%BE%D9%88%D8%B4%D8%A7%D9%84%DB%8C-%D8%B1%DA%98%DB%8C%D9%85-%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%DB%8C%D9%84-%D8%B1%D8%A7-%D9%81%D8%B1%D9%88-%D8%B1%DB%8C%D8%AE%D8%AA
+clear; rm -rf .db corpora; yarn dev && yarn start mojnews -u https://www.mojnews.com/%D8%A8%D8%AE%D8%B4-%D8%B9%DA%A9%D8%B3-95/513670-%D8%AA%D8%B4%DB%8C%DB%8C%D8%B9-%D9%BE%DB%8C%DA%A9%D8%B1-%D8%A2%D8%AA%DB%8C%D9%84%D8%A7-%D9%BE%D8%B3%DB%8C%D8%A7%D9%86%DB%8C
+
+clear; rm -rf .db corpora; yarn dev && yarn start iqna
+clear; rm -rf .db corpora; yarn dev && yarn start iqna -u https://iqna.ir/fa/news/4175117/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87%DB%8C%D8%A7%D9%86-%D9%85%DB%8C%E2%80%8C%D8%AA%D9%88%D8%A7%D9%86%D9%86%D8%AF-%D8%A7%D8%AA%D8%A7%D9%82-%D9%81%DA%A9%D8%B1-%D9%85%D8%A8%D8%A7%D8%B1%D8%B2%D8%A7%D9%86-%D9%81%D9%84%D8%B3%D8%B7%DB%8C%D9%86%DB%8C-%D8%A8%D8%A7%D8%B4%D9%86%D8%AF
+clear; rm -rf .db corpora; yarn dev && yarn start iqna -u https://iqna.ir/fa/news/4175023/%D9%81%D8%B1%DB%8C%D8%A7%D8%AF-%D9%82%D9%85%DB%8C%E2%80%8C%D9%87%D8%A7-%D8%A8%D8%B1-%D8%B3%D8%B1-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%B2%D8%A7%D9%86-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C
+
+clear; rm -rf .db corpora; yarn dev && yarn start isna
+clear; rm -rf .db corpora; yarn dev && yarn start isna -u https://www.isna.ir/news/1402072315541
+clear; rm -rf .db corpora; yarn dev && yarn start isna -u https://www.isna.ir/news/1402071711441
+clear; rm -rf .db corpora; yarn dev && yarn start isna -u https://www.isna.ir/photo/1402072114389
+
+clear; rm -rf .db corpora; yarn dev && yarn start ilna
+clear; rm -rf .db corpora; yarn dev && yarn start ilna -u https://www.ilna.ir/%D8%A8%D8%AE%D8%B4-%D8%B9%DA%A9%D8%B3-14/1406764-%D8%B1%D8%A7%D9%87%D9%BE%DB%8C%D9%85%D8%A7%DB%8C%DB%8C-%D9%85%D8%B1%D8%AF%D9%85-%D8%AA%D9%87%D8%B1%D8%A7%D9%86-%D8%AF%D8%B1-%D9%85%D8%AD%DA%A9%D9%88%D9%85%DB%8C%D8%AA-%D8%AC%D9%86%D8%A7%DB%8C%D8%A7%D8%AA-%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D8%AF%D8%B1-%D9%81%D9%84%D8%B3%D8%B7%DB%8C%D9%86
+clear; rm -rf .db corpora; yarn dev && yarn start ilna -u https://www.ilna.ir/%D8%A8%D8%AE%D8%B4-%DA%A9%D8%A7%D8%B1%DA%AF%D8%B1%DB%8C-9/1407031-%D8%B6%D8%B1%D8%B1-%D9%85%D8%A7%D9%84%DB%8C-%DA%A9%D8%A7%D8%B1%D9%81%D8%B1%D9%85%D8%A7%DB%8C%D8%A7%D9%86-%D8%A8%D8%A7-%D8%AA%D8%A7%D8%AE%DB%8C%D8%B1-%D8%AF%D8%B1-%D8%A7%D8%AC%D8%B1%D8%A7%DB%8C-%D8%B7%D8%B1%D8%AD-%D8%B7%D8%A8%D9%82%D9%87-%D8%A8%D9%86%D8%AF%DB%8C-%D8%A7%D8%AD%D8%AA%D9%85%D8%A7%D9%84-%D8%A7%D9%81%D8%B2%D8%A7%DB%8C%D8%B4-%D9%85%D8%B2%D8%AF-%DA%A9%D8%A7%D8%B1%DA%AF%D8%B1%D8%A7%D9%86-%DA%A9%D8%A7%D8%B1%DA%AF%D8%A7%D9%87-%D8%AF%D8%B1-%D8%B3%D8%A7%D9%84-%D8%A2%DB%8C%D9%86%D8%AF%D9%87-%D9%88%D8%AC%D9%88%D8%AF-%D8%AF%D8%A7%D8%B1%D8%AF
+clear; rm -rf .db corpora; yarn dev && yarn start ilna -u https://www.ilna.ir/%D8%A8%D8%AE%D8%B4-%D9%81%DB%8C%D9%84%D9%85-%D8%B5%D9%88%D8%AA-153/1407182-%D9%88%DB%8C%D8%AF%D8%A6%D9%88-%D9%BE%D9%87%D9%BE%D8%A7%D8%AF-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%A7%DB%8C
+
+clear; rm -rf .db corpora; yarn dev && yarn start imna
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u https://www.imna.ir/news/696053
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u https://www.imna.ir/news/695
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u https://www.imna.ir/photo/695446/
+
+clear; rm -rf .db corpora; yarn dev && yarn start shana
+clear; rm -rf .db corpora; yarn dev && yarn start shana -u https://www.shana.ir/news/631638/%D8%A7%DB%8C%D8%AC%D8%A7%D8%AF-%D9%85%D8%AD%DB%8C%D8%B7-%D8%A7%D9%85%D9%86-%D8%AF%D8%B1-%D8%B5%D9%86%D8%B9%D8%AA-%D9%86%D9%81%D8%AA-%D9%84%D8%A7%D8%B2%D9%85%D9%87-%D8%AA%D9%88%D9%84%DB%8C%D8%AF-%D9%BE%D8%A7%DB%8C%D8%AF%D8%A7%D8%B1-%D8%A7%D8%B3%D8%AA-%D8%A7%D8%B5%D9%88%D9%84-%D8%A7%DB%8C%D9%85%D9%86%DB%8C
+clear; rm -rf .db corpora; yarn dev && yarn start shana -u https://www.shana.ir/photo/631533/%D8%A8%D9%87%D8%B1%D9%87-%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C-%D9%88-%D8%A2%D8%BA%D8%A7%D8%B2-%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA-%D8%A8%DB%8C%D8%B4-%D8%A7%D8%B2-%DB%B9%DB%B0%DB%B0-%D8%B7%D8%B1%D8%AD-%DA%AF%D8%A7%D8%B2%D8%B1%D8%B3%D8%A7%D9%86%DB%8C-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D9%81%D8%A7%D8%B1%D8%B3
+clear; rm -rf .db corpora; yarn dev && yarn start shana -u https://www.shana.ir/news/631
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start ana
+clear; rm -rf .db corpora; yarn dev && yarn start ana -u https://ana.press/fa/news/873175
+clear; rm -rf .db corpora; yarn dev && yarn start ana -u https://ana.press/fa/news/872
+clear; rm -rf .db corpora; yarn dev && yarn start ana -u https://ana.press/fa/news/873030
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start chtn
+clear; rm -rf .db corpora; yarn dev && yarn start chtn -u https://www.chtn.ir/news/1402072101337
+clear; rm -rf .db corpora; yarn dev && yarn start chtn -u https://www.chtn.ir/photo/1402072301453
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim 
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim -u https://www.tasnimnews.com/fa/news/1402/07/23/2971818
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim -u https://www.tasnimnews.com/fa/news/1402/07/22/2971273/
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim -u https://www.tasnimnews.com/fa/news/1402/07/20/2970721
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim -u https://www.tasnimnews.com/fa/news/1402/07/23/2972067
+clear; rm -rf .db corpora; yarn dev && yarn start tasnim -u https://www.tasnimnews.com/fa/media/1402/07/21/2971046
+
+clear; rm -rf .db corpora; yarn dev && yarn start tabnak 
+clear; rm -rf .db corpora; yarn dev && yarn start tabnak -u https://www.tabnak.ir/fa/news/1198628
+clear; rm -rf .db corpora; yarn dev && yarn start tabnak -u https://www.tabnak.ir/fa/news/1198637
+clear; rm -rf .db corpora; yarn dev && yarn start tabnak -u https://www.tabnak.ir/fa/news/1198697
+clear; rm -rf .db corpora; yarn dev && yarn start tabnak -u https://www.tabnak.ir/fa/news/1198612
+
+clear; rm -rf .db corpora; yarn dev && yarn start spnfa 
+clear; rm -rf .db corpora; yarn dev && yarn start spnfa -u https://spnfa.ir/20231015/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D9%84%D8%AD%D8%B8%D9%87-%D8%A8%D9%87-%D9%84%D8%AD%D8%B8%D9%87-%D8%AF%D8%B1%DA%AF%DB%8C%D8%B1%DB%8C-%D9%81%D9%84%D8%B3%D8%B7%DB%8C%D9%86-%D9%88-%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%DB%8C%D9%84%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA-%D8%B2%D9%85%DB%8C%D9%86%DB%8C-%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%DB%8C%D9%84-%D8%A8%D9%87-%D8%AA%D8%B9%D9%88%DB%8C%D9%82-%D8%A7%D9%81%D8%AA%D8%A7%D8%AF--%D8%B9%DA%A9%D8%B3-%D9%88-%D9%81%DB%8C%D9%84%D9%85-18177600.html
+clear; rm -rf .db corpora; yarn dev && yarn start spnfa -u https://spnfa.ir/20230928/%D8%A2%D9%86%DA%86%D9%87-%D8%AF%D8%B1-%D8%B2%D8%B1%D9%87-%D8%AA%D8%A7%D9%86%DA%A9-11-%D8%A2%D8%A8%D8%B1%D8%A7%D9%85%D8%B2-%D9%86%D9%81%D9%88%D8%B0-%D9%85%DB%8C-%DA%A9%D9%86%D8%AF--%D8%AF%D8%A7%D8%AF%D9%87-%D9%86%D9%85%D8%A7%DB%8C%DB%8C-17918171.html
+clear; rm -rf .db corpora; yarn dev && yarn start spnfa -u https://spnfa.ir/20231010/%D8%A7%D8%B1%D8%AA%D8%B4-%D8%A7%D8%B3%D8%B1%D8%A7%D8%A6%DB%8C%D9%84-%DA%86%D9%82%D8%AF%D8%B1-%D8%A8%D8%B2%D8%B1%DA%AF-%D8%A7%D8%B3%D8%AA-18111551.html
+clear; rm -rf .db corpora; yarn dev && yarn start spnfa -u https://spnfa.ir/20231010/18108606.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start sputnikaf 
+clear; rm -rf .db corpora; yarn dev && yarn start sputnikaf -u https://sputnik.af/20231006/16148289.html
+clear; rm -rf .db corpora; yarn dev && yarn start sputnikaf -u https://sputnik.af/20231015/%D9%88%D8%B2%D8%A7%D8%B1%D8%AA-%D8%AF%D9%81%D8%A7%D8%B9-%D8%B1%D9%88%D8%B3%DB%8C%D9%87-%D8%AF%D8%B1-%DB%8C%DA%A9-%D8%B4%D8%A8%D8%A7%D9%86%D9%87-%D8%B1%D9%88%D8%B2-67-%D9%BE%D9%87%D9%BE%D8%A7%D8%AF-%D8%A7%D9%88%DA%A9%D8%B1%D8%A7%DB%8C%D9%86%DB%8C-%D8%B1%D8%A7-%D8%B3%D8%B1%D9%86%DA%AF%D9%88%D9%86-%DA%A9%D8%B1%D8%AF%DB%8C%D9%85--16252769.html
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start pana 
+clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/news/1412672
+clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/news/1412952
+clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/news/1412848
+
+clear; rm -rf .db corpora; yarn dev && yarn start ibna 
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/tolidi/348599
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/vspjuqb2fb,%5E5ezfs4f4.u.html
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/gallery/348651/3/
+
+clear; rm -rf .db corpora; yarn dev && yarn start iana 
+clear; rm -rf .db corpora; yarn dev && yarn start iana -u http://www.iana.ir/%D8%A8%D8%AE%D8%B4-%D8%B9%D8%B4%D8%A7%DB%8C%D8%B1-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C%D8%A7%D9%86-179/119332-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%AA%D8%B3%D9%87%DB%8C%D9%84%D8%A7%D8%AA-%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%DB%8C-%D8%A8%D9%87-%D8%B2%D9%88%D8%AC%DB%8C%D9%86-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C
+clear; rm -rf .db corpora; yarn dev && yarn start iana -u http://www.iana.ir/%D8%A8%D8%AE%D8%B4-%D8%A7%DB%8C%D9%84%D8%A7%D9%85-21/119323-%D8%B5%D8%A7%D8%AF%D8%B1%D8%A7%D8%AA-%D8%AA%D9%86-%D8%A8%D8%B0%D9%88%D8%B1-%DA%AF%D9%88%D8%A7%D9%87%DB%8C-%D8%B4%D8%AF%D9%87-%D8%B1%D9%88%DB%8C%D8%A7%D9%84%D8%AA%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A7%D9%88%D9%84%DB%8C%D9%86-%D8%A8%D8%A7%D8%B1-%D8%AF%D8%B1-%DA%A9%D8%B4%D9%88%D8%B1
+clear; rm -rf .db corpora; yarn dev && yarn start iana -u http://www.iana.ir/%D8%A8%D8%AE%D8%B4-%DA%86%D9%86%D8%AF%D8%B1%D8%B3%D8%A7%D9%86%D9%87-%D8%A7%DB%8C-243/118499-%D8%A8%D8%A7%D8%B2%D8%AF%DB%8C%D8%AF-%D9%88%D8%B2%DB%8C%D8%B1-%D8%AC%D9%87%D8%A7%D8%AF-%DA%A9%D8%B4%D8%A7%D9%88%D8%B1%D8%B2%DB%8C-%D8%A7%D8%B2-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D9%87%D9%85%D8%AF%D8%A7%D9%86
+
+clear; rm -rf .db corpora; yarn dev && yarn start snn 
+clear; rm -rf .db corpora; yarn dev && yarn start snn -u https://snn.ir/fa/news/848916
+clear; rm -rf .db corpora; yarn dev && yarn start snn -u https://snn.ir/fa/news/1103747
+clear; rm -rf .db corpora; yarn dev && yarn start snn -u https://snn.ir/fa/news/1103805
+clear; rm -rf .db corpora; yarn dev && yarn start snn -u https://snn.ir/fa/news/1103556
+
+clear; rm -rf .db corpora; yarn dev && yarn start yjc 
+clear; rm -rf .db corpora; yarn dev && yarn start yjc -u https://www.yjc.ir/fa/news/8572187/
+clear; rm -rf .db corpora; yarn dev && yarn start yjc -u https://www.yjc.ir/fa/news/8572125
+clear; rm -rf .db corpora; yarn dev && yarn start yjc -u https://www.yjc.ir/fa/news/8572559
+clear; rm -rf .db corpora; yarn dev && yarn start yjc -u https://www.yjc.ir/fa/news/8572560
+
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/page?id=7100
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/news-content?id=36377
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/speech-content?id=44749
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/photo-album?id=54024
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/book-content?id=26274
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/news-content?id=26676
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/keyword-content?id=1067
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/audio-content?id=52851
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/speech-content?id=27857
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/memory-content?id=26142
+clear; rm -rf .db corpora; yarn dev && yarn start khamenei -u https://farsi.khamenei.ir/video-content?id=54111
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start citna -u https://www.citna.ir
+clear; rm -rf .db corpora; yarn dev && yarn start citna -u https://www.citna.ir/news/286359/%D8%B1%DB%8C%DB%8C%D8%B3-%DA%A9%D8%A7%D9%86%D9%88%D9%86-%D9%87%D9%85%D8%A7%D9%87%D9%86%DA%AF%DB%8C-%D9%81%D8%A7%D9%88%D8%A7-%D8%AF%D8%B1-%DA%AF%D9%81%D8%AA%D9%88%DA%AF%D9%88-%D8%A8%D8%A7-%D8%B3%DB%8C%D8%AA%D9%86%D8%A7-%D8%A7%D8%B3%D8%AA%D9%82%D8%B1%D8%A7%D8%B1-%D8%B3%D8%A7%D8%B2%D9%85%D8%A7%D9%86-%D8%B3%DA%A9%D9%88%DB%8C%DB%8C%D8%8C-%D9%85%D8%AF%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A8%D9%82%D8%A7%DB%8C-%D8%B4%D8%B1%DA%A9%D8%AA
+clear; rm -rf .db corpora; yarn dev && yarn start citna -u https://www.citna.ir/different/286347/%DB%B9-%D8%AD%D9%82%DB%8C%D9%82%D8%AA-%D8%AC%D8%A7%D9%84%D8%A8-%D8%AF%D8%B1-%D9%85%D9%88%D8%B1%D8%AF-%D9%86%D8%B2%D8%AF%DB%8C%DA%A9%D8%AA%D8%B1%DB%8C%D9%86-%D8%B3%D8%AA%D8%A7%D8%B1%D9%87%E2%80%8C-%D9%87%D9%85%D8%B3%D8%A7%DB%8C%D9%87-%D8%AE%D9%88%D8%B1%D8%B4%DB%8C%D8%AF
+clear; rm -rf .db corpora; yarn dev && yarn start citna -u https://www.citna.ir/bank/285931/%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%A2%D8%B3%D8%A7%D9%86-%D8%A7%D9%82%D8%B3%D8%A7%D8%B7-%D8%AA%D8%B3%D9%87%DB%8C%D9%84%D8%A7%D8%AA-%D8%A7%D8%B1%D8%A8%D8%B9%DB%8C%D9%86-%D8%AF%D8%B1-%D9%87%D9%85%D8%B1%D8%A7%D9%87-%D8%A8%D8%A7%D9%85
+
+clear; rm -rf .db corpora; yarn dev && yarn start itna -u https://www.itna.ir/
+clear; rm -rf .db corpora; yarn dev && yarn start itna -u https://www.itna.ir/news/75128
+clear; rm -rf .db corpora; yarn dev && yarn start itna -u https://www.itna.ir/news/75113
+clear; rm -rf .db corpora; yarn dev && yarn start itna -u https://www.itna.ir/multimedia/74931
+
+clear; rm -rf .db corpora; yarn dev && yarn start virgool -u https://virgool.io/Dustuntory/%DA%A9%D9%88%D8%AF%DA%A9%D9%90-%D8%AF%D8%B1%D9%88%D9%86-ahsrqd8w4avf
+clear; rm -rf .db corpora; yarn dev && yarn start virgool -u https://virgool.io/@GSMSOURCES/%D8%A2%DB%8C%D9%81%D9%88%D9%86-15-%D9%86%D8%AE%D8%B1-%D8%AA%D8%A7-%D8%A7%DB%8C%D9%86-%D9%85%D9%82%D8%A7%D9%84%D9%87-%D8%B1%D9%88-%D8%AA%D8%A7-%D8%AA%D9%87-%D9%86%D8%AE%D9%88%D9%86%D8%AF%DB%8C-fecnhca0x6se?source=newFeed---PrP--------11
+clear; rm -rf .db corpora; yarn dev && yarn start virgool -u https://virgool.io/@icpars_com/embedded-systems-%D8%B3%DB%8C%D8%B3%D8%AA%D9%85-%D9%87%D8%A7%DB%8C-%D8%AC%D8%A7%D8%B3%D8%A7%D8%B2%DB%8C-%D8%B4%D8%AF%D9%87-rxsb1msmvdlc
+clear; rm -rf .db corpora; yarn dev && yarn start virgool -u  https://virgool.io/@pfxa/%D8%B3%D9%87-%D9%85%D9%88%D9%84%D8%AF-%D9%85%D9%88%D8%B3%DB%8C%D9%82%DB%8C-%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86-%D9%87%D9%88%D8%B4-%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C-p3pshbidc0jj
+
+clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran.news/%D8%A8%D8%AE%D8%B4-%D8%A8%D8%A7%D8%B2%D9%86%D8%B4%D8%B1-59/1611362-%D8%B1%D9%87%D8%A8%D8%B1-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8-%D8%A7%DA%AF%D8%B1-%D8%AC%D9%86%D8%A7%DB%8C%D8%AA-%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D8%A7%D8%AF%D8%A7%D9%85%D9%87-%D9%BE%DB%8C%D8%AF%D8%A7-%DA%A9%D9%86%D8%AF-%DA%A9%D8%B3%DB%8C-%D9%86%D9%85%DB%8C-%D8%AA%D9%88%D8%A7%D9%86%D8%AF-%D8%AC%D9%84%D9%88%DB%8C-%D9%85%D8%B3%D9%84%D9%85%D8%A7%D9%86%D8%A7%D9%86-%D9%86%DB%8C%D8%B1%D9%88%D9%87%D8%A7%DB%8C-%D9%85%D9%82%D8%A7%D9%88%D9%85%D8%AA-%D8%B1%D8%A7-%D8%A8%DA%AF%DB%8C%D8%B1%D8%AF-%D8%A8%D9%86%D8%A7%D8%A8%D8%B1-%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D9%85%D8%AA%D8%B9%D8%AF%D8%AF-%D9%85%D8%A7-%D8%B3%DB%8C%D8%A7%D8%B3%D8%AA-%D8%AC%D8%A7%D8%B1%DB%8C-%D9%87%D9%81%D8%AA%D9%87-%D8%A7%D8%AE%DB%8C%D8%B1-%D8%AF%D8%A7%D8%AE%D9%84-%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D8%B1%D8%A7-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7-%DB%8C%DB%8C-%D9%87%D8%A7-%D8%AF%D8%A7%D8%B1%D9%86%D8%AF-%D8%AA%D9%86%D8%B8%DB%8C%D9%85-%D9%85%DB%8C%DA%A9%D9%86%D9%86%D8%AF-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7-%D8%AF%D8%B1-%D8%AC%D9%86%D8%A7%DB%8C%D8%A7%D8%AA-%D8%A7%D8%AE%DB%8C%D8%B1-%D9%85%D8%B3%D8%A6%D9%88%D9%84-%D8%A7%D8%B3%D8%AA
+clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran.news/%D8%A8%D8%AE%D8%B4-%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1%DB%8C-19/1611356-%D8%AF%DB%8C%D8%AF%D8%A7%D8%B1-%D9%86%D8%AE%D8%A8%DA%AF%D8%A7%D9%86-%D8%A7%D8%B3%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D8%AA%D8%B1-%D8%B9%D9%84%D9%85%DB%8C-%D8%A8%D8%A7-%D8%B1%D9%87%D8%A8%D8%B1-%D9%85%D8%B9%D8%B8%D9%85-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8
+clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran.news/%D8%A8%D8%AE%D8%B4-%D9%88%DB%8C%D8%AF%DB%8C%D9%88%D9%87%D8%A7%DB%8C-%D8%AE%D8%A8%D8%B1%DB%8C-180/1611338-%D9%BE%DB%8C%D8%B1%D8%AA%D8%B1%DB%8C%D9%86-%D8%AC%D8%A7%D9%86%D8%A8%D8%A7%D8%B2-%D8%AF%D9%81%D8%A7%D8%B9-%D9%85%D9%82%D8%AF%D8%B3-%D8%AF%D8%B1%DA%AF%D8%B0%D8%B4%D8%AA
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/mobile/409029-apple-iphone-15-series-lightning-usb-c-wonderlust/
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/product/list/mobile/?utm_source=MagHP&utm_medium=referral_menu&utm_campaign=main_menu
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/advertisement/
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/review/404840-sony-play-station-psvr2-headset-review/
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u
+
+clear; rm -rf .db corpora; yarn dev && yarn start ictnews -u https://ictnews.ir/%d9%be%db%8c%d8%b4%d9%86%d9%87%d8%a7%d8%af-%d8%b3%d8%b1%d8%af%d8%a8%db%8c%d8%b1/%d9%86%d8%ac%d8%a7%d8%aa-%d9%85%d8%a7%d9%87%db%8c-%d8%a7%d8%b2-%d8%a2%d8%a8/23463/
+
+clear; rm -rf .db corpora; yarn dev && yarn start ion -u https://ion.ir/news/30496
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u
+
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://be-brave.blog.ir/1401/11/08/%D9%81%DA%A9%D8%B1-%D9%86%D9%85%DB%8C-%DA%A9%D8%B1%D8%AF%D9%85-%D9%87%DB%8C%DA%86-%D9%88%D9%82%D8%AA-%D8%A8%D9%87-%D8%A7%DB%8C%D9%86-%D9%86%D9%82%D8%B7%D9%87-%D8%A8%D8%B1%D8%B3%D9%85
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://its-me.blog.ir/post/1058
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://hesare-aseman.blog.ir/post/1207
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://avocado.blog.ir/post/296/%D9%86%D8%B4%D8%B3%D8%AA%D9%87-%D8%A7%D9%85-%D8%A8%D9%87-%D9%BE%D9%86%D8%AC%D8%B1%D9%87-%D9%86%DA%AF%D8%A7%D9%87-%D9%85%DB%8C%DA%A9%D9%86%D9%85%D8%8C-%DB%8C%D9%84%D8%AF%D8%A7-%D8%A2%D9%87-%D9%85%DB%8C%DA%A9%D8%B4%D8%AF
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://shikpoosh.blog.ir/1402/07/20/%D9%87%D9%88%D8%AF%DB%8C-%D8%AF%D8%AE%D8%AA%D8%B1%D8%A7%D9%86%D9%87-%C2%A0%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C-%D9%84%D8%A8%D8%A7%D8%B3
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u https://tobe94.blog.ir/post/458
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u 
+clear; rm -rf .db corpora; yarn dev && yarn start blogir -u 
+
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/article/16087
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/article/16063
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/article/472
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/photo/37924
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/video/517
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/discussion/topic/12273565
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/clinic/question/157409
+clear; rm -rf .db corpora; yarn dev && yarn start ninisite -u https://www.ninisite.com/author/d5ca3cb9-8154-4bda-91d3-27deb0694b36
+
+clear; rm -rf .db corpora; yarn dev && yarn start asriran -u https://www.asriran.com/fa/news/912147
+clear; rm -rf .db corpora; yarn dev && yarn start asriran -u https://www.asriran.com/fa/news/9119
+clear; rm -rf .db corpora; yarn dev && yarn start asriran -u https://www.asriran.com/fa/news/912197
+
+
+clear; rm -rf .db corpora; yarn dev && yarn start jahannews -u https://www.jahannews.com/report/855320
+clear; rm -rf .db corpora; yarn dev && yarn start jahannews -u https://www.jahannews.com/video/855235
+clear; rm -rf .db corpora; yarn dev && yarn start jahannews -u https://www.jahannews.com/gallery/855054
+
+clear; rm -rf .db corpora; yarn dev && yarn start varzesh3 -u https://www.varzesh3.com/news/1973973
+clear; rm -rf .db corpora; yarn dev && yarn start varzesh3 -u https://video.varzesh3.com/video/314082/%D8%A7%D8%B2-%DA%A9%D8%A7%D9%85%D8%A8%DA%A9-%D8%A7%D8%B3%D8%AA%D9%82%D9%84%D8%A7%D9%84-%D8%AA%D8%A7-%D8%B9%DB%8C%D8%A7%D8%AF%D8%AA-%D8%AF%D8%B1%D9%88%DB%8C%D8%B4-%D8%A7%D8%B2-%D8%B3%D9%84%D9%85%D8%A7%D9%86%DB%8C
+clear; rm -rf .db corpora; yarn dev && yarn start varzesh3 -u https://www.varzesh3.com/news/1973980/%D8%B4%DA%A9%D8%A7%D8%B1-%D8%B3%D8%B1%D9%85%D8%B1%D8%A8%DB%8C-%D9%85%D8%A7%D8%B1%D8%B3%DB%8C-%D8%AF%D8%B1-%D9%82%D9%84%D8%A8-%D8%A8%D8%B4%DB%8C%DA%A9%D8%AA%D8%A7%D8%B4
+
+clear; rm -rf .db corpora; yarn dev && yarn start tarafdari -u https://www.tarafdari.com/node/2377014
+clear; rm -rf .db corpora; yarn dev && yarn start tarafdari -u https://www.tarafdari.com/node/2377048
+
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+clear; rm -rf .db corpora; yarn dev && yarn start imna -u 
+
+
+./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
+
+
+/**/

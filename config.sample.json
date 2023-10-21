@@ -1,0 +1,6 @@
+{
+    "debugVerbosity": 10,
+    "showInfo": true,
+    "showWarnings": true,
+    "maxConcurrent": 5
+}

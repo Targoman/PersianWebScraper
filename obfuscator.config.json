@@ -1,0 +1,26 @@
+{
+    "log": true,
+    "compact": true,
+    "controlFlowFlattening": false,
+    "identifierNamesGenerator": "hexadecimal",
+    "numbersToExpressions": true,
+    "renameGlobals": false,
+    "selfDefending": true,
+    "splitStrings": true,
+    "splitStringsChunkLength": 5,
+    "stringArray": true,
+    "stringArrayCallsTransform": true,
+    "stringArrayEncoding": [
+        "rc4"
+    ],
+    "stringArrayIndexShift": true,
+    "stringArrayRotate": true,
+    "stringArrayShuffle": true,
+    "stringArrayWrappersCount": 5,
+    "stringArrayWrappersChainedCalls": true,
+    "stringArrayWrappersParametersMaxCount": 5,
+    "stringArrayWrappersType": "function",
+    "stringArrayThreshold": 1,
+    "transformObjectKeys": true,
+    "unicodeEscapeSequence": false
+}

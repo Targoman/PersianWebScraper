@@ -1,0 +1,17 @@
+node_modules/
+.build
+corpora
+.db
+db
+build/
+log/
+dist/
+.vscode/
+.*~
+.conf.json
+.config.json
+.config copy.json
+.env
+yarn-error.log
+yarn.lock
+

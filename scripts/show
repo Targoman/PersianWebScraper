@@ -1,0 +1,1 @@
+watch -c -n 1 ./rundocker.sh show
