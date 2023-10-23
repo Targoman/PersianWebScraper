@@ -46,6 +46,7 @@ export enum enuDomains {
     bultannews = "bultannews",
     boursenews = "boursenews",
     shahr = "shahr",
+    fararu = "fararu",
 
     ///////////// Not Ready
     zoomit = "zoomit",
@@ -66,7 +67,6 @@ export enum enuDomains {
         fararu = "fararu",
         shianews = "shianews",
         shomalnews = "shomalnews",
-        sarna = "sarna",
         shahr = "shahr",
         nakhostnews = "nakhostnews",
         wnn = "wnn",

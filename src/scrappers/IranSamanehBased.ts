@@ -225,3 +225,14 @@ export class boursenews extends clsIransamaneh {
         })
     }
 }
+
+export class fararu extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.fararu, "fararu.com", { 
+            selectors: {
+                article: ".col-main-news",
+                subtitle: ".content-lead-news"
+            }
+        })
+    }
+}
