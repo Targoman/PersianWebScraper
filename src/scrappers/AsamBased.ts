@@ -121,3 +121,16 @@ export class iana extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class fardanews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.fardanews, "fardanews.com", {
+            selectors: {
+                content: {
+                    main: "#echo_detail"
+                },
+            }
+        })
+    }
+}

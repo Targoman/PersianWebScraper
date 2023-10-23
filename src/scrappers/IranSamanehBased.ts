@@ -189,3 +189,21 @@ export class asriran extends clsIransamaneh {
     }
 }
 
+export class bultannews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bultannews, "bultannews.com", {
+            selectors: {
+                article: ".main_body .col-md-27",
+                title: "h1",
+                aboveTitle: ".rutitr",
+                subtitle: ".subtitle",
+                content: {
+                    main: ".body>*",
+                },
+                datetime: {
+                    conatiner: "time",
+                },
+            }
+        })
+    }
+}
