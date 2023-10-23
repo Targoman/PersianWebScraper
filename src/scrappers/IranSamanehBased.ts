@@ -246,3 +246,17 @@ export class parsine extends clsIransamaneh {
         })
     }
 }
+
+export class shianews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shianews, "shia-news.com", { 
+            selectors: {
+                article: ".news-body",
+                datetime: {
+                    conatiner: ".news_pdate_c, .news-info-inner-photo",
+                    splitter: "-"
+                },
+            }
+        })
+    }
+}
