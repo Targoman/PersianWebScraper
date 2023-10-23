@@ -128,7 +128,7 @@ export class fardanews extends clsAsamBased {
         super(enuDomains.fardanews, "fardanews.com", {
             selectors: {
                 content: {
-                    main: "#echo_detail"
+                    main: "#echo_detail, ul"
                 },
             }
         })
