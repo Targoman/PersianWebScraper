@@ -236,3 +236,13 @@ export class fararu extends clsIransamaneh {
         })
     }
 }
+
+export class parsine extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.parsine, "parsine.com", { 
+            selectors: {
+                article: ".general-news-body",
+            }
+        })
+    }
+}
