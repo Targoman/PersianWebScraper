@@ -207,3 +207,21 @@ export class bultannews extends clsIransamaneh {
         })
     }
 }
+
+export class boursenews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.boursenews, "boursenews.ir", {
+            selectors: {
+                article: ".newsContent",
+                aboveTitle: ".newsPreTitle",
+                title: "h1",
+                datetime: {
+                    conatiner: ".newsDate",
+                },
+                category: {
+                    selector: "a.newsSubjectName",
+                },
+            }
+        })
+    }
+}
