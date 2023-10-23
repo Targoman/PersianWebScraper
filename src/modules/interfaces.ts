@@ -45,6 +45,7 @@ export enum enuDomains {
     fardanews = "fardanews",
     bultannews = "bultannews",
     boursenews = "boursenews",
+    shahr = "shahr",
 
     ///////////// Not Ready
     zoomit = "zoomit",
@@ -73,7 +74,6 @@ export enum enuDomains {
         berasad = "berasad",
         khabarfori = "khabarfori",
         jomhouriat = "jomhouriat",
-        tadbir24 = "tadbir24",
         artanpress = "artanpress",
         tasna = "tasna",
         manbaekhabar = "manbaekhabar",
@@ -87,7 +87,6 @@ export enum enuDomains {
         raby = "raby",
         iranetavana = "iranetavana",
         ekhtebar = "ekhtebar",
-        ferghenews = "ferghenews",
         tehranpardis = "tehranpardis",
         khabartehran = "khabartehran",
         otaghnews = "otaghnews",

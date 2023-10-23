@@ -156,3 +156,14 @@ export class chtn extends clsNastoohBased {
         })
     }
 }
+
+/***********************************************************/
+export class shahr extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shahr, "shahr.ir", {
+            selectors: {
+                aboveTitle: ".subtitle",
+            }
+        })
+    }
+}
