@@ -1,8 +1,10 @@
 
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains } from "../modules/interfaces";
+import { enuDomains, IntfComment } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
-import { dateOffsetToDate, getElementAtIndex } from "../modules/common";
+import { dateOffsetToDate, getElementAtIndex, normalizeText } from "../modules/common";
+import { axiosPost, IntfRequestParams } from "../modules/request";
+import { log } from "../modules/logger";
 
 
 export class virgool extends clsScrapper {
@@ -94,7 +96,7 @@ export class ninisite extends clsScrapper {
                 },
                 datetime: {
                     conatiner: '[itemprop="datePublished"], .section .number.side, [itemprop="dateCreated"], .created-post .date',
-                    splitter: (el: HTMLElement) => el.innerText.includes('پیش') || el.innerText.includes('امروز') || el.innerText.includes('قبل')? dateOffsetToDate(el) : (super.extractDate(el, " ") || "NO_DATE")
+                    splitter: (el: HTMLElement) => el.innerText.includes('پیش') || el.innerText.includes('امروز') || el.innerText.includes('قبل') ? dateOffsetToDate(el) : (super.extractDate(el, " ") || "NO_DATE")
                 },
                 comments: {
                     container: (article: HTMLElement) => article.querySelectorAll(".comment, article.topic-post"),
@@ -112,8 +114,64 @@ export class ninisite extends clsScrapper {
         else if (url.pathname.startsWith("/clinic/question/") || url.pathname.startsWith("/discussion/topic/")) {
             const pathParts = url.pathname.split("/")
             if (pathParts.length > 3)
-                return url.protocol + "//" + url.hostname + `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}/`+url.search
-        } 
+                return url.protocol + "//" + url.hostname + `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}/` + url.search
+        }
         return url.toString()
+    }
+}
+
+export class lastsecond extends clsScrapper {
+    constructor() {
+        super(enuDomains.lastsecond, "lastsecond.ir", {
+            selectors: {
+                article: ".post-show__content",
+                title: ".title",
+                content: {
+                    main: '.post-show__content__body>*',
+                    ignoreTexts: ["توضیحات :"],
+                    ignoreNodeClasses: ["toc"]
+                },
+                datetime: {
+                    conatiner: '.details__date',
+                    splitter: " "
+                },
+                comments: async (url: URL, reqParams: IntfRequestParams): Promise<IntfComment[]> => {
+                    const comments: IntfComment[] = []
+                    const retrieveComments = async (page: number) => {
+                        await axiosPost(log,
+                            { "commentableType": "post", "commentableId": url.pathname.replace("/blog/", "").split("-")[0], page, "sort": 1 },
+                            {
+                                ...reqParams,
+                                url: "https://api.lastsecond.ir/comments/comments/index",
+                                headers: {
+                                    "Content-Type": "application/json; charset=UTF-8"
+                                },
+                                onSuccess: async (res: any) => {
+                                    res?.forEach((item: any) => {
+                                        comments.push({
+                                            text: normalizeText(item.content) || "",
+                                            author: normalizeText(item.user.fullName),
+                                        })
+                                        item.children?.forEach((child: any) => {
+                                            comments.push({
+                                                text: normalizeText(child.content) || "",
+                                                author: normalizeText(item.user.fullName),
+                                            })
+                                        })
+                                    })
+                                    if(res?.pagination?.hasMorePages)
+                                        await retrieveComments(res?.pagination?.current + 1)
+                                },
+                                onFail: (e) => { log.error(e) }
+                            }
+                        )
+                    }
+
+                    await retrieveComments(1)
+
+                    return comments
+                },
+            },
+        })
     }
 }

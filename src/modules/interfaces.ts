@@ -42,6 +42,7 @@ export enum enuDomains {
     jahannews = "jahannews",
     varzesh3 = "varzesh3",
     tarafdari = "tarafdari",
+    lastsecond = "lastsecond",
 
 
     ///////////// Not Ready

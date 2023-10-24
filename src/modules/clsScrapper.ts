@@ -309,11 +309,9 @@ export abstract class clsScrapper {
                 if (dateParts.length > 0)
                     dateParts.push(persianMonthNumber(part) + "")
                 else {
-                    log.debug({ part })
                     return "INVALID_DATE"
                 }
             } else {
-                log.debug("pushing", part)
                 dateParts.push(part)
             }
         }
