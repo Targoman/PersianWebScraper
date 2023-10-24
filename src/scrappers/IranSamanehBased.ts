@@ -402,3 +402,8 @@ export class javanonline extends clsIransamaneh {
         })
     }
 }
+export class aghigh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.aghigh, "aghigh.ir")
+    }
+}
