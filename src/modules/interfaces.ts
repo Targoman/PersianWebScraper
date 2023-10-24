@@ -68,7 +68,6 @@ export enum enuDomains {
         shomalnews = "shomalnews",
         nakhostnews = "nakhostnews",
         wnn = "wnn",
-        sabairan = "sabairan",
         berasad = "berasad",
         jomhouriat = "jomhouriat",
         artanpress = "artanpress",
