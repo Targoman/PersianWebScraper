@@ -169,3 +169,14 @@ export class bartarinha extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class faradeed extends clsAsamBased {
+    constructor() {
+        super(enuDomains.faradeed, "faradeed.ir", {
+            selectors: {
+                tags: "a.tag_item"
+            }
+        })
+    }
+}
