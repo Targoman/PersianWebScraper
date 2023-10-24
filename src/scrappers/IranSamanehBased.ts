@@ -355,3 +355,18 @@ export class didarnews extends clsIransamaneh {
         })
     }
 }
+
+export class niniban extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.niniban, "niniban.com", { 
+            selectors: {
+                article: ".col-md-24",
+                datetime: {
+                    conatiner: "time.news_path_time",
+                    splitter: "/"
+                },
+                tags: ".tags_container a"
+            }
+        })
+    }
+}
