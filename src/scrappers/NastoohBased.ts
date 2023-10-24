@@ -171,7 +171,7 @@ export class shahr extends clsNastoohBased {
 /***********************************************************/
 export class hawzahnews extends clsNastoohBased {
     constructor() {
-        super(enuDomains.hawzahnews, "www.hawzahnews.com", {
+        super(enuDomains.hawzahnews, "hawzahnews.com", {
             selectors: {
                 article: "div[id='main']",
                 datetime: {

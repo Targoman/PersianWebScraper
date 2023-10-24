@@ -260,3 +260,44 @@ export class shianews extends clsIransamaneh {
         })
     }
 }
+
+export class iribnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.iribnews, "iribnews.ir", { 
+            selectors: {
+                article: ".news_general_dl, .photo_body",
+                subtitle: ".photo_subtitle",
+                datetime: {
+                    conatiner: ".news_pdate_c, .photo_pub_date",
+                    splitter: "/, -"
+                },
+                content: {
+                    main: ".news_album_main_part",
+                },
+                category: {
+                    selector: ".news_path2 a, .news_path a",
+                },
+            }
+        })
+    }
+}
+
+export class mizanonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shianews, "mizanonline.ir", { 
+            selectors: {
+                article: ".main_news_body, .main-body",
+            }
+        })
+    }
+}
+
+export class kayhan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.kayhan, "kayhan.ir", { 
+            selectors: {
+                article: ".margin_bt_fari",
+            }
+        })
+    }
+}
