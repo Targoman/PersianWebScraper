@@ -134,3 +134,24 @@ export class fardanews extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class khabarfoori extends clsAsamBased {
+    constructor() {
+        super(enuDomains.khabarfoori, "khabarfoori.com", {
+            selectors: {
+                datetime: {
+                    conatiner: 'time',
+                },
+                content: {
+                    main: ".article_content"
+                },
+                tags: ".news_tags",
+                category: {
+                    selector: (article: HTMLElement) => article.querySelector(".breadcrumb_cnt ul.bread_crump")?.querySelectorAll("li a"),
+                    startIndex: 1,
+                }
+            }
+        })
+    }
+}
