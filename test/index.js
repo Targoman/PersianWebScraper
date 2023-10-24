@@ -261,6 +261,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start iribnews -u https://www.iribne
 clear; rm -rf .db corpora; yarn dev && yarn start mizanonline -u https://www.mizanonline.ir/fa/news/4740810/کشورهای-اسلامی-محاکمه-جنایت%E2%80%8Cپیشگان-رژیم-صهیونیستی-را-در-سرلوحه-اقدامات-خود-قرار-دهند-آخرین-وضعیت-دو-پرونده%E2%80%8C-کثیرالشاکی-هشداری-قاطع-به-شایعه%E2%80%8Cسازان
 clear; rm -rf .db corpora; yarn dev && yarn start mizanonline -u https://www.mizanonline.ir/fa/news/4740800/نشست-خبری-وزیر-امور-خارجه
 
+clear; rm -rf .db corpora; yarn dev && yarn start kayhan -u https://kayhan.ir/fa/news/275631/6-فرمانده-بزرگ-حماس-که-به-کابوس-اسرائیل-تبدیل-شده%E2%80%8Cاند
+clear; rm -rf .db corpora; yarn dev && yarn start kayhan -u https://kayhan.ir/fa/news/275653/عملیات-زمینی-سقوط-اسرائیل-به-جهنم-یادداشت-روز
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

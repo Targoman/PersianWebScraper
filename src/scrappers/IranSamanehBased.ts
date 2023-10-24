@@ -291,3 +291,13 @@ export class mizanonline extends clsIransamaneh {
         })
     }
 }
+
+export class kayhan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.kayhan, "kayhan.ir", { 
+            selectors: {
+                article: ".margin_bt_fari",
+            }
+        })
+    }
+}
