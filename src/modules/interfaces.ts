@@ -65,6 +65,7 @@ export enum enuDomains {
     niniban = "niniban",
     roozno = "roozno",
     noandish = "noandish",
+    javanonline = "javanonline",
 
     ///////////// Not Ready
     zoomit = "zoomit",

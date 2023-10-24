@@ -392,3 +392,13 @@ export class noandish extends clsIransamaneh {
         })
     }
 }
+
+export class javanonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.javanonline, "javanonline.com", { 
+            selectors: {
+                article: ".over-hide",
+            }
+        })
+    }
+}

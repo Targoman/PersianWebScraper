@@ -288,6 +288,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start roozno -u https://roozno.com/f
 clear; rm -rf .db corpora; yarn dev && yarn start noandish -u https://noandish.com/fa/news/169106/وعده-تکراری-و-تو-خالی-در-خرید-خودرو-عجله-نکنید-ارزان-می-شود
 clear; rm -rf .db corpora; yarn dev && yarn start noandish -u https://noandish.com/fa/news/168874/حال-و-هوای-خانه-داریوش-مهرجویی-در-آستانه-بازسازی-صحنه-قتل-تصاویر
 
+clear; rm -rf .db corpora; yarn dev && yarn start javanonline -u https://www.javanonline.ir/fa/news/637521/حسين-علاء-درآئينه-تصاوير
+clear; rm -rf .db corpora; yarn dev && yarn start javanonline -u https://www.javanonline.ir/fa/news/1192968/قاتل-در-باغ-مهرجویی-بود
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
