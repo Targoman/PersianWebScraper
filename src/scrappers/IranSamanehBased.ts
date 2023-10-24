@@ -301,3 +301,109 @@ export class kayhan extends clsIransamaneh {
         })
     }
 }
+
+export class basijnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.basijnews, "basijnews.ir", { 
+            selectors: {
+                article: ".page",
+            }
+        })
+    }
+}
+
+export class shahraranews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shahraranews, "shahraranews.ir", { 
+            selectors: {
+                article: ".news-content, .news-main",
+                datetime: {
+                    conatiner: "ul.up-news-tools, span:nth-child(5)"
+                },
+                title: ".title, h1.photoshahr-title",
+                subtitle: ".subtitle, .photoshahr-subtitle",
+                category: {
+                    selector: ".path-cover a",
+                },
+                tags: ".tags_container a"
+            }
+        })
+    }
+}
+
+export class rasanews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.rasanews, "rasanews.ir", { 
+            selectors: {
+                article: ".news_content",
+            }
+        })
+    }
+}
+
+export class didarnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.didarnews, "didarnews.ir", { 
+            selectors: {
+                article: ".news-body",
+                title: ".title_c",
+                datetime: {
+                    conatiner: ".publish-date"
+                },
+                tags: ".tags_container a"
+            }
+        })
+    }
+}
+
+export class niniban extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.niniban, "niniban.com", { 
+            selectors: {
+                article: ".col-md-24",
+                datetime: {
+                    conatiner: "time.news_path_time",
+                    splitter: "/"
+                },
+                tags: ".tags_container a"
+            }
+        })
+    }
+}
+
+export class roozno extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.roozno, "roozno.com", { 
+            selectors: {
+                article: ".news-content",
+                tags: ".tags_title a"
+            }
+        })
+    }
+}
+
+export class noandish extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.noandish, "noandish.com", { 
+            selectors: {
+                article: ".middle_news_body",
+                subtitle: ".newspage_subtitle"
+            }
+        })
+    }
+}
+
+export class javanonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.javanonline, "javanonline.com", { 
+            selectors: {
+                article: ".over-hide",
+            }
+        })
+    }
+}
+export class aghigh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.aghigh, "aghigh.ir")
+    }
+}

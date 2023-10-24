@@ -57,6 +57,16 @@ export enum enuDomains {
     iribnews = "iribnews",
     mizanonline = "mizanonline",
     kayhan = "kayhan",
+    basijnews = "basijnews",
+    shahraranews = "shahraranews",
+    rasanews = "rasanews",
+    didarnews = "didarnews",
+    faradeed = "faradeed",
+    niniban = "niniban",
+    roozno = "roozno",
+    noandish = "noandish",
+    javanonline = "javanonline",
+    aghigh = "aghigh",
 
     ///////////// Not Ready
     zoomit = "zoomit",
