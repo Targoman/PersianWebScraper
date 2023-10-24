@@ -301,3 +301,13 @@ export class kayhan extends clsIransamaneh {
         })
     }
 }
+
+export class basijnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.kayhan, "basijnews.ir", { 
+            selectors: {
+                article: ".page",
+            }
+        })
+    }
+}
