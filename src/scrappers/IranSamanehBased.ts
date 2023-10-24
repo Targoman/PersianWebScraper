@@ -304,9 +304,28 @@ export class kayhan extends clsIransamaneh {
 
 export class basijnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.kayhan, "basijnews.ir", { 
+        super(enuDomains.basijnews, "basijnews.ir", { 
             selectors: {
                 article: ".page",
+            }
+        })
+    }
+}
+
+export class shahraranews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shahraranews, "shahraranews.ir", { 
+            selectors: {
+                article: ".news-content, .news-main",
+                datetime: {
+                    conatiner: "ul.up-news-tools, span:nth-child(5)"
+                },
+                title: ".title, h1.photoshahr-title",
+                subtitle: ".subtitle, .photoshahr-subtitle",
+                category: {
+                    selector: ".path-cover a",
+                },
+                tags: ".tags_container a"
             }
         })
     }
