@@ -370,3 +370,14 @@ export class niniban extends clsIransamaneh {
         })
     }
 }
+
+export class roozno extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.roozno, "roozno.com", { 
+            selectors: {
+                article: ".news-content",
+                tags: ".tags_title a"
+            }
+        })
+    }
+}
