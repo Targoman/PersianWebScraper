@@ -255,6 +255,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start khabarfoori -u https://www.kha
 clear; rm -rf .db corpora; yarn dev && yarn start bartarinha -u https://www.bartarinha.ir/بخش-اخبار-روز-20/1365664-مسیر-قیمت-طلا-دوباره-عوض-شد
 clear; rm -rf .db corpora; yarn dev && yarn start bartarinha -u https://www.bartarinha.ir/بخش-اخبار-روز-20/81666-قیمت-
 
+clear; rm -rf .db corpora; yarn dev && yarn start iribnews -u https://www.iribnews.ir/fa/news/4028078/تعیین-تکلیف-برای-فراهم-کردن-امکان-اشتغال-دانش%E2%80%8Cآموختگان-بین%E2%80%8Cالمللی
+clear; rm -rf .db corpora; yarn dev && yarn start iribnews -u https://www.iribnews.ir/fa/news/4024072/جشنواره-فرهنگی-و-ورزشی-عشایر-آذربایجان-شرقی
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
