@@ -281,3 +281,13 @@ export class iribnews extends clsIransamaneh {
         })
     }
 }
+
+export class mizanonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shianews, "mizanonline.ir", { 
+            selectors: {
+                article: ".main_news_body, .main-body",
+            }
+        })
+    }
+}
