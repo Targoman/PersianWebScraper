@@ -340,3 +340,18 @@ export class rasanews extends clsIransamaneh {
         })
     }
 }
+
+export class didarnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.didarnews, "didarnews.ir", { 
+            selectors: {
+                article: ".news-body",
+                title: ".title_c",
+                datetime: {
+                    conatiner: ".publish-date"
+                },
+                tags: ".tags_container a"
+            }
+        })
+    }
+}
