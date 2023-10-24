@@ -64,6 +64,7 @@ export enum enuDomains {
     faradeed = "faradeed",
     niniban = "niniban",
     roozno = "roozno",
+    noandish = "noandish",
 
     ///////////// Not Ready
     zoomit = "zoomit",

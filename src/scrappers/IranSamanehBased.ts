@@ -381,3 +381,14 @@ export class roozno extends clsIransamaneh {
         })
     }
 }
+
+export class noandish extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.noandish, "noandish.com", { 
+            selectors: {
+                article: ".middle_news_body",
+                subtitle: ".newspage_subtitle"
+            }
+        })
+    }
+}
