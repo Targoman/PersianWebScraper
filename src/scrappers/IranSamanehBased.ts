@@ -330,3 +330,13 @@ export class shahraranews extends clsIransamaneh {
         })
     }
 }
+
+export class rasanews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.rasanews, "rasanews.ir", { 
+            selectors: {
+                article: ".news_content",
+            }
+        })
+    }
+}
