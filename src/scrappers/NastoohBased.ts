@@ -156,3 +156,33 @@ export class chtn extends clsNastoohBased {
         })
     }
 }
+
+/***********************************************************/
+export class shahr extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shahr, "shahr.ir", {
+            selectors: {
+                aboveTitle: ".subtitle",
+            }
+        })
+    }
+}
+
+/***********************************************************/
+export class hawzahnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.hawzahnews, "www.hawzahnews.com", {
+            selectors: {
+                article: "div[id='main']",
+                datetime: {
+                    conatiner: '.item-date>span, .gallery-desc',
+                    splitter: "-"
+                },
+                category: {
+                    selector: (article: HTMLElement) => article.querySelector("ol.breadcrumb")?.querySelectorAll("li"),
+                    startIndex: 0,
+                }
+            }
+        })
+    }
+}

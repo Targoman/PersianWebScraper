@@ -189,3 +189,74 @@ export class asriran extends clsIransamaneh {
     }
 }
 
+export class bultannews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bultannews, "bultannews.com", {
+            selectors: {
+                article: ".main_body .col-md-27",
+                title: "h1",
+                aboveTitle: ".rutitr",
+                subtitle: ".subtitle",
+                content: {
+                    main: ".body>*",
+                },
+                datetime: {
+                    conatiner: "time",
+                },
+            }
+        })
+    }
+}
+
+export class boursenews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.boursenews, "boursenews.ir", {
+            selectors: {
+                article: ".newsContent",
+                aboveTitle: ".newsPreTitle",
+                title: "h1",
+                datetime: {
+                    conatiner: ".newsDate",
+                },
+                category: {
+                    selector: "a.newsSubjectName",
+                },
+            }
+        })
+    }
+}
+
+export class fararu extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.fararu, "fararu.com", { 
+            selectors: {
+                article: ".col-main-news",
+                subtitle: ".content-lead-news"
+            }
+        })
+    }
+}
+
+export class parsine extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.parsine, "parsine.com", { 
+            selectors: {
+                article: ".general-news-body",
+            }
+        })
+    }
+}
+
+export class shianews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shianews, "shia-news.com", { 
+            selectors: {
+                article: ".news-body",
+                datetime: {
+                    conatiner: ".news_pdate_c, .news-info-inner-photo",
+                    splitter: "-"
+                },
+            }
+        })
+    }
+}
