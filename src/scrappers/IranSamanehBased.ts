@@ -450,3 +450,19 @@ export class iraneconomist extends clsIransamaneh {
         })
     }
 }
+
+export class barghnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.barghnews, "barghnews.com", { 
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
+            },
+        })
+    }
+}
