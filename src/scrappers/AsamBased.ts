@@ -127,6 +127,10 @@ export class fardanews extends clsAsamBased {
     constructor() {
         super(enuDomains.fardanews, "fardanews.com", {
             selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: ".news-time"
+                },
                 content: {
                     main: "#echo_detail, ul"
                 },
@@ -161,6 +165,7 @@ export class bartarinha extends clsAsamBased {
     constructor() {
         super(enuDomains.bartarinha, "bartarinha.ir", {
             selectors: {
+                article: "article",
                 datetime: {
                     conatiner: '.news_time',
                 },
@@ -175,6 +180,7 @@ export class faradeed extends clsAsamBased {
     constructor() {
         super(enuDomains.faradeed, "faradeed.ir", {
             selectors: {
+                article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article"),
                 tags: "a.tag_item"
             }
         })
