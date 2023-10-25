@@ -414,3 +414,19 @@ export class aghigh extends clsIransamaneh {
         super(enuDomains.aghigh, "aghigh.ir")
     }
 }
+
+export class paydarymelli extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.paydarymelli, "paydarymelli.ir", { 
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
+            }
+        })
+    }
+}

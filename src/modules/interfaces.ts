@@ -67,6 +67,7 @@ export enum enuDomains {
     noandish = "noandish",
     javanonline = "javanonline",
     aghigh = "aghigh",
+    paydarymelli = "paydarymelli",
 
     ///////////// Not Ready
     zoomit = "zoomit",
