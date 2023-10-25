@@ -79,7 +79,7 @@ export enum enuDomains {
     goftareno = "goftareno",
     tejaratemrouz = "tejaratemrouz",
     vananews = "vananews",
-
+    tabnakbato = "tabnakbato",
 
     ///////////// Not Ready
     zoomit = "zoomit",

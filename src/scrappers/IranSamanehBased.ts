@@ -551,3 +551,13 @@ export class vananews extends clsIransamaneh {
         })
     }
 }
+
+export class tabnakbato extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tabnakbato, "tabnakbato.ir", { 
+            selectors: {
+                article: ".khabar-body",
+            },
+        })
+    }
+}
