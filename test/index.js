@@ -327,6 +327,18 @@ clear; rm -rf .db corpora; yarn dev && yarn start goftareno -u https://goftareno
 clear; rm -rf .db corpora; yarn dev && yarn start tejaratemrouz -u https://tejaratemrouz.ir/fa/news/57237/جنجال-طلا-و-رمز-ارز-در-بازار-جهانی-به-کدام-سو-می%E2%80%8Cرود
 clear; rm -rf .db corpora; yarn dev && yarn start tejaratemrouz -u https://tejaratemrouz.ir/fa/news/57239/عناوین-نخست-روزنامه-های-اقتصادی-ایران-3-آبان-1402
 
+clear; rm -rf .db corpora; yarn dev && yarn start vananews -u https://vananews.com/fa/news/538427/پشتوانه-مالی-رایتل-برای-اسپانسری-استقلال-چیست-اسپانسرینگ-از-جیب-بازنشستگان-تامین-اجتماعی
+clear; rm -rf .db corpora; yarn dev && yarn start vananews -u https://vananews.com/fa/news/537823/تحول-بزرگ-در-تیم-ملی-مقابل-قطر-از-زبان-جلالی
+
+clear; rm -rf .db corpora; yarn dev && yarn start tabnakbato -u https://tabnakbato.ir/fa/news/294878/افراد-موفق-شب%E2%80%8Cها-این-کارها-را-انجام-می%E2%80%8Cدهند
+clear; rm -rf .db corpora; yarn dev && yarn start tabnakbato -u https://tabnakbato.ir/fa/news/294718/یک-روز-عادی-با-موجودات-ماورایی
+
+clear; rm -rf .db corpora; yarn dev && yarn start shoaresal -u https://shoaresal.ir/fa/news/392557/انتخاب-حسین-براتی-به-دبیری-هفتمین-دوسالانه-ملی-خوشنویسی-ایران
+clear; rm -rf .db corpora; yarn dev && yarn start shoaresal -u https://shoaresal.ir/fa/managment
+
+clear; rm -rf .db corpora; yarn dev && yarn start bankdariirani -u https://bankdariirani.ir/fa/news/213586/تحقق-سود-بالای-شرکت-با-مدیریت-ریسک-و-سبد-سرمایه-گذاری
+clear; rm -rf .db corpora; yarn dev && yarn start bankdariirani -u https://bankdariirani.ir/fa/tags/4321/1/نشست-خبری
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

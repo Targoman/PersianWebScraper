@@ -538,3 +538,47 @@ export class tejaratemrouz extends clsIransamaneh {
         })
     }
 }
+
+export class vananews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.vananews, "vananews.com", { 
+            selectors: {
+                article: ".body_news",
+                datetime: {
+                    conatiner: ".news_path"
+                },
+            },
+        })
+    }
+}
+
+export class tabnakbato extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tabnakbato, "tabnakbato.ir", { 
+            selectors: {
+                article: ".khabar-body",
+            },
+        })
+    }
+}
+
+export class shoaresal extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shoaresal, "shoaresal.ir", { 
+            selectors: {
+                article: ".nopadd",
+                title: ".title_news"
+            },
+        })
+    }
+}
+
+export class bankdariirani extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bankdariirani, "bankdariirani.ir", { 
+            selectors: {
+                article: ".news_body",
+            },
+        })
+    }
+}

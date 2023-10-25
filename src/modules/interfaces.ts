@@ -78,7 +78,10 @@ export enum enuDomains {
     sarmadnews = "sarmadnews",
     goftareno = "goftareno",
     tejaratemrouz = "tejaratemrouz",
-
+    vananews = "vananews",
+    tabnakbato = "tabnakbato",
+    shoaresal = "shoaresal",
+    bankdariirani = "bankdariirani",
 
     ///////////// Not Ready
     zoomit = "zoomit",
