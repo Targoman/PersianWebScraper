@@ -165,6 +165,7 @@ export class bartarinha extends clsAsamBased {
     constructor() {
         super(enuDomains.bartarinha, "bartarinha.ir", {
             selectors: {
+                article: "article",
                 datetime: {
                     conatiner: '.news_time',
                 },
