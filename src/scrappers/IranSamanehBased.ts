@@ -440,3 +440,13 @@ export class danakhabar extends clsIransamaneh {
         })
     }
 }
+
+export class iraneconomist extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.iraneconomist, "iraneconomist.com", { 
+            selectors: {
+                article: ".main_news_col",
+            }
+        })
+    }
+}
