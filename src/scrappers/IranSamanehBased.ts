@@ -561,3 +561,14 @@ export class tabnakbato extends clsIransamaneh {
         })
     }
 }
+
+export class shoaresal extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shoaresal, "shoaresal.ir", { 
+            selectors: {
+                article: ".nopadd",
+                title: ".title_news"
+            },
+        })
+    }
+}

@@ -333,6 +333,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start vananews -u https://vananews.c
 clear; rm -rf .db corpora; yarn dev && yarn start tabnakbato -u https://tabnakbato.ir/fa/news/294878/افراد-موفق-شب%E2%80%8Cها-این-کارها-را-انجام-می%E2%80%8Cدهند
 clear; rm -rf .db corpora; yarn dev && yarn start tabnakbato -u https://tabnakbato.ir/fa/news/294718/یک-روز-عادی-با-موجودات-ماورایی
 
+clear; rm -rf .db corpora; yarn dev && yarn start shoaresal -u https://shoaresal.ir/fa/news/392557/انتخاب-حسین-براتی-به-دبیری-هفتمین-دوسالانه-ملی-خوشنویسی-ایران
+clear; rm -rf .db corpora; yarn dev && yarn start shoaresal -u https://shoaresal.ir/fa/managment
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
