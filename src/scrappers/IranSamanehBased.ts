@@ -572,3 +572,13 @@ export class shoaresal extends clsIransamaneh {
         })
     }
 }
+
+export class bankdariirani extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bankdariirani, "bankdariirani.ir", { 
+            selectors: {
+                article: ".news_body",
+            },
+        })
+    }
+}
