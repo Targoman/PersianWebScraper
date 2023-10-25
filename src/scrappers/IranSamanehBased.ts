@@ -319,7 +319,7 @@ export class shahraranews extends clsIransamaneh {
             selectors: {
                 article: ".news-content, .news-main",
                 datetime: {
-                    conatiner: "ul.up-news-tools, span:nth-child(5)"
+                    conatiner: "ul.up-news-tools, span:nth-child(5),  li:nth-child(2) > span"
                 },
                 title: ".title, h1.photoshahr-title",
                 subtitle: ".subtitle, .photoshahr-subtitle",
