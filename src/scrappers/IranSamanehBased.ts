@@ -297,6 +297,9 @@ export class kayhan extends clsIransamaneh {
         super(enuDomains.kayhan, "kayhan.ir", { 
             selectors: {
                 article: ".margin_bt_fari",
+            },
+            url:{
+                removeWWW: true
             }
         })
     }
@@ -395,7 +398,7 @@ export class noandish extends clsIransamaneh {
 
 export class javanonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.javanonline, "javanonline.com", { 
+        super(enuDomains.javanonline, "javanonline.ir", { 
             selectors: {
                 article: ".over-hide",
             }
