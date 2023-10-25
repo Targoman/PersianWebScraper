@@ -476,3 +476,20 @@ export class shohadayeiran extends clsIransamaneh {
         })
     }
 }
+
+export class sedayiran extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.sedayiran, "sedayiran.com", { 
+            selectors: {
+                article: ".marg-news, #photo",
+                datetime: {
+                    conatiner: ".news_pdate_c, .decription_d_i"
+                },
+                title: ".title-news, .description_d",
+                content: {
+                    main: ".body_news"
+                }
+            },
+        })
+    }
+}
