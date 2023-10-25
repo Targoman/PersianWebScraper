@@ -493,3 +493,13 @@ export class sedayiran extends clsIransamaneh {
         })
     }
 }
+
+export class tejaratonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tejaratonline, "tejaratonline.ir", { 
+            selectors: {
+                article: ".news_content",
+            },
+        })
+    }
+}
