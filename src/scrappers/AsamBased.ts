@@ -180,6 +180,7 @@ export class faradeed extends clsAsamBased {
     constructor() {
         super(enuDomains.faradeed, "faradeed.ir", {
             selectors: {
+                article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article"),
                 tags: "a.tag_item"
             }
         })
