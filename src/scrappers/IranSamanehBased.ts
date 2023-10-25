@@ -503,3 +503,13 @@ export class tejaratonline extends clsIransamaneh {
         })
     }
 }
+
+export class sarmadnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.sarmadnews, "sarmadnews.com", { 
+            selectors: {
+                article: "div.col-lg-31.col-md-30.col-sm-30.col-ms-36.col-xs-36.pull-left.no-padd.col2_inner",
+            },
+        })
+    }
+}

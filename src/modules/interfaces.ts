@@ -75,6 +75,7 @@ export enum enuDomains {
     shohadayeiran = "shohadayeiran",
     sedayiran = "sedayiran",
     tejaratonline = "tejaratonline",
+    sarmadnews = "sarmadnews",
 
     ///////////// Not Ready
     zoomit = "zoomit",

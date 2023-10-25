@@ -315,6 +315,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start shohadayeiran -u https://shoha
 clear; rm -rf .db corpora; yarn dev && yarn start tejaratonline -u https://tejaratonline.ir/fa/news/229370/خیز-طلا-برای-گرانی
 clear; rm -rf .db corpora; yarn dev && yarn start tejaratonline -u https://tejaratonline.ir/fa/news/229149/آخرین-تصاویر-از-بمباران-بیمارستان-المعمدانی-غزه-حاوی-عکس-های-دلخراش
 
+clear; rm -rf .db corpora; yarn dev && yarn start sarmadnews -u https://sarmadnews.com/fa/news/112843/نرخ-ارز-کالاهای-اساسی-گران-نمی%E2%80%8Cشود-امان-از-سایر-عوامل
+clear; rm -rf .db corpora; yarn dev && yarn start sarmadnews -u https://sarmadnews.com/fa/bankers
+
 clear; rm -rf .db corpora; yarn dev && yarn start sedayiran -u https://sedayiran.com/fa/news/276918/کشف-بزرگ-ترین-نیلوفر-آبی-جهان
 clear; rm -rf .db corpora; yarn dev && yarn start sedayiran -u https://sedayiran.com/fa/news/288391/پیش-بینی-هواشناسی-کشور-3-و-4-مهر-1402-هشدار-برف-و-باران-شدید-در-16-استان-از-طوفان-تا-سیل-در-کمین-مردم
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
