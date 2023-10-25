@@ -466,3 +466,13 @@ export class barghnews extends clsIransamaneh {
         })
     }
 }
+
+export class shohadayeiran extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shohadayeiran, "shohadayeiran.com", { 
+            selectors: {
+                article: ".news_body",
+            },
+        })
+    }
+}
