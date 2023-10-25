@@ -69,6 +69,7 @@ export enum enuDomains {
     aghigh = "aghigh",
     paydarymelli = "paydarymelli",
     danakhabar = "danakhabar",
+    niknews = "niknews",
 
     ///////////// Not Ready
     zoomit = "zoomit",

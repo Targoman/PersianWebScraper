@@ -300,6 +300,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start paydarymelli -u https://paydar
 clear; rm -rf .db corpora; yarn dev && yarn start danakhabar -u https://danakhabar.com/fa/news/1315044/طرح-ملی-پیشگیری-از-پوسیدگی-دندان-دانش%E2%80%8Cآموزان-آغاز-شد
 clear; rm -rf .db corpora; yarn dev && yarn start danakhabar -u https://danakhabar.com/fa/news/1314960/بمباران-نهادهای-امدادرسان-غزه-اوضاع-فاجعه%E2%80%8Cبار-زنان-باردار-فلسطینی
 
+clear; rm -rf .db corpora; yarn dev && yarn start niknews -u https://www.niknews.ir/news/وزارت-صمت-مدافع-واردات-روغن-شد
+clear; rm -rf .db corpora; yarn dev && yarn start niknews -u https://www.niknews.ir/gallery/تصویری-تلخ-از-داخل-قطار-یخ%E2%80%8Cزده-مشهد-تهران
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
