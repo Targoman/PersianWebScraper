@@ -508,7 +508,19 @@ export class sarmadnews extends clsIransamaneh {
     constructor() {
         super(enuDomains.sarmadnews, "sarmadnews.com", { 
             selectors: {
-                article: "div.col-lg-31.col-md-30.col-sm-30.col-ms-36.col-xs-36.pull-left.no-padd.col2_inner",
+                article: ".col2_inner",
+            },
+        })
+    }
+}
+
+export class goftareno extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.goftareno, "goftareno.ir", { 
+            selectors: {
+                article: ".newspage_right_col",
+                aboveTitle: ".newspage_rutitr",
+                subtitle: "newspage_subtitle"
             },
         })
     }
