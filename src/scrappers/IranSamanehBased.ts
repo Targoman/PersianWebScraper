@@ -430,3 +430,13 @@ export class paydarymelli extends clsIransamaneh {
         })
     }
 }
+
+export class danakhabar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.danakhabar, "danakhabar.com", { 
+            selectors: {
+                article: ".main-body-page-news",
+            }
+        })
+    }
+}
