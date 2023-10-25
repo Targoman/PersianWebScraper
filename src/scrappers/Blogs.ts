@@ -124,10 +124,10 @@ export class lastsecond extends clsScrapper {
     constructor() {
         super(enuDomains.lastsecond, "lastsecond.ir", {
             selectors: {
-                article: ".post-show__content",
+                article: ".post-show__content, .travelogue-show__content, .video-show",
                 title: ".title",
                 content: {
-                    main: '.post-show__content__body>*',
+                    main: '.post-show__content__body>*, .travelogue-show__content__body>*, .video-show__content',
                     ignoreTexts: ["توضیحات :"],
                     ignoreNodeClasses: ["toc"]
                 },
