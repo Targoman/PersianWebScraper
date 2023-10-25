@@ -297,7 +297,13 @@ export class kayhan extends clsIransamaneh {
     constructor() {
         super(enuDomains.kayhan, "kayhan.ir", { 
             selectors: {
-                article: ".margin_bt_fari",
+                article: ".margin_bt_fari div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
             }
         })
     }
