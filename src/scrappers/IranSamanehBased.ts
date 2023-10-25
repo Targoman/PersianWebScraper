@@ -304,6 +304,9 @@ export class kayhan extends clsIransamaneh {
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
                 }
+            },
+            url:{
+                removeWWW: true
             }
         })
     }
