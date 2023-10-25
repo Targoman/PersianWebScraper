@@ -266,13 +266,14 @@ export class iribnews extends clsIransamaneh {
         super(enuDomains.iribnews, "iribnews.ir", { 
             selectors: {
                 article: ".news_general_dl, .photo_body",
-                subtitle: ".photo_subtitle",
+                title: ".title, .video_title",
+                subtitle: "p.subtitle, .photo_subtitle",
                 datetime: {
                     conatiner: ".news_pdate_c, .photo_pub_date",
                     splitter: "/, -"
                 },
                 content: {
-                    main: ".news_album_main_part",
+                    main: ".news_album_main_part, .video_content",
                 },
                 category: {
                     selector: ".news_path2 a, .news_path a",
@@ -318,7 +319,7 @@ export class shahraranews extends clsIransamaneh {
             selectors: {
                 article: ".news-content, .news-main",
                 datetime: {
-                    conatiner: "ul.up-news-tools, span:nth-child(5)"
+                    conatiner: "ul.up-news-tools, span:nth-child(5),  li:nth-child(2) > span"
                 },
                 title: ".title, h1.photoshahr-title",
                 subtitle: ".subtitle, .photoshahr-subtitle",
@@ -395,7 +396,7 @@ export class noandish extends clsIransamaneh {
 
 export class javanonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.javanonline, "javanonline.com", { 
+        super(enuDomains.javanonline, "javanonline.ir", { 
             selectors: {
                 article: ".over-hide",
             }
