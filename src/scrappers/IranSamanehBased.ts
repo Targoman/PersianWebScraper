@@ -525,3 +525,13 @@ export class goftareno extends clsIransamaneh {
         })
     }
 }
+
+export class tejaratemrouz extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tejaratemrouz, "tejaratemrouz.ir", { 
+            selectors: {
+                article: ".body_news",
+            },
+        })
+    }
+}
