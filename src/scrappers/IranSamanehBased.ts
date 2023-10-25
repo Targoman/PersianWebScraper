@@ -535,3 +535,16 @@ export class tejaratemrouz extends clsIransamaneh {
         })
     }
 }
+
+export class vananews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.vananews, "vananews.com", { 
+            selectors: {
+                article: ".body_news",
+                datetime: {
+                    conatiner: ".news_path"
+                },
+            },
+        })
+    }
+}
