@@ -294,6 +294,39 @@ clear; rm -rf .db corpora; yarn dev && yarn start javanonline -u https://www.jav
 clear; rm -rf .db corpora; yarn dev && yarn start aghigh -u https://aghigh.ir/fa/news/128084/حسینیه-هدایت-پله-ای-برای-نزدیک-شدن-به-قله-پیشرفت-در-جهاد-تبیین
 clear; rm -rf .db corpora; yarn dev && yarn start aghigh -u https://aghigh.ir/fa/news/128048/ویژه-برنامه-طوفان-الاقصی-در-نماز-جمعه
 
+clear; rm -rf .db corpora; yarn dev && yarn start paydarymelli -u https://paydarymelli.ir/fa/news/73585/شناسایی-و-دفع-۱۰-حمله-سایبری-اساسی-به-زیرساخت%E2%80%8Cهای-حیاتی-کشور
+clear; rm -rf .db corpora; yarn dev && yarn start paydarymelli -u https://paydarymelli.ir/fa/news/73602/گزارش-تصویری%7Cهمایش-پدافند-غیرعامل-صنعت-سیمان-کشور
+
+clear; rm -rf .db corpora; yarn dev && yarn start danakhabar -u https://danakhabar.com/fa/news/1315044/طرح-ملی-پیشگیری-از-پوسیدگی-دندان-دانش%E2%80%8Cآموزان-آغاز-شد
+clear; rm -rf .db corpora; yarn dev && yarn start danakhabar -u https://danakhabar.com/fa/news/1314960/بمباران-نهادهای-امدادرسان-غزه-اوضاع-فاجعه%E2%80%8Cبار-زنان-باردار-فلسطینی
+
+clear; rm -rf .db corpora; yarn dev && yarn start niknews -u https://www.niknews.ir/news/وزارت-صمت-مدافع-واردات-روغن-شد
+clear; rm -rf .db corpora; yarn dev && yarn start niknews -u https://www.niknews.ir/gallery/تصویری-تلخ-از-داخل-قطار-یخ%E2%80%8Cزده-مشهد-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start iraneconomist -u https://iraneconomist.com/fa/news/663114/نوسانات-تکان%E2%80%8Cدهنده-در-بازار-ارز-آیا-دلار-به-تاثیر-خبرهای-جنگ-راه-می%E2%80%8Cدهد
+clear; rm -rf .db corpora; yarn dev && yarn start iraneconomist -u https://iraneconomist.com/fa/news/662421/شکار-زیبایی-خیره%E2%80%8Cکننده-قمر-مشتری-عکس
+
+clear; rm -rf .db corpora; yarn dev && yarn start barghnews -u https://barghnews.com/fa/news/55736/از-پایان-آبان-۱۰۰-درصد-خدمات-وزارت-نیرو-در-پنجره-واحد-دولت-ارائه-می%E2%80%8Cشود
+clear; rm -rf .db corpora; yarn dev && yarn start barghnews -u https://barghnews.com/fa/services/2/63
+
+clear; rm -rf .db corpora; yarn dev && yarn start shohadayeiran -u https://shohadayeiran.com/fa/news/239090/از-هیاهو-علیه-برنامه-نظامی-تا-هیجان-لغو-تحریم-تسلیحاتی
+clear; rm -rf .db corpora; yarn dev && yarn start shohadayeiran -u https://shohadayeiran.com/fa/news/230198/بازدید-رئیس-جمهور-از-نمایشگاه-بین-المللی-کتاب-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start tejaratonline -u https://tejaratonline.ir/fa/news/229370/خیز-طلا-برای-گرانی
+clear; rm -rf .db corpora; yarn dev && yarn start tejaratonline -u https://tejaratonline.ir/fa/news/229149/آخرین-تصاویر-از-بمباران-بیمارستان-المعمدانی-غزه-حاوی-عکس-های-دلخراش
+
+clear; rm -rf .db corpora; yarn dev && yarn start sarmadnews -u https://sarmadnews.com/fa/news/112843/نرخ-ارز-کالاهای-اساسی-گران-نمی%E2%80%8Cشود-امان-از-سایر-عوامل
+clear; rm -rf .db corpora; yarn dev && yarn start sarmadnews -u https://sarmadnews.com/fa/bankers
+
+clear; rm -rf .db corpora; yarn dev && yarn start sedayiran -u https://sedayiran.com/fa/news/276918/کشف-بزرگ-ترین-نیلوفر-آبی-جهان
+clear; rm -rf .db corpora; yarn dev && yarn start sedayiran -u https://sedayiran.com/fa/news/288391/پیش-بینی-هواشناسی-کشور-3-و-4-مهر-1402-هشدار-برف-و-باران-شدید-در-16-استان-از-طوفان-تا-سیل-در-کمین-مردم
+
+clear; rm -rf .db corpora; yarn dev && yarn start goftareno -u https://goftareno.ir/fa/news/51000/استاندار-کرمان-شورای-ورزش-استان-کرمان-باید-فعال-شود
+clear; rm -rf .db corpora; yarn dev && yarn start goftareno -u https://goftareno.ir/fa/news/50809/ببینید%7C-گزارش-تصویری-گفتارنو-از-آئین-پرسه-شادروان-فردوس-کاویانی-در-کرمان
+
+clear; rm -rf .db corpora; yarn dev && yarn start tejaratemrouz -u https://tejaratemrouz.ir/fa/news/57237/جنجال-طلا-و-رمز-ارز-در-بازار-جهانی-به-کدام-سو-می%E2%80%8Cرود
+clear; rm -rf .db corpora; yarn dev && yarn start tejaratemrouz -u https://tejaratemrouz.ir/fa/news/57239/عناوین-نخست-روزنامه-های-اقتصادی-ایران-3-آبان-1402
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

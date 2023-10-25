@@ -297,7 +297,13 @@ export class kayhan extends clsIransamaneh {
     constructor() {
         super(enuDomains.kayhan, "kayhan.ir", { 
             selectors: {
-                article: ".margin_bt_fari",
+                article: ".margin_bt_fari div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
             },
             url:{
                 removeWWW: true
@@ -409,5 +415,126 @@ export class javanonline extends clsIransamaneh {
 export class aghigh extends clsIransamaneh {
     constructor() {
         super(enuDomains.aghigh, "aghigh.ir")
+    }
+}
+
+export class paydarymelli extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.paydarymelli, "paydarymelli.ir", { 
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
+            }
+        })
+    }
+}
+
+export class danakhabar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.danakhabar, "danakhabar.com", { 
+            selectors: {
+                article: ".main-body-page-news",
+            }
+        })
+    }
+}
+
+export class iraneconomist extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.iraneconomist, "iraneconomist.com", { 
+            selectors: {
+                article: ".main_news_col",
+            }
+        })
+    }
+}
+
+export class barghnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.barghnews, "barghnews.com", { 
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
+            },
+        })
+    }
+}
+
+export class shohadayeiran extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shohadayeiran, "shohadayeiran.com", { 
+            selectors: {
+                article: ".news_body",
+            },
+        })
+    }
+}
+
+export class sedayiran extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.sedayiran, "sedayiran.com", { 
+            selectors: {
+                article: ".marg-news, #photo",
+                datetime: {
+                    conatiner: ".news_pdate_c, .decription_d_i"
+                },
+                title: ".title-news, .description_d",
+                content: {
+                    main: ".body_news"
+                }
+            },
+        })
+    }
+}
+
+export class tejaratonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tejaratonline, "tejaratonline.ir", { 
+            selectors: {
+                article: ".news_content",
+            },
+        })
+    }
+}
+
+export class sarmadnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.sarmadnews, "sarmadnews.com", { 
+            selectors: {
+                article: ".col2_inner",
+            },
+        })
+    }
+}
+
+export class goftareno extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.goftareno, "goftareno.ir", { 
+            selectors: {
+                article: ".newspage_right_col",
+                aboveTitle: ".newspage_rutitr",
+                subtitle: "newspage_subtitle"
+            },
+        })
+    }
+}
+
+export class tejaratemrouz extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tejaratemrouz, "tejaratemrouz.ir", { 
+            selectors: {
+                article: ".body_news",
+            },
+        })
     }
 }

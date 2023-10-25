@@ -67,6 +67,17 @@ export enum enuDomains {
     noandish = "noandish",
     javanonline = "javanonline",
     aghigh = "aghigh",
+    paydarymelli = "paydarymelli",
+    danakhabar = "danakhabar",
+    niknews = "niknews",
+    iraneconomist = "iraneconomist",
+    barghnews = "barghnews",
+    shohadayeiran = "shohadayeiran",
+    sedayiran = "sedayiran",
+    tejaratonline = "tejaratonline",
+    sarmadnews = "sarmadnews",
+    goftareno = "goftareno",
+    tejaratemrouz = "tejaratemrouz",
 
 
     ///////////// Not Ready

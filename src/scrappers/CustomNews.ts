@@ -435,3 +435,24 @@ export class tarafdari extends clsScrapper {
         })
     }
 }
+
+
+export class niknews extends clsScrapper {
+    constructor() {
+        super(enuDomains.niknews, "niknews.ir", { 
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: "div[class='col-12 col-sm-6 justify-content-end p-0 d-flex'], div[class='col-12 col-sm-6 p-0 d-flex']"
+                },
+                content: {
+                    main: ".item-body"
+                },
+                title: ".line-height-2",
+                category: {
+                    selector: (article: HTMLElement) => article.querySelector(".breadcrumb")?.querySelectorAll("li a"),
+                }
+            }
+        })
+    }
+}
