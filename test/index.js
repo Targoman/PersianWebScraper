@@ -227,6 +227,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start imna -u
 
 clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-1251694
 clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-1251614
+clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-728615
 
 clear; rm -rf .db corpora; yarn dev && yarn start bultannews -u https://www.bultannews.com/fa/news/832401
 clear; rm -rf .db corpora; yarn dev && yarn start bultannews -u https://www.bultannews.com/fa/news/831655
