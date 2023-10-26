@@ -169,6 +169,22 @@ export class shahr extends clsNastoohBased {
 }
 
 /***********************************************************/
+export class ibna extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ibna, "ibna.ir", {
+            selectors: {
+                article: "article",
+                title: ".item-title",
+                datetime: {
+                    conatiner: ".item-date",
+                    splitter: "-",
+                }
+            }
+        })
+    }
+}
+
+/***********************************************************/
 export class hawzahnews extends clsNastoohBased {
     constructor() {
         super(enuDomains.hawzahnews, "hawzahnews.com", {

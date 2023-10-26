@@ -116,9 +116,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/ne
 clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/news/1412848
 
 clear; rm -rf .db corpora; yarn dev && yarn start ibna 
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/tolidi/348599
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/vspjuqb2fb,%5E5ezfs4f4.u.html
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/gallery/348651/3/
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/news/498399/%D9%86%DA%AF%D8%A7%D9%87%DB%8C-%D8%A8%D9%87-%DA%A9%D8%AA%D8%A7%D8%A8-%D8%B2%D9%86%D8%A7%D9%86-%D8%AA%D9%86%DA%AF%D8%B3%D8%AA%D8%A7%D9%86-%D8%A7%D8%B2-%D9%85%D8%B1%D8%AA%D8%B6%DB%8C-%DA%A9%D8%B1%D9%85%DB%8C
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/photo/498667
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/news/498619
 
 clear; rm -rf .db corpora; yarn dev && yarn start iana 
 clear; rm -rf .db corpora; yarn dev && yarn start iana -u http://www.iana.ir/%D8%A8%D8%AE%D8%B4-%D8%B9%D8%B4%D8%A7%DB%8C%D8%B1-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C%D8%A7%D9%86-179/119332-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%AA%D8%B3%D9%87%DB%8C%D9%84%D8%A7%D8%AA-%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%DB%8C-%D8%A8%D9%87-%D8%B2%D9%88%D8%AC%DB%8C%D9%86-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C
