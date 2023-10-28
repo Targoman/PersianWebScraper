@@ -208,3 +208,58 @@ export class tebyan extends clsScrapper {
         })
     }
 }
+
+export class digikala extends clsScrapper {
+    constructor() {
+        super(enuDomains.digikala, "digikala.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: '.post-module__content>*',
+                },
+                tags: ".post-module__tags a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumbs__nav li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.post-module__comments li"),
+                    author: "span._item__user--name",
+                    datetime: "time",
+                    text: "._item__comment"
+                }
+            }
+        })
+    }
+}
+
+export class romanman extends clsScrapper {
+    constructor() {
+        super(enuDomains.romanman, "roman-man.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "#single-post-meta > span.date.meta-item.tie-icon",
+                    splitter: dateOffsetToDate
+                },
+                content: {
+                    main: '.entry.clearfix>*',
+                },
+                tags: "span.tagcloud a",
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector("time")),
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
