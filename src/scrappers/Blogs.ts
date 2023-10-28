@@ -230,3 +230,31 @@ export class digikala extends clsScrapper {
         })
     }
 }
+
+export class romanman extends clsScrapper {
+    constructor() {
+        super(enuDomains.romanman, "roman-man.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "#single-post-meta > span.date.meta-item.tie-icon",
+                    splitter: dateOffsetToDate
+                },
+                content: {
+                    main: '.entry.clearfix>*',
+                },
+                tags: "span.tagcloud a",
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector("time")),
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
