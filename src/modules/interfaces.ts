@@ -82,6 +82,7 @@ export enum enuDomains {
     tabnakbato = "tabnakbato",
     shoaresal = "shoaresal",
     bankdariirani = "bankdariirani",
+    tebyan = "tebyan",
 
     ///////////// Not Ready
     zoomit = "zoomit",

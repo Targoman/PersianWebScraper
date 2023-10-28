@@ -339,23 +339,17 @@ export class zoomit extends clsScrapper {
                 article: "main",
                 aboveTitle: "#Content_rutitr",
                 title: "h1",
+                summary: ".cJZnLd .BlockContainer__InnerArticleContainer-i5s1rc-1.hXzioD",
                 content: {
-                    main: "article div:nth-child(4)>*",
-                    // ignoreNodeClasses: (el: HTMLElement) =>
-                    //     el.querySelector("aside")
-                    //         || el.querySelector("div")?.classNames.startsWith("StickySidebar") ? true : false
-                },
-                tags: (article: HTMLElement) => {
-                    const links = article.querySelectorAll(".header-detail a");
-                    return links.splice(links.length - 1)
+                    main: ".eQTmR .BlockContainer__InnerArticleContainer-i5s1rc-1.hXzioD>*",
                 },
                 datetime: {
-                    conatiner: ".header-detail",
+                    conatiner: ".oNOID > span:nth-child(3), .dgQNji > span:nth-child(3)",
                     splitter: "-",
                 },
                 category: {
-                    selector: '#breadCrumbsContainer [itemprop="title"]',
-                }
+                    selector: '.kDyGrB a',
+                },
             },
         })
     }

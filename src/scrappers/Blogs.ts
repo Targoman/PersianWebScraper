@@ -180,3 +180,31 @@ export class lastsecond extends clsScrapper {
         })
     }
 }
+
+export class tebyan extends clsScrapper {
+    constructor() {
+        super(enuDomains.tebyan, "tebyan.net", {
+            selectors: {
+                article: "article, .js_GalleryImages, section.PlayPage",
+                aboveTitle: "h3",
+                title: "h1, .DetailSubjectBox, .PlayTrackTitle",
+                summary: ".ArticleSummary, .PlayTrackSummary",
+                datetime: {
+                    conatiner: "span.js_ArticleDate, .d-flex.dr"
+                },
+                content: {
+                    main: '.TextArticleContent, .GImg, .sootitr, .DetailBox, .overflow-hidden.d-flex, .PlayRightPanel',
+                },
+                tags: ".KeywordsContentBox a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".ArticleNavDirectory a")
+                },
+            },
+            url: {
+                extraValidDomains: ["article.tebyan.net", "image.tebyan.net", "sound.tebyan.net"],
+                extraInvalidStartPaths: ["/film"],
+                removeWWW: true
+            }
+        })
+    }
+}
