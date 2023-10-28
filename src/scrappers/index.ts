@@ -7,4 +7,4 @@ export * from "./StudioKhabarBased"
 export * from "./Sputnik"
 export * from "./Blogs"
 export * from "./WebSamaneh"
-
+export * from "./vBulletin"
