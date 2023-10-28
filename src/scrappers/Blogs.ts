@@ -203,3 +203,30 @@ export class tebyan extends clsScrapper {
         })
     }
 }
+
+export class digikala extends clsScrapper {
+    constructor() {
+        super(enuDomains.digikala, "digikala.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: '.post-module__content>*',
+                },
+                tags: ".post-module__tags a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumbs__nav li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.post-module__comments li"),
+                    author: "span._item__user--name",
+                    datetime: "time",
+                    text: "._item__comment"
+                }
+            }
+        })
+    }
+}
