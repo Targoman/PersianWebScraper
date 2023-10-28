@@ -124,8 +124,12 @@ export class lastsecond extends clsScrapper {
     constructor() {
         super(enuDomains.lastsecond, "lastsecond.ir", {
             selectors: {
-                article: ".post-show__content, .travelogue-show__content, .video-show",
-                title: ".title",
+                article:".post-show__content, .travelogue-show__content, .video-show",
+                title: (article: HTMLElement, fullHtml: HTMLElement)=>{
+                    console.log(fullHtml.querySelectorAll(".breadcrumb-list__item"))
+                    return article.querySelector(".title") || fullHtml.querySelectorAll(".breadcrumb-list__item").at(fullHtml.querySelectorAll(".breadcrumb-list__item").length - 1)
+                },
+
                 content: {
                     main: '.post-show__content__body>*, .travelogue-show__content__body>*, .video-show__content',
                     ignoreTexts: ["توضیحات :"],
@@ -147,7 +151,8 @@ export class lastsecond extends clsScrapper {
                                     "Content-Type": "application/json; charset=UTF-8"
                                 },
                                 onSuccess: async (res: any) => {
-                                    res?.forEach((item: any) => {
+                                    //console.log(res)
+                                    res?.items?.forEach((item: any) => {
                                         comments.push({
                                             text: normalizeText(item.content) || "",
                                             author: normalizeText(item.user.fullName),

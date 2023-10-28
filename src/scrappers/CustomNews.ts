@@ -425,6 +425,9 @@ export class tarafdari extends clsScrapper {
                     text: ".discuss-content p",
                 }
             },
+            url: {
+                extraInvalidStartPaths: ['/user/', '/static/']
+            }
         })
     }
     normalizePath(url: URL) {

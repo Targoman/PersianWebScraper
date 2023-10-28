@@ -134,6 +134,9 @@ export class shana extends clsNastoohBased {
         super(enuDomains.shana, "shana.ir", {
             selectors: {
                 datetime: {conatiner: ".item-nav.row>div>span, .item-date"}
+            },
+            url: {
+                extraInvalidStartPaths: ["/tender/"]
             }
         })
     }

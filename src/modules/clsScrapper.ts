@@ -544,7 +544,7 @@ export abstract class clsScrapper {
         try {
             const links = this.filterLinks(parsedHtml.querySelectorAll("a"))
             const article = this.selectElement(parsedHtml, parsedHtml, this.pConf.selectors?.article)
-            //log.debug(this.pConf.selectors?.article, article?.outerHTML)
+            //log.debug(parsedHtml.outerHTML, this.pConf.selectors?.article, article?.outerHTML)
             if (article)
                 return await this.processContentBox(url, links, article, parsedHtml, reqParams)
             else {
