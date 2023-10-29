@@ -46,3 +46,9 @@ export class persiantools extends clsXenForoBased {
       super(enuDomains.persiantools, "forum.persiantools.com")
   }
 }
+
+export class majidonline extends clsXenForoBased {
+  constructor() {
+      super(enuDomains.majidonline, "forum.majidonline.com")
+  }
+}
