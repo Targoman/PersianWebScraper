@@ -9,7 +9,7 @@ class clsVBulletinBased extends clsScrapper {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
               article: ".postlist",
-              title: "h2",
+              title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("span.threadtitle a"),
               datetime: {
                 conatiner: "span.date",
                 splitter: dateOffsetToDate
@@ -24,6 +24,9 @@ class clsVBulletinBased extends clsScrapper {
                   text: ".postdetails .postbody .postrow .content > div"
               }
             },
+            url: {
+              extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external"]
+            }
         }
 
         
@@ -34,16 +37,18 @@ class clsVBulletinBased extends clsScrapper {
 
 export class webhostingtalk extends clsVBulletinBased {
   constructor() {
-      super(enuDomains.webhostingtalk, "webhostingtalk.ir",{
-        url: {
-            extraInvalidStartPaths: ["/member"]
-        }
-    })
+      super(enuDomains.webhostingtalk, "webhostingtalk.ir")
   }
 }
 
 export class barnamenevis extends clsVBulletinBased {
   constructor() {
       super(enuDomains.barnamenevis, "barnamenevis.org")
+  }
+}
+
+export class p30world extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.p30world, "forum.p30world.com")
   }
 }
