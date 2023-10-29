@@ -52,3 +52,13 @@ export class p30world extends clsVBulletinBased {
       super(enuDomains.p30world, "forum.p30world.com")
   }
 }
+
+export class tarfandestan extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.tarfandestan, "tarfandestan.com", {
+        url: {
+          extraInvalidStartPaths: ["/category", "/all", "/1", "/school", "/test"]
+        }
+      })
+  }
+}
