@@ -84,3 +84,25 @@ export class boursy extends clsVBulletinBased {
       })
   }
 }
+
+export class soft98 extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.soft98, "forum.soft98.ir", {
+        selectors: {
+          datetime: {
+            conatiner: "span.date",
+            splitter: (el: HTMLElement) => {
+              const date = el.textContent.match(/\d{4}-\d{2}-\d{2}/);
+              if(date)
+                return date[0];
+              else 
+                return "NO_DATE";
+            }
+          },
+        },
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}

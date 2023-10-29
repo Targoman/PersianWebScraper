@@ -91,6 +91,7 @@ export enum enuDomains {
     tarfandestan = "tarfandestan",
     pichak = "pichak",
     boursy = "boursy",
+    soft98 = "soft98",
 
     ///////////// Not Ready
     zoomit = "zoomit",
