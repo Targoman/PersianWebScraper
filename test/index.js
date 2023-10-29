@@ -366,6 +366,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start tarfandestan -u "https://www.t
 clear; rm -rf .db corpora; yarn dev && yarn start boursy -u "https://forums.boursy.com/showthread.php?t=4511"
 clear; rm -rf .db corpora; yarn dev && yarn start boursy -u "https://forums.boursy.com/showthread.php?t=4511&page=51"
 
+clear; rm -rf .db corpora; yarn dev && yarn start soft98 -u "https://forum.soft98.ir/showthread.php?t=123823&page=3&p=1298417#post1298417"
+clear; rm -rf .db corpora; yarn dev && yarn start soft98 -u "https://forum.soft98.ir/showthread.php?t=116532&page=12&p=1311758#post1311758"
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
