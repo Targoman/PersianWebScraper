@@ -41,3 +41,9 @@ export class webhostingtalk extends clsVBulletinBased {
     })
   }
 }
+
+export class barnamenevis extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.barnamenevis, "barnamenevis.org")
+  }
+}

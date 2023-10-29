@@ -86,6 +86,7 @@ export enum enuDomains {
     digikala = "digikala",
     romanman = "romanman",
     webhostingtalk = "webhostingtalk", 
+    barnamenevis = "barnamenevis",
 
     ///////////// Not Ready
     zoomit = "zoomit",
