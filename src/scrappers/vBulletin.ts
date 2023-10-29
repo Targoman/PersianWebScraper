@@ -12,7 +12,6 @@ class clsVBulletinBased extends clsScrapper {
               title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("span.threadtitle a"),
               datetime: {
                 conatiner: "span.date",
-                splitter: dateOffsetToDate
               },
               category: {
                 selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb ul li.navbit a"),
@@ -20,7 +19,7 @@ class clsVBulletinBased extends clsScrapper {
               comments: {
                   container: "ol.posts li",
                   author: ".postdetails .userinfo .username_container .popupmenu.memberaction a",
-                  datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector(".posthead .postdate.old span.date")),
+                  datetime: ".posthead .postdate.old span.date",
                   text: ".postdetails .postbody .postrow .content > div"
               }
             },
@@ -37,7 +36,14 @@ class clsVBulletinBased extends clsScrapper {
 
 export class webhostingtalk extends clsVBulletinBased {
   constructor() {
-      super(enuDomains.webhostingtalk, "webhostingtalk.ir")
+      super(enuDomains.webhostingtalk, "webhostingtalk.ir", {
+        selectors: {
+          datetime: {
+            conatiner: "span.date",
+            splitter: dateOffsetToDate
+          },
+        }
+      })
   }
 }
 
@@ -56,8 +62,24 @@ export class p30world extends clsVBulletinBased {
 export class tarfandestan extends clsVBulletinBased {
   constructor() {
       super(enuDomains.tarfandestan, "tarfandestan.com", {
+        selectors: {
+          datetime: {
+            conatiner: "span.date",
+            splitter: dateOffsetToDate
+          },
+        },
         url: {
           extraInvalidStartPaths: ["/category", "/all", "/1", "/school", "/test"]
+        }
+      })
+  }
+}
+
+export class boursy extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.boursy, "forums.boursy.com", {
+        url: {
+          removeWWW: true
         }
       })
   }
