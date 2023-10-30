@@ -258,3 +258,38 @@ export class romanman extends clsScrapper {
         })
     }
 }
+
+export class yekpezeshk extends clsScrapper {
+    constructor() {
+        super(enuDomains.yekpezeshk, "1pezeshk.com", {
+            selectors: {
+                article: "article.status-publish",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("datetime")?.match(/\d{4}-\d{2}-\d{2}/);
+                         if(date)
+                           return date[0];
+                         else 
+                           return "NO_DATE";
+                       }
+                },
+                content: {
+                    main: '.entry-content.clearfix.single-post-content',
+                    ignoreNodeClasses: ["bs-listing"]
+                },
+                tags: ".post-tags a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.top-menu-container ul li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .clearfix"),
+                    author: ".comment-meta cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}

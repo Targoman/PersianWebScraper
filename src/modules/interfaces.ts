@@ -96,6 +96,7 @@ export enum enuDomains {
     majidonline = "majidonline",
     lioncomputer = "lioncomputer",
     wikifa = "wikifa",
+    yekpezeshk = "yekpezeshk",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
