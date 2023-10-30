@@ -685,6 +685,9 @@ export abstract class clsScrapper {
                     log.file(this.domain, "Datetime not found: " + url)
             }
             date = "NO_DATE"
+            if(this.domain === enuDomains.wikifa) {
+                date = "IGNORED";
+            }
         }
         if (!title) {
             if ((date && date !== "NO_DATE") || subtitle) {
