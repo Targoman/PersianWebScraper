@@ -453,3 +453,36 @@ export class niknews extends clsScrapper {
         })
     }
 }
+
+export class digiato extends clsScrapper {
+    constructor() {
+        super(enuDomains.digiato, "digiato.com", {
+            selectors: {
+                article: "#articleNewsPosts, .sitePage__content",
+                title: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--title, h1.singleVideoPageTitle"),
+                summary: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description p"),
+                datetime: {
+                    conatiner: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--tools"),
+                    splitter: (el: HTMLElement) => super.extractDate(el, el.classList.contains("comment-date") ? " " : "|") || "DATE NOT FOUND",
+                },
+                content: {
+                    main: '.articlePost, .singleVideoPost',
+                },
+                tags: ".postTools__keywords a",
+                category: {
+                    selector: (_, fullHTML: HTMLElement) => fullHTML.querySelectorAll(".breadcrumb ul li:nth-child(2) a, .breadcrumb ul li:nth-child(3) a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.js-comments-list li"),
+                    author: ".comment__info span",
+                    text: ".comment__text"
+                }
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/author", "/topic", "/?s="]
+            }
+
+        })
+    }
+}
