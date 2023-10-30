@@ -95,7 +95,7 @@ export enum enuDomains {
     persiantools = "persiantools",
     majidonline = "majidonline",
     lioncomputer = "lioncomputer",
-
+    wikifa = "wikifa",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
