@@ -331,3 +331,33 @@ export class blog extends clsScrapper {
         })
     }
 }
+
+export class yektanet extends clsScrapper {
+    constructor() {
+        super(enuDomains.yektanet, "yektanet.com", {
+            selectors: {
+                article: "article",
+                title: (_, fullHTML: HTMLElement) => fullHTML.querySelector("h1.page-title"),
+                datetime: {
+                    conatiner: "span.publish_date",
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+                },
+                content: {
+                    main: '.entry-content',
+                },
+                tags: ".tags-links a",
+                category: {
+                    selector: "span.cat a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/academy", "/webinar", "/newsletter", "/rahkar-webinars", "/ebook"],
+            }
+        })
+    }
+}
