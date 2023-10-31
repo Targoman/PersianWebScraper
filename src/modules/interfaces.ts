@@ -102,6 +102,8 @@ export enum enuDomains {
     bazmineh = "bazmineh",
     namnak = "namnak",
     beytoote = "beytoote",
+    blogsky = "blogsky",
+    technolife = "technolife",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",

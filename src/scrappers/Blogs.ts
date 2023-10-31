@@ -332,3 +332,71 @@ export class yektanet extends clsScrapper {
         })
     }
 }
+
+export class blogsky extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogsky, "blogsky.com", {
+            selectors: {
+                article: ".post-box",
+                title: "h2.post-title a",
+                datetime: {
+                    conatiner: ".post-title-link",
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("href");
+                        if(date) {
+                            const newDate = date.split('/');
+                            return newDate[1] + "-" +  newDate[2] + "-" + newDate[3];                    
+                        } else 
+                            return "DATE NOT FOUND"
+                    }
+                },
+                content: {
+                    main: '.content-wrapper p',
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments .comment"),
+                    author: "a.author-name",
+                    text: "p.comment-content"
+                }
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class technolife extends clsScrapper {
+    constructor() {
+        super(enuDomains.technolife, "technolife.ir", {
+            selectors: {
+                article: ".post-item-container",
+                title: "h1.post-item-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("content")?.match(/\d{4}-\d{2}-\d{2}/);
+                         if(date)
+                           return date[0];
+                         else 
+                           return "NO_DATE";
+                       }
+                },
+                content: {
+                    main: '.post-container',
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs ul li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+                    author: ".comment-author",
+                    text: ".comment-text"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/product"]
+            }
+        })
+    }
+}
