@@ -2,7 +2,7 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, IntfComment } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
-import { dateOffsetToDate, getElementAtIndex, normalizeText } from "../modules/common";
+import { dateOffsetToDate, fa2En, getElementAtIndex, normalizeText } from "../modules/common";
 import { axiosPost, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
 
@@ -289,6 +289,44 @@ export class yekpezeshk extends clsScrapper {
                     datetime: "time",
                     text: ".comment-content"
                 }
+            }
+        })
+    }
+}
+
+export class blog extends clsScrapper {
+    constructor() {
+        super(enuDomains.blog, "blog.ir", {
+            selectors: {
+                article: ".block-post, .post.post_detail, .post, .post-container",
+                title: "h2, h3",
+                datetime: {
+                    conatiner: 
+                     (_, fullHTML: HTMLElement) => 
+                      fullHTML.querySelector(".date_title, .cm-date, span.date, span.post-details-date, span.post-date1, "
+                      + ".post-detail-right ul li:nth-child(2), .sender"),
+                    splitter: (el: HTMLElement) => {
+                        const date = super.extractDate(el, el.classList.contains("comment-date") ? " " : "،")
+                        if(date && date.length < 9 && fa2En(date[0]) === "0") {
+                            return "14" + date
+                        } else if(date && date.length < 9 && fa2En(date[0]) !== "0") {
+                            return "13" + date
+                        }
+                        return date || "DATE NOT FOUND"
+                    }
+                },
+                content: {
+                    main: '.post-content, .body .cnt, .post-matn',
+                },
+                tags: (_, fullHTML: HTMLElement) => fullHTML.querySelectorAll(".tagcloud span a h3, .post-details-tags h3 a, span.tagss a, .tagcloud h3 a"),
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cm-main, .post-comment, .cm-body, .post_comments"),
+                    author: ".cm-name, span.comment-name, span.cm-name, span.inline.txt, .dets_right li.txt",
+                    text: ".body_cmt .cnt .cnt_l, .comment-matn, .comment-body-content, span.cnt_l"
+               }
+            },
+            url: {
+                removeWWW: true,
             }
         })
     }
