@@ -394,3 +394,38 @@ export class blogsky extends clsScrapper {
         })
     }
 }
+
+export class technolife extends clsScrapper {
+    constructor() {
+        super(enuDomains.technolife, "technolife.ir", {
+            selectors: {
+                article: ".post-item-container",
+                title: "h1.post-item-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("content")?.match(/\d{4}-\d{2}-\d{2}/);
+                         if(date)
+                           return date[0];
+                         else 
+                           return "NO_DATE";
+                       }
+                },
+                content: {
+                    main: '.post-container',
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs ul li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+                    author: ".comment-author",
+                    text: ".comment-text"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/product"]
+            }
+        })
+    }
+}
