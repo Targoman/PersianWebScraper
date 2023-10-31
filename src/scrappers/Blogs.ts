@@ -361,3 +361,36 @@ export class yektanet extends clsScrapper {
         })
     }
 }
+
+export class blogsky extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogsky, "blogsky.com", {
+            selectors: {
+                article: ".post-box",
+                title: "h2.post-title a",
+                datetime: {
+                    conatiner: ".post-title-link",
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("href");
+                        if(date) {
+                            const newDate = date.split('/');
+                            return newDate[1] + "-" +  newDate[2] + "-" + newDate[3];                    
+                        } else 
+                            return "DATE NOT FOUND"
+                    }
+                },
+                content: {
+                    main: '.content-wrapper p',
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments .comment"),
+                    author: "a.author-name",
+                    text: "p.comment-content"
+                }
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

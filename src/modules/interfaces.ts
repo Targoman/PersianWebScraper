@@ -102,6 +102,7 @@ export enum enuDomains {
     bazmineh = "bazmineh",
     namnak = "namnak",
     beytoote = "beytoote",
+    blogsky = "blogsky",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
