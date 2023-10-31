@@ -483,3 +483,31 @@ export class digiato extends clsScrapper {
         })
     }
 }
+
+export class namnak extends clsScrapper {
+    constructor() {
+        super(enuDomains.namnak, "namnak.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                summary: ".E9",
+                content: {
+                    main: "#pc",
+                },
+                datetime: {
+                    conatiner: ".a.s.f",
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+                },
+                category: {
+                    selector: '#cpath a',
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".C8.b.i"),
+                    author: "b[itemprop='name']",
+                    datetime: "span[itemprop='commentTime']",
+                    text: ".Ca .Cm .cmtx"
+                }
+            },
+        })
+    }
+}
