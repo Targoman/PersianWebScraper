@@ -34,3 +34,31 @@ export class lioncomputer extends clsScrapper {
         })
     }
 }
+
+export class bazmineh extends clsScrapper {
+  constructor() {
+    super(enuDomains.bazmineh, "bazmineh.com", {
+            selectors: {
+              article: ".forumThirdTopics",
+              title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("li.active"),
+              datetime: {
+                conatiner: ".fttbi-meta span",
+                splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+              },
+              category: {
+                selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+              },
+              comments: {
+                  container: ".forumThirdTopicBox",
+                  author: "ul li:nth-child(2)",
+                  datetime: ".fttbi-meta span",
+                  text: ".fttbi-text"
+              }
+            }, 
+            url: {
+              removeWWW: true,
+              extraInvalidStartPaths: ["/articles", "/article", "/inspiration", "/quiz", "/fun", "/user", "/marketplace", "/login", "/vendor"]
+            }
+        })
+    }
+}

@@ -100,6 +100,7 @@ export enum enuDomains {
     digiato = "digiato",
     blog = "blog",
     yektanet = "yektanet",
+    bazmineh = "bazmineh",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
