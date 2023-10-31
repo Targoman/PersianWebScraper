@@ -489,9 +489,9 @@ export class digiato extends clsScrapper {
 
 export class namnak extends clsScrapper {
     constructor() {
-        super(enuDomains.namnak, "namnak.ir", {
+        super(enuDomains.namnak, "namnak.com", {
             selectors: {
-                article: "article",
+                article: "#cta",
                 title: "h1",
                 summary: ".E9",
                 content: {
@@ -510,6 +510,31 @@ export class namnak extends clsScrapper {
                     datetime: "span[itemprop='commentTime']",
                     text: ".Ca .Cm .cmtx"
                 }
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ag_1_1.do"]
+            }
+        })
+    }
+}
+
+export class beytoote extends clsScrapper {
+    constructor() {
+        super(enuDomains.beytoote, "beytoote.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                content: {
+                    main: "p, h2, .imgarticle",
+                },
+                datetime: {
+                    conatiner: "dd.published",
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+                },
+                category: {
+                    selector: 'dd.category-name a',
+                },
             },
         })
     }
