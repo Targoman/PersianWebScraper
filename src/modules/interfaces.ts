@@ -98,6 +98,8 @@ export enum enuDomains {
     wikifa = "wikifa",
     yekpezeshk = "yekpezeshk",
     digiato = "digiato",
+    blog = "blog",
+    yektanet = "yektanet",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
