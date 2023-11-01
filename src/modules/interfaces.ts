@@ -234,6 +234,7 @@ export interface IntfDateSplitter {
 export interface IntfURLNormaliziztionConf {
     extraValidDomains?: string[]
     extraInvalidStartPaths?: string[],
+    ignoreContentOnPath?: string[],
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
     validPathsItemsToNormalize?: string[]
