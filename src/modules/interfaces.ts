@@ -108,6 +108,7 @@ export enum enuDomains {
     sakhtafzarmag = "sakhtafzarmag",
     bazicenter = "bazicenter",
     wppersian = "wppersian",
+    joomlafarsi = "joomlafarsi",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",

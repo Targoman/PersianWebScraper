@@ -121,3 +121,13 @@ export class sakhtafzarmag extends clsVBulletinBased {
       })
   }
 }
+
+export class joomlafarsi extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.joomlafarsi, "forum.joomlafarsi.com", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
