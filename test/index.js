@@ -414,6 +414,18 @@ clear; rm -rf .db corpora; yarn dev && yarn start bazicenter -u https://forum.ba
 clear; rm -rf .db corpora; yarn dev && yarn start wppersian -u https://forum.wp-persian.com/topic/642
 clear; rm -rf .db corpora; yarn dev && yarn start wppersian -u https://forum.wp-persian.com/topic/536
 
+clear; rm -rf .db corpora; yarn dev && yarn start joomlafarsi -u https://forum.joomlafarsi.com/threads/64066-نیاز-به-فایل-های-زبان-فارسی-برای-EasyArticles-و-Komento?p=293247#post293247
+clear; rm -rf .db corpora; yarn dev && yarn start joomlafarsi -u https://forum.joomlafarsi.com/threads/64041-درخواست-ماژول-یا-کامپوننت-گالری?p=293207#post293207
+
+clear; rm -rf .db corpora; yarn dev && yarn start moshaver -u https://forum.moshaver.co/f124/مهارت%20آینده%20نگری%20هوشمندانه-56738/#post319523
+clear; rm -rf .db corpora; yarn dev && yarn start moshaver -u https://forum.moshaver.co/f30/کنکور%20ارشد%20ر.بالینی-48789/
+
+clear; rm -rf .db corpora; yarn dev && yarn start oghyanos -u https://forum.oghyanos.ir/thread3207.html#post10071
+clear; rm -rf .db corpora; yarn dev && yarn start oghyanos -u https://forum.oghyanos.ir/thread4372.html#post11220
+
+clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/prisoners/
+clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/best-fantasy-scifi-series/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
