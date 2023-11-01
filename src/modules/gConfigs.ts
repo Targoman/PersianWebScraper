@@ -1,6 +1,6 @@
-import { IntfGlobalconfigs } from "./interfaces"
+import { IntfGlobalConfigs } from "./interfaces"
 
-const gConfigs: IntfGlobalconfigs = {
+const gConfigs: IntfGlobalConfigs = {
     debugVerbosity: 4,
     debugDB: false,
     showInfo: true,
