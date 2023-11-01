@@ -107,6 +107,7 @@ export enum enuDomains {
     sid = "sid",
     sakhtafzarmag = "sakhtafzarmag",
     bazicenter = "bazicenter",
+    wppersian = "wppersian",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
