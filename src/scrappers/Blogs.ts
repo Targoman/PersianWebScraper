@@ -400,3 +400,29 @@ export class technolife extends clsScrapper {
         })
     }
 }
+
+export class sid extends clsScrapper {
+    constructor() {
+        super(enuDomains.sid, "sid.ir", {
+            selectors: {
+                article: "#courseInfo",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#wsdtitlecontainer h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".WA p"),
+                    splitter: (el: HTMLElement) => {
+                        const date = super.extractDate(el, "-")?.split("-");
+                        console.log(date)
+                        if(date) 
+                            return date[2] + "-" +  date[1] + "-" + date[0];                    
+                         else 
+                            return "DATE NOT FOUND"
+                    }
+                },
+                content: {
+                    main: '#wscourseInfo',
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("p.wssm.wssmx a"),
+            },
+        })
+    }
+}

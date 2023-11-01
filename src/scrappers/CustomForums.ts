@@ -62,3 +62,31 @@ export class bazmineh extends clsScrapper {
         })
     }
 }
+
+export class wppersian extends clsScrapper {
+  constructor() {
+    super(enuDomains.wppersian, "forum.wp-persian.com", {
+            selectors: {
+              article: "#pagebody",
+              title: "h2.topictitle",
+              datetime: {
+                conatiner: ".threadauthor small",
+                splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+              },
+              category: {
+                selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("p.bbcrumb a"),
+              },
+              comments: {
+                  container: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#thread li"),
+                  author: ".threadauthor p strong",
+                  datetime: ".threadauthor small",
+                  text: ".threadpost .post"
+              }
+            }, 
+            url: {
+              removeWWW: true,
+              extraInvalidStartPaths: ["/tags"]
+            }
+        })
+    }
+}

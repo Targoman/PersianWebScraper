@@ -104,6 +104,10 @@ export enum enuDomains {
     beytoote = "beytoote",
     blogsky = "blogsky",
     technolife = "technolife",
+    sid = "sid",
+    sakhtafzarmag = "sakhtafzarmag",
+    bazicenter = "bazicenter",
+    wppersian = "wppersian",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",
