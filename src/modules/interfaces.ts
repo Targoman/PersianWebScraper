@@ -111,6 +111,7 @@ export enum enuDomains {
     joomlafarsi = "joomlafarsi",
     moshaver = "moshaver",
     oghyanos = "oghyanos",
+    naghdfarsi = "naghdfarsi",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",

@@ -440,7 +440,6 @@ export class sid extends clsScrapper {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".WA p"),
                     splitter: (el: HTMLElement) => {
                         const date = super.extractDate(el, "-")?.split("-");
-                        console.log(date)
                         if(date) 
                             return date[2] + "-" +  date[1] + "-" + date[0];                    
                          else 
@@ -452,6 +451,48 @@ export class sid extends clsScrapper {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("p.wssm.wssmx a"),
             },
+        })
+    }
+}
+
+export class naghdfarsi extends clsScrapper {
+    constructor() {
+        super(enuDomains.naghdfarsi, "naghdfarsi.ir", {
+            selectors: {
+                article: "article.status-publish",
+                title: "h1.single-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.textContent?.match(/\d{4}-\d{2}-\d{2}/);
+                        if(date) {
+                          return date[0];
+                        }
+                        else {
+                            const newDate = el.getAttribute("content")?.match(/\d{4}-\d{2}-\d{2}/);
+                            if(newDate)
+                              return newDate[0];
+                            else 
+                              return "NO_DATE";
+                        }
+                    }   
+                },
+                content: {
+                    main: '[itemprop="articleBody"]',
+                },
+                category: {
+                    selector: "span.breadcrumb-inner span a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments ul li"),
+                    author: ".comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
         })
     }
 }
