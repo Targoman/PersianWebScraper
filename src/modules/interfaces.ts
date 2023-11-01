@@ -105,6 +105,7 @@ export enum enuDomains {
     blogsky = "blogsky",
     technolife = "technolife",
     sid = "sid",
+    sakhtafzarmag = "sakhtafzarmag",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",

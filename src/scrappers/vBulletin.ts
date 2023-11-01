@@ -11,15 +11,15 @@ class clsVBulletinBased extends clsScrapper {
               article: ".postlist",
               title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("span.threadtitle a"),
               datetime: {
-                conatiner: "span.date",
+                conatiner: "span.date, i.StampDate",
               },
               category: {
                 selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb ul li.navbit a"),
               },
               comments: {
                   container: "ol.posts li",
-                  author: ".postdetails .userinfo .username_container .popupmenu.memberaction a",
-                  datetime: ".posthead .postdate.old span.date",
+                  author: ".postdetails .userinfo .username_container .popupmenu.memberaction a, a.username",
+                  datetime: ".posthead .postdate.old span.date, i.StampDate",
                   text: ".postdetails .postbody .postrow .content > div"
               }
             },
@@ -99,6 +99,21 @@ export class soft98 extends clsVBulletinBased {
                 return "NO_DATE";
             }
           },
+        },
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
+
+export class sakhtafzarmag extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.sakhtafzarmag, "forums.sakhtafzarmag.com", {
+        selectors: {
+          category: {
+            selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.cf li a")
+          }
         },
         url: {
           removeWWW: true
