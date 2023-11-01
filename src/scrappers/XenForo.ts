@@ -52,3 +52,9 @@ export class majidonline extends clsXenForoBased {
       super(enuDomains.majidonline, "forum.majidonline.com")
   }
 }
+
+export class bazicenter extends clsXenForoBased {
+  constructor() {
+      super(enuDomains.bazicenter, "forum.bazicenter.com")
+  }
+}

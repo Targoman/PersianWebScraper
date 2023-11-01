@@ -441,15 +441,19 @@ export abstract class clsScrapper {
 
     protected filterLinks(links: HTMLElement[]) {
         const validLinks: string[] = []
-
+        const firstLink = links[0].getAttribute("href")
         links.forEach((link: HTMLElement) => {
-            const href = link.getAttribute("href")
+            let href = link.getAttribute("href")
             if (href) {
                 try {
                     if (href.startsWith("#")
                         || href.startsWith("javascript:")
                         || href.startsWith("tel:"))
                         return
+
+                    if(this.domain === enuDomains.blogsky && href.startsWith("/")) {
+                        href = firstLink + href;
+                    }
 
                     const url = this.safeCreateURL(this.normalizeRef(href))
 
