@@ -104,6 +104,7 @@ export enum enuDomains {
     beytoote = "beytoote",
     blogsky = "blogsky",
     technolife = "technolife",
+    sid = "sid",
     ///////////// Not Ready
     zoomit = "zoomit",
     blogir = "blogir",
