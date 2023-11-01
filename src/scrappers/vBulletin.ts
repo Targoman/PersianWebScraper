@@ -141,3 +141,13 @@ export class moshaver extends clsVBulletinBased {
       })
   }
 }
+
+export class oghyanos extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.oghyanos, "forum.oghyanos.ir", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
