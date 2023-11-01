@@ -121,3 +121,33 @@ export class sakhtafzarmag extends clsVBulletinBased {
       })
   }
 }
+
+export class joomlafarsi extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.joomlafarsi, "forum.joomlafarsi.com", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
+
+export class moshaver extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.moshaver, "forum.moshaver.co", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
+
+export class oghyanos extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.oghyanos, "forum.oghyanos.ir", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
