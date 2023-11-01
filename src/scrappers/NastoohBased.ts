@@ -134,6 +134,9 @@ export class shana extends clsNastoohBased {
         super(enuDomains.shana, "shana.ir", {
             selectors: {
                 datetime: {conatiner: ".item-nav.row>div>span, .item-date"}
+            },
+            url: {
+                extraInvalidStartPaths: ["/tender/"]
             }
         })
     }
@@ -163,6 +166,22 @@ export class shahr extends clsNastoohBased {
         super(enuDomains.shahr, "shahr.ir", {
             selectors: {
                 aboveTitle: ".subtitle",
+            }
+        })
+    }
+}
+
+/***********************************************************/
+export class ibna extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ibna, "ibna.ir", {
+            selectors: {
+                article: "article",
+                title: ".item-title",
+                datetime: {
+                    conatiner: ".item-date",
+                    splitter: "-",
+                }
             }
         })
     }

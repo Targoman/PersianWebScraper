@@ -409,8 +409,8 @@ export class tarafdari extends clsScrapper {
                 datetime: {
                     conatiner: '.timeago[data-tarikh]',
                     splitter: (el: HTMLElement) => {
-                        console.log(el.outerHTML); 
-                        return  super.extractDate(el.getAttribute("data-tarikh"), "-")||"DateNotfound"
+                        console.log(el.outerHTML);
+                        return super.extractDate(el.getAttribute("data-tarikh"), "-") || "DateNotfound"
                     },
                 },
                 comments: {
@@ -419,6 +419,10 @@ export class tarafdari extends clsScrapper {
                     text: ".discuss-content p",
                 }
             },
+            url: {
+                extraInvalidStartPaths: ['/user/', '/static/'],
+                ignoreContentOnPath: ["/static/page/taxonomy/"]
+            }
         })
     }
     normalizePath(url: URL) {
@@ -433,7 +437,7 @@ export class tarafdari extends clsScrapper {
 
 export class niknews extends clsScrapper {
     constructor() {
-        super(enuDomains.niknews, "niknews.ir", { 
+        super(enuDomains.niknews, "niknews.ir", {
             selectors: {
                 article: "article",
                 datetime: {

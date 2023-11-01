@@ -42,40 +42,6 @@ export class virgool extends clsScrapper {
     }
 }
 
-export class blogir extends clsScrapper {
-    constructor() {
-        super(enuDomains.blogir, "blog.ir", {
-            selectors: {
-                article: (page: HTMLElement) =>
-                    (page.querySelectorAll("#block-post") ||
-                        page.querySelectorAll(".post")
-                    ).length > 1
-                        ? page.querySelector("NOArticle")
-                        : (page.querySelector("#block-post") || page.querySelector(".post")),
-                title: ".title, .post-title",
-                content: {
-                    main: ".body .cnt>*, .post-full-content>*, .post-matn>*, .post-content",
-                    ignoreNodeClasses: ["fw-900"]
-                },
-                tags: (article: HTMLElement) => article.querySelectorAll('a').filter(el => el.getAttribute("href")?.startsWith("/tag")),
-                datetime: {
-                    conatiner: ".post_date, .post-details-date, .date_title, .post-detail-right"
-                },
-                comments: {
-                    container: (article: HTMLElement) => article.querySelectorAll(".cm-body, .cm-reply-main, .comment-reply"),
-                    author: ".cm-name",
-                    datetime: ".post-detail-top, .comment-date",
-                    text: ".comment-matn, .comment-body, .comment-reply-body, .comment-reply"
-                }
-            },
-        })
-    }
-
-    normalizePath(url: URL) {
-        return url.toString()
-    }
-}
-
 export class ninisite extends clsScrapper {
     constructor() {
         super(enuDomains.ninisite, "ninisite.com", {
@@ -124,8 +90,12 @@ export class lastsecond extends clsScrapper {
     constructor() {
         super(enuDomains.lastsecond, "lastsecond.ir", {
             selectors: {
-                article: ".post-show__content, .travelogue-show__content, .video-show",
-                title: ".title",
+                article:".post-show__content, .travelogue-show__content, .video-show",
+                title: (article: HTMLElement, fullHtml: HTMLElement)=>{
+                    console.log(fullHtml.querySelectorAll(".breadcrumb-list__item"))
+                    return article.querySelector(".title") || fullHtml.querySelectorAll(".breadcrumb-list__item").at(fullHtml.querySelectorAll(".breadcrumb-list__item").length - 1)
+                },
+
                 content: {
                     main: '.post-show__content__body>*, .travelogue-show__content__body>*, .video-show__content',
                     ignoreTexts: ["توضیحات :"],
@@ -147,7 +117,8 @@ export class lastsecond extends clsScrapper {
                                     "Content-Type": "application/json; charset=UTF-8"
                                 },
                                 onSuccess: async (res: any) => {
-                                    res?.forEach((item: any) => {
+                                    //console.log(res)
+                                    res?.items?.forEach((item: any) => {
                                         comments.push({
                                             text: normalizeText(item.content) || "",
                                             author: normalizeText(item.user.fullName),
@@ -294,9 +265,9 @@ export class yekpezeshk extends clsScrapper {
     }
 }
 
-export class blog extends clsScrapper {
+export class blogir extends clsScrapper {
     constructor() {
-        super(enuDomains.blog, "blog.ir", {
+        super(enuDomains.blogir, "blog.ir", {
             selectors: {
                 article: ".block-post, .post.post_detail, .post, .post-container",
                 title: "h2, h3",

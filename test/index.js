@@ -116,9 +116,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/ne
 clear; rm -rf .db corpora; yarn dev && yarn start pana -u https://www.pana.ir/news/1412848
 
 clear; rm -rf .db corpora; yarn dev && yarn start ibna 
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/tolidi/348599
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/vspjuqb2fb,%5E5ezfs4f4.u.html
-clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/fa/gallery/348651/3/
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/news/498399/%D9%86%DA%AF%D8%A7%D9%87%DB%8C-%D8%A8%D9%87-%DA%A9%D8%AA%D8%A7%D8%A8-%D8%B2%D9%86%D8%A7%D9%86-%D8%AA%D9%86%DA%AF%D8%B3%D8%AA%D8%A7%D9%86-%D8%A7%D8%B2-%D9%85%D8%B1%D8%AA%D8%B6%DB%8C-%DA%A9%D8%B1%D9%85%DB%8C
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/photo/498667
+clear; rm -rf .db corpora; yarn dev && yarn start ibna -u https://www.ibna.ir/news/498619
 
 clear; rm -rf .db corpora; yarn dev && yarn start iana 
 clear; rm -rf .db corpora; yarn dev && yarn start iana -u http://www.iana.ir/%D8%A8%D8%AE%D8%B4-%D8%B9%D8%B4%D8%A7%DB%8C%D8%B1-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C%D8%A7%D9%86-179/119332-%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA-%D8%AA%D8%B3%D9%87%DB%8C%D9%84%D8%A7%D8%AA-%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%DB%8C-%D8%A8%D9%87-%D8%B2%D9%88%D8%AC%DB%8C%D9%86-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C%DB%8C
@@ -169,6 +169,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran
 clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran.news/%D8%A8%D8%AE%D8%B4-%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1%DB%8C-19/1611356-%D8%AF%DB%8C%D8%AF%D8%A7%D8%B1-%D9%86%D8%AE%D8%A8%DA%AF%D8%A7%D9%86-%D8%A7%D8%B3%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%D9%87%D8%A7%DB%8C-%D8%A8%D8%B1%D8%AA%D8%B1-%D8%B9%D9%84%D9%85%DB%8C-%D8%A8%D8%A7-%D8%B1%D9%87%D8%A8%D8%B1-%D9%85%D8%B9%D8%B8%D9%85-%D8%A7%D9%86%D9%82%D9%84%D8%A7%D8%A8
 clear; rm -rf .db corpora; yarn dev && yarn start jamaran -u https://www.jamaran.news/%D8%A8%D8%AE%D8%B4-%D9%88%DB%8C%D8%AF%DB%8C%D9%88%D9%87%D8%A7%DB%8C-%D8%AE%D8%A8%D8%B1%DB%8C-180/1611338-%D9%BE%DB%8C%D8%B1%D8%AA%D8%B1%DB%8C%D9%86-%D8%AC%D8%A7%D9%86%D8%A8%D8%A7%D8%B2-%D8%AF%D9%81%D8%A7%D8%B9-%D9%85%D9%82%D8%AF%D8%B3-%D8%AF%D8%B1%DA%AF%D8%B0%D8%B4%D8%AA
 
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u  https://www.lastsecond.ir/blog/2101-most-expensive-countries?page=259
 
 clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/mobile/409029-apple-iphone-15-series-lightning-usb-c-wonderlust/
 clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/product/list/mobile/?utm_source=MagHP&utm_medium=referral_menu&utm_campaign=main_menu
@@ -227,6 +228,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start imna -u
 
 clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-1251694
 clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-1251614
+clear; rm -rf .db corpora; yarn dev && yarn start fardanews -u https://www.fardanews.com/fa/tiny/news-728615
 
 clear; rm -rf .db corpora; yarn dev && yarn start bultannews -u https://www.bultannews.com/fa/news/832401
 clear; rm -rf .db corpora; yarn dev && yarn start bultannews -u https://www.bultannews.com/fa/news/831655

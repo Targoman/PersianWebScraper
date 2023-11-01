@@ -127,9 +127,10 @@ export class fardanews extends clsAsamBased {
     constructor() {
         super(enuDomains.fardanews, "fardanews.com", {
             selectors: {
-                article: "article",
+                article: "article, #modal-page",
                 datetime: {
-                    conatiner: ".news-time"
+                    conatiner: (article: HTMLElement)=>article.querySelector(".news-time, .note-time, h1"),
+                    splitter: (el: HTMLElement)=>super.extractDate(el, " ") || "NoDate"
                 },
                 content: {
                     main: "#echo_detail, ul"

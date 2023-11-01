@@ -29,7 +29,8 @@ export class lioncomputer extends clsScrapper {
               }
             },
             url: {
-              removeWWW: true
+              removeWWW: true,
+              ignoreContentOnPath: ["/topic"]
             }
         })
     }

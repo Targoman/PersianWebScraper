@@ -52,19 +52,6 @@ class clsStudioKhabarBased extends clsScrapper {
 }
 
 /***********************************************************/
-export class ibna extends clsStudioKhabarBased {
-    constructor() {
-        super(enuDomains.ibna, "ibna.ir", {
-            selectors: {
-                datetime: {
-                    splitter: (el: HTMLElement) => super.extractDate(el, "-")?.replace("تاریخ انتشار", "") || "DATE NOT FOUND",
-                }
-            }
-        })
-    }
-}
-
-/***********************************************************/
 export class jahannews extends clsStudioKhabarBased {
     constructor() {
         super(enuDomains.jahannews, "jahannews.com", {

@@ -336,6 +336,9 @@ export class shahraranews extends clsIransamaneh {
                     selector: ".path-cover a",
                 },
                 tags: ".tags_container a"
+            },
+            url: {
+                extraInvalidStartPaths: ["/fa/search"]
             }
         })
     }

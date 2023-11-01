@@ -1,5 +1,5 @@
 import { string, optional, number, positional, option, oneOf, flag } from 'cmd-ts';
-import { enuDomains, IntfGlobalconfigs } from './modules/interfaces';
+import { enuDomains, IntfGlobalConfigs } from './modules/interfaces';
 import { clsLogger, log } from "./modules/logger";
 import { command, run } from 'cmd-ts';
 import { parseEnum } from "./modules/common";
@@ -27,15 +27,9 @@ const app = command({
     args,
     handler: async (args: any) => {
         void args
-        /*        const sc = new scrappers["virgool"]
-                clsLogger.setVerbosity(10)
-                log.debug(sc.autoExtractDate('شنبه ۸ بهمن ۰۱ ۱۱:۲۲'))
-                process.exit()
-        */
-
 
         try {
-            let conf: IntfGlobalconfigs = {}
+            let conf: IntfGlobalConfigs = {}
             if (args.configFile) {
                 try {
                     /* eslint-disable */
@@ -88,7 +82,7 @@ const app = command({
 
             if (args.recheck) {
                 await scrapper.start(true);
-            }else if (args.runQuery)
+            } else if (args.runQuery)
                 await scrapper.runQuery(args.runQuery)
             else if (args.url)
                 await scrapper.check(args.url)

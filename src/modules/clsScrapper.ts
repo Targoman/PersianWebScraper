@@ -451,7 +451,7 @@ export abstract class clsScrapper {
                         || href.startsWith("tel:"))
                         return
 
-                    if(this.domain === enuDomains.blogsky && href.startsWith("/")) {
+                    if (this.domain === enuDomains.blogsky && href.startsWith("/")) {
                         href = firstLink + href;
                     }
 
@@ -548,7 +548,11 @@ export abstract class clsScrapper {
         try {
             const links = this.filterLinks(parsedHtml.querySelectorAll("a"))
             const article = this.selectElement(parsedHtml, parsedHtml, this.pConf.selectors?.article)
-            //log.debug(this.pConf.selectors?.article, article?.outerHTML)
+            const uri = this.safeCreateURL(url)
+            for (const path in this.pConf.url?.ignoreContentOnPath)
+                if (uri.pathname.startsWith(path))
+                    return { url, links }
+            //log.debug(parsedHtml.outerHTML, this.pConf.selectors?.article, article?.outerHTML)
             if (article)
                 return await this.processContentBox(url, links, article, parsedHtml, reqParams)
             else {
@@ -664,7 +668,7 @@ export abstract class clsScrapper {
 
                         if (text && text?.length > 2) {
                             const cmnt: IntfComment = { text }
-                            if(date)
+                            if (date)
                                 cmnt.date = date
                             if (author?.length && author !== 'ناشناس')
                                 cmnt.author = author

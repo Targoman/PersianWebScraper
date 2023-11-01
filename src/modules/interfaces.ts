@@ -97,7 +97,7 @@ export enum enuDomains {
     wikifa = "wikifa",
     yekpezeshk = "yekpezeshk",
     digiato = "digiato",
-    blog = "blog",
+    blogir = "blogir",
     yektanet = "yektanet",
     bazmineh = "bazmineh",
     namnak = "namnak",
@@ -114,7 +114,6 @@ export enum enuDomains {
     naghdfarsi = "naghdfarsi",
     ///////////// Not Ready
     zoomit = "zoomit",
-    blogir = "blogir",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
@@ -151,7 +150,7 @@ export enum enuDomains {
         afraca = "afraca",*/
 }
 
-export interface IntfGlobalconfigs {
+export interface IntfGlobalConfigs {
     debugVerbosity?: number,
     showInfo?: boolean,
     debugDB?: boolean,
@@ -235,6 +234,7 @@ export interface IntfDateSplitter {
 export interface IntfURLNormaliziztionConf {
     extraValidDomains?: string[]
     extraInvalidStartPaths?: string[],
+    ignoreContentOnPath?: string[],
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
     validPathsItemsToNormalize?: string[]
