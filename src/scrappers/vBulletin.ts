@@ -131,3 +131,13 @@ export class joomlafarsi extends clsVBulletinBased {
       })
   }
 }
+
+export class moshaver extends clsVBulletinBased {
+  constructor() {
+      super(enuDomains.moshaver, "forum.moshaver.co", {
+        url: {
+          removeWWW: true
+        }
+      })
+  }
+}
