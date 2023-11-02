@@ -10,6 +10,7 @@ export class wikifa extends clsScrapper {
                 content: {
                     main: "#mw-content-text p, img",
                 },
+                datetime:{acceptNoDate: true},
                 tags: "#mw-normal-catlinks ul li a",
                 category: {
                     selector: "#mw-normal-catlinks ul li a",

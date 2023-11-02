@@ -12,9 +12,9 @@ let lastInUse: number = -1
 export async function nextProxy(): Promise<IntfProxy | undefined> {
     if (gConfigs.proxies && gConfigs.hostIP) {
         while (always) {
-            const port = gConfigs.proxies[++lastInUse]
-            if (lastInUse >= gConfigs.proxies.length - 1)
+            if (++lastInUse >= gConfigs.proxies.length - 1)
                 lastInUse = 0
+            const port = gConfigs.proxies[lastInUse]
 
             log.debug("trying socks port: ", port)
             const cached = proxyCache.get(port)
@@ -34,7 +34,7 @@ export async function nextProxy(): Promise<IntfProxy | undefined> {
             if (ip && ip != "FAILED") {
                 log.debug("valid proxy: ", port, ip)
                 proxyCache.remove(port)
-                proxyCache.put(port, { ip, port, httpsAgent })
+                proxyCache.put(port, { ip, port, agent: httpsAgent })
                 return {
                     agent: httpsAgent,
                     port

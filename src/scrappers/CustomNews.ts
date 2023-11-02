@@ -500,7 +500,8 @@ export class namnak extends clsScrapper {
                 },
                 datetime: {
                     conatiner: ".a.s.f",
-                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND",
+                    acceptNoDate: true
                 },
                 category: {
                     selector: '#cpath a',
@@ -531,7 +532,8 @@ export class beytoote extends clsScrapper {
                 },
                 datetime: {
                     conatiner: "dd.published",
-                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND"
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND",
+                    acceptNoDate: true
                 },
                 category: {
                     selector: 'dd.category-name a',

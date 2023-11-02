@@ -85,7 +85,7 @@ export enum enuDomains {
     tebyan = "tebyan",
     digikala = "digikala",
     romanman = "romanman",
-    webhostingtalk = "webhostingtalk", 
+    webhostingtalk = "webhostingtalk",
     barnamenevis = "barnamenevis",
     p30world = "p30world",
     tarfandestan = "tarfandestan",
@@ -203,6 +203,20 @@ export interface IntfPageContent {
     links: string[],
 }
 
+export interface IntfDocFilecontent {
+    url: string,
+    category: string,
+    date?: string,
+    title?: string,
+    aboveTitle?: string,
+    subtitle?: string,
+    summary?: string,
+    content?: IntfText[],
+    comments?: IntfComment[]
+    images?: IntfImage[],
+    tags?: string[],
+}
+
 export interface IntfProxy {
     agent: SocksProxyAgent,
     port: string
@@ -263,7 +277,8 @@ export interface IntfProcessorConfigs {
         tags?: string | IntfSelectAllFunction,
         datetime?: {
             conatiner?: string | IntfSelectorFunction,
-            splitter?: string | IntfDateSplitter
+            splitter?: string | IntfDateSplitter,
+            acceptNoDate?: boolean
         }
         category?: {
             selector?: string | IntfSelectAllFunction,

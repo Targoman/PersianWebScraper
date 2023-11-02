@@ -684,10 +684,10 @@ export abstract class clsScrapper {
         }
 
         if (category) result.category = category
-        if(this.domain === enuDomains.wikifa || (!date && this.domain === enuDomains.beytoote)
-         || (!date && this.domain === enuDomains.namnak)) {
+
+        if (!date && this.pConf.selectors?.datetime?.acceptNoDate)
             date = "IGNORED";
-        }
+            
         if (!date) {
             if ((title || subtitle)) {
                 log.debug({ txt: datetimeElement?.innerText, article: article.innerHTML.substring(0, 10000) })
