@@ -684,6 +684,10 @@ export abstract class clsScrapper {
         }
 
         if (category) result.category = category
+        if(this.domain === enuDomains.wikifa || (!date && this.domain === enuDomains.beytoote)
+         || (!date && this.domain === enuDomains.namnak)) {
+            date = "IGNORED";
+        }
         if (!date) {
             if ((title || subtitle)) {
                 log.debug({ txt: datetimeElement?.innerText, article: article.innerHTML.substring(0, 10000) })
@@ -693,9 +697,6 @@ export abstract class clsScrapper {
                     log.file(this.domain, "Datetime not found: " + url)
             }
             date = "NO_DATE"
-            if (this.domain === enuDomains.wikifa) {
-                date = "IGNORED";
-            }
         }
         if (!title) {
             if ((date && date !== "NO_DATE") || subtitle) {
