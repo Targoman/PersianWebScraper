@@ -5,6 +5,7 @@ import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
+import { formatNumber } from './modules/common';
 
 enum enuCommands {
     catStats = 'catStats'
@@ -58,9 +59,6 @@ function wordCount(str?: string): number {
     return str?.split(" ").length || 0
 }
 
-function formatNumber(num: number) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
 
 const app = command({
     name: 'tgscrapprocessor',
@@ -108,7 +106,7 @@ const app = command({
                             for (const cat in domainCats[dom]) {
                                 const s = domainCats[dom][cat]
                                 if (args.statFile)
-                                    appendFileSync(args.statFile, `${dom}, ${cat}, ${s.majorCat}, ${s.minorCat}, ${s.ke}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}\n`)
+                                    appendFileSync(args.statFile, `${dom}, ${cat},  ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}\n`)
                                 wc += s.mainWC +
                                     s.titleWC +
                                     s.surtitleWC +
@@ -179,3 +177,19 @@ const app = command({
 
 
 run(app, process.argv.slice(2))
+
+/*function normalizeCat(domain: enuDomains, cat?: string) {
+    let major: string, minor: string, normalized: string
+
+    if (!cat) return { major: "Undefined", minor: "Undefined" }
+
+    const nCat = cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -')
+    if (nCat.length > 100)
+        normalized = nCat.substring(0, 100)
+    else if (nCat != cat)
+        normalized = nCat
+
+    if (cat.startsWith("انجمن/") || cat.startsWith("تالار/"))
+
+        return { major, minor, normalized }
+}*/

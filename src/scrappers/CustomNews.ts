@@ -53,7 +53,10 @@ export class farsnews extends clsScrapper {
                     conatiner: ".publish-time, .data-box span:nth-child(3)",
                 },
                 category: {
-                    selector: ".subject-category",
+                    selector: (article: HTMLElement) => {
+                        const categories = article.querySelectorAll(".category-name a");
+                        return categories.length ? categories : article.querySelectorAll(".subject-category")
+                    },
                 }
             },
             url: {

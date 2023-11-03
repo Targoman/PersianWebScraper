@@ -35,6 +35,14 @@ const fa2enMap = {
     "۹": 9,
 };
 
+export function formatNumber(num: number) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+export function normalizeCat(cat:string) {
+    return cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0,100)
+}
+
 function parseFaCurrency(number: string) {
     if (!number)
         return 0
