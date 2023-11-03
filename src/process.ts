@@ -58,6 +58,10 @@ function wordCount(str?: string): number {
     return str?.split(" ").length || 0
 }
 
+function formatNumber(num: number) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
 const app = command({
     name: 'tgscrapprocessor',
     args,
@@ -80,7 +84,7 @@ const app = command({
                 /* eslint-enable */
                 log.info("Default config file loaded")
             } catch (e) {
-                /**/
+                /* */
             }
         }
 
@@ -95,6 +99,28 @@ const app = command({
                 {
                     let domainCats: { [key: string]: IntfCatStats } = {}
                     let docCount = 0
+                    let wc = 0
+                    const writeStatsFile = () => {
+                        if (args.statFile)
+                            writeFileSync(args.statFile, "domain,category,keywords,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,majorCat,minorCat\n")
+                        wc = 0
+                        for (const dom in domainCats) {
+                            for (const cat in domainCats[dom]) {
+                                const s = domainCats[dom][cat]
+                                if (args.statFile)
+                                    appendFileSync(args.statFile, `${dom}, ${cat}, ${s.majorCat}, ${s.minorCat}, ${s.ke}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}\n`)
+                                wc += s.mainWC +
+                                    s.titleWC +
+                                    s.surtitleWC +
+                                    s.subtitleWC +
+                                    s.summaryWC +
+                                    s.titleWC +
+                                    s.altWC +
+                                    s.commentWC
+                            }
+                        }
+                    }
+
                     processDir(args, (domain: string, doc: IntfDocFilecontent) => {
                         let mainWC = 0
                         let parCount = 0
@@ -132,23 +158,17 @@ const app = command({
                         domainCats[domain][category].altWC += altWC
                         domainCats[domain][category].commentCount += commentCount
                         domainCats[domain][category].commentWC += commentsWC
+
                         if (docCount % 10000 === 0) {
-                            log.status("--------- " + domain + " ----------")
-                            for (const cat in domainCats[domain]) {
-                                log.status({cat: domainCats[domain][cat]})
-                            }
+                            writeStatsFile()
+                            log.status(`--------- ${domain} - docs: ${formatNumber(docCount)} - wc: ${formatNumber(wc)} ----------`)
+                            for (const cat in domainCats[domain])
+                                log.status({ [cat]: domainCats[domain][cat] })
                         }
                         docCount++
                     })
                     log.status(domainCats, 3)
-                    if (args.statFile) {
-                        writeFileSync(args.statFile, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC")
-                        for (const dom in domainCats)
-                            for (const cat in domainCats[dom]) {
-                                const s = domainCats[dom][cat]
-                                appendFileSync(args.statFile, `${dom},${cat},${s.docs},${s.mainParagraphs},${s.mainWC},${s.titleWC},${s.surtitleWC},${s.subtitleWC},${s.summaryWC},${s.altWC},${s.commentCount},${s.commentWC}`)
-                            }
-                    }
+                    writeStatsFile()
                 }
                 break
         }
