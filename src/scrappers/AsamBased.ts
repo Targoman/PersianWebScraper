@@ -189,7 +189,7 @@ export class bartarinha extends clsAsamBased {
         else if (cat.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
         else if (cat.startsWith("سلامت") || cat.startsWith("ساختمان پزشکان"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("فرهنگ و هنر") || cat.startsWith("تلویزیون"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("علم و فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("علم و فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.startsWith("علم و دانش"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.startsWith("سینما") || cat.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
         else if (cat.startsWith("اخبار"))  return { major: enuMajorCategory.News }
