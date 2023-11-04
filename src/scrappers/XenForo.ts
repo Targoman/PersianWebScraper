@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -60,5 +60,10 @@ export class majidonline extends clsXenForoBased {
 export class bazicenter extends clsXenForoBased {
   constructor() {
     super(enuDomains.bazicenter, "forum.bazicenter.com")
+  }
+
+  mapCategory(cat?:string): IntfMappedCatgory {
+    if(cat === "صفحه اصلی/انجمن‌ها") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }
