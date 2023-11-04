@@ -1,6 +1,10 @@
 {
   "url": "https://www.varzesh3.com/news/1973995",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-29",
   "title": "شوک به یونایتد: این ستاره خوب‌بشو نیست",
   "subtitle": "لوک شاو، مدافع منچستریونایتد، حداقل تا وقفه دیدارهای ملی ماه آینده نمی‌تواند برای این تیم به میدان برود.",

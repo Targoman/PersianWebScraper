@@ -1,6 +1,10 @@
 {
   "url": "https://www.tarafdari.com/node/2373179",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-20",
   "aboveTitle": "قسمت هشتم پلی باکس را در یوتیوب تماشا کنید",
   "title": "آخرین بازمانده از ما؛ تراژدی و ترس در دنیای بی نظیر آخرالزمان / پلی باکس طرفداری + تیزر",

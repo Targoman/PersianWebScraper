@@ -1,6 +1,10 @@
 {
   "url": "https://www.varzesh3.com/news/1973814",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-28",
   "aboveTitle": "مربیان باید از من جلوتر باشند، نه اینكه من هلشان بدهم",
   "title": "دبیر: تغییر کادرفنی! همه چیز ممكن است!",

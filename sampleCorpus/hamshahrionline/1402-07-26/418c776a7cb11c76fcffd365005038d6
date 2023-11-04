@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/798800",
-  "category": "اخبار فرهنگی/تئاتر",
+  "category": {
+    "original": "اخبار فرهنگی/تئاتر",
+    "major": "News",           
+    "minor": "Art&Culture",
+    "subminor": "Theatre"
+  },    
   "date": "1402-07-26",
   "aboveTitle": "تئاتر مقاومت در گفت و گو با محمدمهدی خاتمی‌:",
   "title": "جنگ مسئله مرگ و زندگی است| وقتی فقط شعار می‌دهیم، نباید انتظار داشته باشیم تماشاگر ارتباط برقرار کند",

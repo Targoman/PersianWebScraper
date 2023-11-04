@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/797879",
-  "category": "اخبار سلامت و پزشکی/پزشکی",
+  "category": {
+    "original": "اخبار سلامت و پزشکی/پزشکی",
+    "major": "News",           
+    "minor": "Health",
+    "subminor": "Medical"
+  },          
   "date": "1402-07-24",
   "aboveTitle": "نکته بهداشتی روز:",
   "title": "درباره آگورافوبیا یا گذرهراسی",

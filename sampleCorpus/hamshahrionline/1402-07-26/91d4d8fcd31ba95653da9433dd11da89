@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/798662",
-  "category": "اخبار فرهنگی/فرهنگ عمومی",
+  "category": {
+    "original": "اخبار فرهنگی/فرهنگ عمومی",
+    "major": "News",           
+    "minor": "Art&Culture",
+    "subminor": "Generic"
+  },          
   "date": "1402-07-26",
   "aboveTitle": "قاسم صادقی از همرزمان شهید ضرغام از تأثیر فرمانده در تحول روحی رزمنده‌ها می گوید:",
   "title": "ما مدعیانِ صفِ اول بودیم| از آخر مجلس شهدا را چیدند",

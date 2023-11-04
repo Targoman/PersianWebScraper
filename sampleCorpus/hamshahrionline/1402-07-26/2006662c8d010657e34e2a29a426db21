@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/798825",
-  "category": "کسب و کار/بازار",
+  "category": {
+    "original": "کسب و کار/بازار",
+    "major": "News",           
+    "minor": "Economics",
+    "subminor": "Reportage"
+  },    
   "date": "1402-07-26",
   "aboveTitle": "گزارش آگهی",
   "title": "معرفی انواع برندهای دستگاه تصفیه آب خانگی در تصفیه آسا",

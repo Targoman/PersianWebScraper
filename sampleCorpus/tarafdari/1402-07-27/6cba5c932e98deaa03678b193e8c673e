@@ -1,6 +1,10 @@
 {
   "url": "https://www.tarafdari.com/node/2376334",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-27",
   "title": "واکنش فرهاد مجیدی به گل زیبای تیمش؛ شباهت به حرکات دست زیدان بعد از گل گرت بیل به لیورپول / فیلم",
   "content": [

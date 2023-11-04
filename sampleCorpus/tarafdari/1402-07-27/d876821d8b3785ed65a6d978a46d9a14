@@ -1,6 +1,10 @@
 {
   "url": "https://www.tarafdari.com/node/2376390",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-27",
   "title": "رئیس هیئت فوتبال قزوین: تمام تلاشمان را کردیم تا میزبان خوبی باشیم / فیلم",
   "content": [

@@ -1,6 +1,10 @@
 {
   "url": "https://www.tarafdari.com/node/2373318",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-19",
   "title": "تیم منتخب هفته EA Sports FC24 تقدیم می کند: ژیرو در نقش دروازه بان!",
   "subtitle": "تیم منتخب هفته چهارم EA Sports FC24 منتشر شد.",

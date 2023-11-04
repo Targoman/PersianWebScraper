@@ -63,7 +63,6 @@ export class bazicenter extends clsXenForoBased {
   }
 
   mapCategory(cat?:string): IntfMappedCatgory {
-    if(cat === "صفحه اصلی/انجمن‌ها") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }

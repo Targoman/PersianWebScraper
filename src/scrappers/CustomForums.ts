@@ -64,7 +64,6 @@ export class bazmineh extends clsScrapper {
     }
 
     mapCategory(cat?:string): IntfMappedCatgory {
-      if(cat === "خانه/تالار گفتگو") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
       return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     }
 }

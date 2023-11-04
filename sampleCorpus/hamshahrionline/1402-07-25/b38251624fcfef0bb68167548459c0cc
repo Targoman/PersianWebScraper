@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/798278",
-  "category": "اخبار فرهنگی/سینما",
+  "category": {
+    "original": "اخبار فرهنگی/سینما",
+    "major": "News",           
+    "minor": "Art&Culture",
+    "subminor": "Cinema"
+  },   
   "date": "1402-07-25",
   "title": "پرونده مختارنامه دوباره باز شد",
   "subtitle": "نگارش کتاب «پرونده مختارنامه» که در قالب رمان، به مرور خاطرات سال‌های ساخت این سریال می پردازد، به پایان رسید.",
