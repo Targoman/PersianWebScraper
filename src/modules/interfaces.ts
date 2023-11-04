@@ -258,6 +258,12 @@ export enum enuSubMinorCategory {
     Intl = "Intl",
     Accident = "Accident",
     Art = "Art",
+    Cinema = "Cinema",
+    Music = "Cinema",
+    Theatre = "Cinema",
+    Futbol = "Futbol",
+    Ball = "Ball",
+    Wrestling = "Wrestling"
 }
 
 export interface IntfMappedCatgory {

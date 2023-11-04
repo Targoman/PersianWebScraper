@@ -182,7 +182,10 @@ export class bartarinha extends clsAsamBased {
         else if (cat.startsWith("تکنولوژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.startsWith("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         else if (cat.includes("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (cat.includes("ورزش") || cat.startsWith("توپ") || cat.startsWith("فوتبال") || cat.startsWith("کشتی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport  }
+        else if (cat.includes("ورزش"))return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.startsWith("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport ,subminor: enuSubMinorCategory.Ball }
+        else if (cat.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport ,subminor: enuSubMinorCategory.Futbol }
+        else if (cat.startsWith("کشتی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport ,subminor: enuSubMinorCategory.Wrestling }
         else if (cat.includes("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (cat.includes("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.includes("اقتصاد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
@@ -191,7 +194,8 @@ export class bartarinha extends clsAsamBased {
         else if (cat.includes("فرهنگ و هنر") || cat.startsWith("تلویزیون"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.includes("علم و فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.startsWith("علم و دانش"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
-        else if (cat.startsWith("سینما") || cat.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (cat.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (cat.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
         else if (cat.startsWith("اخبار"))  return { major: enuMajorCategory.News }
 
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
