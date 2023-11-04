@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -107,6 +107,31 @@ export class baharnews extends clsStudioKhabarBased {
             path = `/${pathParts[1]}/${pathParts[2]}`
 
         return url.protocol + "//" + hostname + path
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second === '') return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (first.startsWith("گفتگو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+        else if (first.startsWith("گزارش تصویری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("ورزشی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport  }
+        else if (second.startsWith("جامعه"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (second.startsWith("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("بین الملل"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (second.startsWith("اقتصادی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("کسب و کار"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("اقتصاد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("عکس"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("فیلم"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("فرهنگ و هنر"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (second.startsWith("علم و فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        
+        return { major: enuMajorCategory.News }
     }
 }
 
