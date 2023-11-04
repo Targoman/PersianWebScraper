@@ -263,7 +263,7 @@ export enum enuSubMinorCategory {
 export interface IntfMappedCatgory {
     major: enuMajorCategory,
     minor?: enuMinorCategory,
-    subminor?: enuSubMinorCategory
+    subminor?: enuSubMinorCategory | enuMinorCategory
 }
 
 export interface IntfProxy {
