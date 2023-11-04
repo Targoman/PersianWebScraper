@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -173,6 +173,28 @@ export class bartarinha extends clsAsamBased {
                 tags: (article: HTMLElement) => article.querySelector(".article_tags")?.querySelectorAll("a")
             }
         })
+    }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+
+        if (cat.startsWith("سبک زندگی") || cat.startsWith("دکوراسیون") || cat.startsWith("گردشگری") || cat.startsWith("مد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.startsWith("تکنولوژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("ورزش") || cat.startsWith("توپ") || cat.startsWith("فوتبال") || cat.startsWith("کشتی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport  }
+        else if (cat.includes("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("اقتصاد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.startsWith("سلامت") || cat.startsWith("ساختمان پزشکان"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("فرهنگ و هنر") || cat.startsWith("تلویزیون"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("علم و فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("علم و دانش"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("سینما") || cat.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (cat.startsWith("اخبار"))  return { major: enuMajorCategory.News }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
     }
 }
 
