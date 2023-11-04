@@ -555,7 +555,6 @@ export class arzdigital extends clsScrapper {
                 datetime: {
                     conatiner: "time",
                     splitter: (el: HTMLElement) => {
-                        console.log(el.textContent.includes("آخرین"))
                         const date = el.getAttribute("datetime")?.match(/\d{4}-\d{2}-\d{2}/);
                         if(!el.textContent.includes("آخرین") && date) {
                           return date[0];
@@ -578,6 +577,37 @@ export class arzdigital extends clsScrapper {
                     text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
                 }
             },
+        })
+    }
+}
+
+export class ramzarz extends clsScrapper {
+    constructor() {
+        super(enuDomains.ramzarz, "ramzarz.news", {
+            selectors: {
+                article: "article.single-post-content, article.single-page-content, article.question-share-2",
+                title: "h1",
+                content: {
+                    main: ".entry-content p, img, #myTable",
+                },
+                datetime: {
+                    conatiner: "time b",
+                    splitter: (el: HTMLElement) => super.extractDate(el, "-") || "DATE NOT FOUND",
+                    acceptNoDate: true
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a, p.breadcrumb-st a, span.breadcrumb-item span a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-author",
+                    datetime: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-date",
+                    text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true,
+            }
         })
     }
 }
