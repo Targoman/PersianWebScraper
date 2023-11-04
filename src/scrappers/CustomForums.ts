@@ -63,7 +63,7 @@ export class bazmineh extends clsScrapper {
         })
     }
 
-    mapCategory(cat?:string): IntfMappedCatgory {
+    mapCategory(): IntfMappedCatgory {
       return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     }
 }

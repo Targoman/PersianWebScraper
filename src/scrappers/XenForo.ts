@@ -62,7 +62,7 @@ export class bazicenter extends clsXenForoBased {
     super(enuDomains.bazicenter, "forum.bazicenter.com")
   }
 
-  mapCategory(cat?:string): IntfMappedCatgory {
+  mapCategory(): IntfMappedCatgory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }

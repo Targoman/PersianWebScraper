@@ -260,8 +260,8 @@ export enum enuSubMinorCategory {
     Accident = "Accident",
     Art = "Art",
     Cinema = "Cinema",
-    Music = "Cinema",
-    Theatre = "Cinema",
+    Music = "Music",
+    Theatre = "Theatre",
     Futbol = "Futbol",
     Ball = "Ball",
     Wrestling = "Wrestling"
