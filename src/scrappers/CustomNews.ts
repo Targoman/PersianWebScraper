@@ -545,3 +545,39 @@ export class beytoote extends clsScrapper {
         })
     }
 }
+
+export class arzdigital extends clsScrapper {
+    constructor() {
+        super(enuDomains.arzdigital, "arzdigital.com", {
+            selectors: {
+                article: "#post-page, .arz-tw-w-full, section.arz-coin-page-body",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => {
+                        console.log(el.textContent.includes("آخرین"))
+                        const date = el.getAttribute("datetime")?.match(/\d{4}-\d{2}-\d{2}/);
+                        if(!el.textContent.includes("آخرین") && date) {
+                          return date[0];
+                        }
+                        else
+                          return super.extractDate(el, "-") || "DATE NOT FOUND"
+                    },
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "section.arz-post__content, .arz-breaking-news-post__content, .ideas-update-content, #panzoom-element, arz-coin-details__explanation-text",
+                },
+                tags: "ul.arz-post-tags__list li a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.arz-path-list li a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-author",
+                    text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
+                }
+            },
+        })
+    }
+}
