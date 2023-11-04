@@ -560,6 +560,22 @@ export class danakhabar extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (first.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (first.startsWith("دانش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (first.startsWith("ایرانشناسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (second.startsWith("راهبرد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("خبر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+    }
 }
 
 export class iraneconomist extends clsIransamaneh {
