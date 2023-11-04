@@ -2,6 +2,12 @@
 
 A scrapper to scrape popular persian websites. This is intended to be used as a tool to create corpora for Persian language. The scrapper supports Socks5 in order to rotate requests between multiple IPs 
 
+### Table of contents
+- [Motivation](#motivation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Corpus](#corpus)
+- [License](#license)
 
 ## Motivation
 GPT3 as the first successful large language model has made it evident that training very large language models on extensively large text corpora results in useful models that perform various NLP tasks without any actual training. One of the two main reasons for this to become possible is the structure of the training data i.e. an extensively large text corpora. As pointed out in the GPT3 paper, large text corpora contains different contexts each with suitably large number of examples that enable the models to do -- what they call -- "in-context learning". 
@@ -68,7 +74,7 @@ and to use it create a container and run it using the following command:
 
 you can also use scripts provided in the scripts folder to run the scraper on multiple domains
 
-## Config file 
+## Configuration 
 Config file is optional but helps to provide all your scrappers with same base configuration options. It is a JSON file with following fields which again, are all optional:
 
 ```
@@ -241,3 +247,5 @@ protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string
 ## Corpus
 We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which will be soon published on Huggingface
 
+## License
+PersianWebScrapper is published under the terms of [LGPLv3 License](./LICENSE.txt)
