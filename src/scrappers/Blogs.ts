@@ -92,7 +92,6 @@ export class lastsecond extends clsScrapper {
             selectors: {
                 article:".post-show__content, .travelogue-show__content, .video-show",
                 title: (article: HTMLElement, fullHtml: HTMLElement)=>{
-                    console.log(fullHtml.querySelectorAll(".breadcrumb-list__item"))
                     return article.querySelector(".title") || fullHtml.querySelectorAll(".breadcrumb-list__item").at(fullHtml.querySelectorAll(".breadcrumb-list__item").length - 1)
                 },
 

@@ -1,6 +1,11 @@
 {
   "url": "https://www.hamshahrionline.ir/news/798603",
-  "category": "اخبار فرهنگی/موسیقی",
+  "category": {
+    "original": "اخبار فرهنگی/موسیقی",
+    "major": "News",           
+    "minor": "Art&Culture",
+    "subminor": "Music"
+  },    
   "date": "1402-07-26",
   "aboveTitle": "برای همدردی با مردم غزه",
   "title": "تمام کنسرت‌ها لغو شدند",

@@ -1,6 +1,10 @@
 {
   "url": "https://www.tarafdari.com/node/2375426",
-  "category": "undefined",
+  "category": {
+    "original": "undefined",
+    "major": "News",           
+    "minor": "Sport"
+  },    
   "date": "1402-07-25",
   "aboveTitle": "به بهانه نبرد سنگین‌وزنان در دیدار مهم مقدماتی یورو ٢٠٢٤",
   "title": "ایتالیا و انگلیس؛ یک مشت خاطره",

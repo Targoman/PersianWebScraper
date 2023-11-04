@@ -93,7 +93,12 @@ PersianWebScrapper scrapes whole contents of the target site in order to find al
 ```
 {
     url: string,                //Article normalized URL
-    category?: string,          //Category as specified by the article
+    category: {
+        original: string        //Category as specified by the article
+        major: string           //Major category acn be News, Literature, Forum, Weblog, Wiki, SocialMedia, Undefined
+        minor?: string          //Minor category
+        subminor?: string       //Subminor category
+    },          
     date: string,               //Article publish date (if specified)
     title: string,              //Title of the article
     aboveTitle?: string,        //Surtitle or any text provided before Title
