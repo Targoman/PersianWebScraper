@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -16,7 +16,9 @@ import {
     IntfContentHolder,
     IntfDateSplitter,
     IntfIsValidFunction,
-    IntfURLNormaliziztionConf
+    IntfURLNormaliziztionConf,
+    IntfMappedCatgory,
+    enuMajorCategory
 } from "./interfaces"
 import { log } from "./logger"
 import HP, { HTMLElement, Node, NodeType } from "node-html-parser"
@@ -421,7 +423,17 @@ export abstract class clsScrapper {
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
 
-                        const toWrite = { url: page.url, category: page.category, ...page.article }
+                        const origianlCategory = normalizeCategory(page.category)
+                        const mappedCategory = this.mapCategory(origianlCategory)
+                        const category = { original: origianlCategory }
+                        if (mappedCategory) {
+                            category["major"] = mappedCategory.major
+                            if (mappedCategory.minor)
+                                category["minor"] = mappedCategory.minor
+                            if (mappedCategory.subminor)
+                                category["subminor"] = mappedCategory.subminor
+                        }
+                        const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url),
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
                         )
@@ -687,7 +699,7 @@ export abstract class clsScrapper {
 
         if (!date && this.pConf.selectors?.datetime?.acceptNoDate)
             date = "IGNORED";
-            
+
         if (!date) {
             if ((title || subtitle)) {
                 log.debug({ txt: datetimeElement?.innerText, article: article.innerHTML.substring(0, 10000) })
@@ -733,7 +745,6 @@ export abstract class clsScrapper {
 
         return result
     }
-
 
     private isSameDomain(url: URL) {
         const validDomains = [this.baseURL.replace(/\//g, ""), ...this.pConf.url?.extraValidDomains || []]
@@ -820,5 +831,10 @@ export abstract class clsScrapper {
                 path = `${pathParts.slice(0, pathToCheckIndex + 1).join("/")}/${pathParts[pathToCheckIndex + 1]}`
         }
         return url.protocol + "//" + hostname + path + url.search
+    }
+
+    protected mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
+        void category, tags
+        return {major:enuMajorCategory.Undefined}
     }
 }

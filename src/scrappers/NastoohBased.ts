@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs, IntfProxy } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProcessorConfigs, IntfProxy } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 import { getArvanCookie } from "../modules/request";
@@ -157,6 +157,21 @@ export class chtn extends clsNastoohBased {
                 extraInvalidStartPaths: ["/d/"]
             }
         })
+    }
+
+    mapCategory(cat?:string): IntfMappedCatgory {
+        if (!cat) return {major: enuMajorCategory.News, minor: enuMinorCategory.Culture}
+
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+        else if (second.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+
+        return {major: enuMajorCategory.News, minor: enuMinorCategory.Culture}
     }
 }
 

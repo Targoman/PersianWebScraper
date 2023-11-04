@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -82,8 +82,23 @@ export class aftabnews extends clsIransamaneh {
         void index, allElements
         return tag.classNames === "aftab_news" && tag.tagName === "DIV"
     }
-}
 
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        else if (cat.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("چندرسانه‌ایی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.startsWith("فرهنگ و هنر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("اقتصاد و صنعت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("علم، مهارت و فن آوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.endsWith("عمومی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News }
+    }
+}
 
 /***********************************************************/
 export class seratnews extends clsIransamaneh {
@@ -183,7 +198,7 @@ export class asriran extends clsIransamaneh {
             selectors: {
                 article: ".col1-news",
                 title: "h1",
-                
+
             }
         })
     }
@@ -205,6 +220,32 @@ export class bultannews extends clsIransamaneh {
                 },
             }
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second === '') return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (second.startsWith("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (second.startsWith("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("بین الملل"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("دین و اندیشه"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (second.startsWith("اقتصادی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("ورزشی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (second.startsWith("علمی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (second.startsWith("هنری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (second.startsWith("بولتن2"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("عکس"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (second.startsWith("فرهنگ و هنر"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("هسته ای"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("IT"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        else if (second.startsWith("انرژی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        
+        return { major: enuMajorCategory.News }
     }
 }
 
@@ -228,7 +269,7 @@ export class boursenews extends clsIransamaneh {
 
 export class fararu extends clsIransamaneh {
     constructor() {
-        super(enuDomains.fararu, "fararu.com", { 
+        super(enuDomains.fararu, "fararu.com", {
             selectors: {
                 article: ".col-main-news",
                 subtitle: ".content-lead-news"
@@ -239,7 +280,7 @@ export class fararu extends clsIransamaneh {
 
 export class parsine extends clsIransamaneh {
     constructor() {
-        super(enuDomains.parsine, "parsine.com", { 
+        super(enuDomains.parsine, "parsine.com", {
             selectors: {
                 article: ".general-news-body",
             }
@@ -249,7 +290,7 @@ export class parsine extends clsIransamaneh {
 
 export class shianews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shianews, "shia-news.com", { 
+        super(enuDomains.shianews, "shia-news.com", {
             selectors: {
                 article: ".news-body",
                 datetime: {
@@ -263,7 +304,7 @@ export class shianews extends clsIransamaneh {
 
 export class iribnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.iribnews, "iribnews.ir", { 
+        super(enuDomains.iribnews, "iribnews.ir", {
             selectors: {
                 article: ".news_general_dl, .photo_body",
                 title: ".title, .video_title",
@@ -285,7 +326,7 @@ export class iribnews extends clsIransamaneh {
 
 export class mizanonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shianews, "mizanonline.ir", { 
+        super(enuDomains.shianews, "mizanonline.ir", {
             selectors: {
                 article: ".main_news_body, .main-body",
             }
@@ -295,7 +336,7 @@ export class mizanonline extends clsIransamaneh {
 
 export class kayhan extends clsIransamaneh {
     constructor() {
-        super(enuDomains.kayhan, "kayhan.ir", { 
+        super(enuDomains.kayhan, "kayhan.ir", {
             selectors: {
                 article: ".margin_bt_fari div[style='direction: rtl;']",
                 datetime: {
@@ -305,7 +346,7 @@ export class kayhan extends clsIransamaneh {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
                 }
             },
-            url:{
+            url: {
                 removeWWW: true
             }
         })
@@ -314,7 +355,7 @@ export class kayhan extends clsIransamaneh {
 
 export class basijnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.basijnews, "basijnews.ir", { 
+        super(enuDomains.basijnews, "basijnews.ir", {
             selectors: {
                 article: ".page",
             }
@@ -324,7 +365,7 @@ export class basijnews extends clsIransamaneh {
 
 export class shahraranews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shahraranews, "shahraranews.ir", { 
+        super(enuDomains.shahraranews, "shahraranews.ir", {
             selectors: {
                 article: ".news-content, .news-main",
                 datetime: {
@@ -346,7 +387,7 @@ export class shahraranews extends clsIransamaneh {
 
 export class rasanews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.rasanews, "rasanews.ir", { 
+        super(enuDomains.rasanews, "rasanews.ir", {
             selectors: {
                 article: ".news_content",
             }
@@ -356,7 +397,7 @@ export class rasanews extends clsIransamaneh {
 
 export class didarnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.didarnews, "didarnews.ir", { 
+        super(enuDomains.didarnews, "didarnews.ir", {
             selectors: {
                 article: ".news-body",
                 title: ".title_c",
@@ -371,7 +412,7 @@ export class didarnews extends clsIransamaneh {
 
 export class niniban extends clsIransamaneh {
     constructor() {
-        super(enuDomains.niniban, "niniban.com", { 
+        super(enuDomains.niniban, "niniban.com", {
             selectors: {
                 article: ".col-md-24",
                 datetime: {
@@ -386,7 +427,7 @@ export class niniban extends clsIransamaneh {
 
 export class roozno extends clsIransamaneh {
     constructor() {
-        super(enuDomains.roozno, "roozno.com", { 
+        super(enuDomains.roozno, "roozno.com", {
             selectors: {
                 article: ".news-content",
                 tags: ".tags_title a"
@@ -397,7 +438,7 @@ export class roozno extends clsIransamaneh {
 
 export class noandish extends clsIransamaneh {
     constructor() {
-        super(enuDomains.noandish, "noandish.com", { 
+        super(enuDomains.noandish, "noandish.com", {
             selectors: {
                 article: ".middle_news_body",
                 subtitle: ".newspage_subtitle"
@@ -408,7 +449,7 @@ export class noandish extends clsIransamaneh {
 
 export class javanonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.javanonline, "javanonline.ir", { 
+        super(enuDomains.javanonline, "javanonline.ir", {
             selectors: {
                 article: ".over-hide",
             }
@@ -419,11 +460,40 @@ export class aghigh extends clsIransamaneh {
     constructor() {
         super(enuDomains.aghigh, "aghigh.ir")
     }
+
+    mapCategory(cat?: string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (first.startsWith("خانه")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
+        else if (first.startsWith("گفت‌و‌گو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+        
+        else if (first.startsWith("سرویس صوت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (first.startsWith("گزارش تصویری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("برنامه تلویزیونی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        
+        else if (second.endsWith("هیئت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (second.endsWith("هیات ها")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (second.endsWith("مذهبی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (second.startsWith("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("تیتر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+
+        else if (second.startsWith("نقد شعر")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+        else if (second.startsWith("شعر جوان")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        else if (second.startsWith("مداحی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        else if (second.startsWith("شب های دلتنگی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        else if (second.startsWith("حرف دل")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        else if (first.startsWith("شعر آیینی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class paydarymelli extends clsIransamaneh {
     constructor() {
-        super(enuDomains.paydarymelli, "paydarymelli.ir", { 
+        super(enuDomains.paydarymelli, "paydarymelli.ir", {
             selectors: {
                 article: "div[style='direction: rtl;']",
                 datetime: {
@@ -439,7 +509,7 @@ export class paydarymelli extends clsIransamaneh {
 
 export class danakhabar extends clsIransamaneh {
     constructor() {
-        super(enuDomains.danakhabar, "danakhabar.com", { 
+        super(enuDomains.danakhabar, "danakhabar.com", {
             selectors: {
                 article: ".main-body-page-news",
             }
@@ -449,7 +519,7 @@ export class danakhabar extends clsIransamaneh {
 
 export class iraneconomist extends clsIransamaneh {
     constructor() {
-        super(enuDomains.iraneconomist, "iraneconomist.com", { 
+        super(enuDomains.iraneconomist, "iraneconomist.com", {
             selectors: {
                 article: ".main_news_col",
             }
@@ -459,7 +529,7 @@ export class iraneconomist extends clsIransamaneh {
 
 export class barghnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.barghnews, "barghnews.com", { 
+        super(enuDomains.barghnews, "barghnews.com", {
             selectors: {
                 article: "div[style='direction: rtl;']",
                 datetime: {
@@ -471,11 +541,15 @@ export class barghnews extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory() : IntfMappedCatgory{
+        return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+    }
 }
 
 export class shohadayeiran extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shohadayeiran, "shohadayeiran.com", { 
+        super(enuDomains.shohadayeiran, "shohadayeiran.com", {
             selectors: {
                 article: ".news_body",
             },
@@ -485,7 +559,7 @@ export class shohadayeiran extends clsIransamaneh {
 
 export class sedayiran extends clsIransamaneh {
     constructor() {
-        super(enuDomains.sedayiran, "sedayiran.com", { 
+        super(enuDomains.sedayiran, "sedayiran.com", {
             selectors: {
                 article: ".marg-news, #photo",
                 datetime: {
@@ -502,7 +576,7 @@ export class sedayiran extends clsIransamaneh {
 
 export class tejaratonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.tejaratonline, "tejaratonline.ir", { 
+        super(enuDomains.tejaratonline, "tejaratonline.ir", {
             selectors: {
                 article: ".news_content",
             },
@@ -512,7 +586,7 @@ export class tejaratonline extends clsIransamaneh {
 
 export class sarmadnews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.sarmadnews, "sarmadnews.com", { 
+        super(enuDomains.sarmadnews, "sarmadnews.com", {
             selectors: {
                 article: ".col2_inner",
             },
@@ -522,7 +596,7 @@ export class sarmadnews extends clsIransamaneh {
 
 export class goftareno extends clsIransamaneh {
     constructor() {
-        super(enuDomains.goftareno, "goftareno.ir", { 
+        super(enuDomains.goftareno, "goftareno.ir", {
             selectors: {
                 article: ".newspage_right_col",
                 aboveTitle: ".newspage_rutitr",
@@ -534,7 +608,7 @@ export class goftareno extends clsIransamaneh {
 
 export class tejaratemrouz extends clsIransamaneh {
     constructor() {
-        super(enuDomains.tejaratemrouz, "tejaratemrouz.ir", { 
+        super(enuDomains.tejaratemrouz, "tejaratemrouz.ir", {
             selectors: {
                 article: ".body_news",
             },
@@ -544,7 +618,7 @@ export class tejaratemrouz extends clsIransamaneh {
 
 export class vananews extends clsIransamaneh {
     constructor() {
-        super(enuDomains.vananews, "vananews.com", { 
+        super(enuDomains.vananews, "vananews.com", {
             selectors: {
                 article: ".body_news",
                 datetime: {
@@ -557,7 +631,7 @@ export class vananews extends clsIransamaneh {
 
 export class tabnakbato extends clsIransamaneh {
     constructor() {
-        super(enuDomains.tabnakbato, "tabnakbato.ir", { 
+        super(enuDomains.tabnakbato, "tabnakbato.ir", {
             selectors: {
                 article: ".khabar-body",
             },
@@ -567,7 +641,7 @@ export class tabnakbato extends clsIransamaneh {
 
 export class shoaresal extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shoaresal, "shoaresal.ir", { 
+        super(enuDomains.shoaresal, "shoaresal.ir", {
             selectors: {
                 article: ".nopadd",
                 title: ".title_news"
@@ -578,10 +652,22 @@ export class shoaresal extends clsIransamaneh {
 
 export class bankdariirani extends clsIransamaneh {
     constructor() {
-        super(enuDomains.bankdariirani, "bankdariirani.ir", { 
+        super(enuDomains.bankdariirani, "bankdariirani.ir", {
             selectors: {
                 article: ".news_body",
             },
         })
+    }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("علم و فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (second.startsWith("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        else if (second.startsWith("زنگ تفریح")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
     }
 }

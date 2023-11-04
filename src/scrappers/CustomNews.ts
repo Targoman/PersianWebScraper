@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfProxy, enuDomains, IntfComment } from "../modules/interfaces";
+import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory } from "../modules/interfaces";
 import HP, { HTMLElement } from "node-html-parser"
 import { axiosPost, getArvanCookie, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
@@ -104,6 +104,26 @@ export class alef extends clsScrapper {
 
     async initialCookie(proxy?: IntfProxy, url?: string) {
         return await getArvanCookie(url || "https://www.alef.ir", this.baseURL, proxy)
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        else if (cat.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.startsWith("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("یادداشت بینندگان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
+        else if (cat.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("کتاب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("جهان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
+        else if (cat.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.startsWith("ویدئو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+
+        return { major: enuMajorCategory.News }
     }
 }
 

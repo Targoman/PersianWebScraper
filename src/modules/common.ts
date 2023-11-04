@@ -39,8 +39,8 @@ export function formatNumber(num: number) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export function normalizeCat(cat:string) {
-    return cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0,100)
+export function normalizeCategory(cat?:string) {
+    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0,100)) : 'Undefined'
 }
 
 function parseFaCurrency(number: string) {

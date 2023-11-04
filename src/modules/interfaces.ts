@@ -217,6 +217,53 @@ export interface IntfDocFilecontent {
     tags?: string[],
 }
 
+export enum enuMajorCategory {
+    News = "News",
+    Literature = "Literature",
+    Forum = "Forum",
+    Undefined = "Undefined",
+    Weblog = "Weblog",
+    Wiki = "Wiki",
+    SocialMedia = "SocialMedia"
+}
+
+export enum enuMinorCategory {
+    Political = "Political",
+    Social = "Social",
+    Health = "Health",
+    Economics = "Economics",
+    Culture = "Art&Culture",
+    Sport = "Sport",
+    ScienceTech = "Science&Tech",
+    Undefined = "Undefined",
+    Generic = "Generic",
+    Multimedia = "Multimedia",
+    Talk = "Talk",
+    Discussion = "Discussion",
+    Poem = "Poem",
+    Text = "Text",
+    Local = "Local",
+    Religious = "Religious",
+    Law = "Law",
+    LifeStyle = "LifeStyle"
+}
+
+export enum enuSubMinorCategory {
+    IT = "IT",
+    Car = "Car",
+    Gadgets = "Gadgets",
+    AI = "AI",
+    Intl = "Intl",
+    Accident = "Accident",
+    Art = "Art",
+}
+
+export interface IntfMappedCatgory {
+    major: enuMajorCategory,
+    minor?: enuMinorCategory,
+    subminor?: enuSubMinorCategory
+}
+
 export interface IntfProxy {
     agent: SocksProxyAgent,
     port: string

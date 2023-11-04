@@ -1,6 +1,6 @@
 
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfComment } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, IntfComment, IntfMappedCatgory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import { dateOffsetToDate, fa2En, getElementAtIndex, normalizeText } from "../modules/common";
 import { axiosPost, IntfRequestParams } from "../modules/request";
@@ -301,6 +301,11 @@ export class blogir extends clsScrapper {
             }
         })
     }
+
+    mapCategory(_:string, tags?:string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.Weblog }
+    }
 }
 
 export class yektanet extends clsScrapper {
@@ -363,6 +368,10 @@ export class blogsky extends clsScrapper {
                 removeWWW: true,
             }
         })
+    }
+    mapCategory(_:string, tags?:string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.Weblog }
     }
 }
 
