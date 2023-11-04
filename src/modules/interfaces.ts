@@ -112,6 +112,7 @@ export enum enuDomains {
     moshaver = "moshaver",
     oghyanos = "oghyanos",
     naghdfarsi = "naghdfarsi",
+    arzdigital = "arzdigital",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",
