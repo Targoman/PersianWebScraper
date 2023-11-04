@@ -138,6 +138,25 @@ export class fardanews extends clsAsamBased {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("عمومی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (second.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (first.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (first.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (first.startsWith("اقتصاد") || first.startsWith("قیمت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (first.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+    }
 }
 
 /***********************************************************/
