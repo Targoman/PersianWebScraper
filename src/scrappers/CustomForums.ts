@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains } from "../modules/interfaces";
+import { IntfMappedCatgory, enuDomains, enuMajorCategory, enuMinorCategory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 
 export class lioncomputer extends clsScrapper {
@@ -61,6 +61,11 @@ export class bazmineh extends clsScrapper {
               extraInvalidStartPaths: ["/articles", "/article", "/inspiration", "/quiz", "/fun", "/user", "/marketplace", "/login", "/vendor"]
             }
         })
+    }
+
+    mapCategory(cat?:string): IntfMappedCatgory {
+      if(cat === "خانه/تالار گفتگو") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+      return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     }
 }
 

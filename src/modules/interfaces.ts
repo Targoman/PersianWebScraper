@@ -247,7 +247,8 @@ export enum enuMinorCategory {
     Local = "Local",
     Religious = "Religious",
     Law = "Law",
-    LifeStyle = "LifeStyle"
+    LifeStyle = "LifeStyle",
+    Game = "Game"
 }
 
 export enum enuSubMinorCategory {
