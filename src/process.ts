@@ -118,6 +118,16 @@ const app = command({
                         return normalizedText
                     }
 
+                    const normalizeDate = (date?: string) => {
+                        const gregorianDate = date2Gregorian(date)
+                        if (gregorianDate?.startsWith("INVALID:"))
+                            log.file(scrapper.name(), filePath, date)
+
+                        if (gregorianDate != date)
+                            anythingChanged = true
+                        return gregorianDate
+                    }
+
                     if (typeof docCategory === 'string') {
                         doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
                         doc.category['original'] = docCategory;
@@ -126,16 +136,8 @@ const app = command({
                     for (const key in doc) {
                         if (key === "category")
                             continue
-                        else if (key === "date") {
-                            const gregorianDate = date2Gregorian(doc[key])
-                            if (gregorianDate?.startsWith("INVALID:"))
-                                log.file(scrapper.name(), filePath, doc[key])
-
-                            if (gregorianDate != doc[key]) {
-                                anythingChanged = true
-                                doc[key] = gregorianDate
-                            }
-                        }
+                        else if (key === "date")
+                            doc[key] = normalizeDate(doc[key])
                         else if (typeof doc[key] === "string")
                             doc[key] = normalize(doc[key])
                         else
@@ -143,8 +145,12 @@ const app = command({
                                 if (typeof doc[key][i] === "string")
                                     doc[key][i] = normalize(doc[key][i])
                                 else
-                                    for (const innerKey in doc[key][i])
-                                        doc[key][i][innerKey] = normalize(doc[key][i][innerKey])
+                                    for (const innerKey in doc[key][i]) {
+                                        if (innerKey === "date")
+                                            doc[key][i][innerKey] = normalizeDate(doc[key][i][innerKey])
+                                        else
+                                            doc[key][i][innerKey] = normalize(doc[key][i][innerKey])
+                                    }
                             }
                     }
 
