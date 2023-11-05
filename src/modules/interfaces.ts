@@ -250,6 +250,7 @@ export enum enuMinorCategory {
     LifeStyle = "LifeStyle",
     Game = "Game",
     Education = "Education",
+    Literature = "Literature",
 }
 
 export enum enuSubMinorCategory {

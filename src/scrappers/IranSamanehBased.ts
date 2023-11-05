@@ -586,6 +586,23 @@ export class iraneconomist extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("علمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (second.startsWith("چهره") || second.startsWith("دیدنی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class barghnews extends clsIransamaneh {
