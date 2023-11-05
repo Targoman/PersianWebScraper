@@ -106,15 +106,17 @@ const app = command({
         switch (args.command) {
             case enuCommands.normalize: {
                 let updatedCount = 0;
-                return processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
                     const docCategory = !doc.category ? "undefined" : doc.category;
                     let anythingChanged = false
 
                     const normalize = (text?: string) => {
                         if (!text) return text
                         const normalizedText = normalizeText(text)
-                        if (normalizedText !== text)
+                        if (normalizedText != text) {
+                            log.debug({text})
                             anythingChanged = true
+                        }
                         return normalizedText
                     }
 
@@ -123,16 +125,13 @@ const app = command({
                         if (gregorianDate?.startsWith("INVALID:"))
                             log.file(scrapper.name(), filePath, date)
 
-                        if (gregorianDate != date)
+                        if (gregorianDate != date) {
+                            log.debug({date})
                             anythingChanged = true
+                        }
                         return gregorianDate
                     }
 
-                    if (typeof docCategory === 'string') {
-                        doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
-                        doc.category['original'] = docCategory;
-                        anythingChanged = true
-                    }
                     for (const key in doc) {
                         if (key === "category")
                             continue
@@ -153,15 +152,25 @@ const app = command({
                             }
                     }
 
+                    if (typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
+                        doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
+                        doc.category['original'] = docCategory;
+                        log.debug({docCategory})
+                        anythingChanged = true
+                    }
+
+
                     if (anythingChanged) {
                         writeFileSync(filePath + '.updated', JSON.stringify(doc));
                         updatedCount++;
                     }
 
-                    if (processedCount % 1 === 0)
-                        log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
+                    if (processedCount % 1000 === 0)
+                    log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
                     processedCount++
                 })
+                log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
+                break
             }
             case enuCommands.catStats:
                 {

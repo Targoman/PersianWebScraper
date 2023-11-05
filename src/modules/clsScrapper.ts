@@ -445,7 +445,7 @@ export abstract class clsScrapper {
                                 category["subminor"] = mappedCategory.subminor
                         }
                         const toWrite = { url: page.url, category, ...page.article }
-                        writeFileSync(filePath + "/" + Md5.hashStr(page.url),
+                        writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
                         )
                         this.db.setStatus(id, enuURLStatus.Content, null, wc)
