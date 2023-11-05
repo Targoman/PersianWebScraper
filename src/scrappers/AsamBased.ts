@@ -76,6 +76,32 @@ export class ilna extends clsAsamBased {
     constructor() {
         super(enuDomains.ilna, "ilna.ir")
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("کتاب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Literature }
+        else if (cat.includes("اقتصادی") || cat.includes("کارگری") || first.startsWith("قیمت")
+         || first.startsWith("نرخ") || first.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.includes("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (cat.includes("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        else if (first.startsWith("عکس") || first.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("بین") || cat.startsWith("سیاست خارجی") || first.startsWith("جنبش عدم تعهد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("ورزشی") || first.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.includes("اجتماعی") && second.startsWith("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
+        else if (first.includes("اجتماعی") && second.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        else if (cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (first.includes("چندرسانه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia}
+        else if (first.startsWith("استان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        else if (cat.includes("کاریکاتور")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("سیاسی") || first.startsWith("انتخابات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
