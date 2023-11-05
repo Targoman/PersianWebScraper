@@ -546,6 +546,24 @@ export class javanonline extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("سیاسی") || cat.includes("سیاست") || cat.includes("مقاومت") || cat.includes("دفاع")
+         || cat.includes("تاریخ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("جامعه") || cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.startsWith("چندرسانه") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("سبک زندگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 export class aghigh extends clsIransamaneh {
     constructor() {
