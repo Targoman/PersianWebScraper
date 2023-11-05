@@ -1,6 +1,7 @@
 import he from "he"
 import { HTMLElement, Node, NodeType } from "node-html-parser";
 import jmoment from 'jalali-moment'
+import {PersianShaper} from "arabic-persian-reshaper"
 
 export function parseEnum(e: any, str: string) {
     const enumKeys = Object.keys(e);
@@ -39,8 +40,8 @@ export function formatNumber(num: number) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export function normalizeCategory(cat?:string) {
-    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0,100)) : 'Undefined'
+export function normalizeCategory(cat?: string) {
+    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
 }
 
 function parseFaCurrency(number: string) {
@@ -89,13 +90,15 @@ export function persianMonthNumber(month: string): string | number {
 export function normalizeText(text?: string) {
     if (!text)
         return text
-    return he.decode(text).trim()
+    return PersianShaper.convertArabicBack(
+        he.decode(text)
         .replace(/\r/g, '')
         .replace(/\t/g, ' ')
         .replace(/  /g, " ")
         .replace(/  /g, " ")
         .replace(/&#1740;/g, 'ی')
         .replace(/ي/g, 'ی')
+        ).trim()
 }
 
 export function getElementAtIndex(nodes: Node[], index: number) {
@@ -109,8 +112,8 @@ export function getElementAtIndex(nodes: Node[], index: number) {
     return
 }
 
-export function dateOffsetToDate(el?: HTMLElement|null) {
-    if(!el) return "NullDateElement"
+export function dateOffsetToDate(el?: HTMLElement | null) {
+    if (!el) return "NullDateElement"
     const dateParts = el.innerText.split(" ")
     let effectiveDate = jmoment().locale('fa');
     const offset = parseInt(fa2En(dateParts[0]))

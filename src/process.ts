@@ -5,12 +5,13 @@ import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
-import { formatNumber } from './modules/common';
+import { formatNumber, normalizeCategory, normalizeText } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
 import * as scrappers from './scrappers'
 
 enum enuCommands {
-    catStats = 'catStats'
+    catStats = 'catStats',
+    normalize = "normalize"
 }
 
 interface IntfCatStats {
@@ -36,22 +37,22 @@ const args = {
     domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}` }),
 }
 
-const lastDomain: string = ""
 function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string): void }) {
-    function processDirInternal(scrapper: undefined | string | clsScrapper, dir: string) {
-        if (typeof scrapper === "string") {
-            const domain = scrapper;
-            scrapper = new scrappers[domain];
-            if (!scrapper)
-                throw new Error(`domain ${domain} is not supported yet`);
-            log.progress("Processing ", domain);
-        }
-
+    function getScrapper(domain?: string) {
+        if (!domain) return undefined
+        const scrapper = new scrappers[domain];
+        if (!scrapper)
+            throw new Error(`domain ${domain} is not supported yet`);
+        log.progress("Processing ", domain);
+        return scrapper
+    }
+    function processDirInternal(dir: string, scrapper?: clsScrapper) {
         readdirSync(dir).forEach(item => {
             const absPath = path.join(dir, item);
             if (statSync(absPath).isDirectory())
-                processDirInternal(scrapper || item, absPath);
+                processDirInternal(absPath, scrapper || getScrapper(item));
             else if (scrapper && typeof scrapper !== "string") {
+                if (absPath.endsWith('.updated')) return
                 try {
                     jsonProcessor(scrapper, JSON.parse(readFileSync(absPath, 'utf8')), absPath);
                 }
@@ -61,7 +62,7 @@ function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: Int
             }
         });
     }
-    processDirInternal(args.domain, gConfigs.corpora || "./corpora" + "/" + (args.domain || ""))
+    processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (args.domain || ""), getScrapper(args.domain))
 }
 
 function wordCount(str?: string): number {
@@ -100,12 +101,55 @@ const app = command({
         clsLogger.setVerbosity(args.verbosity || gConfigs.debugVerbosity || 0)
 
         log.info({ activeConfigs: gConfigs })
+        let processedCount = 0
 
         switch (args.command) {
+            case enuCommands.normalize: {
+                let updatedCount = 0;
+                return processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                    const docCategory = !doc.category ? "undefined" : doc.category;
+                    let anythingChanged = false
+
+                    const normalize = (text?: string) => {
+                        if (!text) return text
+                        const normalizedText = normalizeText(text)
+                        if (normalizedText !== text)
+                            anythingChanged = true
+                        return normalizedText
+                    }
+
+                    if (typeof docCategory === 'string') {
+                        doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
+                        doc.category['original'] = docCategory;
+                        anythingChanged = true
+                    }
+                    for (const key in doc) {
+                        if (key === "category") continue
+                        if (typeof doc[key] === "string")
+                            doc[key] = normalize(doc[key])
+                        else
+                            for (let i = 0; i < doc[key]; ++i) {
+                                if (typeof doc[key][i] === "string")
+                                    doc[key][i] = normalize(doc[key][i])
+                                else
+                                    for (const innerKey in doc[key][i])
+                                        doc[key][i][innerKey] = normalize(doc[key][i][innerKey])
+                            }
+                    }
+
+                    if (anythingChanged) {
+                        writeFileSync(filePath + '.updated', JSON.stringify(doc));
+                        updatedCount++;
+                    }
+
+                    if (processedCount % 1 === 0)
+                        log.status({processed: formatNumber(processedCount), updated: formatNumber(updatedCount)});
+                    processedCount++
+                })
+            }
             case enuCommands.catStats:
                 {
                     let domainCats: { [key: string]: IntfCatStats } = {}
-                    let docCount = 0
                     let wc = 0
                     const writeStatsFile = () => {
                         if (args.statFile)
@@ -139,10 +183,11 @@ const app = command({
                         doc.comments?.forEach(c => { commentCount++; commentsWC += c.text ? wordCount(c.text) : 0 })
 
                         const domain = scrapper.name();
-                        const docCategory = !doc.category || doc.category == "undefined" ? undefined : doc.category;
+                        const docCategory = !doc.category ? "undefined" : doc.category;
                         if (typeof docCategory === 'string') {
-                            doc.category = scrapper.mapCategory(docCategory);
+                            doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
                             doc.category['original'] = docCategory;
+                            writeFileSync(filePath + '.new', JSON.stringify(doc));
                         }
                         let catStr = doc.category['original'];
                         if (doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
@@ -152,8 +197,6 @@ const app = command({
                             if (doc.category['subminor'])
                                 catStr += "." + doc.category['subminor'];
                         }
-                        if (catStr === doc.category['original'])
-                            writeFileSync(filePath + '.new', JSON.stringify(doc));
 
                         if (!domainCats || !domainCats[catStr] || !domainCats[domain][catStr]) {
                             const initial = {
@@ -180,13 +223,13 @@ const app = command({
                         domainCats[domain][catStr].altWC += altWC;
                         domainCats[domain][catStr].commentCount += commentCount;
                         domainCats[domain][catStr].commentWC += commentsWC;
-                        if (docCount % 10000 === 0) {
+                        if (processedCount % 10000 === 0) {
                             writeStatsFile();
-                            log.status(`--------- ${catStr} - docs: ${formatNumber(docCount)} - wc: ${formatNumber(wc)} ----------`);
+                            log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(wc)} ----------`);
                             for (const cat in domainCats[domain])
                                 log.status({ [cat]: domainCats[domain][cat] });
                         }
-                        docCount++;
+                        processedCount++;
                     })
                     log.status(domainCats, 3)
                     writeStatsFile()
