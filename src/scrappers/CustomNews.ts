@@ -388,6 +388,18 @@ export class itna extends clsScrapper {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+   
+
+        else if (cat.startsWith("ارتباطات") || cat.includes("ICT") || cat.includes("وب") || cat.startsWith("امنیت") 
+        || cat.startsWith("نرم") || cat.startsWith("فناوری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        else if (cat.startsWith("کسب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+   
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /************************************* */
