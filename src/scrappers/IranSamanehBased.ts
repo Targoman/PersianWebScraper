@@ -211,6 +211,30 @@ export class yjc extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (cat.includes("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (first.startsWith("فرهنگی") && second.startsWith("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (first.startsWith("فرهنگی") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (first.startsWith("فرهنگی") && second.includes("موسیقی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Music }
+        else if (first.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (second.startsWith("بهداشت") || second.startsWith("کلینیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (first.startsWith("علمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (first.startsWith("وب") || cat.includes("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (first.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 
 /***********************************************************/
