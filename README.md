@@ -244,6 +244,9 @@ async initialCookie(proxy?: IntfProxy, url?: string): Promise<string | undefined
 protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string 
 ```
 
+- A method to convert category string into predefined categories and subcategories
+public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory 
+
 ## Corpus
 We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which will be soon published on Huggingface
 

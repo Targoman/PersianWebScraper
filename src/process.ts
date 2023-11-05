@@ -5,7 +5,7 @@ import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
-import { formatNumber, normalizeCategory, normalizeText } from './modules/common';
+import { formatNumber, normalizeCategory, date2Gregorian, normalizeText } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
 import * as scrappers from './scrappers'
 
@@ -124,8 +124,19 @@ const app = command({
                         anythingChanged = true
                     }
                     for (const key in doc) {
-                        if (key === "category") continue
-                        if (typeof doc[key] === "string")
+                        if (key === "category")
+                            continue
+                        else if (key === "date") {
+                            const gregorianDate = date2Gregorian(doc[key])
+                            if (gregorianDate?.startsWith("INVALID:"))
+                                log.file(scrapper.name(), filePath, doc[key])
+
+                            if (gregorianDate != doc[key]) {
+                                anythingChanged = true
+                                doc[key] = gregorianDate
+                            }
+                        }
+                        else if (typeof doc[key] === "string")
                             doc[key] = normalize(doc[key])
                         else
                             for (let i = 0; i < doc[key]; ++i) {
@@ -143,7 +154,7 @@ const app = command({
                     }
 
                     if (processedCount % 1 === 0)
-                        log.status({processed: formatNumber(processedCount), updated: formatNumber(updatedCount)});
+                        log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
                     processedCount++
                 })
             }

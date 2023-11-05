@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -330,35 +330,42 @@ export abstract class clsScrapper {
 
     protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfDateSplitter = " ", fullHtml?: HTMLElement) {
         if (!datetimeEl) return undefined
+        let finalDateString: string | undefined
+
         if (typeof splitter === "function" && typeof datetimeEl !== "string") {
-            return fa2En(splitter(datetimeEl, fullHtml))
+            finalDateString = splitter(datetimeEl, fullHtml)
         } else {
             const datetime = normalizeText((typeof datetimeEl === "string" ? datetimeEl : datetimeEl?.innerText)?.trim().replace(/[\r\n]/g, ""))
-            if (!datetime) {
-                return this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+            if (!datetime)
+                finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+            else {
+                let datetimeParts = datetime?.split(typeof splitter === "string" ? splitter : " ")
+
+                let date: string
+                const dateString = normalizeText(datetimeParts[datetimeParts.length - 1].includes(":")
+                    ? datetimeParts[datetimeParts.length - 2]
+                    : datetimeParts[datetimeParts.length - 1]
+                ) || "NO_DATE"
+
+                if (dateString === "NO_DATE")
+                    log.debug("======>", datetimeParts, splitter)
+
+                datetimeParts = dateString?.split(" ")
+                if (datetimeParts.length > 1)
+                    date = datetimeParts[datetimeParts.length - 1].trim() + "-"
+                        + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
+                        + datetimeParts[datetimeParts.length - 3].trim()
+                else
+                    date = datetimeParts[0].replace(/\//g, "-")
+
+                if (date.split("-").length < 3)
+                    finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
             }
-            let datetimeParts = datetime?.split(typeof splitter === "string" ? splitter : " ")
 
-            let date: string
-            const dateString = normalizeText(datetimeParts[datetimeParts.length - 1].includes(":")
-                ? datetimeParts[datetimeParts.length - 2]
-                : datetimeParts[datetimeParts.length - 1]
-            ) || "NO_DATE"
-
-            if (dateString === "NO_DATE")
-                log.debug("======>", datetimeParts, splitter)
-
-            datetimeParts = dateString?.split(" ")
-            if (datetimeParts.length > 1)
-                date = datetimeParts[datetimeParts.length - 1].trim() + "-"
-                    + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
-                    + datetimeParts[datetimeParts.length - 3].trim()
-            else
-                date = datetimeParts[0].replace(/\//g, "-")
-
-            if (date.split("-").length < 3)
-                return this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
-            return fa2En(date);
+            const gregorian = date2Gregorian(finalDateString);
+            if (gregorian?.startsWith("INVALID"))
+                log.file(this.name(), gregorian)
+            return gregorian
         }
     }
 
@@ -839,6 +846,6 @@ export abstract class clsScrapper {
 
     public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
         void category, tags
-        return {major:enuMajorCategory.Undefined}
+        return { major: enuMajorCategory.Undefined }
     }
 }

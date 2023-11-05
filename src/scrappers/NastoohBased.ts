@@ -139,10 +139,10 @@ export class imna extends clsNastoohBased {
         else if (first.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (first.startsWith("سیاست")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (first.startsWith("فرهنگ") && second.includes("موسیقی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Music }
-        else if (first.startsWith("فرهنگ") && second.includes("دین") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Religious }
-        else if (first.startsWith("فرهنگ") && second.includes("ادبیات") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Literature }
-        else if (first.startsWith("فرهنگ") && second.includes("سینما") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Cinema }
+        else if (first.startsWith("فرهنگ") && second.includes("موسیقی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        else if (first.startsWith("فرهنگ") && second.includes("دین") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
+        else if (first.startsWith("فرهنگ") && second.includes("ادبیات") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (first.startsWith("فرهنگ") && second.includes("سینما") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (first.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         else if (first.startsWith("علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
