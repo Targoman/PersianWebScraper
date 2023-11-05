@@ -63,6 +63,32 @@ export class irna extends clsNastoohBased {
     async initialCookie(proxy?: IntfProxy, url?: string) {
         return await getArvanCookie(url || "https://www.irna.ir", this.baseURL, proxy)
     }
+
+    
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (first.startsWith("ورزش") || second.startsWith("جام جهانی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.startsWith("جامعه")|| second.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (first.includes("بهداشت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("عکس") || cat.includes("فیلم") || cat.includes("ویدئو") || cat.includes("ویڈیو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (first.startsWith("جهان") || second.startsWith("سیاست خارجی") || cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("آموزش") || cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (second.includes("ایران‌شناسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.includes("علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (first.startsWith("فرهنگ") && second.startsWith("کتاب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (first.startsWith("فرهنگ") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (first.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("سبک زندگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (first.startsWith("سیاست") || second.includes("سیاسی") || first.startsWith("پژوهش") || first.startsWith("صفحات") || second.startsWith("خبر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (first.startsWith("استان")) return { major: enuMajorCategory.News, subminor: enuMinorCategory.Local }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
