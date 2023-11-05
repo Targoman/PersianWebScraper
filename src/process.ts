@@ -141,16 +141,15 @@ const app = command({
                         else if (typeof doc[key] === "string")
                             doc[key] = normalize(doc[key])
                         else
-                            for (let i = 0; i < doc[key]; ++i) {
+                            for (let i = 0; i < doc[key].length; ++i) {
                                 if (typeof doc[key][i] === "string")
                                     doc[key][i] = normalize(doc[key][i])
                                 else
-                                    for (const innerKey in doc[key][i]) {
+                                    for (const innerKey in doc[key][i]) 
                                         if (innerKey === "date")
                                             doc[key][i][innerKey] = normalizeDate(doc[key][i][innerKey])
                                         else
                                             doc[key][i][innerKey] = normalize(doc[key][i][innerKey])
-                                    }
                             }
                     }
 
