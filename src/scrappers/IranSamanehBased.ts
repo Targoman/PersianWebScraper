@@ -123,6 +123,28 @@ export class ana extends clsIransamaneh {
     constructor() {
         super(enuDomains.ana, "ana.press", { selectors: { article: ".news_content, .container-newsMedia" } })
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (first.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (first.startsWith("فرهنگ") && second.startsWith("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (first.startsWith("فرهنگ") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (first.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (first.startsWith("علم") || cat.includes("دانش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (first.startsWith("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (first.startsWith("جهان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("سیاست")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (first.startsWith("خانه") || first.startsWith("هومیانا")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (first.startsWith("ارتباطات"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 
 /***********************************************************/
