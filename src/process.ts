@@ -1,11 +1,13 @@
 import { string, optional, number, positional, option, oneOf } from 'cmd-ts';
 import { command, run } from 'cmd-ts';
-import { enuDomains, IntfDocFilecontent, IntfGlobalConfigs } from './modules/interfaces';
+import { enuDomains, enuMajorCategory, IntfDocFilecontent, IntfGlobalConfigs } from './modules/interfaces';
 import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
 import { formatNumber } from './modules/common';
+import { clsScrapper } from './modules/clsScrapper';
+import * as scrappers from './scrappers'
 
 enum enuCommands {
     catStats = 'catStats'
@@ -35,18 +37,25 @@ const args = {
 }
 
 const lastDomain: string = ""
-function processDir(args: any, jsonProcessor: { (domain: string, doc: IntfDocFilecontent): void }) {
-    function processDirInternal(domain: string, dir: string) {
-        if (lastDomain != domain)
-            log.progress("Processing ", domain)
+function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string): void }) {
+    function processDirInternal(scrapper: undefined | string | clsScrapper, dir: string) {
+        if (typeof scrapper === "string") {
+            const domain = scrapper;
+            scrapper = new scrappers[domain];
+            if (!scrapper)
+                throw new Error(`domain ${domain} is not supported yet`);
+            log.progress("Processing ", domain);
+        }
+
         readdirSync(dir).forEach(item => {
             const absPath = path.join(dir, item);
-            if (statSync(absPath).isDirectory()) {
-                processDirInternal(domain || item, absPath);
-            } else if (domain) {
+            if (statSync(absPath).isDirectory())
+                processDirInternal(scrapper || item, absPath);
+            else if (scrapper && typeof scrapper !== "string") {
                 try {
-                    jsonProcessor(domain, JSON.parse(readFileSync(absPath, 'utf8')))
-                } catch (e) {
+                    jsonProcessor(scrapper, JSON.parse(readFileSync(absPath, 'utf8')), absPath);
+                }
+                catch (e) {
                     log.error("Invalid JSON File: ", absPath, e)
                 }
             }
@@ -119,7 +128,7 @@ const app = command({
                         }
                     }
 
-                    processDir(args, (domain: string, doc: IntfDocFilecontent) => {
+                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
                         let mainWC = 0
                         let parCount = 0
                         let altWC = 0
@@ -129,41 +138,55 @@ const app = command({
                         doc.images?.forEach(c => { altWC += c.alt ? wordCount(c.alt) : 0 })
                         doc.comments?.forEach(c => { commentCount++; commentsWC += c.text ? wordCount(c.text) : 0 })
 
-                        const category = !doc.category || doc.category == "undefined" ? "NoCat" : doc.category
-                        if (!domainCats || !domainCats[domain] || !domainCats[domain][category]) {
+                        const domain = scrapper.name();
+                        const docCategory = !doc.category || doc.category == "undefined" ? undefined : doc.category;
+                        if (typeof docCategory === 'string') {
+                            doc.category = scrapper.mapCategory(docCategory);
+                            doc.category['original'] = docCategory;
+                        }
+                        let catStr = doc.category['original'];
+                        if (doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
+                            catStr = doc.category['major'];
+                            if (doc.category['minor'])
+                                catStr += "." + doc.category['minor'];
+                            if (doc.category['subminor'])
+                                catStr += "." + doc.category['subminor'];
+                        }
+                        if (catStr === doc.category['original'])
+                            writeFileSync(filePath + '.new', JSON.stringify(doc));
+
+                        if (!domainCats || !domainCats[catStr] || !domainCats[domain][catStr]) {
                             const initial = {
                                 mainWC: 0, mainParagraphs: 0,
                                 altWC: 0, docs: 0,
                                 commentCount: 0, commentWC: 0,
                                 titleWC: 0, surtitleWC: 0, subtitleWC: 0, summaryWC: 0,
-                            }
+                            };
                             if (!domainCats)
-                                domainCats = { [domain]: { [category]: initial } }
+                                domainCats = { [domain]: { [catStr]: initial } };
                             else if (!domainCats[domain])
-                                domainCats[domain] = { [category]: initial }
+                                domainCats[domain] = { [catStr]: initial };
                             else
-                                domainCats[domain][category] = initial
+                                domainCats[domain][catStr] = initial;
                         }
-
-                        domainCats[domain][category].docs++
-                        domainCats[domain][category].mainWC += mainWC
-                        domainCats[domain][category].mainParagraphs += parCount
-                        domainCats[domain][category].titleWC += wordCount(doc.title)
-                        domainCats[domain][category].surtitleWC += wordCount(doc.aboveTitle)
-                        domainCats[domain][category].subtitleWC += wordCount(doc.subtitle)
-                        domainCats[domain][category].summaryWC += wordCount(doc.summary)
-                        domainCats[domain][category].titleWC += wordCount(doc.title)
-                        domainCats[domain][category].altWC += altWC
-                        domainCats[domain][category].commentCount += commentCount
-                        domainCats[domain][category].commentWC += commentsWC
-
+                        domainCats[domain][catStr].docs++;
+                        domainCats[domain][catStr].mainWC += mainWC;
+                        domainCats[domain][catStr].mainParagraphs += parCount;
+                        domainCats[domain][catStr].titleWC += wordCount(doc.title);
+                        domainCats[domain][catStr].surtitleWC += wordCount(doc.aboveTitle);
+                        domainCats[domain][catStr].subtitleWC += wordCount(doc.subtitle);
+                        domainCats[domain][catStr].summaryWC += wordCount(doc.summary);
+                        domainCats[domain][catStr].titleWC += wordCount(doc.title);
+                        domainCats[domain][catStr].altWC += altWC;
+                        domainCats[domain][catStr].commentCount += commentCount;
+                        domainCats[domain][catStr].commentWC += commentsWC;
                         if (docCount % 10000 === 0) {
-                            writeStatsFile()
-                            log.status(`--------- ${domain} - docs: ${formatNumber(docCount)} - wc: ${formatNumber(wc)} ----------`)
+                            writeStatsFile();
+                            log.status(`--------- ${catStr} - docs: ${formatNumber(docCount)} - wc: ${formatNumber(wc)} ----------`);
                             for (const cat in domainCats[domain])
-                                log.status({ [cat]: domainCats[domain][cat] })
+                                log.status({ [cat]: domainCats[domain][cat] });
                         }
-                        docCount++
+                        docCount++;
                     })
                     log.status(domainCats, 3)
                     writeStatsFile()
@@ -177,19 +200,3 @@ const app = command({
 
 
 run(app, process.argv.slice(2))
-
-/*function normalizeCat(domain: enuDomains, cat?: string) {
-    let major: string, minor: string, normalized: string
-
-    if (!cat) return { major: "Undefined", minor: "Undefined" }
-
-    const nCat = cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -')
-    if (nCat.length > 100)
-        normalized = nCat.substring(0, 100)
-    else if (nCat != cat)
-        normalized = nCat
-
-    if (cat.startsWith("انجمن/") || cat.startsWith("تالار/"))
-
-        return { major, minor, normalized }
-}*/

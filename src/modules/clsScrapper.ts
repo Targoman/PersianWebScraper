@@ -55,6 +55,10 @@ export abstract class clsScrapper {
         this.proxyCookie = {}
     }
 
+    name() {
+        return this.domain
+    }
+
     async check(url: string) {
         log.info(await this.getPageContent(url))
     }
@@ -833,7 +837,7 @@ export abstract class clsScrapper {
         return url.protocol + "//" + hostname + path + url.search
     }
 
-    protected mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
+    public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
         void category, tags
         return {major:enuMajorCategory.Undefined}
     }
