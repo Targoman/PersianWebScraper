@@ -251,6 +251,9 @@ export enum enuMinorCategory {
     Game = "Game",
     Education = "Education",
     Literature = "Literature",
+    Historical = "Historical",
+    University = "University",
+    Defence = "Defence"
 }
 
 export enum enuSubMinorCategory {
@@ -261,12 +264,18 @@ export enum enuSubMinorCategory {
     Intl = "Intl",
     Accident = "Accident",
     Art = "Art",
+    TV = "TV",
+    Book = "Book",
     Cinema = "Cinema",
     Music = "Music",
     Theatre = "Theatre",
     Futbol = "Futbol",
+    Basketball = "Basketball",
     Ball = "Ball",
-    Wrestling = "Wrestling"
+    Wrestling = "Wrestling",
+    Martial = "Martial",
+    Weightlifting = "Weightlifting",
+    Women = "Women"
 }
 
 export interface IntfMappedCatgory {
