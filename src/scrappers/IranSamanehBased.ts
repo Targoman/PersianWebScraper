@@ -902,7 +902,7 @@ export class bankdariirani extends clsIransamaneh {
 
         if (second.startsWith("علم و فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (second.startsWith("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
-        else if (second.startsWith("زنگ تفریح")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (second.startsWith("زنگ تفریح")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
 
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }

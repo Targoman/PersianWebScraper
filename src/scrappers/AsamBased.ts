@@ -86,25 +86,25 @@ export class ilna extends clsAsamBased {
         const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
 
         if (first.startsWith("استان"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+            return { ...mappedCat, minor: enuMinorCategory.Local }
         if (first.startsWith("فوتبال"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Futbol }
+            return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Futbol }
         if (first.startsWith("کشتی"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+            return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
         if (first.startsWith("سیاست خارجی"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+            return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         if (first.startsWith("سینما"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+            return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         if (first.startsWith("کتاب"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+            return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
         if (first.startsWith("نرخ") || first.startsWith("واحد"))
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
 
         if (false
             || first.startsWith("چندرسانه‌ای")
             || first.startsWith("عکس")
             || first.startsWith("کاریکاتور")
-        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
 
         if (first.includes("اجتماعی") || first.startsWith("جامعه") || first.startsWith("محیط") || first.includes("شهروند"))
             mappedCat.minor = enuMinorCategory.Social
@@ -116,8 +116,6 @@ export class ilna extends clsAsamBased {
             mappedCat.minor = enuMinorCategory.Sport
         else if (first.includes("انتخابات") || first.includes("بین") || first.includes("جنبش عدم تعهد") || first.includes("سیاسی"))
             mappedCat.minor = enuMinorCategory.Political
-
-
 
         if (second.includes("انتخابات")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Political; else mappedCat.minor = enuMinorCategory.Political
