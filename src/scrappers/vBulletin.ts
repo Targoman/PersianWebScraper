@@ -45,6 +45,19 @@ export class webhostingtalk extends clsVBulletinBased {
       }
     })
   }
+
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("آموزش")) return { ...mappedCategory, minor: enuMinorCategory.Education }
+    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("امنیت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Security }
+    else if (second.includes("داده")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    return mappedCategory
+  }
 }
 
 export class barnamenevis extends clsVBulletinBased {
@@ -53,13 +66,30 @@ export class barnamenevis extends clsVBulletinBased {
   }
 
   mapCategory(): IntfMappedCatgory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
 
 export class p30world extends clsVBulletinBased {
   constructor() {
     super(enuDomains.p30world, "forum.p30world.com")
+  }
+
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("سیستم")) return { ...mappedCategory, subminor: enuSubMinorCategory.Software }
+    else if (second.includes("سخت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Hardware }
+    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("موبایل")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("گـرافیک")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
+    else if (second.includes("هـنــــر")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
+    else if (second.includes("بازی")) return { ...mappedCategory, subminor: enuSubMinorCategory.Game }
+    else if (second.includes("لپ تاپ")) return { ...mappedCategory, subminor: enuSubMinorCategory.Hardware }
+    return mappedCategory
   }
 }
 
@@ -77,6 +107,23 @@ export class tarfandestan extends clsVBulletinBased {
       }
     })
   }
+
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("آموزش")) return { ...mappedCategory, minor: enuMinorCategory.Education }
+    else if (second.includes("تبلت‌")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("بازی")) return { ...mappedCategory, subminor: enuSubMinorCategory.Game }
+    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("امنیت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Security }
+    else if (second.includes("سایر")) return { ...mappedCategory, subminor: enuMinorCategory.Generic }
+    else if (second.includes("تحصیل")) return { ...mappedCategory, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Education }
+    return mappedCategory
+  }
 }
 
 export class boursy extends clsVBulletinBased {
@@ -88,9 +135,9 @@ export class boursy extends clsVBulletinBased {
     })
   }
 
-  mapCategory(cat?:string): IntfMappedCatgory {
-    if(cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economics }
+  mapCategory(cat?: string): IntfMappedCatgory {
+    if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economy }
   }
 
 }
@@ -115,6 +162,9 @@ export class soft98 extends clsVBulletinBased {
       }
     })
   }
+  mapCategory(): IntfMappedCatgory {
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+  }
 }
 
 export class sakhtafzarmag extends clsVBulletinBased {
@@ -130,6 +180,9 @@ export class sakhtafzarmag extends clsVBulletinBased {
       }
     })
   }
+  mapCategory(): IntfMappedCatgory {
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Hardware }
+  }
 }
 
 export class joomlafarsi extends clsVBulletinBased {
@@ -139,6 +192,9 @@ export class joomlafarsi extends clsVBulletinBased {
         removeWWW: true
       }
     })
+  }
+  mapCategory(): IntfMappedCatgory {
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
 
@@ -150,6 +206,19 @@ export class moshaver extends clsVBulletinBased {
       }
     })
   }
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("آموزش")) mappedCategory.subminor = enuMinorCategory.Education
+    else if (second.includes("پزشکی")) mappedCategory.subminor = enuMinorCategory.Health
+    else if (second.includes("جنسی")) mappedCategory.subminor = enuMinorCategory.Health
+    else if (second.includes("روانشناسی")) mappedCategory.subminor = enuMinorCategory.Health
+    else if (second.includes("هنر")) mappedCategory.subminor = enuMinorCategory.Culture
+    return mappedCategory
+  }
 }
 
 export class oghyanos extends clsVBulletinBased {
@@ -159,5 +228,26 @@ export class oghyanos extends clsVBulletinBased {
         removeWWW: true
       }
     })
+  }
+
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("آموزش")) return { ...mappedCategory, minor: enuMinorCategory.Education }
+    else if (second.includes("موبایل")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("عمومی")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
+    else if (second.includes("مذهب")) return { ...mappedCategory, minor: enuMinorCategory.Religious }
+    else if (second.includes("رایانه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("خانواده")) return { ...mappedCategory, minor: enuMinorCategory.LifeStyle }
+    else if (second.includes("هنر")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Art }
+    else if (second.includes("تفریح")) return { ...mappedCategory, minor: enuMinorCategory.Fun }
+    else if (second.includes("تاریخ")) return { ...mappedCategory, minor: enuMinorCategory.Historical }
+    else if (second.includes("گیاهان")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Agriculture }
+    else if (second.includes("دفاعی")) return { ...mappedCategory, minor: enuMinorCategory.Defence }
+    else if (second.includes("علمی")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech }
+    return mappedCategory
   }
 }

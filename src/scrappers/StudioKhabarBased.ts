@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -49,6 +49,43 @@ class clsStudioKhabarBased extends clsScrapper {
 
         return url.protocol + "//" + hostname + path
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+        if (false
+            || first.startsWith("عکس")
+            || first.startsWith("فیلم")
+            || first.startsWith("صوت")
+            || first.startsWith("گزارش تصویری")
+            || first.startsWith("فوتوتیتر")
+        ) mappedCat.minor = enuMinorCategory.Multimedia
+
+        if (first.startsWith("گفتگو") || first.startsWith("مصاحبه"))
+            mappedCat.minor = enuMinorCategory.Talk
+
+        if (second.startsWith("سیاس") || second.startsWith("انتخابات") || second.startsWith("الملل")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Political; else mappedCat.minor = enuMinorCategory.Political
+        } else if (second.startsWith("جامعه")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Social; else mappedCat.minor = enuMinorCategory.Social
+        } else if (second.startsWith("علم")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.ScienceTech; else mappedCat.minor = enuMinorCategory.ScienceTech
+        } else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی") || second.startsWith("کسب")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economy; else mappedCat.minor = enuMinorCategory.Economy
+        } else if (second.startsWith("فرهنگ")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Culture; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.startsWith("ورزش")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Sport; else mappedCat.minor = enuMinorCategory.Sport
+        } else if (second.startsWith("عکس") || second.startsWith("فیلم") || second.startsWith(" صوت")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Multimedia; else mappedCat.minor = enuMinorCategory.Multimedia
+        }
+
+        return mappedCat
+    }
 }
 
 /***********************************************************/
@@ -74,47 +111,6 @@ export class jahannews extends clsStudioKhabarBased {
             path = `/${pathParts[1]}/${pathParts[2]}`
 
         return url.protocol + "//" + hostname + path
-    }
-
-    mapCategory(cat?: string): IntfMappedCatgory {
-        if (!cat) return { major: enuMajorCategory.News }
-        const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-        if (false
-            || second.startsWith("عکس")
-            || second.startsWith("فیلم")
-            || second.startsWith("صوت")
-        )
-            return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-
-        const mappedCat: IntfMappedCatgory =  {major: enuMajorCategory.News }
-        if (false
-            || first.startsWith("عکس")
-            || first.startsWith("فیلم")
-            || first.startsWith("صوت")
-            || first.startsWith("گزارش تصویری")
-            || first.startsWith("فوتوتیتر")
-        ) mappedCat.minor = enuMinorCategory.Multimedia
-
-        if (first.startsWith("گفتگو") || first.startsWith("مصاحبه"))
-        mappedCat.minor = enuMinorCategory.Talk
-
-        if (second.startsWith("سیاست") || second.startsWith("انتخابات") || second.startsWith("بین")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Political; else mappedCat.minor = enuMinorCategory.Political
-        } else if (second.startsWith("جامعه")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Social; else mappedCat.minor = enuMinorCategory.Social
-        } else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economics; else mappedCat.minor = enuMinorCategory.Economics
-        } else if (second.startsWith("فرهنگ")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Culture; else mappedCat.minor = enuMinorCategory.Culture
-        } else if (second.startsWith("ورزش")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Sport; else mappedCat.minor = enuMinorCategory.Sport
-        } else if (second.startsWith("عکس") || second.startsWith("فیلم") || second.startsWith(" صوت")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Multimedia; else mappedCat.minor = enuMinorCategory.Multimedia
-        }
-        
-        return mappedCat
     }
 }
 
@@ -150,32 +146,6 @@ export class baharnews extends clsStudioKhabarBased {
         return url.protocol + "//" + hostname + path
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        if (!cat) return { major: enuMajorCategory.News }
-        const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (second === '') return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        else if (first.startsWith("گفتگو") && second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Political }
-        else if (first.startsWith("گفتگو") && second.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Economics }
-        else if (first.startsWith("گفتگو") && second.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Culture }
-        else if (first.startsWith("گفتگو") && second.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Social }
-        else if (first.startsWith("گفتگو") && second.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Sport }
-        else if (first.startsWith("گفتگو") && second.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuSubMinorCategory.Intl }
-        else if (first.endsWith("تصویری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (second.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (second.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (second.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("کسب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
-
-        return { major: enuMajorCategory.News }
-    }
 }
 

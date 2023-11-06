@@ -207,7 +207,7 @@ export interface IntfPageContent {
 
 export interface IntfDocFilecontent {
     url: string,
-    category: string|IntfMappedCatgory,
+    category: string | IntfMappedCatgory,
     date?: string,
     title?: string,
     aboveTitle?: string,
@@ -231,9 +231,10 @@ export enum enuMajorCategory {
 
 export enum enuMinorCategory {
     Political = "Political",
+    FAQ = "FAQ",
     Social = "Social",
     Health = "Health",
-    Economics = "Economics",
+    Economy = "Economy",
     Culture = "Art&Culture",
     Sport = "Sport",
     ScienceTech = "Science&Tech",
@@ -254,37 +255,46 @@ export enum enuMinorCategory {
     Historical = "Historical",
     University = "University",
     Defence = "Defence",
-    Fun = "Fun"
+    Fun = "Fun",
+    Weather = "Weather",
+    Advert = "Advert"
 }
 
 export enum enuSubMinorCategory {
     IT = "IT",
     ICT = "ICT",
     Game = "Game",
+    CryptoCurrency = "CryptoCurrency",
     Security = "Security",
     Mobile = "Mobile",
     Robotic = "Robotic",
     Hardware = "Hardware",
     Software = "Software",
     Car = "Car",
+    Energy = "Energy",
     Gadgets = "Gadgets",
     AI = "AI",
     Intl = "Intl",
     Accident = "Accident",
     Art = "Art",
+    Agriculture = "Agriculture",
     TV = "TV",
     Book = "Book",
+    Celebrities = "Celebrities",
+    Cooking = "Cooking",
     Cinema = "Cinema",
     Music = "Music",
     Turism = "Turism",
+    Media = "Media",
     Theatre = "Theatre",
-    Futbol = "Futbol",
+    Football = "Football",
     Basketball = "Basketball",
     Ball = "Ball",
     Wrestling = "Wrestling",
     Martial = "Martial",
     Weightlifting = "Weightlifting",
     Women = "Women",
+    Animals = "Animals",
     Police = "Police"
 }
 

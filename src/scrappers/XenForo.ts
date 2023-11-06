@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -35,8 +35,6 @@ class clsXenForoBased extends clsScrapper {
       }
     }
 
-
-
     super(domain, baseURL, deepmerge(baseConfig, conf || {}))
   }
 }
@@ -44,6 +42,24 @@ class clsXenForoBased extends clsScrapper {
 export class persiantools extends clsXenForoBased {
   constructor() {
     super(enuDomains.persiantools, "forum.persiantools.com")
+  }
+
+  mapCategory(cat?: string): IntfMappedCatgory {
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum }
+    if (!cat) return mappedCategory
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("برنامه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    else if (second.includes("موبایل")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("عمومی")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
+    else if (second.includes("فرهنگ")) return { ...mappedCategory, minor: enuMinorCategory.Culture }
+    else if (second.includes("سبک")) return { ...mappedCategory, minor: enuMinorCategory.LifeStyle }
+    else if (second.includes("ورزش")) return { ...mappedCategory, minor: enuMinorCategory.Sport }
+    else if (second.includes("اقتصاد")) return { ...mappedCategory, minor: enuMinorCategory.Economy }
+    else if (second.includes("تکنولوژی")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech }
+    return mappedCategory
   }
 }
 
@@ -54,6 +70,10 @@ export class majidonline extends clsXenForoBased {
         ignoreContentOnPath: ["/memebers"]
       }
     })
+  }
+
+  mapCategory(): IntfMappedCatgory {
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
   }
 }
 

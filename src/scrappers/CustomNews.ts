@@ -111,7 +111,7 @@ export class alef extends clsScrapper {
         else if (cat.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (cat.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
-        else if (cat.startsWith("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.startsWith("یادداشت بینندگان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
         else if (cat.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.startsWith("کتاب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
@@ -120,7 +120,7 @@ export class alef extends clsScrapper {
         else if (cat.startsWith("ویدئو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.startsWith("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
 
         return { major: enuMajorCategory.News }
@@ -184,14 +184,14 @@ export class isna extends clsScrapper {
             || cat.startsWith("دیدنی")
             || cat.startsWith("موشن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("ورزش") || cat.includes("المپیک") || cat.includes("جام ") || cat.includes("بازی") || cat.includes("یورو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (cat.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Futbol }
+        else if (cat.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
         else if (cat.startsWith("کشتی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
         else if (cat.startsWith("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
         else if (cat.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (cat.startsWith("تجسمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
         else if (cat.includes("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Literature }
         else if (cat.includes("فرهنگ") || cat.includes("میراث") || cat.startsWith("رسانه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.IT }
+        else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.IT }
         else if (cat.startsWith("دین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("آموزش") || cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
@@ -230,90 +230,11 @@ export class isna extends clsScrapper {
             || cat.startsWith("تمدن‌سازی")
             || cat.startsWith("مردمی‌سازی")
             || cat.startsWith("امید و آگاهی")
-            || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+            || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.startsWith("کاریکاتور")
             || cat.startsWith("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
 
         return { major: enuMajorCategory.News, subminor: enuMinorCategory.Local }
-    }
-}
-
-export class tasnim extends clsScrapper {
-    constructor() {
-        super(enuDomains.tasnim, "tasnimnews.com", {
-            selectors: {
-                article: "article.single-news, article.media",
-                aboveTitle: ".kicker",
-                title: ".title",
-                subtitle: ".lead",
-                content: {
-                    main: ".story>*, ._sticky+div, .row.images>*",
-                    ignoreTexts: ["این خبر بروز رسانی می شود...", "بازگشت به صفحه رسانه‌‌ها", 'تهیه شده در اداره کل رسانه های نوین خبرگزاری تسنیم'],
-                    ignoreNodeClasses: ["jwplayer", "hideTag"]
-                },
-                tags: ".tags li",
-                datetime: {
-                    conatiner: ".time, time",
-                    splitter: "-",
-                },
-                category: {
-                    selector: "li.service",
-                }
-            },
-            url: {
-                extraValidDomains: ["tasnimnews.org", "tasnimnews.com"],
-            },
-            preHTMLParse: (html: string) => html.replace(/<a +href="https:\/\/vpn.tasnimnews.org\/ContentManager\/\d+\/https:\/\/www.tasnimnews.com" +target="_blank">/, "")
-        })
-    }
-
-    protected normalizePath(url: URL): string {
-        try {
-            let hostname = url.hostname
-            if (!hostname.startsWith("www."))
-                hostname = "www." + hostname
-            const pathParts = url.pathname.split("/")
-            let path = url.pathname
-
-            if (pathParts.length > 6
-                && pathParts[1] === "fa"
-                && (pathParts[2] === "news"
-                    || pathParts[2] === "media"))
-                path = `/fa/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${pathParts[5]}/${pathParts[6]}` //+ "--->" + url.pathname
-
-            return url.protocol + "//" + hostname + path
-        } catch (e) {
-            console.error(e)
-            return ""
-        }
-    }
-}
-
-export class pana extends clsScrapper {
-    constructor() {
-        super(enuDomains.pana, "pana.ir", {
-            selectors: {
-                article: "article",
-                aboveTitle: "#Content_rutitr",
-                title: "#Content_title",
-                subtitle: "#Content_UnderTitle",
-                content: {
-                    main: ".NewsText>*",
-                    ignoreNodeClasses: ["video-js", "btn"]
-                },
-                tags: "#keyWordContainer strong",
-                datetime: {
-                    conatiner: "#Content_publishdate",
-                    splitter: "-",
-                },
-                category: {
-                    selector: '#breadCrumbsContainer [itemprop="title"]',
-                }
-            },
-            url: {
-                pathToCheckIndex: 1,
-            }
-        })
     }
 }
 
@@ -359,6 +280,11 @@ export class khamenei extends clsScrapper {
             }
         })
     }
+
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.News }
+    }
 }
 
 
@@ -383,6 +309,11 @@ export class citna extends clsScrapper {
                 }
             },
         })
+    }
+
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.News }
     }
 }
 
@@ -507,6 +438,11 @@ export class varzesh3 extends clsScrapper {
             extraInvalidStartPaths: ["/video"]
         })
     }
+
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+    }
 }
 
 /************************************* */
@@ -549,6 +485,11 @@ export class tarafdari extends clsScrapper {
             extraInvalidStartPaths: ["/video"]
         })
     }
+
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+    }
 }
 
 
@@ -569,6 +510,19 @@ export class niknews extends clsScrapper {
                 }
             }
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.News }
+        if (!cat) return mappedCategory
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("اق") || second.startsWith("اتص")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        if (second.startsWith("سی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        if (second.endsWith("عی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        if (second.endsWith("ور") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        return { major: enuMajorCategory.News }
     }
 }
 
