@@ -425,14 +425,29 @@ export class itna extends clsScrapper {
 
     mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
 
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        if (second.startsWith("موبایل"))
+            mappedCat.subminor = enuSubMinorCategory.Mobile
+        else if (second.startsWith("روباتیك"))
+            mappedCat.subminor = enuSubMinorCategory.Robotic
+        else if (second.startsWith("بازی"))
+            mappedCat.subminor = enuSubMinorCategory.Game
+        else if (second.startsWith("سخت‌افزار") || second.startsWith("كامپیوتر همراه"))
+            mappedCat.subminor = enuSubMinorCategory.Hardware
+        else if (first.startsWith("ارتباطات") || first.includes("ICT"))
+            mappedCat.subminor = enuSubMinorCategory.ICT
+        else if (first.startsWith("نرم"))
+            mappedCat.subminor = enuSubMinorCategory.ICT
+        else if (first.startsWith("امنیت"))
+            mappedCat.subminor = enuSubMinorCategory.Security
+        else
+            mappedCat.subminor = enuSubMinorCategory.IT
 
-        else if (cat.startsWith("ارتباطات") || cat.includes("ICT") || cat.includes("وب") || cat.startsWith("امنیت")
-            || cat.startsWith("نرم") || cat.startsWith("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
-        else if (cat.startsWith("کسب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-
-
-        return { major: enuMajorCategory.News }
+        return mappedCat
     }
 }
 

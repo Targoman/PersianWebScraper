@@ -259,6 +259,13 @@ export enum enuMinorCategory {
 
 export enum enuSubMinorCategory {
     IT = "IT",
+    ICT = "ICT",
+    Game = "Game",
+    Security = "Security",
+    Mobile = "Mobile",
+    Robotic = "Robotic",
+    Hardware = "Hardware",
+    Software = "Software",
     Car = "Car",
     Gadgets = "Gadgets",
     AI = "AI",
