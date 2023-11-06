@@ -1,6 +1,6 @@
 
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, IntfComment, IntfMappedCatgory } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfComment, IntfMappedCatgory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import { dateOffsetToDate, fa2En, getElementAtIndex, normalizeText } from "../modules/common";
 import { axiosPost, IntfRequestParams } from "../modules/request";
@@ -476,5 +476,9 @@ export class naghdfarsi extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
