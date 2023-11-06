@@ -276,8 +276,7 @@ export class bultannews extends clsIransamaneh {
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (second === '') return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        else if (second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        if (second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (second.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (second.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (second.startsWith("بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
@@ -416,17 +415,63 @@ export class basijnews extends clsIransamaneh {
         const catParts = cat.split('/')
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        if (false
+            || first.startsWith("فیلم و نماهنگ")
+            || first.startsWith("عکس")
+            || first.startsWith("کاریکاتور")
+        ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
 
-        if (second.startsWith("عمومی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        else if (first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (first.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (first.startsWith("عکس") || first.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("روابط بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("محور مقاومت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (first.includes("کشاورزی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (first.startsWith("رزمایش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Local }
+        if (first.startsWith("باشگاه")
+            || first.startsWith("ایران")
+            || first.startsWith("استان")
+            || first.startsWith("آذربایجان")
+            || first.startsWith("اردبیل")
+            || first.includes("تهران")
+            || first.startsWith("اصفهان")
+            || first.startsWith("البرز")
+            || first.startsWith("ایلام")
+            || first.startsWith("بوشهر")
+            || first.startsWith("چهارمحال")
+            || first.startsWith("خراسان")
+            || first.startsWith("خوزستان")
+            || first.startsWith("زنجان")
+            || first.startsWith("سمنان")
+            || first.startsWith("سیستان")
+            || first.startsWith("فارس")
+            || first.startsWith("قزوین")
+            || first.startsWith("قم")
+            || first.startsWith("کاشان")
+            || first.startsWith("کردستان")
+            || first.startsWith("کرمان")
+            || first.startsWith("کهگلویه")
+            || first.startsWith("گلستان")
+            || first.startsWith("گیلان")
+            || first.startsWith("لرستان")
+            || first.startsWith("مازندران")
+            || first.startsWith("مرکزی")
+            || first.startsWith("هرمزگان")
+            || first.startsWith("همدان")
+            || first.startsWith("یزد")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        else if (first.startsWith("اجتماعی")) {
+            mappedCat.minor = enuMinorCategory.Social
+            if (second.startsWith("انتظامی")) return { ...mappedCat, subminor: enuSubMinorCategory.Police }
+            if (second.startsWith("بهداشت")) return { ...mappedCat, subminor: enuMinorCategory.Health }
+            if (second.startsWith("زن")) return { ...mappedCat, subminor: enuSubMinorCategory.Women }
+            if (second.startsWith("عفاف")) return { ...mappedCat, subminor: enuMinorCategory.Religious }
+            if (second.startsWith("قضایی")) return { ...mappedCat, subminor: enuMinorCategory.Law }
+        } else if (first.startsWith("اساتید")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        else if (first.startsWith("اقتصاد") || first.endsWith("تعاون"))
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
+        else if (first.includes("روابط بین"))
+            return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (first.startsWith("اقشار") || first.startsWith("بسیج") || first.startsWith("محور") || first.startsWith("رزمایش"))
+            return { ...mappedCat, minor: enuMinorCategory.Political }
+        else if (first.includes("رسانه") || first.includes("فرهنگی"))
+            return { ...mappedCat, minor: enuMinorCategory.Culture }
+        else if (first.includes("علمی"))
+            return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        return { ...mappedCat, minor: enuMinorCategory.Generic }
     }
 }
 
@@ -613,6 +658,7 @@ export class javanonline extends clsIransamaneh {
             || first.startsWith("کاشان")
             || first.startsWith("کردستان")
             || first.startsWith("کرمان")
+            || first.startsWith("کهگلویه")
             || first.startsWith("گلستان")
             || first.startsWith("گیلان")
             || first.startsWith("لرستان")
@@ -659,7 +705,7 @@ export class javanonline extends clsIransamaneh {
         } else if (second.includes("کتاب")) {
             if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Book; else mappedCat.minor = enuMinorCategory.Culture
         }
-            return mappedCat
+        return mappedCat
     }
 }
 export class aghigh extends clsIransamaneh {

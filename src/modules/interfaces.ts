@@ -284,7 +284,8 @@ export enum enuSubMinorCategory {
     Wrestling = "Wrestling",
     Martial = "Martial",
     Weightlifting = "Weightlifting",
-    Women = "Women"
+    Women = "Women",
+    Police = "Police"
 }
 
 export interface IntfMappedCatgory {

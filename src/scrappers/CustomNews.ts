@@ -438,7 +438,7 @@ export class itna extends clsScrapper {
         else if (first.startsWith("ارتباطات") || first.includes("ICT"))
             mappedCat.subminor = enuSubMinorCategory.ICT
         else if (first.startsWith("نرم"))
-            mappedCat.subminor = enuSubMinorCategory.ICT
+            mappedCat.subminor = enuSubMinorCategory.Software
         else if (first.startsWith("امنیت"))
             mappedCat.subminor = enuSubMinorCategory.Security
         else
