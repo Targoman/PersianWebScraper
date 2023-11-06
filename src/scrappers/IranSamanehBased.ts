@@ -659,7 +659,7 @@ export class javanonline extends clsIransamaneh {
         } else if (second.includes("کتاب")) {
             if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Book; else mappedCat.minor = enuMinorCategory.Culture
         }
-        return mappedCat
+            return mappedCat
     }
 }
 export class aghigh extends clsIransamaneh {
