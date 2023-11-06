@@ -549,6 +549,17 @@ export class niniban extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("ویدئو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+    }
 }
 
 export class roozno extends clsIransamaneh {
