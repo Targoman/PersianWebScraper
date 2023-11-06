@@ -173,16 +173,39 @@ export class isna extends clsScrapper {
     mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
 
-        else if (cat.startsWith("اجتماعی") || cat.startsWith("جامعه") || cat.startsWith("خانواده") || cat.startsWith("محیط")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        if (cat.startsWith("اجتماعی") || cat.startsWith("جامعه") || cat.startsWith("خانواده") || cat.startsWith("محیط")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("دانشگاه") || cat.includes("دانشجو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.University }
+        else if (cat.includes("علم")
+            || cat.includes("دانش")
+            || cat.includes("پژوهش")
+        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("انرژی هسته")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.startsWith("اقتصاد")
+        || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
+        || cat.startsWith("استخدام")
+        || cat.includes("بازار") || cat.startsWith("ترین")
+        || cat.startsWith("تمدن‌سازی")
+        || cat.startsWith("مردمی‌سازی")
+        || cat.startsWith("امید و آگاهی")
+        || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("آمریکا")
+        || cat.includes("خارجی")
+        || cat.startsWith("غرب")
+        || cat.includes("ایران در جهان")
+        || cat.includes("اقیانوسیه")
+        || cat.startsWith("انرژی هسته")
+        || cat.startsWith("بین الملل")
+        || cat.includes("تحلیل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.startsWith("عکس")
             || cat.startsWith("فیلم")
             || cat.startsWith("ویدئو")
             || cat.startsWith("ویدیو")
             || cat.startsWith("صوت")
-            || cat.startsWith("خبر")
             || cat.startsWith("گزارش")
             || cat.startsWith("دیدنی")
-            || cat.startsWith("موشن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+            || cat.startsWith("موشن")
+            || cat.startsWith("کاریکاتور")
+            || cat.startsWith("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("ورزش") || cat.includes("المپیک") || cat.includes("جام ") || cat.includes("بازی") || cat.includes("یورو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         else if (cat.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Futbol }
         else if (cat.startsWith("کشتی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
@@ -192,16 +215,12 @@ export class isna extends clsScrapper {
         else if (cat.includes("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Literature }
         else if (cat.includes("فرهنگ") || cat.includes("میراث") || cat.startsWith("رسانه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.IT }
-        else if (cat.startsWith("دین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.startsWith("دین") || cat.includes("اسلامی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
-        else if (cat.includes("آموزش") || cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
-        else if (cat.includes("علم")
-            || cat.includes("دانش")
-            || cat.includes("پژوهش")
-        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (cat.startsWith("حقوقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
         else if (cat.startsWith("سیاس")
             || cat.startsWith("مجلس")
-            || cat.startsWith("حقوقی")
             || cat.startsWith("دولت")
             || cat.startsWith("رسانه دیگر")
             || cat.includes("خبر")
@@ -209,6 +228,7 @@ export class isna extends clsScrapper {
             || cat.startsWith("ایسنا+")
             || cat.startsWith("شبکه")
             || cat.startsWith("سند")
+            || cat.startsWith("اندیشه")
         ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (cat.startsWith("دفاعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
         else if (cat.startsWith("چهره")
@@ -217,24 +237,7 @@ export class isna extends clsScrapper {
             || cat.startsWith("کانون")
             || cat.startsWith("یادداشت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
         else if (cat.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.startsWith("آمریکا")
-            || cat.includes("خارجی")
-            || cat.startsWith("غرب")
-            || cat.includes("جهان")
-            || cat.includes("اقیانوسیه")
-            || cat.startsWith("انرژی هسته")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.startsWith("اقتصاد")
-            || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
-            || cat.startsWith("استخدام")
-            || cat.includes("بازار") || cat.startsWith("ترین")
-            || cat.startsWith("تمدن‌سازی")
-            || cat.startsWith("مردمی‌سازی")
-            || cat.startsWith("امید و آگاهی")
-            || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (cat.startsWith("کاریکاتور")
-            || cat.startsWith("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-
-        return { major: enuMajorCategory.News, subminor: enuMinorCategory.Local }
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
     }
 }
 
