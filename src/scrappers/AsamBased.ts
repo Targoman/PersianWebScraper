@@ -262,14 +262,14 @@ export class khabarfoori extends clsAsamBased {
         const second = catParts.length > 1 ? catParts[1] : ''
         if (second.startsWith("بین") || cat.includes("سیاست خارجی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.includes("دفاعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("سیاسی") && cat.includes("قضایی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
+        else if (cat.includes("سیاسی") && cat.includes("قضایی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
         else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (first.startsWith("فرهنگی") && second.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
         else if (first.startsWith("فرهنگی") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (first.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (second.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("تاریخ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Historical }
-        else if (cat.includes("حقوق") || cat.startsWith("دادگاه"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuMinorCategory.Law }
+        else if (cat.includes("حقوق") || cat.includes("دادگاه"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuMinorCategory.Law }
         else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
         else if (cat.includes("اقتصاد") || cat.includes("تولید") || cat.includes("اشتغال") || cat.includes("بورس") 
           || cat.includes("بازنشسته") || first.startsWith("ارز") || first.startsWith("مالیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
