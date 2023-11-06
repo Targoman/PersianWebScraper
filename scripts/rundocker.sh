@@ -23,37 +23,38 @@ function reset() {
 }
 
 domains='
+arzdigital
+joomlafarsi
+moshaver
+oghyanos
+bazicenter
+sakhtafzarmag
+sid
+digiato
+wikifa
+majidonline
+persiantools
+soft98
+boursy
+tarfandestan
+barnamenevis
+p30world
+webhostingtalk
+tebyan
 farsnews
-hamshahrionline
 irna
 mashreghnews
 mehrnews
 aftabnews
-seratnews
-rajanews
-alef
-mojnews
-iqna
 isna
 ilna
 imna
-shana
-ana
-chtn
 tasnim
-tabnak
-spnfa
-sputnikaf
 pana
-ibna
 snn
 yjc
 virgool
-baharnews
-khamenei
-citna
 rokna
-itna
 ninisite
 jahannews
 varzesh3
@@ -71,7 +72,6 @@ khabarfoori
 bartarinha
 iribnews
 mizanonline
-kayhan
 basijnews
 shahraranews
 rasanews
@@ -82,24 +82,53 @@ roozno
 noandish
 javanonline
 aghigh
+sedayiran
+tejaratonline
+sarmadnews
+vananews
+shoaresal
+
+hamshahrionline
+seratnews
+rajanews
+baharnews
+tabnakbato
+iqna
+shana
+alef
+chtn
+shohadayeiran
+goftareno
+tejaratemrouz
+khamenei
+spnfa
+sputnikaf
+ibna
+itna
+kayhan
+goftareno
+tejaratemrouz
+bankdariirani
 paydarymelli
 danakhabar
 niknews
 iraneconomist
 barghnews
-shohadayeiran
-sedayiran
-tejaratonline
-sarmadnews
-goftareno
-tejaratemrouz
-sarmadnews
-goftareno
-tejaratemrouz
-vananews
-tabnakbato
-shoaresal
-bankdariirani
+romanman
+blogir
+yektanet
+bazmineh
+ana
+beytoote
+namnak
+mojnews
+tabnak
+technolife
+blogsky
+wppersian
+naghdfarsi
+ramzarz
+citna
 '
 if [ -z "$1" ]; then
     for i in $domains; do
@@ -122,20 +151,23 @@ elif [ $1 == "show" ]; then
     twc=0
     tur=0
     tdc=0
+    tpu=0
     for i in $domains; do
         res=`docker logs --tail 100 $i 2>/dev/null | grep fetching | tail -n 1`
         echo "$res  $i"
         wc=`echo $res | cut -d ',' -f 7 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
         dc=`echo $res | cut -d ',' -f 6 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
         ur=`echo $res | cut -d ',' -f 2 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
+        pu=`echo $res | cut -d ',' -f 5 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
 #       echo $ur
         twc=$(($wc + $twc))
         tdc=$(($dc + $tdc))
         tur=$(($ur + $tur))
+        tpu=$(($pu + $tpu))
     done
     echo "--------------------------------------------------------------------------------"
-    printf "Total URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tdc $twc
-    printf "Total URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tdc $twc > log/lastStats
+    printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc
+    printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc > log/lastStats
 elif [ "$1" == "stop" ];then
     for i in $domains; do
         stop $i
@@ -144,6 +176,8 @@ elif [ "$1" == "recheck" ];then
     for i in $domains; do
             run $i --recheck
     done
+elif  [ "$1" == "stats" ];then
+    docker run -t --name $1 -v/var/lib/ws/db:/db -v/var/lib/ws/corpora:/corpora -v$cwd/log:/log --mount type=bind,source=$cwd/config.json,target=/etc/config.json docker-registry.tip.co.ir/webscrap/scrapper:latest node .build/process.js catStats -c /etc/config.json -s /log/stats.csv
 else
     run $*
     docker logs -f $1

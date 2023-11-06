@@ -1,6 +1,8 @@
 import he from "he"
 import { HTMLElement, Node, NodeType } from "node-html-parser";
 import jmoment from 'jalali-moment'
+import { PersianShaper } from "arabic-persian-reshaper"
+import { log } from "./logger";
 
 export function parseEnum(e: any, str: string) {
     const enumKeys = Object.keys(e);
@@ -39,8 +41,8 @@ export function formatNumber(num: number) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export function normalizeCategory(cat?:string) {
-    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0,100)) : 'Undefined'
+export function normalizeCategory(cat?: string) {
+    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
 }
 
 function parseFaCurrency(number: string) {
@@ -89,13 +91,15 @@ export function persianMonthNumber(month: string): string | number {
 export function normalizeText(text?: string) {
     if (!text)
         return text
-    return he.decode(text).trim()
-        .replace(/\r/g, '')
-        .replace(/\t/g, ' ')
-        .replace(/  /g, " ")
-        .replace(/  /g, " ")
-        .replace(/&#1740;/g, 'ی')
-        .replace(/ي/g, 'ی')
+    return PersianShaper.convertArabicBack(
+        he.decode(text)
+            .replace(/\r/g, '')
+            .replace(/\t/g, ' ')
+            .replace(/  /g, " ")
+            .replace(/  /g, " ")
+            .replace(/&#1740;/g, 'ی')
+            .replace(/ي/g, 'ی')
+    ).trim()
 }
 
 export function getElementAtIndex(nodes: Node[], index: number) {
@@ -109,8 +113,8 @@ export function getElementAtIndex(nodes: Node[], index: number) {
     return
 }
 
-export function dateOffsetToDate(el?: HTMLElement|null) {
-    if(!el) return "NullDateElement"
+export function dateOffsetToDate(el?: HTMLElement | null) {
+    if (!el) return "NullDateElement"
     const dateParts = el.innerText.split(" ")
     let effectiveDate = jmoment().locale('fa');
     const offset = parseInt(fa2En(dateParts[0]))
@@ -121,6 +125,32 @@ export function dateOffsetToDate(el?: HTMLElement|null) {
         case "سال": effectiveDate = effectiveDate.subtract(offset, "years"); break
     }
     return effectiveDate.format('YYYY-M-D')
+}
+
+export function date2Gregorian(date?: string) : string | undefined{
+    if (!date) return date
+    date = fa2En(date)
+    if (isNaN(parseInt(date[0]))) return normalizeText(date)
+    date = date.replace(/\//g, "-")
+    const dateParts = date.split("-")
+    try {
+        if (dateParts.length >= 3) {
+            if (dateParts[0].length === 4 || dateParts[dateParts.length - 1].length === 4) {
+                if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13'))
+                    return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
+                else
+                    return jmoment.from(date, "en").locale("en").format('YYYY-MM-DD')
+            }
+            if (parseInt(dateParts[0]) < 50)
+                date = "14" + date
+            else
+                date = "13" + date
+            return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
+
+        }
+    } catch (e) {/* */ }
+    log.error("Invalid Date: ", date)
+    return "INVALID: " + date
 }
 
 

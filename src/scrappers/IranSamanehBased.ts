@@ -84,16 +84,16 @@ export class aftabnews extends clsIransamaneh {
     }
 
     mapCategory(cat?: string): IntfMappedCatgory {
-        if (!cat) return { major: enuMajorCategory.News }
+        if (!cat) return { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
         else if (cat.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (cat.startsWith("بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (cat.startsWith("چندرسانه‌ایی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         else if (cat.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (cat.startsWith("فرهنگ و هنر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("اقتصاد و صنعت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (cat.startsWith("علم، مهارت و فن آوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.endsWith("عمومی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News }
@@ -124,7 +124,7 @@ export class ana extends clsIransamaneh {
         super(enuDomains.ana, "ana.press", { selectors: { article: ".news_content, .container-newsMedia" } })
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -141,8 +141,8 @@ export class ana extends clsIransamaneh {
         else if (first.startsWith("جهان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.includes("سیاست")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (first.startsWith("خانه") || first.startsWith("هومیانا")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        else if (first.startsWith("ارتباطات"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
-        
+        else if (first.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
     }
 }
@@ -264,6 +264,9 @@ export class bultannews extends clsIransamaneh {
                 datetime: {
                     conatiner: "time",
                 },
+            },
+            url: {
+                ignoreContentOnPath: ["/fa/tags"]
             }
         })
     }
@@ -274,23 +277,23 @@ export class bultannews extends clsIransamaneh {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (second === '') return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        else if (second.startsWith("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (second.startsWith("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (second.startsWith("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("بین الملل"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (second.startsWith("دین و اندیشه"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
-        else if (second.startsWith("اقتصادی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("ورزشی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("علمی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
-        else if (second.startsWith("هنری"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (second.startsWith("بولتن2"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (second.startsWith("عکس"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (second.startsWith("فرهنگ و هنر"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("هسته ای"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (second.startsWith("IT"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
-        else if (second.startsWith("انرژی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        
+        else if (second.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (second.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("دین و اندیشه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (second.startsWith("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (second.startsWith("علمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (second.startsWith("هنری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (second.startsWith("بولتن2")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (second.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (second.startsWith("فرهنگ و هنر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.startsWith("هسته ای")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (second.startsWith("IT")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        else if (second.startsWith("انرژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+
         return { major: enuMajorCategory.News }
     }
 }
@@ -408,7 +411,7 @@ export class basijnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -479,22 +482,22 @@ export class didarnews extends clsIransamaneh {
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (second.startsWith("گفتگو") && first.startsWith("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Political }
-        else if (second.startsWith("گفتگو") && first.startsWith("اقتصاد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Economics }
-        else if (second.startsWith("گفتگو") && first.startsWith("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Social }
-        else if (second.startsWith("گفتگو") && first.startsWith("ورزشی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Sport }
-        else if (second.startsWith("گفتگو") && first.startsWith("بین"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("سیاسی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (first.startsWith("ورزش"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport  }
-        else if (first.startsWith("اجتماعی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (cat.includes("فرهنگی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (first.startsWith("بین"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("اقتصاد"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("حوادث"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("عکس"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("فیلم"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("صوت"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("سبک"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        if (second.startsWith("گفتگو") && first.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Political }
+        else if (second.startsWith("گفتگو") && first.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Economics }
+        else if (second.startsWith("گفتگو") && first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Social }
+        else if (second.startsWith("گفتگو") && first.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Sport }
+        else if (second.startsWith("گفتگو") && first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuSubMinorCategory.Intl }
+        else if (first.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (first.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (first.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("صوت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (first.startsWith("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
         else if (first.startsWith("صفحه نخست")) return { major: enuMajorCategory.News }
 
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
@@ -570,7 +573,7 @@ export class aghigh extends clsIransamaneh {
         super(enuDomains.aghigh, "aghigh.ir")
     }
 
-    mapCategory(cat?: string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -578,11 +581,11 @@ export class aghigh extends clsIransamaneh {
 
         if (first.startsWith("خانه")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
         else if (first.startsWith("گفت‌و‌گو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
-        
+
         else if (first.startsWith("سرویس صوت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (first.startsWith("گزارش تصویری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (second.startsWith("برنامه تلویزیونی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        
+
         else if (second.endsWith("هیئت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (second.endsWith("هیات ها")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (second.endsWith("مذهبی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
@@ -625,7 +628,7 @@ export class danakhabar extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -637,7 +640,7 @@ export class danakhabar extends clsIransamaneh {
         else if (first.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (second.startsWith("راهبرد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (second.startsWith("خبر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
-        
+
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
     }
 }
@@ -651,7 +654,7 @@ export class iraneconomist extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
@@ -663,7 +666,7 @@ export class iraneconomist extends clsIransamaneh {
         else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
         else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("چهره") || second.startsWith("دیدنی"))  return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (second.startsWith("چهره") || second.startsWith("دیدنی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
@@ -684,8 +687,8 @@ export class barghnews extends clsIransamaneh {
         })
     }
 
-    mapCategory() : IntfMappedCatgory{
-        return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
@@ -801,8 +804,8 @@ export class bankdariirani extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
-        if (!cat) return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
 
@@ -810,6 +813,6 @@ export class bankdariirani extends clsIransamaneh {
         else if (second.startsWith("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         else if (second.startsWith("زنگ تفریح")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
 
-        return {major: enuMajorCategory.News, minor: enuMinorCategory.Economics}
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }

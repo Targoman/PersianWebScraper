@@ -207,7 +207,7 @@ export interface IntfPageContent {
 
 export interface IntfDocFilecontent {
     url: string,
-    category: string,
+    category: string|IntfMappedCatgory,
     date?: string,
     title?: string,
     aboveTitle?: string,

@@ -76,23 +76,45 @@ export class jahannews extends clsStudioKhabarBased {
         return url.protocol + "//" + hostname + path
     }
 
-    mapCategory(cat? :string) : IntfMappedCatgory{
+    mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
+        if (false
+            || second.startsWith("عکس")
+            || second.startsWith("فیلم")
+            || second.startsWith("صوت")
+        )
+            return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
 
-        if (second.startsWith("سیاست") || second.startsWith("انتخابات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (cat.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (second.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (second.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("عکس") || second.startsWith("فیلم") || first.startsWith("گزارش تصویری") 
-         || first.startsWith("فوتوتیتر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("گفتگو") || first.startsWith("مصاحبه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+        const mappedCat: IntfMappedCatgory =  {major: enuMajorCategory.News }
+        if (false
+            || first.startsWith("عکس")
+            || first.startsWith("فیلم")
+            || first.startsWith("صوت")
+            || first.startsWith("گزارش تصویری")
+            || first.startsWith("فوتوتیتر")
+        ) mappedCat.minor = enuMinorCategory.Multimedia
 
-        return { major: enuMajorCategory.News }
+        if (first.startsWith("گفتگو") || first.startsWith("مصاحبه"))
+        mappedCat.minor = enuMinorCategory.Talk
+
+        if (second.startsWith("سیاست") || second.startsWith("انتخابات") || second.startsWith("بین")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Political; else mappedCat.minor = enuMinorCategory.Political
+        } else if (second.startsWith("جامعه")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Social; else mappedCat.minor = enuMinorCategory.Social
+        } else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economics; else mappedCat.minor = enuMinorCategory.Economics
+        } else if (second.startsWith("فرهنگ")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Culture; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.startsWith("ورزش")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Sport; else mappedCat.minor = enuMinorCategory.Sport
+        } else if (second.startsWith("عکس") || second.startsWith("فیلم") || second.startsWith(" صوت")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Multimedia; else mappedCat.minor = enuMinorCategory.Multimedia
+        }
+        
+        return mappedCat
     }
 }
 
