@@ -45,6 +45,39 @@ export function normalizeCategory(cat?: string) {
     return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
 }
 
+export function isIranProvinceString(str: string) {
+    return str.startsWith("ایران")
+        || str.startsWith("استان")
+        || str.startsWith("آذربایجان")
+        || str.startsWith("اردبیل")
+        || str.includes("تهران")
+        || str.startsWith("اصفهان")
+        || str.startsWith("البرز")
+        || str.startsWith("ایلام")
+        || str.startsWith("بوشهر")
+        || str.startsWith("چهارمحال")
+        || str.startsWith("خراسان")
+        || str.startsWith("خوزستان")
+        || str.startsWith("زنجان")
+        || str.startsWith("سمنان")
+        || str.startsWith("سیستان")
+        || str.startsWith("فارس")
+        || str.startsWith("قزوین")
+        || str.startsWith("قم")
+        || str.startsWith("کاشان")
+        || str.startsWith("کردستان")
+        || str.startsWith("کرمان")
+        || str.startsWith("کهگلویه")
+        || str.startsWith("گلستان")
+        || str.startsWith("گیلان")
+        || str.startsWith("لرستان")
+        || str.startsWith("مازندران")
+        || str.startsWith("مرکزی")
+        || str.startsWith("هرمزگان")
+        || str.startsWith("همدان")
+        || str.startsWith("یزد")
+}
+
 function parseFaCurrency(number: string) {
     if (!number)
         return 0
@@ -127,7 +160,7 @@ export function dateOffsetToDate(el?: HTMLElement | null) {
     return effectiveDate.format('YYYY-M-D')
 }
 
-export function date2Gregorian(date?: string) : string | undefined{
+export function date2Gregorian(date?: string): string | undefined {
     if (!date) return date
     date = fa2En(date)
     if (isNaN(parseInt(date[0]))) return normalizeText(date)

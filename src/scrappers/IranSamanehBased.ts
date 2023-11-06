@@ -2,6 +2,7 @@ import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
+import { isIranProvinceString } from "../modules/common";
 
 export class clsIransamaneh extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
@@ -422,37 +423,7 @@ export class basijnews extends clsIransamaneh {
             || first.startsWith("کاریکاتور")
         ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
 
-        if (first.startsWith("باشگاه")
-            || first.startsWith("ایران")
-            || first.startsWith("استان")
-            || first.startsWith("آذربایجان")
-            || first.startsWith("اردبیل")
-            || first.includes("تهران")
-            || first.startsWith("اصفهان")
-            || first.startsWith("البرز")
-            || first.startsWith("ایلام")
-            || first.startsWith("بوشهر")
-            || first.startsWith("چهارمحال")
-            || first.startsWith("خراسان")
-            || first.startsWith("خوزستان")
-            || first.startsWith("زنجان")
-            || first.startsWith("سمنان")
-            || first.startsWith("سیستان")
-            || first.startsWith("فارس")
-            || first.startsWith("قزوین")
-            || first.startsWith("قم")
-            || first.startsWith("کاشان")
-            || first.startsWith("کردستان")
-            || first.startsWith("کرمان")
-            || first.startsWith("کهگلویه")
-            || first.startsWith("گلستان")
-            || first.startsWith("گیلان")
-            || first.startsWith("لرستان")
-            || first.startsWith("مازندران")
-            || first.startsWith("مرکزی")
-            || first.startsWith("هرمزگان")
-            || first.startsWith("همدان")
-            || first.startsWith("یزد")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.startsWith("باشگاه") || isIranProvinceString(first)) return { ...mappedCat, minor: enuMinorCategory.Local }
         else if (first.startsWith("اجتماعی")) {
             mappedCat.minor = enuMinorCategory.Social
             if (second.startsWith("انتظامی")) return { ...mappedCat, subminor: enuSubMinorCategory.Police }
@@ -527,25 +498,35 @@ export class didarnews extends clsIransamaneh {
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (second.startsWith("گفتگو") && first.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Political }
-        else if (second.startsWith("گفتگو") && first.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Economics }
-        else if (second.startsWith("گفتگو") && first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Social }
-        else if (second.startsWith("گفتگو") && first.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuMinorCategory.Sport }
-        else if (second.startsWith("گفتگو") && first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        else if (first.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (first.startsWith("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        else if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (first.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("صوت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
-        else if (first.startsWith("صفحه نخست")) return { major: enuMajorCategory.News }
+        if (first.startsWith("فیلم")
+            || first.startsWith("عکس")
+            || first.startsWith("صوت")
+        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
 
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        if (isIranProvinceString(first))
+            return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+        if (second.startsWith("گفتگو") || second.startsWith("میزگرد") || second.startsWith("مصاحبه")) {
+            mappedCat.minor = enuMinorCategory.Talk
+            if (first.startsWith("سیاسی")) return { ...mappedCat, subminor: enuMinorCategory.Political }
+            else if (first.startsWith("اقتصاد")) return { ...mappedCat, subminor: enuMinorCategory.Economics }
+            else if (first.startsWith("اجتماعی")) return { ...mappedCat, subminor: enuMinorCategory.Social }
+            else if (first.startsWith("ورزشی")) return { ...mappedCat, subminor: enuMinorCategory.Sport }
+            else if (first.startsWith("بین")) return { ...mappedCat, subminor: enuMinorCategory.Political }
+            else if (first.startsWith("سبک")) return { ...mappedCat, subminor: enuMinorCategory.LifeStyle }
+        }
+        else if (second.includes("حوادث")) return {...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        else if (first.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        else if (first.startsWith("اجتماعی")) return {...mappedCat, minor: enuMinorCategory.Social }
+        else if (first.startsWith("بین")) return {...mappedCat, minor: enuMinorCategory.Political }
+        else if (first.startsWith("سیاسی")) return {...mappedCat, minor: enuMinorCategory.Political }
+        else if (first.startsWith("اقتصاد")) return {...mappedCat, minor: enuMinorCategory.Economics }
+        else if (first.startsWith("فرهنگی")) return {...mappedCat, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("فرهنگی")) return {...mappedCat, minor: enuMinorCategory.Culture }
+        else if (first.startsWith("ورزش")) return {...mappedCat, minor: enuMinorCategory.Sport }
+
+        return mappedCat
     }
 }
 
@@ -637,37 +618,7 @@ export class javanonline extends clsIransamaneh {
         }
         else if (first.startsWith("سیاست"))
             mappedCat.minor = enuMinorCategory.Political
-        else if (first.startsWith("ایران")
-            || first.startsWith("ایران")
-            || first.startsWith("آذربایجان")
-            || first.startsWith("اردبیل")
-            || first.includes("تهران")
-            || first.startsWith("اصفهان")
-            || first.startsWith("البرز")
-            || first.startsWith("ایلام")
-            || first.startsWith("بوشهر")
-            || first.startsWith("چهارمحال")
-            || first.startsWith("خراسان")
-            || first.startsWith("خوزستان")
-            || first.startsWith("زنجان")
-            || first.startsWith("سمنان")
-            || first.startsWith("سیستان")
-            || first.startsWith("فارس")
-            || first.startsWith("قزوین")
-            || first.startsWith("قم")
-            || first.startsWith("کاشان")
-            || first.startsWith("کردستان")
-            || first.startsWith("کرمان")
-            || first.startsWith("کهگلویه")
-            || first.startsWith("گلستان")
-            || first.startsWith("گیلان")
-            || first.startsWith("لرستان")
-            || first.startsWith("مازندران")
-            || first.startsWith("مرکزی")
-            || first.startsWith("هرمزگان")
-            || first.startsWith("همدان")
-            || first.startsWith("یزد")
-        )
+        else if (isIranProvinceString(first))
             mappedCat.minor = enuMinorCategory.Local
         else if (first.startsWith("بین") || second.startsWith("بین")) {
             mappedCat.minor = enuMinorCategory.Political
