@@ -75,6 +75,25 @@ export class jahannews extends clsStudioKhabarBased {
 
         return url.protocol + "//" + hostname + path
     }
+
+    mapCategory(cat? :string) : IntfMappedCatgory{
+        if (!cat) return { major: enuMajorCategory.News }
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("سیاست") || second.startsWith("انتخابات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (second.startsWith("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (second.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (second.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (second.startsWith("عکس") || second.startsWith("فیلم") || first.startsWith("گزارش تصویری") 
+         || first.startsWith("فوتوتیتر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (first.startsWith("گفتگو") || first.startsWith("مصاحبه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 
