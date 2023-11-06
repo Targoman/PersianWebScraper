@@ -253,7 +253,8 @@ export enum enuMinorCategory {
     Literature = "Literature",
     Historical = "Historical",
     University = "University",
-    Defence = "Defence"
+    Defence = "Defence",
+    Fun = "Fun"
 }
 
 export enum enuSubMinorCategory {
