@@ -1,4 +1,4 @@
-import { string, optional, number, positional, option, oneOf } from 'cmd-ts';
+import { string, optional, number, positional, option, oneOf, flag } from 'cmd-ts';
 import { command, run } from 'cmd-ts';
 import { enuDomains, enuMajorCategory, IntfDocFilecontent, IntfGlobalConfigs } from './modules/interfaces';
 import { clsLogger, log } from "./modules/logger";
@@ -34,6 +34,7 @@ const args = {
     debugVerbosity: option({ type: optional(number), long: 'verbosity', short: "v", description: "set verbosity level from 0 to 10" }),
     statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
 
+    force: flag({ long: "force", description: "forces normalization of category even if the category was set priorly" }),
     domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}` }),
 }
 
@@ -152,7 +153,7 @@ const app = command({
                             }
                     }
 
-                    if (typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
+                    if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
                         doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
                         if (typeof docCategory === 'string')
                             doc.category['original'] = docCategory;
