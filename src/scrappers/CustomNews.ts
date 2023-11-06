@@ -181,21 +181,21 @@ export class isna extends clsScrapper {
         ) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.startsWith("انرژی هسته")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.startsWith("اقتصاد")
-        || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
-        || cat.startsWith("استخدام")
-        || cat.includes("بازار") || cat.startsWith("ترین")
-        || cat.startsWith("تمدن‌سازی")
-        || cat.startsWith("مردمی‌سازی")
-        || cat.startsWith("امید و آگاهی")
-        || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+            || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
+            || cat.startsWith("استخدام")
+            || cat.includes("بازار") || cat.startsWith("ترین")
+            || cat.startsWith("تمدن‌سازی")
+            || cat.startsWith("مردمی‌سازی")
+            || cat.startsWith("امید و آگاهی")
+            || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.startsWith("آمریکا")
-        || cat.includes("خارجی")
-        || cat.startsWith("غرب")
-        || cat.includes("ایران در جهان")
-        || cat.includes("اقیانوسیه")
-        || cat.startsWith("انرژی هسته")
-        || cat.startsWith("بین الملل")
-        || cat.includes("تحلیل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+            || cat.includes("خارجی")
+            || cat.startsWith("غرب")
+            || cat.includes("ایران در جهان")
+            || cat.includes("اقیانوسیه")
+            || cat.startsWith("انرژی هسته")
+            || cat.startsWith("بین الملل")
+            || cat.includes("تحلیل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.startsWith("عکس")
             || cat.startsWith("فیلم")
             || cat.startsWith("ویدئو")
@@ -242,17 +242,8 @@ export class isna extends clsScrapper {
             || cat.startsWith("غرب")
             || cat.includes("جهان")
             || cat.includes("اقیانوسیه")
-            || cat.startsWith("انرژی هسته")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.startsWith("اقتصاد")
-            || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
-            || cat.startsWith("استخدام")
-            || cat.includes("بازار") || cat.startsWith("ترین")
-            || cat.startsWith("تمدن‌سازی")
-            || cat.startsWith("مردمی‌سازی")
-            || cat.startsWith("امید و آگاهی")
-            || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
-        else if (cat.startsWith("کاریکاتور")
-            || cat.startsWith("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+            || cat.startsWith("انرژی هسته")) 
+            return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
 
         return { major: enuMajorCategory.News, subminor: enuMinorCategory.Local }
     }
@@ -539,9 +530,9 @@ export class niknews extends clsScrapper {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (second.startsWith("اق") || second.startsWith("اتص")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
-        if (second.startsWith("سی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
-        if (second.endsWith("عی") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
-        if (second.endsWith("ور") ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        if (second.startsWith("سی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        if (second.endsWith("عی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        if (second.endsWith("ور")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         return { major: enuMajorCategory.News }
     }
 }

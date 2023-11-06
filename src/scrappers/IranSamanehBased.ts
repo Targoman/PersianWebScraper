@@ -132,7 +132,7 @@ export class ana extends clsIransamaneh {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (first.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
-        else if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (first.startsWith("فرهنگ") && second.startsWith("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
         else if (first.startsWith("فرهنگ") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (first.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
@@ -222,14 +222,14 @@ export class yjc extends clsIransamaneh {
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (cat.includes("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        if (cat.includes("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (first.startsWith("فرهنگی") && second.startsWith("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
         else if (first.startsWith("فرهنگی") && second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (first.startsWith("فرهنگی") && second.includes("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Music }
         else if (first.startsWith("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (cat.includes("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia } 
+        else if (cat.includes("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.University }
-        else if (cat.includes("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Futbol }
+        else if (cat.includes("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
         else if (cat.includes("کشتی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
         else if (cat.includes("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
         else if (first.startsWith("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
