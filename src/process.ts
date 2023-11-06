@@ -114,7 +114,7 @@ const app = command({
                         if (!text) return text
                         const normalizedText = normalizeText(text)
                         if (normalizedText != text) {
-                            log.debug({text})
+                            log.debug({ text })
                             anythingChanged = true
                         }
                         return normalizedText
@@ -126,7 +126,7 @@ const app = command({
                             log.file(scrapper.name(), filePath, date)
 
                         if (gregorianDate != date) {
-                            log.debug({date})
+                            log.debug({ date })
                             anythingChanged = true
                         }
                         return gregorianDate
@@ -144,7 +144,7 @@ const app = command({
                                 if (typeof doc[key][i] === "string")
                                     doc[key][i] = normalize(doc[key][i])
                                 else
-                                    for (const innerKey in doc[key][i]) 
+                                    for (const innerKey in doc[key][i])
                                         if (innerKey === "date")
                                             doc[key][i][innerKey] = normalizeDate(doc[key][i][innerKey])
                                         else
@@ -154,8 +154,8 @@ const app = command({
 
                     if (typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
                         doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
-                        doc.category['original'] = docCategory;
-                        log.debug({docCategory})
+                        if (typeof docCategory === 'string')
+                            doc.category['original'] = docCategory;
                         anythingChanged = true
                     }
 
@@ -166,7 +166,7 @@ const app = command({
                     }
 
                     if (processedCount % 1000 === 0)
-                    log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
+                        log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
                     processedCount++
                 })
                 log.status({ processed: formatNumber(processedCount), updated: formatNumber(updatedCount) });
