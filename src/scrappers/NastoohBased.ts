@@ -149,6 +149,37 @@ export class mashreghnews extends clsNastoohBased {
             }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        if (cat.startsWith("سیاست") 
+            || cat.startsWith("جهاد") 
+            || cat.startsWith("دهه فجر") 
+            || cat.startsWith("ویژه‌نامه")
+            || cat.startsWith("انتخابات")
+            || cat.startsWith("گزارش")
+            || cat.startsWith("دیدگاه")
+            || cat.startsWith("جنگ نرم")
+            || cat.startsWith("بهارستان نهم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("دفاع")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        else if (cat.startsWith("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.startsWith("اقتصاد")
+            || cat.startsWith("بازار") 
+            || cat.startsWith("بورس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("عکس") || cat.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.startsWith("جهان") || cat.startsWith("تحولات منطقه") || cat.startsWith("انتخابات امریکا")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.startsWith("محور مقاومت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.startsWith("جام جهانی") || cat.startsWith("یورو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
+        else if (cat.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        else if (cat.startsWith("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("تاریخ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Historical }
+        else if (cat.startsWith("دین") || cat.includes("حسینیه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.startsWith("وبلاگستان")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Undefined }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/

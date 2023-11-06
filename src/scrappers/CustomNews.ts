@@ -173,16 +173,39 @@ export class isna extends clsScrapper {
     mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
 
-        else if (cat.startsWith("اجتماعی") || cat.startsWith("جامعه") || cat.startsWith("خانواده") || cat.startsWith("محیط")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        if (cat.startsWith("اجتماعی") || cat.startsWith("جامعه") || cat.startsWith("خانواده") || cat.startsWith("محیط")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("دانشگاه") || cat.includes("دانشجو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.University }
+        else if (cat.includes("علم")
+            || cat.includes("دانش")
+            || cat.includes("پژوهش")
+        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.startsWith("انرژی هسته")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.startsWith("اقتصاد")
+        || cat.includes("تجارت") || cat.startsWith("انرژی") || cat.startsWith("عمران")
+        || cat.startsWith("استخدام")
+        || cat.includes("بازار") || cat.startsWith("ترین")
+        || cat.startsWith("تمدن‌سازی")
+        || cat.startsWith("مردمی‌سازی")
+        || cat.startsWith("امید و آگاهی")
+        || cat.startsWith("الگوی پیشرفت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        else if (cat.startsWith("آمریکا")
+        || cat.includes("خارجی")
+        || cat.startsWith("غرب")
+        || cat.includes("ایران در جهان")
+        || cat.includes("اقیانوسیه")
+        || cat.startsWith("انرژی هسته")
+        || cat.startsWith("بین الملل")
+        || cat.includes("تحلیل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.startsWith("عکس")
             || cat.startsWith("فیلم")
             || cat.startsWith("ویدئو")
             || cat.startsWith("ویدیو")
             || cat.startsWith("صوت")
-            || cat.startsWith("خبر")
             || cat.startsWith("گزارش")
             || cat.startsWith("دیدنی")
-            || cat.startsWith("موشن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+            || cat.startsWith("موشن")
+            || cat.startsWith("کاریکاتور")
+            || cat.startsWith("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("ورزش") || cat.includes("المپیک") || cat.includes("جام ") || cat.includes("بازی") || cat.includes("یورو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         else if (cat.startsWith("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
         else if (cat.startsWith("کشتی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
@@ -192,16 +215,12 @@ export class isna extends clsScrapper {
         else if (cat.includes("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Literature }
         else if (cat.includes("فرهنگ") || cat.includes("میراث") || cat.startsWith("رسانه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.IT }
-        else if (cat.startsWith("دین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.startsWith("دین") || cat.includes("اسلامی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
-        else if (cat.includes("آموزش") || cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
-        else if (cat.includes("علم")
-            || cat.includes("دانش")
-            || cat.includes("پژوهش")
-        ) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (cat.startsWith("حقوقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
         else if (cat.startsWith("سیاس")
             || cat.startsWith("مجلس")
-            || cat.startsWith("حقوقی")
             || cat.startsWith("دولت")
             || cat.startsWith("رسانه دیگر")
             || cat.includes("خبر")
@@ -209,6 +228,7 @@ export class isna extends clsScrapper {
             || cat.startsWith("ایسنا+")
             || cat.startsWith("شبکه")
             || cat.startsWith("سند")
+            || cat.startsWith("اندیشه")
         ) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (cat.startsWith("دفاعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
         else if (cat.startsWith("چهره")
@@ -526,39 +546,6 @@ export class niknews extends clsScrapper {
     }
 }
 
-export class digiato extends clsScrapper {
-    constructor() {
-        super(enuDomains.digiato, "digiato.com", {
-            selectors: {
-                article: "#articleNewsPosts, .sitePage__content",
-                title: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--title, h1.singleVideoPageTitle"),
-                summary: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description p"),
-                datetime: {
-                    conatiner: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--tools"),
-                    splitter: (el: HTMLElement) => super.extractDate(el, el.classList.contains("comment-date") ? " " : "|") || "DATE NOT FOUND",
-                },
-                content: {
-                    main: '.articlePost, .singleVideoPost',
-                },
-                tags: ".postTools__keywords a",
-                category: {
-                    selector: (_, fullHTML: HTMLElement) => fullHTML.querySelectorAll(".breadcrumb ul li:nth-child(2) a, .breadcrumb ul li:nth-child(3) a")
-                },
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.js-comments-list li"),
-                    author: ".comment__info span",
-                    text: ".comment__text"
-                }
-            },
-            url: {
-                removeWWW: true,
-                extraInvalidStartPaths: ["/author", "/topic", "/?s="]
-            }
-
-        })
-    }
-}
-
 export class namnak extends clsScrapper {
     constructor() {
         super(enuDomains.namnak, "namnak.com", {
@@ -675,6 +662,38 @@ export class ramzarz extends clsScrapper {
             },
             url: {
                 removeWWW: true,
+            }
+        })
+    }
+}
+
+export class digiato extends clsScrapper {
+    constructor() {
+        super(enuDomains.digiato, "digiato.com", {
+            selectors: {
+                article: "#articleNewsPosts, .sitePage__content",
+                title: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--title, h1.singleVideoPageTitle"),
+                summary: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description p"),
+                datetime: {
+                    conatiner: (_, fullHTML: HTMLElement) => fullHTML.querySelector(".dailyNewsPageHead__description--tools"),
+                    splitter: (el: HTMLElement) => super.extractDate(el, el.classList.contains("comment-date") ? " " : "|") || "DATE NOT FOUND",
+                },
+                content: {
+                    main: '.articlePost, .singleVideoPost',
+                },
+                tags: ".postTools__keywords a",
+                category: {
+                    selector: (_, fullHTML: HTMLElement) => fullHTML.querySelectorAll(".breadcrumb ul li:nth-child(2) a, .breadcrumb ul li:nth-child(3) a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.js-comments-list li"),
+                    author: ".comment__info span",
+                    text: ".comment__text"
+                }
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/author", "/topic", "/?s="]
             }
         })
     }
