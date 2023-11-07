@@ -374,6 +374,7 @@ export interface IntfProcessorConfigs {
         }
     },
     url?: IntfURLNormaliziztionConf
+    basePath? : string
     preHTMLParse?: (html: string) => string
 }
 
