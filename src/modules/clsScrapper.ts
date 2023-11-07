@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = false
+const debugNodeProcessor = true
 let stack: string[] = []
 /******************************************* */
 
@@ -197,7 +197,7 @@ export abstract class clsScrapper {
                 const refURL = this.safeCreateURL(ref)
                 const sameDomain = this.isSameDomain(refURL)
                 const type = sameDomain ? enuTextType.ilink : enuTextType.link
-                const text = normalizeText(el.innerText)
+                const text = normalizeText(el.textContent)
                 if (text && type && text.length > 2) {
                     if (sameDomain && refURL.pathname.replace(/\/\//g, "/") === "/" || refURL.pathname === "")
                         breakToParagraphs(innerContent, text, enuTextType.paragraph)
@@ -229,7 +229,7 @@ export abstract class clsScrapper {
                 if (node.nodeType === NodeType.ELEMENT_NODE) {
                     const currNode = (node as HTMLElement)
                     debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { currNode: currNode.innerText.substring(0, 200) + "..." })
-                    if (currNode.tagName === "BR") {
+                    if (currNode.tagName === "BR" || (currNode.tagName === "DIV" && currNode.textContent.trim() === "")) {
                         stack.push("BR")
                         const textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { content, textResult })
@@ -362,13 +362,12 @@ export abstract class clsScrapper {
                     finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
             }
 
-            const gregorian = date2Gregorian(finalDateString);
-            if (gregorian?.startsWith("INVALID"))
-                log.file(this.name(), gregorian)
-            return gregorian
         }
+        const gregorian = date2Gregorian(finalDateString);
+        if (gregorian?.startsWith("INVALID"))
+            log.file(this.name(), gregorian)
+        return gregorian
     }
-
 
     private processTextContent(textEl: HTMLElement, contentContainer: IntfContentHolder, ignoreClasses?: string[] | IntfIsValidFunction, ignoredText?: string[]) {
         debugNodeProcessor && log.debug("+++++++++++START+++++++++")
