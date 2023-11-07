@@ -346,7 +346,6 @@ export class pana extends clsAsamBased {
         else if (cat.includes("اقتصاد") || second.startsWith("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
         else if (cat.includes("استان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
-        else if (second.startsWith("چهره") || second.startsWith("دیدنی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News }
     }
