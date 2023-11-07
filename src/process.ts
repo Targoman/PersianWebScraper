@@ -198,7 +198,7 @@ const app = command({
                         }
                     }
 
-                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath:string) => {
                         let mainWC = 0
                         let parCount = 0
                         let altWC = 0
@@ -213,8 +213,8 @@ const app = command({
                         if (typeof docCategory === 'string') {
                             doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
                             doc.category['original'] = docCategory;
-                            writeFileSync(filePath + '.new', JSON.stringify(doc));
                         }
+
                         let catStr = doc.category['original'];
                         if (doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
                             catStr = doc.category['major'];
@@ -249,6 +249,7 @@ const app = command({
                         domainCats[domain][catStr].altWC += altWC;
                         domainCats[domain][catStr].commentCount += commentCount;
                         domainCats[domain][catStr].commentWC += commentsWC;
+                        log.debug(filePath, catStr, domainCats[domain][catStr].docs)
                         if (processedCount % 10000 === 0) {
                             writeStatsFile();
                             log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(wc)} ----------`);

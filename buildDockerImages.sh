@@ -11,6 +11,9 @@ Container="scrapper"
 ContainerParams=""
 
 yarn dev
+if [ $? -ne 0 ];then 
+	exit 1
+fi 
 
 LastVersion=`sudo docker images | grep "$ImageName" | cut -d ' ' -f 4 | sort | tail -n 1`
 Date=$(date +"%Y%m%d%H%M%S")

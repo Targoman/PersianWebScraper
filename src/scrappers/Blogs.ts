@@ -583,8 +583,8 @@ export class yekpezeshk extends clsScrapper {
                     }
                 },
                 content: {
-                    main: '.entry-content.clearfix.single-post-content',
-                    ignoreNodeClasses: ["bs-listing"]
+                    main: '.entry-content.clearfix.single-post-content>*, .single-featured img',
+                    ignoreNodeClasses: ["bs-listing", "vc_custom_1685289155255", "alert"]
                 },
                 tags: ".post-tags a",
                 category: {
