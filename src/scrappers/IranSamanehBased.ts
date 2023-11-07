@@ -108,6 +108,25 @@ export class seratnews extends clsIransamaneh {
             selectors: { article: '.body-news, .body_news' }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("اقتصاد/بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("سیاست/بین الملل")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("سیاس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("جامعه/حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("علمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
@@ -829,7 +848,6 @@ export class sedayiran extends clsIransamaneh {
     mapCategory(cat?: string): IntfMappedCatgory {
         if (!cat) return { major: enuMajorCategory.News }
         const catParts = cat.split('/')
-        //const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (second.startsWith("سینما")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
