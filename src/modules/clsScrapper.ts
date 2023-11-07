@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = true
+const debugNodeProcessor = false
 let stack: string[] = []
 /******************************************* */
 
@@ -98,7 +98,7 @@ export abstract class clsScrapper {
             this.db.reset()
             if (recheck || (await this.db.hasAnyURL() === undefined)) {
                 log.debug({ recheck })
-                if (!await this.retrieveAndProcessPage(this.normalizePath(this.safeCreateURL("https://" + this.baseURL + "/"))))
+                if (!await this.retrieveAndProcessPage(this.normalizePath(this.safeCreateURL("https://" + this.baseURL + (this.pConf.basePath || "/")))))
                     throw new Error("No content retrieved")
             }
             await sleep(1000)
@@ -463,6 +463,7 @@ export abstract class clsScrapper {
 
     protected filterLinks(links: HTMLElement[]) {
         const validLinks: string[] = []
+        if (links.length === 0) return []
         const firstLink = links[0].getAttribute("href")
         links.forEach((link: HTMLElement) => {
             let href = link.getAttribute("href")

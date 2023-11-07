@@ -605,6 +605,7 @@ export class yekpezeshk extends clsScrapper {
 export class digikala extends clsScrapper {
     constructor() {
         super(enuDomains.digikala, "digikala.com", {
+            basePath: "/mag/",
             selectors: {
                 article: "article",
                 title: "h1",
