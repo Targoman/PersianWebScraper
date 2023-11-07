@@ -614,6 +614,7 @@ export class digikala extends clsScrapper {
                 },
                 content: {
                     main: '.post-module__content>*',
+                    ignoreNodeClasses: ["footer"]
                 },
                 tags: ".post-module__tags a",
                 category: {
