@@ -7,7 +7,7 @@
     "scripts": {
         "_tsc": "tsc",
         "lint:fix": "eslint --ext ts --fix src",
-        "start": "node ./.build/checkCat.js",
+        "start": "node ./.build/index.js",
         "process": "node ./.build/process.js",
         "dev": "run-s lint:fix _tsc"
     },
