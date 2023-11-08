@@ -1010,6 +1010,29 @@ export class tejaratonline extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+
+        else if (cat.includes("اقتصاد")
+            || cat.includes("بورس")
+            || cat.includes("مسکن")
+            || cat.includes("صنعت")
+            || cat.includes("اصناف")
+            || cat.includes("گزارش")
+            || cat.includes("یادداشت")
+            || cat.includes("بیمه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("فیلم") || cat.includes("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("سیاست")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("خواندنی") || cat.includes("ایران")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class sarmadnews extends clsIransamaneh {
