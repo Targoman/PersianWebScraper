@@ -442,6 +442,15 @@ export class boursenews extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("فیلم") || cat.includes("عکس") || cat.includes("صوت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("آگهی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Advert }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+    }
 }
 
 export class fararu extends clsIransamaneh {
