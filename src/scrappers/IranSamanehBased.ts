@@ -1042,6 +1042,34 @@ export class tejaratemrouz extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        if (cat.includes("سیاست خارجی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if(cat.includes("گردشگری")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Turism }
+        else if (cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("تلفن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+        else if (cat.includes("اینترنت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("شبکه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("اقتصاد سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Political }
+        else if (cat.includes("اقتصاد ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Sport }
+        else if (cat.includes("اقتصاد") 
+            || cat.includes("مالی") 
+            || cat.includes("تجارت") 
+            || cat.includes("مدیریت")
+            || cat.includes("انرژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("سیاسی") || cat.includes("انتخابات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("هنری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture } 
+        else if (cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("خواندنی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+    }
 }
 
 export class vananews extends clsIransamaneh {
