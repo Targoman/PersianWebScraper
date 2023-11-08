@@ -284,6 +284,7 @@ export enum enuSubMinorCategory {
     Celebrities = "Celebrities",
     Cooking = "Cooking",
     Cinema = "Cinema",
+    Documentry = "Documentry",
     Music = "Music",
     Turism = "Turism",
     Media = "Media",
