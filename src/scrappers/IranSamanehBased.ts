@@ -893,6 +893,30 @@ export class shohadayeiran extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+
+        else if (cat.includes("اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("فرهنگی") 
+            || cat.includes("هجوم") 
+            || cat.includes("ایثار") 
+            || cat.includes("پویا نمایی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("چند رسانه") || cat.includes("مجازی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("مذهبی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
+        else if (cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("عمومی") || cat.includes("خبری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if(cat.includes("طنز")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
+
+        return { major: enuMajorCategory.News }
+    }
+    
 }
 
 export class sedayiran extends clsIransamaneh {
