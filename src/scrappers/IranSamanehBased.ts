@@ -537,6 +537,10 @@ export class kayhan extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class basijnews extends clsIransamaneh {
