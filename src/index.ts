@@ -70,7 +70,6 @@ const app = command({
             }
             log.info({ activeConfigs: gConfigs })
 
-
             if (!existsSync(gConfigs.logPath || "NO LOG PATH") && !mkdirSync(gConfigs.logPath || "NO LOG PATH", { recursive: true }))
                 throw new Error("Unable to create log path: " + gConfigs.logPath)
             clsLogger.setVerbosity(args.verbosity || gConfigs.debugVerbosity || 0)

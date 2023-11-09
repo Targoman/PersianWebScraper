@@ -50,7 +50,7 @@ export class lioncomputer extends clsScrapper {
       || second.includes("بلاگ")
       || second.includes("کلاب")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
     else if (second.includes("گیمینگ")) return { ...mappedCategory, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("ارزهای")) return { ...mappedCategory, subminor: enuSubMinorCategory.CryptoCurrency }
+    else if (second.includes("ارزهای")) return { ...mappedCategory, subminor: enuMinorCategory.CryptoCurrency }
     return mappedCategory
   }
 }

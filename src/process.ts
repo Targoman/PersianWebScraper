@@ -198,7 +198,7 @@ const app = command({
                         }
                     }
 
-                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath:string) => {
+                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent) => {
                         let mainWC = 0
                         let parCount = 0
                         let altWC = 0
@@ -249,8 +249,7 @@ const app = command({
                         domainCats[domain][catStr].altWC += altWC;
                         domainCats[domain][catStr].commentCount += commentCount;
                         domainCats[domain][catStr].commentWC += commentsWC;
-                        log.debug(filePath, catStr, domainCats[domain][catStr].docs)
-                        if (processedCount % 10000 === 0) {
+                        if (processedCount % 1000 === 0) {
                             writeStatsFile();
                             log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(wc)} ----------`);
                             for (const cat in domainCats[domain])

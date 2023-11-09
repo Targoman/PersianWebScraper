@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = false
+const debugNodeProcessor = gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 
@@ -229,32 +229,34 @@ export abstract class clsScrapper {
                 if (node.nodeType === NodeType.ELEMENT_NODE) {
                     const currNode = (node as HTMLElement)
                     debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { currNode: currNode.innerText.substring(0, 200) + "..." })
-                    if (currNode.tagName === "BR" || (currNode.tagName === "DIV" && currNode.textContent.trim() === "")) {
-                        stack.push("BR")
+                    if (currNode.tagName === "BR"
+                        || (currNode.tagName === "DIV" && currNode.textContent.trim() === "")) {
+                        stack.push(currNode.tagName)
                         const textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { content, textResult })
                         content.push(textResult)
                         effectiveText = ""
                         effectiveType = enuTextType.paragraph
                         stack.pop()
-                        // } else if (currNode.tagName === "P") {
-                        //     stack.push("P")
-                        //     const textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
-                        //     debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { content, textResult })
-                        //     content.push(textResult)
-
-                        //     const extracted = this.processElement(currNode, ignoreClasses)
-
-                        //     effectiveText = ""
-                        //     effectiveType = enuTextType.paragraph
-                        //     stack.pop()
                     } else {
                         stack.push(currNode.tagName)
                         const extracted = this.processElement(currNode, ignoreClasses)
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { extracted })
 
                         if (extracted.length === 1) {
-                            if (extracted[0].type === enuTextType.alt) {
+                            if (extracted[0].type === enuTextType.alt
+                                || currNode.tagName === "P"
+                                || currNode.tagName === "H1"
+                                || currNode.tagName === "H2"
+                                || currNode.tagName === "H3"
+                                || currNode.tagName === "H4"
+                                || currNode.tagName === "H5"
+                                || currNode.tagName === "H6"
+                                || currNode.tagName === "BLOCKQUOTE"
+                                || currNode.tagName === "CITE"
+                                || currNode.tagName === "LI"
+                                || currNode.tagName === "UL"
+                                || currNode.tagName === "OL") {
                                 content.push(extracted[0])
                             } else {
                                 if (extracted[0].text)
@@ -566,16 +568,16 @@ export abstract class clsScrapper {
         return cookie
     }
 
-    private async parse(url: string, parsedHtml: HTMLElement, html: string, reqParams: IntfRequestParams): Promise<IntfPageContent> {
+    private async parse(urlString: string, parsedHtml: HTMLElement, html: string, reqParams: IntfRequestParams): Promise<IntfPageContent> {
         void html
         try {
+            const url = this.safeCreateURL(urlString)
             const links = this.filterLinks(parsedHtml.querySelectorAll("a"))
-            const article = this.selectElement(parsedHtml, parsedHtml, this.pConf.selectors?.article)
-            const uri = this.safeCreateURL(url)
+            const article = this.selectElement(parsedHtml, parsedHtml, url, this.pConf.selectors?.article)
             for (const path in this.pConf.url?.ignoreContentOnPath)
-                if (uri.pathname.startsWith(path))
-                    return { url, links }
-            //log.debug(parsedHtml.outerHTML, this.pConf.selectors?.article, article?.outerHTML)
+                if (url.pathname.startsWith(path))
+                    return { url: urlString, links }
+            if (debugNodeProcessor) log.debug(parsedHtml.outerHTML, this.pConf.selectors?.article, article?.outerHTML)
             if (article)
                 return await this.processContentBox(url, links, article, parsedHtml, reqParams)
             else {
@@ -586,12 +588,12 @@ export abstract class clsScrapper {
                         jsonText = jsonText.substring(0, jsonText.length - 2)
                     const json = JSON.parse(jsonText)
                     if (json) {
-                        const result: IntfPageContent = { url, links }
+                        const result: IntfPageContent = { url: urlString, links }
                         void result
                     }
-                    return { url, links, article: { content: [{ text: "ARTICLE NOT FOUND", type: enuTextType.h1 }] } }
+                    return { url: urlString, links, article: { content: [{ text: "ARTICLE NOT FOUND", type: enuTextType.h1 }] } }
                 } else {
-                    return { url, links }
+                    return { url: urlString, links }
                 }
             }
         } catch (e) {
@@ -600,12 +602,12 @@ export abstract class clsScrapper {
         }
     }
 
-    private selectElement(el: HTMLElement, fullHtml: HTMLElement, selector?: string | IntfSelectorFunction) {
+    private selectElement(el: HTMLElement, fullHtml: HTMLElement, url: URL, selector?: string | IntfSelectorFunction) {
         if (!selector) return undefined
         if (typeof selector === "string") {
             return el.querySelector(selector)
         } else
-            return selector(el, fullHtml)
+            return selector(el, fullHtml, url)
     }
 
     private selectAllElements = (article: HTMLElement, fullHtml: HTMLElement, selector?: string | IntfSelectAllFunction): HTMLElement[] | undefined => {
@@ -616,16 +618,16 @@ export abstract class clsScrapper {
             return selector(article, fullHtml)
     }
 
-    private async processContentBox(url: string, links: string[], article: HTMLElement, fullHtml: HTMLElement, reqParams: IntfRequestParams) {
+    private async processContentBox(url: URL, links: string[], article: HTMLElement, fullHtml: HTMLElement, reqParams: IntfRequestParams) {
         void fullHtml
         article.querySelectorAll("script").forEach(x => x.remove());
 
-        const aboveTitle = normalizeText(this.selectElement(article, fullHtml, this.pConf.selectors?.aboveTitle)?.innerText)
-        const title = normalizeText(this.selectElement(article, fullHtml, this.pConf.selectors?.title)?.innerText)
-        const subtitle = normalizeText(this.selectElement(article, fullHtml, this.pConf.selectors?.subtitle)?.innerText)
-        const summary = normalizeText(this.selectElement(article, fullHtml, this.pConf.selectors?.summary)?.innerText)
+        const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
+        const title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
+        const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
+        const summary = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.summary)?.innerText)
 
-        const datetimeElement = this.selectElement(article, fullHtml, this.pConf.selectors?.datetime?.conatiner) || undefined
+        const datetimeElement = this.selectElement(article, fullHtml, url, this.pConf.selectors?.datetime?.conatiner) || undefined
         let date: string | undefined = this.extractDate(datetimeElement, this.pConf.selectors?.datetime?.splitter, fullHtml)
         const tags = this.selectAllElements(article, fullHtml, this.pConf.selectors?.tags)?.map(tag => (normalizeText(tag.innerText) || "").replace(/[,،؛]/g, ""))
 
@@ -652,9 +654,9 @@ export abstract class clsScrapper {
             let fullContentLenght = 0
             content.texts.forEach(item => (fullContentLenght += item.text.length))
 
-            let parentTextNode = this.selectElement(article, fullHtml, this.pConf.selectors?.content?.textNode)
+            let parentTextNode = this.selectElement(article, fullHtml, url, this.pConf.selectors?.content?.textNode)
             if (!parentTextNode)
-                parentTextNode = this.selectElement(fullHtml, fullHtml, this.pConf.selectors?.content?.textNode)
+                parentTextNode = this.selectElement(fullHtml, fullHtml, url, this.pConf.selectors?.content?.textNode)
 
             const parentTextNodeInnerText = normalizeText(parentTextNode?.innerText)
             if (parentTextNode && parentTextNodeInnerText && parentTextNodeInnerText.length > fullContentLenght * 2) {
@@ -669,21 +671,15 @@ export abstract class clsScrapper {
         const commentSelector = this.pConf.selectors?.comments
         if (commentSelector) {
             if (typeof commentSelector === "function") {
-                try {
-                    const Url = this.safeCreateURL(url)
-                    comments = await commentSelector(Url, reqParams)
-                } catch (e) {
-                    log.debug(e)
-                    throw e
-                }
+                    comments = await commentSelector(url, reqParams)
             } else {
                 this.selectAllElements(article, fullHtml, commentSelector.container)?.forEach(
                     (comEl: HTMLElement) => {
-                        const text = normalizeText(this.selectElement(comEl, fullHtml, commentSelector.text)?.innerText)
-                        const author = normalizeText(this.selectElement(comEl, fullHtml, commentSelector.author)?.innerText)
+                        const text = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.text)?.innerText)
+                        const author = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.author)?.innerText)
                         let el: HTMLElement | string | undefined
                         if (typeof commentSelector.datetime === "string")
-                            el = this.selectElement(comEl, fullHtml, commentSelector.datetime) || undefined
+                            el = this.selectElement(comEl, fullHtml, url, commentSelector.datetime) || undefined
                         else if (commentSelector.datetime !== undefined)
                             el = commentSelector.datetime(comEl)
 
@@ -703,7 +699,7 @@ export abstract class clsScrapper {
         }
 
         const result: IntfPageContent = {
-            url, links
+            url: url.toString(), links
         }
 
         if (category) result.category = category
@@ -829,7 +825,7 @@ export abstract class clsScrapper {
             if (hostname.startsWith("www."))
                 hostname = hostname.substring(4)
         } else {
-            if (!hostname.startsWith("www."))
+            if (!hostname.startsWith("www.") && hostname.split(".").length === 2)
                 hostname = "www." + hostname
         }
         const pathParts = url.pathname.split("/")

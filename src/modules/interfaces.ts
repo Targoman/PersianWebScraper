@@ -257,14 +257,14 @@ export enum enuMinorCategory {
     Defence = "Defence",
     Fun = "Fun",
     Weather = "Weather",
-    Advert = "Advert"
+    Advert = "Advert",
+    CryptoCurrency = "CryptoCurrency",
 }
 
 export enum enuSubMinorCategory {
     IT = "IT",
     ICT = "ICT",
     Game = "Game",
-    CryptoCurrency = "CryptoCurrency",
     Security = "Security",
     Mobile = "Mobile",
     Robotic = "Robotic",
@@ -312,7 +312,7 @@ export interface IntfProxy {
 }
 
 export interface IntfSelectorFunction {
-    (article: HTMLElement, fullHtml: HTMLElement): HTMLElement | null | undefined
+    (article: HTMLElement, fullHtml: HTMLElement, url: URL): HTMLElement | null | undefined
 }
 
 export interface IntfIsValidFunction {

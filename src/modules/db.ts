@@ -1,7 +1,7 @@
 import DatabaseConstructor, { Database } from 'better-sqlite3';
 import { log } from './logger';
 import { enuDomains } from './interfaces';
-import { existsSync, mkdirSync } from 'fs';
+import { existsSync, mkdirSync, renameSync } from 'fs';
 import gConfigs from './gConfigs';
 
 export enum enuURLStatus {
@@ -29,7 +29,10 @@ export default class clsDB {
             if (!mkdirSync(gConfigs.db, { recursive: true }))
                 throw new Error("Unable to create db directory: " + gConfigs.db)
 
-        this.db = new DatabaseConstructor(`${gConfigs.db}/urls-${this.domain}.db`, {
+        if (existsSync(`${gConfigs.db}/urls-${this.domain}.db`))
+            renameSync(`${gConfigs.db}/urls-${this.domain}.db`, `${gConfigs.db}/${this.domain}.db`)
+
+        this.db = new DatabaseConstructor(`${gConfigs.db}/${this.domain}.db`, {
             verbose: (command) => log.db(command)
         });
         this.db.pragma('journal_mode = WAL');

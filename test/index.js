@@ -426,8 +426,15 @@ clear; rm -rf .db corpora; yarn dev && yarn start oghyanos -u https://forum.oghy
 clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/prisoners/
 clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/best-fantasy-scifi-series/
 
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com
 clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/breaking/3017561/
 clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/what-is-ai-crypto-projects/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://academy.arzdigital.com/why-arzdigital-academy/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://academy.arzdigital.com/faq/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/luxury-watchmaker-breitling-adds-its-first-timepieces-to-a-blockchain/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/the-best-staking-pools-and-lending-platforms/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/ideas/5608650/
+clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/coins/bitcoin/
 
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/news/crypto-prices-today-114/ 
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/coins/bitcoin/technical/    

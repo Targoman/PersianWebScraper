@@ -242,7 +242,7 @@ export class isna extends clsScrapper {
             || cat.startsWith("غرب")
             || cat.includes("جهان")
             || cat.includes("اقیانوسیه")
-            || cat.startsWith("انرژی هسته")) 
+            || cat.startsWith("انرژی هسته"))
             return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
 
         return { major: enuMajorCategory.News, subminor: enuMinorCategory.Local }
@@ -589,7 +589,7 @@ export class namnak extends clsScrapper {
         else if (cat.includes("جامعه") || first.startsWith("خانواده")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (cat.includes("اقتصاد") || cat.includes("استخدام")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.includes("سلامت") || cat.includes("بارداری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
-        else if(cat.startsWith("آشپز")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.startsWith("آشپز")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
         else if (cat.includes("تناسب") || cat.includes("دنیای مد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
         else if (cat.includes("سرگرمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
         else if (cat.includes("دین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
@@ -627,8 +627,12 @@ export class arzdigital extends clsScrapper {
     constructor() {
         super(enuDomains.arzdigital, "arzdigital.com", {
             selectors: {
-                article: "#post-page, .arz-tw-w-full, section.arz-coin-page-body",
-                title: "h1",
+                article: (doc: HTMLElement, _: HTMLElement, url: URL) =>
+                    url.pathname.startsWith("/ideas")
+                        ? doc.querySelector("section.arz-container")
+                        : doc.querySelector("#post-page .arz-post, section.arz-post__content, #academy-pages, article, .arz-coin-details__explanation")
+                ,
+                title: "h1, h2",
                 datetime: {
                     conatiner: "time",
                     splitter: (el: HTMLElement) => {
@@ -642,19 +646,32 @@ export class arzdigital extends clsScrapper {
                     acceptNoDate: true
                 },
                 content: {
-                    main: "section.arz-post__content, .arz-breaking-news-post__content, .ideas-update-content, #panzoom-element, arz-coin-details__explanation-text",
+                    main: "section.arz-post__content, .arz-breaking-news-post__content, .ideas-update-content, #panzoom-element, arz-coin-details__explanation-text, #academy-page-content, .arz-breaking-news-post__source",
+                    alternative: ".arz-coin-details__explanation-text"
                 },
                 tags: "ul.arz-post-tags__list li a",
                 category: {
-                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.arz-path-list li a"),
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.arz-path-list li a")
                 },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
                     author: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-author",
                     text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
                 }
-            },
+            }
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        const mappedCat = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
+        const mappedCategory: IntfMappedCatgory = mappedCat
+        if (!cat) return mappedCategory
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("بیاموزید") || second.startsWith("دانشنامه")) return { ...mappedCat, subminor: enuMinorCategory.Education }
+        if (second.startsWith("مصاحبه")) return { ...mappedCat, subminor: enuMinorCategory.Talk }
+        return mappedCat
     }
 }
 
