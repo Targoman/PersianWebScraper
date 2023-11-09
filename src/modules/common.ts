@@ -104,7 +104,7 @@ export function fa2En(text: string | number) {
 }
 
 export function persianMonthNumber(month: string): string | number {
-    switch (month) {
+    switch (normalizeText(month)) {
         case "فروردین": return "۰۱"
         case "اردیبهشت": return "۰۲"
         case "خرداد": return "۰۳"
@@ -115,6 +115,7 @@ export function persianMonthNumber(month: string): string | number {
         case "آبان": return "۰۸"
         case "آذر": return "۰۹"
         case "دی": return "۱۰"
+        case "دى": return "۱۰"
         case "بهمن": return "۱۱"
         case "اسفند": return "۱۲"
         default: return NaN

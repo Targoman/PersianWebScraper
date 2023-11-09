@@ -353,6 +353,8 @@ export abstract class clsScrapper {
                     log.debug("======>", datetimeParts, splitter)
 
                 datetimeParts = dateString?.split(" ")
+                log.debug({datetimeParts, a: persianMonthNumber(datetimeParts[datetimeParts.length - 2])})
+
                 if (datetimeParts.length > 1)
                     date = datetimeParts[datetimeParts.length - 1].trim() + "-"
                         + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
@@ -365,6 +367,7 @@ export abstract class clsScrapper {
             }
 
         }
+        log.debug({finalDateString})
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
             log.file(this.name(), gregorian)
