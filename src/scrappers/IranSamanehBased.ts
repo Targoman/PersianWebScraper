@@ -1289,6 +1289,10 @@ export class goftareno extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class tejaratemrouz extends clsIransamaneh {
