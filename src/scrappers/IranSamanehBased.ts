@@ -237,7 +237,7 @@ export class tabnak extends clsIransamaneh {
         else if(cat.startsWith("سرگرمی") 
             || cat.startsWith("کمدی") 
             || cat.startsWith("تلخند")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
-        else if(cat.includes("آشپزی")) return  { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if(cat.includes("آشپزی")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
         else if (cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.University }
         else if (cat.includes("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         else if (cat.includes("حقوقی")) return { major: enuMajorCategory.News, minor:  enuMinorCategory.Law }
@@ -586,6 +586,52 @@ export class shianews extends clsIransamaneh {
                 },
             }
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        if (cat.includes("عکس") 
+            || cat.includes("فیلم") 
+            || cat.includes("پادکست")
+            || cat.includes("صوت")
+            || cat.includes("چندرسانه")
+            || cat.includes("اینفوگرافیک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("علمی") || cat.includes("تکنولوژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("دفاعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        else if (cat.includes("سیاسی") 
+            || cat.includes("سیاست") 
+            || cat.includes("بشر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("دیده") || cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
+        else if (cat.includes("رزمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
+        else if (cat.includes("فوتبال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        else if (cat.includes("اخبار خارجی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("سبک") || cat.includes("مشاوره")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.includes("گردشگری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Turism }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if(cat.includes("آشپزی")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("عمومی") 
+            || cat.includes("مجازی") 
+            || cat.includes("نوشته") 
+            || cat.includes("گوناگون")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+        else if (cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("شیعه") 
+            || cat.includes("دین")
+            || cat.includes("حوزه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.includes("حقوق") 
+            || cat.includes("لاریجانی") 
+            || cat.includes("رئیسی")
+            || cat.includes("قضا")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+        else if (cat.includes("رپورتاژ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Advert }
+
+        return { major: enuMajorCategory.News }
     }
 }
 
