@@ -874,6 +874,10 @@ export class roozno extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class noandish extends clsIransamaneh {
