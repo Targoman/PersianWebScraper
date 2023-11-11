@@ -764,6 +764,28 @@ export class rasanews extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        if (cat.includes("گرافیک") 
+            || cat.includes("ویدئو") 
+            || cat.includes("فیلم") 
+            || cat.includes("عکس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("گفتگو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+        else if (cat.includes("دانش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("کتاب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("بازار") || cat.includes("اقتصاد")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.includes("حوزه") || cat.includes("سیره")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.includes("استان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        else if (cat.includes("عمومی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class didarnews extends clsIransamaneh {
