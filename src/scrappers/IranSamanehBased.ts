@@ -1344,6 +1344,10 @@ export class vananews extends clsIransamaneh {
             },
         })
     }
+    
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class tabnakbato extends clsIransamaneh {
