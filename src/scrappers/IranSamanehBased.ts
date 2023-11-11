@@ -1052,6 +1052,34 @@ export class paydarymelli extends clsIransamaneh {
             }
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("عکس") 
+            || cat.includes("فیلم") 
+            || cat.includes("گرافیک") 
+            || cat.includes("اینفوگرافی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("دفاع اقتصادی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Defence }
+        else if (cat.includes("اقتصاد") || cat.includes("انرژی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("مصاحبه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Talk }
+        else if (cat.includes("پدافند") 
+            || cat.includes("فنی") 
+            || cat.includes("راهبرد") 
+            || cat.includes("زیر")
+            || cat.includes("اخبار")
+            || cat.includes("ریاست")
+            || cat.includes("مردم")
+            || cat.includes("طرح")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Defence }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Defence  }
+        else if (cat.includes("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("استان") || cat.includes("شهری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        else if (cat.includes("نخست")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 
 export class danakhabar extends clsIransamaneh {
