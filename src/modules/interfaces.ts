@@ -259,12 +259,13 @@ export enum enuMinorCategory {
     Weather = "Weather",
     Advert = "Advert",
     CryptoCurrency = "CryptoCurrency",
+    IT = "IT",
+    ICT = "ICT",
 }
 
 export enum enuSubMinorCategory {
-    IT = "IT",
-    ICT = "ICT",
     Game = "Game",
+    Reportage = "Reportage",
     Security = "Security",
     Mobile = "Mobile",
     Robotic = "Robotic",

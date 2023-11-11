@@ -425,6 +425,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start oghyanos -u https://forum.oghy
 
 clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/prisoners/
 clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/best-fantasy-scifi-series/
+clear; rm -rf .db corpora; yarn dev && yarn start naghdfarsi -u https://naghdfarsi.ir/blindspot-series/
 
 clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com
 clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigital.com/breaking/3017561/

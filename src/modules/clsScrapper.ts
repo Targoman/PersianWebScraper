@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
+const debugNodeProcessor = true //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 
@@ -140,7 +140,7 @@ export abstract class clsScrapper {
             if (ignoreClasses) {
                 if (typeof ignoreClasses === "function") {
                     const fakeNode = HP.parse(`<div>${el.outerHTML}</div>`)
-                    return ignoreClasses(fakeNode, fakeNode) ? true : false
+                    return ignoreClasses(fakeNode.firstChild.childNodes[0] as HTMLElement, fakeNode) ? true : false
                 } else {
                     let found = false
                     for (let i = 0; i < ignoreClasses.length; ++i)
@@ -157,7 +157,7 @@ export abstract class clsScrapper {
             return false
         }
 
-        if (mustBeIgnored(el) || el.tagName === "STYLE" || el.tagName === "SCRIPT")
+        if (mustBeIgnored(el) || el.tagName === "STYLE" || el.tagName === "SCRIPT" || el.tagName === "NOSCRIPT" || el.tagName === "IFRAME")
             return []
 
         const breakToParagraphs = (container: IntfProcessedElement[], text?: string, type?: enuTextType, ref?: string) => {
@@ -197,7 +197,8 @@ export abstract class clsScrapper {
                 const refURL = this.safeCreateURL(ref)
                 const sameDomain = this.isSameDomain(refURL)
                 const type = sameDomain ? enuTextType.ilink : enuTextType.link
-                const text = normalizeText(el.textContent)
+
+                const text = normalizeText(el.innerText)
                 if (text && type && text.length > 2) {
                     if (sameDomain && refURL.pathname.replace(/\/\//g, "/") === "/" || refURL.pathname === "")
                         breakToParagraphs(innerContent, text, enuTextType.paragraph)
@@ -343,7 +344,6 @@ export abstract class clsScrapper {
             else {
                 let datetimeParts = datetime?.split(typeof splitter === "string" ? splitter : " ")
 
-                let date: string
                 const dateString = normalizeText(datetimeParts[datetimeParts.length - 1].includes(":")
                     ? datetimeParts[datetimeParts.length - 2]
                     : datetimeParts[datetimeParts.length - 1]
@@ -353,21 +353,21 @@ export abstract class clsScrapper {
                     log.debug("======>", datetimeParts, splitter)
 
                 datetimeParts = dateString?.split(" ")
-                log.debug({datetimeParts, a: persianMonthNumber(datetimeParts[datetimeParts.length - 2])})
+                log.debug({ datetimeParts, a: persianMonthNumber(datetimeParts[datetimeParts.length - 2]) })
 
                 if (datetimeParts.length > 1)
-                    date = datetimeParts[datetimeParts.length - 1].trim() + "-"
+                    finalDateString = datetimeParts[datetimeParts.length - 1].trim() + "-"
                         + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
                         + datetimeParts[datetimeParts.length - 3].trim()
                 else
-                    date = datetimeParts[0].replace(/\//g, "-")
+                    finalDateString = datetimeParts[0].replace(/\//g, "-")
 
-                if (date.split("-").length < 3)
+                if (!finalDateString || finalDateString.split("-").length < 3)
                     finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
             }
 
         }
-        log.debug({finalDateString})
+        log.debug({ finalDateString })
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
             log.file(this.name(), gregorian)
@@ -674,7 +674,7 @@ export abstract class clsScrapper {
         const commentSelector = this.pConf.selectors?.comments
         if (commentSelector) {
             if (typeof commentSelector === "function") {
-                    comments = await commentSelector(url, reqParams)
+                comments = await commentSelector(url, reqParams)
             } else {
                 this.selectAllElements(article, fullHtml, commentSelector.container)?.forEach(
                     (comEl: HTMLElement) => {
@@ -707,8 +707,21 @@ export abstract class clsScrapper {
 
         if (category) result.category = category
 
+
         if (!date && this.pConf.selectors?.datetime?.acceptNoDate)
-            date = "IGNORED";
+            date = "NOT_SET";
+
+        const dateParts = date?.split("-")
+        if ((date?.length || 0) > 10
+            || dateParts?.length !== 3
+            || isNaN(parseInt(dateParts[0]))
+            || isNaN(parseInt(dateParts[1]))
+            || isNaN(parseInt(dateParts[2]))) {
+            if (this.pConf.selectors?.datetime?.acceptNoDate)
+                date = "INVALID"
+            else throw new Error("Invalid date: " + date)
+        }
+
 
         if (!date) {
             if ((title || subtitle)) {

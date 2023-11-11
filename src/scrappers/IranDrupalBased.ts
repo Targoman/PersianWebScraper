@@ -33,7 +33,7 @@ class clsIranDrupal extends clsScrapper {
                 }
             },
             url: {
-                pathToCheckIndex:1,
+                pathToCheckIndex: 1,
             }
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
@@ -71,8 +71,8 @@ export class rajanews extends clsIranDrupal {
         else if (cat.includes("اجتماعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (first.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
-        else if (cat.includes("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
-        
+        else if (cat.includes("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+
 
         return { major: enuMajorCategory.News }
     }

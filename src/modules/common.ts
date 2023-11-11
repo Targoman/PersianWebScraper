@@ -127,12 +127,14 @@ export function normalizeText(text?: string) {
         return text
     return PersianShaper.convertArabicBack(
         he.decode(text)
+            .replace(/\r\n/g, ' ')
             .replace(/\r/g, '')
             .replace(/\t/g, ' ')
             .replace(/  /g, " ")
             .replace(/  /g, " ")
             .replace(/&#1740;/g, 'ی')
             .replace(/ي/g, 'ی')
+            .replace(/ى/g, 'ی')
     ).trim()
 }
 
@@ -180,7 +182,6 @@ export function date2Gregorian(date?: string): string | undefined {
             else
                 date = "13" + date
             return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
-
         }
     } catch (e) {/* */ }
     log.error("Invalid Date: ", date)

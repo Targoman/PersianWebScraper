@@ -47,15 +47,15 @@ export class webhostingtalk extends clsVBulletinBased {
   }
 
   mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     if (!cat) return mappedCategory
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
 
     if (second.includes("آموزش")) return { ...mappedCategory, minor: enuMinorCategory.Education }
-    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     else if (second.includes("امنیت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Security }
-    else if (second.includes("داده")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("داده")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     return mappedCategory
   }
 }
@@ -83,7 +83,7 @@ export class p30world extends clsVBulletinBased {
 
     if (second.includes("سیستم")) return { ...mappedCategory, subminor: enuSubMinorCategory.Software }
     else if (second.includes("سخت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     else if (second.includes("موبایل")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
     else if (second.includes("گـرافیک")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
     else if (second.includes("هـنــــر")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
@@ -116,9 +116,9 @@ export class tarfandestan extends clsVBulletinBased {
 
     if (second.includes("آموزش")) return { ...mappedCategory, minor: enuMinorCategory.Education }
     else if (second.includes("تبلت‌")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     else if (second.includes("بازی")) return { ...mappedCategory, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("شبکه")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     else if (second.includes("امنیت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Security }
     else if (second.includes("سایر")) return { ...mappedCategory, subminor: enuMinorCategory.Generic }
     else if (second.includes("تحصیل")) return { ...mappedCategory, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Education }
@@ -240,7 +240,7 @@ export class oghyanos extends clsVBulletinBased {
     else if (second.includes("موبایل")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
     else if (second.includes("عمومی")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
     else if (second.includes("مذهب")) return { ...mappedCategory, minor: enuMinorCategory.Religious }
-    else if (second.includes("رایانه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("رایانه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     else if (second.includes("خانواده")) return { ...mappedCategory, minor: enuMinorCategory.LifeStyle }
     else if (second.includes("هنر")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Art }
     else if (second.includes("تفریح")) return { ...mappedCategory, minor: enuMinorCategory.Fun }

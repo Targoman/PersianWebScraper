@@ -50,7 +50,7 @@ export class persiantools extends clsXenForoBased {
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
 
-    if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     else if (second.includes("برنامه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
     else if (second.includes("موبایل")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
     else if (second.includes("عمومی")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
@@ -73,7 +73,7 @@ export class majidonline extends clsXenForoBased {
   }
 
   mapCategory(): IntfMappedCatgory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
   }
 }
 

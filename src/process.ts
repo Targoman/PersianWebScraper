@@ -3,7 +3,7 @@ import { command, run } from 'cmd-ts';
 import { enuDomains, enuMajorCategory, IntfDocFilecontent, IntfGlobalConfigs } from './modules/interfaces';
 import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
-import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
+import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
 import { formatNumber, normalizeCategory, date2Gregorian, normalizeText } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
@@ -123,6 +123,8 @@ const app = command({
 
                     const normalizeDate = (date?: string) => {
                         const gregorianDate = date2Gregorian(date)
+                        if(date === "IGNORED" || date === "NO_DATE")
+                            return "NOT_SET"
                         if (gregorianDate?.startsWith("INVALID:"))
                             log.file(scrapper.name(), filePath, date)
 
@@ -159,10 +161,18 @@ const app = command({
                             doc.category['original'] = docCategory;
                         anythingChanged = true
                     }
+                    const filePathParts: string[] = filePath.split("/")
+                    const pathDate = filePathParts.at(filePathParts.length - 2)
+                    if (pathDate !== doc["date"]) 
+                        anythingChanged = true
 
+                    log.debug({ filePath, pathDate, d: doc["date"], anythingChanged, f: filePathParts.slice(0, filePathParts.length - 2) + (doc["date"] || "NO_DATE") + filePathParts[filePathParts.length - 1] + '.updated' })
 
                     if (anythingChanged) {
-                        writeFileSync(filePath + '.updated', JSON.stringify(doc));
+                        filePath = `${filePathParts.slice(0, filePathParts.length - 2).join("/")}/${(doc["date"] || "NO_DATE")}`
+                        if(!existsSync(filePath))
+                            mkdirSync(filePath)
+                        writeFileSync(`${filePath}/${filePathParts[filePathParts.length - 1]}.updated`, JSON.stringify(doc));
                         updatedCount++;
                     }
 
@@ -224,7 +234,7 @@ const app = command({
                                 catStr += "." + doc.category['subminor'];
                         }
 
-                        if (!domainCats || !domainCats[catStr] || !domainCats[domain][catStr]) {
+                        if (!domainCats || !domainCats[domain] || !domainCats[domain][catStr]) {
                             const initial = {
                                 mainWC: 0, mainParagraphs: 0,
                                 altWC: 0, docs: 0,

@@ -214,7 +214,7 @@ export class isna extends clsScrapper {
         else if (cat.startsWith("تجسمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
         else if (cat.includes("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.Literature }
         else if (cat.includes("فرهنگ") || cat.includes("میراث") || cat.startsWith("رسانه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.IT }
+        else if (cat.startsWith("ارتباطات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.IT }
         else if (cat.startsWith("دین") || cat.includes("اسلامی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
         else if (cat.startsWith("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
         else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
@@ -324,7 +324,7 @@ export class citna extends clsScrapper {
 
     mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
         void tags
-        return { major: enuMajorCategory.News }
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
     }
 }
 
@@ -378,13 +378,13 @@ export class itna extends clsScrapper {
         else if (second.startsWith("سخت‌افزار") || second.startsWith("كامپیوتر همراه"))
             mappedCat.subminor = enuSubMinorCategory.Hardware
         else if (first.startsWith("ارتباطات") || first.includes("ICT"))
-            mappedCat.subminor = enuSubMinorCategory.ICT
+            mappedCat.subminor = enuMinorCategory.ICT
         else if (first.startsWith("نرم"))
             mappedCat.subminor = enuSubMinorCategory.Software
         else if (first.startsWith("امنیت"))
             mappedCat.subminor = enuSubMinorCategory.Security
         else
-            mappedCat.subminor = enuSubMinorCategory.IT
+            mappedCat.subminor = enuMinorCategory.IT
 
         return mappedCat
     }
@@ -703,6 +703,18 @@ export class ramzarz extends clsScrapper {
                 removeWWW: true,
             }
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        const mappedCat = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
+        const mappedCategory: IntfMappedCatgory = mappedCat
+        if (!cat) return mappedCategory
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (second.startsWith("ویدئو")) return { ...mappedCat, minor:enuMinorCategory.Multimedia, subminor: enuMinorCategory.CryptoCurrency }
+        if (second.startsWith("رپورتاژ")) return { ...mappedCat, subminor: enuSubMinorCategory.Reportage }
+        return mappedCat
     }
 }
 

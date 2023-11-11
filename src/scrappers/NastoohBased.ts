@@ -59,7 +59,7 @@ export class hamshahrionline extends clsNastoohBased {
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (first.startsWith("چندرسانه") 
+        if (first.startsWith("چندرسانه")
             || first.startsWith("عکس")
             || first.startsWith("داستان")
             || first.includes("TV")
@@ -72,10 +72,10 @@ export class hamshahrionline extends clsNastoohBased {
         else if (second.includes("حقوقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
         else if (cat.includes("سیاس")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
         else if (cat.includes("اقتصاد") || first.startsWith("کسب")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
-        else if (first.startsWith("سلامت") 
-            || second.startsWith("پزشکی") 
+        else if (first.startsWith("سلامت")
+            || second.startsWith("پزشکی")
             || second.startsWith("بهداشت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
-        else if (cat.includes("اجتماع") 
+        else if (cat.includes("اجتماع")
             || first.startsWith("خانواده")
             || first.startsWith("پایداری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (second.startsWith("هنر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
@@ -85,18 +85,18 @@ export class hamshahrionline extends clsNastoohBased {
         else if (second.startsWith("موسیقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
         else if (second.startsWith("تئاتر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
         else if (second.startsWith("تاریخ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Historical }
-        else if (first.includes("فرهنگی") 
+        else if (first.includes("فرهنگی")
             || first.startsWith("کودک")
             || first.startsWith("روز هفتم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         else if (second.startsWith("سرگرمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
-        if(cat.includes("آشپزی")) return  { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        if (cat.includes("آشپزی")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
         else if (first.startsWith("زندگی") || first.startsWith("تندرستی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("شهر") 
-            || cat.includes("استان") 
+        else if (cat.includes("شهر")
+            || cat.includes("استان")
             || first.includes("محله")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
-        else if (cat.includes("فناوری اطلاعات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT } 
-        else if (cat.includes("دانش") 
-            || cat.includes("ارتباطات") 
+        else if (cat.includes("فناوری اطلاعات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        else if (cat.includes("دانش")
+            || cat.includes("ارتباطات")
             || cat.includes("سایبر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (second.startsWith("رزمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
         else if (second.startsWith("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }

@@ -42,7 +42,7 @@ export class lioncomputer extends clsScrapper {
 
     if (second.includes("نرم")) return { ...mappedCategory, subminor: enuSubMinorCategory.Software }
     else if (second.includes("سخت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuSubMinorCategory.IT }
+    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
     else if (second.includes("موبایل")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
     else if (second.includes("گـرافیک")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
     else if (second.includes("عمومی")

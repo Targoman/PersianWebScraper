@@ -553,7 +553,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.TV }
         if (cat.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (cat.startsWith("تناسب")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        if (cat.endsWith("دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        if (cat.endsWith("دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
         if (cat.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
         if (cat.startsWith("چهره‌ها")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Celebrities }
         if (cat.startsWith("حقوق")) return { ...mappedCat, minor: enuMinorCategory.Law }
