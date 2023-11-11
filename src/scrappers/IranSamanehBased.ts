@@ -136,6 +136,10 @@ export class iqna extends clsIransamaneh {
             selectors: { article: ".box_news" }
         })
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
