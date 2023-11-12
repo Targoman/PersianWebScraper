@@ -621,6 +621,87 @@ export class beytoote extends clsScrapper {
             },
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("عکس") || cat.includes("تصاویر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("تاریخ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Historical }
+        else if (cat.includes("فرهنگ") 
+            || cat.includes("مکانهای") 
+            || cat.includes("زندگینامه")
+            || cat.includes("فرش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("شعر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Poem }
+        else if (cat.includes("مستحبی") 
+            || cat.includes("دین") 
+            || cat.includes("احادیث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+        else if (cat.includes("علمی") 
+            || cat.includes("کامپیوتر") 
+            || cat.includes("اینترنت")
+            || cat.includes("موبایل")
+            || cat.includes("آیا")
+            || cat.includes("گرافیک")
+            || cat.includes("چرا")
+            || cat.includes("اختراع")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("پزشکی") 
+            || cat.includes("درمان") 
+            || cat.includes("دارو")
+            || cat.includes("ایدز")
+            || cat.includes("بارداری")
+            || cat.includes("بهداشت")
+            || cat.includes("سلامت")
+            || cat.includes("روانشناسی")
+            || cat.includes("مشاوره")
+            || cat.includes("خواص")
+            || cat.includes("بیمار")
+            || cat.includes("کالری")
+            || cat.includes("رژیم")
+            || cat.includes("نگه")
+            || cat.includes("سالم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("هنر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        else if (cat.includes("دانشگاه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.University }
+        else if (cat.includes("حقوقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+        else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("تعلیم") || cat.includes("تحصیلی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        else if (cat.includes("آشپزی") || cat.includes("شیرینی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("دکوراسیون") 
+            || cat.includes("آرایش") 
+            || cat.includes("تغذیه") 
+            || cat.includes("لباس")
+            || cat.includes("شستشو")
+            || cat.includes("عقد")
+            || cat.includes("ازدواج")
+            || cat.includes("زیبایی")
+            || cat.includes("مد")
+            || cat.includes("دوران")
+            || cat.includes("موفق")
+            || cat.includes("زندگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.includes("فال") 
+            || cat.includes("سرگرمی") 
+            || cat.includes("طنز")
+            || cat.includes("جالب")
+            || cat.includes("معما")
+            || cat.includes("المثل")
+            || cat.includes("حکایت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
+        else if (cat.includes("اجتماعی") 
+            || cat.includes("فرزند") 
+            || cat.includes("کودک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("سیاست خارجی") || cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("اقتصاد") 
+            || cat.includes("مشاغل") 
+            || cat.includes("طلا")
+            || cat.includes("سرمایه")
+            || cat.includes("ابزار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("سفر") 
+            || cat.includes("تور") 
+            || cat.includes("گردشگری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Turism }
+        else if (cat.includes("بازیهای محلی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuMinorCategory.Local }
+
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
+    }
 }
 
 export class arzdigital extends clsScrapper {
