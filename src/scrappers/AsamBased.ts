@@ -231,7 +231,39 @@ export class mojnews extends clsAsamBased {
         })
     }
 
-    //from parent mapCategory(cat?: string): IntfMappedCatgory 
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        if (cat.includes("دین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
+        else if (cat.includes("ادبیات")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (cat.includes("فرهنگی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("چند رسانه") || cat.startsWith("تصویر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("بین") || cat.includes("خارجی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("دفاعی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        else if (cat.includes("سیاسی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("سلامت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        else if (cat.includes("آموزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
+        else if (cat.includes("حقوقی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
+        else if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("علمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("IT")) return { major: enuMajorCategory.News, minor: enuMinorCategory.IT }
+        else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("اقتصادی/علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("خودرو")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("ارز دیجیتال")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.CryptoCurrency }
+        else if (cat.includes("اقتصاد جهانی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("توپ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
+        else if (cat.includes("بانوان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Women }
+        else if (cat.includes("المپیک") || cat.includes("جام جهانی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("استان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        else if (cat.includes("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.includes("رپرتاژ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Advert }
+        else if (cat.includes("سرگرمی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Fun }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/

@@ -489,7 +489,7 @@ export class fararu extends clsIransamaneh {
             || cat.includes("مدیریت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         else if (cat.includes("جامعه")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
         else if (cat.includes("اپلیکیشن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
-        else if (cat.includes("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IT }
+        else if (cat.includes("فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
         else if (cat.includes("علم و تکنولوژی/پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.Health }  
         else if (cat.includes("علم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
         else if (cat.includes("جهان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
