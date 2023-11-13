@@ -45,21 +45,21 @@ export class persiantools extends clsXenForoBased {
   }
 
   mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum }
-    if (!cat) return mappedCategory
+    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum }
+    if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
 
-    if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
-    else if (second.includes("برنامه")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("موبایل")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("عمومی")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
-    else if (second.includes("فرهنگ")) return { ...mappedCategory, minor: enuMinorCategory.Culture }
-    else if (second.includes("سبک")) return { ...mappedCategory, minor: enuMinorCategory.LifeStyle }
-    else if (second.includes("ورزش")) return { ...mappedCategory, minor: enuMinorCategory.Sport }
-    else if (second.includes("اقتصاد")) return { ...mappedCategory, minor: enuMinorCategory.Economy }
-    else if (second.includes("تکنولوژی")) return { ...mappedCategory, minor: enuMinorCategory.ScienceTech }
-    return mappedCategory
+    if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+    else if (second.includes("برنامه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    else if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+    else if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+    else if (second.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+    else if (second.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+    else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+    else if (second.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+    return mappedCat
   }
 }
 

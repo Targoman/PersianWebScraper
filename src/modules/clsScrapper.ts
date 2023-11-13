@@ -439,14 +439,14 @@ export abstract class clsScrapper {
                                 throw new Error("Unable to create file path: " + filePath)
 
                         const origianlCategory = normalizeCategory(page.category)
-                        const mappedCategory = this.mapCategory(origianlCategory)
+                        const mappedCat = this.mapCategory(origianlCategory)
                         const category = { original: origianlCategory }
-                        if (mappedCategory) {
-                            category["major"] = mappedCategory.major
-                            if (mappedCategory.minor)
-                                category["minor"] = mappedCategory.minor
-                            if (mappedCategory.subminor)
-                                category["subminor"] = mappedCategory.subminor
+                        if (mappedCat) {
+                            category["major"] = mappedCat.major
+                            if (mappedCat.minor)
+                                category["minor"] = mappedCat.minor
+                            if (mappedCat.subminor)
+                                category["subminor"] = mappedCat.subminor
                         }
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
