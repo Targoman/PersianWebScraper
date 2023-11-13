@@ -501,3 +501,16 @@ export class hawzahnews extends clsNastoohBased {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
     }
 }
+
+export class khabarvarzeshi extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.khabarvarzeshi, "khabarvarzeshi.com", {
+            selectors: {
+                title: "h1",
+                datetime: {
+                    conatiner: '.item-date',
+                },
+            }
+        })
+    }
+}
