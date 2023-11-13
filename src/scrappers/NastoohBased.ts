@@ -526,3 +526,21 @@ export class sena extends clsNastoohBased {
         })
     }
 }
+
+export class mefda extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.mefda, "mefda.ir", {
+            selectors: {
+                article: "article, #photos",
+                title: "h1",
+                summary: "p.summary",
+                content: {
+                    main: "[itemprop='articleBody'], section.box-content"
+                },
+                datetime: {
+                    conatiner: '.item-date, span.item-time',
+                },
+            }
+        })
+    }
+}

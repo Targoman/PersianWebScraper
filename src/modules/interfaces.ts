@@ -120,6 +120,7 @@ export enum enuDomains {
     avayekhazar = "avayekhazar",
     khabarvarzeshi = "khabarvarzeshi",
     sena = "sena",
+    mefda = "mefda",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",
