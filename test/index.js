@@ -440,6 +440,27 @@ clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigit
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/news/crypto-prices-today-114/ 
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/coins/bitcoin/technical/    
 
+clear; rm -rf .db corpora; yarn dev && yarn start donyaeeqtesad -u https://donya-e-eqtesad.com/بخش-بازار-پول-ارز-116/4019480-بازار-ارز-آنلاین-شاپ
+clear; rm -rf .db corpora; yarn dev && yarn start donyaeeqtesad -u https://donya-e-eqtesad.com/بخش-سیاست-گذاری-100/4015345-تورم-در-سلول
+
+clear; rm -rf .db corpora; yarn dev && yarn start sabakhabar -u https://sabakhabar.ir/397416/گزارش-تصویری-از-نمایش-گوشتخوار/
+clear; rm -rf .db corpora; yarn dev && yarn start sabakhabar -u https://sabakhabar.ir/398670/افتتاحیه-تحقیرآمیز-مارول-های-والت-دیزنی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start avayekhazar -u https://www.avayekhazar.ir/fa/news/53092/پرداخت-۲۰۰-میلیون-تومان-کمک%E2%80%8Cهزینه-تعمیرات-مسکن-به-مددجویان-دودانگه
+clear; rm -rf .db corpora; yarn dev && yarn start avayekhazar -u https://www.avayekhazar.ir/fa/news/53082/اجرای-نمایش-آرش-کمان-نداشتدر-نخستین%E2%80%8Cروز-از-ایستگاه-35-تئاتر-مازندران
+
+clear; rm -rf .db corpora; yarn dev && yarn start sena -u https://www.sena.ir/news/83942/رشد-٢٣٣٠-واحدی-شاخص-بورس
+clear; rm -rf .db corpora; yarn dev && yarn start sena -u https://www.sena.ir/photo/83868/دستاوردهای-سازمان-بورس-در-سالن-همایش-های-کیش
+
+clear; rm -rf .db corpora; yarn dev && yarn start mefda -u https://mefda.ir/news/354729/کارگاه-آموزشی-آشنایی-با-مبانی-اخلاق-حرفه-ای-ویژه-دانشجویان-و
+clear; rm -rf .db corpora; yarn dev && yarn start mefda -u https://mefda.ir/photo/354471/گزارش-تصویری-بازدید-عضو-تیم-ارزیابی-اعتبار-بخشی-موسسه-ای-دانشگاه
+
+clear; rm -rf .db corpora; yarn dev && yarn start iscanews -u https://www.iscanews.ir/news/1206335/آمار-بالای-نزاع-در-تهران-چرا-تاب-آوری-پایتخت-نشین-ها-کم-شده
+clear; rm -rf .db corpora; yarn dev && yarn start iscanews -u https://www.iscanews.ir/photo/1205664/هفدهمین-نمایشگاه-بین-المللی-خودرو-اصفهان-با-حضور-بیش-از-۲۰-خودروساز
+
+clear; rm -rf .db corpora; yarn dev && yarn start behzisti -u https://www.behzisti.ir/news/94313/۲۴۰-مرکز-مشاوره-ژنتیکی-در-کشور-فعالیت-می-کنند
+clear; rm -rf .db corpora; yarn dev && yarn start behzisti -u https://www.behzisti.ir/photo/94318/گزارش-تصویری-سفر-مدیر-کل-معاون-امور-اجتماعی-و-مدیر-روابط-عمومی
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
