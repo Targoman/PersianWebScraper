@@ -550,3 +550,15 @@ export class iscanews extends clsNastoohBased {
         super(enuDomains.iscanews, "iscanews.ir")
     }
 }
+
+export class behzisti extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.behzisti, "behzisti.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'div.item-nav.row > div:nth-child(1) > span, .item-date',
+                },
+            }
+        })
+    }
+}
