@@ -114,6 +114,7 @@ export enum enuDomains {
     naghdfarsi = "naghdfarsi",
     arzdigital = "arzdigital",
     ramzarz = "ramzarz",
+    donyaeeqtesad = "donyaeeqtesad",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",

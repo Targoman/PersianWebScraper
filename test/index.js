@@ -440,6 +440,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start arzdigital -u https://arzdigit
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/news/crypto-prices-today-114/ 
 clear; rm -rf .db corpora; yarn dev && yarn start ramzarz -u https://ramzarz.news/coins/bitcoin/technical/    
 
+clear; rm -rf .db corpora; yarn dev && yarn start donyaeeqtesad -u https://donya-e-eqtesad.com/بخش-بازار-پول-ارز-116/4019480-بازار-ارز-آنلاین-شاپ
+clear; rm -rf .db corpora; yarn dev && yarn start donyaeeqtesad -u https://donya-e-eqtesad.com/بخش-سیاست-گذاری-100/4015345-تورم-در-سلول
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

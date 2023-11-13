@@ -700,3 +700,20 @@ export class iana extends clsAsamBased {
         })
     }
 }
+
+export class donyaeeqtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.donyaeeqtesad, "donya-e-eqtesad.com", {
+            selectors: {
+                content: {
+                    main: ".article-body",
+                    ignoreNodeClasses: ["noprint"]
+                },
+                tags: ".article-tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
