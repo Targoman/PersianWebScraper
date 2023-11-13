@@ -544,3 +544,9 @@ export class mefda extends clsNastoohBased {
         })
     }
 }
+
+export class iscanews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.iscanews, "iscanews.ir")
+    }
+}
