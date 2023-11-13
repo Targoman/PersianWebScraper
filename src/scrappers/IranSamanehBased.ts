@@ -1446,3 +1446,18 @@ export class sabakhabar extends clsIransamaneh {
         })
     }
 }
+
+export class avayekhazar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.avayekhazar, "avayekhazar.ir", {
+            selectors: {
+                article: ".khabar-contents, div[style='direction: right;']",
+                title: "h1 a",
+                subtitle: ".subtitle, .photo_subtitle",
+                content: {
+                    main: ".body, .lead_image, .body div div"
+                },
+            },
+        })
+    }
+}
