@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import deepmerge from "deepmerge";
 
 class clsSputnikBased extends clsScrapper {
@@ -32,11 +32,19 @@ export class spnfa extends clsSputnikBased {
     constructor() {
         super(enuDomains.spnfa, "spnfa.ir")
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
 export class sputnikaf extends clsSputnikBased {
     constructor() {
         super(enuDomains.sputnikaf, "sputnik.af")
+    }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
     }
 }
