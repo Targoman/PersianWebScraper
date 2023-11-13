@@ -711,9 +711,28 @@ export class donyaeeqtesad extends clsAsamBased {
                 },
                 tags: ".article-tag a"
             },
-            url: {
-                removeWWW: true
-            }
+        })
+    }
+}
+
+export class eghtesadonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.eghtesadonline, "eghtesadonline.com", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h4",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: ".item-date"
+                },
+                category: {
+                    selector: "ol.breadcrumb li a"
+                },
+                content: {
+                    main: ".item-text, figure.item-img",
+                },
+                tags: "section .box.tags ul li a"
+            },
         })
     }
 }
