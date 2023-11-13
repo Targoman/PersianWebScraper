@@ -514,3 +514,15 @@ export class khabarvarzeshi extends clsNastoohBased {
         })
     }
 }
+
+export class sena extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sena, "sena.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: '.item-date, ul.list-inline li:nth-child(1)',
+                },
+            }
+        })
+    }
+}

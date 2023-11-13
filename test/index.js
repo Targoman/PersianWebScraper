@@ -449,6 +449,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start sabakhabar -u https://sabakhab
 clear; rm -rf .db corpora; yarn dev && yarn start avayekhazar -u https://www.avayekhazar.ir/fa/news/53092/پرداخت-۲۰۰-میلیون-تومان-کمک%E2%80%8Cهزینه-تعمیرات-مسکن-به-مددجویان-دودانگه
 clear; rm -rf .db corpora; yarn dev && yarn start avayekhazar -u https://www.avayekhazar.ir/fa/news/53082/اجرای-نمایش-آرش-کمان-نداشتدر-نخستین%E2%80%8Cروز-از-ایستگاه-35-تئاتر-مازندران
 
+clear; rm -rf .db corpora; yarn dev && yarn start sena -u https://www.sena.ir/news/83942/رشد-٢٣٣٠-واحدی-شاخص-بورس
+clear; rm -rf .db corpora; yarn dev && yarn start sena -u https://www.sena.ir/photo/83868/دستاوردهای-سازمان-بورس-در-سالن-همایش-های-کیش
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
