@@ -37,11 +37,19 @@ export class spnfa extends clsSputnikBased {
     constructor() {
         super(enuDomains.spnfa, "spnfa.ir")
     }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
 export class sputnikaf extends clsSputnikBased {
     constructor() {
         super(enuDomains.sputnikaf, "sputnik.af")
+    }
+
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.News }
     }
 }

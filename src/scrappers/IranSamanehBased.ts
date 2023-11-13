@@ -1281,6 +1281,34 @@ export class sarmadnews extends clsIransamaneh {
             },
         })
     }
+
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.News }
+
+        else if (cat.includes("فرهنگ")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        else if (cat.includes("بین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("سیاسی") || cat.includes("شهروندی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Political }
+        else if (cat.includes("بهداشت")) return { major: enuMajorCategory.News, subminor: enuMinorCategory.Health }
+        else if (cat.includes("قوانین")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
+        else if (cat.includes("حوادث")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        else if (cat.includes("حیات وحش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Animals }
+        else if (cat.includes("اجتماعی") 
+            || cat.includes("زیست") 
+            || cat.includes("محیط")
+            || cat.includes("منابع")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Social }
+        else if (cat.includes("فن")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("پزشکی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+        else if (cat.includes("اقتصاد") 
+            || cat.includes("بانکی") 
+            || cat.includes("نظام") 
+            || cat.includes("شرکت")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+        else if (cat.includes("ورزشی")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        else if (cat.includes("استان")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+        else if (cat.includes("سبک")) return { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        else if (cat.includes("هوا")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Weather }
+
+        return { major: enuMajorCategory.News }
+    }
 }
 
 export class goftareno extends clsIransamaneh {

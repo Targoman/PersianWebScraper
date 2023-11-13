@@ -1,0 +1,28 @@
+#!/bin/sh
+
+if [ -z "$1" ];then
+        echo "No domain specified"
+        exit 1
+fi
+basePath=./ws/corpora/$1
+for date in $(ls $basePath); do
+        echo "Moving Updated $basePath/$date"
+        for file in $(find $basePath/$date -name "*.updated"); do
+                name=$(echo $file | sed "s/\(.json\)\{0,1\}.updated$//g")
+                mv -v $file $name.json
+        done
+ 
+        echo "Moving the rest $basePath/$date"
+        for file in $(find $basePath/$date -type f ! -name "*.json"); do 
+                mv  -v $file $file.json
+        done 
+done
+exit
+echo "Compressing ... "
+cd ws/corpora/
+tar -czv $1 >$1.tgz
+
+#scp $1.tgz 192.168.10.107:/opt/ws/ws/corpora
+#scp ../db/urls-$1.db 192.168.10.107:/opt/ws/ws/db/
+
+echo "Finished"
