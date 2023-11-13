@@ -501,3 +501,64 @@ export class hawzahnews extends clsNastoohBased {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
     }
 }
+
+export class khabarvarzeshi extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.khabarvarzeshi, "khabarvarzeshi.com", {
+            selectors: {
+                title: "h1",
+                datetime: {
+                    conatiner: '.item-date',
+                },
+            }
+        })
+    }
+}
+
+export class sena extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sena, "sena.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: '.item-date, ul.list-inline li:nth-child(1)',
+                },
+            }
+        })
+    }
+}
+
+export class mefda extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.mefda, "mefda.ir", {
+            selectors: {
+                article: "article, #photos",
+                title: "h1",
+                summary: "p.summary",
+                content: {
+                    main: "[itemprop='articleBody'], section.box-content"
+                },
+                datetime: {
+                    conatiner: '.item-date, span.item-time',
+                },
+            }
+        })
+    }
+}
+
+export class iscanews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.iscanews, "iscanews.ir")
+    }
+}
+
+export class behzisti extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.behzisti, "behzisti.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'div.item-nav.row > div:nth-child(1) > span, .item-date',
+                },
+            }
+        })
+    }
+}

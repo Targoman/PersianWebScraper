@@ -400,16 +400,25 @@ export class zoomit extends clsScrapper {
                 title: "h1",
                 summary: ".cJZnLd .BlockContainer__InnerArticleContainer-i5s1rc-1.hXzioD",
                 content: {
-                    main: ".eQTmR .BlockContainer__InnerArticleContainer-i5s1rc-1.hXzioD>*",
+                    main: ".eQTmR .BlockContainer__InnerArticleContainer-i5s1rc-1.hXzioD>*, img",
                 },
                 datetime: {
-                    conatiner: ".oNOID > span:nth-child(3), .dgQNji > span:nth-child(3)",
+                    conatiner: ".oNOID > span:nth-child(3), .dgQNji > span:nth-child(3), .header-detail > span.eMeOeL",
                     splitter: "-",
                 },
                 category: {
                     selector: '.kDyGrB a',
                 },
+                // comments: {
+                //     container: (_article, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".btQGxV .jOGSpB"),
+                //     author: "",
+                //     datetime: "",
+                //     text: ".fvAzaC .kyWHDs .hDhHou span.fGxBKC",
+                // }
             },
+            url: {
+                extraInvalidStartPaths: ["/product"]
+            }
         })
     }
 }

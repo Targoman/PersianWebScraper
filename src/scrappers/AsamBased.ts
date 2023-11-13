@@ -700,3 +700,39 @@ export class iana extends clsAsamBased {
         })
     }
 }
+
+export class donyaeeqtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.donyaeeqtesad, "donya-e-eqtesad.com", {
+            selectors: {
+                content: {
+                    main: ".article-body",
+                    ignoreNodeClasses: ["noprint"]
+                },
+                tags: ".article-tag a"
+            },
+        })
+    }
+}
+
+export class eghtesadonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.eghtesadonline, "eghtesadonline.com", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h4",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: ".item-date"
+                },
+                category: {
+                    selector: "ol.breadcrumb li a"
+                },
+                content: {
+                    main: ".item-text, figure.item-img",
+                },
+                tags: "section .box.tags ul li a"
+            },
+        })
+    }
+}
