@@ -1424,3 +1424,25 @@ export class bankdariirani extends clsIransamaneh {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
     }
 }
+
+export class sabakhabar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.sabakhabar, "sabakhabar.ir", {
+            selectors: {
+                article: ".single-news",
+                title: "h2",
+                subtitle: ".leadi",
+                datetime: {
+                    conatiner: "li.time"
+                },
+                content: {
+                    main: ".news-content"
+                },
+                category: {
+                    selector: "ul.list-inline li a"
+                },
+                tags: ".news-tags a"
+            },
+        })
+    }
+}
