@@ -435,7 +435,7 @@ export class varzesh3 extends clsScrapper {
                 comments: {
                     container: ".vrz-user-comment",
                     author: ".cm-by-user",
-                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector(".cm-data-t span:nth-child(2)")),
+                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector(".cm-data-t span:nth-child(2)"))||"INVALID_DATE",
                     text: ".cm-message",
 
                 }

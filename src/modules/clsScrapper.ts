@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian, dateOffsetToDate } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = true //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
+const debugNodeProcessor = false //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 
@@ -318,11 +318,11 @@ export abstract class clsScrapper {
                 if (dateParts.length > 0)
                     dateParts.push(persianMonthNumber(part) + "")
                 else {
+                    log.error(datetimeStr)
                     return "INVALID_DATE"
                 }
-            } else {
+            } else 
                 dateParts.push(part)
-            }
         }
 
         if (dateParts.length === 3)
@@ -333,6 +333,7 @@ export abstract class clsScrapper {
 
     protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfDateSplitter = " ", fullHtml?: HTMLElement) {
         if (!datetimeEl) return undefined
+
         let finalDateString: string | undefined
 
         if (typeof splitter === "function" && typeof datetimeEl !== "string") {
@@ -341,7 +342,13 @@ export abstract class clsScrapper {
             const datetime = normalizeText((typeof datetimeEl === "string" ? datetimeEl : datetimeEl?.innerText)?.trim().replace(/[\r\n]/g, ""))
             if (!datetime)
                 finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+            else if (datetime.includes('پیش')
+                || datetime.includes('امروز')
+                || datetime.includes('قبل')
+            )
+                finalDateString = dateOffsetToDate(datetime)
             else {
+
                 let datetimeParts = datetime?.split(typeof splitter === "string" ? splitter : " ")
 
                 const dateString = normalizeText(datetimeParts[datetimeParts.length - 1].includes(":")

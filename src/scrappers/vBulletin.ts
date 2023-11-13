@@ -1,5 +1,4 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { dateOffsetToDate } from "../modules/common";
 import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
@@ -28,8 +27,6 @@ class clsVBulletinBased extends clsScrapper {
       }
     }
 
-
-
     super(domain, baseURL, deepmerge(baseConfig, conf || {}))
   }
 }
@@ -40,7 +37,6 @@ export class webhostingtalk extends clsVBulletinBased {
       selectors: {
         datetime: {
           conatiner: "span.date",
-          splitter: dateOffsetToDate
         },
       }
     })
@@ -99,7 +95,6 @@ export class tarfandestan extends clsVBulletinBased {
       selectors: {
         datetime: {
           conatiner: "span.date",
-          splitter: dateOffsetToDate
         },
       },
       url: {
