@@ -612,3 +612,9 @@ export class oipf extends clsNastoohBased {
         })
     }
 }
+
+export class salameno extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.salameno, "salameno.com")
+    }
+}
