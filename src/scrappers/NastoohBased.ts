@@ -636,3 +636,13 @@ export class atiyeonline extends clsNastoohBased {
         super(enuDomains.atiyeonline, "atiyeonline.ir")
     }
 }
+
+export class salamatnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.salamatnews, "salamatnews.com", {
+            selectors: {
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.tags div ul li a"),
+            }
+        })
+    }
+}

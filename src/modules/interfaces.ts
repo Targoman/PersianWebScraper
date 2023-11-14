@@ -131,6 +131,7 @@ export enum enuDomains {
     tehrannews = "tehrannews",
     tahririeh = "tahririeh",
     atiyeonline = "atiyeonline",
+    salamatnews = "salamatnews",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",
