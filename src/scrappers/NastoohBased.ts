@@ -618,3 +618,9 @@ export class salameno extends clsNastoohBased {
         super(enuDomains.salameno, "salameno.com")
     }
 }
+
+export class tehrannews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tehrannews, "tehrannews.ir")
+    }
+}

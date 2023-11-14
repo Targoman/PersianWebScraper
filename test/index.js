@@ -476,6 +476,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start oipf -u https://www.oipf.ir/ne
 clear; rm -rf .db corpora; yarn dev && yarn start salameno -u https://www.salameno.com/news/55475552/بادامچیان-مردم-گرایشی-به-اصلاحات-و-اعتدال-ندارند-به-میرسلیم
 clear; rm -rf .db corpora; yarn dev && yarn start salameno -u https://www.salameno.com/news/55475223/واریز-وام-فوری-۵۰-میلیونی-با-اقساط-یک-میلیونی-برای-همه-مردم
 
+clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/news/760950/وضعیت-آب-و-هوای-کشور-امروز-۲۳-آبان-۱۴۰۲
+clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/photo/760790/جادوی-طبیعت-زیبای-پاییزی-در-استان-تهران
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
