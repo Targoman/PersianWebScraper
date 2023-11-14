@@ -646,3 +646,9 @@ export class salamatnews extends clsNastoohBased {
         })
     }
 }
+
+export class eximnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.eximnews, "eximnews.ir")
+    }
+}
