@@ -721,3 +721,23 @@ export class sahebkhabar extends clsNastoohBased {
         })
     }
 }
+
+export class saat24 extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.saat24, "saat24.news", {
+            selectors: {
+                title: "h1",
+                summary: "p.news-summary",
+                content: {
+                    main: ".rich-content, picture"
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                }
+            }
+        })
+    }
+}
