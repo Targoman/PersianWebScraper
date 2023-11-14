@@ -479,6 +479,12 @@ clear; rm -rf .db corpora; yarn dev && yarn start salameno -u https://www.salame
 clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/news/760950/وضعیت-آب-و-هوای-کشور-امروز-۲۳-آبان-۱۴۰۲
 clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/photo/760790/جادوی-طبیعت-زیبای-پاییزی-در-استان-تهران
 
+clear; rm -rf .db corpora; yarn dev && yarn start tahririeh -u https://www.tahririeh.com/news/28088/چالش-ها-و-الزامات-توسعه-و-به-کارگیری-متاورس
+clear; rm -rf .db corpora; yarn dev && yarn start tahririeh -u https://www.tahririeh.com/news/28087/صندوق-توسعه-ملی-امکان-سرمایه-گذاری-ارزی-برای-مردم-را-فراهم-می-کند
+
+clear; rm -rf .db corpora; yarn dev && yarn atiyeonline -u https://www.atiyeonline.ir/photo/64029/آغاز-سال-تحصیلی-با-حضور-وزیر-کار-در-مدرسه-استثنایی-محمدرضا-ساریخانی
+clear; rm -rf .db corpora; yarn dev && yarn atiyeonline -u https://www.atiyeonline.ir/news/65358/افزایش-بیش-از-۲-میلیون-پرونده-در-سامانه-جامع-روابط-کار
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

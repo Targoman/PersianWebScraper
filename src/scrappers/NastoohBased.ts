@@ -630,3 +630,9 @@ export class tahririeh extends clsNastoohBased {
         super(enuDomains.tahririeh, "tahririeh.com")
     }
 }
+
+export class atiyeonline extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.atiyeonline, "atiyeonline.ir")
+    }
+}
