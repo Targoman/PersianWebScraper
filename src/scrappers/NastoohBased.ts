@@ -700,3 +700,24 @@ export class shahryarnews extends clsNastoohBased {
         })
     }
 }
+
+export class sahebkhabar extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sahebkhabar, "sahebkhabar.ir", {
+            selectors: {
+                title: "h1",
+                content: {
+                    main: ".body, span.large-image",
+                    ignoreNodeClasses: ["sahebkhabar-watermark"]
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-tag section ul li a"),
+                category: {
+                    selector: "span.item-service a"
+                }
+            }
+        })
+    }
+}
