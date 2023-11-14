@@ -568,3 +568,19 @@ export class tahlilbazaar extends clsNastoohBased {
         super(enuDomains.tahlilbazaar, "tahlilbazaar.com")
     }
 }
+
+export class kanoonnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.kanoonnews, "kanoonnews.ir", {
+            selectors: {
+                summary: "p.summary",
+                datetime: {
+                    conatiner: '.gallery-desc > div:nth-child(2), .item-date',
+                },
+                content: {
+                    main: "section.photoGall div a"
+                }
+            }
+        })
+    }
+}
