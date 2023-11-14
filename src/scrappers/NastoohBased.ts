@@ -599,3 +599,16 @@ export class imereport extends clsNastoohBased {
         })
     }
 }
+
+export class oipf extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.oipf, "oipf.ir", {
+            selectors: {
+                summary: "p.summary",
+                datetime: {
+                    conatiner: '.gallery-desc > div:nth-child(2), .item-date span',
+                },
+            }
+        })
+    }
+}
