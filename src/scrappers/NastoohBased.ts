@@ -562,3 +562,9 @@ export class behzisti extends clsNastoohBased {
         })
     }
 }
+
+export class tahlilbazaar extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tahlilbazaar, "tahlilbazaar.com")
+    }
+}
