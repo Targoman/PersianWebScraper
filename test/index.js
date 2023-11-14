@@ -492,7 +492,10 @@ clear; rm -rf .db corpora; yarn dev && yarn start eximnews -u https://eximnews.i
 clear; rm -rf .db corpora; yarn dev && yarn start eximnews -u https://eximnews.ir/news/66531/افتتاح-پنجمین-نیروگاه-خورشیدی-غدیر-با-مشارکت-بانک-توسعه-صادرات
 
 clear; rm -rf .db corpora; yarn dev && yarn start payamekhanevadeh -u https://www.payamekhanevadeh.ir/news/11739/ظرفیت-پذیرش-پزشک-متخصص-سالانه-12-درصد-افزایش-می-یابد
-clear; rm -rf .db corpora; yarn dev && yarn start payamekhanevadeh -u h
+clear; rm -rf .db corpora; yarn dev && yarn start payamekhanevadeh -u https://www.payamekhanevadeh.ir/news/9758/بازدید-شخصیت-های-دانشگاهی-و-حوزوی-از-بخش-مشاوره-های-قرآن-بنیان
+
+clear; rm -rf .db corpora; yarn dev && yarn start qudsonline -u https://www.qudsonline.ir/news/935465/مناقصه-ایران-برای-خرید-۳۰۰-هزار-تن-ذرت-و-دانه-سویا-از-بازار-جهانی
+clear; rm -rf .db corpora; yarn dev && yarn start qudsonline -u https://www.qudsonline.ir/photo/934854/گزارش-تصویری-سی-وسومین-جشنواره-تئاتر-خراسان-رضوی
 
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 

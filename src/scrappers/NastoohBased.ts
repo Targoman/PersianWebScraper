@@ -658,3 +658,15 @@ export class payamekhanevadeh extends clsNastoohBased {
         super(enuDomains.payamekhanevadeh, "payamekhanevadeh.ir")
     }
 }
+
+export class qudsonline extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.qudsonline, "qudsonline.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: ".item-date"
+                }
+            }
+        })
+    }
+}
