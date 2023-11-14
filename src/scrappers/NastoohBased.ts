@@ -682,3 +682,21 @@ export class bidarbourse extends clsNastoohBased {
         super(enuDomains.bidarbourse, "bidarbourse.com")
     }
 }
+
+export class shahryarnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shahryarnews, "shahryarnews.net", {
+            selectors: {
+                article: "article, #photos",
+                summary: "p.summary",
+                title: "span.headline, h1",
+                datetime: {
+                    conatiner: ".item-date, .item-time",
+                },
+                content: {
+                    main: ".item-body .item-text>*, figure, section.box-content a img",
+                }
+            }
+        })
+    }
+}
