@@ -652,3 +652,9 @@ export class eximnews extends clsNastoohBased {
         super(enuDomains.eximnews, "eximnews.ir")
     }
 }
+
+export class payamekhanevadeh extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.payamekhanevadeh, "payamekhanevadeh.ir")
+    }
+}
