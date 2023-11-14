@@ -584,3 +584,18 @@ export class kanoonnews extends clsNastoohBased {
         })
     }
 }
+
+export class imereport extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.imereport, "imereport.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'ul.list-inline li:nth-child(1)',
+                },
+                content: {
+                    main: "section.photoGall div a"
+                }
+            }
+        })
+    }
+}
