@@ -135,6 +135,7 @@ export enum enuDomains {
     eximnews = "eximnews",
     payamekhanevadeh = "payamekhanevadeh",
     qudsonline = "qudsonline",
+    karafarinnews = "karafarinnews",
     ///////////// Not Ready
     zoomit = "zoomit",
     /* javabyab="javabyab",

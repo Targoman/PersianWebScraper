@@ -670,3 +670,9 @@ export class qudsonline extends clsNastoohBased {
         })
     }
 }
+
+export class karafarinnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.karafarinnews, "karafarinnews.ir")
+    }
+}
