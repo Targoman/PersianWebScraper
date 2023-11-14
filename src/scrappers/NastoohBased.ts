@@ -676,3 +676,9 @@ export class karafarinnews extends clsNastoohBased {
         super(enuDomains.karafarinnews, "karafarinnews.ir")
     }
 }
+
+export class bidarbourse extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.bidarbourse, "bidarbourse.com")
+    }
+}

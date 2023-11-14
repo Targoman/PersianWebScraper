@@ -500,6 +500,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start qudsonline -u https://www.quds
 clear; rm -rf .db corpora; yarn dev && yarn start karafarinnews -u https://www.karafarinnews.ir/photo/15447/چهاردهمین-نمایشگاه-فناوری-نانو
 clear; rm -rf .db corpora; yarn dev && yarn start karafarinnews -u https://www.karafarinnews.ir/news/15085/شکست-در-کارآفرینی-انسان-را-بزرگتر-می-کند
 
+clear; rm -rf .db corpora; yarn dev && yarn start bidarbourse -u https://bidarbourse.com/news/36259/مؤسسه-فیچ-قیمت-نفت-در-سال-آینده-به-۱۲۰-دلار-می-رسد
+clear; rm -rf .db corpora; yarn dev && yarn start bidarbourse -u https://bidarbourse.com/news/36248/تارا-V1پلاس-چه-ویژگی-و-امکاناتی-دارد
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
