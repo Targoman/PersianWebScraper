@@ -463,6 +463,51 @@ clear; rm -rf .db corpora; yarn dev && yarn start iscanews -u https://www.iscane
 clear; rm -rf .db corpora; yarn dev && yarn start behzisti -u https://www.behzisti.ir/news/94313/۲۴۰-مرکز-مشاوره-ژنتیکی-در-کشور-فعالیت-می-کنند
 clear; rm -rf .db corpora; yarn dev && yarn start behzisti -u https://www.behzisti.ir/photo/94318/گزارش-تصویری-سفر-مدیر-کل-معاون-امور-اجتماعی-و-مدیر-روابط-عمومی
 
+clear; rm -rf .db corpora; yarn dev && yarn start tahlilbazaar -u https://www.tahlilbazaar.com/news/255034/شعار-حمایت-از-تولید-با-واقعیت-نمی-خواندمدیر-روابط-عمومی
+clear; rm -rf .db corpora; yarn dev && yarn start tahlilbazaar -u https://www.tahlilbazaar.com/photo/254406/بیست-و-سومین-نمایشگاه-بین-المللی-صنعت-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start kanoonnews -u https://www.kanoonnews.ir/news/333151/تماشاخانه-سیار-کانون-با-نمایش-هناس-میهمان-کودکان-شهر-آفتاب
+clear; rm -rf .db corpora; yarn dev && yarn start kanoonnews -u https://www.kanoonnews.ir/photo/332877/یک-روز-در-کانون-در-قالب-کانون-مدرسه
+
+clear; rm -rf .db corpora; yarn dev && yarn start imereport -u https://www.imereport.ir/news/87428/گواهی-سپرده-شمش-طلا-سند-زرین-همکاری-وزارت-صمت-و-اقتصاد
+clear; rm -rf .db corpora; yarn dev && yarn start imereport -u https://www.imereport.ir/photo/87494/بازدید-مدیرعامل-بانک-صنعت-و-معدن-از-تالار-صادراتی-بورس-کالا
+
+clear; rm -rf .db corpora; yarn dev && yarn start oipf -u https://www.oipf.ir/photo/9435/شانزدهمین-گزارش-پیشرفت-ماهانه-طرح-های-گروه-اقتصادی-صندوق-ها
+clear; rm -rf .db corpora; yarn dev && yarn start oipf -u https://www.oipf.ir/news/9440/واریز-مستمری-آبان-ماه-به-همراه-۴-میلیون-تومان-پرداخت-مناسبتی
+
+clear; rm -rf .db corpora; yarn dev && yarn start salameno -u https://www.salameno.com/news/55475552/بادامچیان-مردم-گرایشی-به-اصلاحات-و-اعتدال-ندارند-به-میرسلیم
+clear; rm -rf .db corpora; yarn dev && yarn start salameno -u https://www.salameno.com/news/55475223/واریز-وام-فوری-۵۰-میلیونی-با-اقساط-یک-میلیونی-برای-همه-مردم
+
+clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/news/760950/وضعیت-آب-و-هوای-کشور-امروز-۲۳-آبان-۱۴۰۲
+clear; rm -rf .db corpora; yarn dev && yarn start tehrannews -u https://www.tehrannews.ir/photo/760790/جادوی-طبیعت-زیبای-پاییزی-در-استان-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start tahririeh -u https://www.tahririeh.com/news/28088/چالش-ها-و-الزامات-توسعه-و-به-کارگیری-متاورس
+clear; rm -rf .db corpora; yarn dev && yarn start tahririeh -u https://www.tahririeh.com/news/28087/صندوق-توسعه-ملی-امکان-سرمایه-گذاری-ارزی-برای-مردم-را-فراهم-می-کند
+
+clear; rm -rf .db corpora; yarn dev && yarn start atiyeonline -u https://www.atiyeonline.ir/photo/64029/آغاز-سال-تحصیلی-با-حضور-وزیر-کار-در-مدرسه-استثنایی-محمدرضا-ساریخانی
+clear; rm -rf .db corpora; yarn dev && yarn start atiyeonline -u https://www.atiyeonline.ir/news/65358/افزایش-بیش-از-۲-میلیون-پرونده-در-سامانه-جامع-روابط-کار
+
+clear; rm -rf .db corpora; yarn dev && yarn start salamatnews -u https://www.salamatnews.com/news/363206/وزارت-بهداشت-بگوید-آمار-مهاجرت-سالیانه-270-پرستار-را-از-کجا-آورده
+clear; rm -rf .db corpora; yarn dev && yarn start salamatnews -u https://www.salamatnews.com/news/363142/۶-باور-غلط-درباره-دیابت
+
+clear; rm -rf .db corpora; yarn dev && yarn start eximnews -u https://eximnews.ir/news/68832/پنجره-فرصت-های-تجاری-در-مازندران-با-ریل-گذاری-دولت
+clear; rm -rf .db corpora; yarn dev && yarn start eximnews -u https://eximnews.ir/news/66531/افتتاح-پنجمین-نیروگاه-خورشیدی-غدیر-با-مشارکت-بانک-توسعه-صادرات
+
+clear; rm -rf .db corpora; yarn dev && yarn start payamekhanevadeh -u https://www.payamekhanevadeh.ir/news/11739/ظرفیت-پذیرش-پزشک-متخصص-سالانه-12-درصد-افزایش-می-یابد
+clear; rm -rf .db corpora; yarn dev && yarn start payamekhanevadeh -u https://www.payamekhanevadeh.ir/news/9758/بازدید-شخصیت-های-دانشگاهی-و-حوزوی-از-بخش-مشاوره-های-قرآن-بنیان
+
+clear; rm -rf .db corpora; yarn dev && yarn start qudsonline -u https://www.qudsonline.ir/news/935465/مناقصه-ایران-برای-خرید-۳۰۰-هزار-تن-ذرت-و-دانه-سویا-از-بازار-جهانی
+clear; rm -rf .db corpora; yarn dev && yarn start qudsonline -u https://www.qudsonline.ir/photo/934854/گزارش-تصویری-سی-وسومین-جشنواره-تئاتر-خراسان-رضوی
+
+clear; rm -rf .db corpora; yarn dev && yarn start karafarinnews -u https://www.karafarinnews.ir/photo/15447/چهاردهمین-نمایشگاه-فناوری-نانو
+clear; rm -rf .db corpora; yarn dev && yarn start karafarinnews -u https://www.karafarinnews.ir/news/15085/شکست-در-کارآفرینی-انسان-را-بزرگتر-می-کند
+
+clear; rm -rf .db corpora; yarn dev && yarn start bidarbourse -u https://bidarbourse.com/news/36259/مؤسسه-فیچ-قیمت-نفت-در-سال-آینده-به-۱۲۰-دلار-می-رسد
+clear; rm -rf .db corpora; yarn dev && yarn start bidarbourse -u https://bidarbourse.com/news/36248/تارا-V1پلاس-چه-ویژگی-و-امکاناتی-دارد
+
+clear; rm -rf .db corpora; yarn dev && yarn start shahryarnews -u https://shahryarnews.net/news/101708/احصا-ظرفیت-های-سرمایه-گذاری-مناطق-دهگانه-تشدید-تقابل-با-سازه-های
+clear; rm -rf .db corpora; yarn dev && yarn start shahryarnews -u https://shahryarnews.net/photo/101717/طبیعت-پاییزی-در-بوستان-های-منطقه-۴
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

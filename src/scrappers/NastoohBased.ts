@@ -562,3 +562,141 @@ export class behzisti extends clsNastoohBased {
         })
     }
 }
+
+export class tahlilbazaar extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tahlilbazaar, "tahlilbazaar.com")
+    }
+}
+
+export class kanoonnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.kanoonnews, "kanoonnews.ir", {
+            selectors: {
+                summary: "p.summary",
+                datetime: {
+                    conatiner: '.gallery-desc > div:nth-child(2), .item-date',
+                },
+                content: {
+                    main: "section.photoGall div a"
+                }
+            }
+        })
+    }
+}
+
+export class imereport extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.imereport, "imereport.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'ul.list-inline li:nth-child(1)',
+                },
+                content: {
+                    main: "section.photoGall div a"
+                }
+            }
+        })
+    }
+}
+
+export class oipf extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.oipf, "oipf.ir", {
+            selectors: {
+                summary: "p.summary",
+                datetime: {
+                    conatiner: '.gallery-desc > div:nth-child(2), .item-date span',
+                },
+            }
+        })
+    }
+}
+
+export class salameno extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.salameno, "salameno.com")
+    }
+}
+
+export class tehrannews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tehrannews, "tehrannews.ir")
+    }
+}
+
+export class tahririeh extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tahririeh, "tahririeh.com")
+    }
+}
+
+export class atiyeonline extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.atiyeonline, "atiyeonline.ir")
+    }
+}
+
+export class salamatnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.salamatnews, "salamatnews.com", {
+            selectors: {
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.tags div ul li a"),
+            }
+        })
+    }
+}
+
+export class eximnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.eximnews, "eximnews.ir")
+    }
+}
+
+export class payamekhanevadeh extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.payamekhanevadeh, "payamekhanevadeh.ir")
+    }
+}
+
+export class qudsonline extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.qudsonline, "qudsonline.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: ".item-date"
+                }
+            }
+        })
+    }
+}
+
+export class karafarinnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.karafarinnews, "karafarinnews.ir")
+    }
+}
+
+export class bidarbourse extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.bidarbourse, "bidarbourse.com")
+    }
+}
+
+export class shahryarnews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shahryarnews, "shahryarnews.net", {
+            selectors: {
+                article: "article, #photos",
+                summary: "p.summary",
+                title: "span.headline, h1",
+                datetime: {
+                    conatiner: ".item-date, .item-time",
+                },
+                content: {
+                    main: ".item-body .item-text>*, figure, section.box-content a img",
+                }
+            }
+        })
+    }
+}
