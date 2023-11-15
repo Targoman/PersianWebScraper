@@ -775,3 +775,9 @@ export class donyayekhodro extends clsNastoohBased {
         super(enuDomains.donyayekhodro, "donyayekhodro.com")
     }
 }
+
+export class chamedanmag extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.chamedanmag, "chamedanmag.com")
+    }
+}

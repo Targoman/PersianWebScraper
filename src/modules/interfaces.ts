@@ -146,6 +146,7 @@ export enum enuDomains {
     ifsm = "ifsm",
     sedayebourse = "sedayebourse",
     donyayekhodro = "donyayekhodro",
+    chamedanmag = "chamedanmag",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
