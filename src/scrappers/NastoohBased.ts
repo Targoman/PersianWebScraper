@@ -833,3 +833,9 @@ export class fardayeeghtesad extends clsNastoohBased {
         super(enuDomains.fardayeeghtesad, "fardayeeghtesad.com")
     }
 }
+
+export class radareghtesad extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.radareghtesad, "radareghtesad.ir")
+    }
+}
