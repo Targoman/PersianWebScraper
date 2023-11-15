@@ -763,3 +763,9 @@ export class ifsm extends clsNastoohBased {
         super(enuDomains.ifsm, "ifsm.ir")
     }
 }
+
+export class sedayebourse extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sedayebourse, "sedayebourse.ir")
+    }
+}
