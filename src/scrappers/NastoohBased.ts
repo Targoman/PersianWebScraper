@@ -812,3 +812,18 @@ export class tebna extends clsNastoohBased {
         })
     }
 }
+
+export class foodpress extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.foodpress, "foodpress.ir", {
+            selectors: {
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments-list ul li"),
+                    datetime: ".date",
+                    author: ".author",
+                    text: ".comment-body"
+                },
+            }
+        })
+    }
+}
