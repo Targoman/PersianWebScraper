@@ -1497,3 +1497,20 @@ export class khabaredagh extends clsIransamaneh {
         })
     }
 }
+
+export class bazarnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bazarnews, "bazarnews.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
