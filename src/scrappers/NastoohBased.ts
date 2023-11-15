@@ -800,3 +800,15 @@ export class irasin extends clsNastoohBased {
         })
     }
 }
+
+export class tebna extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tebna, "tebna.ir", {
+            selectors: {
+                content: {
+                    main: ".item-body, figure"
+                }
+            }
+        })
+    }
+}
