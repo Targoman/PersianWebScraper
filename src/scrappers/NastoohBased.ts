@@ -8,13 +8,13 @@ class clsNastoohBased extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
-                article: "article",
+                article: "article, #photos",
                 aboveTitle: ".rutitr, .kicker",
-                title: ".title",
+                title: ".title, span.headline, h1",
                 subtitle: ".introtext",
-                summary: ".item-summary",
+                summary: ".item-summary, p.summary",
                 content: {
-                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure',
+                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure, figure, section.box-content a img',
                     alternative: '.item-body>*',
                     textNode: ".item-body .item-text"
                 },
@@ -26,7 +26,7 @@ class clsNastoohBased extends clsScrapper {
                 },
                 tags: (article: HTMLElement) => article.querySelector('.tags')?.querySelectorAll('li'),
                 datetime: {
-                    conatiner: '.item-date>span',
+                    conatiner: '.item-date>span, .item-date, .item-time',
                     splitter: "-"
                 },
                 category: {
@@ -685,19 +685,7 @@ export class bidarbourse extends clsNastoohBased {
 
 export class shahryarnews extends clsNastoohBased {
     constructor() {
-        super(enuDomains.shahryarnews, "shahryarnews.net", {
-            selectors: {
-                article: "article, #photos",
-                summary: "p.summary",
-                title: "span.headline, h1",
-                datetime: {
-                    conatiner: ".item-date, .item-time",
-                },
-                content: {
-                    main: ".item-body .item-text>*, figure, section.box-content a img",
-                }
-            }
-        })
+        super(enuDomains.shahryarnews, "shahryarnews.net")
     }
 }
 
@@ -766,18 +754,12 @@ export class farhangemrooz extends clsNastoohBased {
 
 export class cinemapress extends clsNastoohBased {
     constructor() {
-        super(enuDomains.cinemapress, "cinemapress.ir", {
-            selectors: {
-                article: "article, #photos",
-                summary: "p.summary",
-                title: "span.headline, h1",
-                datetime: {
-                    conatiner: ".item-date, .item-time",
-                },
-                content: {
-                    main: ".item-body .item-text>*, figure, section.box-content a img",
-                }
-            }
-        })
+        super(enuDomains.cinemapress, "cinemapress.ir")
+    }
+}
+
+export class ifsm extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ifsm, "ifsm.ir")
     }
 }

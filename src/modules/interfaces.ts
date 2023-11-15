@@ -143,6 +143,7 @@ export enum enuDomains {
     zoomit = "zoomit",
     farhangemrooz = "farhangemrooz",
     cinemapress = "cinemapress",
+    ifsm = "ifsm",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
