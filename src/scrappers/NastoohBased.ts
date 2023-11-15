@@ -763,3 +763,21 @@ export class farhangemrooz extends clsNastoohBased {
         })
     }
 }
+
+export class cinemapress extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.cinemapress, "cinemapress.ir", {
+            selectors: {
+                article: "article, #photos",
+                summary: "p.summary",
+                title: "span.headline, h1",
+                datetime: {
+                    conatiner: ".item-date, .item-time",
+                },
+                content: {
+                    main: ".item-body .item-text>*, figure, section.box-content a img",
+                }
+            }
+        })
+    }
+}
