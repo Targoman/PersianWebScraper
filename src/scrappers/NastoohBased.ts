@@ -14,7 +14,7 @@ class clsNastoohBased extends clsScrapper {
                 subtitle: ".introtext",
                 summary: ".item-summary, p.summary",
                 content: {
-                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure, figure, section.box-content a img',
+                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure, figure, section.box-content a img, section.photoGall div a',
                     alternative: '.item-body>*',
                     textNode: ".item-body .item-text"
                 },
@@ -26,7 +26,7 @@ class clsNastoohBased extends clsScrapper {
                 },
                 tags: (article: HTMLElement) => article.querySelector('.tags')?.querySelectorAll('li'),
                 datetime: {
-                    conatiner: '.item-date>span, .item-date, .item-time',
+                    conatiner: '.item-date>span, .item-date, .item-time, .gallery-desc',
                     splitter: "-"
                 },
                 category: {
@@ -767,5 +767,11 @@ export class ifsm extends clsNastoohBased {
 export class sedayebourse extends clsNastoohBased {
     constructor() {
         super(enuDomains.sedayebourse, "sedayebourse.ir")
+    }
+}
+
+export class donyayekhodro extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.donyayekhodro, "donyayekhodro.com")
     }
 }

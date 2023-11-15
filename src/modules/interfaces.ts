@@ -145,6 +145,7 @@ export enum enuDomains {
     cinemapress = "cinemapress",
     ifsm = "ifsm",
     sedayebourse = "sedayebourse",
+    donyayekhodro = "donyayekhodro",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
