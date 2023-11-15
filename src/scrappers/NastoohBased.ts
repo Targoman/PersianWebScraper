@@ -827,3 +827,9 @@ export class foodpress extends clsNastoohBased {
         })
     }
 }
+
+export class fardayeeghtesad extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.fardayeeghtesad, "fardayeeghtesad.com")
+    }
+}

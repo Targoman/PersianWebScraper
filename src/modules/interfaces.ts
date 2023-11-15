@@ -150,6 +150,7 @@ export enum enuDomains {
     irasin = "irasin",
     tebna = "tebna",
     foodpress = "foodpress",
+    fardayeeghtesad = "fardayeeghtesad",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",

@@ -542,6 +542,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start tebna -u https://www.tebna.ir/
 clear; rm -rf .db corpora; yarn dev && yarn start foodpress -u https://www.foodpress.ir/news/54001/شهامت-یک-مدیر-ارشد-دولت-در-اعلام-قیمت-واقعی-گندم-وارداتی
 clear; rm -rf .db corpora; yarn dev && yarn start foodpress -u https://www.foodpress.ir/photo/تجلیل%20از%20برترین%20شرکتهای%20صنایع%20غذایی%20در%20جشنواره%20اقتصاد%20سبز/تجلیل-از-برترین-شرکتهای-صنایع-غذایی-در-جشنواره-اقتصاد-سبز
 
+clear; rm -rf .db corpora; yarn dev && yarn start fardayeeghtesad -u https://www.fardayeeghtesad.com/news/32595/ناترازی-در-بازار-تامین-مالی-از-کجا-نشأت-می-گیرد
+clear; rm -rf .db corpora; yarn dev && yarn start fardayeeghtesad -u https://www.fardayeeghtesad.com/photo/23523/گزارش-تصویری-از-افتتاحیه-پانزدهمین-نمایشگاه-صنعت-مالی
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
