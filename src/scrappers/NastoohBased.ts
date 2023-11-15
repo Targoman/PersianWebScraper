@@ -741,3 +741,25 @@ export class saat24 extends clsNastoohBased {
         })
     }
 }
+
+
+export class farhangemrooz extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.farhangemrooz, "farhangemrooz.com", {
+            selectors: {
+                title: "h1",
+                content: {
+                    main: ".body, span.large-image",
+                    ignoreNodeClasses: ["sahebkhabar-watermark"]
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-tag section ul li a"),
+                category: {
+                    selector: "span.item-service a"
+                }
+            }
+        })
+    }
+}
