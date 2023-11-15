@@ -1461,3 +1461,22 @@ export class avayekhazar extends clsIransamaneh {
         })
     }
 }
+
+export class titre20 extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.titre20, "titre20.ir", {
+            selectors: {
+                article: ".news-continer-p",
+                aboveTitle: ".rutitr-news",
+                title: "h1 a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.news-nav-times"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
