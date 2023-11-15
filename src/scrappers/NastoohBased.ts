@@ -839,3 +839,15 @@ export class radareghtesad extends clsNastoohBased {
         super(enuDomains.radareghtesad, "radareghtesad.ir")
     }
 }
+
+export class karajemrouz extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.karajemrouz, "karajemrouz.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'ul.list-inline li:nth-child(1)',
+                },
+            }
+        })
+    }
+}
