@@ -76,7 +76,7 @@ export async function axiosGet(log: clsLogger, params: IntfRequestParams, retrie
         .get(params.url, configWithUA(params))
         .then(async (res) => {
             const data = res.data
-            if (res.data.includes("arvancloud")) {
+            if (typeof data === "string" && res.data.includes("arvancloud")) {
                 const cookie = await getArvanCookie(params.url, (new URL(params.url).hostname), params.proxy)
                 await sleep(2100)
                 return await axiosGet(log, { ...params, cookie })
