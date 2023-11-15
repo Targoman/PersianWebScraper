@@ -1480,3 +1480,20 @@ export class titre20 extends clsIransamaneh {
         })
     }
 }
+
+export class khabaredagh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.khabaredagh, "khabaredagh.ir", {
+            selectors: {
+                article: ".news_body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}

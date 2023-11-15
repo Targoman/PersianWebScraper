@@ -154,6 +154,7 @@ export enum enuDomains {
     radareghtesad = "radareghtesad",
     karajemrouz = "karajemrouz",
     titre20 = "titre20",
+    khabaredagh = "khabaredagh",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
