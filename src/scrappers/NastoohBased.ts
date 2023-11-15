@@ -781,3 +781,22 @@ export class chamedanmag extends clsNastoohBased {
         super(enuDomains.chamedanmag, "chamedanmag.com")
     }
 }
+
+export class irasin extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.irasin, "irasin.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("content")?.match(/\d{4}-\d{2}-\d{2}/);
+                        if (date)
+                            return date[0];
+                        else
+                            return "NO_DATE";
+                    }
+                },
+            }
+        })
+    }
+}
