@@ -508,6 +508,60 @@ clear; rm -rf .db corpora; yarn dev && yarn start bidarbourse -u https://bidarbo
 clear; rm -rf .db corpora; yarn dev && yarn start shahryarnews -u https://shahryarnews.net/news/101708/احصا-ظرفیت-های-سرمایه-گذاری-مناطق-دهگانه-تشدید-تقابل-با-سازه-های
 clear; rm -rf .db corpora; yarn dev && yarn start shahryarnews -u https://shahryarnews.net/photo/101717/طبیعت-پاییزی-در-بوستان-های-منطقه-۴
 
+clear; rm -rf .db corpora; yarn dev && yarn start sahebkhabar -u https://sahebkhabar.ir/news/63474965/دورکاری-کارکنان-دستگاه-های-اجرایی-تهران-لغو-شد
+clear; rm -rf .db corpora; yarn dev && yarn start sahebkhabar -u https://sahebkhabar.ir/news/63475799/یک-روز-در-خیابان-های-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start saat24 -u https://www.saat24.news/news/622479/توتالیتاریسم-سامانه-ای-و-اقتصاد-ایران
+clear; rm -rf .db corpora; yarn dev && yarn start saat24 -u https://www.saat24.news/news/622684/قیمت-طلا-سکه-و-ارز-امروز-۲۳-آبان-ماه---ریزش-قیمت-ها-در-بازار-سکه-و-دلار
+
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/mobile/411533-samsung-one-ui-6-0-release-date/
+clear; rm -rf .db corpora; yarn dev && yarn start zoomit -u https://www.zoomit.ir/social-network/410824-x-premium-basic-subscriptions-reply-boost/
+
+clear; rm -rf .db corpora; yarn dev && yarn start farhangemrooz -u https://www.farhangemrooz.com/news/65884/خلاصه-زندگینامه-حکیم-ابوالقاسم-فردوسی-پاسبان-زبان-فارسی
+clear; rm -rf .db corpora; yarn dev && yarn start farhangemrooz -u https://www.farhangemrooz.com/news/65778/جرج-اورول-و-آلبر-کامو-دیداری-که-هرگز-میسر-نشد
+
+clear; rm -rf .db corpora; yarn dev && yarn start cinemapress -u https://cinemapress.ir/news/148467/لوپتو-به-ایتالیا-می-رود
+clear; rm -rf .db corpora; yarn dev && yarn start cinemapress -u https://cinemapress.ir/photo/148018/عکس-اختتامیه-چهلمین-جشنواره-فیلم-کوتاه-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start ifsm -u https://www.ifsm.ir/news/60354/بررسی-برنامه-های-آماده-سازی-تیم-ملی-تکواندو-در-بخش-پزشکی
+clear; rm -rf .db corpora; yarn dev && yarn start ifsm -u https://www.ifsm.ir/photo/60366/مسئولین-و-ورزشکاران-با-حضور-در-غرفه-هیات-پزشکی-ورزشی-مازندران
+
+clear; rm -rf .db corpora; yarn dev && yarn start sedayebourse -u https://www.sedayebourse.ir/news/482982/تشدید-بی-اعتمادی-با-دستکاری-بازار
+clear; rm -rf .db corpora; yarn dev && yarn start sedayebourse -u https://www.sedayebourse.ir/photo/473217/گزارش-تصویری-از-دومین-روز-پانزدهمین-نمایشگاه-بین-المللی-صنعت
+
+clear; rm -rf .db corpora; yarn dev && yarn start donyayekhodro -u https://www.donyayekhodro.com/news/246880/نمایش-ری-را-برقی-در-نمایشگاه-تحول-صنعت-خودرو
+clear; rm -rf .db corpora; yarn dev && yarn start donyayekhodro -u https://www.donyayekhodro.com/photo/244242/آیین-افتتاح-خط-تولید-موتور-ME16-و-رونمایی-از-محصولات-جدید-سایپا
+
+clear; rm -rf .db corpora; yarn dev && yarn start chamedanmag -u https://www.chamedanmag.com/news/249963/ارادت-ویژه-امپراتور-به-گوسفند-هر-جا-گوسفندان-توقف-می-کردند
+clear; rm -rf .db corpora; yarn dev && yarn start chamedanmag -u https://www.chamedanmag.com/news/249940/تصاویری-دیدنی-از-بندر-انزلی-و-سواحل-زیبای-دریای-خزر-از-کابین
+
+clear; rm -rf .db corpora; yarn dev && yarn start irasin -u https://www.irasin.ir/news/45879/نامه-تعلیق-تیم-والیبال-ایران-ایز-تایپینگ
+clear; rm -rf .db corpora; yarn dev && yarn start irasin -u https://www.irasin.ir/photo/45780/حیات-چند-روزه-زاینده-رود
+
+clear; rm -rf .db corpora; yarn dev && yarn start tebna -u https://www.tebna.ir/news/207425/داروهای-پر-مصرف-بیماران-دیابتی-با-پوشش۷۵-درصدی-بیمه
+clear; rm -rf .db corpora; yarn dev && yarn start tebna -u https://www.tebna.ir/photo/207014/گزارش-تصویری-سیلاب-در-آزادشهر
+
+clear; rm -rf .db corpora; yarn dev && yarn start foodpress -u https://www.foodpress.ir/news/54001/شهامت-یک-مدیر-ارشد-دولت-در-اعلام-قیمت-واقعی-گندم-وارداتی
+clear; rm -rf .db corpora; yarn dev && yarn start foodpress -u https://www.foodpress.ir/photo/تجلیل%20از%20برترین%20شرکتهای%20صنایع%20غذایی%20در%20جشنواره%20اقتصاد%20سبز/تجلیل-از-برترین-شرکتهای-صنایع-غذایی-در-جشنواره-اقتصاد-سبز
+
+clear; rm -rf .db corpora; yarn dev && yarn start fardayeeghtesad -u https://www.fardayeeghtesad.com/news/32595/ناترازی-در-بازار-تامین-مالی-از-کجا-نشأت-می-گیرد
+clear; rm -rf .db corpora; yarn dev && yarn start fardayeeghtesad -u https://www.fardayeeghtesad.com/photo/23523/گزارش-تصویری-از-افتتاحیه-پانزدهمین-نمایشگاه-صنعت-مالی
+
+clear; rm -rf .db corpora; yarn dev && yarn start radareghtesad -u https://www.radareghtesad.ir/news/49114/سکوت-بانک-مرکزی-در-عملیات-شبانه-پول
+clear; rm -rf .db corpora; yarn dev && yarn start radareghtesad -u https://www.radareghtesad.ir/photo/22420/روزنامه-های-اقتصادی-دوشنبه-۸-آذر
+
+clear; rm -rf .db corpora; yarn dev && yarn start karajemrouz -u https://www.karajemrouz.ir/news/85065/نارضایتی-کارکنان-شهرداری-از-بیمه-تکمیلی-طرف-قرار-داد
+clear; rm -rf .db corpora; yarn dev && yarn start karajemrouz -u https://www.karajemrouz.ir/photo/85042/برگزاری-نمایشگاه-طراحی-المان-و-فضای-ورودی-تفرجگاه-پارکرود-کرج
+
+clear; rm -rf .db corpora; yarn dev && yarn start titre20 -u https://titre20.ir/fa/news/65884/کیفیت-ابزار-مهم-توسعه-صادرات-در-فولاد-هرمزگان-رشد-کیفیت-همپای-کمیت-در-فولاد-هرمزگان
+clear; rm -rf .db corpora; yarn dev && yarn start titre20 -u https://titre20.ir/fa/news/64758/ظاهر-یوتیوب-تغییر-می%E2%80%8Cکند-عکس
+
+clear; rm -rf .db corpora; yarn dev && yarn start khabaredagh -u https://khabaredagh.ir/fa/news/961042/مزایده-فروش-سهام-شرکت-های-توسعه-صنعتی-آرین
+clear; rm -rf .db corpora; yarn dev && yarn start khabaredagh -u https://khabaredagh.ir/fa/news/663120/عکس-زیباترین-اسب-دنیا
+
+clear; rm -rf .db corpora; yarn dev && yarn start bazarnews -u https://bazarnews.ir/fa/news/111478/Gaz
+clear; rm -rf .db corpora; yarn dev && yarn start bazarnews -u https://bazarnews.ir/fa/news/110965/گزارش-تصویری%7Cحضور-نماینده-مجلس-در-بازارنیوز-به-مناسبت-روز-خبرنگار
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

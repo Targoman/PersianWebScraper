@@ -1461,3 +1461,56 @@ export class avayekhazar extends clsIransamaneh {
         })
     }
 }
+
+export class titre20 extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.titre20, "titre20.ir", {
+            selectors: {
+                article: ".news-continer-p",
+                aboveTitle: ".rutitr-news",
+                title: "h1 a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.news-nav-times"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class khabaredagh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.khabaredagh, "khabaredagh.ir", {
+            selectors: {
+                article: ".news_body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class bazarnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bazarnews, "bazarnews.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}

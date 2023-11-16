@@ -1,7 +1,7 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory } from "../modules/interfaces";
 import HP, { HTMLElement } from "node-html-parser"
-import { axiosPost, getArvanCookie, IntfRequestParams } from "../modules/request";
+import { axiosGet, axiosPost, getArvanCookie, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
 import { normalizeText, dateOffsetToDate } from "../modules/common";
 
@@ -408,13 +408,48 @@ export class zoomit extends clsScrapper {
                 },
                 category: {
                     selector: '.kDyGrB a',
+                },   
+                comments: async (url: URL, reqParams: IntfRequestParams): Promise<IntfComment[]> => {
+                    const comments: IntfComment[] = []
+                    const match = url.pathname.match(/\/(\d+)-/);
+                    let page = 1;
+                    const retrieveComments = async (currentPage: number) => {
+                        await axiosGet(log,
+                            {
+                                ...reqParams,
+                                url: `https://api2.zoomit.ir/discussion/api/feedbacks?topicId=${match?.[1]}&topicType=Article&sortBy=MostLike&offset=${currentPage}&size=${20}&commentDepthLevel=5`,
+                                headers: {
+                                    "Content-Type": "application/json; charset=UTF-8"
+                                },
+                                onSuccess: async (res: any) => {
+                                    res.allFeedback.forEach((item: any) => {
+                                        comments.push({
+                                            text: normalizeText(item.content) || "",
+                                            author: normalizeText(item.user.userName),
+                                            date: item.createdAt.substring(0,10)
+                                        })
+                                        item.commentChildren?.forEach((child: any) => {
+                                            comments.push({
+                                                text: normalizeText(child.content) || "",
+                                                author: normalizeText(child.user.userName),
+                                                date: child.createdAt.substring(0,10)
+                                            })
+                                        })
+                                    })
+                                    if (res.hasNext) {
+                                        page++;
+                                        await retrieveComments(page)
+                                    }
+                                },
+                                onFail: (e) => { log.error(e) }
+                            }
+                        )
+                    }
+
+                    await retrieveComments(page)
+
+                    return comments
                 },
-                // comments: {
-                //     container: (_article, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".btQGxV .jOGSpB"),
-                //     author: "",
-                //     datetime: "",
-                //     text: ".fvAzaC .kyWHDs .hDhHou span.fGxBKC",
-                // }
             },
             url: {
                 extraInvalidStartPaths: ["/product"]

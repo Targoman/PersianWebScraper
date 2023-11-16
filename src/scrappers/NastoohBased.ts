@@ -8,13 +8,13 @@ class clsNastoohBased extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
-                article: "article",
+                article: "article, #photos",
                 aboveTitle: ".rutitr, .kicker",
-                title: ".title",
+                title: ".title, span.headline, h1",
                 subtitle: ".introtext",
-                summary: ".item-summary",
+                summary: ".item-summary, p.summary",
                 content: {
-                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure',
+                    main: '.item-body .item-text>*, .introtext+figure, .item-header+figure, section.photoGall li, .item-text .gallery figure, .item-summary figure, figure, section.box-content a img, section.photoGall div a',
                     alternative: '.item-body>*',
                     textNode: ".item-body .item-text"
                 },
@@ -26,7 +26,7 @@ class clsNastoohBased extends clsScrapper {
                 },
                 tags: (article: HTMLElement) => article.querySelector('.tags')?.querySelectorAll('li'),
                 datetime: {
-                    conatiner: '.item-date>span',
+                    conatiner: '.item-date>span, .item-date, .item-time, .gallery-desc',
                     splitter: "-"
                 },
                 category: {
@@ -685,17 +685,168 @@ export class bidarbourse extends clsNastoohBased {
 
 export class shahryarnews extends clsNastoohBased {
     constructor() {
-        super(enuDomains.shahryarnews, "shahryarnews.net", {
+        super(enuDomains.shahryarnews, "shahryarnews.net")
+    }
+}
+
+export class sahebkhabar extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sahebkhabar, "sahebkhabar.ir", {
             selectors: {
-                article: "article, #photos",
-                summary: "p.summary",
-                title: "span.headline, h1",
-                datetime: {
-                    conatiner: ".item-date, .item-time",
-                },
+                title: "h1",
                 content: {
-                    main: ".item-body .item-text>*, figure, section.box-content a img",
+                    main: ".body, span.large-image",
+                    ignoreNodeClasses: ["sahebkhabar-watermark"]
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-tag section ul li a"),
+                category: {
+                    selector: "span.item-service a"
                 }
+            }
+        })
+    }
+}
+
+export class saat24 extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.saat24, "saat24.news", {
+            selectors: {
+                title: "h1",
+                summary: "p.news-summary",
+                content: {
+                    main: ".rich-content, picture"
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                }
+            }
+        })
+    }
+}
+
+
+export class farhangemrooz extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.farhangemrooz, "farhangemrooz.com", {
+            selectors: {
+                title: "h1",
+                content: {
+                    main: ".body, span.large-image",
+                    ignoreNodeClasses: ["sahebkhabar-watermark"]
+                },
+                datetime: {
+                    conatiner: "time"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-tag section ul li a"),
+                category: {
+                    selector: "span.item-service a"
+                }
+            }
+        })
+    }
+}
+
+export class cinemapress extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.cinemapress, "cinemapress.ir")
+    }
+}
+
+export class ifsm extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ifsm, "ifsm.ir")
+    }
+}
+
+export class sedayebourse extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.sedayebourse, "sedayebourse.ir")
+    }
+}
+
+export class donyayekhodro extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.donyayekhodro, "donyayekhodro.com")
+    }
+}
+
+export class chamedanmag extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.chamedanmag, "chamedanmag.com")
+    }
+}
+
+export class irasin extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.irasin, "irasin.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("content")?.match(/\d{4}-\d{2}-\d{2}/);
+                        if (date)
+                            return date[0];
+                        else
+                            return "NO_DATE";
+                    }
+                },
+            }
+        })
+    }
+}
+
+export class tebna extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.tebna, "tebna.ir", {
+            selectors: {
+                content: {
+                    main: ".item-body, figure"
+                }
+            }
+        })
+    }
+}
+
+export class foodpress extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.foodpress, "foodpress.ir", {
+            selectors: {
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments-list ul li"),
+                    datetime: ".date",
+                    author: ".author",
+                    text: ".comment-body"
+                },
+            }
+        })
+    }
+}
+
+export class fardayeeghtesad extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.fardayeeghtesad, "fardayeeghtesad.com")
+    }
+}
+
+export class radareghtesad extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.radareghtesad, "radareghtesad.ir")
+    }
+}
+
+export class karajemrouz extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.karajemrouz, "karajemrouz.ir", {
+            selectors: {
+                datetime: {
+                    conatiner: 'ul.list-inline li:nth-child(1)',
+                },
             }
         })
     }
