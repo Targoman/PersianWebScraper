@@ -15,6 +15,9 @@ class clsWiki extends clsScrapper {
                 acceptNoDate: true
             },
             tags: "#mw-normal-catlinks ul li a",
+            category: {
+                selector: ".subpages a",
+            }
         },
         url: {
           removeWWW: true
@@ -57,10 +60,16 @@ export class wikivoyage extends clsWiki {
 
 export class wikibooks extends clsWiki {
     constructor() {
-        super(enuDomains.wikibooks, "fa.wikibooks.org", {
+        super(enuDomains.wikibooks, "fa.wikibooks.org")
+    }
+}
+
+export class wikisource extends clsWiki {
+    constructor() {
+        super(enuDomains.wikisource, "fa.wikisource.org", {
             selectors: {
-                category: {
-                    selector: ".subpages a",
+                content: {
+                    main: "#mw-content-text p, img, span.beyt",
                 }
             }
         })

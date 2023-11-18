@@ -572,6 +572,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start wikivoyage -u https://fa.wikiv
 clear; rm -rf .db corpora; yarn dev && yarn start wikibooks -u https://fa.wikibooks.org/wiki/تاریخ_ایران/ایران_پیش_از_ورود_آریایی%E2%80%8Cها
 clear; rm -rf .db corpora; yarn dev && yarn start wikibooks -u https://fa.wikibooks.org/wiki/سفرنامه_ایران_از_اولیا_چلبی
 
+clear; rm -rf .db corpora; yarn dev && yarn start wikisource -u https://fa.wikisource.org/wiki/ترانه%E2%80%8Cهای_خیام/مقدمه
+clear; rm -rf .db corpora; yarn dev && yarn start wikisource -u https://fa.wikisource.org/wiki/شاهنامه_(تصحیح_ژول_مل)/گفتار_اندر_ستایش_خرد
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

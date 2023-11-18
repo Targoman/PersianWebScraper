@@ -160,6 +160,7 @@ export enum enuDomains {
     wikihoghoogh = "wikihoghoogh",
     wikivoyage = "wikivoyage",
     wikibooks = "wikibooks",
+    wikisource = "wikisource",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
