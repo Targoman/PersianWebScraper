@@ -1532,3 +1532,151 @@ export class khordad extends clsIransamaneh {
         })
     }
 }
+
+export class arakhabar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.arakhabar, "arakhabar.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                aboveTitle: ".rutitr_photo",
+                title: "h1 a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class nabznaft extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.nabznaft, "nabznaft.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                content: {
+                    main: ".showcase-content a"
+                },
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class diibache extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.diibache, "diibache.ir", {
+            selectors: {
+                article: ".khabar-matn",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    main: ".image_set a"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class mana extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mana, "mana.ir", {
+            selectors: {
+                article: ".news-padd",
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".photo-subtitle, .subtitle"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2 a"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news-publishdate, .photo-news-publishdate")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-service a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class rahbordemoaser extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.rahbordemoaser, "rahbordemoaser.ir", {
+            selectors: {
+                article: ".content, .multimedia-news-more",
+                datetime: {
+                    conatiner: ".news_pdate_c span:nth-child(2)"
+                },
+            }
+        })
+    }
+}
+
+export class mednews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mednews, "mednews.ir", {
+            selectors: {
+                article: ".col-md-pull-10",
+            }
+        })
+    }
+}
+
+export class tabnakjavan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tabnakjavan, "tabnakjavan.com", {
+            selectors: {
+                article: ".tj-news-container",
+                content: {
+                    ignoreNodeClasses: ["tag_title"]
+                }
+            }
+        })
+    }
+}
+
+export class dsport extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.dsport, "dsport.ir", {
+            selectors: {
+                article: ".newsPage",
+                content: {
+                    main: "img",
+                    ignoreNodeClasses: ["img-responsive"]
+                }
+            }
+        })
+    }
+}
+
+export class farhangesadid extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.farhangesadid, "farhangesadid.com", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
