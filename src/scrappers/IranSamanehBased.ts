@@ -1641,13 +1641,22 @@ export class tabnakjavan extends clsIransamaneh {
         super(enuDomains.tabnakjavan, "tabnakjavan.com", {
             selectors: {
                 article: ".tj-news-container",
-                // title: "h1 a",
-                // datetime: {
-                //     conatiner: "span.the_time"
-                // },
                 content: {
-                    //main: ".contentsingle p"
                     ignoreNodeClasses: ["tag_title"]
+                }
+            }
+        })
+    }
+}
+
+export class dsport extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.dsport, "dsport.ir", {
+            selectors: {
+                article: ".newsPage",
+                content: {
+                    main: "img",
+                    ignoreNodeClasses: ["img-responsive"]
                 }
             }
         })
