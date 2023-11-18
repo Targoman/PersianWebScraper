@@ -1593,3 +1593,22 @@ export class diibache extends clsIransamaneh {
         })
     }
 }
+
+export class mana extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mana, "mana.ir", {
+            selectors: {
+                article: ".news-padd",
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".photo-subtitle, .subtitle"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2 a"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news-publishdate, .photo-news-publishdate")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-service a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
