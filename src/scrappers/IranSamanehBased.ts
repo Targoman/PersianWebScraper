@@ -1612,3 +1612,16 @@ export class mana extends clsIransamaneh {
         })
     }
 }
+
+export class rahbordemoaser extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.rahbordemoaser, "rahbordemoaser.ir", {
+            selectors: {
+                article: ".content, .multimedia-news-more",
+                datetime: {
+                    conatiner: ".news_pdate_c span:nth-child(2)"
+                },
+            }
+        })
+    }
+}

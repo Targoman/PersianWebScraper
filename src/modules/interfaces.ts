@@ -165,6 +165,7 @@ export enum enuDomains {
     nabznaft = "nabznaft",
     diibache = "diibache",
     mana = "mana",
+    rahbordemoaser = "rahbordemoaser",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
