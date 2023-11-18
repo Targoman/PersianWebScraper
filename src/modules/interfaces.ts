@@ -158,6 +158,7 @@ export enum enuDomains {
     bazarnews = "bazarnews",
     khordad = "khordad",
     wikihoghoogh = "wikihoghoogh",
+    wikivoyage = "wikivoyage",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",

@@ -42,3 +42,15 @@ export class wikihoghoogh extends clsWiki {
         super(enuDomains.wikihoghoogh, "wikihoghoogh.net")
     }
 }
+
+export class wikivoyage extends clsWiki {
+    constructor() {
+        super(enuDomains.wikivoyage, "fa.wikivoyage.org", {
+            selectors: {
+                category: {
+                    selector: "span.ext-geocrumbs-breadcrumbs bdi",
+                }
+            }
+        })
+    }
+}
