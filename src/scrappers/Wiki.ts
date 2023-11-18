@@ -54,3 +54,15 @@ export class wikivoyage extends clsWiki {
         })
     }
 }
+
+export class wikibooks extends clsWiki {
+    constructor() {
+        super(enuDomains.wikibooks, "fa.wikibooks.org", {
+            selectors: {
+                category: {
+                    selector: ".subpages a",
+                }
+            }
+        })
+    }
+}
