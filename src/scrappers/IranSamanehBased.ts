@@ -1625,3 +1625,16 @@ export class rahbordemoaser extends clsIransamaneh {
         })
     }
 }
+
+export class mednews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mednews, "mednews.ir", {
+            selectors: {
+                article: ".col-md-pull-10",
+                // datetime: {
+                //     conatiner: ".news_pdate_c span:nth-child(2)"
+                // },
+            }
+        })
+    }
+}
