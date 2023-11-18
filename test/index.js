@@ -560,6 +560,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start khabaredagh -u https://khabare
 clear; rm -rf .db corpora; yarn dev && yarn start bazarnews -u https://bazarnews.ir/fa/news/111478/Gaz
 clear; rm -rf .db corpora; yarn dev && yarn start bazarnews -u https://bazarnews.ir/fa/news/110965/گزارش-تصویری%7Cحضور-نماینده-مجلس-در-بازارنیوز-به-مناسبت-روز-خبرنگار
 
+clear; rm -rf .db corpora; yarn dev && yarn start khordad -u https://www.khordad.news/fa/news/395445/روایت-متفاوت-از-پروژه-گام-به-گام-خالص%E2%80%8Cسازان-%7C-جامعه-به-ردصلاحیت%E2%80%8Cها-اعتراض-نکرد-%7C-مردم-در-حال-پردازش-هستند-%7C-در-یکی-از-تکانه%E2%80%8Cها-می%E2%80%8Cشود-آنچه-نباید-بشود
+clear; rm -rf .db corpora; yarn dev && yarn start khordad -u https://www.khordad.news/fa/news/361325/تصاویر-جشن-قهرمانی-چلسی
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
