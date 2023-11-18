@@ -581,6 +581,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start arakhabar -u https://arakhabar
 clear; rm -rf .db corpora; yarn dev && yarn start nabznaft -u https://nabznaft.ir/fa/news/58101/توسعه-۷-میدان-نفتی-ایران-توسط-شرکت%E2%80%8Cهای-روسیه-افزایش-۱۰۰-درصدی-تولید-نفت-با-استفاده-از-حفاری-افقی
 clear; rm -rf .db corpora; yarn dev && yarn start nabznaft -u https://nabznaft.ir/fa/news/57926/بازدید-خبرنگاران-حوزه-نفت-از-میدان-نفتی-سپهر-و-جفیر
 
+clear; rm -rf .db corpora; yarn dev && yarn start diibache -u https://diibache.ir/fa/news/53284/امیر-رفعتی-خواننده-سعی-کردم-در-رابطه-با-قطعاتی-که-مردم-با-آن-خاطره-داشتند-به-شخصیت-و-امانت-قطعات-آسیب-نرسانم
+clear; rm -rf .db corpora; yarn dev && yarn start diibache -u https://diibache.ir/fa/news/52913/گزارش-تصویری-از-نوزدهمین-جشن-مدیران-تولید-سینما
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

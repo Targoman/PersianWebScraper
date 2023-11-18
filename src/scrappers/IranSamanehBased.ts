@@ -1572,3 +1572,24 @@ export class nabznaft extends clsIransamaneh {
         })
     }
 }
+
+export class diibache extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.diibache, "diibache.ir", {
+            selectors: {
+                article: ".khabar-matn",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    main: ".image_set a"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
