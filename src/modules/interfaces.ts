@@ -161,6 +161,7 @@ export enum enuDomains {
     wikivoyage = "wikivoyage",
     wikibooks = "wikibooks",
     wikisource = "wikisource",
+    arakhabar = "arakhabar",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
