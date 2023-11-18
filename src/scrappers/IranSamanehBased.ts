@@ -1631,9 +1631,24 @@ export class mednews extends clsIransamaneh {
         super(enuDomains.mednews, "mednews.ir", {
             selectors: {
                 article: ".col-md-pull-10",
+            }
+        })
+    }
+}
+
+export class tabnakjavan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tabnakjavan, "tabnakjavan.com", {
+            selectors: {
+                article: ".tj-news-container",
+                // title: "h1 a",
                 // datetime: {
-                //     conatiner: ".news_pdate_c span:nth-child(2)"
+                //     conatiner: "span.the_time"
                 // },
+                content: {
+                    //main: ".contentsingle p"
+                    ignoreNodeClasses: ["tag_title"]
+                }
             }
         })
     }

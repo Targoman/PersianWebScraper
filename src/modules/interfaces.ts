@@ -167,6 +167,8 @@ export enum enuDomains {
     mana = "mana",
     rahbordemoaser = "rahbordemoaser",
     mednews = "mednews",
+    khatebazar = "khatebazar",
+    tabnakjavan = "tabnakjavan",
     /* javabyab="javabyab",
         digiato = "digiato",
         asreertebat = "asreertebat",
