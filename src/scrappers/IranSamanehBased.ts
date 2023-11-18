@@ -1551,3 +1551,24 @@ export class arakhabar extends clsIransamaneh {
         })
     }
 }
+
+export class nabznaft extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.nabznaft, "nabznaft.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                content: {
+                    main: ".showcase-content a"
+                },
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
