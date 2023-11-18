@@ -302,7 +302,7 @@ export abstract class clsScrapper {
         return this.normalizePath(this.safeCreateURL(ref))
     }
 
-    autoExtractDate(datetimeStr: string) {
+    private autoExtractDate(datetimeStr: string) {
         const dateParts: string[] = []
         datetimeStr = datetimeStr.trim().replace(/[،,/\n-]/g, " ")
         const dateStrParts = datetimeStr.split(" ")
@@ -375,6 +375,8 @@ export abstract class clsScrapper {
 
         }
         log.debug({ finalDateString })
+        if(this.pConf.selectors?.datetime?.isGregorian)
+            return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
             log.file(this.name(), gregorian)

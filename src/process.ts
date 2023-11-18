@@ -113,8 +113,8 @@ const app = command({
             } catch (e) {
                 /* */
             }
-        } 
-        
+        }
+
         for (const key in gConfigs)
             gConfigs[key] = (args[key] !== undefined ? args[key] : (conf[key] !== undefined ? conf[key] : gConfigs[key]))
         clsLogger.setVerbosity(args.verbosity || gConfigs.debugVerbosity || 0)
@@ -150,7 +150,7 @@ const app = command({
                             case enuDateResolution.year:
                                 dateOnPath = docDate.getFullYear() + ""; break;
                             case enuDateResolution.month:
-                                dateOnPath = docDate.getFullYear() + "-" + (docDate.getMonth()+1 + "").padStart(2, "0")
+                                dateOnPath = docDate.getFullYear() + "-" + (docDate.getMonth() + 1 + "").padStart(2, "0")
                         }
                     }
 
@@ -164,6 +164,7 @@ const app = command({
 
                     const store = (type: string) => {
                         const text = paragraphs.join("\n")
+                        if (paragraphs.length === 0) return
                         if (wordCount(text) < (args.minDocWC || 10)) {
                             ignoredBySize++
                             return
@@ -174,6 +175,7 @@ const app = command({
                     }
 
                     if (!args.justInformal) {
+                        paragraphs = []
                         addToParagraphs(doc.aboveTitle)
                         addToParagraphs(doc.title)
                         addToParagraphs(doc.subtitle)
@@ -183,6 +185,7 @@ const app = command({
                     }
 
                     if (!args.justFormal) {
+                        paragraphs = []
                         addToParagraphs(doc.comments?.map(c => c.text))
                         store("informal")
                     }
@@ -192,7 +195,7 @@ const app = command({
                 log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
 
             }
-            break;
+                break;
             case enuCommands.normalize: {
                 let updatedCount = 0;
                 processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {

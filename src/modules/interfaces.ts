@@ -192,6 +192,7 @@ export enum enuDomains {
         afraca = "afraca",*/
 }
 
+
 export interface IntfGlobalConfigs {
     debugVerbosity?: number,
     showInfo?: boolean,
@@ -408,6 +409,7 @@ export interface IntfProcessorConfigs {
         datetime?: {
             conatiner?: string | IntfSelectorFunction,
             splitter?: string | IntfDateSplitter,
+            isGregorian?: boolean
             acceptNoDate?: boolean
         }
         category?: {
