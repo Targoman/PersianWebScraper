@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a',
+                tags: '.article_tags li, .article_tag a, .news_tags a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -805,8 +805,23 @@ export class jahanemana extends clsAsamBased {
                 category: {
                     selector: "ul.breadcrumb_right li a"
                 }
-                // tags: ".tags ul li a"
             },
+        })
+    }
+}
+
+export class shomavaeghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.shomavaeghtesad, "shomavaeghtesad.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .res"
+                },
+                category: {
+                    selector: "ul.bread_crump li a",
+                }
+            }
         })
     }
 }

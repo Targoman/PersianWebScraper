@@ -177,6 +177,7 @@ export enum enuDomains {
     didgahemrooz = "didgahemrooz",
     wikigardi = "wikigardi",
     jahanemana = "jahanemana",
+    shomavaeghtesad = "shomavaeghtesad"
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

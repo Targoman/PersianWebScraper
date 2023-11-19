@@ -623,6 +623,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start wikigardi -u https://www.wikig
 clear; rm -rf .db corpora; yarn dev && yarn start jahanemana -u https://www.jahanemana.ir/بخش-جامعه-64/44286-ایران-بر-مدار-رشد-مهاجرفرستی-با-شیب-تند
 clear; rm -rf .db corpora; yarn dev && yarn start jahanemana -u https://www.jahanemana.ir/بخش-عکس-19/44256-نمایش-کشفیات-مواد-مخدر
 
+clear; rm -rf .db corpora; yarn dev && yarn start shomavaeghtesad -u https://www.shomavaeghtesad.com/بخش-گوگل-نیوز-78/587393-تولید-نفت-ایران-روزانه-میلیون-هزار-بشکه-است
+clear; rm -rf .db corpora; yarn dev && yarn start shomavaeghtesad -u https://www.shomavaeghtesad.com/بخش-گوگل-نیوز-78/587506-اخبار-اقتصادی-واریز-میلیون-تومانی-به-حساب-این-خانوار-ها-جزییات
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
