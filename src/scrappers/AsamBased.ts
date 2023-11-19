@@ -825,3 +825,22 @@ export class shomavaeghtesad extends clsAsamBased {
         })
     }
 }
+
+export class ecoiran extends clsAsamBased {
+    constructor() {
+        super(enuDomains.ecoiran, "ecoiran.com", {
+            selectors: {
+                article: ".contentBox",
+                subtitle: ".contentDescription",
+                content: {
+                    main: ".contentBody, .contentImage"
+                },
+                category: {
+                    selector: ".tagHolder a",
+                    startIndex: 0
+                },
+                tags: ".contentRelatedTags_Item a"
+            }
+        })
+    }
+}
