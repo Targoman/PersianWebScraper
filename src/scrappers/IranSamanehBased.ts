@@ -14,7 +14,7 @@ export class clsIransamaneh extends clsScrapper {
                 subtitle: ".subtitle, .news-subtitle",
                 summary: ".sub_ax, .subtitle_photo",
                 content: {
-                    main: '.body>*, .lead_image, .album_listi>*',
+                    main: '.body>*, .lead_image, .album_listi>*, .image_set a',
                     alternative: '.album_content>*',
                     textNode: ".body"
                 },
@@ -1676,6 +1676,38 @@ export class farhangesadid extends clsIransamaneh {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class basna extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.basna, "basna.ir", {
+            selectors: {
+                article: "section.news-col-2",
+                title: "h2",
+                datetime: {
+                    conatiner: ".news-publishdate"
+                },
+            }
+        })
+    }
+}
+
+
+export class borna extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.borna, "borna.news", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
             }
         })
     }

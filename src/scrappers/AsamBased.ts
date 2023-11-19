@@ -9,11 +9,11 @@ class clsAsamBased extends clsScrapper {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
                 article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article") || parsedHTML.querySelector(".news_content, main"),
-                aboveTitle: ".uptitle, .up-title",
+                aboveTitle: ".uptitle, .up-title, h2.up_title",
                 title: ".title, h1",
                 subtitle: ".lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, .primary_files img',
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
                     ignoreTexts: [/.*tavoos_init_player.*/]
                 },
                 comments: {
@@ -22,9 +22,9 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li',
+                tags: '.article_tags li, .article_tag a, .news_tags a',
                 datetime: {
-                    conatiner: '[itemprop="datePublished"], [itemprop="datepublished"]',
+                    conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
                 },
                 category: {
@@ -38,6 +38,8 @@ class clsAsamBased extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
+        if(url.toString().includes(".jpg") || url.toString().includes("media"))
+            return url.toString();
         try {
             let hostname = url.hostname
             if (!hostname.startsWith("www."))
@@ -733,6 +735,112 @@ export class eghtesadonline extends clsAsamBased {
                 },
                 tags: "section .box.tags ul li a"
             },
+        })
+    }
+}
+
+export class titrekootah extends clsAsamBased {
+    constructor() {
+        super(enuDomains.titrekootah, "titrekootah.ir", {
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: ".time_date"
+                },
+                category: {
+                    selector: ".right_breadcrumb a",
+                    startIndex: 0
+                },
+                content: {
+                    main: "#echo_detail p, img",
+                    ignoreTexts: ["بیشتر بخوانید"]
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article_tags a span")
+            },
+        })
+    }
+}
+
+export class didgahemrooz extends clsAsamBased {
+    constructor() {
+        super(enuDomains.didgahemrooz, "didgahemrooz.ir", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h2.up_title",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: "#echo_detail p, .primary_files, .image-top-primary",
+                },
+                category: {
+                    selector: ".news-short-info ul li a"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a span")
+            },
+        })
+    }
+}
+
+export class wikigardi extends clsAsamBased {
+    constructor() {
+        super(enuDomains.wikigardi, "wikigardi.ir", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#ck_editor",
+                    ignoreNodeClasses: ["spacial-blockquote"]
+                },
+                tags: ".tags ul li a"
+            },
+        })
+    }
+}
+
+export class jahanemana extends clsAsamBased {
+    constructor() {
+        super(enuDomains.jahanemana, "jahanemana.ir", {
+            selectors: {
+                article: "article",
+                category: {
+                    selector: "ul.breadcrumb_right li a"
+                }
+            },
+        })
+    }
+}
+
+export class shomavaeghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.shomavaeghtesad, "shomavaeghtesad.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .res"
+                },
+                category: {
+                    selector: "ul.bread_crump li a",
+                }
+            }
+        })
+    }
+}
+
+export class ecoiran extends clsAsamBased {
+    constructor() {
+        super(enuDomains.ecoiran, "ecoiran.com", {
+            selectors: {
+                article: ".contentBox",
+                subtitle: ".contentDescription",
+                content: {
+                    main: ".contentBody, .contentImage"
+                },
+                category: {
+                    selector: ".tagHolder a",
+                    startIndex: 0
+                },
+                tags: ".contentRelatedTags_Item a"
+            }
         })
     }
 }

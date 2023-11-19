@@ -916,3 +916,47 @@ export class digiato extends clsScrapper {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
     }
 }
+
+export class khatebazar extends clsScrapper {
+    constructor() {
+        super(enuDomains.khatebazar, "khatebazar.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle p"
+                },
+                category: {
+                    selector: ".the_category a"
+                }
+            }
+        })
+    }
+}
+
+export class jomhouriat extends clsScrapper {
+    constructor() {
+        super(enuDomains.jomhouriat, "jomhouriat.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1 a",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "ul.news-detile li:nth-child(2) span"
+                },
+                content: {
+                    main: ".entry p, .thumbnail a",
+                    ignoreTexts: ["بیشتر بخوانید"]
+                },
+                category: {
+                    selector: ".crumbs a"
+                },
+                tags: ".post-tag a"
+            }
+        })
+    }
+}
+
