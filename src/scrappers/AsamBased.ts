@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a, .news_tags a',
+                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -873,6 +873,24 @@ export class nasim extends clsAsamBased {
         super(enuDomains.nasim, "nasim.news", {
             selectors: {
                 article: "article.news_page_article",
+            }
+        })
+    }
+}
+
+export class eghtesadnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.eghtesadnews, "eghtesadnews.com", {
+            selectors: {
+                article: "article.news_page_article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[itemprop='datepublished']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#main_ck_editor p, .image",
+                    ignoreNodeClasses: ["spacial-blockquote"]
+                }
             }
         })
     }
