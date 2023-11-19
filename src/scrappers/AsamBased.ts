@@ -13,7 +13,7 @@ class clsAsamBased extends clsScrapper {
                 title: ".title, h1",
                 subtitle: ".lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, .primary_files img',
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
                     ignoreTexts: [/.*tavoos_init_player.*/]
                 },
                 comments: {
@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li',
+                tags: '.article_tags li, .article_tag a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -792,6 +792,20 @@ export class wikigardi extends clsAsamBased {
                     ignoreNodeClasses: ["spacial-blockquote"]
                 },
                 tags: ".tags ul li a"
+            },
+        })
+    }
+}
+
+export class jahanemana extends clsAsamBased {
+    constructor() {
+        super(enuDomains.jahanemana, "jahanemana.ir", {
+            selectors: {
+                article: "article",
+                category: {
+                    selector: "ul.breadcrumb_right li a"
+                }
+                // tags: ".tags ul li a"
             },
         })
     }
