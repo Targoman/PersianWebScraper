@@ -173,6 +173,7 @@ export enum enuDomains {
     farhangesadid = "farhangesadid",
     basna = "basna",
     jomhouriat = "jomhouriat",
+    titrekootah = "titrekootah",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

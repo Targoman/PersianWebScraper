@@ -38,6 +38,8 @@ class clsAsamBased extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
+        if(url.toString().includes(".jpg"))
+            return url.toString();
         try {
             let hostname = url.hostname
             if (!hostname.startsWith("www."))
@@ -732,6 +734,28 @@ export class eghtesadonline extends clsAsamBased {
                     main: ".item-text, figure.item-img",
                 },
                 tags: "section .box.tags ul li a"
+            },
+        })
+    }
+}
+
+export class titrekootah extends clsAsamBased {
+    constructor() {
+        super(enuDomains.titrekootah, "titrekootah.ir", {
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: ".time_date"
+                },
+                category: {
+                    selector: ".right_breadcrumb a",
+                    startIndex: 0
+                },
+                content: {
+                    main: "#echo_detail p, img",
+                    ignoreTexts: ["بیشتر بخوانید"]
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article_tags a span")
             },
         })
     }
