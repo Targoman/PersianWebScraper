@@ -38,7 +38,7 @@ class clsAsamBased extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
-        if(url.toString().includes(".jpg"))
+        if(url.toString().includes(".jpg") || url.toString().includes("media"))
             return url.toString();
         try {
             let hostname = url.hostname
@@ -756,6 +756,27 @@ export class titrekootah extends clsAsamBased {
                     ignoreTexts: ["بیشتر بخوانید"]
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article_tags a span")
+            },
+        })
+    }
+}
+
+export class didgahemrooz extends clsAsamBased {
+    constructor() {
+        super(enuDomains.didgahemrooz, "didgahemrooz.ir", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h2.up_title",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: "#echo_detail p, .primary_files, .image-top-primary",
+                },
+                category: {
+                    selector: ".news-short-info ul li a"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a span")
             },
         })
     }
