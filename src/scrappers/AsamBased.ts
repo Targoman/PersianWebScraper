@@ -13,7 +13,7 @@ class clsAsamBased extends clsScrapper {
                 title: ".title, h1",
                 subtitle: ".lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
                     ignoreTexts: [/.*tavoos_init_player.*/]
                 },
                 comments: {
@@ -862,6 +862,17 @@ export class sharghdaily extends clsAsamBased {
                     selector: "ul.breadcrumb_list li a",
                     startIndex: 0
                 },
+            }
+        })
+    }
+}
+
+
+export class nasim extends clsAsamBased {
+    constructor() {
+        super(enuDomains.nasim, "nasim.news", {
+            selectors: {
+                article: "article.news_page_article",
             }
         })
     }

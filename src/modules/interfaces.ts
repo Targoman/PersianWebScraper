@@ -181,7 +181,8 @@ export enum enuDomains {
     borna = "borna",
     ecoiran = "ecoiran",
     eghtesadnews = "eghtesadnews",
-    sharghdaily = "sharghdaily"
+    sharghdaily = "sharghdaily",
+    nasim = "nasim",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
