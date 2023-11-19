@@ -1694,3 +1694,21 @@ export class basna extends clsIransamaneh {
         })
     }
 }
+
+
+export class borna extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.borna, "borna.news", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+            }
+        })
+    }
+}
