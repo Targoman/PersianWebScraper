@@ -641,6 +641,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start nasim -u https://www.nasim.new
 clear; rm -rf .db corpora; yarn dev && yarn start eghtesadnews -u https://www.eghtesadnews.com/بخش-اخبار-طلا-ارز-40/610892-قیمت-دلار-سکه-در-سرازیری-طلا-نزولی-شد
 clear; rm -rf .db corpora; yarn dev && yarn start eghtesadnews -u https://www.eghtesadnews.com/بخش-اخبار-سایر-رسانه-ها-61/610556-تصاویر-فضایی-یاسمین-مقبلی-از-فراز-شهر-تهران-عکس
 
+clear; rm -rf .db corpora; yarn dev && yarn start afkarnews -u https://www.afkarnews.com/بخش-سیاسی-3/1205207-طرح-ساماندهی-کارکنان-دولت-به-کجا-رسید
+clear; rm -rf .db corpora; yarn dev && yarn start afkarnews -u https://www.afkarnews.com/بخش-ورزشی-7/1205412-بکام-به-دنبال-جذب-یک-ستاره-دیگر-عکس
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

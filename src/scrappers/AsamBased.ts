@@ -895,3 +895,24 @@ export class eghtesadnews extends clsAsamBased {
         })
     }
 }
+
+export class afkarnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.afkarnews, "afkarnews.com", {
+            selectors: {
+                article: "#news-article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#content-text p, img"
+                },
+                tags: ".keyword div a",
+                category: {
+                    selector: ".bread-crumbs a"
+                }
+            }
+        })
+    }
+}
