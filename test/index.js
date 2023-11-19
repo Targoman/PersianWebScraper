@@ -604,6 +604,33 @@ clear; rm -rf .db corpora; yarn dev && yarn start dsport -u https://dsport.ir/fa
 clear; rm -rf .db corpora; yarn dev && yarn start farhangesadid -u https://farhangesadid.com/fa/news/8953/ما-یک-عذرخواهی-به-آدام-اسمیت-بدهکاریم
 clear; rm -rf .db corpora; yarn dev && yarn start farhangesadid -u https://farhangesadid.com/fa/news/8364/میراث-شریعتی-برای-امروز
 
+clear; rm -rf .db corpora; yarn dev && yarn basna -u https://basna.ir/fa/news/7610/نخستین-نشست-بین%E2%80%8Cالمللی-زنان-ایرانی-معماران-تمدن%E2%80%8Cساز-در-نهضت-ترجمه-برگزار-شد-گزارش-تصویری
+clear; rm -rf .db corpora; yarn dev && yarn basna -u https://basna.ir/fa/news/7528/گزارش-تصویری-ثبت%E2%80%8Cنام-حضوری-پذیرفته%E2%80%8Cشدگان-آزمون-سراسری-۱۴۰۲-در-دانشگاه-بوعلی%E2%80%8Cسینا
+
+clear; rm -rf .db corpora; yarn dev && yarn khatebazar -u https://khatebazar.ir/عامل-ریزش-بورس-مشخص-شد-کدام-سهام-ها-را-ن/
+clear; rm -rf .db corpora; yarn dev && yarn khatebazar -u https://khatebazar.ir/دیش-جدید-ماهواره-استارلینکعکس/
+
+clear; rm -rf .db corpora; yarn dev && yarn jomhouriat -u https://jomhouriat.ir/219996/ماجرای-اگزوز-خودروی-برقی-ایران-خودرو-چ.html
+clear; rm -rf .db corpora; yarn dev && yarn jomhouriat -u https://jomhouriat.ir/216883/%ef%b8%8fعکس-فضاپیمای-ناسا-از-یک-چهره-وهمانگ.html
+
+clear; rm -rf .db corpora; yarn dev && yarn titrekootah -u https://www.titrekootah.ir/بخش-اقتصاد-10/98482-سن-بازنشستگی-افزایش-یافت-جزئیات-افزایش-سن-بازنشستگی-برای-گروه-های-مختلف
+clear; rm -rf .db corpora; yarn dev && yarn titrekootah -u https://www.titrekootah.ir/بخش-ورزش-28/97945-کیش-میزبان-رویداد-بزرگ-ورزش-های-آبی-تصاویر
+
+clear; rm -rf .db corpora; yarn dev && yarn start didgahemrooz -u https://www.didgahemrooz.ir/بخش-جهان-دیپلماسی-5/81-بن-بست-در-توافق-غلات-چگونه-بر-اقتصاد-جهان-تاثیر-می-گذارد
+clear; rm -rf .db corpora; yarn dev && yarn start didgahemrooz -u https://www.didgahemrooz.ir/بخش-تکنولوژی-9/60-سفر-به-مریخ-چالش-ها-مصائب
+
+clear; rm -rf .db corpora; yarn dev && yarn start wikigardi -u https://www.wikigardi.ir/بخش-صنایع-دستی-سوغات-74/3226-معرفی-سوغات-صنایع-دستی-تبریز-آشنایی-با-سوغات-صنایع-دستی-تبریز
+clear; rm -rf .db corpora; yarn dev && yarn start wikigardi -u https://www.wikigardi.ir/بخش-هتل-اقامتگاه-78/604-معرفی-تا-از-لوکس-ترین-هتل-های-کیش-عکس
+
+clear; rm -rf .db corpora; yarn dev && yarn start jahanemana -u https://www.jahanemana.ir/بخش-جامعه-64/44286-ایران-بر-مدار-رشد-مهاجرفرستی-با-شیب-تند
+clear; rm -rf .db corpora; yarn dev && yarn start jahanemana -u https://www.jahanemana.ir/بخش-عکس-19/44256-نمایش-کشفیات-مواد-مخدر
+
+clear; rm -rf .db corpora; yarn dev && yarn start shomavaeghtesad -u https://www.shomavaeghtesad.com/بخش-گوگل-نیوز-78/587393-تولید-نفت-ایران-روزانه-میلیون-هزار-بشکه-است
+clear; rm -rf .db corpora; yarn dev && yarn start shomavaeghtesad -u https://www.shomavaeghtesad.com/بخش-گوگل-نیوز-78/587506-اخبار-اقتصادی-واریز-میلیون-تومانی-به-حساب-این-خانوار-ها-جزییات
+
+clear; rm -rf .db corpora; yarn dev && yarn start borna -u https://borna.news/fa/news/2021183/مهر-پایان-کار-دولت-سیزدهم-روی-پروژه%E2%80%8Cهایی-که-آرزو-شده-بودند-طرح%E2%80%8Cهای-نیمه-تمامی-که-دولت-رئیسی-تمام-کرد
+clear; rm -rf .db corpora; yarn dev && yarn start borna -u https://borna.news/fa/news/2020362/تقدیر-از-ورزشکاران-بازی-های-جهانی-المپیک-ویژه
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
