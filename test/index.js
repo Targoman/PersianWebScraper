@@ -629,6 +629,12 @@ clear; rm -rf .db corpora; yarn dev && yarn start shomavaeghtesad -u https://www
 clear; rm -rf .db corpora; yarn dev && yarn start borna -u https://borna.news/fa/news/2021183/مهر-پایان-کار-دولت-سیزدهم-روی-پروژه%E2%80%8Cهایی-که-آرزو-شده-بودند-طرح%E2%80%8Cهای-نیمه-تمامی-که-دولت-رئیسی-تمام-کرد
 clear; rm -rf .db corpora; yarn dev && yarn start borna -u https://borna.news/fa/news/2020362/تقدیر-از-ورزشکاران-بازی-های-جهانی-المپیک-ویژه
 
+clear; rm -rf .db corpora; yarn dev && yarn start ecoiran -u https://ecoiran.com/بخش-اخبار-طلا-ارز-80/50432-شکاف-قیمت-دلار-تتر-کانالی-شد-محدوده-مهم-قیمت-دلار-برای-روند-جدید
+clear; rm -rf .db corpora; yarn dev && yarn start ecoiran -u https://ecoiran.com/بخش-ویزور-69/44299-معدن-زغال-سنگ-طزره
+
+clear; rm -rf .db corpora; yarn dev && yarn start sharghdaily -u https://www.sharghdaily.com/بخش-یادداشت-65/906070-آموزش-پرورش-گزارش-یک-ترک-فعل
+clear; rm -rf .db corpora; yarn dev && yarn start sharghdaily -u https://www.sharghdaily.com/بخش-تصویر-233/898992-گزارش-تصویری-نمایش-ترانه-های-ماندگار
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

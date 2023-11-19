@@ -844,3 +844,25 @@ export class ecoiran extends clsAsamBased {
         })
     }
 }
+
+export class sharghdaily extends clsAsamBased {
+    constructor() {
+        super(enuDomains.sharghdaily, "sharghdaily.com", {
+            selectors: {
+                article: "article, ul.more_album",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time")
+                },
+                content: {
+                    main: "#echo_detail, li.item_view .album_img"
+                },
+                category: {
+                    selector: "ul.breadcrumb_list li a",
+                    startIndex: 0
+                },
+            }
+        })
+    }
+}
