@@ -207,7 +207,6 @@ export enum enuDomains {
         afraca = "afraca",*/
 }
 
-
 export interface IntfGlobalConfigs {
     debugVerbosity?: number,
     showInfo?: boolean,
