@@ -9,7 +9,7 @@ class clsAsamBased extends clsScrapper {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
                 article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article") || parsedHTML.querySelector(".news_content, main"),
-                aboveTitle: ".uptitle, .up-title",
+                aboveTitle: ".uptitle, .up-title, h2.up_title",
                 title: ".title, h1",
                 subtitle: ".lead",
                 content: {
@@ -24,7 +24,7 @@ class clsAsamBased extends clsScrapper {
                 },
                 tags: '.article_tags li',
                 datetime: {
-                    conatiner: '[itemprop="datePublished"], [itemprop="datepublished"]',
+                    conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
                 },
                 category: {
@@ -777,6 +777,21 @@ export class didgahemrooz extends clsAsamBased {
                     selector: ".news-short-info ul li a"
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a span")
+            },
+        })
+    }
+}
+
+export class wikigardi extends clsAsamBased {
+    constructor() {
+        super(enuDomains.wikigardi, "wikigardi.ir", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#ck_editor",
+                    ignoreNodeClasses: ["spacial-blockquote"]
+                },
+                tags: ".tags ul li a"
             },
         })
     }

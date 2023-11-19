@@ -617,6 +617,9 @@ clear; rm -rf .db corpora; yarn dev && yarn titrekootah -u https://www.titrekoot
 clear; rm -rf .db corpora; yarn dev && yarn start didgahemrooz -u https://www.didgahemrooz.ir/بخش-جهان-دیپلماسی-5/81-بن-بست-در-توافق-غلات-چگونه-بر-اقتصاد-جهان-تاثیر-می-گذارد
 clear; rm -rf .db corpora; yarn dev && yarn start didgahemrooz -u https://www.didgahemrooz.ir/بخش-تکنولوژی-9/60-سفر-به-مریخ-چالش-ها-مصائب
 
+clear; rm -rf .db corpora; yarn dev && yarn start wikigardi -u https://www.wikigardi.ir/بخش-صنایع-دستی-سوغات-74/3226-معرفی-سوغات-صنایع-دستی-تبریز-آشنایی-با-سوغات-صنایع-دستی-تبریز
+clear; rm -rf .db corpora; yarn dev && yarn start wikigardi -u https://www.wikigardi.ir/بخش-هتل-اقامتگاه-78/604-معرفی-تا-از-لوکس-ترین-هتل-های-کیش-عکس
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
