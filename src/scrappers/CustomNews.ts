@@ -917,3 +917,27 @@ export class khatebazar extends clsScrapper {
         })
     }
 }
+
+export class jomhouriat extends clsScrapper {
+    constructor() {
+        super(enuDomains.jomhouriat, "jomhouriat.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1 a",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "ul.news-detile li:nth-child(2) span"
+                },
+                content: {
+                    main: ".entry p, .thumbnail a",
+                    ignoreTexts: ["بیشتر بخوانید"]
+                },
+                category: {
+                    selector: ".crumbs a"
+                },
+                tags: ".post-tag a"
+            }
+        })
+    }
+}
+
