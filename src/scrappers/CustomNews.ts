@@ -897,3 +897,23 @@ export class digiato extends clsScrapper {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech }
     }
 }
+
+export class khatebazar extends clsScrapper {
+    constructor() {
+        super(enuDomains.khatebazar, "khatebazar.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle p"
+                },
+                category: {
+                    selector: ".the_category a"
+                }
+            }
+        })
+    }
+}
