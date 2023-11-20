@@ -13,7 +13,7 @@ class clsAsamBased extends clsScrapper {
                 title: ".title, h1",
                 subtitle: ".lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
                     ignoreTexts: [/.*tavoos_init_player.*/]
                 },
                 comments: {
@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a, .news_tags a',
+                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -841,6 +841,159 @@ export class ecoiran extends clsAsamBased {
                 },
                 tags: ".contentRelatedTags_Item a"
             }
+        })
+    }
+}
+
+export class sharghdaily extends clsAsamBased {
+    constructor() {
+        super(enuDomains.sharghdaily, "sharghdaily.com", {
+            selectors: {
+                article: "article, ul.more_album",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time")
+                },
+                content: {
+                    main: "#echo_detail, li.item_view .album_img"
+                },
+                category: {
+                    selector: "ul.breadcrumb_list li a",
+                    startIndex: 0
+                },
+            }
+        })
+    }
+}
+
+
+export class nasim extends clsAsamBased {
+    constructor() {
+        super(enuDomains.nasim, "nasim.news", {
+            selectors: {
+                article: "article.news_page_article",
+            }
+        })
+    }
+}
+
+export class eghtesadnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.eghtesadnews, "eghtesadnews.com", {
+            selectors: {
+                article: "article.news_page_article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[itemprop='datepublished']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#main_ck_editor p, .image",
+                    ignoreNodeClasses: ["spacial-blockquote"]
+                }
+            }
+        })
+    }
+}
+
+export class afkarnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.afkarnews, "afkarnews.com", {
+            selectors: {
+                article: "#news-article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#content-text p, img"
+                },
+                tags: ".keyword div a",
+                category: {
+                    selector: ".bread-crumbs a"
+                }
+            }
+        })
+    }
+}
+
+export class etemadonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.etemadonline, "etemadonline.com", {
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".echo-detail, img",
+                    ignoreNodeClasses: ["news-short-info"]
+                },
+                tags: ".article-tag a",
+                category: {
+                    selector: "ul.breadcrumb-list li a",
+                    startIndex: 0
+                }
+            }
+        })
+    }
+}
+
+export class gostaresh extends clsAsamBased {
+    constructor() {
+        super(enuDomains.gostaresh, "gostaresh.news", {
+            selectors: {
+                article: "#news-page-article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo-detail div p, #echo-detail div [style='text-align:justify'] img, .image_top_primary",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a"),
+            }
+        })
+    }
+}
+
+export class moniban extends clsAsamBased {
+    constructor() {
+        super(enuDomains.moniban, "moniban.ir", {
+            selectors: {
+                article: "article.news_page_article, .album_main",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#main_ck_editor p, .contain_img, .gallery_containar figure",
+                },
+                category: {
+                    selector: "ul.bread_crump li a",
+                }            
+            }
+        })
+    }
+}
+
+export class honaronline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.honaronline, "honaronline.ir", {
+            selectors: {
+                article: "article.news-page-article, .gallary-page, .wrapp-pro",
+                summary: "p.mp_lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".album-view-check p, img",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".word_key a")            
+            },
         })
     }
 }
