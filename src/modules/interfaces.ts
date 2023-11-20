@@ -194,6 +194,7 @@ export enum enuDomains {
     shayanews = "shayanews",
     cann = "cann",
     shomanews = "shomanews",
+    mostaghelonline = "mostaghelonline",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

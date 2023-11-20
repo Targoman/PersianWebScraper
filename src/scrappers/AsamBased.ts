@@ -38,7 +38,7 @@ class clsAsamBased extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
-        if(url.toString().includes(".jpg") || url.toString().includes("media"))
+        if (url.toString().match(/(\.jpg|\.jpeg|\.png|media)/)) 
             return url.toString();
         try {
             let hostname = url.hostname
@@ -1093,6 +1093,23 @@ export class shomanews extends clsAsamBased {
                     main: "#echo-detail [style='text-align:justify'], #echo-detail [style='text-align: justify;'], .big_img_news div, #echo-detail .big_img_news",
                 },    
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.tag_ul li a")
+            },
+        })
+    }
+}
+
+export class mostaghelonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mostaghelonline, "mostaghelonline.com", {
+            selectors: {
+                article: "article.news-body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".echo-detail-inner p, .echo-detail-inner h2, .primary-files, ul.gallery_attach_list li",
+                },        
             },
         })
     }
