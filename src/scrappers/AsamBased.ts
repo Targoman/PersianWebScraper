@@ -1047,3 +1047,20 @@ export class fartaknews extends clsAsamBased {
         })
     }
 }
+
+export class shayanews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.shayanews, "shayanews.com", {
+            selectors: {
+                article: "#news_page_article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo_detail div [dir='rtl'], .image_top_primary, #echo_detail div [style='text-align:center']",
+                },        
+            },
+        })
+    }
+}
