@@ -1029,3 +1029,21 @@ export class tejaratefarda extends clsAsamBased {
         })
     }
 }
+
+export class fartaknews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.fartaknews, "fartaknews.com", {
+            selectors: {
+                article: "article",
+                subtitle: "[itemprop='description']",
+                content: {
+                    main: "#content-text [style='text-align:justify'], .news-mainimg-con, .gallery-content",
+                },
+                tags: "ul.tags li a",
+                category: {
+                    selector: "ul.news-cat-address li a"
+                }            
+            },
+        })
+    }
+}
