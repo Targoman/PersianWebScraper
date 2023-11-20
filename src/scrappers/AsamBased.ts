@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a',
+                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -1059,6 +1059,19 @@ export class shayanews extends clsAsamBased {
                 },
                 content: {
                     main: "#echo_detail div [dir='rtl'], .image_top_primary, #echo_detail div [style='text-align:center']",
+                },        
+            },
+        })
+    }
+}
+
+export class cann extends clsAsamBased {
+    constructor() {
+        super(enuDomains.cann, "cann.ir", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#echo-detail .container",
                 },        
             },
         })
