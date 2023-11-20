@@ -940,3 +940,21 @@ export class etemadonline extends clsAsamBased {
         })
     }
 }
+
+export class gostaresh extends clsAsamBased {
+    constructor() {
+        super(enuDomains.gostaresh, "gostaresh.news", {
+            selectors: {
+                article: "#news-page-article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo-detail div p, #echo-detail div [style='text-align:justify'] img, .image_top_primary",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a"),
+            }
+        })
+    }
+}
