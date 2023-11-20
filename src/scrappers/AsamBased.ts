@@ -997,3 +997,21 @@ export class honaronline extends clsAsamBased {
         })
     }
 }
+
+export class mosalasonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mosalasonline, "mosalasonline.com", {
+            selectors: {
+                article: "#news-page-article, .multi-outer",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#main-echo-detail p, .primary-files, .landing-album-two figure a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a")            
+            },
+        })
+    }
+}
