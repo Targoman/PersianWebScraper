@@ -644,6 +644,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start eghtesadnews -u https://www.eg
 clear; rm -rf .db corpora; yarn dev && yarn start afkarnews -u https://www.afkarnews.com/بخش-سیاسی-3/1205207-طرح-ساماندهی-کارکنان-دولت-به-کجا-رسید
 clear; rm -rf .db corpora; yarn dev && yarn start afkarnews -u https://www.afkarnews.com/بخش-ورزشی-7/1205412-بکام-به-دنبال-جذب-یک-ستاره-دیگر-عکس
 
+clear; rm -rf .db corpora; yarn dev && yarn start etemadonline -u https://www.etemadonline.com/بخش-اقتصادی-22/641485-حل-معضل-ناترازی-صندوق-های-بازنشستگی-جیب-مردم
+clear; rm -rf .db corpora; yarn dev && yarn start etemadonline -u https://www.etemadonline.com/بخش-ورزش-18/641467-خاص-ترین-مادربزرگ-تمرین-استقلال-عکس
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

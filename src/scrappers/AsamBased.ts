@@ -916,3 +916,27 @@ export class afkarnews extends clsAsamBased {
         })
     }
 }
+
+export class etemadonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.etemadonline, "etemadonline.com", {
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".echo-detail, img",
+                    ignoreNodeClasses: ["news-short-info"]
+                },
+                tags: ".article-tag a",
+                category: {
+                    selector: "ul.breadcrumb-list li a",
+                    startIndex: 0
+                }
+            }
+        })
+    }
+}
