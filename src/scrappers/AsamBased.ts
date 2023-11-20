@@ -958,3 +958,23 @@ export class gostaresh extends clsAsamBased {
         })
     }
 }
+
+export class moniban extends clsAsamBased {
+    constructor() {
+        super(enuDomains.moniban, "moniban.ir", {
+            selectors: {
+                article: "article.news_page_article, .album_main",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#main_ck_editor p, .contain_img, .gallery_containar figure",
+                },
+                category: {
+                    selector: "ul.bread_crump li a",
+                }            
+            }
+        })
+    }
+}

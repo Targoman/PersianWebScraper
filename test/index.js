@@ -650,6 +650,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start etemadonline -u https://www.et
 clear; rm -rf .db corpora; yarn dev && yarn start gostaresh -u https://www.gostaresh.news/بخش-اقتصاد-7/313431-سقوط-مجدد-در-بورس-نمادهای-تاثیرگذار-معرفی-شد-نقشه-بازار
 clear; rm -rf .db corpora; yarn dev && yarn start gostaresh -u https://www.gostaresh.news/بخش-فناوری-40/313140-با-هزینه-فیلترینگ-می-توان-بیمارستان-ساخت-اینفوگرافی
 
+clear; rm -rf .db corpora; yarn dev && yarn start moniban -u https://www.moniban.ir/بخش-اقتصادی-4/187785-پاداش-پایان-خدمت-معلمان-بازنشسته-در-کما
+clear; rm -rf .db corpora; yarn dev && yarn start moniban -u https://www.moniban.ir/بخش-عکس-66/187297-گزارش-تصویری-بازی-تیم-ملی-ایران-هنگ-کنگ
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
