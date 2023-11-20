@@ -1077,3 +1077,23 @@ export class cann extends clsAsamBased {
         })
     }
 }
+
+export class shomanews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.shomanews, "shomanews.com", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h2.news_top_title",
+                subtitle: ".news_lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo-detail [style='text-align:justify'], #echo-detail [style='text-align: justify;'], .big_img_news div, #echo-detail .big_img_news",
+                },    
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.tag_ul li a")
+            },
+        })
+    }
+}

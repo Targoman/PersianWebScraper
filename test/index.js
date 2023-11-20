@@ -671,6 +671,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start shayanews -u https://shayanews
 clear; rm -rf .db corpora; yarn dev && yarn start cann -u https://www.cann.ir/بخش-اخبار-هوانوردی-4/27144-لاکهید-مارتین-اولین-ماهواره-فضایی-نوآورانه-خود-را-به-فضا-پرتاب-می-کند
 clear; rm -rf .db corpora; yarn dev && yarn start cann -u https://www.cann.ir/بخش-اخبار-هوانوردی-4/27093-بازسازی-هواپیمای-لاکچری-تاریخی
 
+clear; rm -rf .db corpora; yarn dev && yarn start shomanews -u https://www.shomanews.com/بخش-گوگل-نیوز-77/1065439-آغاز-نظام-رتبه-بندی-شرکت-های-بیمه
+clear; rm -rf .db corpora; yarn dev && yarn start shomanews -u https://www.shomanews.com/بخش-اقتصادی-3/902262-ذوب-آهن-اصفهان-با-هزار-تامین-کننده-مواد-اولیه-قطعات-تجهیزات-در-ارتباط-است
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

@@ -193,6 +193,7 @@ export enum enuDomains {
     fartaknews = "fartaknews",
     shayanews = "shayanews",
     cann = "cann",
+    shomanews = "shomanews",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
