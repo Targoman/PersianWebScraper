@@ -997,3 +997,53 @@ export class honaronline extends clsAsamBased {
         })
     }
 }
+
+export class mosalasonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mosalasonline, "mosalasonline.com", {
+            selectors: {
+                article: "#news-page-article, .multi-outer",
+                content: {
+                    main: "#main-echo-detail p, .primary-files, .landing-album-two figure a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a")            
+            },
+        })
+    }
+}
+
+export class tejaratefarda extends clsAsamBased {
+    constructor() {
+        super(enuDomains.tejaratefarda, "tejaratefarda.com", {
+            selectors: {
+                article: "#news-page-article",
+                subtitle: "h3.subTitle",
+                content: {
+                    main: ".main-entity, img",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a"),
+                category: {
+                    selector: ".bread a"
+                }            
+            },
+        })
+    }
+}
+
+export class fartaknews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.fartaknews, "fartaknews.com", {
+            selectors: {
+                article: "article",
+                subtitle: "[itemprop='description']",
+                content: {
+                    main: "#content-text [style='text-align:justify'], .news-mainimg-con, .gallery-content",
+                },
+                tags: "ul.tags li a",
+                category: {
+                    selector: "ul.news-cat-address li a"
+                }            
+            },
+        })
+    }
+}
