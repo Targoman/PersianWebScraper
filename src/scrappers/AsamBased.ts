@@ -978,3 +978,22 @@ export class moniban extends clsAsamBased {
         })
     }
 }
+
+export class honaronline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.honaronline, "honaronline.ir", {
+            selectors: {
+                article: "article.news-page-article, .gallary-page, .wrapp-pro",
+                summary: "p.mp_lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".album-view-check p, img",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".word_key a")            
+            },
+        })
+    }
+}

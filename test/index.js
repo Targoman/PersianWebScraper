@@ -653,6 +653,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start gostaresh -u https://www.gosta
 clear; rm -rf .db corpora; yarn dev && yarn start moniban -u https://www.moniban.ir/بخش-اقتصادی-4/187785-پاداش-پایان-خدمت-معلمان-بازنشسته-در-کما
 clear; rm -rf .db corpora; yarn dev && yarn start moniban -u https://www.moniban.ir/بخش-عکس-66/187297-گزارش-تصویری-بازی-تیم-ملی-ایران-هنگ-کنگ
 
+clear; rm -rf .db corpora; yarn dev && yarn start honaronline -u https://www.honaronline.ir/بخش-موسیقی-5/186902-مجید-انتظامی-بعد-از-یک-دهه-به-تالار-وحدت-می-آید
+clear; rm -rf .db corpora; yarn dev && yarn start honaronline -u https://www.honaronline.ir/بخش-نمایش-3/186670-اجرای-نمایش-ساسیزم-در-تالار-حافظ
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

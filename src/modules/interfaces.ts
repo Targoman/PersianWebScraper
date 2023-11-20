@@ -187,6 +187,7 @@ export enum enuDomains {
     etemadonline = "etemadonline",
     gostaresh = "gostaresh",
     moniban = "moniban",
+    honaronline = "honaronline",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
