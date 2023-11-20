@@ -189,6 +189,7 @@ export enum enuDomains {
     moniban = "moniban",
     honaronline = "honaronline",
     mosalasonline = "mosalasonline",
+    tejaratefarda = "tejaratefarda",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

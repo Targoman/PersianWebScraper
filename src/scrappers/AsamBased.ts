@@ -1003,14 +1003,28 @@ export class mosalasonline extends clsAsamBased {
         super(enuDomains.mosalasonline, "mosalasonline.com", {
             selectors: {
                 article: "#news-page-article, .multi-outer",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#main-echo-detail p, .primary-files, .landing-album-two figure a",
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a")            
+            },
+        })
+    }
+}
+
+export class tejaratefarda extends clsAsamBased {
+    constructor() {
+        super(enuDomains.tejaratefarda, "tejaratefarda.com", {
+            selectors: {
+                article: "#news-page-article",
+                subtitle: "h3.subTitle",
+                content: {
+                    main: ".main-entity, img",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a"),
+                category: {
+                    selector: ".bread a"
+                }            
             },
         })
     }
