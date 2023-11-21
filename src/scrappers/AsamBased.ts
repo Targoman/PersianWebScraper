@@ -1189,3 +1189,21 @@ export class toseeirani extends clsAsamBased {
         })
     }
 }
+
+export class baeghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.baeghtesad, "baeghtesad.com", {
+            selectors: {
+                article: "article",
+                summary: "[itemprop='description']",
+                content: {
+                    main: ".content-inner, .pt8.pb8.w80",                
+                },
+                category: {
+                    selector: "#breadcrumb-me li a",
+                },
+                tags: "ul.tags li a",
+            },
+        })
+    }
+}

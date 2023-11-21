@@ -686,6 +686,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.ne
 clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-شهرنوشت-5/59981-ورود-سیلاب-به-خانه-ایلامی-ها
 clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-ویژه-نامه-پی-دی-اف-71/7564-دستاورد-های-فولاد-در-سالی-که-گذشت
 
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-آموزش-77/158718-مدیریت-ضرر-در-بازارهای-مالی-به-چه-معناست
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-بورس-3/159116-بورس-متعادل-با-چاشنی-مثبت-بودجه-تاثیرگذارترین-مولفه-پیش-روی-بازار-سهام
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
