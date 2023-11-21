@@ -9,9 +9,9 @@ class clsAsamBased extends clsScrapper {
         const baseConfig: IntfProcessorConfigs = {
             selectors: {
                 article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article") || parsedHTML.querySelector(".news_content, main"),
-                aboveTitle: ".uptitle, .up-title, h2.up_title",
+                aboveTitle: ".uptitle, .up-title, h2.up_title, h2.news-uptitle",
                 title: ".title, h1",
-                subtitle: ".lead",
+                subtitle: ".lead, p.news-lead",
                 content: {
                     main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
                     ignoreTexts: [/.*tavoos_init_player.*/]
@@ -1129,6 +1129,23 @@ export class iranart extends clsAsamBased {
                     selector: ".bread_crumbs a"
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.word_key a")    
+            },
+        })
+    }
+}
+
+export class neshanonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.neshanonline, "neshanonline.com", {
+            selectors: {
+                article: "article.news-article",
+                content: {
+                    main: ".newsimg-contain p, .newsimg-contain h2, .newsimg-contain img, [itemprop='contentUrl']",
+                },
+                category: {
+                    selector: ".bread_crumbs a"
+                },
+                tags: "#keyword div a"        
             },
         })
     }
