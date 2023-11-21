@@ -690,7 +690,10 @@ clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeg
 clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-بورس-3/159116-بورس-متعادل-با-چاشنی-مثبت-بودجه-تاثیرگذارترین-مولفه-پیش-روی-بازار-سهام
 
 clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-ایران-73/127590-هیات-عالی-رتبه-چین-به-تهران-می-آید
-clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u h
+clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-خودرو-74/127420-معرفی-سه-خودروی-لاکچری-حمل-جسد-توسط-یک-شرکت-ایتالیایی
+
+clear; rm -rf .db corpora; yarn dev && yarn start khanefootball -u https://www.khanefootball.com/بخش-گوگل-نیوز-69/49279-پرسپولیس-نساجی-به-تساوی-رضایت-دادند
+clear; rm -rf .db corpora; yarn dev && yarn start khanefootball -u https://www.khanefootball.com/بخش-اخبار-مهم-82/49113-تصاویر-سر-الکس-فرگوسن-در-مراسم-وداع-با-سر-باب-چارلتون
 
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 

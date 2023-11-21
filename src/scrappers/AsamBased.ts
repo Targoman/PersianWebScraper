@@ -1220,3 +1220,17 @@ export class mamlekatonline extends clsAsamBased {
         })
     }
 }
+
+export class khanefootball extends clsAsamBased {
+    constructor() {
+        super(enuDomains.khanefootball, "khanefootball.com", {
+            selectors: {
+                article: "article, .multi-outer",
+                content: {
+                    main: "#ck_editor p, img.img_content, .landing-album-two figure",                
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a")
+            },
+        })
+    }
+}
