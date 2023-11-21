@@ -1207,3 +1207,16 @@ export class baeghtesad extends clsAsamBased {
         })
     }
 }
+
+export class mamlekatonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mamlekatonline, "mamlekatonline.ir", {
+            selectors: {
+                article: "article, .multi-outer",
+                content: {
+                    main: ".echo-content, .echo_detail_inner, .landing-album-two figure, .res_img",                
+                },
+            },
+        })
+    }
+}
