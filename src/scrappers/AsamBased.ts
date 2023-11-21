@@ -1150,3 +1150,21 @@ export class neshanonline extends clsAsamBased {
         })
     }
 }
+
+export class chabokonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.chabokonline, "chabokonline.com", {
+            selectors: {
+                article: "article",
+                subtitle: "p.lead-cl",
+                content: {
+                    main: "#echo-detail p, #echo-detail h3, .big-img-news, .img-con, p.clr13",
+                },
+                category: {
+                    selector: ".bread_crumbs a"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.tag-ul li a")        
+            },
+        })
+    }
+}
