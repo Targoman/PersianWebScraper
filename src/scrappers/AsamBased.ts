@@ -22,7 +22,7 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a',
+                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a',
                 datetime: {
                     conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
                     splitter: ' '
@@ -1242,6 +1242,23 @@ export class honarmrooz extends clsAsamBased {
                 article: "article, .album_main",
                 category: {
                     selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}
+
+export class moroornews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.moroornews, "moroornews.com", {
+            selectors: {
+                article: "article.news-page-article",
+                content: {
+                    main: ".article-body>*"
+                },
+                category: {
+                    selector: ".news-short-info a",
+                    startIndex: 0
                 }
             },
         })
