@@ -1168,3 +1168,24 @@ export class chabokonline extends clsAsamBased {
         })
     }
 }
+
+export class toseeirani extends clsAsamBased {
+    constructor() {
+        super(enuDomains.toseeirani, "toseeirani.ir", {
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo-detail, .primary-files div, #echo-detail img",
+                    ignoreTexts: ["کپی شد"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                },
+            },
+        })
+    }
+}

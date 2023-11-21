@@ -683,6 +683,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start iranart -u https://www.iranart
 clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.neshanonline.com/بخش-گوگل-نیوز-75/79682-خبر-خوش-دولت-برای-جاماندگان-سهام-عدالت-فرصت-دوباره-برای-ثبت-نام-سهام-عدالت
 clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.neshanonline.com/بخش-گوگل-نیوز-75/79735-رونمایی-شاهرخ-استخری-از-استایل-پاییزی-اش-شاهرخ-استخری-با-استایلی-خاص-کپشن-جنجالی
 
+clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-شهرنوشت-5/59981-ورود-سیلاب-به-خانه-ایلامی-ها
+clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-ویژه-نامه-پی-دی-اف-71/7564-دستاورد-های-فولاد-در-سالی-که-گذشت
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
