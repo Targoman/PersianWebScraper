@@ -1234,3 +1234,16 @@ export class khanefootball extends clsAsamBased {
         })
     }
 }
+
+export class honarmrooz extends clsAsamBased {
+    constructor() {
+        super(enuDomains.honarmrooz, "honarmrooz.com", {
+            selectors: {
+                article: "article, .album_main",
+                category: {
+                    selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}

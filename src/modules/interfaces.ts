@@ -202,6 +202,7 @@ export enum enuDomains {
     baeghtesad = "baeghtesad",
     mamlekatonline = "mamlekatonline",
     khanefootball = "khanefootball",
+    honarmrooz = "honarmrooz",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
