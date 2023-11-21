@@ -1114,3 +1114,22 @@ export class mostaghelonline extends clsAsamBased {
         })
     }
 }
+
+export class iranart extends clsAsamBased {
+    constructor() {
+        super(enuDomains.iranart, "iranart.news", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h2.news_uptitle",
+                subtitle: "p.news_lead",
+                content: {
+                    main: "section.article_body p, [itemprop='image']",
+                },    
+                category: {
+                    selector: ".bread_crumbs a"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.word_key a")    
+            },
+        })
+    }
+}
