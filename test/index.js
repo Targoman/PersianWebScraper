@@ -710,6 +710,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start armanmeli -u https://www.arman
 clear; rm -rf .db corpora; yarn dev && yarn start farazdaily -u https://www.farazdaily.com/بخش-انرژی-11/66346-دولت-واقعا-نفت-می-فروشد
 clear; rm -rf .db corpora; yarn dev && yarn start farazdaily -u https://www.farazdaily.com/بخش-انتخابات-45/43373-روایت-تصویری-از-حال-هوای-انتخاباتی-در-تهران
 
+clear; rm -rf .db corpora; yarn dev && yarn start arshehonline -u https://www.arshehonline.com/بخش-جامعه-118/115324-تهران-سه-پاره-می-شود-سه-استان-تهران-تهران-شرقی-تهران-غربی-تشکیل-می-شود
+clear; rm -rf .db corpora; yarn dev && yarn start arshehonline -u https://www.arshehonline.com/بخش-عکس-78/7886-روایت-یک-زندگی-دو-سال-مبارزه-تلخ-با-سرطان
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

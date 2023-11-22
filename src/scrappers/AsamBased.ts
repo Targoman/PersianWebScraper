@@ -1318,3 +1318,21 @@ export class farazdaily extends clsAsamBased {
         })
     }
 }
+
+export class arshehonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.arshehonline, "arshehonline.com", {
+            selectors: {
+                article: "#news-page-article, .album_content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, h1 a"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#echo_detail p, .image_top_primary div, .album_content, ul.more_album li div a"),
+                },            
+            },
+        })
+    }
+}
