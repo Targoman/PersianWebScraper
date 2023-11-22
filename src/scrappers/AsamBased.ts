@@ -1264,3 +1264,21 @@ export class moroornews extends clsAsamBased {
         })
     }
 }
+
+
+export class keshavarzplus extends clsAsamBased {
+    constructor() {
+        super(enuDomains.keshavarzplus, "keshavarzplus.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#echo_detail div, #imageGalleryAttach li"
+                },
+                category: {
+                    selector: "ul.breadcrumb_right li a",
+                    startIndex: 0
+                }
+            },
+        })
+    }
+}
