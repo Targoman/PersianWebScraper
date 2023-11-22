@@ -1386,9 +1386,19 @@ export class tapesh3 extends clsAsamBased {
         super(enuDomains.tapesh3, "tapesh3.com", {
             selectors: {
                 article: "article",
-                // content: {
-                //     ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
-                // },
+            },
+        })
+    }
+}
+
+export class panjahopanjonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.panjahopanjonline, "55online.news", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#echo-detail div p, #echo-detail div h3, .image_top_primary"
+                }
             },
         })
     }
