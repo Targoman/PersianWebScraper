@@ -205,6 +205,7 @@ export enum enuDomains {
     honarmrooz = "honarmrooz",
     moroornews = "moroornews",
     keshavarzplus = "keshavarzplus",
+    armanmeli = "armanmeli",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

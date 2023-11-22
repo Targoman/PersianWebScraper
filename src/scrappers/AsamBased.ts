@@ -1282,3 +1282,17 @@ export class keshavarzplus extends clsAsamBased {
         })
     }
 }
+
+export class armanmeli extends clsAsamBased {
+    constructor() {
+        super(enuDomains.armanmeli, "armanmeli.ir", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#echo_detail>*, #echo_detail div:nth-child(1) div:nth-child(1) div div:nth-child(2), .primary_files",
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
+                },            
+            },
+        })
+    }
+}
