@@ -1403,3 +1403,13 @@ export class panjahopanjonline extends clsAsamBased {
         })
     }
 }
+
+export class donyayemadan extends clsAsamBased {
+    constructor() {
+        super(enuDomains.donyayemadan, "donyayemadan.com", {
+            selectors: {
+                article: "article, .album-bg",
+            },
+        })
+    }
+}
