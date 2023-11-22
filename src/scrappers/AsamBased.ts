@@ -1367,3 +1367,16 @@ export class zenhar extends clsAsamBased {
         })
     }
 }
+
+export class ayandnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.ayandnews, "ayandnews.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
+                },
+            },
+        })
+    }
+}
