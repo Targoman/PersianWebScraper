@@ -210,6 +210,7 @@ export enum enuDomains {
     arshehonline = "arshehonline",
     jadidpress = "jadidpress",
     khodrotak = "khodrotak",
+    zenhar = "zenhar",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

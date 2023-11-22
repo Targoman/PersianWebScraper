@@ -719,6 +719,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start jadidpress -u https://www.jadi
 clear; rm -rf .db corpora; yarn dev && yarn start khodrotak -u https://www.khodrotak.com/بخش-اخبار-داخلی-3/83092-مدل-واردات-خودرو-تغییر-می-کند
 clear; rm -rf .db corpora; yarn dev && yarn start khodrotak -u https://www.khodrotak.com/بخش-گزارش-تصویری-11/77214-خودرو-ام-مدل-را-ببینید
 
+clear; rm -rf .db corpora; yarn dev && yarn start start zenhar -u https://www.zenhar.news/بخش-اقتصادی-4/62568-فروش-فوق-العاده-ایران-خودرو-با-تحویل-روزه
+clear; rm -rf .db corpora; yarn dev && yarn start start zenhar -u https://www.zenhar.news/بخش-ورزشی-7/57891-ببینید-آرات-حسینی-در-خیابان-های-خارج-به-چه-روزی-افتاده-عکس-دردناک
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

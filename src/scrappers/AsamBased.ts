@@ -1354,3 +1354,16 @@ export class khodrotak extends clsAsamBased {
         })
     }
 }
+
+export class zenhar extends clsAsamBased {
+    constructor() {
+        super(enuDomains.zenhar, "zenhar.news", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: ".echo-detail div, .image-top-primary",
+                },
+            },
+        })
+    }
+}
