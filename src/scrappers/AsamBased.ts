@@ -1296,3 +1296,25 @@ export class armanmeli extends clsAsamBased {
         })
     }
 }
+
+export class farazdaily extends clsAsamBased {
+    constructor() {
+        super(enuDomains.farazdaily, "farazdaily.com", {
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".echo-detail>*, .image-top-primary, .landing-album-two figure a"),
+                },            
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb-list li a"),
+                },
+            },
+        })
+    }
+}
