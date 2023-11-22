@@ -13,7 +13,7 @@ class clsAsamBased extends clsScrapper {
                 title: ".title, h1",
                 subtitle: ".lead, p.news-lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img',
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files',
                     ignoreTexts: [/.*tavoos_init_player.*/]
                 },
                 comments: {
@@ -1376,6 +1376,19 @@ export class ayandnews extends clsAsamBased {
                 content: {
                     ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
                 },
+            },
+        })
+    }
+}
+
+export class tapesh3 extends clsAsamBased {
+    constructor() {
+        super(enuDomains.tapesh3, "tapesh3.com", {
+            selectors: {
+                article: "article",
+                // content: {
+                //     ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
+                // },
             },
         })
     }
