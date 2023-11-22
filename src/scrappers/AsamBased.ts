@@ -1336,3 +1336,21 @@ export class arshehonline extends clsAsamBased {
         })
     }
 }
+
+export class khodrotak extends clsAsamBased {
+    constructor() {
+        super(enuDomains.khodrotak, "khodrotak.com", {
+            selectors: {
+                article: "#echo-detail, article.album-page",
+                subtitle: "p.news-lead, p.clr13",
+                content: {
+                    main: ".bg-news, .big-img-news, a.album-fancybox",
+                },
+                category: {
+                    selector: ".bread_crumbs a"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.tag-ul li a")            
+            },
+        })
+    }
+}
