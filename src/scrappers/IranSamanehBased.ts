@@ -1715,3 +1715,21 @@ export class borna extends clsIransamaneh {
         })
     }
 }
+
+export class jadidpress extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.jadidpress, "jadidpress.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}

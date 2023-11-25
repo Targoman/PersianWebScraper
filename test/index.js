@@ -667,6 +667,75 @@ clear; rm -rf .db corpora; yarn dev && yarn start tejaratefarda -u https://www.t
 clear; rm -rf .db corpora; yarn dev && yarn start fartaknews -u https://www.fartaknews.com/بخش-ورزشی-7/427427-گزارش-تصویری-دیدار-دو-تیم-بعثت-کرمانشاه-اسپاد-تهران-به-روایت-دوربین-امیررضا-نظری
 clear; rm -rf .db corpora; yarn dev && yarn start fartaknews -u https://www.fartaknews.com/بخش-اجتماعی-78/433357-هواشناسی-ایران-هشدار-قرمز-هواشناسی-برای-استان-احتمال-آب-گرفتگی-گسترده-تخریب-تاسیسات
 
+clear; rm -rf .db corpora; yarn dev && yarn start shayanews -u https://shayanews.com/بخش-تیتر-امروز-12/177628-همه-چیز-درمورد-قوانین-جدید-بازنشستگی-جدول
+clear; rm -rf .db corpora; yarn dev && yarn start shayanews -u https://shayanews.com/بخش-تازه-ترین-عناوین-24/163367-شهر-های-ایران-یکی-یکی-هوا-ندارن-اینم-از-وضعیت-مشهد-که-جدیدا-تو-غبار-دفن-شده
+
+clear; rm -rf .db corpora; yarn dev && yarn start cann -u https://www.cann.ir/بخش-اخبار-هوانوردی-4/27144-لاکهید-مارتین-اولین-ماهواره-فضایی-نوآورانه-خود-را-به-فضا-پرتاب-می-کند
+clear; rm -rf .db corpora; yarn dev && yarn start cann -u https://www.cann.ir/بخش-اخبار-هوانوردی-4/27093-بازسازی-هواپیمای-لاکچری-تاریخی
+
+clear; rm -rf .db corpora; yarn dev && yarn start shomanews -u https://www.shomanews.com/بخش-گوگل-نیوز-77/1065439-آغاز-نظام-رتبه-بندی-شرکت-های-بیمه
+clear; rm -rf .db corpora; yarn dev && yarn start shomanews -u https://www.shomanews.com/بخش-اقتصادی-3/902262-ذوب-آهن-اصفهان-با-هزار-تامین-کننده-مواد-اولیه-قطعات-تجهیزات-در-ارتباط-است
+
+clear; rm -rf .db corpora; yarn dev && yarn start mostaghelonline -u https://www.mostaghelonline.com/بخش-دسته-بندی-نشده-1/75400-بیوگرافی-مارگارت-اتوود-نویسنده-کانادایی-خالق-رمان-مشهور-سرگذشت-ندیمه
+clear; rm -rf .db corpora; yarn dev && yarn start mostaghelonline -u https://www.mostaghelonline.com/بخش-چندرسانه-ای-121/136574-مراسم-ختم-مرحوم-سید-مجتبی-عرفانی-تصاویر
+
+clear; rm -rf .db corpora; yarn dev && yarn start iranart -u https://www.iranart.news/بخش-تجسمی-3/71017-آرت-ابوظبی-گالری-های-کشور-دانستنی-های-جالب
+clear; rm -rf .db corpora; yarn dev && yarn start iranart -u https://www.iranart.news/بخش-تجسمی-3/67422-آلبوم-تصویری-آرت-دبی-آلبوم-سوم
+
+clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.neshanonline.com/بخش-گوگل-نیوز-75/79682-خبر-خوش-دولت-برای-جاماندگان-سهام-عدالت-فرصت-دوباره-برای-ثبت-نام-سهام-عدالت
+clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.neshanonline.com/بخش-گوگل-نیوز-75/79735-رونمایی-شاهرخ-استخری-از-استایل-پاییزی-اش-شاهرخ-استخری-با-استایلی-خاص-کپشن-جنجالی
+
+clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-شهرنوشت-5/59981-ورود-سیلاب-به-خانه-ایلامی-ها
+clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-ویژه-نامه-پی-دی-اف-71/7564-دستاورد-های-فولاد-در-سالی-که-گذشت
+
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-آموزش-77/158718-مدیریت-ضرر-در-بازارهای-مالی-به-چه-معناست
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-بورس-3/159116-بورس-متعادل-با-چاشنی-مثبت-بودجه-تاثیرگذارترین-مولفه-پیش-روی-بازار-سهام
+
+clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-ایران-73/127590-هیات-عالی-رتبه-چین-به-تهران-می-آید
+clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-خودرو-74/127420-معرفی-سه-خودروی-لاکچری-حمل-جسد-توسط-یک-شرکت-ایتالیایی
+
+clear; rm -rf .db corpora; yarn dev && yarn start khanefootball -u https://www.khanefootball.com/بخش-گوگل-نیوز-69/49279-پرسپولیس-نساجی-به-تساوی-رضایت-دادند
+clear; rm -rf .db corpora; yarn dev && yarn start khanefootball -u https://www.khanefootball.com/بخش-اخبار-مهم-82/49113-تصاویر-سر-الکس-فرگوسن-در-مراسم-وداع-با-سر-باب-چارلتون
+
+clear; rm -rf .db corpora; yarn dev && yarn start honarmrooz -u https://www.honarmrooz.com/بخش-تئاتر-66/16924-میزبانی-تئاتر-شهر-برج-آزادی-از-چند-نمایش-جشنواره-آیینی-سنتی
+clear; rm -rf .db corpora; yarn dev && yarn start honarmrooz -u https://www.honarmrooz.com/بخش-مجله-تجسمی-موتیف-65/16344-برخی-از-گرانترین-آثار-فروخته-شده-در-حراجی-ها
+
+clear; rm -rf .db corpora; yarn dev && yarn start moroornews -u https://www.moroornews.com/بخش-اجتماعی-5/173349-نرخ-کرایه-تاکسی-های-اینترنتی-تعیین-می-شود#gsc.tab=0
+clear; rm -rf .db corpora; yarn dev && yarn start moroornews -u https://www.moroornews.com/بخش-اینفوگرافیک-181/172395-اینفوگرافیک-دمنوش-مناسب-فصل-پاییز#gsc.tab=0
+
+clear; rm -rf .db corpora; yarn dev && yarn start keshavarzplus -u https://www.keshavarzplus.com/بخش-گزارش-تصویری-65/10778-اولین-دیدار-کانون-صنایع-غذایی-ایران-با-وزیر-جهاد-کشاورزی-به-همت-کمیسیون-کشاورزی-اتاق
+clear; rm -rf .db corpora; yarn dev && yarn start keshavarzplus -u https://www.keshavarzplus.com/بخش-اخبار-2/10826-عدم-تامین-سرمایه-در-گردش-صادرکنندگان-بخش-کشاورزی
+
+clear; rm -rf .db corpora; yarn dev && yarn start armanmeli -u https://www.armanmeli.ir/بخش-اخبار-روزنامه-4/1078028-باز-باران-ترافیک-تیترهای-تکراری
+clear; rm -rf .db corpora; yarn dev && yarn start armanmeli -u https://www.armanmeli.ir/بخش-اخبار-2/1074412-تصاویر-هوایی-از-جاری-شدن-سیل-در-چالوس
+
+clear; rm -rf .db corpora; yarn dev && yarn start farazdaily -u https://www.farazdaily.com/بخش-انرژی-11/66346-دولت-واقعا-نفت-می-فروشد
+clear; rm -rf .db corpora; yarn dev && yarn start farazdaily -u https://www.farazdaily.com/بخش-انتخابات-45/43373-روایت-تصویری-از-حال-هوای-انتخاباتی-در-تهران
+
+clear; rm -rf .db corpora; yarn dev && yarn start arshehonline -u https://www.arshehonline.com/بخش-جامعه-118/115324-تهران-سه-پاره-می-شود-سه-استان-تهران-تهران-شرقی-تهران-غربی-تشکیل-می-شود
+clear; rm -rf .db corpora; yarn dev && yarn start arshehonline -u https://www.arshehonline.com/بخش-عکس-78/7886-روایت-یک-زندگی-دو-سال-مبارزه-تلخ-با-سرطان
+
+clear; rm -rf .db corpora; yarn dev && yarn start jadidpress -u https://www.jadidpress.ir/fa/news/47069/علت-گران-کنسرو-ماهی-چه-بود-
+clear; rm -rf .db corpora; yarn dev && yarn start jadidpress -u https://www.jadidpress.ir/fa/news/31070/سنگی-که-در-فضای-مجازی-غوغا-بپا-کرد
+
+clear; rm -rf .db corpora; yarn dev && yarn start khodrotak -u https://www.khodrotak.com/بخش-اخبار-داخلی-3/83092-مدل-واردات-خودرو-تغییر-می-کند
+clear; rm -rf .db corpora; yarn dev && yarn start khodrotak -u https://www.khodrotak.com/بخش-گزارش-تصویری-11/77214-خودرو-ام-مدل-را-ببینید
+
+clear; rm -rf .db corpora; yarn dev && yarn start zenhar -u https://www.zenhar.news/بخش-اقتصادی-4/62568-فروش-فوق-العاده-ایران-خودرو-با-تحویل-روزه
+clear; rm -rf .db corpora; yarn dev && yarn start zenhar -u https://www.zenhar.news/بخش-ورزشی-7/57891-ببینید-آرات-حسینی-در-خیابان-های-خارج-به-چه-روزی-افتاده-عکس-دردناک
+
+clear; rm -rf .db corpora; yarn dev && yarn start ayandnews -u https://www.ayandnews.com/بخش-جامعه-37/119673-از-پاداش-معلم-ها-خبری-نیست-نتوانستند-رتبه-بندی-را-اجرا-کنند-آن-را-دور-زدند-از-محتوا-خالی-کردند
+clear; rm -rf .db corpora; yarn dev && yarn start ayandnews -u https://www.ayandnews.com/بخش-عکس-42/118936-تصاویر-نمایشگاه-نسل-جدید-فناوری-ربات-در-سوئیس
+
+clear; rm -rf .db corpora; yarn dev && yarn start tapesh3 -u https://www.tapesh3.com/بخش-فوتبال-داخلی-68/3183-مرادمند-حرکت-بیرانوند-در-شخصیت-پرسپولیس-نبود
+clear; rm -rf .db corpora; yarn dev && yarn start tapesh3 -u https://www.tapesh3.com/بخش-فوتبال-داخلی-68/1828-استقبال-سپاهانی-ها-از-بازیکن-جدیدشان-تصاویر
+
+clear; rm -rf .db corpora; yarn dev && yarn start panjahopanjonline -u https://www.55online.news/بخش-اخبار-2/302673-سردر-تاریخی-ای-که-از-تهران-به-یزد-رفت-اتفاق-باورنکردنی-برای-سردر-تاریخی-ایران-در-یزد
+clear; rm -rf .db corpora; yarn dev && yarn start panjahopanjonline -u https://www.55online.news/بخش-سراسر-وب-84/302729-سمند-شاسی-بلند-به-بازار-آمد-رونمایی-ایران-خودرو-از-یک-محصول-جدید-عکس
+
+clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-فولاد-26/248910-مشکل-جدی-ضعف-تسهیلات-حمایت-ها-برای-توسعه-فناوری-صنایع-معدنی-است
+clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-گزارش-تصویری-12/248901-نخستین-نشست-هم-اندیشی-فعالان-گوهرسنگ-ها-در-مرکز-تحقیقات-فراوری-مواد-معدنی-ایران
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
