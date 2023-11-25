@@ -1482,3 +1482,16 @@ export class econegar extends clsAsamBased {
         })
     }
 }
+
+export class rasadeghtesadi extends clsAsamBased {
+    constructor() {
+        super(enuDomains.rasadeghtesadi, "rasadeghtesadi.com", {
+            selectors: {
+                article: "article.news_page_article",
+                category: {
+                    selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}
