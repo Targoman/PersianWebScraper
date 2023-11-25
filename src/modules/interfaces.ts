@@ -217,6 +217,7 @@ export enum enuDomains {
     donyayemadan = "donyayemadan",
     taraznameheghtesad = "taraznameheghtesad",
     bazarebours = "bazarebours",
+    panjere = "panjere",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
