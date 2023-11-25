@@ -1730,3 +1730,20 @@ export class jadidpress extends clsIransamaneh {
         })
     }
 }
+
+export class jamejamonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.jamejamonline, "jamejamonline.ir", {
+            selectors: {
+                article: ".bg-shadow-news .row",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.news-pdate")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.padd-breadcrumb div a"),
+                },
+            }
+        })
+    }
+}
