@@ -736,6 +736,30 @@ clear; rm -rf .db corpora; yarn dev && yarn start panjahopanjonline -u https://w
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-فولاد-26/248910-مشکل-جدی-ضعف-تسهیلات-حمایت-ها-برای-توسعه-فناوری-صنایع-معدنی-است
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-گزارش-تصویری-12/248901-نخستین-نشست-هم-اندیشی-فعالان-گوهرسنگ-ها-در-مرکز-تحقیقات-فراوری-مواد-معدنی-ایران
 
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-گوگل-نیوز-69/41203-احتمال-لغو-افزایش-سن-بازنشستگی-توسط-شورای-نگهبان-خبر-مهم-درباره-مصوبه-جدید-سن-بازنشستگی
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-عکس-12/38144-چشم-در-چشم-زیباترین-خزندگان-ایران
+
+clear; rm -rf .db corpora; yarn dev && yarn start bazarebours -u https://www.bazarebours.com/بخش-گوگل-نیوز-68/15540-آخرین-وضعیت-جاده-ها-امروز-فروردین-خبر-مهم
+clear; rm -rf .db corpora; yarn dev && yarn start bazarebours -u https://www.bazarebours.com/بخش-گوگل-نیوز-68/15650-حراج-بهاره-سایپا-آغاز-شد-فروش-فوق-العاده-محصولات-سایپا-با-شرایط-از-دم-قسط-از-فردا
+
+clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-سیاسی-3/17912-عوارض-آزادراهی-بر-اساس-نوع-خودرو-مسافت-طی-شده-محاسبه-می-گردد
+clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-عکس-69/17063-عکس-های-آرنولد-هایم-در-سفر-به-کشورهای-عربی-در-سال-پیش
+
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-کلان-67/9190-علل-دلسردی-کارگران-از-بازارکار
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-جهان-70/6937-چرا-نوبل-اقتصاد-به-کلودیا-گلدن-اهدا-شد-سومین-زن-برنده-در-جایزه-ای-مردانه
+
+clear; rm -rf .db corpora; yarn dev && yarn start rasadeghtesadi -u https://www.rasadeghtesadi.com/بخش-گوگل-نیوز-93/61715-بانک-صادرات-ایران-با-ست-جایزه-اول-جشنواره-دکتر-نوربخش-را-به-خانه-برد
+clear; rm -rf .db corpora; yarn dev && yarn start rasadeghtesadi -u https://www.rasadeghtesadi.com/بخش-بانک-8/8054-اینفوگرافیک-اولویت-های-سیاست-اعتباری-بانک-دی-در-سال
+
+clear; rm -rf .db corpora; yarn dev && yarn start gashtaninews -u https://www.gashtaninews.com/بخش-گوگل-نیوز-109/14894-وام-فوری-میلیونی-بالعوض-برای-این-افراد-وام-فوری-بدون-نیاز-به-ضامن-سپرده
+clear; rm -rf .db corpora; yarn dev && yarn start gashtaninews -u https://www.gashtaninews.com/بخش-گوگل-نیوز-109/15720-وام-قرض-الحسنه-میلیونی-برای-این-افراد-وام-قرض-الحسنه-با-شرایط-عالی-جزئیات
+
+clear; rm -rf .db corpora; yarn dev && yarn start revayatnameh -u https://www.revayatnameh.com/بخش-دیروزنامه-66/783-گردشگر-نه-اندیشه-ورز
+clear; rm -rf .db corpora; yarn dev && yarn start revayatnameh -u https://www.revayatnameh.com/بخش-دیروزنامه-66/777-فروپاشی-ساختارها
+
+clear; rm -rf .db corpora; yarn dev && yarn start sornakhabar -u https://www.sornakhabar.com/بخش-سینما-9/371894-ریدلی-اسکات-فیلم-ناپلئون-را-به-سگش-لولو-تقدیم-می-کند
+clear; rm -rf .db corpora; yarn dev && yarn start sornakhabar -u https://www.sornakhabar.com/بخش-سینما-9/371880-بیچاره-فروغ-همزمان-با-انتشار-تیزر-فیلم-من-فروغ-هستم-انتقادها-از-بازی-انتخاب-باران-کوثری-بالا-گرفت-ویدئو-عکس
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
