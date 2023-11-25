@@ -1495,3 +1495,19 @@ export class rasadeghtesadi extends clsAsamBased {
         })
     }
 }
+
+export class gashtaninews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.gashtaninews, "gashtaninews.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    ignoreNodeClasses: ["others_known", "inline-news-box"]
+                },
+                category: {
+                    selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}
