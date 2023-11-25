@@ -222,6 +222,7 @@ export enum enuDomains {
     rasadeghtesadi = "rasadeghtesadi",
     gashtaninews = "gashtaninews",
     revayatnameh = "revayatnameh",
+    sornakhabar = "sornakhabar",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
