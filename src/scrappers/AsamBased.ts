@@ -14,7 +14,8 @@ class clsAsamBased extends clsScrapper {
                 subtitle: ".lead, p.news-lead",
                 content: {
                     main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files',
-                    ignoreTexts: [/.*tavoos_init_player.*/]
+                    ignoreTexts: [/.*tavoos_init_player.*/],
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt"]
                 },
                 comments: {
                     container: ".comments-list li, .new_gallery_list>*",
@@ -1409,6 +1410,23 @@ export class donyayemadan extends clsAsamBased {
         super(enuDomains.donyayemadan, "donyayemadan.com", {
             selectors: {
                 article: "article, .album-bg",
+            },
+        })
+    }
+}
+
+export class taraznameheghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.taraznameheghtesad, "taraznameheghtesad.ir", {
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.breadcrumb_list ul li a"),
+                },
             },
         })
     }

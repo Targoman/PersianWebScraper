@@ -734,6 +734,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start panjahopanjonline -u https://w
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-فولاد-26/248910-مشکل-جدی-ضعف-تسهیلات-حمایت-ها-برای-توسعه-فناوری-صنایع-معدنی-است
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-گزارش-تصویری-12/248901-نخستین-نشست-هم-اندیشی-فعالان-گوهرسنگ-ها-در-مرکز-تحقیقات-فراوری-مواد-معدنی-ایران
 
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-گوگل-نیوز-69/41203-احتمال-لغو-افزایش-سن-بازنشستگی-توسط-شورای-نگهبان-خبر-مهم-درباره-مصوبه-جدید-سن-بازنشستگی
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-عکس-12/38144-چشم-در-چشم-زیباترین-خزندگان-ایران
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
