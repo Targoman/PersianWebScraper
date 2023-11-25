@@ -1511,3 +1511,18 @@ export class gashtaninews extends clsAsamBased {
         })
     }
 }
+
+export class revayatnameh extends clsAsamBased {
+    constructor() {
+        super(enuDomains.revayatnameh, "revayatnameh.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .image",
+                    ignoreNodeClasses: ["more-news-in-text"]
+                },
+                tags: ".tags ul li a"
+            },
+        })
+    }
+}
