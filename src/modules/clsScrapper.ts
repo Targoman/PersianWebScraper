@@ -60,7 +60,10 @@ export abstract class clsScrapper {
     }
 
     async check(url: string) {
-        log.info(await this.getPageContent(url))
+        const page = await this.getPageContent(url)
+        const category = this.updateCategory(page)
+
+        log.info({ ...page, category })
     }
 
     async start(recheck = false) {
@@ -321,7 +324,7 @@ export abstract class clsScrapper {
                     log.error(datetimeStr)
                     return "INVALID_DATE"
                 }
-            } else 
+            } else
                 dateParts.push(part)
         }
 
@@ -375,7 +378,7 @@ export abstract class clsScrapper {
 
         }
         log.debug({ finalDateString })
-        if(this.pConf.selectors?.datetime?.isGregorian)
+        if (this.pConf.selectors?.datetime?.isGregorian)
             return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
@@ -431,6 +434,20 @@ export abstract class clsScrapper {
         debugNodeProcessor && log.debug("----------FINISH---------")
     }
 
+    private updateCategory(page) {
+        const origianlCategory = normalizeCategory(page.category)
+        const mappedCat = this.mapCategory(origianlCategory)
+        const category = { original: origianlCategory }
+        if (mappedCat) {
+            category["major"] = mappedCat.major
+            if (mappedCat.minor)
+                category["minor"] = mappedCat.minor
+            if (mappedCat.subminor)
+                category["subminor"] = mappedCat.subminor
+        }
+        return category
+    }
+
     private async storePage(page?: IntfPageContent, id?: number) {
         if (page) {
             let wc = 0
@@ -446,17 +463,7 @@ export abstract class clsScrapper {
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
-
-                        const origianlCategory = normalizeCategory(page.category)
-                        const mappedCat = this.mapCategory(origianlCategory)
-                        const category = { original: origianlCategory }
-                        if (mappedCat) {
-                            category["major"] = mappedCat.major
-                            if (mappedCat.minor)
-                                category["minor"] = mappedCat.minor
-                            if (mappedCat.subminor)
-                                category["subminor"] = mappedCat.subminor
-                        }
+                        const category = this.updateCategory(page)
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)

@@ -1408,6 +1408,9 @@ export class bankdariirani extends clsIransamaneh {
         super(enuDomains.bankdariirani, "bankdariirani.ir", {
             selectors: {
                 article: ".news_body",
+                datetime: {
+                    isGregorian: true
+                }
             },
         })
     }
