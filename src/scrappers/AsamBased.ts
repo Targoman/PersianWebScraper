@@ -1469,3 +1469,16 @@ export class panjere extends clsAsamBased {
         })
     }
 }
+
+export class econegar extends clsAsamBased {
+    constructor() {
+        super(enuDomains.econegar, "econegar.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    ignoreTexts: ["بیشتر بخوانید"]
+                }
+            },
+        })
+    }
+}

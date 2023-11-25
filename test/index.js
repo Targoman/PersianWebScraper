@@ -743,6 +743,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start bazarebours -u https://www.baz
 clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-سیاسی-3/17912-عوارض-آزادراهی-بر-اساس-نوع-خودرو-مسافت-طی-شده-محاسبه-می-گردد
 clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-عکس-69/17063-عکس-های-آرنولد-هایم-در-سفر-به-کشورهای-عربی-در-سال-پیش
 
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-کلان-67/9190-علل-دلسردی-کارگران-از-بازارکار
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-جهان-70/6937-چرا-نوبل-اقتصاد-به-کلودیا-گلدن-اهدا-شد-سومین-زن-برنده-در-جایزه-ای-مردانه
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
