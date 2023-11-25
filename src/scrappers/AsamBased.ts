@@ -1431,3 +1431,17 @@ export class taraznameheghtesad extends clsAsamBased {
         })
     }
 }
+
+export class bazarebours extends clsAsamBased {
+    constructor() {
+        super(enuDomains.bazarebours, "bazarebours.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .primary-files",
+                    ignoreNodeClasses: ["inline_news_box"]
+                }
+            },
+        })
+    }
+}
