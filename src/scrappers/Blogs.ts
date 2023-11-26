@@ -747,3 +747,33 @@ export class nobitex extends clsScrapper {
         })
     }
 }
+
+export class snappmarket extends clsScrapper {
+    constructor() {
+        super(enuDomains.snappmarket, "snapp.market", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div"),
+                    author: "cite.comment-author",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
