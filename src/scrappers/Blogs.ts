@@ -631,3 +631,170 @@ export class digikala extends clsScrapper {
         })
     }
 }
+
+export class snapp extends clsScrapper {
+    constructor() {
+        super(enuDomains.snapp, "snapp.ir", {
+            selectors: {
+                article: "article.post-large",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: '.entry-content',
+                },
+                category: {
+                    selector: "span.meta-cats a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments li"),
+                    author: "span.comment-by strong",
+                    datetime: "span.date",
+                    text: ".comment-block div:nth-child(3)"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class snappfood extends clsScrapper {
+    constructor() {
+        super(enuDomains.snappfood, "blog.snappfood.ir", {
+            selectors: {
+                article: "article.single-article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: '.editor-content',
+                },
+                category: {
+                    selector: ".category-list a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list .comment"),
+                    author: "span.comment-name",
+                    text: ".comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class snapptrip extends clsScrapper {
+    constructor() {
+        super(enuDomains.snapptrip, "snapptrip.com", {
+            selectors: {
+                article: ".container.fullwidth #content #main article",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date",
+                    splitter: "-"
+                },
+                content: {
+                    main: '.post-entry>*, .post-img a img',
+                    ignoreNodeClasses: ["widget_pintapin_categories", "cat", "menu-main-menu-container", "top-footer", "menu-body", 
+                      "sntrip-middle-footer", "sntrip-socket-bar", "post-comments", "sntrip-popup-content", "post-related", "independent-cats",
+                      "related-post-link", "register-holder", "link", "share-dialog", "ez-toc-container-direction", "meta-share", "meta-comments",
+                      "sntrip-footer-social-bar"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: "span.cat a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-comments .comments li"),
+                    author: "span.author",
+                    datetime: "span.date",
+                    text: ".comment-text p"
+                }
+            },
+        })
+    }
+}
+
+export class nobitex extends clsScrapper {
+    constructor() {
+        super(enuDomains.nobitex, "nobitex.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "article.post-item-single",
+                title: "h1",
+                datetime: {
+                    conatiner: "a.post-date",
+                },
+                content: {
+                    main: ".post-single-content, .post-thumbnail",
+                },
+                category: {
+                    selector: ".post-categories a"
+                },
+            }
+        })
+    }
+}
+
+export class snappmarket extends clsScrapper {
+    constructor() {
+        super(enuDomains.snappmarket, "snapp.market", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div"),
+                    author: "cite.comment-author",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class flightio extends clsScrapper {
+    constructor() {
+        super(enuDomains.flightio, "flightio.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-content",
+                title: "h1",
+                datetime: {
+                    conatiner: ".entry-date",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["rating-option"],
+                    ignoreTexts: [/.*DOCTYPE.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}

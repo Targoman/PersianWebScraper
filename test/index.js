@@ -766,6 +766,27 @@ clear; rm -rf .db corpora; yarn dev && yarn start jamejamonline -u https://jamej
 clear; rm -rf .db corpora; yarn dev && yarn start pansadonavadohasht -u https://www.598.ir/fa/news/531839/مشاغل-سخت-و-زیان%E2%80%8Cآور
 clear; rm -rf .db corpora; yarn dev && yarn start pansadonavadohasht -u https://www.598.ir/fa/news/531844/صفحه-اول-روزنامه%E2%80%8Cهای-پنج-شنبه-۲-آذر-ماه
 
+clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/383674/اقدام-عجیب-دولت-برای-افزایش-حقوقها/
+clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/gallery/گزارش-تصویری-اجرای-آبان-ماه-کنسرت-چارت/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/sights-andimeshk/
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/98-annual-report/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snappfood -u https://blog.snappfood.ir/طرز-تهیه-مسقطی-انار/
+clear; rm -rf .db corpora; yarn dev && yarn start snappfood -u https://blog.snappfood.ir/french-fries-origin/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snapptrip -u https://www.snapptrip.com/blog/جاهای-دیدنی-سمنان/
+clear; rm -rf .db corpora; yarn dev && yarn start snapptrip -u https://www.snapptrip.com/blog/کنسلی-رایگان-اسنپ-تریپ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start digikala -u https://www.digikala.com/mag/laptop-buying-guide-part1-1400-12/
+clear; rm -rf .db corpora; yarn dev && yarn start digikala -u https://nobitex.ir/mag/8543-eth-worth-16m-was-just-burned/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snappmarket -u https://snapp.market/blog/everything-about-jackfruit/
+clear; rm -rf .db corpora; yarn dev && yarn start snappmarket -u https://snapp.market/blog/cleaning-scum-home/
+
+clear; rm -rf .db corpora; yarn dev && yarn start flightio -u https://flightio.com/blog/travel-tips/black-friday/
+clear; rm -rf .db corpora; yarn dev && yarn start flightio -u https://flightio.com/blog/attractions/aya-sofia-mosque/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
