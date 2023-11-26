@@ -726,3 +726,24 @@ export class snapptrip extends clsScrapper {
         })
     }
 }
+
+export class nobitex extends clsScrapper {
+    constructor() {
+        super(enuDomains.nobitex, "nobitex.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "article.post-item-single",
+                title: "h1",
+                datetime: {
+                    conatiner: "a.post-date",
+                },
+                content: {
+                    main: ".post-single-content, .post-thumbnail",
+                },
+                category: {
+                    selector: ".post-categories a"
+                },
+            }
+        })
+    }
+}

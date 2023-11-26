@@ -298,7 +298,7 @@ export abstract class clsScrapper {
         if (ref.startsWith("data:"))
             return ""
         if (!ref.includes("://"))
-            ref = `https://www.${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
+            ref = `https://www.${this.baseURL}` + this.pConf.basePath + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
         return this.normalizePath(this.safeCreateURL(ref))
     }
 
