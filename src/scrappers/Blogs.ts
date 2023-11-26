@@ -664,3 +664,32 @@ export class snapp extends clsScrapper {
         })
     }
 }
+
+export class snappfood extends clsScrapper {
+    constructor() {
+        super(enuDomains.snappfood, "blog.snappfood.ir", {
+            selectors: {
+                article: "article.single-article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: '.editor-content',
+                },
+                category: {
+                    selector: ".category-list a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list .comment"),
+                    author: "span.comment-name",
+                    text: ".comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
