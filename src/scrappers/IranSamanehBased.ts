@@ -1730,3 +1730,42 @@ export class jadidpress extends clsIransamaneh {
         })
     }
 }
+
+export class jamejamonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.jamejamonline, "jamejamonline.ir", {
+            selectors: {
+                article: ".bg-shadow-news .row",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.news-pdate")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.padd-breadcrumb div a"),
+                },
+            }
+        })
+    }
+}
+
+export class pansadonavadohasht extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.pansadonavadohasht, "598.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1 a",
+                subtitle: ".subtitle",
+                content: {
+                    main: ".body, .body div ul li a"
+                },
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+        })
+    }
+}
