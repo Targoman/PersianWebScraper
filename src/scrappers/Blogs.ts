@@ -777,3 +777,28 @@ export class snappmarket extends clsScrapper {
         })
     }
 }
+
+export class flightio extends clsScrapper {
+    constructor() {
+        super(enuDomains.flightio, "flightio.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-content",
+                title: "h1",
+                datetime: {
+                    conatiner: ".entry-date",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["rating-option"],
+                    ignoreTexts: [/.*DOCTYPE.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
