@@ -941,3 +941,22 @@ export class jomhouriat extends clsScrapper {
     }
 }
 
+export class ofoghnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghnews, "ofoghnews.ir", {
+            selectors: {
+                article: ".content, .gallery-content",
+                title: "h1 a",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "ul.news-detile li:nth-child(2) span, .navbarh a:nth-child(2)",
+                },
+                content: {
+                    main: ".entry, .gallery a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            }
+        })
+    }
+}
+

@@ -225,6 +225,7 @@ export enum enuDomains {
     sornakhabar = "sornakhabar",
     jamejamonline = "jamejamonline",
     pansadonavadohasht = "pansadonavadohasht",
+    ofoghnews = "ofoghnews",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
