@@ -767,6 +767,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start pansadonavadohasht -u https://
 clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/383674/اقدام-عجیب-دولت-برای-افزایش-حقوقها/
 clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/gallery/گزارش-تصویری-اجرای-آبان-ماه-کنسرت-چارت/
 
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/sights-andimeshk/
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/98-annual-report/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

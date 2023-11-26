@@ -635,3 +635,32 @@ export class digikala extends clsScrapper {
         })
     }
 }
+
+export class snapp extends clsScrapper {
+    constructor() {
+        super(enuDomains.snapp, "snapp.ir", {
+            selectors: {
+                article: "article.post-large",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: '.entry-content',
+                },
+                category: {
+                    selector: "span.meta-cats a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments li"),
+                    author: "span.comment-by strong",
+                    datetime: "span.date",
+                    text: ".comment-block div:nth-child(3)"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
