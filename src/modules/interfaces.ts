@@ -228,6 +228,7 @@ export enum enuDomains {
     ofoghnews = "ofoghnews",
     snapp = "snapp",
     snappfood = "snappfood",
+    snapptrip = "snapptrip",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

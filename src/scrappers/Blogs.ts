@@ -693,3 +693,36 @@ export class snappfood extends clsScrapper {
         })
     }
 }
+
+export class snapptrip extends clsScrapper {
+    constructor() {
+        super(enuDomains.snapptrip, "snapptrip.com", {
+            selectors: {
+                article: ".container.fullwidth #content #main article",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date",
+                    splitter: "-"
+                },
+                content: {
+                    main: '.post-entry>*, .post-img a img',
+                    ignoreNodeClasses: ["widget_pintapin_categories", "cat", "menu-main-menu-container", "top-footer", "menu-body", 
+                      "sntrip-middle-footer", "sntrip-socket-bar", "post-comments", "sntrip-popup-content", "post-related", "independent-cats",
+                      "related-post-link", "register-holder", "link", "share-dialog", "ez-toc-container-direction", "meta-share", "meta-comments",
+                      "sntrip-footer-social-bar"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: "span.cat a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-comments .comments li"),
+                    author: "span.author",
+                    datetime: "span.date",
+                    text: ".comment-text p"
+                }
+            },
+        })
+    }
+}
