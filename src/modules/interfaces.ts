@@ -236,6 +236,7 @@ export enum enuDomains {
     achareh = "achareh",
     aparat = "aparat",
     taaghche = "taaghche",
+    jabama = "jabama",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
