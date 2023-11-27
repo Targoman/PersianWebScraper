@@ -232,6 +232,8 @@ export enum enuDomains {
     nobitex = "nobitex",
     snappmarket = "snappmarket",
     flightio = "flightio",
+    namava = "namava",
+    achareh = "achareh",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
