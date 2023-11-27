@@ -937,3 +937,31 @@ export class jabama extends clsScrapper {
         })
     }
 }
+
+export class jobinja extends clsScrapper {
+    constructor() {
+        super(enuDomains.jobinja, "blog.jobinja.ir", {
+            selectors: {
+                article: ".maincontent",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".image-post, .header_img-single figure a",
+                    ignoreNodeClasses: ["yarpp-related-website", "title_single"],
+                    ignoreTexts: [/.*img.*/]
+                },
+                category: {
+                    selector: "ul.post-categories li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body"),
+                    author: ".comment-author cite.fn",
+                    text: "p"
+                }
+            }
+        })
+    }
+}
