@@ -1,6 +1,7 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
 import deepmerge from "deepmerge";
+import { HTMLElement } from "node-html-parser"
 
 class clsSputnikBased extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
@@ -16,7 +17,9 @@ class clsSputnikBased extends clsScrapper {
                     ignoreNodeClasses: ["js-message_video_player", "online__item-top"]
                 },
                 tags: '.tags li',
-                datetime: { conatiner: '.article__info-date a', splitter: " " }
+                datetime: { conatiner: '.article__info-date a', 
+                splitter: (el:HTMLElement)=>el.innerText.split(" ").at(1)?.split(".").reverse().join("-") || "INVALID_DATE", 
+                isGregorian: true }
             },
             url: {
                 removeWWW: true,
@@ -24,6 +27,11 @@ class clsSputnikBased extends clsScrapper {
             }
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
+    }
+
+    public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
+        void category, tags
+        return { major: enuMajorCategory.News }
     }
 }
 

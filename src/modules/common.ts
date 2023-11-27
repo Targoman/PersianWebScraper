@@ -149,9 +149,14 @@ export function getElementAtIndex(nodes: Node[], index: number) {
     return
 }
 
-export function dateOffsetToDate(el?: HTMLElement | null) {
+export function wordCount(str?: string): number {
+    return str?.split(" ").length || 0
+}
+
+
+export function dateOffsetToDate(el?: HTMLElement | string | null) {
     if (!el) return "NullDateElement"
-    const dateParts = el.innerText.split(" ")
+    const dateParts = (typeof el === "string" ? el : el.innerText).split(" ")
     let effectiveDate = jmoment().locale('fa');
     const offset = parseInt(fa2En(dateParts[0]))
 
@@ -160,7 +165,7 @@ export function dateOffsetToDate(el?: HTMLElement | null) {
         case "ماه": effectiveDate = effectiveDate.subtract(offset, "months"); break
         case "سال": effectiveDate = effectiveDate.subtract(offset, "years"); break
     }
-    return effectiveDate.format('YYYY-M-D')
+    return date2Gregorian(effectiveDate.format('YYYY-M-D'))
 }
 
 export function date2Gregorian(date?: string): string | undefined {

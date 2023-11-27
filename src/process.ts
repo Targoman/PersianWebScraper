@@ -5,13 +5,28 @@ import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
-import { formatNumber, normalizeCategory, date2Gregorian, normalizeText } from './modules/common';
+import { formatNumber, normalizeCategory, date2Gregorian, normalizeText, wordCount } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
 import * as scrappers from './scrappers'
 
 enum enuCommands {
     catStats = 'catStats',
-    normalize = "normalize"
+    normalize = "normalize",
+    toText = "toText"
+}
+
+enum enuDateResolution {
+    day = "day",
+    month = "month",
+    year = "year"
+}
+
+enum enuCategory {
+    fullStr,
+    full,
+    major,
+    minor,
+    none
 }
 
 interface IntfCatStats {
@@ -29,13 +44,21 @@ interface IntfCatStats {
     }
 }
 const args = {
-    command: positional({ type: oneOf(Object.keys(enuCommands).concat(Object.values(enuCommands))), displayName: "Command", description: `Command to be executed can be one of:  ${Object.keys(enuCommands).join(", ")}` }),
+    command: positional({ type: oneOf(Object.keys(enuCommands).concat(Object.values(enuCommands).map(e => e.toLowerCase()))), displayName: "Command", description: `Command to be executed can be one of:  ${Object.keys(enuCommands).join(", ")}` }),
     configFile: option({ type: optional(string), long: 'configFile', short: "c", description: "set configFile to be used" }),
     debugVerbosity: option({ type: optional(number), long: 'verbosity', short: "v", description: "set verbosity level from 0 to 10" }),
     statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
 
     force: flag({ long: "force", description: "forces normalization of category even if the category was set priorly" }),
-    domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}` }),
+    domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}. If ommited all domains will be checked` }),
+    minDocWC: option({ type: optional(number), long: 'minwc', description: "Minimum word count of target document file" }),
+    justFormal: flag({ long: "justFormal", description: "limits extraction to Title, AboveTitle, subtitle, summary, main content, alt" }),
+    justInformal: flag({ long: "justInformal", description: "limits extraction to comments" }),
+    altAsFormalText: flag({ long: "altAsFormalText", description: "output ALT text as formal text" }),
+    targetPath: option({ type: optional(string), long: 'target', short: "t", description: "Target Folder to store results" }),
+    dateResolution: option({ type: optional(oneOf(Object.keys(enuDateResolution))), long: 'dateRes', description: `Target path date resolution can be:  ${Object.keys(enuCommands).join(", ")}` }),
+    minDate: option({ type: optional(string), long: 'minDate', description: "Min date to extract texts" }),
+    keepCat: option({ type: optional(oneOf(Object.keys(enuCategory))), long: 'dateRes', description: `Target path date resolution can be:  ${Object.keys(enuCommands).join(", ")}` }),
 }
 
 function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string): void }) {
@@ -65,11 +88,6 @@ function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: Int
     }
     processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (args.domain || ""), getScrapper(args.domain))
 }
-
-function wordCount(str?: string): number {
-    return str?.split(" ").length || 0
-}
-
 
 const app = command({
     name: 'tgscrapprocessor',
@@ -105,6 +123,79 @@ const app = command({
         let processedCount = 0
 
         switch (args.command) {
+            case enuCommands.toText: {
+                let ignoredBySize = 0
+                let ignoredByDate = 0
+
+                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                    const fileName = filePath.split("/").pop()?.replace(".json", "")
+                    const baseOutpath = (args.targetPath || "./out") + "/" + scrapper.name() + "/"
+                    const docTimeStamp = Date.parse(doc.date || "INVALID")
+                    if (processedCount % 1000 === 0)
+                        log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
+                    processedCount++
+
+                    if (args.minDate) {
+                        const minTimeStamp = Date.parse(args.minDate)
+                        if (!isNaN(docTimeStamp) && docTimeStamp < minTimeStamp) {
+                            ignoredByDate++
+                            return
+                        }
+                    }
+
+                    let dateOnPath = doc.date || "NOT_SET"
+                    if (!isNaN(docTimeStamp)) {
+                        const docDate = new Date(doc.date || "")
+                        switch (args.dateResolution) {
+                            case enuDateResolution.year:
+                                dateOnPath = docDate.getFullYear() + ""; break;
+                            case enuDateResolution.month:
+                                dateOnPath = docDate.getFullYear() + "-" + (docDate.getMonth() + 1 + "").padStart(2, "0")
+                        }
+                    }
+
+                    let paragraphs: string[] = []
+                    const addToParagraphs = (item?: string | string[]) => {
+                        if (Array.isArray(item))
+                            paragraphs = [...paragraphs, ...item]
+                        else if (typeof item === "string")
+                            paragraphs.push(item)
+                    }
+
+                    const store = (type: string) => {
+                        const text = paragraphs.join("\n")
+                        if (paragraphs.length === 0) return
+                        if (wordCount(text) < (args.minDocWC || 10)) {
+                            ignoredBySize++
+                            return
+                        }
+                        const path = `${baseOutpath}/${type}/${dateOnPath}`
+                        if (!existsSync(path)) mkdirSync(path, { recursive: true })
+                        writeFileSync(`${path}/${fileName}.txt`, text)
+                    }
+
+                    if (!args.justInformal) {
+                        paragraphs = []
+                        addToParagraphs(doc.aboveTitle)
+                        addToParagraphs(doc.title)
+                        addToParagraphs(doc.subtitle)
+                        addToParagraphs(doc.summary)
+                        addToParagraphs(doc.content?.map(c => (c.type !== "alt" || args.altAsFormalText) && c.text))
+                        store('formal')
+                    }
+
+                    if (!args.justFormal) {
+                        paragraphs = []
+                        addToParagraphs(doc.comments?.map(c => c.text))
+                        store("informal")
+                    }
+
+                })
+
+                log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
+
+            }
+                break;
             case enuCommands.normalize: {
                 let updatedCount = 0;
                 processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
@@ -123,7 +214,7 @@ const app = command({
 
                     const normalizeDate = (date?: string) => {
                         const gregorianDate = date2Gregorian(date)
-                        if(date === "IGNORED" || date === "NO_DATE")
+                        if (date === "IGNORED" || date === "NO_DATE")
                             return "NOT_SET"
                         if (gregorianDate?.startsWith("INVALID:"))
                             log.file(scrapper.name(), filePath, date)
@@ -163,14 +254,14 @@ const app = command({
                     }
                     const filePathParts: string[] = filePath.split("/")
                     const pathDate = filePathParts.at(filePathParts.length - 2)
-                    if (pathDate !== doc["date"]) 
+                    if (pathDate !== doc["date"])
                         anythingChanged = true
 
                     log.debug({ filePath, pathDate, d: doc["date"], anythingChanged, f: filePathParts.slice(0, filePathParts.length - 2) + (doc["date"] || "NO_DATE") + filePathParts[filePathParts.length - 1] + '.updated' })
 
                     if (anythingChanged) {
                         filePath = `${filePathParts.slice(0, filePathParts.length - 2).join("/")}/${(doc["date"] || "NO_DATE")}`
-                        if(!existsSync(filePath))
+                        if (!existsSync(filePath))
                             mkdirSync(filePath)
                         writeFileSync(`${filePath}/${filePathParts[filePathParts.length - 1]}.updated`, JSON.stringify(doc));
                         updatedCount++;

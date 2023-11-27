@@ -35,23 +35,23 @@ export class lioncomputer extends clsScrapper {
     })
   }
   mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCategory: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
-    if (!cat) return mappedCategory
+    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+    if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
 
-    if (second.includes("نرم")) return { ...mappedCategory, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("سخت")) return { ...mappedCategory, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCategory, subminor: enuMinorCategory.IT }
-    else if (second.includes("موبایل")) return { ...mappedCategory, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("گـرافیک")) return { ...mappedCategory, subminor: enuSubMinorCategory.Art }
+    if (second.includes("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+    else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+    else if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+    else if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+    else if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
     else if (second.includes("عمومی")
       || second.includes("بازارچه")
       || second.includes("بلاگ")
-      || second.includes("کلاب")) return { ...mappedCategory, minor: enuMinorCategory.Generic }
-    else if (second.includes("گیمینگ")) return { ...mappedCategory, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("ارزهای")) return { ...mappedCategory, subminor: enuMinorCategory.CryptoCurrency }
-    return mappedCategory
+      || second.includes("کلاب")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+    else if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+    else if (second.includes("ارزهای")) return { ...mappedCat, subminor: enuMinorCategory.CryptoCurrency }
+    return mappedCat
   }
 }
 

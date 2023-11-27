@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian, dateOffsetToDate } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = true //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
+const debugNodeProcessor = false //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 
@@ -302,7 +302,7 @@ export abstract class clsScrapper {
         return this.normalizePath(this.safeCreateURL(ref))
     }
 
-    autoExtractDate(datetimeStr: string) {
+    private autoExtractDate(datetimeStr: string) {
         const dateParts: string[] = []
         datetimeStr = datetimeStr.trim().replace(/[،,/\n-]/g, " ")
         const dateStrParts = datetimeStr.split(" ")
@@ -318,11 +318,11 @@ export abstract class clsScrapper {
                 if (dateParts.length > 0)
                     dateParts.push(persianMonthNumber(part) + "")
                 else {
+                    log.error(datetimeStr)
                     return "INVALID_DATE"
                 }
-            } else {
+            } else 
                 dateParts.push(part)
-            }
         }
 
         if (dateParts.length === 3)
@@ -333,6 +333,7 @@ export abstract class clsScrapper {
 
     protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfDateSplitter = " ", fullHtml?: HTMLElement) {
         if (!datetimeEl) return undefined
+
         let finalDateString: string | undefined
 
         if (typeof splitter === "function" && typeof datetimeEl !== "string") {
@@ -341,7 +342,13 @@ export abstract class clsScrapper {
             const datetime = normalizeText((typeof datetimeEl === "string" ? datetimeEl : datetimeEl?.innerText)?.trim().replace(/[\r\n]/g, ""))
             if (!datetime)
                 finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+            else if (datetime.includes('پیش')
+                || datetime.includes('امروز')
+                || datetime.includes('قبل')
+            )
+                finalDateString = dateOffsetToDate(datetime)
             else {
+
                 let datetimeParts = datetime?.split(typeof splitter === "string" ? splitter : " ")
 
                 const dateString = normalizeText(datetimeParts[datetimeParts.length - 1].includes(":")
@@ -368,6 +375,8 @@ export abstract class clsScrapper {
 
         }
         log.debug({ finalDateString })
+        if(this.pConf.selectors?.datetime?.isGregorian)
+            return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
             log.file(this.name(), gregorian)
@@ -439,14 +448,14 @@ export abstract class clsScrapper {
                                 throw new Error("Unable to create file path: " + filePath)
 
                         const origianlCategory = normalizeCategory(page.category)
-                        const mappedCategory = this.mapCategory(origianlCategory)
+                        const mappedCat = this.mapCategory(origianlCategory)
                         const category = { original: origianlCategory }
-                        if (mappedCategory) {
-                            category["major"] = mappedCategory.major
-                            if (mappedCategory.minor)
-                                category["minor"] = mappedCategory.minor
-                            if (mappedCategory.subminor)
-                                category["subminor"] = mappedCategory.subminor
+                        if (mappedCat) {
+                            category["major"] = mappedCat.major
+                            if (mappedCat.minor)
+                                category["minor"] = mappedCat.minor
+                            if (mappedCat.subminor)
+                                category["subminor"] = mappedCat.subminor
                         }
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
