@@ -858,3 +858,53 @@ export class achareh extends clsScrapper {
         })
     }
 }
+
+export class aparat extends clsScrapper {
+    constructor() {
+        super(enuDomains.aparat, "aparat.blog", {
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .single-featured",
+                    ignoreNodeClasses: ["bs-irp-thumbnail-1-full", "lwptoc_i"]
+                },
+                category: {
+                    selector: "span.term-badge a"
+                },
+                tags: ".post-tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div"),
+                    author: "cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
+
+export class taaghche extends clsScrapper {
+    constructor() {
+        super(enuDomains.taaghche, "taaghche.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "main.singlepage",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "section.content_post, img.mainpic",
+                    ignoreNodeClasses: ["related-post", "profilebox", "profileimg", "comments-area"],
+                },
+                tags: ".tags a",
+            }
+        })
+    }
+}

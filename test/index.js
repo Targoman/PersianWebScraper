@@ -793,6 +793,12 @@ clear; rm -rf .db corpora; yarn dev && yarn start namava -u https://www.namava.i
 clear; rm -rf .db corpora; yarn dev && yarn start achareh -u https://blog.achareh.ir/why-washing-machine-wont-drain/ 
 clear; rm -rf .db corpora; yarn dev && yarn start achareh -u https://blog.achareh.ir/پرسش-از-آچاره/
 
+clear; rm -rf .db corpora; yarn dev && yarn start aparat -u https://aparat.blog/upload-video-to-win/
+clear; rm -rf .db corpora; yarn dev && yarn start aparat -u https://aparat.blog/aparatgap-program
+
+clear; rm -rf .db corpora; yarn dev && yarn start taaghche -u https://taaghche.com/blog/1402/08/29/کتاب-برای-شروع-کتابخوانی-نوجوانان/
+clear; rm -rf .db corpora; yarn dev && yarn start taaghche -u https://taaghche.com/blog/1401/03/22/برندگان-جایزه-گلشیری/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
