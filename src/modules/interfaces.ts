@@ -234,6 +234,7 @@ export enum enuDomains {
     flightio = "flightio",
     namava = "namava",
     achareh = "achareh",
+    aparat = "aparat",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
@@ -267,6 +268,7 @@ export enum enuDomains {
         sarkhat = "sarkhat",
         afraca = "afraca",*/
 }
+
 
 export interface IntfGlobalConfigs {
     debugVerbosity?: number,
@@ -484,6 +486,7 @@ export interface IntfProcessorConfigs {
         datetime?: {
             conatiner?: string | IntfSelectorFunction,
             splitter?: string | IntfDateSplitter,
+            isGregorian?: boolean
             acceptNoDate?: boolean
         }
         category?: {

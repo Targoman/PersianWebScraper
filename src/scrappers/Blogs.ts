@@ -2,7 +2,7 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfComment, IntfMappedCatgory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
-import { dateOffsetToDate, fa2En, getElementAtIndex, normalizeText } from "../modules/common";
+import { fa2En, getElementAtIndex, normalizeText } from "../modules/common";
 import { axiosPost, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
 
@@ -27,7 +27,6 @@ export class virgool extends clsScrapper {
                             return byClass
                         return getElementAtIndex(article.childNodes, 0)?.querySelector("div>div>div>span>div>span:last-child")
                     },
-                    splitter: dateOffsetToDate,
                 },
                 comments: {
                     container: ".comments-section article",
@@ -65,7 +64,6 @@ export class ninisite extends clsScrapper {
                 },
                 datetime: {
                     conatiner: '[itemprop="datePublished"], .section .number.side, [itemprop="dateCreated"], .created-post .date',
-                    splitter: (el: HTMLElement) => el.innerText.includes('پیش') || el.innerText.includes('امروز') || el.innerText.includes('قبل') ? dateOffsetToDate(el) : (super.extractDate(el, " ") || "NO_DATE")
                 },
                 comments: {
                     container: (article: HTMLElement) => article.querySelectorAll(".comment, article.topic-post"),
@@ -268,7 +266,6 @@ export class romanman extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: "#single-post-meta > span.date.meta-item.tie-icon",
-                    splitter: dateOffsetToDate
                 },
                 content: {
                     main: '.entry.clearfix>*',
@@ -280,7 +277,6 @@ export class romanman extends clsScrapper {
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
                     author: "footer .comment-author b",
-                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector("time")),
                     text: ".comment-content"
                 }
             }
@@ -855,6 +851,35 @@ export class achareh extends clsScrapper {
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
                     author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
+
+export class aparat extends clsScrapper {
+    constructor() {
+        super(enuDomains.aparat, "aparat.blog", {
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .single-featured",
+                    ignoreNodeClasses: ["bs-irp-thumbnail-1-full", "lwptoc_i"]
+                },
+                category: {
+                    selector: "span.term-badge a"
+                },
+                tags: ".post-tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div"),
+                    author: "cite.comment-author",
                     datetime: "time",
                     text: ".comment-content"
                 }
