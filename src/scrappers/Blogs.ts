@@ -802,3 +802,34 @@ export class flightio extends clsScrapper {
         })
     }
 }
+
+export class namava extends clsScrapper {
+    constructor() {
+        super(enuDomains.namava, "namava.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: ".datetime",
+                },
+                content: {
+                    main: '.post-content',
+                    ignoreTexts: [/.*» در نماوا.*/]
+                },
+                tags: ".tags a",
+                category: {
+                    selector: ".categories a" 
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list div .wpd-comment-wrap"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/movie", "/series"]
+            }
+        })
+    }
+}
