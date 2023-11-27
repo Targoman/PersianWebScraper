@@ -887,3 +887,24 @@ export class aparat extends clsScrapper {
         })
     }
 }
+
+export class taaghche extends clsScrapper {
+    constructor() {
+        super(enuDomains.taaghche, "taaghche.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "main.singlepage",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "section.content_post, img.mainpic",
+                    ignoreNodeClasses: ["related-post", "profilebox", "profileimg", "comments-area"],
+                },
+                tags: ".tags a",
+            }
+        })
+    }
+}
