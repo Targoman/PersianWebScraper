@@ -239,6 +239,7 @@ export enum enuDomains {
     jabama = "jabama",
     fidibo = "fidibo",
     jobinja = "jobinja",
+    rayamarketing = "rayamarketing",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

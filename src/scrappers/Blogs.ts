@@ -965,3 +965,33 @@ export class jobinja extends clsScrapper {
         })
     }
 }
+
+export class rayamarketing extends clsScrapper {
+    constructor() {
+        super(enuDomains.rayamarketing, "rayamarketing.com", {
+            selectors: {
+                article: "article.post-standard-details",
+                title: "h1",
+                subtitle: "p.post__subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post__text, [itemprop='image']",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comments__list li div"),
+                    author: "cite.comments__author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
