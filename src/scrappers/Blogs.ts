@@ -1114,3 +1114,26 @@ export class faradars extends clsScrapper {
         })
     }
 }
+
+export class kalleh extends clsScrapper {
+    constructor() {
+        super(enuDomains.kalleh, "kalleh.com", {
+            basePath: "/book",
+            selectors: {
+                article: "main.align-items-start article",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: ".entry-content .content, .entry-content, .post-thumbnail",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: ".tags-links a"
+            },
+        })
+    }
+}

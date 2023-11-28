@@ -244,6 +244,8 @@ export enum enuDomains {
     abantether = "abantether",
     okala = "okala",
     faradars = "faradars",
+    limoonad = "limoonad",
+    kalleh = "kalleh",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
