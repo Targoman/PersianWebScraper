@@ -1026,3 +1026,30 @@ export class miare extends clsScrapper {
             return url.toString()
     }
 }
+
+export class abantether extends clsScrapper {
+    constructor() {
+        super(enuDomains.abantether, "blog.abantether.com", {
+            selectors: {
+                article: "article.ast-article-single",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.published",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-container-direction"],
+                },
+                category: {
+                    selector: "ul.trail-items li a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.ast-comment-list li article"),
+                    author: ".ast-comment-cite-wrap cite b",
+                    datetime: "time",
+                    text: ".ast-comment-content"
+                }
+            }
+        })
+    }
+}
