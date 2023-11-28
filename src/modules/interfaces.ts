@@ -240,6 +240,7 @@ export enum enuDomains {
     fidibo = "fidibo",
     jobinja = "jobinja",
     rayamarketing = "rayamarketing",
+    miare = "miare",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

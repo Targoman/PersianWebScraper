@@ -995,3 +995,34 @@ export class rayamarketing extends clsScrapper {
         })
     }
 }
+
+export class miare extends clsScrapper {
+    constructor() {
+        super(enuDomains.miare, "miare.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["lwptoc_i", "kk-star-ratings"],
+                    ignoreTexts: [/.*پیشنهاد خواندنی.*/]
+
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            }
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if(url.pathname.includes("/wp-content/uploads") && !url.pathname.includes("blog")) {
+            return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)}
+        else 
+            return url.toString()
+    }
+}
