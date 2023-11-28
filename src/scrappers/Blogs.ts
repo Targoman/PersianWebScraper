@@ -1086,3 +1086,31 @@ export class okala extends clsScrapper {
         })
     }
 }
+
+export class faradars extends clsScrapper {
+    constructor() {
+        super(enuDomains.faradars, "blog.faradars.org", {
+            selectors: {
+                article: "article.status-publish",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], meta[property='article:modified_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".paragraphs, picture",
+                    ignoreNodeClasses: ["lwptoc_i", "faradars-courses-single"]
+                },
+                category: {
+                    selector: ".mb-2 a.font-extrabold"
+                },
+                tags: ".collapsible-tags-content-inner .tag a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list .comment div"),
+                    author: ".comment-metadata .ml-2",
+                    text: ".comment-body"
+                }
+            }
+        })
+    }
+}
