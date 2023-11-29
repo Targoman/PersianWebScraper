@@ -249,6 +249,8 @@ export enum enuDomains {
     chetor = "chetor",
     madarsho = "madarsho",
     filimoshot = "filimoshot",
+    sarakco = "sarakco",
+    avalpardakht = "avalpardakht",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

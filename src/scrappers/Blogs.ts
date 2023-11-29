@@ -1220,3 +1220,31 @@ export class filimoshot extends clsScrapper {
         })
     }
 }
+
+export class avalpardakht extends clsScrapper {
+    constructor() {
+        super(enuDomains.avalpardakht, "avalpardakht.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".td-post-content, .td-post-featured-image",
+                    ignoreNodeClasses: ["td-a-rec-id-content_inline", "kk-star-ratings", "lwptoc_i"]
+                },
+                category: {
+                    selector: "ul.td-category li a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer cite",
+                    text: ".comment-content"
+                }            
+            },
+        })
+    }
+}
