@@ -1248,3 +1248,34 @@ export class avalpardakht extends clsScrapper {
         })
     }
 }
+
+export class maktabkhooneh extends clsScrapper {
+    constructor() {
+        super(enuDomains.maktabkhooneh, "maktabkhooneh.org", {
+            basePath: "/mag/",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreNodeClasses: ["box-inner-block"],
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: "span.post-cat-wrap a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
