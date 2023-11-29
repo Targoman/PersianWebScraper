@@ -908,3 +908,232 @@ export class taaghche extends clsScrapper {
         })
     }
 }
+
+export class jabama extends clsScrapper {
+    constructor() {
+        super(enuDomains.jabama, "jabama.com", {
+            basePath: "/mag",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .wp-block-image figure, figure.single-featured-image",
+                    ignoreNodeClasses: ["ez-toc-title-container"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            }
+        })
+    }
+}
+
+export class jobinja extends clsScrapper {
+    constructor() {
+        super(enuDomains.jobinja, "blog.jobinja.ir", {
+            selectors: {
+                article: ".maincontent",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".image-post, .header_img-single figure a",
+                    ignoreNodeClasses: ["yarpp-related-website", "title_single"],
+                    ignoreTexts: [/.*img.*/]
+                },
+                category: {
+                    selector: "ul.post-categories li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body"),
+                    author: ".comment-author cite.fn",
+                    text: "p"
+                }
+            }
+        })
+    }
+}
+
+export class rayamarketing extends clsScrapper {
+    constructor() {
+        super(enuDomains.rayamarketing, "rayamarketing.com", {
+            selectors: {
+                article: "article.post-standard-details",
+                title: "h1",
+                subtitle: "p.post__subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post__text, [itemprop='image']",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comments__list li div"),
+                    author: "cite.comments__author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class miare extends clsScrapper {
+    constructor() {
+        super(enuDomains.miare, "miare.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["lwptoc_i", "kk-star-ratings"],
+                    ignoreTexts: [/.*پیشنهاد خواندنی.*/]
+
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            }
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if(url.pathname.includes("/wp-content/uploads") && !url.pathname.includes("blog")) {
+            return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)}
+        else 
+            return url.toString()
+    }
+}
+
+export class abantether extends clsScrapper {
+    constructor() {
+        super(enuDomains.abantether, "blog.abantether.com", {
+            selectors: {
+                article: "article.ast-article-single",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.published",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-container-direction"],
+                },
+                category: {
+                    selector: "ul.trail-items li a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.ast-comment-list li article"),
+                    author: ".ast-comment-cite-wrap cite b",
+                    datetime: "time",
+                    text: ".ast-comment-content"
+                }
+            }
+        })
+    }
+}
+
+export class okala extends clsScrapper {
+    constructor() {
+        super(enuDomains.okala, "blog.okala.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .single-featured",
+                    ignoreNodeClasses: ["Leadmagnet-forms-sec", "saboxplugin-wrap", "aiosrs-rating-wrap"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class faradars extends clsScrapper {
+    constructor() {
+        super(enuDomains.faradars, "blog.faradars.org", {
+            selectors: {
+                article: "article.status-publish",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], meta[property='article:modified_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".paragraphs, picture",
+                    ignoreNodeClasses: ["lwptoc_i", "faradars-courses-single"]
+                },
+                category: {
+                    selector: ".mb-2 a.font-extrabold"
+                },
+                tags: ".collapsible-tags-content-inner .tag a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list .comment div"),
+                    author: ".comment-metadata .ml-2",
+                    text: ".comment-body"
+                }
+            }
+        })
+    }
+}
+
+export class kalleh extends clsScrapper {
+    constructor() {
+        super(enuDomains.kalleh, "kalleh.com", {
+            basePath: "/book",
+            selectors: {
+                article: "main.align-items-start article",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: ".entry-content .content, .entry-content, .post-thumbnail",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: ".tags-links a"
+            },
+        })
+    }
+}
