@@ -11,10 +11,11 @@ class clsAsamBased extends clsScrapper {
                 article: (parsedHTML: HTMLElement) => parsedHTML.querySelector("article") || parsedHTML.querySelector(".news_content, main"),
                 aboveTitle: ".uptitle, .up-title, h2.up_title, h2.news-uptitle",
                 title: ".title, h1",
-                subtitle: ".lead, p.news-lead",
+                subtitle: ".lead, p.news-lead, p.news_lead",
                 content: {
-                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files',
-                    ignoreTexts: [/.*tavoos_init_player.*/]
+                    main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files, .primary_image',
+                    ignoreTexts: [/.*tavoos_init_player.*/],
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt", "tinyurl_form"]
                 },
                 comments: {
                     container: ".comments-list li, .new_gallery_list>*",
@@ -1409,6 +1410,128 @@ export class donyayemadan extends clsAsamBased {
         super(enuDomains.donyayemadan, "donyayemadan.com", {
             selectors: {
                 article: "article, .album-bg",
+            },
+        })
+    }
+}
+
+export class taraznameheghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.taraznameheghtesad, "taraznameheghtesad.ir", {
+            selectors: {
+                article: "article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.breadcrumb_list ul li a"),
+                },
+            },
+        })
+    }
+}
+
+export class bazarebours extends clsAsamBased {
+    constructor() {
+        super(enuDomains.bazarebours, "bazarebours.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .primary-files",
+                    ignoreNodeClasses: ["inline_news_box"]
+                }
+            },
+        })
+    }
+}
+
+export class panjere extends clsAsamBased {
+    constructor() {
+        super(enuDomains.panjere, "panjere.news", {
+            selectors: {
+                article: "#news-page-article, .splide__track ",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a, h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead, p.news_lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.more_album li a, #echo_detail div, .image_top_primary"),
+                    ignoreTexts: ["copied"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb_list li a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article_tag a"),
+            },
+        })
+    }
+}
+
+export class econegar extends clsAsamBased {
+    constructor() {
+        super(enuDomains.econegar, "econegar.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    ignoreTexts: ["بیشتر بخوانید"]
+                }
+            },
+        })
+    }
+}
+
+export class rasadeghtesadi extends clsAsamBased {
+    constructor() {
+        super(enuDomains.rasadeghtesadi, "rasadeghtesadi.com", {
+            selectors: {
+                article: "article.news_page_article",
+                category: {
+                    selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}
+
+export class gashtaninews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.gashtaninews, "gashtaninews.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    ignoreNodeClasses: ["others_known", "inline-news-box"]
+                },
+                category: {
+                    selector: "ul.bread_crump li a"
+                }
+            },
+        })
+    }
+}
+
+export class revayatnameh extends clsAsamBased {
+    constructor() {
+        super(enuDomains.revayatnameh, "revayatnameh.com", {
+            selectors: {
+                article: "article",
+                content: {
+                    main: "#main_ck_editor, .image",
+                    ignoreNodeClasses: ["more-news-in-text"]
+                },
+                tags: ".tags ul li a"
+            },
+        })
+    }
+}
+
+export class sornakhabar extends clsAsamBased {
+    constructor() {
+        super(enuDomains.sornakhabar, "sornakhabar.com", {
+            selectors: {
+                article: "article",
             },
         })
     }

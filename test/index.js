@@ -736,6 +736,92 @@ clear; rm -rf .db corpora; yarn dev && yarn start panjahopanjonline -u https://w
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-فولاد-26/248910-مشکل-جدی-ضعف-تسهیلات-حمایت-ها-برای-توسعه-فناوری-صنایع-معدنی-است
 clear; rm -rf .db corpora; yarn dev && yarn start donyayemadan -u https://www.donyayemadan.com/بخش-گزارش-تصویری-12/248901-نخستین-نشست-هم-اندیشی-فعالان-گوهرسنگ-ها-در-مرکز-تحقیقات-فراوری-مواد-معدنی-ایران
 
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-گوگل-نیوز-69/41203-احتمال-لغو-افزایش-سن-بازنشستگی-توسط-شورای-نگهبان-خبر-مهم-درباره-مصوبه-جدید-سن-بازنشستگی
+clear; rm -rf .db corpora; yarn dev && yarn start taraznameheghtesad -u https://www.taraznameheghtesad.ir/بخش-عکس-12/38144-چشم-در-چشم-زیباترین-خزندگان-ایران
+
+clear; rm -rf .db corpora; yarn dev && yarn start bazarebours -u https://www.bazarebours.com/بخش-گوگل-نیوز-68/15540-آخرین-وضعیت-جاده-ها-امروز-فروردین-خبر-مهم
+clear; rm -rf .db corpora; yarn dev && yarn start bazarebours -u https://www.bazarebours.com/بخش-گوگل-نیوز-68/15650-حراج-بهاره-سایپا-آغاز-شد-فروش-فوق-العاده-محصولات-سایپا-با-شرایط-از-دم-قسط-از-فردا
+
+clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-سیاسی-3/17912-عوارض-آزادراهی-بر-اساس-نوع-خودرو-مسافت-طی-شده-محاسبه-می-گردد
+clear; rm -rf .db corpora; yarn dev && yarn start panjere -u https://www.panjere.news/بخش-عکس-69/17063-عکس-های-آرنولد-هایم-در-سفر-به-کشورهای-عربی-در-سال-پیش
+
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-کلان-67/9190-علل-دلسردی-کارگران-از-بازارکار
+clear; rm -rf .db corpora; yarn dev && yarn start econegar -u https://www.econegar.com/بخش-اقتصاد-جهان-70/6937-چرا-نوبل-اقتصاد-به-کلودیا-گلدن-اهدا-شد-سومین-زن-برنده-در-جایزه-ای-مردانه
+
+clear; rm -rf .db corpora; yarn dev && yarn start rasadeghtesadi -u https://www.rasadeghtesadi.com/بخش-گوگل-نیوز-93/61715-بانک-صادرات-ایران-با-ست-جایزه-اول-جشنواره-دکتر-نوربخش-را-به-خانه-برد
+clear; rm -rf .db corpora; yarn dev && yarn start rasadeghtesadi -u https://www.rasadeghtesadi.com/بخش-بانک-8/8054-اینفوگرافیک-اولویت-های-سیاست-اعتباری-بانک-دی-در-سال
+
+clear; rm -rf .db corpora; yarn dev && yarn start gashtaninews -u https://www.gashtaninews.com/بخش-گوگل-نیوز-109/14894-وام-فوری-میلیونی-بالعوض-برای-این-افراد-وام-فوری-بدون-نیاز-به-ضامن-سپرده
+clear; rm -rf .db corpora; yarn dev && yarn start gashtaninews -u https://www.gashtaninews.com/بخش-گوگل-نیوز-109/15720-وام-قرض-الحسنه-میلیونی-برای-این-افراد-وام-قرض-الحسنه-با-شرایط-عالی-جزئیات
+
+clear; rm -rf .db corpora; yarn dev && yarn start revayatnameh -u https://www.revayatnameh.com/بخش-دیروزنامه-66/783-گردشگر-نه-اندیشه-ورز
+clear; rm -rf .db corpora; yarn dev && yarn start revayatnameh -u https://www.revayatnameh.com/بخش-دیروزنامه-66/777-فروپاشی-ساختارها
+
+clear; rm -rf .db corpora; yarn dev && yarn start sornakhabar -u https://www.sornakhabar.com/بخش-سینما-9/371894-ریدلی-اسکات-فیلم-ناپلئون-را-به-سگش-لولو-تقدیم-می-کند
+clear; rm -rf .db corpora; yarn dev && yarn start sornakhabar -u https://www.sornakhabar.com/بخش-سینما-9/371880-بیچاره-فروغ-همزمان-با-انتشار-تیزر-فیلم-من-فروغ-هستم-انتقادها-از-بازی-انتخاب-باران-کوثری-بالا-گرفت-ویدئو-عکس
+
+clear; rm -rf .db corpora; yarn dev && yarn start jamejamonline -u https://jamejamonline.ir/fa/news/1432575/آوای-خوش-خاطرات-کودکی
+clear; rm -rf .db corpora; yarn dev && yarn start jamejamonline -u https://jamejamonline.ir/fa/news/1432342/گزارش-تصویری-%7C-قاب%E2%80%8Cهایی-از-پایان-قاجار
+
+clear; rm -rf .db corpora; yarn dev && yarn start pansadonavadohasht -u https://www.598.ir/fa/news/531839/مشاغل-سخت-و-زیان%E2%80%8Cآور
+clear; rm -rf .db corpora; yarn dev && yarn start pansadonavadohasht -u https://www.598.ir/fa/news/531844/صفحه-اول-روزنامه%E2%80%8Cهای-پنج-شنبه-۲-آذر-ماه
+
+clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/383674/اقدام-عجیب-دولت-برای-افزایش-حقوقها/
+clear; rm -rf .db corpora; yarn dev && yarn start ofoghnews -u https://ofoghnews.ir/gallery/گزارش-تصویری-اجرای-آبان-ماه-کنسرت-چارت/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/sights-andimeshk/
+clear; rm -rf .db corpora; yarn dev && yarn start snapp -u https://snapp.ir/blog/98-annual-report/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snappfood -u https://blog.snappfood.ir/طرز-تهیه-مسقطی-انار/
+clear; rm -rf .db corpora; yarn dev && yarn start snappfood -u https://blog.snappfood.ir/french-fries-origin/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snapptrip -u https://www.snapptrip.com/blog/جاهای-دیدنی-سمنان/
+clear; rm -rf .db corpora; yarn dev && yarn start snapptrip -u https://www.snapptrip.com/blog/کنسلی-رایگان-اسنپ-تریپ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start digikala -u https://www.digikala.com/mag/laptop-buying-guide-part1-1400-12/
+clear; rm -rf .db corpora; yarn dev && yarn start digikala -u https://nobitex.ir/mag/8543-eth-worth-16m-was-just-burned/
+
+clear; rm -rf .db corpora; yarn dev && yarn start snappmarket -u https://snapp.market/blog/everything-about-jackfruit/
+clear; rm -rf .db corpora; yarn dev && yarn start snappmarket -u https://snapp.market/blog/cleaning-scum-home/
+
+clear; rm -rf .db corpora; yarn dev && yarn start flightio -u https://flightio.com/blog/travel-tips/black-friday/
+clear; rm -rf .db corpora; yarn dev && yarn start flightio -u https://flightio.com/blog/attractions/aya-sofia-mosque/
+
+clear; rm -rf .db corpora; yarn dev && yarn start namava -u https://www.namava.ir/mag/آدمکش؛-خداحافظ-آدمکش/
+clear; rm -rf .db corpora; yarn dev && yarn start namava -u https://www.namava.ir/mag/سریال-آرکین؛-تلاقی-دلنشین-دوقطبی%e2%80%8cه/
+
+clear; rm -rf .db corpora; yarn dev && yarn start achareh -u https://blog.achareh.ir/why-washing-machine-wont-drain/ 
+clear; rm -rf .db corpora; yarn dev && yarn start achareh -u https://blog.achareh.ir/پرسش-از-آچاره/
+
+clear; rm -rf .db corpora; yarn dev && yarn start aparat -u https://aparat.blog/upload-video-to-win/
+clear; rm -rf .db corpora; yarn dev && yarn start aparat -u https://aparat.blog/aparatgap-program
+
+clear; rm -rf .db corpora; yarn dev && yarn start taaghche -u https://taaghche.com/blog/1402/08/29/کتاب-برای-شروع-کتابخوانی-نوجوانان/
+clear; rm -rf .db corpora; yarn dev && yarn start taaghche -u https://taaghche.com/blog/1401/03/22/برندگان-جایزه-گلشیری/
+
+clear; rm -rf .db corpora; yarn dev && yarn start jabama -u https://www.jabama.com/mag/the-best-time-to-travel-to-rasht/
+clear; rm -rf .db corpora; yarn dev && yarn start jabama -u https://www.jabama.com/mag/best-restaurants-in-tehran/
+
+clear; rm -rf .db corpora; yarn dev && yarn start jobinja -u https://blog.jobinja.ir/آموزش-کاورلتر-و-رزومه-نویسی/
+clear; rm -rf .db corpora; yarn dev && yarn start jobinja -u https://blog.jobinja.ir/کسب-درآمد-اینترنتی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start rayamarketing -u https://rayamarketing.com/blog/Overview-Video-Editing-Professionals
+clear; rm -rf .db corpora; yarn dev && yarn start rayamarketing -u https://rayamarketing.com/blog/Customer-Purchase-Path
+
+clear; rm -rf .db corpora; yarn dev && yarn start miare -u https://www.miare.ir/blog/تعویض-پلاک-موتور/
+clear; rm -rf .db corpora; yarn dev && yarn start abantether -u https://blog.abantether.com/what-is-gitcoin/
+clear; rm -rf .db corpora; yarn dev && yarn start abantether -u https://blog.abantether.com/fee-transaction/
+
+clear; rm -rf .db corpora; yarn dev && yarn start okala -u https://blog.okala.com/polo-makhloote-mashhadi/
+clear; rm -rf .db corpora; yarn dev && yarn start okala -u https://blog.okala.com/how-to-make-a-few-fruit-lavashak/
+
+clear; rm -rf .db corpora; yarn dev && yarn start faradars -u https://blog.faradars.org/a-dust-jet-from-the-surface-of-comet-67p/
+clear; rm -rf .db corpora; yarn dev && yarn start faradars -u https://blog.faradars.org/free-access-method/
+clear; rm -rf .db corpora; yarn dev && yarn start faradars -u https://blog.faradars.org/learn/انواع-اسم-در-زبان-انگلیسی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start kalleh -u https://kalleh.com/book/recipe/طرز-تهیه-میرزا-قاسمی-با-کشک/
+clear; rm -rf .db corpora; yarn dev && yarn start kalleh -u https://kalleh.com/book/article/پنیر-در-گذر-تاریخ/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
