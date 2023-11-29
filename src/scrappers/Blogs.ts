@@ -1190,3 +1190,33 @@ export class madarsho extends clsScrapper {
         })
     }
 }
+
+export class filimoshot extends clsScrapper {
+    constructor() {
+        super(enuDomains.filimoshot, "filimo.com", {
+            basePath: "/shot",
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content, .single-featured",
+                    ignoreNodeClasses: ["lwptoc_i", "btn-default"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".term-badges span a"),
+                },
+                tags: ".post-tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div"),
+                    author: "cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
