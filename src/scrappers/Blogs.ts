@@ -1279,3 +1279,33 @@ export class maktabkhooneh extends clsScrapper {
         })
     }
 }
+
+export class sevenlearn extends clsScrapper {
+    constructor() {
+        super(enuDomains.sevenlearn, "7learn.com", {
+            selectors: {
+                article: "div.card-question",
+                title: ".text span.title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".description",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 2
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".card-reply"),
+                    author: ".user span.title",
+                    text: ".description"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/course"]
+            }
+        })
+    }
+}
