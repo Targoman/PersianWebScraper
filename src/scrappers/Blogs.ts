@@ -1398,3 +1398,29 @@ export class bookland extends clsScrapper {
         })
     }
 }
+
+export class iranhotelonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranhotelonline, "iranhotelonline.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "[data-id='74432a66']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => 
+                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-full"),
+                    ignoreNodeClasses: ["kk-star-ratings"],
+                    ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='60d59e19'] div p a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3.elementor-heading-title a"),
+            },
+        })
+    }
+}
