@@ -1309,3 +1309,35 @@ export class sevenlearn extends clsScrapper {
         })
     }
 }
+
+export class modireweb extends clsScrapper {
+    constructor() {
+        super(enuDomains.modireweb, "modireweb.com", {
+            selectors: {
+                article: "[data-id='4ef12ee'], [data-id='e2ec43c']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => 
+                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-medium"),
+                    ignoreNodeClasses: ["no_bullets", "message-box", "rmp-rating-widget", "rmp-results-widget", "crp_related"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='d2007bc'] div a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "cite",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/product", "/gold-contents"]
+            }
+        })
+    }
+}
