@@ -1341,3 +1341,33 @@ export class modireweb extends clsScrapper {
         })
     }
 }
+
+export class doctoreto extends clsScrapper {
+    constructor() {
+        super(enuDomains.doctoreto, "doctoreto.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".start-content",
+                    ignoreNodeClasses: ["table-of-content"],
+                    ignoreTexts: [/.*img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".date-cat span a"),
+                },
+                tags: ".tags ul.category-button li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .comment-body"),
+                    author: ".comment-author cite.fn",
+                    text: "p"
+                }
+            },
+        })
+    }
+}

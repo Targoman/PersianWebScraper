@@ -254,6 +254,7 @@ export enum enuDomains {
     maktabkhooneh = "maktabkhooneh",
     sevenlearn = "sevenlearn",
     modireweb = "modireweb",
+    doctoreto = "doctoreto",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
