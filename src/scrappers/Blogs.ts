@@ -1341,3 +1341,86 @@ export class modireweb extends clsScrapper {
         })
     }
 }
+
+export class doctoreto extends clsScrapper {
+    constructor() {
+        super(enuDomains.doctoreto, "doctoreto.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".start-content",
+                    ignoreNodeClasses: ["table-of-content"],
+                    ignoreTexts: [/.*img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".date-cat span a"),
+                },
+                tags: ".tags ul.category-button li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .comment-body"),
+                    author: ".comment-author cite.fn",
+                    text: "p"
+                }
+            },
+        })
+    }
+}
+
+export class bookland extends clsScrapper {
+    constructor() {
+        super(enuDomains.bookland, "bookland.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-row",
+                title: "h1",
+                datetime: {
+                    conatiner: ".txt-con div:nth-child(2)",
+                },
+                content: {
+                    main: ".post-body",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments-row div:nth-child(2) .comment-row"),
+                    author: ".name",
+                    datetime: ".date",
+                    text: ".comment-col"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class iranhotelonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranhotelonline, "iranhotelonline.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "[data-id='74432a66']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => 
+                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-full"),
+                    ignoreNodeClasses: ["kk-star-ratings"],
+                    ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='60d59e19'] div p a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3.elementor-heading-title a"),
+            },
+        })
+    }
+}
