@@ -1371,3 +1371,30 @@ export class doctoreto extends clsScrapper {
         })
     }
 }
+
+export class bookland extends clsScrapper {
+    constructor() {
+        super(enuDomains.bookland, "bookland.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-row",
+                title: "h1",
+                datetime: {
+                    conatiner: ".txt-con div:nth-child(2)",
+                },
+                content: {
+                    main: ".post-body",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments-row div:nth-child(2) .comment-row"),
+                    author: ".name",
+                    datetime: ".date",
+                    text: ".comment-col"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
