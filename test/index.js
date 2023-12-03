@@ -852,6 +852,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start bookland -u https://bookland.i
 clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/abnic-village/
 clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/post-1840/زیباترین-جاذبه-های-گردشگری-استرالیا/
 
+clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
+clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
