@@ -1518,3 +1518,32 @@ export class iranicard extends clsScrapper {
         })
     }
 }
+
+export class hamrah extends clsScrapper {
+    constructor() {
+        super(enuDomains.hamrah, "hamrah.academy", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+                },
+                category: {
+                    selector: "span.post-cat-wrap a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
