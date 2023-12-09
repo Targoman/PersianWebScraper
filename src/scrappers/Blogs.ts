@@ -1458,3 +1458,36 @@ export class bonyadvokala extends clsScrapper {
         })
     }
 }
+
+export class apademy extends clsScrapper {
+    constructor() {
+        super(enuDomains.apademy, "apademy.com", {
+            basePath: "/article",
+            selectors: {
+                article: ".s-pod-post",
+                title: "h2",
+                datetime: {
+                    conatiner: ".mini-person.margin1 span",
+                },
+                content: {
+                    main: ".post-text",
+                    ignoreNodeClasses: ["table-of-contents"],
+                    ignoreTexts: [/.*مقاله پیشنهادی.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".container .s-cast-comment"),
+                    author: ".command-user-name span:nth-child(1)",
+                    datetime: ".time-replay",
+                    text: "div p, .user-comment-replay p"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/course", "/podcast"]
+            }
+        })
+    }
+}

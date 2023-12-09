@@ -258,6 +258,7 @@ export enum enuDomains {
     bookland = "bookland",
     iranhotelonline = "iranhotelonline",
     bonyadvokala = "bonyadvokala",
+    apademy = "apademy",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
