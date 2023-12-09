@@ -1577,3 +1577,27 @@ export class asiatech extends clsScrapper {
         })
     }
 }
+
+export class ponisha extends clsScrapper {
+    constructor() {
+        super(enuDomains.ponisha, "ponisha.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-blog-article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-blog-content",
+                    ignoreTexts: [/.*امتیاز.*/]
+                },
+                category: {
+                    selector: "li.meta-category a",
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}
