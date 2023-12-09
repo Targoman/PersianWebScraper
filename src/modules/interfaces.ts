@@ -259,6 +259,7 @@ export enum enuDomains {
     iranhotelonline = "iranhotelonline",
     bonyadvokala = "bonyadvokala",
     apademy = "apademy",
+    iranicard = "iranicard",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

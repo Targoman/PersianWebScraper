@@ -1491,3 +1491,30 @@ export class apademy extends clsScrapper {
         })
     }
 }
+
+export class iranicard extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranicard, "iranicard.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: "span.persian-digit"
+                },
+                content: {
+                    main: ".container-post, .post-single-image figure div",
+                    ignoreNodeClasses: ["toc-box"],
+                },
+                category: {
+                    selector: "a.post-item-term",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commnet-list li article"),
+                    author: "footer .comment-author b",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
