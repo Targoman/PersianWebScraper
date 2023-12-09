@@ -261,6 +261,7 @@ export enum enuDomains {
     apademy = "apademy",
     iranicard = "iranicard",
     hamrah = "hamrah",
+    asiatech = "asiatech",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

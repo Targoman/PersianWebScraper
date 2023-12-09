@@ -1547,3 +1547,33 @@ export class hamrah extends clsScrapper {
         })
     }
 }
+
+export class asiatech extends clsScrapper {
+    constructor() {
+        super(enuDomains.asiatech, "asiatech.cloud", {
+            basePath: "/weblog",
+            selectors: {
+                article: ".blog_large_post_style",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post_content",
+                    ignoreTexts: [/.*خانه ».*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.meta-category-small a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.single_post_tag_layout li a"),
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li article"),
+                    author: "span.comment-author-name",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
