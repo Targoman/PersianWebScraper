@@ -1601,3 +1601,30 @@ export class ponisha extends clsScrapper {
         })
     }
 }
+
+export class trip extends clsScrapper {
+    constructor() {
+        super(enuDomains.trip, "trip.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-content-img",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date",
+                },
+                content: {
+                    main: ".blog-text-conetent, .b-post-img",
+                },
+                category: {
+                    selector: "ul.list-items li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".b-cm-container .comment-box"),
+                    author: "p.person strong",
+                    datetime: "span.date",
+                    text: "p.comment"
+                }
+            },
+        })
+    }
+}
