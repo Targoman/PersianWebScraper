@@ -1651,3 +1651,26 @@ export class parshistory extends clsScrapper {
         })
     }
 }
+
+export class rawanshenas extends clsScrapper {
+    constructor() {
+        super(enuDomains.rawanshenas, "rawanshenas.ir", {
+            selectors: {
+                article: "article.main-article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".text, .featured-image",
+                    ignoreNodeClasses: ["kk-star-ratings"],
+                },
+                category: {
+                    selector: ".single-categories a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".bottom-tags a"),
+            },
+        })
+    }
+}
