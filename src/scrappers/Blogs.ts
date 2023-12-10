@@ -1628,3 +1628,26 @@ export class trip extends clsScrapper {
         })
     }
 }
+
+export class parshistory extends clsScrapper {
+    constructor() {
+        super(enuDomains.parshistory, "parshistory.com", {
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .single-featured a",
+                    ignoreNodeClasses: ["ez-toc-container-direction"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                },
+                tags: ".post-tags a",
+            },
+        })
+    }
+}
