@@ -267,6 +267,7 @@ export enum enuDomains {
     parshistory = "parshistory",
     rawanshenas = "rawanshenas",
     telescope = "telescope",
+    mendellab = "mendellab",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

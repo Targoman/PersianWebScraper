@@ -3,7 +3,7 @@ import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfComment, IntfMappedCatgory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import { fa2En, getElementAtIndex, normalizeText } from "../modules/common";
-import { axiosPost, IntfRequestParams } from "../modules/request";
+import { axiosGet, axiosPost, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
 
 
@@ -1703,6 +1703,64 @@ export class telescope extends clsScrapper {
             },
             url: {
                 removeWWW: true
+            }
+        })
+    }
+}
+
+export class mendellab extends clsScrapper {
+    constructor() {
+        super(enuDomains.mendellab, "mendel-lab.com", {
+            selectors: {
+                article: ".content-wrapper .blog-body",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.content-info-val"
+                },
+                content: {
+                    main: ".content-body",
+                },
+                tags: ".content-tags a",
+                comments: async (url: URL, reqParams: IntfRequestParams): Promise<IntfComment[]> => {
+                    const comments: IntfComment[] = []
+                    const match = url.pathname.match(/(\d+)$/);
+                    const retrieveComments = async () => {
+                        await axiosGet(log,
+                            {
+                                ...reqParams,
+                                url: `https://mendel-lab.com/api/comments/getAll?sourceType=Blog&sourceId=${match?.[0]}`,
+                                headers: {
+                                    "Content-Type": "application/json; charset=UTF-8"
+                                },
+                                onSuccess: async (res: any) => {
+                                    res.data.comments.forEach((item: any) => {
+                                        comments.push({
+                                            text: normalizeText(item.description),
+                                            author: normalizeText(item.creator),
+                                            date: item.createDate.substring(0,10)
+                                        })
+                                        item.replies?.forEach((child: any) => {
+                                            comments.push({
+                                                text: normalizeText(child.description),
+                                                author: normalizeText(child.creator),
+                                                date: child.createDate.substring(0,10)
+                                            })
+                                        })
+                                    })
+                                },
+                                onFail: (e) => { log.error(e) }
+                            }
+                        )
+                    }
+
+                    await retrieveComments()
+
+                    return comments
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/services"]
             }
         })
     }
