@@ -1674,3 +1674,36 @@ export class rawanshenas extends clsScrapper {
         })
     }
 }
+
+export class telescope extends clsScrapper {
+    constructor() {
+        super(enuDomains.telescope, "telescope.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "[data-id='bb6c7d8']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => 
+                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*"),
+                    ignoreNodeClasses: ["kk-star-ratings", "elementor-toc__list-item-text-wrapper"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li article"),
+                    author: "cite.comment-author",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
