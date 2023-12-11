@@ -273,6 +273,7 @@ export enum enuDomains {
     arzfi = "arzfi",
     gishniz = "gishniz",
     chemibazar = "chemibazar",
+    mehrdadcivil = "mehrdadcivil",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
