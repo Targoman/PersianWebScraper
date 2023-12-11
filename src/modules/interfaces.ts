@@ -270,6 +270,7 @@ export enum enuDomains {
     mendellab = "mendellab",
     faab = "faab",
     wikiravan = "wikiravan",
+    arzfi = "arzfi",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

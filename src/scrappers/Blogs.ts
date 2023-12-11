@@ -1818,3 +1818,23 @@ export class wikiravan extends clsScrapper {
         })
     }
 }
+
+export class arzfi extends clsScrapper {
+    constructor() {
+        super(enuDomains.arzfi, "wiki.arzfi.net", {
+            selectors: {
+                article: ".BlogId_post_container__co0xh",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "[style='line-height:2rem'], .BlogId_picture__IkztZ",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
