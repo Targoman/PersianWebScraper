@@ -269,6 +269,7 @@ export enum enuDomains {
     telescope = "telescope",
     mendellab = "mendellab",
     faab = "faab",
+    wikiravan = "wikiravan",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
