@@ -1855,12 +1855,31 @@ export class gishniz extends clsScrapper {
                     selector: ".tags-links.mb-3 a",
                 },
                 tags: ".tagcloud a",
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
-                    author: ".comment-author b",
-                    datetime: "time",
-                    text: ".comment-content"
-                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class chemibazar extends clsScrapper {
+    constructor() {
+        super(enuDomains.chemibazar, "blog.chemibazar.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_17", "ez-toc-section"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-cat-wrap a"),
+                },
             },
             url: {
                 removeWWW: true
