@@ -1838,3 +1838,33 @@ export class arzfi extends clsScrapper {
         })
     }
 }
+
+export class gishniz extends clsScrapper {
+    constructor() {
+        super(enuDomains.gishniz, "blog.gishniz.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: ".tags-links.mb-3 a",
+                },
+                tags: ".tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

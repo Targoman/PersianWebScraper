@@ -271,6 +271,7 @@ export enum enuDomains {
     faab = "faab",
     wikiravan = "wikiravan",
     arzfi = "arzfi",
+    gishniz = "gishniz",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
