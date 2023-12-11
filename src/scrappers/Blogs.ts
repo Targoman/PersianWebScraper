@@ -1765,3 +1765,25 @@ export class mendellab extends clsScrapper {
         })
     }
 }
+
+export class faab extends clsScrapper {
+    constructor() {
+        super(enuDomains.faab, "faab.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "[data-id='3a9d0a94']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[data-id='287528c6'] div, .elementor-widget-theme-post-featured-image div"
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a",
+                },
+            },
+        })
+    }
+}
