@@ -1919,3 +1919,34 @@ export class mehrdadcivil extends clsScrapper {
         })
     }
 }
+
+export class sakkook extends clsScrapper {
+    constructor() {
+        super(enuDomains.sakkook, "blog.sakkook.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                subtitle: "h2.entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreNodeClasses: ["post-bottom-meta"]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
