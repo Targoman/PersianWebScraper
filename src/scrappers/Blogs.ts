@@ -2020,3 +2020,28 @@ export class hamgardi extends clsScrapper {
             return url.toString()
     }
 }
+
+export class novin extends clsScrapper {
+    constructor() {
+        super(enuDomains.novin, "novin.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".blog-single",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content, .blog-single-image-holder",
+                },
+                category: {
+                    selector: ".blog-single-categories a",
+                },
+            },
+            url: {
+                extraInvalidStartPaths: ["/academy", "/experts"]
+            }
+        })
+    }
+}

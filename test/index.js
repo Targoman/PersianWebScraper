@@ -912,6 +912,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start bestfarsi -u https://bestfarsi
 clear; rm -rf .db corpora; yarn dev && yarn start hamgardi -u https://hamgardi.com/fa/Post/61068-تالاب-سولوکلی-یکی-از-جاذبه-های-طبیعی-استان-گلستان-به-شمار-می-رود
 clear; rm -rf .db corpora; yarn dev && yarn start hamgardi -u https://hamgardi.com/fa/Post/7570-خانه-ابراهیم-گلستان
 
+clear; rm -rf .db corpora; yarn dev && yarn start novin -u https://www.novin.com/blog/podcast-2/
+clear; rm -rf .db corpora; yarn dev && yarn start novin -u https://www.novin.com/blog/what-are-rich-snippets/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
