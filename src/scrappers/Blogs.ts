@@ -1981,3 +1981,42 @@ export class bestfarsi extends clsScrapper {
         })
     }
 }
+
+export class hamgardi extends clsScrapper {
+    constructor() {
+        super(enuDomains.hamgardi, "hamgardi.com", {
+            selectors: {
+                article: ".mainContent-about-int",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: "span.blog-side-date",
+                    acceptNoDate: true,
+                },
+                content: {
+                    main: ".hm-html-editor-body",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    startIndex: 1
+                },
+                tags: "ul.generalTags li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".secondSecComment div div, #appendLoadComment li"),
+                    author: ".author-name a",
+                    datetime: "li.comntDate",
+                    text: "p.commentContent"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/flight", "/hotel", "/fa/Visa", "/fa/Tour"]
+            }
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if(url.pathname.includes("cdn.hamgardi.com")) {
+            return url.toString().replace("www.hamgardi.com", "")}
+        else 
+            return url.toString()
+    }
+}
