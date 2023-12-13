@@ -2073,3 +2073,32 @@ export class zibamoon extends clsScrapper {
         })
     }
 }
+
+export class iranacademy extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranacademy, "iran-academy.org", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                subtitle: "p.DetailShortText",
+                datetime: {
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "h2, p, ol",
+                    ignoreNodeClasses: ["kt-comments"]
+                },
+                category: {
+                    selector: ".BreadCrumbArea ul li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".kt-comments .kt-comments__item"),
+                    author: ".o-media__body div a",
+                    datetime: "time",
+                    text: ".kt-comment-message"
+                }
+            },
+        })
+    }
+}
