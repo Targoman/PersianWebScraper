@@ -2102,3 +2102,26 @@ export class iranacademy extends clsScrapper {
         })
     }
 }
+
+export class digistyle extends clsScrapper {
+    constructor() {
+        super(enuDomains.digistyle, "digistyle.com", {
+            basePath: "/mag",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content, .post-format",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs ol li a"),
+                },
+                tags: ".tags_box a",
+            },
+        })
+    }
+}
