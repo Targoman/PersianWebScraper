@@ -281,6 +281,8 @@ export enum enuDomains {
     zibamoon = "zibamoon",
     iranacademy = "iranacademy",
     digistyle = "digistyle",
+    iranserver = "iranserver",
+    parscoders = "parscoders",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

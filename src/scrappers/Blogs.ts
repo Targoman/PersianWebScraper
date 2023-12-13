@@ -2125,3 +2125,31 @@ export class digistyle extends clsScrapper {
         })
     }
 }
+
+export class parscoders extends clsScrapper {
+    constructor() {
+        super(enuDomains.parscoders, "parscoders.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.blog-single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["post-block", "kk-star-ratings", "post-meta"],
+                    ignoreTexts: [/.*برچسب ها.*/]
+                },
+                tags: "a[rel='tag']",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
