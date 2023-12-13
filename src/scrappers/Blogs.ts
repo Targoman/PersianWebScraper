@@ -2045,3 +2045,31 @@ export class novin extends clsScrapper {
         })
     }
 }
+
+export class zibamoon extends clsScrapper {
+    constructor() {
+        super(enuDomains.zibamoon, "zibamoon.com", {
+            selectors: {
+                article: ".DetailArea",
+                title: "h1",
+                subtitle: "p.DetailShortText",
+                datetime: {
+                    conatiner: ".Date span"
+                },
+                content: {
+                    main: ".DetailText, .DetailImageArea picture",
+                    ignoreNodeClasses: ["TableOfContent"],
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+                },
+                category: {
+                    selector: ".BreadCrumbArea ul li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".CM .CMArea"),
+                    author: ".CMUserName",
+                    text: ".CMText"
+                }
+            },
+        })
+    }
+}
