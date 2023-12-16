@@ -2251,9 +2251,35 @@ export class webpouya extends clsScrapper {
                     selector: ".itemCategory a",
                 },
             },
-            // url: {
-            //     extraInvalidStartPaths: ["/product"]
-            // }
+        })
+    }
+}
+
+export class watereng extends clsScrapper {
+    constructor() {
+        super(enuDomains.watereng, "watereng.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-single-wrapper-container",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#post-the-conetnt-toc",
+                    ignoreNodeClasses: ["kk-star-ratings"]
+                },
+                category: {
+                    selector: "a.single-post-category-item, .post-acl-image-container",
+                },
+                tags: "a.single-post-tag-item",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .comment-body"),
+                    author: ".comment-author cite",
+                    text: "p"
+                }
+            },
         })
     }
 }

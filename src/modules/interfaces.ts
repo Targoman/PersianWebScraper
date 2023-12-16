@@ -287,6 +287,8 @@ export enum enuDomains {
     honareseda = "honareseda",
     malltina = "malltina",
     webpouya = "webpouya",
+    followshe = "followshe",
+    watereng = "watereng",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
