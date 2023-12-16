@@ -284,6 +284,7 @@ export enum enuDomains {
     iranserver = "iranserver",
     parscoders = "parscoders",
     liangroup = "liangroup",
+    honareseda = "honareseda",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

@@ -2182,3 +2182,34 @@ export class liangroup extends clsScrapper {
         })
     }
 }
+
+export class honareseda extends clsScrapper {
+    constructor() {
+        super(enuDomains.honareseda, "honareseda.com", {
+            basePath: "/bloghonar",
+            selectors: {
+                article: "[role='article']",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content, .wp-block-image figure",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs span a"),
+                    startIndex: 1
+                },
+                tags: ".post-tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.commentlist li article"),
+                    author: ".comment-author b",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/product"]
+            }
+        })
+    }
+}
