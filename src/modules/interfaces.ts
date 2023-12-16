@@ -285,6 +285,7 @@ export enum enuDomains {
     parscoders = "parscoders",
     liangroup = "liangroup",
     honareseda = "honareseda",
+    malltina = "malltina"
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

@@ -2213,3 +2213,22 @@ export class honareseda extends clsScrapper {
         })
     }
 }
+
+export class malltina extends clsScrapper {
+    constructor() {
+        super(enuDomains.malltina, "blog.malltina.com", {
+            selectors: {
+                article: "article.main-article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "section.post-content",
+                    ignoreTexts: [/.*<img.*/, /.*Banner.*/]
+                },
+            },
+        })
+    }
+}
