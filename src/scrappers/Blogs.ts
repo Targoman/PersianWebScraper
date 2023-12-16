@@ -2232,3 +2232,28 @@ export class malltina extends clsScrapper {
         })
     }
 }
+
+export class webpouya extends clsScrapper {
+    constructor() {
+        super(enuDomains.webpouya, "webpouya.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".itemView",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.itemDateModified"
+                },
+                content: {
+                    main: ".itemBody",
+                    ignoreNodeClasses: ["itemDateModified"]
+                },
+                category: {
+                    selector: ".itemCategory a",
+                },
+            },
+            // url: {
+            //     extraInvalidStartPaths: ["/product"]
+            // }
+        })
+    }
+}
