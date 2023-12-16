@@ -283,6 +283,7 @@ export enum enuDomains {
     digistyle = "digistyle",
     iranserver = "iranserver",
     parscoders = "parscoders",
+    liangroup = "liangroup",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
