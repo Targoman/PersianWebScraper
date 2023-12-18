@@ -291,7 +291,8 @@ export enum enuDomains {
     watereng = "watereng",
     iraneurope = "iraneurope",
     emalls = "emalls",
-    shereno = "shereno"
+    shereno = "shereno",
+    scorize = "scorize",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

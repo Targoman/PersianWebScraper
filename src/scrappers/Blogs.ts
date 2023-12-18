@@ -2356,3 +2356,41 @@ export class shereno extends clsScrapper {
         })
     }
 }
+
+export class scorize extends clsScrapper {
+    constructor() {
+        super(enuDomains.scorize, "scorize.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".blog__box",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: ".blog__box div:nth-child(1) div:nth-child(1) span",
+                    splitter: (el: HTMLElement) => {
+                        const date = super.extractDate(el, el.classList.contains("comment-date") ? " " : "،")
+                        if (date && date.length < 9 && fa2En(date[0]) === "0") {
+                            return "14" + date
+                        } else if (date && date.length < 9 && fa2En(date[0]) !== "0") {
+                            return "13" + date
+                        }
+                        return date || "DATE NOT FOUND"
+                    }
+                },
+                content: {
+                    main: "p, h2, picture",
+                    ignoreNodeClasses: ["custom-row"],
+                    ignoreTexts: ["تاریخ ثبت:", "نویسنده:"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.testimonial__tag__item"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments_wrapper .comments__item"),
+                    author: "p.title",
+                    datetime: "p.date",
+                    text: ".content"
+                }
+            },
+        })
+    }
+}
