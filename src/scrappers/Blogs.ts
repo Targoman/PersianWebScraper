@@ -2311,3 +2311,26 @@ export class iraneurope extends clsScrapper {
         })
     }
 }
+
+export class emalls extends clsScrapper {
+    constructor() {
+        super(enuDomains.emalls, "emalls.ir", {
+            basePath: "/News/16",
+            selectors: {
+                article: ".blog-show",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "time",
+                    splitter: "-"
+                },
+                content: {
+                    main: "#ContentPlaceHolder1_lblContent, #ContentPlaceHolder1_imgImage",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

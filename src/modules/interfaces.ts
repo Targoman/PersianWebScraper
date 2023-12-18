@@ -290,6 +290,7 @@ export enum enuDomains {
     followshe = "followshe",
     watereng = "watereng",
     iraneurope = "iraneurope",
+    emalls = "emalls",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
