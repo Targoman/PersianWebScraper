@@ -2334,3 +2334,25 @@ export class emalls extends clsScrapper {
         })
     }
 }
+
+export class shereno extends clsScrapper {
+    constructor() {
+        super(enuDomains.shereno, "shereno.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "[onbeforecopy='return false;']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".hbs span:nth-child(3)"),
+                },
+                content: {
+                    main: "p, picture",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
