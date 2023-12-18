@@ -2394,3 +2394,30 @@ export class scorize extends clsScrapper {
         })
     }
 }
+
+export class exbito extends clsScrapper {
+    constructor() {
+        super(enuDomains.exbito, "exbito.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content, figure.post-image div",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.px-1"),
+                },
+                tags: " div.my-4.flex.items-center.gap-1 a.bg-tag",
+                comments: {
+                    container: ".mt-16 div div div",
+                    text: "div.text-design-black.mt-4"
+                }
+            },
+        })
+    }
+}

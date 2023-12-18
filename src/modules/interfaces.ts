@@ -293,6 +293,7 @@ export enum enuDomains {
     emalls = "emalls",
     shereno = "shereno",
     scorize = "scorize",
+    exbito = "exbito",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
