@@ -2283,3 +2283,31 @@ export class watereng extends clsScrapper {
         })
     }
 }
+
+export class iraneurope extends clsScrapper {
+    constructor() {
+        super(enuDomains.iraneurope, "iran-europe.net", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-big",
+                title: "h1",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: ".entry-content, img.wp-post-image",
+                    ignoreNodeClasses: ["kk-star-ratings"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement'] a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li article"),
+                    author: "cite.comment_author_name",
+                    text: ".comment_text"
+                }
+            },
+        })
+    }
+}
