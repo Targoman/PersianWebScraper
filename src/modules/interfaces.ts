@@ -295,6 +295,8 @@ export enum enuDomains {
     scorize = "scorize",
     exbito = "exbito",
     tarjomic = "tarjomic",
+    ompfinex = "ompfinex",
+    sesotweb = "sesotweb",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

@@ -2449,3 +2449,27 @@ export class tarjomic extends clsScrapper {
         })
     }
 }
+
+export class sesotweb extends clsScrapper {
+    constructor() {
+        super(enuDomains.sesotweb, "3sotweb.com", {
+            basePath: "/مقالات",
+            selectors: {
+                article: ".share-simple",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".wpb_text_column",
+                    ignoreNodeClasses: ["kk-star-ratings"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumbs li a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
