@@ -2421,3 +2421,31 @@ export class exbito extends clsScrapper {
         })
     }
 }
+
+export class tarjomic extends clsScrapper {
+    constructor() {
+        super(enuDomains.tarjomic, "tarjomic.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, img.wp-post-image",
+                    ignoreNodeClasses: ["has-background", "ez-toc-v2_0_55"],
+                    ignoreTexts: ["مطالب مرتبط"]
+                },
+                category: {
+                    selector: "span.cat-links a",
+                },
+                tags: "span.tags-links a",
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
