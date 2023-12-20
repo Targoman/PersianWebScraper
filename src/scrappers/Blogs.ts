@@ -2572,3 +2572,32 @@ export class iranestekhdam extends clsScrapper {
         return url.toString()
     }
 }
+
+export class sinapub extends clsScrapper {
+    constructor() {
+        super(enuDomains.sinapub, "sina-pub.ir", {
+            basePath: "/.category/blog",
+            selectors: {
+                article: ".position-sticky section",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "div:nth-child(3), #page-post-cover-container div div",
+                    ignoreNodeClasses: ["border-bottom", "toc-section", "toc-box-content", "r-row-warning", "related-link-block", "r-animation"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".position-sticky nav div a"),
+                },
+                tags: ".border-bottom a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".col-12.col-md-12 .dfv02v9a-comment-layer"),
+                    author: ".dfv02v9a-comment-profile-name",
+                    text: ".dfv02v9a-comment-text"
+                }
+            },
+        })
+    }
+}
