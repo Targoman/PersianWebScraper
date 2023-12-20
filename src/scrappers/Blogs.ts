@@ -2629,3 +2629,34 @@ export class mihanwebhost extends clsScrapper {
         })
     }
 }
+
+export class fitamin extends clsScrapper {
+    constructor() {
+        super(enuDomains.fitamin, "fitamin.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: ".col-lg-8.mb-3",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".article-text, figure.wp-block-image",
+                    ignoreNodeClasses: ["toc-header", "single-related-link"]
+                },
+                category: {
+                    selector: "#breadcrumbs nav p a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment div .comment-content"),
+                    author: "[itemprop='name']",
+                    text: "[itemprop='commentText']"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
