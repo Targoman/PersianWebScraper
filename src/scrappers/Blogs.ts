@@ -2535,3 +2535,40 @@ export class tehranserver extends clsScrapper {
         })
     }
 }
+
+export class iranestekhdam extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranestekhdam, "iranestekhdam.ir", {
+            basePath: "/blog/",
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_52"],
+                    ignoreTexts: [/.*مطلب مرتبط:.*/, /.*جهت مشاهده.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.post-cat-wrap a"),
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+
+    normalizePath(url: URL) {
+        if (!url.toString().includes("/blog")) 
+            return url.toString().slice(0, 29) + "blog/" + url.toString().slice(29)
+        return url.toString()
+    }
+}
