@@ -2685,3 +2685,31 @@ export class ivahid extends clsScrapper {
         })
     }
 }
+
+export class cafeamoozeshgah extends clsScrapper {
+    constructor() {
+        super(enuDomains.cafeamoozeshgah, "cafeamoozeshgah.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".blog-loop-inner.post-single > article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".category a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li "),
+                    author: ".author",
+                    text: ".comment-body"
+                }
+            },
+        })
+    }
+}
