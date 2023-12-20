@@ -2660,3 +2660,28 @@ export class fitamin extends clsScrapper {
         })
     }
 }
+
+export class ivahid extends clsScrapper {
+    constructor() {
+        super(enuDomains.ivahid, "ivahid.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.container",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".sitePost__content, figure.wp-block-image",
+                },
+                tags: "a.uiTag",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li "),
+                    author: ".author",
+                    text: ".comment-body"
+                }
+            },
+        })
+    }
+}
