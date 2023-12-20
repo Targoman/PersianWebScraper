@@ -2601,3 +2601,31 @@ export class sinapub extends clsScrapper {
         })
     }
 }
+
+export class mihanwebhost extends clsScrapper {
+    constructor() {
+        super(enuDomains.mihanwebhost, "mihanwebhost.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h2.entry-title",
+                datetime: {
+                    conatiner: "span.entry-date"
+                },
+                content: {
+                    main: ".entry-content, .entry-thumb img",
+                },
+                category: {
+                    selector: ".entry-cate a",
+                },
+                tags: ".tag-cloud ul li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#show-comments .comment"),
+                    author: ".comment-author",
+                    datetime: "span.comment-date",
+                    text: ".comment-text"
+                }
+            },
+        })
+    }
+}
