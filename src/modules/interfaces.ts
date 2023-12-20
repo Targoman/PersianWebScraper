@@ -305,7 +305,8 @@ export enum enuDomains {
     fitamin = "fitamin",
     ivahid = "ivahid",
     cafeamoozeshgah = "cafeamoozeshgah",
-    khanoumi = "khanoumi"
+    khanoumi = "khanoumi",
+    portal = "portal",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

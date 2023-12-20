@@ -2739,3 +2739,33 @@ export class khanoumi extends clsScrapper {
         })
     }
 }
+
+export class portal extends clsScrapper {
+    constructor() {
+        super(enuDomains.portal, "portal.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".col-xl-11",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".blog-single-content, .mb-md-5",
+                    ignoreNodeClasses: ["blog-single-table-of-content"]
+                },
+                category: {
+                    selector: ".blog-single-categories a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-comments-holder .article-comment"),
+                    author: "h4[itemprop='author']",
+                    datetime: "[itemprop='dateCreated']",
+                    text: ".article-comment-text"
+                }
+            },
+        })
+    }
+}
