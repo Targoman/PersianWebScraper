@@ -972,6 +972,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start fitamin -u https://fitamin.ir/
 clear; rm -rf .db corpora; yarn dev && yarn start ivahid -u https://ivahid.com/blog/how-to-include-instagram-page-in-google-search-results/
 clear; rm -rf .db corpora; yarn dev && yarn start ivahid -u https://ivahid.com/blog/vote-and-comment/
 
+clear; rm -rf .db corpora; yarn dev && yarn start khanoumi -u https://www.khanoumi.com/blog/best-sunscreen-spot-remover/
+clear; rm -rf .db corpora; yarn dev && yarn start khanoumi -u https://www.khanoumi.com/blog/yalda/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

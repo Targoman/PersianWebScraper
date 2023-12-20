@@ -2704,10 +2704,36 @@ export class cafeamoozeshgah extends clsScrapper {
                 category: {
                     selector: ".category a"
                 },
+            },
+        })
+    }
+}
+
+export class khanoumi extends clsScrapper {
+    constructor() {
+        super(enuDomains.khanoumi, "khanoumi.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.wp-block-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_58", "rmp-widgets-container"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb a"),
+                    startIndex: 1
+                },
+                tags: ".post-cat-wrap a",
                 comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li "),
-                    author: ".author",
-                    text: ".comment-body"
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
                 }
             },
         })
