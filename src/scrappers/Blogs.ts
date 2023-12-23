@@ -2793,3 +2793,35 @@ export class arongroups extends clsScrapper {
         })
     }
 }
+
+
+export class taraz extends clsScrapper {
+    constructor() {
+        super(enuDomains.taraz, "blog.taraz.org", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.wp-block-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_58", "rmp-widgets-container"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb a"),
+                    startIndex: 1
+                },
+                tags: ".post-cat-wrap a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
