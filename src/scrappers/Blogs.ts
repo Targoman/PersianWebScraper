@@ -2769,3 +2769,27 @@ export class portal extends clsScrapper {
         })
     }
 }
+
+export class arongroups extends clsScrapper {
+    constructor() {
+        super(enuDomains.arongroups, "blog.arongroups.co", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-text-editor .elementor-widget-container>*, .elementor-widget-image div img, .parallax-thumb div",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[property='itemListElement'] a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
