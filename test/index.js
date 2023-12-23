@@ -984,6 +984,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start arongroups -u https://blog.aro
 clear; rm -rf .db corpora; yarn dev && yarn start taraz -u https://blog.taraz.org/چطور-فیزیک-بخوانم؟-5-راهکار-برای-مطالع/
 clear; rm -rf .db corpora; yarn dev && yarn start taraz -u https://blog.taraz.org/موک-چیست/
 
+clear; rm -rf .db corpora; yarn dev && yarn start zhaket -u https://www.zhaket.com/blog/choose-domain-name/
+clear; rm -rf .db corpora; yarn dev && yarn start zhaket -u https://www.zhaket.com/blog/the-most-complete-wordpress-security-guide/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

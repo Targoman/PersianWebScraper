@@ -309,6 +309,7 @@ export enum enuDomains {
     portal = "portal",
     arongroups = "arongroups",
     taraz = "taraz",
+    zhaket = "zhaket",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

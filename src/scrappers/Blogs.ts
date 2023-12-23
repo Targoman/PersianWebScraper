@@ -2825,3 +2825,34 @@ export class taraz extends clsScrapper {
         })
     }
 }
+
+export class zhaket extends clsScrapper {
+    constructor() {
+        super(enuDomains.zhaket, "zhaket.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content__body",
+                ignoreTexts: [/.*<img.*/]
+
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb span span a"),
+                    startIndex: 1
+                },
+                tags: ".content__terms div a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comment__list li article"),
+                    author: "header.comment__header h6",
+                    text: ".comment__body"
+                }
+            },
+        })
+    }
+}
