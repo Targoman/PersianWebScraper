@@ -2839,8 +2839,7 @@ export class zhaket extends clsScrapper {
                 },
                 content: {
                     main: ".content__body",
-                ignoreTexts: [/.*<img.*/]
-
+                    ignoreTexts: [/.*<img.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb span span a"),
@@ -2852,6 +2851,26 @@ export class zhaket extends clsScrapper {
                     author: "header.comment__header h6",
                     text: ".comment__body"
                 }
+            },
+        })
+    }
+}
+
+export class azaronline extends clsScrapper {
+    constructor() {
+        super(enuDomains.azaronline, "azaronline.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.ps-xl-0",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content, .d-sm-block.img-wrapper",
+                    ignoreNodeClasses: ["tableOfContent", "member"]
+                },
             },
         })
     }
