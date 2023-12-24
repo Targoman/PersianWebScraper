@@ -2962,3 +2962,26 @@ export class kidzy extends clsScrapper {
         })
     }
 }
+
+export class khanomsin extends clsScrapper {
+    constructor() {
+        super(enuDomains.khanomsin, "khanomsin.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-single article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .post-thumbnail img.size-full",
+                    ignoreTexts: [/.*اگر کسب و کار آنلاین دارید.*/]
+                },
+                category: {
+                    selector: ".post-meta.category a",
+                },
+            },
+        })
+    }
+}
