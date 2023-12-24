@@ -2985,3 +2985,27 @@ export class khanomsin extends clsScrapper {
         })
     }
 }
+
+export class techranco extends clsScrapper {
+    constructor() {
+        super(enuDomains.techranco, "techranco.ir", {
+            basePath: "/بلاگ",
+            selectors: {
+                article: ".text-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-content",
+                    ignoreNodeClasses: ["lwptoc"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
