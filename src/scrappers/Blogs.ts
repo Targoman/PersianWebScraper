@@ -2904,3 +2904,31 @@ export class arazcloud extends clsScrapper {
         })
     }
 }
+
+export class poonehmedia extends clsScrapper {
+    constructor() {
+        super(enuDomains.poonehmedia, "poonehmedia.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".com-content-article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".com-content-article__body",
+                    ignoreNodeClasses: ["headings-list"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".jreview-listing .reviewBlock"),
+                    author: "span.re-author-name",
+                    text: ".re-control-value"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
