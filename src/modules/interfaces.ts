@@ -313,6 +313,7 @@ export enum enuDomains {
     azaronline = "azaronline",
     arazcloud = "arazcloud",
     poonehmedia = "poonehmedia",
+    kidzy = "kidzy",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

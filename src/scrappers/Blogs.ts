@@ -2932,3 +2932,33 @@ export class poonehmedia extends clsScrapper {
         })
     }
 }
+
+export class kidzy extends clsScrapper {
+    constructor() {
+        super(enuDomains.kidzy, "kidzy.land", {
+            basePath: "/blog",
+            selectors: {
+                article: "[data-elementor-type='single-post']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container>*, .elementor-widget-theme-post-featured-image",
+                    ignoreNodeClasses: ["m-a-box-profile", "elementor-posts--thumbnail-top"]
+                },
+                tags: ".elementor-post-info__terms-list a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "cite",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
