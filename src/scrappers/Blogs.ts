@@ -3098,19 +3098,37 @@ export class ipresta extends clsScrapper {
                 },
                 content: {
                     main: ".description",
-                    //ignoreNodeClasses: ["button-container", "button__text", "cta-button", "enlighter-default"]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
                     startIndex: 1
                 },
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list article"),
-                    author: "footer .comment-author .detail .name",
-                    datetime: "span.button__text",
-                    text: ".comment-content"
-                }
             },
+        })
+    }
+}
+
+export class irancell extends clsScrapper {
+    constructor() {
+        super(enuDomains.irancell, "blog.irancell.ir", {
+            selectors: {
+                article: "section.p-0",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.date")
+                },
+                content: {
+                    main: ".col-md-11",
+                    ignoreNodeClasses: ["button-container", "button__text", "cta-button", "enlighter-default"]
+                },
+                category: {
+                    selector: "nav.page-breadcrumb a",
+                    startIndex: 1
+                },
+            },
+            url: {
+                removeWWW: true
+            }
         })
     }
 }
