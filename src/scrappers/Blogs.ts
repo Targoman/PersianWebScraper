@@ -3009,3 +3009,32 @@ export class techranco extends clsScrapper {
         })
     }
 }
+
+export class tlyn extends clsScrapper {
+    constructor() {
+        super(enuDomains.tlyn, "tlyn.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.ast-article-single",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .entry-header .post-thumb-img-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_61"]
+                },
+                category: {
+                    selector: ".ast-terms-link a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.ast-comment-list li article"),
+                    author: ".ast-comment-cite-wrap cite b",
+                    datetime: "time",
+                    text: ".ast-comment-content"
+                }
+            },
+        })
+    }
+}

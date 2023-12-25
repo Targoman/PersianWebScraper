@@ -316,6 +316,7 @@ export enum enuDomains {
     kidzy = "kidzy",
     khanomsin = "khanomsin",
     techranco = "techranco",
+    tlyn = "tlyn",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
