@@ -3085,3 +3085,32 @@ export class pdf extends clsScrapper {
         })
     }
 }
+
+export class ipresta extends clsScrapper {
+    constructor() {
+        super(enuDomains.ipresta, "ipresta.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "#dmtb_cont_cont",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.dir_ltr"
+                },
+                content: {
+                    main: ".description",
+                    //ignoreNodeClasses: ["button-container", "button__text", "cta-button", "enlighter-default"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list article"),
+                    author: "footer .comment-author .detail .name",
+                    datetime: "span.button__text",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
