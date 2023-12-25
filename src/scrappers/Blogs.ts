@@ -3038,3 +3038,32 @@ export class tlyn extends clsScrapper {
         })
     }
 }
+
+export class parspack extends clsScrapper {
+    constructor() {
+        super(enuDomains.parspack, "parspack.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.button__text"
+                },
+                content: {
+                    main: ".content, .content__img figure",
+                    ignoreNodeClasses: ["button-container", "button__text", "cta-button", "enlighter-default"]
+                },
+                category: {
+                    selector: "nav.page-breadcrumb a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list article"),
+                    author: "footer .comment-author .detail .name",
+                    datetime: "span.button__text",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}

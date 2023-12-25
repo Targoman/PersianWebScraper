@@ -317,6 +317,7 @@ export enum enuDomains {
     khanomsin = "khanomsin",
     techranco = "techranco",
     tlyn = "tlyn",
+    parspack = "parspack",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
