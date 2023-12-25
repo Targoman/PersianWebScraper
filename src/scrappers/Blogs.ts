@@ -3067,3 +3067,21 @@ export class parspack extends clsScrapper {
         })
     }
 }
+
+export class pdf extends clsScrapper {
+    constructor() {
+        super(enuDomains.pdf, "pdf.co.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: ".blog-post",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".blog-post-text, .entry-image",
+                },
+            },
+        })
+    }
+}

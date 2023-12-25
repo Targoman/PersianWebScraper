@@ -318,6 +318,7 @@ export enum enuDomains {
     techranco = "techranco",
     tlyn = "tlyn",
     parspack = "parspack",
+    pdf = "pdf",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
