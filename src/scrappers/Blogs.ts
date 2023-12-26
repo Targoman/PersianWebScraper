@@ -3160,3 +3160,29 @@ export class farazsms extends clsScrapper {
         })
     }
 }
+
+export class raygansms extends clsScrapper {
+    constructor() {
+        super(enuDomains.raygansms, "raygansms.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".col-lg-8",
+                title: "h1",
+                datetime: {
+                    conatiner: "#ContentPlaceHolder1_lbl_date"
+                },
+                content: {
+                    main: ".line-height-30, img.img-thumbnail",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.acomment-list li"),
+                    author: "span.author_comment",
+                    text: ".cdesc"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

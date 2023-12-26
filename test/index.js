@@ -1018,6 +1018,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start irancell -u https://blog.iranc
 clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/chapar-plugin/
 clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/woocommerce/
 
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/664/پیامک-تبریک-ولادت-حضرت-عیسی-مسیح،-پیامک-تبریک-کریسمس
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/30/اینترنت-5g-چیست؟
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
