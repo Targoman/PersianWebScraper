@@ -3186,3 +3186,32 @@ export class raygansms extends clsScrapper {
         })
     }
 }
+
+export class melipayamak extends clsScrapper {
+    constructor() {
+        super(enuDomains.melipayamak, "melipayamak.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".blog-single-top-holder",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main:  (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(
+                        ".blog-single-content .blog-single-content-inner .post-content"),
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".blog-single-categories a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li"),
+                    author: "h4.comment-author",
+                    text: ".comment-text-holder"
+                }
+            },
+        })
+    }
+}
