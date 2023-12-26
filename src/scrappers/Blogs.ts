@@ -3215,3 +3215,29 @@ export class melipayamak extends clsScrapper {
         })
     }
 }
+
+export class mopon extends clsScrapper {
+    constructor() {
+        super(enuDomains.mopon, "blog.mopon.ir", {
+            selectors: {
+                article: "section.single-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: "ul.post-categories li a",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body"),
+                    author: ".comment-author cite.fn",
+                    text: "p"
+                }
+            },
+        })
+    }
+}
