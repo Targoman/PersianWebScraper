@@ -321,6 +321,7 @@ export enum enuDomains {
     pdf = "pdf",
     ipresta = "ipresta",
     irancell = "irancell",
+    farazsms = "farazsms",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

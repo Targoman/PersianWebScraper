@@ -3132,3 +3132,31 @@ export class irancell extends clsScrapper {
         })
     }
 }
+
+export class farazsms extends clsScrapper {
+    constructor() {
+        super(enuDomains.farazsms, "farazsms.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".col-md-8.col-lg-9, article.status-publish",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".cdesc.cforms",
+                    ignoreNodeClasses: ["kk-star-ratings"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#blog-breadcrumbs span span a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.acomment-list li"),
+                    author: "span.author_comment",
+                    text: ".cdesc"
+                }
+            },
+        })
+    }
+}
