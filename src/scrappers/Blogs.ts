@@ -3313,3 +3313,26 @@ export class behtarinideh extends clsScrapper {
         })
     }
 }
+
+export class podium extends clsScrapper {
+    constructor() {
+        super(enuDomains.podium, "blog.podium.ir", {
+            selectors: {
+                article: ".page-content",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post__content",
+                    ignoreNodeClasses: ["single-post__content__post-info", "single-post__content__tags", "wp-block-buttons"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".single-post__thumbnail__caption__meta__cats a"),
+                },
+                tags: ".single-post__content__tags a",
+            },
+        })
+    }
+}
