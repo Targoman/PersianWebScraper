@@ -3265,3 +3265,27 @@ export class clickaval extends clsScrapper {
         })
     }
 }
+
+export class alomohtava extends clsScrapper {
+    constructor() {
+        super(enuDomains.alomohtava, "alomohtava.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.blog-single",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: ".meta-holder ul li:nth-child(3)"
+                },
+                content: {
+                    main: ".main-des",
+                    ignoreTexts: [/.*WordPress.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-area .comment-item .meta-c"),
+                    author: "h5",
+                    text: "p"
+                }
+            },
+        })
+    }
+}
