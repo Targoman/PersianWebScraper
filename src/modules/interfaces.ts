@@ -331,6 +331,7 @@ export enum enuDomains {
     behtarinideh = "behtarinideh",
     podium = "podium",
     infogramacademy = "infogramacademy",
+    idpay = "idpay",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

@@ -3365,3 +3365,34 @@ export class infogramacademy extends clsScrapper {
         })
     }
 }
+
+export class idpay extends clsScrapper {
+    constructor() {
+        super(enuDomains.idpay, "blog.idpay.ir", {
+            selectors: {
+                article: "article.view-mode-full",
+                title: "h2",
+                summary: ".field-name-field-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".field-name-field-p-body, .image",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb a"),
+                },
+                tags: "ul.links li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments .comment"),
+                    author: "b.comment-author",
+                    text: ".field-name-comment-body"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
