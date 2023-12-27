@@ -3336,3 +3336,32 @@ export class podium extends clsScrapper {
         })
     }
 }
+
+export class infogramacademy extends clsScrapper {
+    constructor() {
+        super(enuDomains.infogramacademy, "infogramacademy.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreNodeClasses: ["kk-star-ratings", "rtoc-mokuji-content", "wp-block-buttons", "post-shortlink"]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                },
+                tags: "span.post-cat-wrap a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
