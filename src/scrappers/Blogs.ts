@@ -3289,3 +3289,27 @@ export class alomohtava extends clsScrapper {
         })
     }
 }
+
+export class behtarinideh extends clsScrapper {
+    constructor() {
+        super(enuDomains.behtarinideh, "behtarinideh.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".post-single article",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["safine-full-schema-container"],
+                    ignoreTexts: [/.*<img.*/, /.*اینستاگرام ما را بخوانید.*/, /.*حتما بخوانید:.*/]
+                },
+                tags: ".post-tags a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs span a"),
+                },
+            },
+        })
+    }
+}
