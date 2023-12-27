@@ -3241,3 +3241,27 @@ export class mopon extends clsScrapper {
         })
     }
 }
+
+export class clickaval extends clsScrapper {
+    constructor() {
+        super(enuDomains.clickaval, "clickaval.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-article",
+                title: "h1",
+                subtitle: ".description-text",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-article-textarea",
+                    ignoreNodeClasses: ["related-post-inline"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb-ul li a"),
+                },
+            },
+        })
+    }
+}
