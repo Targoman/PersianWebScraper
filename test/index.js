@@ -990,6 +990,58 @@ clear; rm -rf .db corpora; yarn dev && yarn start zhaket -u https://www.zhaket.c
 clear; rm -rf .db corpora; yarn dev && yarn start azaronline -u https://azaronline.com/blog/همه-چیزهایی-که-باید-درباره-ChatGPT-بدانید/
 clear; rm -rf .db corpora; yarn dev && yarn start azaronline -u https://azaronline.com/blog/ساخت-عکس-با-هوش-مصنوعی/
 
+clear; rm -rf .db corpora; yarn dev && yarn start arazcloud -u https://arazcloud.com/blog/what-is-sccm/
+clear; rm -rf .db corpora; yarn dev && yarn start arazcloud -u https://arazcloud.com/blog/مفهوم-داکر-و-کاربرد-آن/
+
+clear; rm -rf .db corpora; yarn dev && yarn start poonehmedia -u https://www.poonehmedia.com/blog/1003-what-is-content-marketing
+clear; rm -rf .db corpora; yarn dev && yarn start poonehmedia -u https://www.poonehmedia.com/blog/750-vps
+
+clear; rm -rf .db corpora; yarn dev && yarn start khanomsin -u https://khanomsin.ir/what-is-site-redesign/
+clear; rm -rf .db corpora; yarn dev && yarn start khanomsin -u  https://khanomsin.ir/dwell-time/
+
+clear; rm -rf .db corpora; yarn dev && yarn start techranco -u https://techranco.ir/low-code/
+clear; rm -rf .db corpora; yarn dev && yarn start techranco -u https://techranco.ir/محاسبه-قیمت-طراحی-اپلیکیشن/
+
+clear; rm -rf .db corpora; yarn dev && yarn start tlyn -u https://tlyn.ir/gold-coin-symbol/
+clear; rm -rf .db corpora; yarn dev && yarn start tlyn -u https://tlyn.ir/عیار-سنجی-طلا-طلاین/
+
+clear; rm -rf .db corpora; yarn dev && yarn start parspack -u https://parspack.com/blog/hosting/learn-server/vps-vs-physical-server
+clear; rm -rf .db corpora; yarn dev && yarn start parspack -u https://parspack.com/blog/hosting/learn-server/setup-domain-windows-vps
+
+clear; rm -rf .db corpora; yarn dev && yarn start pdf -u https://pdf.co.ir/Beginners-Guide-to-SEO
+
+clear; rm -rf .db corpora; yarn dev && yarn start ipresta -u https://ipresta.ir/blog/229_topical-authority-یا-همان-تاپیکال-آتوریتی-چیست.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start irancell -u https://blog.irancell.ir/b/16046/کاربردی-ترین-نرم-افزارهای-ویرایش-ویدی
+clear; rm -rf .db corpora; yarn dev && yarn start irancell -u https://blog.irancell.ir/b/13871/td-lte
+
+clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/chapar-plugin/
+clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/woocommerce/
+
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/664/پیامک-تبریک-ولادت-حضرت-عیسی-مسیح،-پیامک-تبریک-کریسمس
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/30/اینترنت-5g-چیست؟
+
+clear; rm -rf .db corpora; yarn dev && yarn start melipayamak -u https://www.melipayamak.com/blog/posts/tips-for-sms-marketing-on-black-friday/
+clear; rm -rf .db corpora; yarn dev && yarn start melipayamak -u https://www.melipayamak.com/blog/posts/what-are-the-advantages-and-disadvantages-of-sms-advertising/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mopon -u https://blog.mopon.ir/پشتیبانی-دیجی-استایل/
+clear; rm -rf .db corpora; yarn dev && yarn start mopon -u https://blog.mopon.ir/راهنمای-استفاده-از-کد-تخفیف-دیجی-کالا/
+
+clear; rm -rf .db corpora; yarn dev && yarn start clickaval -u https://clickaval.com/blog/الگوریتم-mum-گوگل/
+clear; rm -rf .db corpora; yarn dev && yarn start clickaval -u https://clickaval.com/blog/معیارهای-رتبه-الکسا/
+
+clear; rm -rf .db corpora; yarn dev && yarn start alomohtava -u https://alomohtava.com/slow-content/
+clear; rm -rf .db corpora; yarn dev && yarn start alomohtava -u https://alomohtava.com/educational-content-production/
+
+clear; rm -rf .db corpora; yarn dev && yarn start podium -u https://blog.podium.ir/معرفی-شرکتهای-توسعهدهنده-هوش-مصنو/
+clear; rm -rf .db corpora; yarn dev && yarn start podium -u https://blog.podium.ir/building-an-image-generation-tool-with-artificial-intelligence-dall-e/
+
+clear; rm -rf .db corpora; yarn dev && yarn start infogramacademy -u https://infogramacademy.com/blog/5327-2threads-instagram/
+clear; rm -rf .db corpora; yarn dev && yarn start infogramacademy -u https://infogramacademy.com/blog/راه-اندازی-فروشگاه-اینترنتی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir/posts/406
+clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir/helps/18
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
