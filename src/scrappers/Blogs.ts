@@ -3497,3 +3497,25 @@ export class bitpin extends clsScrapper {
         })
     }
 }
+
+export class fardaname extends clsScrapper {
+    constructor() {
+        super(enuDomains.fardaname, "fardaname.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".content.w-full",
+                title: "h1",
+                datetime: {
+                    conatiner: ".item span.value"
+                },
+                content: {
+                    main: "article",
+                    ignoreNodeClasses: ["iconed_info_list"],
+                },
+                category: {
+                    selector: "a.rounded-xl",
+                },
+            },
+        })
+    }
+}
