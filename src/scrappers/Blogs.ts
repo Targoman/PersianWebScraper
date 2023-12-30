@@ -3433,7 +3433,6 @@ export class nabzemarketing extends clsScrapper {
                 content: {
                     main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
                     ignoreNodeClasses: ["kk-star-ratings", "elementor-widget__width-initial", "elementor-button-align-stretch", "elementor-field"],
-                    //ignoreTexts: [/.*IRPP.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='60d59e19'] div p a"),
@@ -3443,6 +3442,29 @@ export class nabzemarketing extends clsScrapper {
             url: {
                 removeWWW: true
             }
+        })
+    }
+}
+
+export class transis extends clsScrapper {
+    constructor() {
+        super(enuDomains.transis, "transis.me", {
+            basePath: "/blog",
+            selectors: {
+                article: ".article",
+                title: "h1",
+                datetime: {
+                    conatiner: "li.time"
+                },
+                content: {
+                    main: ".col-lg-10 .section, .article_image",
+                    ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: ".t-12.t-category",
+                },
+                tags: ".t-14.t-category"
+            },
         })
     }
 }
