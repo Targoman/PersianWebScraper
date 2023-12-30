@@ -3396,3 +3396,53 @@ export class idpay extends clsScrapper {
         })
     }
 }
+
+export class payamgostar extends clsScrapper {
+    constructor() {
+        super(enuDomains.payamgostar, "payamgostar.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-post-detail",
+                title: "h1",
+                datetime: {
+                    conatiner: ".meta-date"
+                },
+                content: {
+                    main: ".entry-content, .post-thumbnail",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: "span.meta-category a",
+                },
+            },
+        })
+    }
+}
+
+export class nabzemarketing extends clsScrapper {
+    constructor() {
+        super(enuDomains.nabzemarketing, "nabzemarketing.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "[data-elementor-type='single-post']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
+                    ignoreNodeClasses: ["kk-star-ratings", "elementor-widget__width-initial", "elementor-button-align-stretch", "elementor-field"],
+                    //ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='60d59e19'] div p a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3.elementor-heading-title a"),
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
