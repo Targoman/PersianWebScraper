@@ -3468,3 +3468,32 @@ export class transis extends clsScrapper {
         })
     }
 }
+
+export class bitpin extends clsScrapper {
+    constructor() {
+        super(enuDomains.bitpin, "bitpin.ir", {
+            basePath: "/academy",
+            selectors: {
+                article: ".mx-auto > .mt-2 > .w-full",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.mr-2"
+                },
+                content: {
+                    main: "#post-content",
+                    ignoreNodeClasses: ["multi-internal-link-card", "bpa-download-cp7-wrapper", "ez-toc-v2_0_51_1"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.rank-math-breadcrumb p a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div .w-full"),
+                    author: ".text-sm span.font-bold",
+                    datetime: ".text-sm span.text-black-2",
+                    text: "p"
+                }
+            },
+        })
+    }
+}
