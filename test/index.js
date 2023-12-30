@@ -822,6 +822,231 @@ clear; rm -rf .db corpora; yarn dev && yarn start faradars -u https://blog.farad
 clear; rm -rf .db corpora; yarn dev && yarn start kalleh -u https://kalleh.com/book/recipe/طرز-تهیه-میرزا-قاسمی-با-کشک/
 clear; rm -rf .db corpora; yarn dev && yarn start kalleh -u https://kalleh.com/book/article/پنیر-در-گذر-تاریخ/
 
+clear; rm -rf .db corpora; yarn dev && yarn start chetor -u https://www.chetor.com/295063-تنفس-دیافراگمی/
+clear; rm -rf .db corpora; yarn dev && yarn start chetor -u https://www.chetor.com/294672-روماتیسم-قلبی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start madarsho -u https://madarsho.com/article/baby-development-week-1
+clear; rm -rf .db corpora; yarn dev && yarn start madarsho -u https://madarsho.com/article/top-10-discipline-dilemmas
+
+clear; rm -rf .db corpora; yarn dev && yarn start filimoshot -u https://www.filimo.com/shot/171149/انیمیشن-هارولد-و-مداد-بنفش/
+clear; rm -rf .db corpora; yarn dev && yarn start filimoshot -u https://www.filimo.com/shot/13150/ترسناک-ترین-فیلم-های-قرن-۲۱/
+
+clear; rm -rf .db corpora; yarn dev && yarn start avalpardakht -u https://avalpardakht.com/blog/معرفی-هوش-مصنوعی-مولد-pika-1-0/
+clear; rm -rf .db corpora; yarn dev && yarn start avalpardakht -u https://avalpardakht.com/blog/paypal-3/
+
+clear; rm -rf .db corpora; yarn dev && yarn start maktabkhooneh -u https://maktabkhooneh.org/mag/sterling-engine/
+clear; rm -rf .db corpora; yarn dev && yarn start maktabkhooneh -u https://maktabkhooneh.org/mag/art-university-of-tehran/
+
+clear; rm -rf .db corpora; yarn dev && yarn start sevenlearn -u https://7learn.com/blog/refactoring
+clear; rm -rf .db corpora; yarn dev && yarn start sevenlearn -u https://7learn.com/topic/19313/اضافه-کردن-فرانت-پروژه
+
+clear; rm -rf .db corpora; yarn dev && yarn start modireweb -u https://modireweb.com/technical-seo/
+clear; rm -rf .db corpora; yarn dev && yarn start modireweb -u https://modireweb.com/the-best-business-idea/
+
+clear; rm -rf .db corpora; yarn dev && yarn start doctoreto -u https://doctoreto.com/blog/medicine-for-shingles/
+clear; rm -rf .db corpora; yarn dev && yarn start doctoreto -u https://doctoreto.com/blog/biological-clock/
+
+clear; rm -rf .db corpora; yarn dev && yarn start bookland -u https://bookland.ir/blog/writer/184/بیوگرافی-متیو-پری-چندلر-بینگ-بازیگر-و-نویسنده-کتاب-فرندز-دوستان-و-عاشقان/
+clear; rm -rf .db corpora; yarn dev && yarn start bookland -u https://bookland.ir/blog/World-Literature/193/آشنایی-با-فرهنگ-و-ادبیات-ژاپن/
+
+clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/abnic-village/
+clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/post-1840/زیباترین-جاذبه-های-گردشگری-استرالیا/
+
+clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
+clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
+
+clear; rm -rf .db corpora; yarn dev && yarn start apademy -u https://apademy.com/article/The-best-software-for-ui-ux-design
+clear; rm -rf .db corpora; yarn dev && yarn start apademy -u https://apademy.com/article/Photoshop-vs-illustrator
+
+clear; rm -rf .db corpora; yarn dev && yarn start iranicard -u https://www.iranicard.ir/blog/is-it-good-to-invest-in-cryptocurrency/
+clear; rm -rf .db corpora; yarn dev && yarn start iranicard -u https://www.iranicard.ir/blog/earning-dollars-in-iran/
+
+clear; rm -rf .db corpora; yarn dev && yarn start hamrah -u https://hamrah.academy/blog/become-ai-expert/
+clear; rm -rf .db corpora; yarn dev && yarn start hamrah -u https://hamrah.academy/blog/artificial-intelligence/
+
+clear; rm -rf .db corpora; yarn dev && yarn start asiatech -u https://asiatech.cloud/weblog/articles/what-is-whm/
+clear; rm -rf .db corpora; yarn dev && yarn start asiatech -u https://asiatech.cloud/weblog/articles/راهنمای-ساده-رایانش-ابری-برای-مبتدیان/
+
+clear; rm -rf .db corpora; yarn dev && yarn start ponisha -u https://ponisha.ir/blog/زمان-انجام-پروژه/
+clear; rm -rf .db corpora; yarn dev && yarn start ponisha -u https://ponisha.ir/blog/اصول-طراحی-بنر/
+
+clear; rm -rf .db corpora; yarn dev && yarn start trip -u https://www.trip.ir/blog/post/90414/فیلیپین-کجاست
+clear; rm -rf .db corpora; yarn dev && yarn start trip -u https://www.trip.ir/blog/post/2035/راهنمای-سفر-به-استانبول-و-هزینه-های-آن
+
+clear; rm -rf .db corpora; yarn dev && yarn start parshistory -u https://parshistory.com/twelve-great-women-of-ancient-persia/
+clear; rm -rf .db corpora; yarn dev && yarn start parshistory -u https://parshistory.com/farrukhan-the-great/
+
+clear; rm -rf .db corpora; yarn dev && yarn start rawanshenas -u https://rawanshenas.ir/what-is-manipulative-behavior/
+clear; rm -rf .db corpora; yarn dev && yarn start rawanshenas -u https://rawanshenas.ir/ocd/
+
+clear; rm -rf .db corpora; yarn dev && yarn start telescope -u https://telescope.ir/راهنمای-کامل-رصد-ستارگان-برای-علاقه-من/
+clear; rm -rf .db corpora; yarn dev && yarn start telescope -u https://telescope.ir/حقایقی-در-مورد-ماه/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mendellab -u https://mendel-lab.com/blog/1402/02/26/مشاوره-ژنتیک-در-بارداری-102453
+clear; rm -rf .db corpora; yarn dev && yarn start mendellab -u https://mendel-lab.com/blog/1399/02/04/آزمایش-خون-برای-تشخیص-سریع-کرونا-را-انجام-دهید-101447
+
+clear; rm -rf .db corpora; yarn dev && yarn start faab -u https://faab.ir/blog/موقع-درس-خوندن-موسیقی-گوش-بدیم-نه/
+clear; rm -rf .db corpora; yarn dev && yarn start faab -u https://faab.ir/blog/آموزش-نه-گفتن-کودکان/
+
+clear; rm -rf .db corpora; yarn dev && yarn start wikiravan -u https://www.wikiravan.com/blog/psychotic-depression/
+clear; rm -rf .db corpora; yarn dev && yarn start wikiravan -u https://www.wikiravan.com/blog/ایده-راه-اندازی-کسب-و-کار-با-۵۰-میلیون/
+
+clear; rm -rf .db corpora; yarn dev && yarn start arzfi -u https://wiki.arzfi.net/blog/1885
+clear; rm -rf .db corpora; yarn dev && yarn start arzfi -u https://wiki.arzfi.net/blog/20
+
+clear; rm -rf .db corpora; yarn dev && yarn start gishniz -u https://blog.gishniz.com/news/40981/آب-و-هوای-شهرهای-آمریکا-در-زمستان-چطور-است
+clear; rm -rf .db corpora; yarn dev && yarn start gishniz -u https://blog.gishniz.com/news/40925/۱۰-دلیل-برای-داشتن-اکانت-کسب%E2%80%8Cوکار-در-گیشنیز
+
+clear; rm -rf .db corpora; yarn dev && yarn start chemibazar -u https://blog.chemibazar.com/hydrogen-peroxide-آب-اکسیژنه/
+clear; rm -rf .db corpora; yarn dev && yarn start chemibazar -u https://blog.chemibazar.com/optical-brightner/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mehrdadcivil -u https://mehrdadcivil.com/blog/12495/doing-0-to-100-theses/
+clear; rm -rf .db corpora; yarn dev && yarn start mehrdadcivil -u https://mehrdadcivil.com/blog/1010/check-for-normal-and-abnormal-data-in-spss-software/
+
+clear; rm -rf .db corpora; yarn dev && yarn start sakkook -u https://blog.sakkook.ir/هموار-کردن-مسیر-بازگشت-تولیدکنندگان-ب/
+clear; rm -rf .db corpora; yarn dev && yarn start sakkook -u https://blog.sakkook.ir/توسعه-شرکت%e2%80%8cهای-نوآور-با-برات-الکترونی/#comment-721
+
+clear; rm -rf .db corpora; yarn dev && yarn start bestfarsi -u https://bestfarsi.ir/articles/advertorial/jobvision-jobs
+clear; rm -rf .db corpora; yarn dev && yarn start bestfarsi -u https://bestfarsi.ir/movies-music/best-movies-site-download
+
+clear; rm -rf .db corpora; yarn dev && yarn start hamgardi -u https://hamgardi.com/fa/Post/61068-تالاب-سولوکلی-یکی-از-جاذبه-های-طبیعی-استان-گلستان-به-شمار-می-رود
+clear; rm -rf .db corpora; yarn dev && yarn start hamgardi -u https://hamgardi.com/fa/Post/7570-خانه-ابراهیم-گلستان
+
+clear; rm -rf .db corpora; yarn dev && yarn start novin -u https://www.novin.com/blog/podcast-2/
+clear; rm -rf .db corpora; yarn dev && yarn start novin -u https://www.novin.com/blog/what-are-rich-snippets/
+
+clear; rm -rf .db corpora; yarn dev && yarn start zibamoon -u https://www.zibamoon.com/Detail/20290/آموزش-قفل-کردن-تلگرام-اثر-انگشت-افزایش-امنیت
+clear; rm -rf .db corpora; yarn dev && yarn start zibamoon -u https://www.zibamoon.com/Detail/1/تغییر-مدل-زندگی-راهی-سوی-لاغری
+
+clear; rm -rf .db corpora; yarn dev && yarn start iranacademy -u https://www.iran-academy.org/مطالب-آموزشی/1851-چرا-هوش-هیجانی-مهم-است-؟.html
+clear; rm -rf .db corpora; yarn dev && yarn start iranacademy -u https://www.iran-academy.org/مطالب-آموزشی/154-5s.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start digistyle -u https://www.digistyle.com/mag/interview-attire-men/
+clear; rm -rf .db corpora; yarn dev && yarn start digistyle -u https://www.digistyle.com/mag/نیم-بوت-مردانه-را-با-کدام-شلوار-چه-تیپ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start parscoders -u https://parscoders.com/blog/فریلنسری-با-adhd/
+clear; rm -rf .db corpora; yarn dev && yarn start parscoders -u https://parscoders.com/blog/تیپ-شخصیت-کارفرما/
+
+clear; rm -rf .db corpora; yarn dev && yarn start liangroup -u https://liangroup.net/blog/trickbot-malware-dev-pleads-guilty-faces-35-years-in-prison/
+clear; rm -rf .db corpora; yarn dev && yarn start liangroup -u https://liangroup.net/blog/introducing-18-osint-tools-for-penetration-testing
+
+clear; rm -rf .db corpora; yarn dev && yarn start honareseda -u https://honareseda.com/اکبر-گلپایگانی-در-گذشت/
+clear; rm -rf .db corpora; yarn dev && yarn start honareseda -u https://honareseda.com/vst2vsvst3/
+
+clear; rm -rf .db corpora; yarn dev && yarn start watereng -u https://watereng.ir/تغییرات-اقلیمی/
+clear; rm -rf .db corpora; yarn dev && yarn start watereng -u https://watereng.ir/مجموعه-6-مقاله-خصوص-آب-مجازی-اهمیت-آ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start iraneurope -u https://iran-europe.net/چرا-آزمون-ماک-آیلتس-مهم-است/
+clear; rm -rf .db corpora; yarn dev && yarn start iraneurope -u https://iran-europe.net/cambridge-online-dictionary/
+
+clear; rm -rf .db corpora; yarn dev && yarn start emalls -u https://emalls.ir/Text/347543/
+clear; rm -rf .db corpora; yarn dev && yarn start emalls -u https://emalls.ir/Text/324318/
+
+clear; rm -rf .db corpora; yarn dev && yarn start scorize -u https://scorize.com/blog/Educational-migration-Italy/
+clear; rm -rf .db corpora; yarn dev && yarn start scorize -u https://scorize.com/blog/چگونه-مانند-کودکان-زبان-یاد-بگیریم/
+
+clear; rm -rf .db corpora; yarn dev && yarn start exbito -u https://exbito.com/blog/tether-usdt-eos-network/
+clear; rm -rf .db corpora; yarn dev && yarn start exbito -u https://exbito.com/blog/what-is-metaverse/
+
+clear; rm -rf .db corpora; yarn dev && yarn start tarjomic -u https://tarjomic.com/blog/2023/12/18/نکات-و-ترفندهایی-برای-ویرایش-مقالات/
+clear; rm -rf .db corpora; yarn dev && yarn start tarjomic -u https://tarjomic.com/blog/2023/10/30/۷-اشتباه-رایج-مقالات-آکادمیک-که-باید-از/
+
+clear; rm -rf .db corpora; yarn dev && yarn start amuzeshtak -u https://amuzeshtak.com/blog/parameters-of-a-good-motion-logo/
+clear; rm -rf .db corpora; yarn dev && yarn start amuzeshtak -u https://amuzeshtak.com/blog/what-is-motion-graphics/
+
+clear; rm -rf .db corpora; yarn dev && yarn start tehranserver -u https://www.tehranserver.ir/blog/هاست-ایران-و-تاثیر-آن-بر-سئو/
+clear; rm -rf .db corpora; yarn dev && yarn start tehranserver -u https://www.tehranserver.ir/blog/کوتاه-کننده-لینک-چیست-و-چه-مزایایی-دارد/
+
+clear; rm -rf .db corpora; yarn dev && yarn start iranestekhdam -u https://iranestekhdam.ir/blog/اهمیت-زبان-بدن-در-مصاحیه-شغلی/
+clear; rm -rf .db corpora; yarn dev && yarn start iranestekhdam -u https://iranestekhdam.ir/blog/شرح-وظایف-کارشناس-و-مدیر-منابع-انسانی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start sinapub -u https://sina-pub.ir/.post/atlaayh-sbt-nam-dr-azmon-srasry-sal-1403-o-azmon-akhtsasy-pzyrsh-danshjo-malm-dr-danshgah-frhngyan-lyzi
+clear; rm -rf .db corpora; yarn dev && yarn start sinapub -u https://sina-pub.ir/.post/extracting-the-article-from-persian-and-arabic-thesis-syrdbo
+
+clear; rm -rf .db corpora; yarn dev && yarn start mihanwebhost -u https://mihanwebhost.com/blog/articles/1102/ترجمه-خودکار-سایت-وردپرسی-چگونه-است
+clear; rm -rf .db corpora; yarn dev && yarn start mihanwebhost -u https://mihanwebhost.com/blog/articles/6/معرفی-کامل-فایروال-bitninja
+
+clear; rm -rf .db corpora; yarn dev && yarn start fitamin -u https://fitamin.ir/mag/shaking-after-workout/
+clear; rm -rf .db corpora; yarn dev && yarn start fitamin -u https://fitamin.ir/mag/powerful-supersets-program-to-build-big-arms/
+
+clear; rm -rf .db corpora; yarn dev && yarn start ivahid -u https://ivahid.com/blog/how-to-include-instagram-page-in-google-search-results/
+clear; rm -rf .db corpora; yarn dev && yarn start ivahid -u https://ivahid.com/blog/vote-and-comment/
+
+clear; rm -rf .db corpora; yarn dev && yarn start khanoumi -u https://www.khanoumi.com/blog/best-sunscreen-spot-remover/
+clear; rm -rf .db corpora; yarn dev && yarn start khanoumi -u https://www.khanoumi.com/blog/yalda/
+
+clear; rm -rf .db corpora; yarn dev && yarn start portal -u https://www.portal.ir/how-to-set-up-google-analytics
+clear; rm -rf .db corpora; yarn dev && yarn start portal -u https://www.portal.ir/seo-settings-in-portal-website-builder
+
+clear; rm -rf .db corpora; yarn dev && yarn start arongroups -u https://blog.arongroups.co/tutorials/forex/حساب-دمو/
+clear; rm -rf .db corpora; yarn dev && yarn start arongroups -u https://blog.arongroups.co/tutorials/forex/بروکر-فارکس/
+
+clear; rm -rf .db corpora; yarn dev && yarn start taraz -u https://blog.taraz.org/چطور-فیزیک-بخوانم؟-5-راهکار-برای-مطالع/
+clear; rm -rf .db corpora; yarn dev && yarn start taraz -u https://blog.taraz.org/موک-چیست/
+
+clear; rm -rf .db corpora; yarn dev && yarn start zhaket -u https://www.zhaket.com/blog/choose-domain-name/
+clear; rm -rf .db corpora; yarn dev && yarn start zhaket -u https://www.zhaket.com/blog/the-most-complete-wordpress-security-guide/
+
+clear; rm -rf .db corpora; yarn dev && yarn start azaronline -u https://azaronline.com/blog/همه-چیزهایی-که-باید-درباره-ChatGPT-بدانید/
+clear; rm -rf .db corpora; yarn dev && yarn start azaronline -u https://azaronline.com/blog/ساخت-عکس-با-هوش-مصنوعی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start arazcloud -u https://arazcloud.com/blog/what-is-sccm/
+clear; rm -rf .db corpora; yarn dev && yarn start arazcloud -u https://arazcloud.com/blog/مفهوم-داکر-و-کاربرد-آن/
+
+clear; rm -rf .db corpora; yarn dev && yarn start poonehmedia -u https://www.poonehmedia.com/blog/1003-what-is-content-marketing
+clear; rm -rf .db corpora; yarn dev && yarn start poonehmedia -u https://www.poonehmedia.com/blog/750-vps
+
+clear; rm -rf .db corpora; yarn dev && yarn start khanomsin -u https://khanomsin.ir/what-is-site-redesign/
+clear; rm -rf .db corpora; yarn dev && yarn start khanomsin -u  https://khanomsin.ir/dwell-time/
+
+clear; rm -rf .db corpora; yarn dev && yarn start techranco -u https://techranco.ir/low-code/
+clear; rm -rf .db corpora; yarn dev && yarn start techranco -u https://techranco.ir/محاسبه-قیمت-طراحی-اپلیکیشن/
+
+clear; rm -rf .db corpora; yarn dev && yarn start tlyn -u https://tlyn.ir/gold-coin-symbol/
+clear; rm -rf .db corpora; yarn dev && yarn start tlyn -u https://tlyn.ir/عیار-سنجی-طلا-طلاین/
+
+clear; rm -rf .db corpora; yarn dev && yarn start parspack -u https://parspack.com/blog/hosting/learn-server/vps-vs-physical-server
+clear; rm -rf .db corpora; yarn dev && yarn start parspack -u https://parspack.com/blog/hosting/learn-server/setup-domain-windows-vps
+
+clear; rm -rf .db corpora; yarn dev && yarn start pdf -u https://pdf.co.ir/Beginners-Guide-to-SEO
+
+clear; rm -rf .db corpora; yarn dev && yarn start ipresta -u https://ipresta.ir/blog/229_topical-authority-یا-همان-تاپیکال-آتوریتی-چیست.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start irancell -u https://blog.irancell.ir/b/16046/کاربردی-ترین-نرم-افزارهای-ویرایش-ویدی
+clear; rm -rf .db corpora; yarn dev && yarn start irancell -u https://blog.irancell.ir/b/13871/td-lte
+
+clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/chapar-plugin/
+clear; rm -rf .db corpora; yarn dev && yarn start farazsms -u https://farazsms.com/woocommerce/
+
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/664/پیامک-تبریک-ولادت-حضرت-عیسی-مسیح،-پیامک-تبریک-کریسمس
+clear; rm -rf .db corpora; yarn dev && yarn start raygansms -u https://raygansms.com/blog/post/30/اینترنت-5g-چیست؟
+
+clear; rm -rf .db corpora; yarn dev && yarn start melipayamak -u https://www.melipayamak.com/blog/posts/tips-for-sms-marketing-on-black-friday/
+clear; rm -rf .db corpora; yarn dev && yarn start melipayamak -u https://www.melipayamak.com/blog/posts/what-are-the-advantages-and-disadvantages-of-sms-advertising/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mopon -u https://blog.mopon.ir/پشتیبانی-دیجی-استایل/
+clear; rm -rf .db corpora; yarn dev && yarn start mopon -u https://blog.mopon.ir/راهنمای-استفاده-از-کد-تخفیف-دیجی-کالا/
+
+clear; rm -rf .db corpora; yarn dev && yarn start clickaval -u https://clickaval.com/blog/الگوریتم-mum-گوگل/
+clear; rm -rf .db corpora; yarn dev && yarn start clickaval -u https://clickaval.com/blog/معیارهای-رتبه-الکسا/
+
+clear; rm -rf .db corpora; yarn dev && yarn start alomohtava -u https://alomohtava.com/slow-content/
+clear; rm -rf .db corpora; yarn dev && yarn start alomohtava -u https://alomohtava.com/educational-content-production/
+
+clear; rm -rf .db corpora; yarn dev && yarn start podium -u https://blog.podium.ir/معرفی-شرکتهای-توسعهدهنده-هوش-مصنو/
+clear; rm -rf .db corpora; yarn dev && yarn start podium -u https://blog.podium.ir/building-an-image-generation-tool-with-artificial-intelligence-dall-e/
+
+clear; rm -rf .db corpora; yarn dev && yarn start infogramacademy -u https://infogramacademy.com/blog/5327-2threads-instagram/
+clear; rm -rf .db corpora; yarn dev && yarn start infogramacademy -u https://infogramacademy.com/blog/راه-اندازی-فروشگاه-اینترنتی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir/posts/406
+clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir/helps/18
+
+clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/what-is-effectiveness/
+clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/payamgostar-in-international-exhibition-of-structures-facades-and-modern-construction-technologies/
+
+clear; rm -rf .db corpora; yarn dev && yarnstart nabzemarketing -u https://nabzemarketing.com/blog/موبایل-مارکتینگ/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
