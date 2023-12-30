@@ -3396,3 +3396,25 @@ export class idpay extends clsScrapper {
         })
     }
 }
+
+export class payamgostar extends clsScrapper {
+    constructor() {
+        super(enuDomains.payamgostar, "payamgostar.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-post-detail",
+                title: "h1",
+                datetime: {
+                    conatiner: ".meta-date"
+                },
+                content: {
+                    main: ".entry-content, .post-thumbnail",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: "span.meta-category a",
+                },
+            },
+        })
+    }
+}
