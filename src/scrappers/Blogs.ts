@@ -3539,3 +3539,32 @@ export class roshadent extends clsScrapper {
         })
     }
 }
+
+export class activeidea extends clsScrapper {
+    constructor() {
+        super(enuDomains.activeidea, "activeidea.net", {
+            selectors: {
+                article: ".Comments-body",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.date-news"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article"),
+                    ignoreNodeClasses: ["breadcrumb"],
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='headline name'] a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cm-hld .cm-item-row"),
+                    author: ".name-user",
+                    datetime: ".date-cm",
+                    text: ".txt-cm"
+                }
+            },
+        })
+    }
+}

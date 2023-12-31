@@ -338,6 +338,7 @@ export enum enuDomains {
     bitpin = "bitpin",
     fardaname = "fardaname",
     roshadent = "roshadent",
+    activeidea = "activeidea",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
