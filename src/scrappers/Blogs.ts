@@ -3624,3 +3624,31 @@ export class paziresh24 extends clsScrapper {
         })
     }
 }
+
+export class webkima extends clsScrapper {
+    constructor() {
+        super(enuDomains.webkima, "webkima.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .entry-image a",
+                    ignoreNodeClasses: ["kk-star-ratings", "w-related", "ez-toc-v2_0_57_1"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "cite.strong",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
