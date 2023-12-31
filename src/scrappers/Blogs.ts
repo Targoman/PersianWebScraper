@@ -3519,3 +3519,23 @@ export class fardaname extends clsScrapper {
         })
     }
 }
+
+export class roshadent extends clsScrapper {
+    constructor() {
+        super(enuDomains.roshadent, "blog.roshadent.com", {
+            selectors: {
+                article: "article.boxed",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .meta",
+                    ignoreNodeClasses: ["meta__info", "meta__comments"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+            },
+        })
+    }
+}
