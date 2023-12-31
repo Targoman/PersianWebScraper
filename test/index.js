@@ -1045,7 +1045,29 @@ clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir
 clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/what-is-effectiveness/
 clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/payamgostar-in-international-exhibition-of-structures-facades-and-modern-construction-technologies/
 
-clear; rm -rf .db corpora; yarn dev && yarnstart nabzemarketing -u https://nabzemarketing.com/blog/موبایل-مارکتینگ/
+clear; rm -rf .db corpora; yarn dev && yarn start nabzemarketing -u https://nabzemarketing.com/blog/موبایل-مارکتینگ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start transis -u https://transis.me/blog/کاورلتر-چیست/
+
+clear; rm -rf .db corpora; yarn dev && yarn start bitpin -u https://bitpin.ir/academy/technical-analysis-of-feg-cryptocurrency-30-dec/
+clear; rm -rf .db corpora; yarn dev && yarn start bitpin -u https://bitpin.ir/academy/has-ethereum-lost-the-playing-field-to-competitors/
+
+clear; rm -rf .db corpora; yarn dev && yarn start fardaname -u https://fardaname.com/سرمایه-گذاری-شخصی/
+clear; rm -rf .db corpora; yarn dev && yarn start fardaname -u https://fardaname.com/tsetmc-چیست/
+
+clear; rm -rf .db corpora; yarn dev && yarn start roshadent -u https://blog.roshadent.com/افتادن-پیچ-ایمپلنت/
+
+clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.activeidea.net/Content/3739/دامنه-سایت-کشورها.html
+clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.activeidea.net/Content/1336/improve-google-ranking.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/psychology/کمبود-چه-ویتامینی-افسردگی-میاره-؟/
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/healthy-content/10-تا-از-بهترین-دکتر-اعصاب-و-روان-در-تهران/
+
+clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/26549/حملات-پانیک/
+clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/7377/drug-omeprazole/
+
+clear; rm -rf .db corpora; yarn dev && yarn start webkima -u https://webkima.com/best-chatgpt-wp-plugins/
+clear; rm -rf .db corpora; yarn dev && yarn start webkima -u https://webkima.com/wp-to-buffer/
 
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
