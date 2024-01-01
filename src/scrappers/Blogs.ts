@@ -3693,3 +3693,34 @@ export class dargi extends clsScrapper {
         })
     }
 }
+
+export class quera extends clsScrapper {
+    constructor() {
+        super(enuDomains.quera, "quera.org", {
+            basePath: "/blog",
+            selectors: {
+                article: ".single-main-content",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.entry-meta"
+                },
+                content: {
+                    main: ".meta-content, .meta-image img",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
