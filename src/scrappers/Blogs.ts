@@ -3724,3 +3724,33 @@ export class quera extends clsScrapper {
         })
     }
 }
+
+export class karlancer extends clsScrapper {
+    constructor() {
+        super(enuDomains.karlancer, "karlancer.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".article-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-art.mb-5, .thumb-art",
+                    ignoreNodeClasses: ["ez-toc-v2_0_53"],
+                    ignoreTexts: [/.*مطلب پیشنهادی.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs a"),
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".main-comments ul li"),
+                    author: ".titauthor strong",
+                    text: ".content-cmnt"
+                }
+            },
+        })
+    }
+}

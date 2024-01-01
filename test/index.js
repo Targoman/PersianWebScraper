@@ -1076,6 +1076,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start dargi -u https://www.dargi.ir/
 clear; rm -rf .db corpora; yarn dev && yarn start quera -u https://quera.org/blog/15-ai-photo-enhancers/
 clear; rm -rf .db corpora; yarn dev && yarn start quera -u https://quera.org/blog/11-myths-stopping-you-from-learning-programming/
 
+clear; rm -rf .db corpora; yarn dev && yarn start karlancer -u https://www.karlancer.com/blog/user-role-in-wordpress/
+clear; rm -rf .db corpora; yarn dev && yarn start karlancer -u https://www.karlancer.com/blog/الگوریتم-اینستاگرام-چطور-کار-می-کند؟/
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 
