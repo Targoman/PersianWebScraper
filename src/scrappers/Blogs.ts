@@ -3652,3 +3652,22 @@ export class webkima extends clsScrapper {
         })
     }
 }
+
+export class sellfree extends clsScrapper {
+    constructor() {
+        super(enuDomains.sellfree, "sellfree.ir", {
+            basePath: "/category/articles/",
+            selectors: {
+                article: ".darkoobagahi-in",
+                title: "h1 a",
+                datetime: {
+                    conatiner: ".darkoobdate"
+                },
+                content: {
+                    main: "p.MsoNormal, .darkoobimagev a",
+                    ignoreNodeClasses: ["kk-star-ratings", "w-related", "ez-toc-v2_0_57_1"],
+                },
+            },
+        })
+    }
+}

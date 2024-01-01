@@ -342,6 +342,7 @@ export enum enuDomains {
     doctoryab = "doctoryab",
     paziresh24 = "paziresh24",
     webkima = "webkima",
+    sellfree = "sellfree",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
