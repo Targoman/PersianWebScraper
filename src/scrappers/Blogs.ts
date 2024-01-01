@@ -3665,8 +3665,30 @@ export class sellfree extends clsScrapper {
                 },
                 content: {
                     main: "p.MsoNormal, .darkoobimagev a",
-                    ignoreNodeClasses: ["kk-star-ratings", "w-related", "ez-toc-v2_0_57_1"],
                 },
+            },
+        })
+    }
+}
+
+export class dargi extends clsScrapper {
+    constructor() {
+        super(enuDomains.dargi, "dargi.ir", {
+            basePath: "/blog/list",
+            selectors: {
+                article: ".blog-item.radius-0",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "article .text, .image.full",
+                    ignoreNodeClasses: ["date", "category"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs div nav a")
+                },
+                tags: "nav.tags a",
             },
         })
     }
