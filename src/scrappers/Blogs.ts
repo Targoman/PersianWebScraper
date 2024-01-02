@@ -3814,3 +3814,31 @@ export class azki extends clsScrapper {
         })
     }
 }
+
+export class mosbatesabz extends clsScrapper {
+    constructor() {
+        super(enuDomains.mosbatesabz, "mosbatesabz.com", {
+            basePath: "/mag",
+            selectors: {
+                article: "[data-elementor-type='single-post']",
+                title: "h1",
+                datetime: {
+                    conatiner: "ul.elementor-post-info li:nth-child(3)"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
+                    ignoreNodeClasses: ["kk-star-ratings", "yn-article-text-card", "ez-toc-v2_0_58", "c-ads-5"],
+                },
+                category: {
+                    selector: "nav.rank-math-breadcrumb p a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+        })
+    }
+}
