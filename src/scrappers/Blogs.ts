@@ -3865,3 +3865,33 @@ export class karokasb extends clsScrapper {
         })
     }
 }
+
+
+export class mizbanfa extends clsScrapper {
+    constructor() {
+        super(enuDomains.mizbanfa, "mizbanfa.net", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
