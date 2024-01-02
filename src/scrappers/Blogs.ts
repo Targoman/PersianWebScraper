@@ -3842,3 +3842,26 @@ export class mosbatesabz extends clsScrapper {
         })
     }
 }
+
+export class karokasb extends clsScrapper {
+    constructor() {
+        super(enuDomains.karokasb, "karokasb.org", {
+            basePath: "/recent-posts",
+            selectors: {
+                article: "body.single-post article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+            },
+        })
+    }
+}
