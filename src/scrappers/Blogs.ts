@@ -3652,3 +3652,105 @@ export class webkima extends clsScrapper {
         })
     }
 }
+
+export class sellfree extends clsScrapper {
+    constructor() {
+        super(enuDomains.sellfree, "sellfree.ir", {
+            basePath: "/category/articles/",
+            selectors: {
+                article: ".darkoobagahi-in",
+                title: "h1 a",
+                datetime: {
+                    conatiner: ".darkoobdate"
+                },
+                content: {
+                    main: "p.MsoNormal, .darkoobimagev a",
+                },
+            },
+        })
+    }
+}
+
+export class dargi extends clsScrapper {
+    constructor() {
+        super(enuDomains.dargi, "dargi.ir", {
+            basePath: "/blog/list",
+            selectors: {
+                article: ".blog-item.radius-0",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "article .text, .image.full",
+                    ignoreNodeClasses: ["date", "category"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs div nav a")
+                },
+                tags: "nav.tags a",
+            },
+        })
+    }
+}
+
+export class quera extends clsScrapper {
+    constructor() {
+        super(enuDomains.quera, "quera.org", {
+            basePath: "/blog",
+            selectors: {
+                article: ".single-main-content",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.entry-meta"
+                },
+                content: {
+                    main: ".meta-content, .meta-image img",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class karlancer extends clsScrapper {
+    constructor() {
+        super(enuDomains.karlancer, "karlancer.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".article-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-art.mb-5, .thumb-art",
+                    ignoreNodeClasses: ["ez-toc-v2_0_53"],
+                    ignoreTexts: [/.*مطلب پیشنهادی.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs a"),
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".main-comments ul li"),
+                    author: ".titauthor strong",
+                    text: ".content-cmnt"
+                }
+            },
+        })
+    }
+}
