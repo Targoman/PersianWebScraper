@@ -1097,6 +1097,9 @@ clear; rm -rf .db corpora; yarn dev && yarn start mizbanfa -u https://mizbanfa.n
 clear; rm -rf .db corpora; yarn dev && yarn start jadvalyab -u https://jadvalyab.ir/blog/جنگل-های-ایران-زیباترین-و-بکرترین-تفری/
 clear; rm -rf .db corpora; yarn dev && yarn start jadvalyab -u https://jadvalyab.ir/blog/خلاصه-داستان-قسمت-اول-تا-آخر-سریال-ترک-26
 
+clear; rm -rf .db corpora; yarn dev && yarn start basalam -u https://basalam.com/blog/mothers-day-cake-recipe/
+clear; rm -rf .db corpora; yarn dev && yarn start basalam -u 
+
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
 

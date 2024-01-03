@@ -3924,3 +3924,32 @@ export class jadvalyab extends clsScrapper {
         })
     }
 }
+
+export class basalam extends clsScrapper {
+    constructor() {
+        super(enuDomains.basalam, "basalam.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "body.single-post main",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.wp-block-post-featured-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "wp-block-buttons"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.wp-block-comment-template li div"),
+                    author: ".wp-block-comment-author-name",
+                    datetime: "time",
+                    text: ".wp-block-comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
