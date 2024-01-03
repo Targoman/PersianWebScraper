@@ -4005,3 +4005,29 @@ export class myket extends clsScrapper {
         })
     }
 }
+
+export class samanehha extends clsScrapper {
+    constructor() {
+        super(enuDomains.samanehha, "samanehha.com", {
+            selectors: {
+                article: ".main-article",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "article.main-post p, article.main-post h, p[dir='RTL'] img",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".user-comment .comment-list .comment-container"),
+                    author: "span.blue-grad",
+                    datetime: "span.cm-date",
+                    text: "span.comment"
+                }
+            },
+        })
+    }
+}
