@@ -4031,3 +4031,36 @@ export class samanehha extends clsScrapper {
         })
     }
 }
+
+export class meghdadit extends clsScrapper {
+    constructor() {
+        super(enuDomains.meghdadit, "meghdadit.com", {
+            basePath: "/mag",
+            selectors: {
+                article: ".post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#content-single",
+                    ignoreNodeClasses: ["toc_list", "toc_title"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.rank-math-breadcrumb p a")
+                },
+                tags: ".c-single-article__tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
