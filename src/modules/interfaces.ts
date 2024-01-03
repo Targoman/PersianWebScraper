@@ -353,6 +353,7 @@ export enum enuDomains {
     mizbanfa = "mizbanfa",
     jadvalyab = "jadvalyab",
     basalam = "basalam",
+    ghafaridiet = "ghafaridiet",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

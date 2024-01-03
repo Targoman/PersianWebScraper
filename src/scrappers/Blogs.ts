@@ -3953,3 +3953,25 @@ export class basalam extends clsScrapper {
         })
     }
 }
+
+export class ghafaridiet extends clsScrapper {
+    constructor() {
+        super(enuDomains.ghafaridiet, "ghafaridiet.com", {
+            basePath: "/article.html",
+            selectors: {
+                article: ".singlePage ",
+                title: "h1",
+                datetime: {
+                    conatiner: ".singlePage__item li:nth-child(1)"
+                },
+                content: {
+                    main: ".post",
+                },
+                category: {
+                    selector: "ul.breadcrumb li a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
