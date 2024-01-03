@@ -3895,3 +3895,32 @@ export class mizbanfa extends clsScrapper {
         })
     }
 }
+
+export class jadvalyab extends clsScrapper {
+    constructor() {
+        super(enuDomains.jadvalyab, "jadvalyab.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["wpd-not-rated"]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+        })
+    }
+}
