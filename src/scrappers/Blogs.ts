@@ -3433,12 +3433,630 @@ export class nabzemarketing extends clsScrapper {
                 content: {
                     main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
                     ignoreNodeClasses: ["kk-star-ratings", "elementor-widget__width-initial", "elementor-button-align-stretch", "elementor-field"],
-                    //ignoreTexts: [/.*IRPP.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[data-id='60d59e19'] div p a"),
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3.elementor-heading-title a"),
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class transis extends clsScrapper {
+    constructor() {
+        super(enuDomains.transis, "transis.me", {
+            basePath: "/blog",
+            selectors: {
+                article: ".article",
+                title: "h1",
+                datetime: {
+                    conatiner: "li.time"
+                },
+                content: {
+                    main: ".col-lg-10 .section, .article_image",
+                    ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: ".t-12.t-category",
+                },
+                tags: ".t-14.t-category"
+            },
+        })
+    }
+}
+
+export class bitpin extends clsScrapper {
+    constructor() {
+        super(enuDomains.bitpin, "bitpin.ir", {
+            basePath: "/academy",
+            selectors: {
+                article: ".mx-auto > .mt-2 > .w-full",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.mr-2"
+                },
+                content: {
+                    main: "#post-content",
+                    ignoreNodeClasses: ["multi-internal-link-card", "bpa-download-cp7-wrapper", "ez-toc-v2_0_51_1"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.rank-math-breadcrumb p a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div .w-full"),
+                    author: ".text-sm span.font-bold",
+                    datetime: ".text-sm span.text-black-2",
+                    text: "p"
+                }
+            },
+        })
+    }
+}
+
+export class fardaname extends clsScrapper {
+    constructor() {
+        super(enuDomains.fardaname, "fardaname.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".content.w-full",
+                title: "h1",
+                datetime: {
+                    conatiner: ".item span.value"
+                },
+                content: {
+                    main: "article",
+                    ignoreNodeClasses: ["iconed_info_list"],
+                },
+                category: {
+                    selector: "a.rounded-xl",
+                },
+            },
+        })
+    }
+}
+
+export class roshadent extends clsScrapper {
+    constructor() {
+        super(enuDomains.roshadent, "blog.roshadent.com", {
+            selectors: {
+                article: "article.boxed",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .meta",
+                    ignoreNodeClasses: ["meta__info", "meta__comments"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+            },
+        })
+    }
+}
+
+export class activeidea extends clsScrapper {
+    constructor() {
+        super(enuDomains.activeidea, "activeidea.net", {
+            selectors: {
+                article: ".Comments-body",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span.date-news"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article"),
+                    ignoreNodeClasses: ["breadcrumb"],
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='headline name'] a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cm-hld .cm-item-row"),
+                    author: ".name-user",
+                    datetime: ".date-cm",
+                    text: ".txt-cm"
+                }
+            },
+        })
+    }
+}
+
+export class doctoryab extends clsScrapper {
+    constructor() {
+        super(enuDomains.doctoryab, "blog.doctor-yab.ir", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "kk-star-ratings", "post-shortlink", "mag-box"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class paziresh24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.paziresh24, "paziresh24.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.last-updated"
+                },
+                content: {
+                    main: ".entry-content, figure.single-featured-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "aiosrs-rating-wrap", "post-shortlink", "shortc-button", "mag-box"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+        })
+    }
+}
+
+export class webkima extends clsScrapper {
+    constructor() {
+        super(enuDomains.webkima, "webkima.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, .entry-image a",
+                    ignoreNodeClasses: ["kk-star-ratings", "w-related", "ez-toc-v2_0_57_1"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "cite.strong",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class sellfree extends clsScrapper {
+    constructor() {
+        super(enuDomains.sellfree, "sellfree.ir", {
+            basePath: "/category/articles/",
+            selectors: {
+                article: ".darkoobagahi-in",
+                title: "h1 a",
+                datetime: {
+                    conatiner: ".darkoobdate"
+                },
+                content: {
+                    main: "p.MsoNormal, .darkoobimagev a",
+                },
+            },
+        })
+    }
+}
+
+export class dargi extends clsScrapper {
+    constructor() {
+        super(enuDomains.dargi, "dargi.ir", {
+            basePath: "/blog/list",
+            selectors: {
+                article: ".blog-item.radius-0",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "article .text, .image.full",
+                    ignoreNodeClasses: ["date", "category"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs div nav a")
+                },
+                tags: "nav.tags a",
+            },
+        })
+    }
+}
+
+export class quera extends clsScrapper {
+    constructor() {
+        super(enuDomains.quera, "quera.org", {
+            basePath: "/blog",
+            selectors: {
+                article: ".single-main-content",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.entry-meta"
+                },
+                content: {
+                    main: ".meta-content, .meta-image img",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
+                    startIndex: 1
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class karlancer extends clsScrapper {
+    constructor() {
+        super(enuDomains.karlancer, "karlancer.com", {
+            basePath: "/blog",
+            selectors: {
+                article: ".article-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-art.mb-5, .thumb-art",
+                    ignoreNodeClasses: ["ez-toc-v2_0_53"],
+                    ignoreTexts: [/.*مطلب پیشنهادی.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs a"),
+                },
+                tags: "ul.quera-tags-list li a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".main-comments ul li"),
+                    author: ".titauthor strong",
+                    text: ".content-cmnt"
+                }
+            },
+        })
+    }
+}
+
+export class hitalki extends clsScrapper {
+    constructor() {
+        super(enuDomains.hitalki, "hitalki.org", {
+            basePath: "/blog",
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, img.aligncenter, figure.single-featured-image",
+                    ignoreNodeClasses: ["rmp-widgets-container", "side-aside", "theme-header", "main-nav-wrapper", "fullwidth-entry-title-wrapper",
+                      "header-nav", "go-to-top-button", "site-footer", "sidebar", "share-buttons", "post-components"],
+                    ignoreTexts: [/.*بیشتر بدانید.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class azki extends clsScrapper {
+    constructor() {
+        super(enuDomains.azki, "azki.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_51_1"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class mosbatesabz extends clsScrapper {
+    constructor() {
+        super(enuDomains.mosbatesabz, "mosbatesabz.com", {
+            basePath: "/mag",
+            selectors: {
+                article: "[data-elementor-type='single-post']",
+                title: "h1",
+                datetime: {
+                    conatiner: "ul.elementor-post-info li:nth-child(3)"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
+                    ignoreNodeClasses: ["kk-star-ratings", "yn-article-text-card", "ez-toc-v2_0_58", "c-ads-5"],
+                },
+                category: {
+                    selector: "nav.rank-math-breadcrumb p a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+        })
+    }
+}
+
+export class karokasb extends clsScrapper {
+    constructor() {
+        super(enuDomains.karokasb, "karokasb.org", {
+            basePath: "/recent-posts",
+            selectors: {
+                article: "body.single-post article",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+            },
+        })
+    }
+}
+
+
+export class mizbanfa extends clsScrapper {
+    constructor() {
+        super(enuDomains.mizbanfa, "mizbanfa.net", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: ".comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class jadvalyab extends clsScrapper {
+    constructor() {
+        super(enuDomains.jadvalyab, "jadvalyab.ir", {
+            basePath: "/blog",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["wpd-not-rated"]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
+            },
+        })
+    }
+}
+
+export class basalam extends clsScrapper {
+    constructor() {
+        super(enuDomains.basalam, "basalam.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "body.single-post main",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, figure.wp-block-post-featured-image",
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "wp-block-buttons"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.wp-block-comment-template li div"),
+                    author: ".wp-block-comment-author-name",
+                    datetime: "time",
+                    text: ".wp-block-comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class ghafaridiet extends clsScrapper {
+    constructor() {
+        super(enuDomains.ghafaridiet, "ghafaridiet.com", {
+            basePath: "/article.html",
+            selectors: {
+                article: ".singlePage ",
+                title: "h1",
+                datetime: {
+                    conatiner: ".singlePage__item li:nth-child(1)"
+                },
+                content: {
+                    main: ".post",
+                },
+                category: {
+                    selector: "ul.breadcrumb li a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class myket extends clsScrapper {
+    constructor() {
+        super(enuDomains.myket, "myket.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["appnew", "post-bottom-meta"]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: "span.tagcloud a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class samanehha extends clsScrapper {
+    constructor() {
+        super(enuDomains.samanehha, "samanehha.com", {
+            selectors: {
+                article: ".main-article",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "article.main-post p, article.main-post h, p[dir='RTL'] img",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".user-comment .comment-list .comment-container"),
+                    author: "span.blue-grad",
+                    datetime: "span.cm-date",
+                    text: "span.comment"
+                }
+            },
+        })
+    }
+}
+
+export class meghdadit extends clsScrapper {
+    constructor() {
+        super(enuDomains.meghdadit, "meghdadit.com", {
+            basePath: "/mag",
+            selectors: {
+                article: ".post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#content-single",
+                    ignoreNodeClasses: ["toc_list", "toc_title"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.rank-math-breadcrumb p a")
+                },
+                tags: ".c-single-article__tags a",
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                }
             },
             url: {
                 removeWWW: true

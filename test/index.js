@@ -1045,7 +1045,72 @@ clear; rm -rf .db corpora; yarn dev && yarn start idpay -u https://blog.idpay.ir
 clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/what-is-effectiveness/
 clear; rm -rf .db corpora; yarn dev && yarn start payamgostar -u https://www.payamgostar.com/blog/payamgostar-in-international-exhibition-of-structures-facades-and-modern-construction-technologies/
 
-clear; rm -rf .db corpora; yarn dev && yarnstart nabzemarketing -u https://nabzemarketing.com/blog/موبایل-مارکتینگ/
+clear; rm -rf .db corpora; yarn dev && yarn start nabzemarketing -u https://nabzemarketing.com/blog/موبایل-مارکتینگ/
+
+clear; rm -rf .db corpora; yarn dev && yarn start transis -u https://transis.me/blog/کاورلتر-چیست/
+
+clear; rm -rf .db corpora; yarn dev && yarn start bitpin -u https://bitpin.ir/academy/technical-analysis-of-feg-cryptocurrency-30-dec/
+clear; rm -rf .db corpora; yarn dev && yarn start bitpin -u https://bitpin.ir/academy/has-ethereum-lost-the-playing-field-to-competitors/
+
+clear; rm -rf .db corpora; yarn dev && yarn start fardaname -u https://fardaname.com/سرمایه-گذاری-شخصی/
+clear; rm -rf .db corpora; yarn dev && yarn start fardaname -u https://fardaname.com/tsetmc-چیست/
+
+clear; rm -rf .db corpora; yarn dev && yarn start roshadent -u https://blog.roshadent.com/افتادن-پیچ-ایمپلنت/
+
+clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.activeidea.net/Content/3739/دامنه-سایت-کشورها.html
+clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.activeidea.net/Content/1336/improve-google-ranking.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/psychology/کمبود-چه-ویتامینی-افسردگی-میاره-؟/
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/healthy-content/10-تا-از-بهترین-دکتر-اعصاب-و-روان-در-تهران/
+
+clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/26549/حملات-پانیک/
+clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/7377/drug-omeprazole/
+
+clear; rm -rf .db corpora; yarn dev && yarn start webkima -u https://webkima.com/best-chatgpt-wp-plugins/
+clear; rm -rf .db corpora; yarn dev && yarn start webkima -u https://webkima.com/wp-to-buffer/
+
+clear; rm -rf .db corpora; yarn dev && yarn start sellfree -u https://sellfree.ir/139423
+
+clear; rm -rf .db corpora; yarn dev && yarn start dargi -u https://www.dargi.ir/blog/show/2624/چگونه+بین+کار+و+زندگی+به+یک+تعادل+سالم+در+سال+2024+برسیم+؟
+
+clear; rm -rf .db corpora; yarn dev && yarn start quera -u https://quera.org/blog/15-ai-photo-enhancers/
+clear; rm -rf .db corpora; yarn dev && yarn start quera -u https://quera.org/blog/11-myths-stopping-you-from-learning-programming/
+
+clear; rm -rf .db corpora; yarn dev && yarn start karlancer -u https://www.karlancer.com/blog/user-role-in-wordpress/
+clear; rm -rf .db corpora; yarn dev && yarn start karlancer -u https://www.karlancer.com/blog/الگوریتم-اینستاگرام-چطور-کار-می-کند؟/
+
+clear; rm -rf .db corpora; yarn dev && yarn start hitalki -u https://hitalki.org/blog/japanese-language-learning-resources/
+clear; rm -rf .db corpora; yarn dev && yarn start hitalki -u https://hitalki.org/blog/the-best-movies-for-learning-english/
+
+clear; rm -rf .db corpora; yarn dev && yarn start azki -u https://www.azki.com/blog/how-do-generation-z-plan-their-retirement/
+clear; rm -rf .db corpora; yarn dev && yarn start azki -u https://www.azki.com/blog/mtpl-insurance-transference/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mosbatesabz -u https://mosbatesabz.com/mag/what-is-chlorpheniramine/
+clear; rm -rf .db corpora; yarn dev && yarn start mosbatesabz -u https://mosbatesabz.com/mag/what-is-zinc-plus-and-its-benefits/
+
+clear; rm -rf .db corpora; yarn dev && yarn start karokasb -u https://karokasb.org/domain-registeration-guide-for-business-managers/
+clear; rm -rf .db corpora; yarn dev && yarn start karokasb -u https://karokasb.org/ماتریس-آنسوف-در-استراتژی-بازاریابی/
+
+clear; rm -rf .db corpora; yarn dev && yarn start mizbanfa -u https://mizbanfa.net/blog/server-management/install-and-use-linux-screen/
+clear; rm -rf .db corpora; yarn dev && yarn start mizbanfa -u https://mizbanfa.net/blog/hosting/cpanel/autossl-activation-in-cpanel/
+
+clear; rm -rf .db corpora; yarn dev && yarn start jadvalyab -u https://jadvalyab.ir/blog/جنگل-های-ایران-زیباترین-و-بکرترین-تفری/
+clear; rm -rf .db corpora; yarn dev && yarn start jadvalyab -u https://jadvalyab.ir/blog/خلاصه-داستان-قسمت-اول-تا-آخر-سریال-ترک-26
+
+clear; rm -rf .db corpora; yarn dev && yarn start basalam -u https://basalam.com/blog/mothers-day-cake-recipe/
+clear; rm -rf .db corpora; yarn dev && yarn start basalam -u https://basalam.com/blog/gifts-for-mother-and-women/
+
+clear; rm -rf .db corpora; yarn dev && yarn start ghafaridiet -u https://www.ghafaridiet.com/article/چند-نوع-خوشمزه-غذای-رژیمی-با-گوشت-چرخ-کرده-!
+clear; rm -rf .db corpora; yarn dev && yarn start ghafaridiet -u https://www.ghafaridiet.com/article/با-روش-های-مدیریت-استرس-و-اضطراب-بیشتر-آشنا-شوید!
+
+clear; rm -rf .db corpora; yarn dev && yarn start myket -u https://myket.ir/mag/games-to-play-while-you-are-waiting-for-gta-6/
+clear; rm -rf .db corpora; yarn dev && yarn start myket -u https://myket.ir/mag/why-sherlock-benedict-cumberbatch-is-better-than-robert-downey-jr/
+
+clear; rm -rf .db corpora; yarn dev && yarn start samanehha -u https://www.samanehha.com/web/1118/سامانه-اطلاع-از-اوراق-بانک-مسکن.html
+clear; rm -rf .db corpora; yarn dev && yarn start samanehha -u https://www.samanehha.com/web/1234/آپدیت-ویندوز.html
+
+clear; rm -rf .db corpora; yarn dev && yarn start meghdadit -u https://meghdadit.com/mag/s23-fe-vs-a54/
+clear; rm -rf .db corpora; yarn dev && yarn start meghdadit -u https://meghdadit.com/mag/ps5-console-features/
 
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
