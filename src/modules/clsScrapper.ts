@@ -143,7 +143,7 @@ export abstract class clsScrapper {
             if (ignoreClasses) {
                 if (typeof ignoreClasses === "function") {
                     const fakeNode = HP.parse(`<div>${el.outerHTML}</div>`)
-                    return ignoreClasses(fakeNode.firstChild.childNodes[0] as HTMLElement, fakeNode) ? true : false
+                    return ignoreClasses(fakeNode.firstChild?.childNodes[0] as HTMLElement, fakeNode) ? true : false
                 } else {
                     let found = false
                     for (let i = 0; i < ignoreClasses.length; ++i)
