@@ -639,7 +639,8 @@ export class snapp extends clsScrapper {
                 article: "article.post-large",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
-                    conatiner: "time",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: '.entry-content',
@@ -650,7 +651,6 @@ export class snapp extends clsScrapper {
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments li"),
                     author: "span.comment-by strong",
-                    datetime: "span.date",
                     text: ".comment-block div:nth-child(3)"
                 }
             },
