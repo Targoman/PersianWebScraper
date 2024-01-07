@@ -25,8 +25,8 @@ class clsAsamBased extends clsScrapper {
                 },
                 tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a',
                 datetime: {
-                    conatiner: '[itemprop="datePublished"], [itemprop="datepublished"], time',
-                    splitter: ' '
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
                 },
                 category: {
                     selector: (article: HTMLElement) => article.querySelector(".breadcrumb_list, .breadcrumb")?.querySelectorAll("li a"),
@@ -437,9 +437,6 @@ export class rokna extends clsAsamBased {
             selectors: {
                 title: 'h1',
                 subtitle: '.lead, h1+p',
-                datetime: {
-                    conatiner: 'time'
-                },
                 content: {
                     main: ".primary-files, #CK_editor>*",
                     ignoreNodeClasses: ["noprint", 'video-js-container']
@@ -505,10 +502,6 @@ export class fardanews extends clsAsamBased {
         super(enuDomains.fardanews, "fardanews.com", {
             selectors: {
                 article: "article, #modal-page",
-                datetime: {
-                    conatiner: (article: HTMLElement) => article.querySelector(".news-time, .note-time, h1"),
-                    splitter: (el: HTMLElement) => super.extractDate(el, " ") || "NoDate"
-                },
                 content: {
                     main: "#echo_detail, ul"
                 },
@@ -564,9 +557,6 @@ export class bartarinha extends clsAsamBased {
         super(enuDomains.bartarinha, "bartarinha.ir", {
             selectors: {
                 article: "article",
-                datetime: {
-                    conatiner: '.news_time',
-                },
                 tags: (article: HTMLElement) => article.querySelector(".article_tags")?.querySelectorAll("a")
             }
         })
@@ -692,9 +682,6 @@ export class iana extends clsAsamBased {
                 content: {
                     main: ".echo-detail-inner>*, .primary-files"
                 },
-                datetime: {
-                    conatiner: '.code-time time, [itemprop="datepublished"]'
-                },
                 category: {
                     selector: ".breadcrumb-inner li",
                     startIndex: 1,
@@ -725,9 +712,6 @@ export class eghtesadonline extends clsAsamBased {
                 article: "article",
                 aboveTitle: "h4",
                 summary: "p.summary",
-                datetime: {
-                    conatiner: ".item-date"
-                },
                 category: {
                     selector: "ol.breadcrumb li a"
                 },
@@ -745,9 +729,6 @@ export class titrekootah extends clsAsamBased {
         super(enuDomains.titrekootah, "titrekootah.ir", {
             selectors: {
                 article: "article",
-                datetime: {
-                    conatiner: ".time_date"
-                },
                 category: {
                     selector: ".right_breadcrumb a",
                     startIndex: 0
@@ -768,9 +749,6 @@ export class didgahemrooz extends clsAsamBased {
             selectors: {
                 article: "article",
                 aboveTitle: "h2.up_title",
-                datetime: {
-                    conatiner: "time"
-                },
                 content: {
                     main: "#echo_detail p, .primary_files, .image-top-primary",
                 },
@@ -853,9 +831,6 @@ export class sharghdaily extends clsAsamBased {
                 article: "article, ul.more_album",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time")
-                },
                 content: {
                     main: "#echo_detail, li.item_view .album_img"
                 },
@@ -884,10 +859,6 @@ export class eghtesadnews extends clsAsamBased {
         super(enuDomains.eghtesadnews, "eghtesadnews.com", {
             selectors: {
                 article: "article.news_page_article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[itemprop='datepublished']"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#main_ck_editor p, .image",
                     ignoreNodeClasses: ["spacial-blockquote"]
@@ -902,10 +873,6 @@ export class afkarnews extends clsAsamBased {
         super(enuDomains.afkarnews, "afkarnews.com", {
             selectors: {
                 article: "#news-article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#content-text p, img"
                 },
@@ -924,10 +891,6 @@ export class etemadonline extends clsAsamBased {
             selectors: {
                 article: "article",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: ".echo-detail, img",
                     ignoreNodeClasses: ["news-short-info"]
@@ -947,10 +910,6 @@ export class gostaresh extends clsAsamBased {
         super(enuDomains.gostaresh, "gostaresh.news", {
             selectors: {
                 article: "#news-page-article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#echo-detail div p, #echo-detail div [style='text-align:justify'] img, .image_top_primary",
                 },
@@ -965,10 +924,6 @@ export class moniban extends clsAsamBased {
         super(enuDomains.moniban, "moniban.ir", {
             selectors: {
                 article: "article.news_page_article, .album_main",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#main_ck_editor p, .contain_img, .gallery_containar figure",
                 },
@@ -986,10 +941,6 @@ export class honaronline extends clsAsamBased {
             selectors: {
                 article: "article.news-page-article, .gallary-page, .wrapp-pro",
                 summary: "p.mp_lead",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: ".album-view-check p, img",
                 },
@@ -1054,10 +1005,6 @@ export class shayanews extends clsAsamBased {
         super(enuDomains.shayanews, "shayanews.com", {
             selectors: {
                 article: "#news_page_article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#echo_detail div [dir='rtl'], .image_top_primary, #echo_detail div [style='text-align:center']",
                 },        
@@ -1086,10 +1033,6 @@ export class shomanews extends clsAsamBased {
                 article: "article",
                 aboveTitle: "h2.news_top_title",
                 subtitle: ".news_lead",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#echo-detail [style='text-align:justify'], #echo-detail [style='text-align: justify;'], .big_img_news div, #echo-detail .big_img_news",
                 },    
@@ -1104,10 +1047,6 @@ export class mostaghelonline extends clsAsamBased {
         super(enuDomains.mostaghelonline, "mostaghelonline.com", {
             selectors: {
                 article: "article.news-body",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: ".echo-detail-inner p, .echo-detail-inner h2, .primary-files, ul.gallery_attach_list li",
                 },        
@@ -1175,10 +1114,6 @@ export class toseeirani extends clsAsamBased {
         super(enuDomains.toseeirani, "toseeirani.ir", {
             selectors: {
                 article: "article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: "#echo-detail, .primary-files div, #echo-detail img",
                     ignoreTexts: ["کپی شد"]
@@ -1305,10 +1240,6 @@ export class farazdaily extends clsAsamBased {
                 article: "article",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".echo-detail>*, .image-top-primary, .landing-album-two figure a"),
                 },            
@@ -1326,10 +1257,6 @@ export class arshehonline extends clsAsamBased {
             selectors: {
                 article: "#news-page-article, .album_content",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, h1 a"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#echo_detail p, .image_top_primary div, .album_content, ul.more_album li div a"),
                 },            
@@ -1420,10 +1347,6 @@ export class taraznameheghtesad extends clsAsamBased {
         super(enuDomains.taraznameheghtesad, "taraznameheghtesad.ir", {
             selectors: {
                 article: "article",
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.breadcrumb_list ul li a"),
                 },
@@ -1453,10 +1376,6 @@ export class panjere extends clsAsamBased {
                 article: "#news-page-article, .splide__track ",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a, h1"),
                 subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead, p.news_lead"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-                },
                 content: {
                     main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.more_album li a, #echo_detail div, .image_top_primary"),
                     ignoreTexts: ["copied"]
