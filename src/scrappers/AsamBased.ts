@@ -1130,15 +1130,20 @@ export class baeghtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.baeghtesad, "baeghtesad.com", {
             selectors: {
-                article: "article",
-                summary: "[itemprop='description']",
+                article: ".tags",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a"),
+                summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
                 content: {
-                    main: ".content-inner, .pt8.pb8.w80",                
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post, .head .thumb a"),                
                 },
                 category: {
-                    selector: "#breadcrumb-me li a",
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs a"),
                 },
-                tags: "ul.tags li a",
+                tags: "a",
             },
         })
     }

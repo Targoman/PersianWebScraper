@@ -782,7 +782,8 @@ export class flightio extends clsScrapper {
                 article: "article.single-content",
                 title: "h1",
                 datetime: {
-                    conatiner: ".entry-date",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -807,7 +808,8 @@ export class namava extends clsScrapper {
                 article: "article",
                 title: "h1",
                 datetime: {
-                    conatiner: ".datetime",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: '.post-content',

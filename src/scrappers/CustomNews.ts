@@ -968,7 +968,8 @@ export class ofoghnews extends clsScrapper {
                 title: "h1 a",
                 subtitle: ".lead",
                 datetime: {
-                    conatiner: "ul.news-detile li:nth-child(2) span, .navbarh a:nth-child(2)",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: ".entry, .gallery a",

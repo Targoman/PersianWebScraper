@@ -688,8 +688,8 @@ clear; rm -rf .db corpora; yarn dev && yarn start neshanonline -u https://www.ne
 clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-شهرنوشت-5/59981-ورود-سیلاب-به-خانه-ایلامی-ها
 clear; rm -rf .db corpora; yarn dev && yarn start toseeirani -u https://www.toseeirani.ir/بخش-ویژه-نامه-پی-دی-اف-71/7564-دستاورد-های-فولاد-در-سالی-که-گذشت
 
-clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-آموزش-77/158718-مدیریت-ضرر-در-بازارهای-مالی-به-چه-معناست
-clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://www.baeghtesad.com/بخش-بورس-3/159116-بورس-متعادل-با-چاشنی-مثبت-بودجه-تاثیرگذارترین-مولفه-پیش-روی-بازار-سهام
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://baeghtesad.com/احتمال-شروع-روند-صعودی-این-بار-با-تکیه-ب/
+clear; rm -rf .db corpora; yarn dev && yarn start baeghtesad -u https://baeghtesad.com/افزایش-سرمایه-از-محل-صرف-سهام-یعنی-چه؟/
 
 clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-ایران-73/127590-هیات-عالی-رتبه-چین-به-تهران-می-آید
 clear; rm -rf .db corpora; yarn dev && yarn start mamlekatonline -u https://www.mamlekatonline.ir/بخش-خودرو-74/127420-معرفی-سه-خودروی-لاکچری-حمل-جسد-توسط-یک-شرکت-ایتالیایی
