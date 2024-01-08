@@ -265,7 +265,8 @@ export class romanman extends clsScrapper {
                 article: "article",
                 title: "h1",
                 datetime: {
-                    conatiner: "#single-post-meta > span.date.meta-item.tie-icon",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: '.entry.clearfix>*',
@@ -782,7 +783,8 @@ export class flightio extends clsScrapper {
                 article: "article.single-content",
                 title: "h1",
                 datetime: {
-                    conatiner: ".entry-date",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -794,6 +796,9 @@ export class flightio extends clsScrapper {
                     author: ".comment-author b",
                     text: ".comment-content"
                 }
+            },
+            url: {
+                removeWWW: true
             }
         })
     }
@@ -807,7 +812,8 @@ export class namava extends clsScrapper {
                 article: "article",
                 title: "h1",
                 datetime: {
-                    conatiner: ".datetime",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: '.post-content',
@@ -999,11 +1005,12 @@ export class rayamarketing extends clsScrapper {
 export class miare extends clsScrapper {
     constructor() {
         super(enuDomains.miare, "miare.ir", {
+            basePath: "/blog",
             selectors: {
-                article: "article",
+                article: "#the-post",
                 title: "h1",
                 datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
                     splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
@@ -1022,6 +1029,8 @@ export class miare extends clsScrapper {
     protected normalizePath(url: URL): string {
         if(url.pathname.includes("/wp-content/uploads") && !url.pathname.includes("blog")) {
             return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)}
+        else if (!url.toString().includes("/blog")) 
+            return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)
         else 
             return url.toString()
     }
@@ -1034,7 +1043,8 @@ export class abantether extends clsScrapper {
                 article: "article.ast-article-single",
                 title: "h1",
                 datetime: {
-                    conatiner: "span.published",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -1123,7 +1133,8 @@ export class kalleh extends clsScrapper {
                 article: "main.align-items-start article",
                 title: "h1",
                 datetime: {
-                    conatiner: "time",
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:modified_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content .content, .entry-content, .post-thumbnail",
@@ -4056,6 +4067,39 @@ export class meghdadit extends clsScrapper {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
                     author: ".wpd-comment-author ",
                     text: ".wpd-comment-text"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class sheypoor extends clsScrapper {
+    constructor() {
+        super(enuDomains.sheypoor, "blog.sheypoor.com", {
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, a.post-thumbnail",
+                    ignoreNodeClasses: ["ez-toc-v2_0_58", "kk-star-ratings"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .clearfix"),
+                    author: ".comment-meta cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
                 }
             },
             url: {
