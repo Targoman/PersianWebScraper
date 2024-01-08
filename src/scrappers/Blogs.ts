@@ -4075,3 +4075,36 @@ export class meghdadit extends clsScrapper {
         })
     }
 }
+
+export class sheypoor extends clsScrapper {
+    constructor() {
+        super(enuDomains.sheypoor, "blog.sheypoor.com", {
+            selectors: {
+                article: "article.single-post-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content, a.post-thumbnail",
+                    ignoreNodeClasses: ["ez-toc-v2_0_58", "kk-star-ratings"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                    startIndex: 1
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .clearfix"),
+                    author: ".comment-meta cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
