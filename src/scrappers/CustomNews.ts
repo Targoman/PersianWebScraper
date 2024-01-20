@@ -408,7 +408,7 @@ export class zoomit extends clsScrapper {
                 },
                 category: {
                     selector: '.kDyGrB a',
-                },   
+                },
                 comments: async (url: URL, reqParams: IntfRequestParams): Promise<IntfComment[]> => {
                     const comments: IntfComment[] = []
                     const match = url.pathname.match(/\/(\d+)-/);
@@ -426,13 +426,13 @@ export class zoomit extends clsScrapper {
                                         comments.push({
                                             text: normalizeText(item.content) || "",
                                             author: normalizeText(item.user.userName),
-                                            date: item.createdAt.substring(0,10)
+                                            date: item.createdAt.substring(0, 10)
                                         })
                                         item.commentChildren?.forEach((child: any) => {
                                             comments.push({
                                                 text: normalizeText(child.content) || "",
                                                 author: normalizeText(child.user.userName),
-                                                date: child.createdAt.substring(0,10)
+                                                date: child.createdAt.substring(0, 10)
                                             })
                                         })
                                     })
@@ -479,7 +479,7 @@ export class varzesh3 extends clsScrapper {
                 comments: {
                     container: ".vrz-user-comment",
                     author: ".cm-by-user",
-                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector(".cm-data-t span:nth-child(2)"))||"INVALID_DATE",
+                    datetime: (cm: HTMLElement) => dateOffsetToDate(cm.querySelector(".cm-data-t span:nth-child(2)")) || "INVALID_DATE",
                     text: ".cm-message",
 
                 }
@@ -753,7 +753,7 @@ export class beytoote extends clsScrapper {
             || cat.includes("گردشگری")
             || cat.startsWith("مكانهای")
             || cat.startsWith("مناسبتها")
-        ) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Turism }
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
         else if (cat.includes("داستانهای")
             || cat.endsWith("المثل")
             || cat.includes("شعر")
@@ -851,7 +851,7 @@ export class ramzarz extends clsScrapper {
     }
 
     mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat : IntfMappedCatgory= { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''

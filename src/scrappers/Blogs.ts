@@ -122,7 +122,7 @@ export class ninisite extends clsScrapper {
         if (first.startsWith("کارتون")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Multimedia }
         if (first.startsWith("کانون")) return { major: enuMajorCategory.Forum }
         if (first.startsWith("کودک")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health }
-        if (first.startsWith("گردشگری")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Turism }
+        if (first.startsWith("گردشگری")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
         if (first.startsWith("لباهنگ")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun }
         if (first.startsWith("متفرقه")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Generic }
         if (first.startsWith("مد و دکوراسیون")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle }
@@ -201,7 +201,7 @@ export class lastsecond extends clsScrapper {
         })
     }
     mapCategory(): IntfMappedCatgory {
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Turism }
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
     }
 }
 
@@ -703,10 +703,10 @@ export class snapptrip extends clsScrapper {
                 },
                 content: {
                     main: '.post-entry>*, .post-img a img',
-                    ignoreNodeClasses: ["widget_pintapin_categories", "cat", "menu-main-menu-container", "top-footer", "menu-body", 
-                      "sntrip-middle-footer", "sntrip-socket-bar", "post-comments", "sntrip-popup-content", "post-related", "independent-cats",
-                      "related-post-link", "register-holder", "link", "share-dialog", "ez-toc-container-direction", "meta-share", "meta-comments",
-                      "sntrip-footer-social-bar"]
+                    ignoreNodeClasses: ["widget_pintapin_categories", "cat", "menu-main-menu-container", "top-footer", "menu-body",
+                        "sntrip-middle-footer", "sntrip-socket-bar", "post-comments", "sntrip-popup-content", "post-related", "independent-cats",
+                        "related-post-link", "register-holder", "link", "share-dialog", "ez-toc-container-direction", "meta-share", "meta-comments",
+                        "sntrip-footer-social-bar"]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs span span a"),
@@ -821,7 +821,7 @@ export class namava extends clsScrapper {
                 },
                 tags: ".tags a",
                 category: {
-                    selector: ".categories a" 
+                    selector: ".categories a"
                 },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list div .wpd-comment-wrap"),
@@ -970,6 +970,19 @@ export class jobinja extends clsScrapper {
             }
         })
     }
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Job }
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Job }
+
+        if (second.includes("اخبار جابینجا")) mappedCat.minor = enuMinorCategory.Generic
+        else if (second.includes("تعادل کار و زندگی")) mappedCat.minor = enuMinorCategory.LifeStyle
+        else if (second.includes("منهای کار")) mappedCat.minor = enuMinorCategory.LifeStyle
+
+        return mappedCat
+    }
 }
 
 export class rayamarketing extends clsScrapper {
@@ -1027,11 +1040,12 @@ export class miare extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
-        if(url.pathname.includes("/wp-content/uploads") && !url.pathname.includes("blog")) {
-            return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)}
-        else if (!url.toString().includes("/blog")) 
+        if (url.pathname.includes("/wp-content/uploads") && !url.pathname.includes("blog")) {
             return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)
-        else 
+        }
+        else if (!url.toString().includes("/blog"))
+            return url.toString().slice(0, 20) + "/blog" + url.toString().slice(20)
+        else
             return url.toString()
     }
 }
@@ -1254,7 +1268,7 @@ export class avalpardakht extends clsScrapper {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
                     author: "footer cite",
                     text: ".comment-content"
-                }            
+                }
             },
         })
     }
@@ -1332,8 +1346,8 @@ export class modireweb extends clsScrapper {
                     splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main: (_, fullHtml: HTMLElement) => 
-                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-medium"),
+                    main: (_, fullHtml: HTMLElement) =>
+                        fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-medium"),
                     ignoreNodeClasses: ["no_bullets", "message-box", "rmp-rating-widget", "rmp-results-widget", "crp_related"]
                 },
                 category: {
@@ -1422,8 +1436,8 @@ export class iranhotelonline extends clsScrapper {
                     splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main: (_, fullHtml: HTMLElement) => 
-                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-full"),
+                    main: (_, fullHtml: HTMLElement) =>
+                        fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-full"),
                     ignoreNodeClasses: ["kk-star-ratings"],
                     ignoreTexts: [/.*IRPP.*/]
                 },
@@ -1698,8 +1712,8 @@ export class telescope extends clsScrapper {
                     splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main: (_, fullHtml: HTMLElement) => 
-                      fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*"),
+                    main: (_, fullHtml: HTMLElement) =>
+                        fullHtml.querySelectorAll(".elementor-widget-theme-post-content .elementor-widget-container>*"),
                     ignoreNodeClasses: ["kk-star-ratings", "elementor-toc__list-item-text-wrapper"],
                     ignoreTexts: [/.*<img.*/]
                 },
@@ -1748,13 +1762,13 @@ export class mendellab extends clsScrapper {
                                         comments.push({
                                             text: normalizeText(item.description),
                                             author: normalizeText(item.creator),
-                                            date: item.createDate.substring(0,10)
+                                            date: item.createDate.substring(0, 10)
                                         })
                                         item.replies?.forEach((child: any) => {
                                             comments.push({
                                                 text: normalizeText(child.description),
                                                 author: normalizeText(child.creator),
-                                                date: child.createDate.substring(0,10)
+                                                date: child.createDate.substring(0, 10)
                                             })
                                         })
                                     })
@@ -1872,6 +1886,10 @@ export class gishniz extends clsScrapper {
             }
         })
     }
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
+    }
 }
 
 export class chemibazar extends clsScrapper {
@@ -1896,6 +1914,10 @@ export class chemibazar extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+    mapCategory(cat?: string): IntfMappedCatgory {
+        void cat
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Chemical }
     }
 }
 
@@ -2025,9 +2047,10 @@ export class hamgardi extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
-        if(url.pathname.includes("cdn.hamgardi.com")) {
-            return url.toString().replace("www.hamgardi.com", "")}
-        else 
+        if (url.pathname.includes("cdn.hamgardi.com")) {
+            return url.toString().replace("www.hamgardi.com", "")
+        }
+        else
             return url.toString()
     }
 }
@@ -2578,7 +2601,7 @@ export class iranestekhdam extends clsScrapper {
     }
 
     normalizePath(url: URL) {
-        if (!url.toString().includes("/blog")) 
+        if (!url.toString().includes("/blog"))
             return url.toString().slice(0, 29) + "blog/" + url.toString().slice(29)
         return url.toString()
     }
@@ -2995,6 +3018,9 @@ export class khanomsin extends clsScrapper {
             },
         })
     }
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.SEO }
+    }
 }
 
 export class techranco extends clsScrapper {
@@ -3077,6 +3103,26 @@ export class parspack extends clsScrapper {
             },
         })
     }
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.ICT }
+
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Weblog, minor:enuMinorCategory.Education }
+
+        if (first.startsWith("آموزش برنامه نویسی")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+        else if (first.startsWith("آموزش سیستم عامل")) return { ...mappedCat,  subminor: enuSubMinorCategory.Software }
+        else if (first.startsWith("آموزش شبکه")) return { ...mappedCat, subminor: enuSubMinorCategory.Network }
+        else if (first.startsWith("اخبار فناوری")) return { major:enuMajorCategory.News, minor: enuMinorCategory.ICT }
+        else if (first.startsWith("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
+        else if (first.startsWith("سرویس های میزبانی")) return { ...mappedCat,  subminor: enuMinorCategory.IT }
+        else if (first.startsWith("کسب و کار اینترنتی")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        else if (first.startsWith("کنترل پنل")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        else if (first.startsWith("مدیریت محتوا")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        else if (first.startsWith("معرفی قوانین انتقال، خرید و ثبت انواع دامنه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+
+        return mappedCat
+    }
 }
 
 export class pdf extends clsScrapper {
@@ -3141,6 +3187,9 @@ export class irancell extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.Weblog }
     }
 }
 
@@ -3210,7 +3259,7 @@ export class melipayamak extends clsScrapper {
                     splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main:  (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(
                         ".blog-single-content .blog-single-content-inner .post-content"),
                     ignoreTexts: [/.*<img.*/]
                 },
@@ -3375,6 +3424,17 @@ export class infogramacademy extends clsScrapper {
             },
         })
     }
+    mapCategory(cat?: string): IntfMappedCatgory {
+        if (!cat) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Journalism }
+        const catParts = cat.split('/')
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Journalism }
+
+        if (second.includes("بازاریابی")) mappedCat.minor = enuMinorCategory.Economy
+
+        return mappedCat
+    }
 }
 
 export class idpay extends clsScrapper {
@@ -3478,6 +3538,9 @@ export class transis extends clsScrapper {
             },
         })
     }
+    mapCategory(): IntfMappedCatgory {
+        return { major: enuMajorCategory.Weblog }
+    }
 }
 
 export class bitpin extends clsScrapper {
@@ -3528,6 +3591,10 @@ export class fardaname extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     }
 }
 
@@ -3780,7 +3847,7 @@ export class hitalki extends clsScrapper {
                 content: {
                     main: ".entry-content, img.aligncenter, figure.single-featured-image",
                     ignoreNodeClasses: ["rmp-widgets-container", "side-aside", "theme-header", "main-nav-wrapper", "fullwidth-entry-title-wrapper",
-                      "header-nav", "go-to-top-button", "site-footer", "sidebar", "share-buttons", "post-components"],
+                        "header-nav", "go-to-top-button", "site-footer", "sidebar", "share-buttons", "post-components"],
                     ignoreTexts: [/.*بیشتر بدانید.*/]
                 },
                 category: {
