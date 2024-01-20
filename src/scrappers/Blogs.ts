@@ -3515,18 +3515,20 @@ export class fardaname extends clsScrapper {
         super(enuDomains.fardaname, "fardaname.com", {
             basePath: "/blog",
             selectors: {
-                article: ".content.w-full",
+                article: "body.single-post",
                 title: "h1",
                 datetime: {
-                    conatiner: ".item span.value"
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main: "article",
-                    ignoreNodeClasses: ["iconed_info_list"],
+                    main: ".content",
                 },
-                category: {
-                    selector: "a.rounded-xl",
-                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li div .comment-body"),
+                    author: "span.comment-author-name",
+                    text: ".comment-content"
+                }
             },
         })
     }
