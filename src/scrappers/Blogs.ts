@@ -1669,6 +1669,9 @@ export class trip extends clsScrapper {
                     text: "p.comment"
                 }
             },
+            url: {
+                extraInvalidStartPaths: ['/Report/DownloadFile']
+            }
         })
     }
 }
@@ -3631,24 +3634,20 @@ export class fardaname extends clsScrapper {
         super(enuDomains.fardaname, "fardaname.com", {
             basePath: "/blog",
             selectors: {
-                article: ".content.w-full",
+                article: '.container .lg\\:w-9\\/12',
                 title: "h1",
                 datetime: {
-                    conatiner: ".item span.value"
+                    conatiner: ".date"
                 },
                 content: {
-                    main: "article",
-                    ignoreNodeClasses: ["iconed_info_list"],
-                },
-                category: {
-                    selector: "a.rounded-xl",
+                    main: ".content"
                 },
             },
         })
     }
     mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
         void tags
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economy }
     }
 }
 
@@ -3669,6 +3668,10 @@ export class roshadent extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+        void tags
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     }
 }
 
