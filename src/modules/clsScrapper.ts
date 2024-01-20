@@ -363,7 +363,7 @@ export abstract class clsScrapper {
                     log.debug("======>", datetimeParts, splitter)
 
                 datetimeParts = dateString?.split(" ")
-                log.debug({ datetimeParts, a: persianMonthNumber(datetimeParts[datetimeParts.length - 2]) })
+                log.debug({ datetimeParts })
 
                 if (datetimeParts.length > 1)
                     finalDateString = datetimeParts[datetimeParts.length - 1].trim() + "-"
