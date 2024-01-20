@@ -51,12 +51,13 @@ class clsStudioKhabarBased extends clsScrapper {
     }
 
     mapCategory(cat?: string): IntfMappedCatgory {
-        if (!cat) return { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News}
+        if (!cat) return mappedCat
+
         const catParts = cat.split('/')
         const first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
         if (false
             || first.startsWith("عکس")
             || first.startsWith("فیلم")

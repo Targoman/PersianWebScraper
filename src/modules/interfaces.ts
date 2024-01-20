@@ -478,6 +478,7 @@ export enum enuMinorCategory {
     Medical = "Medical",
     Economy = "Economy",
     Culture = "Art&Culture",
+    Consultation = "Consultation",
     Sport = "Sport",
     ScienceTech = "Science&Tech",
     Job = "Job",
@@ -506,11 +507,13 @@ export enum enuMinorCategory {
     CryptoCurrency = "CryptoCurrency",
     IT = "IT",
     ICT = "ICT",
+    DigitalMarketing = "DigitalMarketing",
     Tourism = "Tourism",
 }
 
 export enum enuSubMinorCategory {
     Game = "Game",
+    GoldSilver = "GoldSilver",
     Reportage = "Reportage",
     Security = "Security",
     Mobile = "Mobile",
@@ -519,6 +522,7 @@ export enum enuSubMinorCategory {
     Network = "Network",
     Software = "Software",
     Chemical = "Chemical",
+    Language = "Language",
     Car = "Car",
     Energy = "Energy",
     Gadgets = "Gadgets",
