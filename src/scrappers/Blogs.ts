@@ -1789,7 +1789,8 @@ export class faab extends clsScrapper {
                     splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
-                    main: "[data-id='287528c6'] div, .elementor-widget-theme-post-featured-image div"
+                    main: "[data-id='287528c6'] div, .elementor-widget-theme-post-featured-image div",
+                    ignoreTexts: [/.*IRPP.*/]
                 },
                 category: {
                     selector: ".rank-math-breadcrumb p a",
