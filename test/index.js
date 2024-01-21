@@ -1134,5 +1134,10 @@ yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/304294
 yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/304756
 yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/252639
 
+yarn dev && yarn start shenasname
+yarn dev && yarn start shenasname -u https://www.shenasname.ir/rah/45552-تأمین-مسکن-خانوارها
+yarn dev && yarn start shenasname -u https://www.shenasname.ir/tamin/45522-نحوه-تشکیل-شوراهای-پزشکی
+yarn dev && yarn start shenasname -u https://shenasname.ir/ask/45984/واریز-نشده-حقوق-آذر-در-دی-ماه
+
 https://motamem.org/
 /**/
