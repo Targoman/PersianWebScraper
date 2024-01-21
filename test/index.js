@@ -1153,5 +1153,9 @@ yarn dev && yarn start agorgani -u https://site.agorgani.ir/27337/پیام-تس�
 yarn dev && yarn start agorgani -u https://site.agorgani.ir/estefta/در-چند-سال-اخیر-به-طور-گسترده-مرسوم-گردی/
 yarn dev && yarn start agorgani -u https://site.agorgani.ir/3949/زندگی-نامه-مرجع-عالیقدر-حضرت-آیت-الله-ا/
 
+yarn dev && yarn start shoragc
+yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/5730/قانون-انتخابات-مجلس-شورای-اسلامی
+yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/9823/بیش-از-هزار-داوطلب-دیگر-در-شورای-نگهبان-تایید-صلاحیت-شدند-هنوز-زمان-زیادی-تا-پایان-بررسی-صلاحیت%E2%80%8Cها-باقی-است
+
 https://motamem.org/
 /**/

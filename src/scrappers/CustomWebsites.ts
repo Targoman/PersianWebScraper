@@ -245,3 +245,31 @@ export class agorgani extends clsScrapper {
     })
   }
 }
+
+export class shoragc extends clsScrapper {
+  constructor() {
+    super(enuDomains.shoragc, "shora-gc.ir", {
+      selectors: {
+        article: ".news_main_body",
+        title: "h1",
+        aboveTitle: ".newspage_rutitr",
+        subtitle: ".newspage_subtitle",
+        datetime: {
+          conatiner: "span.date_2",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".body, .news_album_main_part div a",
+          ignoreNodeClasses: ["download_link"]
+        },
+        category: {
+          selector: ".news_path a"
+        },
+        tags: "a.tags_item",
+      },
+      url: { 
+        extraInvalidStartPaths: ["/ar"]
+      }
+    })
+  }
+}
