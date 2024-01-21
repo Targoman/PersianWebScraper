@@ -1143,5 +1143,10 @@ yarn dev && yarn start labourlaw
 yarn dev && yarn start labourlaw -u https://labourlaw.ir/پرسش-و-پاسخ-های-تأمین-اجتماعی/
 yarn dev && yarn start labourlaw -u https://labourlaw.ir/فصل-اول-قانون-کار-تعاریف-و-اصول-کلی/
 
+yarn dev && yarn start start sistani 
+yarn dev && yarn start start sistani -u https://www.sistani.org/persian/book/50/1/
+yarn dev && yarn start start sistani -u https://www.sistani.org/persian/data/3/
+yarn dev && yarn start start sistani -u https://www.sistani.org/persian/qa/0826/
+
 https://motamem.org/
 /**/

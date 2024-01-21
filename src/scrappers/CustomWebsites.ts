@@ -190,5 +190,29 @@ export class labourlaw extends clsScrapper {
       url: { removeWWW: true }
     })
   }
+}
 
+export class sistani extends clsScrapper {
+  constructor() {
+    super(enuDomains.sistani, "sistani.org", {
+      basePath: "/persian",
+      selectors: {
+        article: "#content-rtl, .book-text",
+        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".book-text, .one-qa, #content-rtl"),
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3 a, h1.abi-sq-rtl a, h1 a")
+        }
+      },
+      url: { 
+        removeWWW: true,
+        extraInvalidStartPaths: ["/arabic", "/urdu", "/english", "/turkish", "/azari", "/french", "/persian/send-question/"]
+      }
+    })
+  }
 }

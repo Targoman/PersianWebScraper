@@ -365,6 +365,7 @@ export enum enuDomains {
     rcmajlis = "rcmajlis",
     shenasname = "shenasname",
     labourlaw = "labourlaw",
+    sistani = "sistani",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
