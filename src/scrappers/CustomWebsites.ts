@@ -177,3 +177,106 @@ export class shenasname extends clsScrapper {
     })
   }
 }
+
+export class labourlaw extends clsScrapper {
+  constructor() {
+    super(enuDomains.labourlaw, "labourlaw.ir", {
+      selectors: {
+        article: "[itemprop='mainContentOfPage']",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".entry-content",
+          ignoreNodeClasses: ["yarpp-related"],
+          ignoreTexts: ["بازگشت به فهرست"]
+        },
+      },
+      url: { removeWWW: true }
+    })
+  }
+}
+
+export class sistani extends clsScrapper {
+  constructor() {
+    super(enuDomains.sistani, "sistani.org", {
+      basePath: "/persian",
+      selectors: {
+        article: "#content-rtl, .book-text",
+        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".book-text, .one-qa, #content-rtl"),
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("h3 a, h1.abi-sq-rtl a, h1 a")
+        }
+      },
+      url: { 
+        removeWWW: true,
+        extraInvalidStartPaths: ["/arabic", "/urdu", "/english", "/turkish", "/azari", "/french", "/persian/send-question/"]
+      }
+    })
+  }
+}
+
+export class agorgani extends clsScrapper {
+  constructor() {
+    super(enuDomains.agorgani, "site.agorgani.ir", {
+      selectors: {
+        article: "body.single-post, #the-post",
+        title: "h1",
+        datetime: {
+          conatiner: "span.date",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".entry-content, figure.single-featured-image",
+        },
+        category: {
+          selector: "a.post-cat"
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+          author: "footer .comment-author b",
+          text: ".comment-content"
+        }
+      },
+      url: { 
+        extraInvalidStartPaths: ["/ar"]
+      }
+    })
+  }
+}
+
+export class shoragc extends clsScrapper {
+  constructor() {
+    super(enuDomains.shoragc, "shora-gc.ir", {
+      selectors: {
+        article: ".news_main_body",
+        title: "h1",
+        aboveTitle: ".newspage_rutitr",
+        subtitle: ".newspage_subtitle",
+        datetime: {
+          conatiner: "span.date_2",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".body, .news_album_main_part div a",
+          ignoreNodeClasses: ["download_link"]
+        },
+        category: {
+          selector: ".news_path a"
+        },
+        tags: "a.tags_item",
+      },
+      url: { 
+        extraInvalidStartPaths: ["/ar"]
+      }
+    })
+  }
+}

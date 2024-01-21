@@ -1146,5 +1146,23 @@ yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/law/show/1794220
 yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/law/print_version/1794205
 yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/report/show/1794233
 
+yarn dev && yarn start labourlaw
+yarn dev && yarn start labourlaw -u https://labourlaw.ir/پرسش-و-پاسخ-های-تأمین-اجتماعی/
+yarn dev && yarn start labourlaw -u https://labourlaw.ir/فصل-اول-قانون-کار-تعاریف-و-اصول-کلی/
+
+yarn dev && yarn start sistani 
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/book/50/1/
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/data/3/
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/qa/0826/
+
+yarn dev && yarn start agorgani 
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/27337/پیام-تسلیت-بیت-مرحوم-آیت-الله-العظمی-عل/
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/estefta/در-چند-سال-اخیر-به-طور-گسترده-مرسوم-گردی/
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/3949/زندگی-نامه-مرجع-عالیقدر-حضرت-آیت-الله-ا/
+
+yarn dev && yarn start shoragc
+yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/5730/قانون-انتخابات-مجلس-شورای-اسلامی
+yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/9823/بیش-از-هزار-داوطلب-دیگر-در-شورای-نگهبان-تایید-صلاحیت-شدند-هنوز-زمان-زیادی-تا-پایان-بررسی-صلاحیت%E2%80%8Cها-باقی-است
+
 https://motamem.org/
 /**/
