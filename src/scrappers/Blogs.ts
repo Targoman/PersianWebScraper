@@ -3635,18 +3635,19 @@ export class fardaname extends clsScrapper {
         super(enuDomains.fardaname, "fardaname.com", {
             basePath: "/blog",
             selectors: {
-                article: '.single-post .container .lg\\:w-9\\/12',
+                article: ".content.w-full",
                 title: "h1",
                 datetime: {
-                    conatiner: ".date"
+                    conatiner: ".item span.value"
                 },
                 content: {
-                    main: ".content"
+                    main: "article",
+                    ignoreNodeClasses: ["iconed_info_list"],
+                },
+                category: {
+                    selector: "a.rounded-xl",
                 },
             },
-            url: {
-                removeWWW: true
-            }
         })
     }
     mapCategory(_: string, tags?: string[]): IntfMappedCatgory {

@@ -25,6 +25,7 @@ export class divar extends clsScrapper {
     })
   }
 }
+
 export class dotic extends clsScrapper {
   constructor() {
     super(enuDomains.dotic, "dotic.ir", {
@@ -137,5 +138,35 @@ export class rcmajlis extends clsScrapper {
   }
   async initialCookie(proxy?: IntfProxy, url?: string) {
     return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
+  }
+}
+
+export class shenasname extends clsScrapper {
+  constructor() {
+    super(enuDomains.shenasname, "shenasname.ir", {
+      selectors: {
+        article: "article, [itemprop='mainEntity']",
+        title: ".entry-title, .qa-main-heading h1 a", 
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+          splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".entry-content",
+          ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-button__link", "post-bottom-meta"],
+          ignoreTexts: [/.*ایتا.*/, /.*بله.*/, /.*روبیکا.*/, /.*سروش.*/, /.*شناسنامه قانون در پیام‌رسان‌های داخلی.*/, /.*henasname.*/]
+        },
+        category: {
+          selector: "span.post-cat-wrap, .qa-q-view-main a.qa-category-link",
+        },
+        tags: "span.tagcloud a",
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article, .qa-a-list .qa-a-list-item, .qa-q-view-main"),
+          author: "footer .comment-author b, [itemprop='name']",
+          datetime: "time",
+          text: ".comment-content, [itemprop='text']"
+        }
+      },
+    })
   }
 }

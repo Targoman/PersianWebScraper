@@ -1138,6 +1138,7 @@ export class toseeirani extends clsAsamBased {
 export class baeghtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.baeghtesad, "baeghtesad.com", {
+            basePath: "/?s=",
             selectors: {
                 article: ".tags",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a"),
@@ -1159,6 +1160,10 @@ export class baeghtesad extends clsAsamBased {
                 removeWWW: true
             }
         })
+    }
+
+    normalizePath(url: URL): string {
+            return url.toString();
     }
 }
 
