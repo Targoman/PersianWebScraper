@@ -763,6 +763,9 @@ export class didgahemrooz extends clsAsamBased {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a span")
             },
+            url:{
+                removeWWW: true
+            }
         })
     }
 }
@@ -1151,6 +1154,10 @@ export class baeghtesad extends clsAsamBased {
                 },
                 tags: "a",
             },
+            url:{
+                extraInvalidStartPaths: ["/fa/tiny/news-uploads"],
+                removeWWW: true
+            }
         })
     }
 }

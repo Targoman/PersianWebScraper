@@ -96,7 +96,7 @@ export default class clsDB {
                             SET status = 'N',
                                 lastError = null,
                                 lastChange = strftime('%Y-%m-%d %H-%M-%S','now')
-                            WHERE status='I'`)
+                            WHERE status IN ('I','N')`)
             .run()
     }
 
@@ -106,11 +106,12 @@ export default class clsDB {
                                          WHERE status = ? 
                                            AND (
                                             lastError IS NULL 
-                                            OR ( 
-                                                    lastError NOT LIKE '%code 400%' 
+                                            OR (status = 'E'
+                                                AND lastError NOT LIKE '%code 400%' 
                                                 AND lastError NOT LIKE '%code 403%' 
                                                 AND lastError NOT LIKE '%code 404%' 
                                                 AND lastError NOT LIKE '%code 414%' 
+                                                AND lastError NOT LIKE 'Invalid date%'
                                             ))
                                          ORDER BY lastChange ASC, creation ASC
                                          LIMIT 1`)

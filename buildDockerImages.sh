@@ -25,16 +25,16 @@ else
 fi
 sudo docker rm -f $Container; \
 # Pull older versions of the builder and final images from the registry (if any)
-sudo docker pull ${ImageName}:builder || true && \
+#sudo docker pull ${ImageName}:builder || true && \
 sudo docker pull ${ImageName}:latest || true && \
 # Build the builder image by using the older builder image as a cache
-sudo docker build --cache-from ${ImageName}:builder -t ${ImageName}:builder . && \
+#sudo docker build --cache-from ${ImageName}:builder -t ${ImageName}:builder . && \
 # Build the final image by using the older final image as a cache
 # ...but also the local cache from the previous builder build
 sudo docker build --cache-from ${IMAGE}:latest -t ${ImageName}:$NewVersion . && \
 sudo docker rmi "$ImageName:latest" || true && \
 sudo docker tag "$ImageName:$NewVersion" "$ImageName:latest" && \
-sudo docker push "$ImageName:builder"  && \
+#sudo docker push "$ImageName:builder"  && \
 sudo docker push "$ImageName:$NewVersion"  && \
 sudo docker push "$ImageName:latest"  
 

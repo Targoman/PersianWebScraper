@@ -1718,6 +1718,7 @@ export class rawanshenas extends clsScrapper {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".bottom-tags a"),
             },
+            url: { removeWWW: true }
         })
     }
     mapCategory(cat?: string): IntfMappedCatgory {
@@ -3634,7 +3635,7 @@ export class fardaname extends clsScrapper {
         super(enuDomains.fardaname, "fardaname.com", {
             basePath: "/blog",
             selectors: {
-                article: '.container .lg\\:w-9\\/12',
+                article: '.single-post .container .lg\\:w-9\\/12',
                 title: "h1",
                 datetime: {
                     conatiner: ".date"
@@ -3643,6 +3644,9 @@ export class fardaname extends clsScrapper {
                     main: ".content"
                 },
             },
+            url: {
+                removeWWW: true
+            }
         })
     }
     mapCategory(_: string, tags?: string[]): IntfMappedCatgory {

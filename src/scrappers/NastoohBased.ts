@@ -117,10 +117,7 @@ export class irna extends clsNastoohBased {
         super(enuDomains.irna, "irna.ir", { selectors: { datetime: { splitter: "،" } } })
     }
 
-    async initialCookie(proxy?: IntfProxy, url?: string) {
-        return await getArvanCookie(url || "https://www.irna.ir", this.baseURL, proxy)
-    }
-
+    breadcrumbbreadcrumb
 
     mapCategory(cat?: string): IntfMappedCatgory {
         const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News}
