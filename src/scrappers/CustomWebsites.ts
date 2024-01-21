@@ -170,3 +170,25 @@ export class shenasname extends clsScrapper {
     })
   }
 }
+
+export class labourlaw extends clsScrapper {
+  constructor() {
+    super(enuDomains.labourlaw, "labourlaw.ir", {
+      selectors: {
+        article: "[itemprop='mainContentOfPage']",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".entry-content",
+          ignoreNodeClasses: ["yarpp-related"],
+          ignoreTexts: ["بازگشت به فهرست"]
+        },
+      },
+      url: { removeWWW: true }
+    })
+  }
+
+}

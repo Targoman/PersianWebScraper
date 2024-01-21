@@ -1139,5 +1139,9 @@ yarn dev && yarn start shenasname -u https://www.shenasname.ir/rah/45552-تأم�
 yarn dev && yarn start shenasname -u https://www.shenasname.ir/tamin/45522-نحوه-تشکیل-شوراهای-پزشکی
 yarn dev && yarn start shenasname -u https://shenasname.ir/ask/45984/واریز-نشده-حقوق-آذر-در-دی-ماه
 
+yarn dev && yarn start labourlaw
+yarn dev && yarn start labourlaw -u https://labourlaw.ir/پرسش-و-پاسخ-های-تأمین-اجتماعی/
+yarn dev && yarn start labourlaw -u https://labourlaw.ir/فصل-اول-قانون-کار-تعاریف-و-اصول-کلی/
+
 https://motamem.org/
 /**/
