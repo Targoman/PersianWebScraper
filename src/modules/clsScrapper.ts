@@ -82,8 +82,8 @@ export abstract class clsScrapper {
                     const stats = await this.db.stats() || {}
 
                     if (stats['remaining'] == 0 && stats['processed'] > 0) {
-                        if (count <= 1000) {
-                            log.status({ ...stats, countDown: 1000 - count })
+                        if (count <= 300) {
+                            log.status({ ...stats, countDown: 300 - count })
                             return setTimeout(() => checkFinished(++count), 1000)
                         } else {
                             log.status({ ...stats, fetching: "FINISHED" })
@@ -327,12 +327,12 @@ export abstract class clsScrapper {
                     return "INVALID_DATE"
                 }
             } else
-                dateParts.push(part)
+                dateParts.push(fa2En(part))
         }
 
-        if (dateParts.length === 3)
-            return dateParts.reverse().join('-')
         log.debug({ datetimeStr, splitted: datetimeStr.split(" "), dateParts })
+        if (dateParts.length === 3)
+            return parseInt(dateParts[0]) > 1000 ? dateParts.join("-") : dateParts.reverse().join('-')
         return "INVALID_DATE"
     }
 
@@ -368,14 +368,14 @@ export abstract class clsScrapper {
                 log.debug({ datetimeParts })
 
                 if (datetimeParts.length > 1)
-                    finalDateString = datetimeParts[datetimeParts.length - 1].trim() + "-"
+                    finalDateString = normalizeText(datetimeParts[datetimeParts.length - 1].trim() + "-"
                         + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
-                        + datetimeParts[datetimeParts.length - 3].trim()
+                        + datetimeParts[datetimeParts.length - 3].trim())
                 else
-                    finalDateString = datetimeParts[0].replace(/\//g, "-")
+                    finalDateString = normalizeText(datetimeParts[0].replace(/\//g, "-"))
 
                 if (!finalDateString || finalDateString.split("-").length < 3)
-                    finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+                    finalDateString = this.autoExtractDate(normalizeText(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText))
             }
 
         }

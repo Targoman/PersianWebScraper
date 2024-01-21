@@ -352,6 +352,15 @@ hamrah
 exbito
 mihanwebhost
 arongroups
+dotic
+ekhtebar
+qavanin
+shenasname
+rcmajlis
+labourlaw
+sistani
+agorgani
+shoragc
 '
 
 

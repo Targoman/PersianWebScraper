@@ -201,12 +201,17 @@ export function date2Gregorian(date?: string): string | undefined {
     const dateParts = date.split("-")
     try {
         if (dateParts.length >= 3) {
-            if (dateParts[0].length === 4 || dateParts[dateParts.length - 1].length === 4) {
+            log.debug({ dateParts })
+            if (dateParts[dateParts.length - 1].length === 4)
+                date = dateParts.reverse().join("-")
+            if (dateParts[0].length === 4) {
+                log.debug({ a: 1, date })
                 if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13'))
                     return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
                 else
                     return jmoment.from(date, "en").locale("en").format('YYYY-MM-DD')
             }
+
             if (parseInt(dateParts[0]) < 50)
                 date = "14" + date
             else

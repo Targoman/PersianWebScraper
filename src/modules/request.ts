@@ -23,7 +23,7 @@ function configWithUA(reqParams: IntfRequestParams) {
         reqParams.conf.headers['Connection'] = "Close"
         reqParams.conf.headers['Accept'] = "text/html"
         reqParams.conf.headers["Accept-Encoding"] = "gzip, deflate, br"
-        if (reqParams.cookie) 
+        if (reqParams.cookie)
             reqParams.conf.headers['Cookie'] = reqParams.cookie
     }
 
@@ -136,7 +136,7 @@ async function onAxiosError(err: AxiosError, params: IntfRequestParams, retries:
         return params.onFail(err, retries)
     else if (retries > 0) {
         log.apiDebugError(err)
-        log.warn("Retrying", retries);
+        log.warn("Retrying", params.url, retries);
         return await axiosGet(log, params, retries - 1);
     } else {
         log.apiDebugError(err);
