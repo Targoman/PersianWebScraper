@@ -1119,6 +1119,20 @@ clear; rm -rf .db corpora; yarn dev && yarn start divar -u https://divar.ir/v/آ
 
 ./rundocker.sh khamenei query "SELECT id,url FROM tblURLs WHERE status = 'F' AND url NOT LIKE '%/tag%' AND url NOT LIKE '%/rss%' AND url NOT LIKE '%/subject/%' AND url NOT LIKE '%/archive%' AND url NOT LIKE '%/service/%' AND url NOT LIKE '%/topic/%' AND url NOT LIKE '%/redirect/%' AND url NOT LIKE '%/taxonomy/%' AND url NOT LIKE '%/comment/%' AND url NOT LIKE '%/Invalid/%' AND url NOT LIKE '%/others-index%' AND url NOT LIKE '%/speech?nt=%' AND url NOT LIKE '%/newspart-index%' AND url NOT LIKE '%/%-index%'  AND url NOT LIKE '%/book-archive%' AND url NOT LIKE '%/search%' AND url NOT LIKE '%/roadmap%' AND url NOT LIKE '%/mobile%'  AND id > 100  LIMIT 100"
 
+yarn dev && yarn start dotic 
+yarn dev && yarn start dotic -u https://dotic.ir/news/15751
+yarn dev && yarn start dotic -u https://dotic.ir/cat/157
+
+yarn dev && yarn start ekhtebar 
+yarn dev && yarn start ekhtebar -u https://www.ekhtebar.ir/%d9%82%d8%a7%d9%86%d9%88%d9%86-%d8%ad%d9%85%d8%a7%db%8c%d8%aa-%d8%a7%d8%b2-%da%af%d8%b2%d8%a7%d8%b1%d8%b4%da%af%d8%b1%d8%a7%d9%86-%d9%81%d8%b3%d8%a7%d8%af/
+yarn dev && yarn start ekhtebar -u https://www.ekhtebar.ir/%d8%a7%d8%a8%d9%84%d8%a7%d8%ba-%db%8c%da%a9-%d8%af%d8%b3%d8%aa%d9%88%d8%b1%d8%a7%d9%84%d8%b9%d9%85%d9%84-%d8%ac%d8%af%db%8c%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%ad%d9%81%d8%a7%d8%b8%d8%aa-%d8%a7%d8%b2/
+yarn dev && yarn start ekhtebar -u https://www.ekhtebar.ir/%d8%af%d9%81%d8%aa%d8%b1%da%86%d9%87-%d8%b1%d8%a7%d9%87%d9%86%d9%85%d8%a7%db%8c-%d8%a2%d8%b2%d9%85%d9%88%d9%86-%d9%85%d8%b1%da%a9%d8%b2-%d9%88%da%a9%d9%84%d8%a7%db%8c-%d9%82%d9%88%d9%87-%d9%82%d8%b6/
+
+yarn dev && yarn start qavanin 
+yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/304187
+yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/304294
+yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/304756
+yarn dev && yarn start qavanin -u https://qavanin.ir/Law/TreeText/252639
 
 https://motamem.org/
 /**/

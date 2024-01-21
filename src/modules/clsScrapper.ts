@@ -363,7 +363,7 @@ export abstract class clsScrapper {
                     log.debug("======>", datetimeParts, splitter)
 
                 datetimeParts = dateString?.split(" ")
-                log.debug({ datetimeParts, a: persianMonthNumber(datetimeParts[datetimeParts.length - 2]) })
+                log.debug({ datetimeParts })
 
                 if (datetimeParts.length > 1)
                     finalDateString = datetimeParts[datetimeParts.length - 1].trim() + "-"
@@ -809,13 +809,14 @@ export abstract class clsScrapper {
             "/save", "/fa/save",
             "/ar/", "/en/", "/tr/", "/ru/", "/fr/", "/es", "/sw/", "/ps/", "/ha/",
             "/hi/", "/bd/", "/zh/", "/az/", "/my/", "/id/", "/ph/", "/de/", "/ur/", "/it/", "/tj/",
+            "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
             "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {
-            if (url.pathname.toLowerCase().startsWith(invalidStartPaths[i])) {
+            if (url.pathname.toLowerCase().startsWith(invalidStartPaths[i].toLowerCase())) {
                 //log.debug("ignoredPath", url.pathname)
                 return false
             }
