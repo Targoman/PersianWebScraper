@@ -145,20 +145,22 @@ export function persianMonthNumber(month: string): string | number {
     }
 }
 
-export function normalizeText(text?: string) {
+export function normalizeText(text?: string, removeNewLine = true) {
     if (!text)
         return text
-    return PersianShaper.convertArabicBack(
-        he.decode(text)
-            .replace(/\r\n/g, ' ')
-            .replace(/\r/g, '')
-            .replace(/\t/g, ' ')
-            .replace(/  /g, " ")
-            .replace(/  /g, " ")
-            .replace(/&#1740;/g, 'ی')
-            .replace(/ي/g, 'ی')
-            .replace(/ى/g, 'ی')
-    ).trim()
+    const decoded = he.decode(text)
+        .replace(/\r/g, '')
+        .replace(/\t/g, ' ')
+        .replace(/  /g, " ")
+        .replace(/  /g, " ")
+        .replace(/&#1740;/g, 'ی')
+        .replace(/ي/g, 'ی')
+        .replace(/ى/g, 'ی')
+
+    if (removeNewLine)
+        decoded.replace(/\n/, ' ')
+
+    return PersianShaper.convertArabicBack(decoded).trim()
 }
 
 export function getElementAtIndex(nodes: Node[], index: number) {

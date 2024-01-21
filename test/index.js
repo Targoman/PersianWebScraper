@@ -1139,5 +1139,12 @@ yarn dev && yarn start shenasname -u https://www.shenasname.ir/rah/45552-تأم�
 yarn dev && yarn start shenasname -u https://www.shenasname.ir/tamin/45522-نحوه-تشکیل-شوراهای-پزشکی
 yarn dev && yarn start shenasname -u https://shenasname.ir/ask/45984/واریز-نشده-حقوق-آذر-در-دی-ماه
 
+yarn dev && yarn start rcmajlis
+yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/news/show/1794165
+yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/news/show/1793857
+yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/law/show/1794220
+yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/law/print_version/1794205
+yarn dev && yarn start rcmajlis -u https://rc.majlis.ir/fa/report/show/1794233
+
 https://motamem.org/
 /**/

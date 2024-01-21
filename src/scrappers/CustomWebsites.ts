@@ -116,29 +116,36 @@ export class rcmajlis extends clsScrapper {
   constructor() {
     super(enuDomains.rcmajlis, "rc.majlis.ir", {
       selectors: {
-        article: "section.normal-section#about",
+        article: "#newsSingle .col-lg-9, #newsSingle .col-12, #reportSingle .col-12",
         title: "h1",
-        subtitle: "h2",
+        subtitle: ".filter.p-2",
         datetime: {
-          conatiner: "h2",
-          splitter: (el: HTMLElement) => super.extractDate(el.innerText.replace("مصوب ", "").replace(/ .*/, ""), " ") || "DATE NOT FOUND"
+          acceptNoDate: true,
+          conatiner: (_: HTMLElement, fullHTML: HTMLElement) =>
+            fullHTML.querySelector('#reportSingle')
+              ? fullHTML.querySelector('.detail-report li:nth-child(3) span.persian-num')
+              : fullHTML.querySelector('.detail-report li:nth-child(2) span.persian-num, .law-meta-container .persian-num')
+
         },
         content: {
-          main: "#treeText",
-          ignoreTexts: ["متن این مصوبه هنوز وارد سامانه نشده است لطفا قسمت تصویر را نیز ملاحظه فرمایید."]
+          main: ".content.persian-num",
+          alternative: ".law-description .law_text",
+          ignoreTexts: ["پایان پیام"]
         },
         category: {
-          selector: "#breadcrumb a",
-          startIndex: 1
+          selector: (_: HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelectorAll('.breadcrumb a')
         },
-        tags: ".tagcloud a"
+        tags: (article: HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelector("#reportSingle") ? article.querySelectorAll(".meta-single-page")?.at(2)?.querySelectorAll('a') : article.querySelectorAll(".meta-single-page a")
       },
-      url: { removeWWW: true }
+      url: {
+        removeWWW: true,
+        extraInvalidStartPaths: ["/fa/law/print_version", "/fa/news/print_version", "/fa/report/print_version"]
+      }
     })
   }
-  async initialCookie(proxy?: IntfProxy, url?: string) {
-    return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
-  }
+  // async initialCookie(proxy?: IntfProxy, url?: string) {
+  //   return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
+  // }
 }
 
 export class shenasname extends clsScrapper {
@@ -146,7 +153,7 @@ export class shenasname extends clsScrapper {
     super(enuDomains.shenasname, "shenasname.ir", {
       selectors: {
         article: "article, [itemprop='mainEntity']",
-        title: ".entry-title, .qa-main-heading h1 a", 
+        title: ".entry-title, .qa-main-heading h1 a",
         datetime: {
           conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
           splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"

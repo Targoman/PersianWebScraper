@@ -14,7 +14,7 @@ import {
     IntfSelectAllFunction,
     IntfImage,
     IntfContentHolder,
-    IntfDateSplitter,
+    IntfSelectorToString,
     IntfIsValidFunction,
     IntfURLNormaliziztionConf,
     IntfMappedCatgory,
@@ -164,7 +164,7 @@ export abstract class clsScrapper {
             return []
 
         const breakToParagraphs = (container: IntfProcessedElement[], text?: string, type?: enuTextType, ref?: string) => {
-            text?.split("\n").forEach(par => container.push({ text: par, type, ref }))
+            text?.split("\n").forEach(par => container.push({ text: normalizeText(par), type, ref }))
         }
 
         if (el.tagName === "UL" || el.tagName === "OL") {
@@ -201,12 +201,12 @@ export abstract class clsScrapper {
                 const sameDomain = this.isSameDomain(refURL)
                 const type = sameDomain ? enuTextType.ilink : enuTextType.link
 
-                const text = normalizeText(el.innerText)
+                const text = normalizeText(el.innerText, false)
                 if (text && type && text.length > 2) {
                     if (sameDomain && refURL.pathname.replace(/\/\//g, "/") === "/" || refURL.pathname === "")
                         breakToParagraphs(innerContent, text, enuTextType.paragraph)
                     else
-                        innerContent.push({ text, type, ref })
+                        innerContent.push({ text: normalizeText(text), type, ref })
                 }
                 debugNodeProcessor && log.debug("A", stack.join(">"), innerContent, el.outerHTML);
                 stack.pop()
@@ -286,7 +286,9 @@ export abstract class clsScrapper {
             stack.pop()
 
             const textResult: IntfProcessedElement[] = []
-            breakToParagraphs(textResult, normalizeText(effectiveText), effectiveType, effectiveRef)
+            const normalizedText = normalizeText(effectiveText, false)
+            debugNodeProcessor && log.debug("beforeBreak", el.tagName, stack.join(">"), el.classNames, { effectiveText, normalizedText })
+            breakToParagraphs(textResult, normalizedText, effectiveType, effectiveRef)
 
             debugNodeProcessor && log.debug("beforeFinal", el.tagName, stack.join(">"), el.classNames, { content, textResult })
             const result = [...content, ...textResult]
@@ -334,7 +336,7 @@ export abstract class clsScrapper {
         return "INVALID_DATE"
     }
 
-    protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfDateSplitter = " ", fullHtml?: HTMLElement) {
+    protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfSelectorToString = " ", fullHtml?: HTMLElement) {
         if (!datetimeEl) return undefined
 
         let finalDateString: string | undefined
@@ -663,6 +665,7 @@ export abstract class clsScrapper {
         let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
         if (!contentElements || contentElements.length === 0)
             contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
+
         if (contentElements) {
             contentElements.forEach((textEl: HTMLElement, index, all) => {
                 if (this.textNodeMustBeIgnored(textEl, index, all))
@@ -684,8 +687,7 @@ export abstract class clsScrapper {
 
                 this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
             }
-        }
-
+        } 
         let comments: IntfComment[] = []
         const commentSelector = this.pConf.selectors?.comments
         if (commentSelector) {
