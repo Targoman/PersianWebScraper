@@ -1143,10 +1143,15 @@ yarn dev && yarn start labourlaw
 yarn dev && yarn start labourlaw -u https://labourlaw.ir/پرسش-و-پاسخ-های-تأمین-اجتماعی/
 yarn dev && yarn start labourlaw -u https://labourlaw.ir/فصل-اول-قانون-کار-تعاریف-و-اصول-کلی/
 
-yarn dev && yarn start start sistani 
-yarn dev && yarn start start sistani -u https://www.sistani.org/persian/book/50/1/
-yarn dev && yarn start start sistani -u https://www.sistani.org/persian/data/3/
-yarn dev && yarn start start sistani -u https://www.sistani.org/persian/qa/0826/
+yarn dev && yarn start sistani 
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/book/50/1/
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/data/3/
+yarn dev && yarn start sistani -u https://www.sistani.org/persian/qa/0826/
+
+yarn dev && yarn start agorgani 
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/27337/پیام-تسلیت-بیت-مرحوم-آیت-الله-العظمی-عل/
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/estefta/در-چند-سال-اخیر-به-طور-گسترده-مرسوم-گردی/
+yarn dev && yarn start agorgani -u https://site.agorgani.ir/3949/زندگی-نامه-مرجع-عالیقدر-حضرت-آیت-الله-ا/
 
 https://motamem.org/
 /**/

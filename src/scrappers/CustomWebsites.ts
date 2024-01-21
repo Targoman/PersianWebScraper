@@ -216,3 +216,32 @@ export class sistani extends clsScrapper {
     })
   }
 }
+
+export class agorgani extends clsScrapper {
+  constructor() {
+    super(enuDomains.agorgani, "site.agorgani.ir", {
+      selectors: {
+        article: "body.single-post, #the-post",
+        title: "h1",
+        datetime: {
+          conatiner: "span.date",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".entry-content, figure.single-featured-image",
+        },
+        category: {
+          selector: "a.post-cat"
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+          author: "footer .comment-author b",
+          text: ".comment-content"
+        }
+      },
+      url: { 
+        extraInvalidStartPaths: ["/ar"]
+      }
+    })
+  }
+}
