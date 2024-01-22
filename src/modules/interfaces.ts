@@ -476,7 +476,8 @@ export enum enuMajorCategory {
     Undefined = "Undefined",
     Weblog = "Weblog",
     Wiki = "Wiki",
-    SocialMedia = "SocialMedia"
+    SocialMedia = "SocialMedia",
+    Doc = "Doc"
 }
 
 export enum enuMinorCategory {

@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = true //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
+const debugNodeProcessor = false //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 
@@ -466,7 +466,8 @@ export abstract class clsScrapper {
             if (id) {
                 try {
                     if (page.article) {
-                        const filePath: string = this.corporaPath + "/" + (page.article?.date ? fa2En(page.article?.date.replace(/\//g, "-")) : "noDate")
+                        const docDate = (page.article?.date ? fa2En(page.article?.date.replace(/\//g, "-")) : "noDate")
+                        const filePath: string = this.corporaPath + "/" + docDate
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
@@ -475,7 +476,7 @@ export abstract class clsScrapper {
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
                         )
-                        this.db.setStatus(id, enuURLStatus.Content, null, wc)
+                        this.db.setStatus(id, enuURLStatus.Content, null, wc, docDate)
                         log.debug("content stored in: " + filePath + "/" + Md5.hashStr(page.url))
                     } else
                         this.db.setStatus(id, enuURLStatus.Finished)
@@ -557,6 +558,7 @@ export abstract class clsScrapper {
             const content = await this.getPageContent(url)
             await this.storePage(content, id)
         } catch (e: any) {
+            log.debug(e)
             if (id) {
                 this.db.setStatus(id, enuURLStatus.Error, e.message)
                 delete this.queue[id]

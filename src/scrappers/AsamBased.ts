@@ -73,7 +73,6 @@ class clsAsamBased extends clsScrapper {
         let first = catParts[0]
         const second = catParts.length > 1 ? catParts[1] : ''
 
-
         if (first.startsWith("اخبار"))
             first = first.substring(6).trim()
 
