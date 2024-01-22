@@ -1168,5 +1168,17 @@ yarn dev && yarn start saafi
 yarn dev && yarn start saafi -u https://www.saafi.com/news/9024
 yarn dev && yarn start saafi -u https://www.saafi.com/content/گزارش-تصویری-مراسم-عزاداری-شهادت-امام-هادی-علیه-السلام-و-بزرگداشت-دومین-سالگرد-مرجع-ولائی
 
+yarn dev && yarn start extern
+yarn dev && yarn start extern -u https://extern.ir/disease/hyperthyroidism-signs-symptoms/
+yarn dev && yarn start extern -u https://extern.ir/term/ferritin/
+
+yarn dev && yarn start rastineh 
+yarn dev && yarn start rastineh -u https://rastineh.com/what-is-rhinophyma/
+yarn dev && yarn start rastineh -u https://rastineh.com/hematoma-pictures-symptoms-causes-and-treatment/
+
+yarn dev && yarn start drsaina
+yarn dev && yarn start drsaina -u https://www.drsaina.com/mag/bupropion
+yarn dev && yarn start drsaina -u https://www.drsaina.com/mag/dysthymia
+
 https://motamem.org/
 /**/

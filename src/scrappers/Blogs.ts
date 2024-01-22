@@ -4245,3 +4245,35 @@ export class sheypoor extends clsScrapper {
         })
     }
 }
+
+export class drsaina extends clsScrapper {
+    constructor() {
+      super(enuDomains.drsaina, "drsaina.com", {
+        basePath: "/mag",
+        selectors: {
+          article: "article.single-post-content",
+          title: "h1",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+            splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+          },
+          content: {
+            main: ".entry-content, .single-featured",
+            ignoreNodeClasses: ["post-related", "sidebar-column", "bs-pinning-wrapper", "resource-box", "mega-links", 
+             "comments-template", "main-menu-container", "site-footer", "menu-item", "post-share"],
+            ignoreTexts: [/.*<img.*/]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+          },
+          tags: ".post-header-title .term-badges span a",
+          comments: {
+            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+            author: "cite.comment-author",
+            datetime: "time",
+            text: ".comment-content"
+          }
+        },
+      })
+    }
+  }

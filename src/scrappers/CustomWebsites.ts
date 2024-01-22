@@ -24,3 +24,4 @@ export class divar extends clsScrapper {
     })
   }
 }
+
