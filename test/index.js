@@ -1157,5 +1157,9 @@ yarn dev && yarn start shoragc
 yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/5730/قانون-انتخابات-مجلس-شورای-اسلامی
 yarn dev && yarn start shoragc -u https://www.shora-gc.ir/fa/news/9823/بیش-از-هزار-داوطلب-دیگر-در-شورای-نگهبان-تایید-صلاحیت-شدند-هنوز-زمان-زیادی-تا-پایان-بررسی-صلاحیت%E2%80%8Cها-باقی-است
 
+yarn dev && yarn start saafi 
+yarn dev && yarn start saafi -u https://www.saafi.com/news/9024
+yarn dev && yarn start saafi -u https://www.saafi.com/content/گزارش-تصویری-مراسم-عزاداری-شهادت-امام-هادی-علیه-السلام-و-بزرگداشت-دومین-سالگرد-مرجع-ولائی
+
 https://motamem.org/
 /**/

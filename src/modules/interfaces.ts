@@ -368,6 +368,7 @@ export enum enuDomains {
     sistani = "sistani",
     agorgani = "agorgani",
     shoragc = "shoragc",
+    saafi = "saafi",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

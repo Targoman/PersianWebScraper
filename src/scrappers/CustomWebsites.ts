@@ -273,3 +273,24 @@ export class shoragc extends clsScrapper {
     })
   }
 }
+
+export class saafi extends clsScrapper {
+  constructor() {
+    super(enuDomains.saafi, "saafi.com", {
+      selectors: {
+        article: ".matn",
+        title: ".field-name-title-field .field-item",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.date']"),
+          splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".bodyasli, .gallerygallery .sb-gallery-gallery",
+        },
+      },
+      url: { 
+        extraInvalidStartPaths: ["/ar", "/az", "/ur", "en", "/Invalid"]
+      }
+    })
+  }
+}
