@@ -343,6 +343,11 @@ export abstract class clsScrapper {
 
         if (typeof splitter === "function" && typeof datetimeEl !== "string") {
             finalDateString = splitter(datetimeEl, fullHtml)
+            if (finalDateString.includes('پیش')
+                || finalDateString.includes('امروز')
+                || finalDateString.includes('قبل')
+            )
+                finalDateString = dateOffsetToDate(finalDateString)
         } else {
             const datetime = normalizeText((typeof datetimeEl === "string" ? datetimeEl : datetimeEl?.innerText)?.trim().replace(/[\r\n]/g, ""))
             if (!datetime)
@@ -687,7 +692,7 @@ export abstract class clsScrapper {
 
                 this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
             }
-        } 
+        }
         let comments: IntfComment[] = []
         const commentSelector = this.pConf.selectors?.comments
         if (commentSelector) {

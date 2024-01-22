@@ -76,7 +76,7 @@ export async function axiosGet(log: clsLogger, params: IntfRequestParams, retrie
         .get(params.url, configWithUA(params))
         .then(async (res) => {
             const data = res.data
-            if (typeof data === "string" && res.data.includes("arvancloud")) {
+            if (typeof data === "string" && res.data.length  <5000 && res.data.includes("arvancloud")) {
                 const cookie = await getArvanCookie(params.url, (new URL(params.url).hostname), params.proxy)
                 await sleep(2100)
                 return await axiosGet(log, { ...params, cookie })
@@ -107,6 +107,7 @@ export async function getArvanCookie(url: string, domain: string, proxy?: IntfPr
     try {
         log.progress("Retrieving Arvan CDN cookie")
         const res = await axios.get(url, { httpAgent: proxy?.agent, httpsAgent: proxy?.agent })
+        log.debug(res)
         const arvanPage = res.data
         let evalStr = arvanPage.substring(arvanPage.indexOf("eval") + 6)
         evalStr = evalStr.substring(0, evalStr.indexOf("exports") - 5)

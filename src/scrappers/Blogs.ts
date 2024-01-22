@@ -2207,18 +2207,19 @@ export class parscoders extends clsScrapper {
         super(enuDomains.parscoders, "parscoders.com", {
             basePath: "/blog",
             selectors: {
-                article: "article.blog-single-post",
-                title: "h1",
+                article: "article.blog-single-post, .container-xxl .col-lg-8",
+                title: "h1, h2",
                 datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], .container-xxl .col-lg-8 .pt-2 .col-md-4"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || el.querySelector(".align-self-end")?.innerText || "NO_DATE"
                 },
                 content: {
                     main: ".post-content",
-                    ignoreNodeClasses: ["post-block", "kk-star-ratings", "post-meta"],
-                    ignoreTexts: [/.*برچسب ها.*/]
+                    alternative: "p",
+                    ignoreNodeClasses: ["post-block", "kk-star-ratings", "post-meta", 'font-iranSans-bold', "text-secondary"],
+                    ignoreTexts: [/.*برچسب ها.*/],
                 },
-                tags: "a[rel='tag']",
+                tags: "a[rel='tag'], a[type='button']",
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comment-list li article"),
                     author: ".comment-author b",
