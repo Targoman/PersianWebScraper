@@ -1161,5 +1161,9 @@ yarn dev && yarn start saafi
 yarn dev && yarn start saafi -u https://www.saafi.com/news/9024
 yarn dev && yarn start saafi -u https://www.saafi.com/content/گزارش-تصویری-مراسم-عزاداری-شهادت-امام-هادی-علیه-السلام-و-بزرگداشت-دومین-سالگرد-مرجع-ولائی
 
+yarn dev && yarn start extern
+yarn dev && yarn start extern -u https://extern.ir/disease/hyperthyroidism-signs-symptoms/
+yarn dev && yarn start extern -u https://extern.ir/term/ferritin/
+
 https://motamem.org/
 /**/
