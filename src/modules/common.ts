@@ -3,6 +3,7 @@ import { HTMLElement, Node, NodeType } from "node-html-parser";
 import jmoment from 'jalali-moment'
 import { PersianShaper } from "arabic-persian-reshaper"
 import { log } from "./logger";
+import { readdirSync, statSync } from 'fs';
 
 export function parseEnum(e: any, str: string) {
     const enumKeys = Object.keys(e);
@@ -145,20 +146,22 @@ export function persianMonthNumber(month: string): string | number {
     }
 }
 
-export function normalizeText(text?: string) {
+export function normalizeText(text?: string, removeNewLine = true) {
     if (!text)
         return text
-    return PersianShaper.convertArabicBack(
-        he.decode(text)
-            .replace(/\r\n/g, ' ')
-            .replace(/\r/g, '')
-            .replace(/\t/g, ' ')
-            .replace(/  /g, " ")
-            .replace(/  /g, " ")
-            .replace(/&#1740;/g, 'ی')
-            .replace(/ي/g, 'ی')
-            .replace(/ى/g, 'ی')
-    ).trim()
+    const decoded = he.decode(text)
+        .replace(/\r/g, '')
+        .replace(/\t/g, ' ')
+        .replace(/  /g, " ")
+        .replace(/  /g, " ")
+        .replace(/&#1740;/g, 'ی')
+        .replace(/ي/g, 'ی')
+        .replace(/ى/g, 'ی')
+
+    if (removeNewLine)
+        decoded.replace(/\n/, ' ')
+
+    return PersianShaper.convertArabicBack(decoded).trim()
 }
 
 export function getElementAtIndex(nodes: Node[], index: number) {
@@ -180,7 +183,20 @@ export function wordCount(str?: string): number {
 export function dateOffsetToDate(el?: HTMLElement | string | null) {
     if (!el) return "NullDateElement"
     const dateParts = (typeof el === "string" ? el : el.innerText).split(" ")
+    log.debug({ dateParts })
     let effectiveDate = jmoment().locale('fa');
+    if (dateParts[0] === 'یک') dateParts[0] = '1'
+    if (dateParts[0] === 'دو') dateParts[0] = '2'
+    if (dateParts[0] === 'سه') dateParts[0] = '3'
+    if (dateParts[0] === 'چهار') dateParts[0] = '4'
+    if (dateParts[0] === 'پنج') dateParts[0] = '5'
+    if (dateParts[0] === 'شش') dateParts[0] = '6'
+    if (dateParts[0] === 'هفت') dateParts[0] = '7'
+    if (dateParts[0] === 'هشت') dateParts[0] = '8'
+    if (dateParts[0] === 'نه') dateParts[0] = '9'
+    if (dateParts[0] === 'ده') dateParts[0] = '10'
+    if (dateParts[0] === 'یازده') dateParts[0] = '11'
+    if (dateParts[0] === 'دوازه') dateParts[0] = '12'
     const offset = parseInt(fa2En(dateParts[0]))
 
     switch (dateParts.length > 1 && dateParts[1]) {
@@ -199,12 +215,16 @@ export function date2Gregorian(date?: string): string | undefined {
     const dateParts = date.split("-")
     try {
         if (dateParts.length >= 3) {
-            if (dateParts[0].length === 4 || dateParts[dateParts.length - 1].length === 4) {
-                if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13'))
+            log.debug({ dateParts })
+            if (dateParts[dateParts.length - 1].length === 4)
+                date = dateParts.reverse().join("-")
+            if (dateParts[0].length === 4) {
+                if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13') || dateParts[0].startsWith('12') )
                     return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
                 else
                     return jmoment.from(date, "en").locale("en").format('YYYY-MM-DD')
             }
+
             if (parseInt(dateParts[0]) < 50)
                 date = "14" + date
             else
@@ -214,6 +234,21 @@ export function date2Gregorian(date?: string): string | undefined {
     } catch (e) {/* */ }
     log.error("Invalid Date: ", date)
     return "INVALID: " + date
+}
+
+export function findFile(dir: string, fileName: string) {
+    const files = readdirSync(dir);
+
+    for (const file of files) {
+        const filePath = `${dir}/${file}`;
+        const fileStat = statSync(filePath);
+        if (fileStat.isDirectory()) {
+            const found = findFile(filePath, fileName);
+            if(found) return found
+        }
+        else if (file === fileName) 
+            return filePath
+    }
 }
 
 
