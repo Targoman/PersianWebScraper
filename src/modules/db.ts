@@ -1,10 +1,10 @@
 import DatabaseConstructor, { Database } from 'better-sqlite3';
 import { log } from './logger';
 import { enuDomains } from './interfaces';
-import { existsSync, mkdirSync, renameSync } from 'fs';
+import { existsSync, mkdirSync, readdirSync, renameSync, statSync } from 'fs';
 import gConfigs from './gConfigs';
 import { Md5 } from 'ts-md5';
-import { always, date2Gregorian, findFile } from './common';
+import { always, date2Gregorian } from './common';
 
 export enum enuURLStatus {
     New = 'N',
@@ -54,6 +54,7 @@ export default class clsDB {
             )`)
 
         if (!this.hasAnyURL() && existsSync(`${gConfigs.db}/${this.domain}.db`)) {
+            log.warn("moving old DB to new structure")
             let lastID = 0
             let count = 0
             this.oldDB = new DatabaseConstructor(`${gConfigs.db}/${this.domain}.db`, {
@@ -61,39 +62,61 @@ export default class clsDB {
             });
             this.oldDB.pragma('journal_mode = WAL');
 
-            while (always) {
-                const orc: any = this.oldDB.prepare(`SELECT * FROM tblURLs WHERE id > ? LIMIT 1`).get(lastID)
-                if (orc) {
-                    const insert = this.db.prepare(`INSERT OR IGNORE INTO tblURLs 
+            try {
+                const fileMap = {}
+                const listAllFiles = (dir: string) => {
+                    log.progress("loading " + dir)
+                    const files = readdirSync(dir);
+
+                    for (const file of files) {
+                        const filePath = `${dir}/${file}`;
+                        const fileStat = statSync(filePath);
+                        if (fileStat.isDirectory())
+                            listAllFiles(filePath);
+                        else
+                            fileMap[file.replace(".json", "")] = date2Gregorian(dir.split('/').at(-1))
+                    }
+                }
+
+                log.info("Listing files")
+                listAllFiles(gConfigs.corpora + "/" + this.domain)
+                log.info(`There are ${Object.keys(fileMap).length} entries`)
+                while (always) {
+                    const orc: any = this.oldDB.prepare(`SELECT * FROM tblURLs WHERE id > ? LIMIT 1`).get(lastID)
+                    if (orc) {
+                        const insert = this.db.prepare(`INSERT OR IGNORE INTO tblURLs 
                                                         (url,hash,creation,lastChange,status,wc,docDate,lastError) 
                                                     VALUES (?  ,?   ,?       ,?         ,?     ,? ,?      ,?  )`)
-                    const hash = Md5.hashStr(orc.url)
-                    let docDate: string | undefined = undefined
-                    if (orc.status === 'C') {
-                        const file = findFile(gConfigs.corpora + "/" + this.domain, hash + '.json')
-                        if (file) {
-                            docDate = date2Gregorian(file.split('/').at(-2))
-                            if (docDate === "IGNORED" || docDate === "NO_DATE")
+                        const hash = Md5.hashStr(orc.url)
+                        let docDate: string | undefined = undefined
+                        if (orc.status === 'C') {
+                            docDate = fileMap[hash]
+                            if (!docDate || docDate === "IGNORED" || docDate === "NO_DATE")
                                 docDate = "NOT_SET"
+
+                            log.debug(`Inserting: ${orc.url} =>${hash}: ${docDate}`)
                         }
-                    }
-                    if (orc.status === 'C')
-                        log.debug(`Inserting: ${orc.url} =>${hash}: ${docDate}`)
 
-                    insert.run(orc.url, hash, orc.creation, orc.lastChange, orc.status, orc.wc, docDate || null, orc.lastError)
-                    lastID = orc.id
-                    count++
-                } else
-                    break
+                        if (count % 1000 === 0)
+                            log.progress("Migration progress: ", count, lastID)
+
+                        insert.run(orc.url, hash, orc.creation, orc.lastChange, orc.status, orc.wc, docDate || null, orc.lastError)
+                        lastID = orc.id
+                        count++
+                    } else
+                        break
+                }
+                this.oldDB.close()
+                log.progress('Moved from oldDB', count)
+                const trashBin = gConfigs.db + "/trash"
+                if (!existsSync(trashBin))
+                    if (!mkdirSync(trashBin, { recursive: true }))
+                        throw new Error("Unable to create trash directory: " + trashBin)
+                renameSync(`${gConfigs.db}/${this.domain}.db`, `${trashBin}/${this.domain}.db`)
+            } catch (e) {
+                log.error(e)
+                process.exit()
             }
-            this.oldDB.close()
-            log.progress('Moved from oldDB', count)
-            const trashBin = gConfigs.db + "/trash"
-            if (!existsSync(trashBin))
-                if (!mkdirSync(trashBin, { recursive: true }))
-                    throw new Error("Unable to create trash directory: " + trashBin)
-            renameSync(`${gConfigs.db}/${this.domain}.db`, `${trashBin}/${this.domain}.db`)
-
         }
     }
 

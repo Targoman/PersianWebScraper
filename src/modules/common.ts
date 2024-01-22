@@ -219,7 +219,7 @@ export function date2Gregorian(date?: string): string | undefined {
             if (dateParts[dateParts.length - 1].length === 4)
                 date = dateParts.reverse().join("-")
             if (dateParts[0].length === 4) {
-                if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13'))
+                if (dateParts[0].startsWith('14') || dateParts[0].startsWith('13') || dateParts[0].startsWith('12') )
                     return jmoment.from(date, "fa").locale("en").format('YYYY-MM-DD')
                 else
                     return jmoment.from(date, "en").locale("en").format('YYYY-MM-DD')
@@ -250,6 +250,7 @@ export function findFile(dir: string, fileName: string) {
             return filePath
     }
 }
+
 
 export const always = true
 

@@ -123,7 +123,7 @@ export class rcmajlis extends clsScrapper {
           conatiner: (_: HTMLElement, fullHTML: HTMLElement) =>
             fullHTML.querySelector('#reportSingle')
               ? fullHTML.querySelector('.detail-report li:nth-child(3) span.persian-num')
-              : fullHTML.querySelector('.detail-report li:nth-child(2) span.persian-num, .law-meta-container .persian-num')
+              : fullHTML.querySelector('.legal-draft-details .text-primary, .detail-report li:nth-child(2) span.persian-num, .law-meta-container .persian-num')
 
         },
         content: {
