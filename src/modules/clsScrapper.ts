@@ -32,7 +32,7 @@ interface IntfProcessedElement {
 }
 
 /******************************************* */
-const debugNodeProcessor = false //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
+const debugNodeProcessor = true //gConfigs.debugVerbosity && gConfigs.debugVerbosity > 8
 let stack: string[] = []
 /******************************************* */
 

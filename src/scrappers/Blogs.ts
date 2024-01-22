@@ -2215,9 +2215,10 @@ export class parscoders extends clsScrapper {
                 },
                 content: {
                     main: ".post-content",
-                    alternative: "p",
-                    ignoreNodeClasses: ["post-block", "kk-star-ratings", "post-meta", 'font-iranSans-bold', "text-secondary"],
+                    alternative: ">*",
+                    ignoreNodeClasses: ["post-block", "kk-star-ratings", "post-meta", 'font-iranSans-bold', "text-secondary", 'd-flex'],
                     ignoreTexts: [/.*برچسب ها.*/],
+
                 },
                 tags: "a[rel='tag'], a[type='button']",
                 comments: {
@@ -2227,6 +2228,9 @@ export class parscoders extends clsScrapper {
                     text: ".comment-content"
                 }
             },
+            url: {
+                extraInvalidStartPaths: ["/resume/", "/my-project"]
+            }
         })
     }
 }
