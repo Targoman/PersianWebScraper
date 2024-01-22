@@ -1165,5 +1165,9 @@ yarn dev && yarn start extern
 yarn dev && yarn start extern -u https://extern.ir/disease/hyperthyroidism-signs-symptoms/
 yarn dev && yarn start extern -u https://extern.ir/term/ferritin/
 
+yarn dev && yarn start rastineh 
+yarn dev && yarn start rastineh -u https://rastineh.com/what-is-rhinophyma/
+yarn dev && yarn start rastineh -u https://rastineh.com/hematoma-pictures-symptoms-causes-and-treatment/
+
 https://motamem.org/
 /**/

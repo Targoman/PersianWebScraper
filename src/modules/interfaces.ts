@@ -370,6 +370,7 @@ export enum enuDomains {
     shoragc = "shoragc",
     saafi = "saafi",
     extern = "extern",
+    rastineh = "rastineh",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",

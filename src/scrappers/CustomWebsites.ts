@@ -323,3 +323,32 @@ export class extern extends clsScrapper {
     })
   }
 }
+
+export class rastineh extends clsScrapper {
+  constructor() {
+    super(enuDomains.rastineh, "rastineh.com", {
+      selectors: {
+        article: ".single_page article",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+          splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".single_content",
+          ignoreNodeClasses: ["su-spoiler"]
+        },
+        category: {
+          selector: "#crumbs a",
+          startIndex: 1
+        },
+        tags: "a[rel='tag']",
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .comment-body"),
+          author: ".comment-author cite",
+          text: "p"
+      }
+      },
+    })
+  }
+}
