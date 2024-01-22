@@ -81,3 +81,27 @@ export class rastineh extends clsScrapper {
     })
   }
 }
+
+export class bahjat extends clsScrapper {
+  constructor() {
+    super(enuDomains.bahjat, "bahjat.ir", {
+      basePath: "/fa",
+      selectors: {
+        article: ".nodeWrapper, .barge, body.node-type-ahkam",
+        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, title"),
+        subtitle: ".subTitle",
+        datetime: {
+          conatiner: "time",
+          acceptNoDate: true
+        },
+        content: {
+          main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cBody, section.ahkam-teaser .wrapper, span.imgTeaser a"),
+        },
+        tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".nodeWrapper .entry-tags span a"),
+      },
+      url: {
+        extraInvalidStartPaths: ["/ur", "/en"]
+      }
+    })
+  }
+}
