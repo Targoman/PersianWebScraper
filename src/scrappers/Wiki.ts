@@ -75,3 +75,15 @@ export class wikisource extends clsWiki {
         })
     }
 }
+
+export class wikishia extends clsWiki {
+    constructor() {
+        super(enuDomains.wikishia, "fa.wikishia.net", { 
+            basePath: "/view/صفحهٔ_اصلی",
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/w"]
+            }
+        })
+    }
+}

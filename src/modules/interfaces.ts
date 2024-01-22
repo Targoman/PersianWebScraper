@@ -372,6 +372,7 @@ export enum enuDomains {
     extern = "extern",
     rastineh = "rastineh",
     drsaina = "drsaina",
+    wikishia = "wikishia",
     /* javabyab="javabyab",
         asreertebat = "asreertebat",
         ictnn = "ictnn",
