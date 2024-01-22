@@ -14,7 +14,7 @@ import {
     IntfSelectAllFunction,
     IntfImage,
     IntfContentHolder,
-    IntfDateSplitter,
+    IntfSelectorToString,
     IntfIsValidFunction,
     IntfURLNormaliziztionConf,
     IntfMappedCatgory,
@@ -82,8 +82,8 @@ export abstract class clsScrapper {
                     const stats = await this.db.stats() || {}
 
                     if (stats['remaining'] == 0 && stats['processed'] > 0) {
-                        if (count <= 1000) {
-                            log.status({ ...stats, countDown: 1000 - count })
+                        if (count <= 300) {
+                            log.status({ ...stats, countDown: 300 - count })
                             return setTimeout(() => checkFinished(++count), 1000)
                         } else {
                             log.status({ ...stats, fetching: "FINISHED" })
@@ -164,7 +164,7 @@ export abstract class clsScrapper {
             return []
 
         const breakToParagraphs = (container: IntfProcessedElement[], text?: string, type?: enuTextType, ref?: string) => {
-            text?.split("\n").forEach(par => container.push({ text: par, type, ref }))
+            text?.split("\n").forEach(par => container.push({ text: normalizeText(par), type, ref }))
         }
 
         if (el.tagName === "UL" || el.tagName === "OL") {
@@ -201,12 +201,12 @@ export abstract class clsScrapper {
                 const sameDomain = this.isSameDomain(refURL)
                 const type = sameDomain ? enuTextType.ilink : enuTextType.link
 
-                const text = normalizeText(el.innerText)
+                const text = normalizeText(el.innerText, false)
                 if (text && type && text.length > 2) {
                     if (sameDomain && refURL.pathname.replace(/\/\//g, "/") === "/" || refURL.pathname === "")
                         breakToParagraphs(innerContent, text, enuTextType.paragraph)
                     else
-                        innerContent.push({ text, type, ref })
+                        innerContent.push({ text: normalizeText(text), type, ref })
                 }
                 debugNodeProcessor && log.debug("A", stack.join(">"), innerContent, el.outerHTML);
                 stack.pop()
@@ -286,7 +286,9 @@ export abstract class clsScrapper {
             stack.pop()
 
             const textResult: IntfProcessedElement[] = []
-            breakToParagraphs(textResult, normalizeText(effectiveText), effectiveType, effectiveRef)
+            const normalizedText = normalizeText(effectiveText, false)
+            debugNodeProcessor && log.debug("beforeBreak", el.tagName, stack.join(">"), el.classNames, { effectiveText, normalizedText })
+            breakToParagraphs(textResult, normalizedText, effectiveType, effectiveRef)
 
             debugNodeProcessor && log.debug("beforeFinal", el.tagName, stack.join(">"), el.classNames, { content, textResult })
             const result = [...content, ...textResult]
@@ -325,22 +327,27 @@ export abstract class clsScrapper {
                     return "INVALID_DATE"
                 }
             } else
-                dateParts.push(part)
+                dateParts.push(fa2En(part))
         }
 
-        if (dateParts.length === 3)
-            return dateParts.reverse().join('-')
         log.debug({ datetimeStr, splitted: datetimeStr.split(" "), dateParts })
+        if (dateParts.length === 3)
+            return parseInt(dateParts[0]) > 1000 ? dateParts.join("-") : dateParts.reverse().join('-')
         return "INVALID_DATE"
     }
 
-    protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfDateSplitter = " ", fullHtml?: HTMLElement) {
+    protected extractDate(datetimeEl?: HTMLElement | string, splitter: string | IntfSelectorToString = " ", fullHtml?: HTMLElement) {
         if (!datetimeEl) return undefined
 
         let finalDateString: string | undefined
 
         if (typeof splitter === "function" && typeof datetimeEl !== "string") {
             finalDateString = splitter(datetimeEl, fullHtml)
+            if (finalDateString.includes('پیش')
+                || finalDateString.includes('امروز')
+                || finalDateString.includes('قبل')
+            )
+                finalDateString = dateOffsetToDate(finalDateString)
         } else {
             const datetime = normalizeText((typeof datetimeEl === "string" ? datetimeEl : datetimeEl?.innerText)?.trim().replace(/[\r\n]/g, ""))
             if (!datetime)
@@ -366,14 +373,14 @@ export abstract class clsScrapper {
                 log.debug({ datetimeParts })
 
                 if (datetimeParts.length > 1)
-                    finalDateString = datetimeParts[datetimeParts.length - 1].trim() + "-"
+                    finalDateString = normalizeText(datetimeParts[datetimeParts.length - 1].trim() + "-"
                         + persianMonthNumber(datetimeParts[datetimeParts.length - 2]) + "-"
-                        + datetimeParts[datetimeParts.length - 3].trim()
+                        + datetimeParts[datetimeParts.length - 3].trim())
                 else
-                    finalDateString = datetimeParts[0].replace(/\//g, "-")
+                    finalDateString = normalizeText(datetimeParts[0].replace(/\//g, "-"))
 
                 if (!finalDateString || finalDateString.split("-").length < 3)
-                    finalDateString = this.autoExtractDate(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText)
+                    finalDateString = this.autoExtractDate(normalizeText(typeof datetimeEl === "string" ? datetimeEl : datetimeEl.innerText))
             }
 
         }
@@ -459,7 +466,8 @@ export abstract class clsScrapper {
             if (id) {
                 try {
                     if (page.article) {
-                        const filePath: string = this.corporaPath + "/" + (page.article?.date ? fa2En(page.article?.date.replace(/\//g, "-")) : "noDate")
+                        const docDate = (page.article?.date ? fa2En(page.article?.date.replace(/\//g, "-")) : "noDate")
+                        const filePath: string = this.corporaPath + "/" + docDate
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
@@ -468,7 +476,7 @@ export abstract class clsScrapper {
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
                         )
-                        this.db.setStatus(id, enuURLStatus.Content, null, wc)
+                        this.db.setStatus(id, enuURLStatus.Content, null, wc, docDate)
                         log.debug("content stored in: " + filePath + "/" + Md5.hashStr(page.url))
                     } else
                         this.db.setStatus(id, enuURLStatus.Finished)
@@ -550,6 +558,7 @@ export abstract class clsScrapper {
             const content = await this.getPageContent(url)
             await this.storePage(content, id)
         } catch (e: any) {
+            log.debug(e)
             if (id) {
                 this.db.setStatus(id, enuURLStatus.Error, e.message)
                 delete this.queue[id]
@@ -663,6 +672,7 @@ export abstract class clsScrapper {
         let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
         if (!contentElements || contentElements.length === 0)
             contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
+
         if (contentElements) {
             contentElements.forEach((textEl: HTMLElement, index, all) => {
                 if (this.textNodeMustBeIgnored(textEl, index, all))
@@ -685,7 +695,6 @@ export abstract class clsScrapper {
                 this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
             }
         }
-
         let comments: IntfComment[] = []
         const commentSelector = this.pConf.selectors?.comments
         if (commentSelector) {

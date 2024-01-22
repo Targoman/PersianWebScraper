@@ -175,7 +175,7 @@ Configuring scrapper to scrap new WebSites is also easy.
             container?: string | IntfSelectAllFunction,
 
             //A css selector or a function to capture date of the comment
-            datetime?: string | IntfDateSplitter,
+            datetime?: string | IntfSelectorToString,
 
             //A css selector or a function to capture author of the comment
             author?: string | IntfSelectorFunction,
@@ -189,7 +189,7 @@ Configuring scrapper to scrap new WebSites is also easy.
             //A css selector or a function to select HTML element representing publication date
             conatiner?: string | IntfSelectorFunction,
             //An string to split date from hour or a function for complex date detectors (check samples in special virgool)
-            splitter?: string | IntfDateSplitter
+            splitter?: string | IntfSelectorToString
         }
         category?: {
             //A css selector or a function to select HTML elements representing category or breadcrumb items

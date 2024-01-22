@@ -480,7 +480,8 @@ export enum enuMajorCategory {
     Undefined = "Undefined",
     Weblog = "Weblog",
     Wiki = "Wiki",
-    SocialMedia = "SocialMedia"
+    SocialMedia = "SocialMedia",
+    Doc = "Doc"
 }
 
 export enum enuMinorCategory {
@@ -595,7 +596,7 @@ export interface IntfGetCommentsByAPI {
     (url: URL, reParams: IntfRequestParams): Promise<IntfComment[]>
 }
 
-export interface IntfDateSplitter {
+export interface IntfSelectorToString {
     (element: HTMLElement, fullHtml?: HTMLElement): string
 }
 
@@ -619,19 +620,20 @@ export interface IntfProcessorConfigs {
             main?: string | IntfSelectAllFunction,
             alternative?: string | IntfSelectAllFunction,
             textNode?: string | IntfSelectorFunction,
+            alterTextContent?: IntfSelectorToString,
             ignoreTexts?: string[] | RegExp[],
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
         },
         comments?: {
             container?: string | IntfSelectAllFunction,
-            datetime?: string | IntfDateSplitter,
+            datetime?: string | IntfSelectorToString,
             author?: string | IntfSelectorFunction,
             text?: string | IntfSelectorFunction
         } | IntfGetCommentsByAPI,
         tags?: string | IntfSelectAllFunction,
         datetime?: {
             conatiner?: string | IntfSelectorFunction,
-            splitter?: string | IntfDateSplitter,
+            splitter?: string | IntfSelectorToString,
             isGregorian?: boolean
             acceptNoDate?: boolean
         }
@@ -641,7 +643,7 @@ export interface IntfProcessorConfigs {
         }
     },
     url?: IntfURLNormaliziztionConf
-    basePath? : string
+    basePath?: string
     preHTMLParse?: (html: string) => string
 }
 
