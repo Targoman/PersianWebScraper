@@ -2479,7 +2479,7 @@ export class exbito extends clsScrapper {
         super(enuDomains.exbito, "exbito.com", {
             basePath: "/blog",
             selectors: {
-                article: "article",
+                article: "main.pt-3\\.5 article",
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
@@ -2497,6 +2497,9 @@ export class exbito extends clsScrapper {
                     text: "div.text-design-black.mt-4"
                 }
             },
+            url: {
+                removeWWW: true
+            }
         })
     }
 }
