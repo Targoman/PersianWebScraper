@@ -1201,6 +1201,10 @@ yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/archive/fa120
 yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/phrases/fa-537
 yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/quran#fa_ghomshei/1:1
 
+yarn dev && yarn start start eporsesh 
+yarn dev && yarn start start eporsesh -u https://eporsesh.com/content/چرا-در-دعا-دست-به-طرف-آسمان-است؟
+yarn dev && yarn start start eporsesh -u https://eporsesh.com/content/چرا-دست-به-سوی-آسمان؟
+yarn dev && yarn start start eporsesh -u https://eporsesh.com/content/تقدیر-از-پاسخگویان-مرکز-ملی-پاسخگویی-به-سؤالات-دینی-نمایندگی-خراسان-رضوی-0
 
 https://motamem.org/
 /**/

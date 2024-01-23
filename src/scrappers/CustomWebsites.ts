@@ -180,3 +180,28 @@ export class islamquest extends clsScrapper {
   }
 }
 
+export class eporsesh extends clsScrapper {
+  constructor() {
+    super(enuDomains.eporsesh, "eporsesh.com", {
+      selectors: {
+        article: ".node-historyquestioncontent.view-mode-full, body.node-type-article, body.node-type-picnews, body.node-type-montakhabepayamaki",
+        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+        subtitle: ".Sootitr",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".group-header, .field-name-field-image div div, .field-type-text-with-summary div div, .flexslider ul li," + 
+           ".field-name-field-picnews-headpic div div, .field-name-field-montakhabepayamaki-questio div div",
+          ignoreTexts: [/.*eitaa.*/]
+        },
+        category: {
+          selector: "[property='rdfs:label skos:prefLabel']"
+        },
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
