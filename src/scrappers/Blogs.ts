@@ -3437,7 +3437,7 @@ export class clickaval extends clsScrapper {
             },
         })
     }
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.SEO }
     }
 }
