@@ -105,3 +105,27 @@ export class bahjat extends clsScrapper {
     })
   }
 }
+
+export class zanjani extends clsScrapper {
+  constructor() {
+    super(enuDomains.zanjani, "zanjani.ir", {
+      selectors: {
+        article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
+        title: ".single-content-title, .article span:nth-child(1), h1",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".single-content-content, .article_box, #lightgallery",
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
+        },
+      },
+      url: {
+        extraInvalidStartPaths: ["/?ar"]
+      }
+    })
+  }
+}
+

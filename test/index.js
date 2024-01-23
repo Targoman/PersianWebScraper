@@ -1187,5 +1187,10 @@ yarn dev && yarn start bahjat
 yarn dev && yarn start bahjat -u https://bahjat.ir/fa/content/14072
 yarn dev && yarn start bahjat -u https://bahjat.ir/fa/search-ahkam
 
+yarn dev && yarn start zanjani
+yarn dev && yarn start zanjani -u https://zanjani.ir/صاحب-تفسیر-مجمعالبیان؛-طَبَرْسی-ی/?fa
+yarn dev && yarn start zanjani -u https://zanjani.ir/سوالات-شرعی/?fa&id=713
+yarn dev && yarn start zanjani -u https://zanjani.ir/نگارخانه/مجالس-روضه-در-دفتر/?fa
+
 https://motamem.org/
 /**/
