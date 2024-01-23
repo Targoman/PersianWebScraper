@@ -453,7 +453,10 @@ elif  [ "$1" == "update" ]; then
     fi
 
 elif  [ "$1" == "stats" ];then
-    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/stats.csv   ${@:2}
+    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/stats.csv ${@:2}
+elif  [ "$1" == "stats2" ];then
+    if [ -n "$2" ]; then statsFile=$3; else statsFile='stats'; fi
+    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/$statFile.csv ${@:2}
 elif  [ "$1" == "normalize" ];then
     sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND normalize $CONFIG ${@:2}
     if [ -n "$3" ];then

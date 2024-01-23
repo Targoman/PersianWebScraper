@@ -461,7 +461,7 @@ export interface IntfPageContent {
 
 export interface IntfDocFilecontent {
     url: string,
-    category: string | IntfMappedCatgory,
+    category: string | IntfMappedCategory,
     date?: string,
     title?: string,
     aboveTitle?: string,
@@ -516,6 +516,7 @@ export enum enuMinorCategory {
     University = "University",
     Defence = "Defence",
     Fun = "Fun",
+    Insurance = "Insurance",
     Weather = "Weather",
     Advert = "Advert",
     CryptoCurrency = "CryptoCurrency",
@@ -566,7 +567,7 @@ export enum enuSubMinorCategory {
     Police = "Police"
 }
 
-export interface IntfMappedCatgory {
+export interface IntfMappedCategory {
     major: enuMajorCategory,
     minor?: enuMinorCategory,
     subminor?: enuSubMinorCategory | enuMinorCategory

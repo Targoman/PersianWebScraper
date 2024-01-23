@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -50,8 +50,8 @@ class clsStudioKhabarBased extends clsScrapper {
         return url.protocol + "//" + hostname + path
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News}
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')

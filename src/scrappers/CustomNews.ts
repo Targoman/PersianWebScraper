@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory } from "../modules/interfaces";
+import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory } from "../modules/interfaces";
 import HP, { HTMLElement } from "node-html-parser"
 import { axiosGet, axiosPost, getArvanCookie, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
@@ -106,8 +106,8 @@ export class alef extends clsScrapper {
         return await getArvanCookie(url || "https://www.alef.ir", this.baseURL, proxy)
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         else if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (cat.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
@@ -171,8 +171,8 @@ export class isna extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.startsWith("اجتماعی") || cat.startsWith("جامعه") || cat.startsWith("خانواده") || cat.startsWith("محیط")) return { ...mappedCat, minor: enuMinorCategory.Social }
@@ -294,7 +294,7 @@ export class khamenei extends clsScrapper {
         })
     }
 
-    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+    mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
         return { major: enuMajorCategory.News }
     }
@@ -324,7 +324,7 @@ export class citna extends clsScrapper {
         })
     }
 
-    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+    mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
         return { major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
     }
@@ -364,8 +364,8 @@ export class itna extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -489,7 +489,7 @@ export class varzesh3 extends clsScrapper {
         })
     }
 
-    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+    mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
     }
@@ -536,9 +536,9 @@ export class tarafdari extends clsScrapper {
         })
     }
 
-    mapCategory(_: string, tags?: string[]): IntfMappedCatgory {
+    mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
-        return { major: enuMajorCategory.News,  minor: enuMinorCategory.Sport }
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
     }
 }
 
@@ -562,8 +562,8 @@ export class niknews extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
@@ -608,8 +608,8 @@ export class namnak extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -662,8 +662,8 @@ export class beytoote extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News,  minor: enuMinorCategory.LifeStyle }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
         if (!cat) return mappedCat
 
         if (cat.includes("پزشکی")
@@ -803,8 +803,8 @@ export class arzdigital extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat = { major: enuMajorCategory.News,  minor: enuMinorCategory.CryptoCurrency }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
@@ -845,8 +845,8 @@ export class ramzarz extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News,  minor: enuMinorCategory.CryptoCurrency }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
@@ -888,8 +888,8 @@ export class digiato extends clsScrapper {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News}
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("ویدیو") || cat.includes("تماشا")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
