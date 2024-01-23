@@ -1180,5 +1180,12 @@ yarn dev && yarn start drsaina
 yarn dev && yarn start drsaina -u https://www.drsaina.com/mag/bupropion
 yarn dev && yarn start drsaina -u https://www.drsaina.com/mag/dysthymia
 
+yarn dev && yarn start wikishia
+yarn dev && yarn start wikishia -u https://fa.wikishia.net/view/مکتب_فلسفی_تهران
+
+yarn dev && yarn start bahjat 
+yarn dev && yarn start bahjat -u https://bahjat.ir/fa/content/14072
+yarn dev && yarn start bahjat -u https://bahjat.ir/fa/search-ahkam
+
 https://motamem.org/
 /**/
