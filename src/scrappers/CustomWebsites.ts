@@ -154,4 +154,29 @@ export class rasekhoon extends clsScrapper {
 }
 
 
+export class islamquest extends clsScrapper {
+  constructor() {
+    super(enuDomains.islamquest, "islamquest.net", {
+      basePath: "/fa",
+      selectors: {
+        article: ".question-details, #quran-big-page",
+        title: ".main-question, .sure-title",
+        datetime: {
+          conatiner: ".last-up span.item",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".full-question, .short-answer, .quran-text, .translate-text, .tafsir-text",
+        },
+        category: {
+          selector: ".category a"
+        },
+        tags: ".tags a",
+      },
+      url: {
+        extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
+      }
+    })
+  }
+}
 
