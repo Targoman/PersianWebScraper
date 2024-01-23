@@ -129,3 +129,29 @@ export class zanjani extends clsScrapper {
   }
 }
 
+export class rasekhoon extends clsScrapper {
+  constructor() {
+    super(enuDomains.rasekhoon, "rasekhoon.net", {
+      selectors: {
+        article: ".js_ConID .MainIntra",
+        title: "h1",
+        subtitle: ".Sootitr",
+        datetime: {
+          conatiner: ".Date"
+        },
+        content: {
+          main: "article, img.ira",
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.SubNav div a")
+        },
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
+
+
+

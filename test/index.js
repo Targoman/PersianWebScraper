@@ -1192,5 +1192,9 @@ yarn dev && yarn start zanjani -u https://zanjani.ir/صاحب-تفسیر-مجم�
 yarn dev && yarn start zanjani -u https://zanjani.ir/سوالات-شرعی/?fa&id=713
 yarn dev && yarn start zanjani -u https://zanjani.ir/نگارخانه/مجالس-روضه-در-دفتر/?fa
 
+yarn dev && yarn  start rasekhoon
+yarn dev && yarn  start rasekhoon -u https://rasekhoon.net/conference/show/1630001/سرم-در-اثر-خاراندن-زخم-شد-بعد-از-مدتی-متوجه-شدم-آیا-نجاست-را-انتقال-دادم
+yarn dev && yarn  start rasekhoon -u https://rasekhoon.net/article/show/1635783/تغییر-رشته-در-ارشد-کار-صحیحی-است
+
 https://motamem.org/
 /**/
