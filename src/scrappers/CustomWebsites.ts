@@ -119,3 +119,126 @@ export class bahjat extends clsScrapper {
     })
   }
 }
+
+export class zanjani extends clsScrapper {
+  constructor() {
+    super(enuDomains.zanjani, "zanjani.ir", {
+      selectors: {
+        article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
+        title: ".single-content-title, .article span:nth-child(1), h1",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".single-content-content, .article_box, #lightgallery",
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
+        },
+      },
+      url: {
+        extraInvalidStartPaths: ["/?ar"]
+      }
+    })
+  }
+}
+
+export class rasekhoon extends clsScrapper {
+  constructor() {
+    super(enuDomains.rasekhoon, "rasekhoon.net", {
+      selectors: {
+        article: ".js_ConID .MainIntra",
+        title: "h1",
+        subtitle: ".Sootitr",
+        datetime: {
+          conatiner: ".Date"
+        },
+        content: {
+          main: "article, img.ira",
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.SubNav div a")
+        },
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
+
+
+export class islamquest extends clsScrapper {
+  constructor() {
+    super(enuDomains.islamquest, "islamquest.net", {
+      basePath: "/fa",
+      selectors: {
+        article: ".question-details, #quran-big-page",
+        title: ".main-question, .sure-title",
+        datetime: {
+          conatiner: ".last-up span.item",
+          acceptNoDate: true
+        },
+        content: {
+          main: ".full-question, .short-answer, .quran-text, .translate-text, .tafsir-text",
+        },
+        category: {
+          selector: ".category a"
+        },
+        tags: ".tags a",
+      },
+      url: {
+        extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
+      }
+    })
+  }
+}
+
+export class eporsesh extends clsScrapper {
+  constructor() {
+    super(enuDomains.eporsesh, "eporsesh.com", {
+      selectors: {
+        article: ".node-historyquestioncontent.view-mode-full, body.node-type-article, body.node-type-picnews, body.node-type-montakhabepayamaki",
+        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+        subtitle: ".Sootitr",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".group-header, .field-name-field-image div div, .field-type-text-with-summary div div, .flexslider ul li," + 
+           ".field-name-field-picnews-headpic div div, .field-name-field-montakhabepayamaki-questio div div",
+          ignoreTexts: [/.*eitaa.*/]
+        },
+        category: {
+          selector: "[property='rdfs:label skos:prefLabel']"
+        },
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
+
+export class pasokhgoo extends clsScrapper {
+  constructor() {
+    super(enuDomains.pasokhgoo, "pasokhgoo.ir", {
+      selectors: {
+        article: "body.node-type-article, body.node-type-gallery",
+        title: "h1",
+        subtitle: ".field-name-field-subtitle div div",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span[property='dc:date dc:created']"),
+          splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".field-type-text-with-summary div div, .field-name-field-pasokh div div, .field-name-field-image div div a, .flexslider ul li",
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")
+        },
+        tags: ".field-name-field-tags div div a"
+      },
+    })
+  }
+}

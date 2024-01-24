@@ -1187,5 +1187,28 @@ yarn dev && yarn start bahjat
 yarn dev && yarn start bahjat -u https://bahjat.ir/fa/content/14072
 yarn dev && yarn start bahjat -u https://bahjat.ir/fa/search-ahkam
 
+yarn dev && yarn start zanjani
+yarn dev && yarn start zanjani -u https://zanjani.ir/صاحب-تفسیر-مجمعالبیان؛-طَبَرْسی-ی/?fa
+yarn dev && yarn start zanjani -u https://zanjani.ir/سوالات-شرعی/?fa&id=713
+yarn dev && yarn start zanjani -u https://zanjani.ir/نگارخانه/مجالس-روضه-در-دفتر/?fa
+
+yarn dev && yarn start rasekhoon
+yarn dev && yarn start rasekhoon -u https://rasekhoon.net/conference/show/1630001/سرم-در-اثر-خاراندن-زخم-شد-بعد-از-مدتی-متوجه-شدم-آیا-نجاست-را-انتقال-دادم
+yarn dev && yarn start rasekhoon -u https://rasekhoon.net/article/show/1635783/تغییر-رشته-در-ارشد-کار-صحیحی-است
+
+yarn dev && yarn start islamquest
+yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/archive/fa120403
+yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/phrases/fa-537
+yarn dev && yarn start islamquest -u https://www.islamquest.net/fa/quran#fa_ghomshei/1:1
+
+yarn dev && yarn start eporsesh 
+yarn dev && yarn start eporsesh -u https://eporsesh.com/content/چرا-در-دعا-دست-به-طرف-آسمان-است؟
+yarn dev && yarn start eporsesh -u https://eporsesh.com/content/چرا-دست-به-سوی-آسمان؟
+yarn dev && yarn start eporsesh -u https://eporsesh.com/content/تقدیر-از-پاسخگویان-مرکز-ملی-پاسخگویی-به-سؤالات-دینی-نمایندگی-خراسان-رضوی-0
+
+yarn dev && yarn start pasokhgoo
+yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/کنیه-و-لقب-امام-جواد-علیه%E2%80%8Cالسلام
+yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/حدیث-فضیلت-پرسش-و-پاسخ
+
 https://motamem.org/
 /**/
