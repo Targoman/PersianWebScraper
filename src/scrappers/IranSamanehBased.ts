@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 import { isIranProvinceString } from "../modules/common";
@@ -84,8 +84,8 @@ export class aftabnews extends clsIransamaneh {
         return tag.classNames === "aftab_news" && tag.tagName === "DIV"
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
         if (!cat) return mappedCat
         else if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (cat.startsWith("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
@@ -110,8 +110,8 @@ export class seratnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
@@ -140,7 +140,7 @@ export class iqna extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }
@@ -151,8 +151,8 @@ export class ana extends clsIransamaneh {
         super(enuDomains.ana, "ana.press", { selectors: { article: ".news_content, .container-newsMedia" } })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -193,8 +193,8 @@ export class tabnak extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
@@ -284,8 +284,8 @@ export class snn extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -349,8 +349,8 @@ export class yjc extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -414,8 +414,8 @@ export class bultannews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -459,8 +459,8 @@ export class boursenews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("فیلم") || cat.includes("عکس") || cat.includes("صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -480,8 +480,8 @@ export class fararu extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("ویدیو") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -547,8 +547,8 @@ export class parsine extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         else if (cat.includes("چندرسانه")
@@ -607,8 +607,8 @@ export class shianews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.includes("عکس")
@@ -672,6 +672,9 @@ export class iribnews extends clsIransamaneh {
                 category: {
                     selector: ".news_path2 a, .news_path a",
                 },
+            },
+            url: {
+                extraInvalidStartPaths: ["/fa/ajax"]
             }
         })
     }
@@ -679,9 +682,9 @@ export class iribnews extends clsIransamaneh {
 
 export class mizanonline extends clsIransamaneh {
     constructor() {
-        super(enuDomains.shianews, "mizanonline.ir", {
+        super(enuDomains.mizanonline, "mizanonline.ir", {
             selectors: {
-                article: ".main_news_body, .main-body",
+                article: ".main_news_body, .row_news_body",
             }
         })
     }
@@ -705,7 +708,7 @@ export class kayhan extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }
@@ -719,8 +722,8 @@ export class basijnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -787,8 +790,8 @@ export class rasanews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
 
@@ -826,8 +829,8 @@ export class didarnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -878,8 +881,8 @@ export class niniban extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -902,7 +905,7 @@ export class roozno extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }
@@ -917,8 +920,8 @@ export class noandish extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
@@ -948,8 +951,8 @@ export class javanonline extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -1037,8 +1040,8 @@ export class aghigh extends clsIransamaneh {
         super(enuDomains.aghigh, "aghigh.ir")
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -1084,8 +1087,8 @@ export class paydarymelli extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
 
@@ -1124,8 +1127,8 @@ export class danakhabar extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -1152,8 +1155,8 @@ export class iraneconomist extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -1187,7 +1190,7 @@ export class barghnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
     }
 }
@@ -1201,8 +1204,8 @@ export class shohadayeiran extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
 
@@ -1244,8 +1247,8 @@ export class sedayiran extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -1286,8 +1289,8 @@ export class tejaratonline extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
 
@@ -1320,8 +1323,8 @@ export class sarmadnews extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
@@ -1361,7 +1364,7 @@ export class goftareno extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }
@@ -1375,8 +1378,8 @@ export class tejaratemrouz extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.includes("سیاست خارجی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
@@ -1417,7 +1420,7 @@ export class vananews extends clsIransamaneh {
         })
     }
 
-    mapCategory(): IntfMappedCatgory {
+    mapCategory(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }
@@ -1455,8 +1458,8 @@ export class bankdariirani extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Economy }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')

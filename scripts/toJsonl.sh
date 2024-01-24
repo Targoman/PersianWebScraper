@@ -30,7 +30,12 @@ for date in $(ls $basePath); do
     done
 done
 
+cd $cwd
+./runDocker.sh stats2 -d $1
+mv logs/$1.csv $jsonlPath
+
 cd $jsonlPath
 for file in *; do gzip -v $file; done
 cd ..
 tar -czv $1 > $1.tgz
+cp -v $1/$1.csv .

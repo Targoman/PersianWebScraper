@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfMappedCatgory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces";
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 
 export class lioncomputer extends clsScrapper {
@@ -34,8 +34,8 @@ export class lioncomputer extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
@@ -82,7 +82,7 @@ export class bazmineh extends clsScrapper {
     })
   }
 
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
   }
 }
@@ -113,7 +113,7 @@ export class wppersian extends clsScrapper {
       }
     })
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }

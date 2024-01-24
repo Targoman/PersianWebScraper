@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 import { isIranProvinceString } from "../modules/common";
@@ -66,8 +66,8 @@ class clsAsamBased extends clsScrapper {
         return super.normalizePath(url)
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         let first = catParts[0]
@@ -233,8 +233,8 @@ export class mojnews extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
 
         if (!cat) return mappedCat
 
@@ -276,8 +276,8 @@ export class ilna extends clsAsamBased {
         super(enuDomains.ilna, "ilna.ir")
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -290,7 +290,7 @@ export class ilna extends clsAsamBased {
             || cat.includes("کاریکاتور")
             || cat.includes("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("اقتصادی/گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("دفاعی")) return {...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Defence }
+        else if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Defence }
         else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
         else if (cat.includes("اقتصاد")
             || cat.includes("کارگری")
@@ -409,8 +409,8 @@ export class pana extends clsAsamBased {
         return this.baseNormalizePath(url)
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -451,8 +451,8 @@ export class rokna extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         else if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
         else if (cat.includes("گالری")
@@ -513,8 +513,8 @@ export class fardanews extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
         const first = catParts[0]
@@ -567,8 +567,8 @@ export class bartarinha extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.startsWith("سبک زندگی") || cat.startsWith("دکوراسیون") || cat.startsWith("گردشگری") || cat.startsWith("مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
@@ -606,8 +606,8 @@ export class faradeed extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCatgory {
-        const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
         if (cat.startsWith("آب و هوا")) return { ...mappedCat, minor: enuMinorCategory.Weather }
@@ -762,7 +762,7 @@ export class didgahemrooz extends clsAsamBased {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-tag a span")
             },
-            url:{
+            url: {
                 removeWWW: true
             }
         })
@@ -1154,7 +1154,7 @@ export class baeghtesad extends clsAsamBased {
                 },
                 tags: "a",
             },
-            url:{
+            url: {
                 extraInvalidStartPaths: ["/fa/tiny/news-uploads"],
                 removeWWW: true
             }
@@ -1162,7 +1162,7 @@ export class baeghtesad extends clsAsamBased {
     }
 
     normalizePath(url: URL): string {
-            return url.toString();
+        return url.toString();
     }
 }
 

@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 
 export class divar extends clsScrapper {
@@ -51,6 +51,20 @@ export class extern extends clsScrapper {
       },
     })
   }
+  
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+    if (!cat) return mappedCat
+    const catParts = cat.split('/')
+    const second = catParts.length > 1 ? catParts[1] : ''
+
+    if (second.startsWith("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+    if (second.startsWith("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+    if (second.startsWith("سؤالات")) return { ...mappedCat, subminor: enuMinorCategory.FAQ }
+    if (second.startsWith("کتاب‌ها")) return { ...mappedCat, subminor: enuMinorCategory.Education }
+    if (second.startsWith("آموزش")) return { ...mappedCat, subminor: enuMinorCategory.Education }
+    return mappedCat
+  }
 }
 
 export class rastineh extends clsScrapper {
@@ -76,7 +90,7 @@ export class rastineh extends clsScrapper {
           container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .comment-body"),
           author: ".comment-author cite",
           text: "p"
-      }
+        }
       },
     })
   }

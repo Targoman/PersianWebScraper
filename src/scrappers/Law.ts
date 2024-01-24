@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCatgory, IntfProxy } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfProxy } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import { getArvanCookie } from "../modules/request";
 
@@ -32,7 +32,7 @@ export class dotic extends clsScrapper {
     return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
   }
 
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
@@ -61,8 +61,8 @@ export class ekhtebar extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
@@ -106,7 +106,7 @@ export class qavanin extends clsScrapper {
   async initialCookie(proxy?: IntfProxy, url?: string) {
     return await getArvanCookie(url || "https://qavanin.ir", this.baseURL, proxy)
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
   }
 }
@@ -143,8 +143,8 @@ export class rcmajlis extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
@@ -184,8 +184,8 @@ export class shenasname extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
@@ -195,7 +195,7 @@ export class shenasname extends clsScrapper {
     if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
     if (first.startsWith('آگهی')) return { ...mappedCat, minor: enuMinorCategory.Advert }
     if (first.startsWith('اخبار')) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
-    
+
     return mappedCat
   }
 }
@@ -219,7 +219,7 @@ export class labourlaw extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
@@ -250,15 +250,15 @@ export class shoragc extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const first = catParts[0]
 
     if (first.startsWith('انطباق') || first.startsWith('قانون')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
-    
+
     return mappedCat
   }
 }

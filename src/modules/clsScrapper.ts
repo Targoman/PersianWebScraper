@@ -17,7 +17,7 @@ import {
     IntfSelectorToString,
     IntfIsValidFunction,
     IntfURLNormaliziztionConf,
-    IntfMappedCatgory,
+    IntfMappedCategory,
     enuMajorCategory
 } from "./interfaces"
 import { log } from "./logger"
@@ -810,18 +810,25 @@ export abstract class clsScrapper {
             return false
 
         const invalidStartPaths = [
-            "/print/", "/fa/print/", "/printmail/", "/newspart-print", "/print-content", "/printnews",
+            "/print/", "/fa/print/", "/printmail/", 
+            "/print?", "/fa/print?", "/printmail?",
+            "/newspart-print", "/print-content", "/printnews",
             "/upload/", "/fa/upload/", "/fa/download/", "/download/", "/files/", "/img/",
             "/redirect/",
-            "/fa/rss/", "/rss/",
+            "/redirect?",
+            "/fa/rss/", "/rss/", 
+            "/fa/rss?", "/rss?",
             "/fa/ads/", "/ads/",
             "/save", "/fa/save",
-            "/ar/", "/en/", "/tr/", "/ru/", "/fr/", "/es", "/sw/", "/ps/", "/ha/",
+            "/ar/", "/en/", "/tr/", "/ru/", "/fr/", "/es/", "/sw/", "/ps/", "/ha/",
+            "/ar?", "/en?", "/tr?", "/ru?", "/fr?", "/es?", "/sw?", "/ps?", "/ha?",
             "/hi/", "/bd/", "/zh/", "/az/", "/my/", "/id/", "/ph/", "/de/", "/ur/", "/it/", "/tj/",
+            "/hi?", "/bd?", "/zh?", "/az?", "/my?", "/id?", "/ph?", "/de?", "/ur?", "/it?", "/tj?",
+            "/Invalid/",
             "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
-            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp"
+            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {
@@ -882,7 +889,7 @@ export abstract class clsScrapper {
         return url.protocol + "//" + hostname + path + url.search
     }
 
-    public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory {
+    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
         void category, tags
         return { major: enuMajorCategory.Undefined }
     }

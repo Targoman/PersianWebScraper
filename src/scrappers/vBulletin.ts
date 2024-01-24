@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCatgory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -42,8 +42,8 @@ export class webhostingtalk extends clsVBulletinBased {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
@@ -61,7 +61,7 @@ export class barnamenevis extends clsVBulletinBased {
     super(enuDomains.barnamenevis, "barnamenevis.org")
   }
 
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
@@ -71,8 +71,8 @@ export class p30world extends clsVBulletinBased {
     super(enuDomains.p30world, "forum.p30world.com")
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
@@ -103,8 +103,8 @@ export class tarfandestan extends clsVBulletinBased {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
@@ -130,7 +130,7 @@ export class boursy extends clsVBulletinBased {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
+  mapCategory(cat?: string): IntfMappedCategory {
     if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economy }
   }
@@ -157,7 +157,7 @@ export class soft98 extends clsVBulletinBased {
       }
     })
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
@@ -175,7 +175,7 @@ export class sakhtafzarmag extends clsVBulletinBased {
       }
     })
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Hardware }
   }
 }
@@ -188,7 +188,7 @@ export class joomlafarsi extends clsVBulletinBased {
       }
     })
   }
-  mapCategory(): IntfMappedCatgory {
+  mapCategory(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
@@ -201,8 +201,8 @@ export class moshaver extends clsVBulletinBased {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
@@ -225,8 +225,8 @@ export class oghyanos extends clsVBulletinBased {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCatgory {
-    const mappedCat: IntfMappedCatgory = { major: enuMajorCategory.Forum }
+  mapCategory(cat?: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
     const second = catParts.length > 1 ? catParts[1] : ''
