@@ -233,6 +233,7 @@ export class pasokhgoo extends clsScrapper {
         },
         content: {
           main: ".field-type-text-with-summary div div, .field-name-field-pasokh div div, .field-name-field-image div div a, .flexslider ul li",
+          qa: true
         },
         category: {
           selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")

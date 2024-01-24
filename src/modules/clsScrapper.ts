@@ -115,6 +115,8 @@ export abstract class clsScrapper {
     private tagName2Type(tagName: string) {
         switch (tagName) {
             case 'P': return enuTextType.paragraph
+            case 'P-Q': return enuTextType.pq
+            case 'P-A': return enuTextType.pa
             case 'H1': return enuTextType.h1
             case 'H2': return enuTextType.h2
             case 'H3': return enuTextType.h3
@@ -236,7 +238,15 @@ export abstract class clsScrapper {
                     if (currNode.tagName === "BR"
                         || (currNode.tagName === "DIV" && currNode.textContent.trim() === "")) {
                         stack.push(currNode.tagName)
-                        const textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
+                        let textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
+
+                        if(this.pConf.selectors?.content?.qa 
+                            && node.parentNode.parentNode.parentNode.parentNode.classNames.includes("field-type-text-with-summary"))
+                            textResult = { text: normalizeText(effectiveText), type: enuTextType.pq }
+                        else if(this.pConf.selectors?.content?.qa 
+                            && node.parentNode.parentNode.parentNode.parentNode.classNames.includes("field-name-field-pasokh"))
+                            textResult = { text: normalizeText(effectiveText), type: enuTextType.pa }
+
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { content, textResult })
                         content.push(textResult)
                         effectiveText = ""
@@ -246,6 +256,13 @@ export abstract class clsScrapper {
                         stack.push(currNode.tagName)
                         const extracted = this.processElement(currNode, ignoreClasses)
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { extracted })
+
+                        if(this.pConf.selectors?.content?.qa 
+                            && node.parentNode.parentNode.parentNode.classNames.includes("field-type-text-with-summary"))
+                            extracted[extracted.length-1].type = enuTextType.pq
+                        else if(this.pConf.selectors?.content?.qa 
+                            && node.parentNode.parentNode.parentNode.classNames.includes("field-name-field-pasokh"))
+                            extracted[extracted.length-1].type = enuTextType.pa
 
                         if (extracted.length === 1) {
                             if (extracted[0].type === enuTextType.alt

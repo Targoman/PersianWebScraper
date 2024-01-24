@@ -390,6 +390,8 @@ export interface IntfGlobalConfigs {
 
 export enum enuTextType {
     paragraph = "p",
+    pq = "p-q",
+    pa = "p-a",
     caption = "caption",
     cite = "cite",
     h1 = "h1",
@@ -591,6 +593,7 @@ export interface IntfProcessorConfigs {
             alterTextContent?: IntfSelectorToString,
             ignoreTexts?: string[] | RegExp[],
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
+            qa?: boolean
         },
         comments?: {
             container?: string | IntfSelectAllFunction,
