@@ -1070,6 +1070,9 @@ export class iranart extends clsAsamBased {
                 article: "article",
                 aboveTitle: "h2.news_uptitle",
                 subtitle: "p.news_lead",
+                datetime: {
+                    conatiner: "time"
+                },
                 content: {
                     main: "section.article_body p, [itemprop='image']",
                 },
