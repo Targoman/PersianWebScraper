@@ -25,7 +25,7 @@ class clsAsamBased extends clsScrapper {
                 },
                 tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a',
                 datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    conatiner: (article: HTMLElement, fullHtml: HTMLElement) => article.querySelector("time") || fullHtml.querySelector("time"),
                     splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
                 },
                 category: {
@@ -1454,6 +1454,7 @@ export class gashtaninews extends clsAsamBased {
             },
         })
     }
+
 }
 
 export class revayatnameh extends clsAsamBased {
