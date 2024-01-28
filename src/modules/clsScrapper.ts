@@ -749,7 +749,7 @@ export abstract class clsScrapper {
             else throw new Error("Invalid date: " + date)
         }
 
-        if(this.pConf.selectors?.title === "NO_TITLE")
+        if(this.pConf.selectors?.title?.toString() === (() => null).toString())
             title = "NO_TITLE"
 
         if (!date) {
