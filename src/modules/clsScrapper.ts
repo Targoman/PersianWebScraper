@@ -238,15 +238,7 @@ export abstract class clsScrapper {
                     if (currNode.tagName === "BR"
                         || (currNode.tagName === "DIV" && currNode.textContent.trim() === "")) {
                         stack.push(currNode.tagName)
-                        let textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
-
-                        if(this.pConf.selectors?.content?.qa 
-                            && node.parentNode.parentNode.parentNode.parentNode.classNames.includes("field-type-text-with-summary"))
-                            textResult = { text: normalizeText(effectiveText), type: enuTextType.pq }
-                        else if(this.pConf.selectors?.content?.qa 
-                            && node.parentNode.parentNode.parentNode.parentNode.classNames.includes("field-name-field-pasokh"))
-                            textResult = { text: normalizeText(effectiveText), type: enuTextType.pa }
-
+                        const textResult = { text: normalizeText(effectiveText), type: effectiveType || enuTextType.paragraph }
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { content, textResult })
                         content.push(textResult)
                         effectiveText = ""
@@ -256,13 +248,6 @@ export abstract class clsScrapper {
                         stack.push(currNode.tagName)
                         const extracted = this.processElement(currNode, ignoreClasses)
                         debugNodeProcessor && log.debug(currNode.tagName, stack.join(">"), { extracted })
-
-                        if(this.pConf.selectors?.content?.qa 
-                            && node.parentNode.parentNode.parentNode.classNames.includes("field-type-text-with-summary"))
-                            extracted[extracted.length-1].type = enuTextType.pq
-                        else if(this.pConf.selectors?.content?.qa 
-                            && node.parentNode.parentNode.parentNode.classNames.includes("field-name-field-pasokh"))
-                            extracted[extracted.length-1].type = enuTextType.pa
 
                         if (extracted.length === 1) {
                             if (extracted[0].type === enuTextType.alt
