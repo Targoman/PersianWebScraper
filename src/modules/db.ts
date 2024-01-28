@@ -98,7 +98,7 @@ export default class clsDB {
                         }
 
                         if (count % 1000 === 0)
-                            log.progress("Migration progress: ", count, lastID)
+                            log.progress(`Migration progress: (${this.domain})`, count, lastID)
 
                         insert.run(orc.url, hash, orc.creation, orc.lastChange, orc.status, orc.wc, docDate || null, orc.lastError)
                         lastID = orc.id
