@@ -222,6 +222,7 @@ export enum enuDomains {
     namava = "namava",
     namnak = "namnak",
     nasim = "nasim",
+    nazaratshora = "nazaratshora",
     neshanonline = "neshanonline",
     niknews = "niknews",
     niniban = "niniban",
@@ -576,7 +577,8 @@ export interface IntfURLNormaliziztionConf {
     ignoreContentOnPath?: string[],
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
-    validPathsItemsToNormalize?: string[]
+    validPathsItemsToNormalize?: string[],
+    http?: boolean
 }
 
 export interface IntfProcessorConfigs {

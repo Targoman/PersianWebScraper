@@ -1,6 +1,6 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory } from "../modules/interfaces";
-import { HTMLElement } from "node-html-parser"
+import { HTMLElement, parse } from "node-html-parser"
 
 export class divar extends clsScrapper {
   constructor() {
@@ -240,6 +240,30 @@ export class pasokhgoo extends clsScrapper {
         },
         tags: ".field-name-field-tags div div a"
       },
+    })
+  }
+}
+
+export class nazaratshora extends clsScrapper {
+  constructor() {
+    super(enuDomains.nazaratshora, "nazarat.shora-rc.ir", {
+      selectors: {
+        article: "#panel_SiteMaster pre",
+        title: "NO_TITLE",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: (_, fullHtml: HTMLElement) => {
+            const content = fullHtml.querySelectorAll("#panel_SiteMaster")[0]?.childNodes[1].childNodes[3].childNodes[1].rawText
+            return [parse(content)]
+          },
+        },
+      },
+      url: {
+        removeWWW: true,
+        http : true
+      }
     })
   }
 }

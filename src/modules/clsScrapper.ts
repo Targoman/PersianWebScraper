@@ -668,7 +668,7 @@ export abstract class clsScrapper {
         article.querySelectorAll("script").forEach(x => x.remove());
 
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
-        const title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
+        let title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
         const summary = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.summary)?.innerText)
 
@@ -764,6 +764,8 @@ export abstract class clsScrapper {
             else throw new Error("Invalid date: " + date)
         }
 
+        if(this.pConf.selectors?.title === "NO_TITLE")
+            title = "NO_TITLE"
 
         if (!date) {
             if ((title || subtitle)) {
@@ -903,6 +905,8 @@ export abstract class clsScrapper {
             if (validPathsToNormalize?.includes(pathParts[pathToCheckIndex]))
                 path = `${pathParts.slice(0, pathToCheckIndex + 1).join("/")}/${pathParts[pathToCheckIndex + 1]}`
         }
+        if(this.pConf.url?.http)
+            return  "http://" + hostname + path + url.search
         return url.protocol + "//" + hostname + path + url.search
     }
 

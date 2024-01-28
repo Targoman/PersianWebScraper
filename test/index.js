@@ -1210,5 +1210,9 @@ yarn dev && yarn start pasokhgoo
 yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/کنیه-و-لقب-امام-جواد-علیه%E2%80%8Cالسلام
 yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/حدیث-فضیلت-پرسش-و-پاسخ
 
+yarn dev && yarn start nazaratshora
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=5R/R8tp/ttE=&TN=l7tLyhyOobj0SooAFUE3m9d5XYGi044i6e4f+1NCQCI=&MN=csaqpt/F9Oo=&id=El3wsWvyRw8=&tablename02=l7tLyhyOobj0SooAFUE3m68PnpG7MruN
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=dNIZx9wvxnU=&TN=/XG7FYxY/yd2hSO3SoFiUAsWSQGkNzoB5OZg5UTstWY=&MN=csaqpt/F9Oo=&id=omNGZ/2eR/w=&tablename02=/XG7FYxY/yd2hSO3SoFiUBDhmJI8yPJ0
+
 https://motamem.org/
 /**/
