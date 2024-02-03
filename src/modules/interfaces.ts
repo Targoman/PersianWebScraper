@@ -410,6 +410,11 @@ export interface IntfComment { text: string, author?: string, date?: string }
 export interface IntfImage { src: string, alt?: string }
 export interface IntfContentHolder { texts: IntfText[], images: IntfImage[] }
 
+export interface IntfQAcontainer {
+    q: IntfComment,
+    a?: IntfComment[]
+}
+
 export interface IntfPageContent {
     url: string,
     category?: string,
@@ -600,9 +605,9 @@ export interface IntfProcessorConfigs {
             ignoreTexts?: string[] | RegExp[],
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
             qa?: {
+                containers: string | IntfSelectAllFunction
                 q: IntfCommentContainer
                 a: IntfCommentContainer
-                multipleQuestion?: boolean
             }
         },
         comments?: IntfCommentContainer | IntfGetCommentsByAPI,

@@ -18,7 +18,8 @@ import {
     IntfIsValidFunction,
     IntfURLNormaliziztionConf,
     IntfMappedCategory,
-    enuMajorCategory
+    enuMajorCategory,
+    IntfQAcontainer
 } from "./interfaces"
 import { log } from "./logger"
 import HP, { HTMLElement, Node, NodeType } from "node-html-parser"
@@ -655,6 +656,16 @@ export abstract class clsScrapper {
         void fullHtml
         article.querySelectorAll("script").forEach(x => x.remove());
 
+        const commentDateTime = (container: HTMLElement, selector?: string| IntfSelectorToString, ) =>{
+            let el: HTMLElement | string | undefined
+            if (typeof selector === "string")
+                el = this.selectElement(container, fullHtml, url, selector) || undefined
+            else if (selector !== undefined)
+                el = selector(container)
+
+            return this.extractDate(el, this.pConf.selectors?.datetime?.splitter)
+        }
+
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
         const title = this.pConf.selectors?.title === "NO_TITLE" ? "NO_TITLE" : normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
@@ -674,30 +685,42 @@ export abstract class clsScrapper {
         }
 
         const content: IntfContentHolder = { texts: [], images: [] }
-        let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
-        if (!contentElements || contentElements.length === 0)
-            contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
+        const qa: IntfQAcontainer[] = []
+        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.container)
+        if (qaContainers?.length) {
+            qaContainers.forEach(container)
+                const question = this.selectElement(qaContainers[0], fullHtml
+                const qText = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
+                const qAuthor = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
+                const qDateTime = commentDateTime(qaContainers[0], this.pConf.selectors?.content?.qa?.q?.datetime)
+                const answers = 
+            }
+        } else {
+            let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
+            if (!contentElements || contentElements.length === 0)
+                contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
 
-        if (contentElements) {
-            contentElements.forEach((textEl: HTMLElement, index, all) => {
-                if (this.textNodeMustBeIgnored(textEl, index, all))
-                    return
-                this.processTextContent(textEl, content, this.pConf.selectors?.content?.ignoreNodeClasses)
-            });
+            if (contentElements) {
+                contentElements.forEach((textEl: HTMLElement, index, all) => {
+                    if (this.textNodeMustBeIgnored(textEl, index, all))
+                        return
+                    this.processTextContent(textEl, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                });
 
-            let fullContentLenght = 0
-            content.texts.forEach(item => (fullContentLenght += item.text.length))
+                let fullContentLenght = 0
+                content.texts.forEach(item => (fullContentLenght += item.text.length))
 
-            let parentTextNode = this.selectElement(article, fullHtml, url, this.pConf.selectors?.content?.textNode)
-            if (!parentTextNode)
-                parentTextNode = this.selectElement(fullHtml, fullHtml, url, this.pConf.selectors?.content?.textNode)
+                let parentTextNode = this.selectElement(article, fullHtml, url, this.pConf.selectors?.content?.textNode)
+                if (!parentTextNode)
+                    parentTextNode = this.selectElement(fullHtml, fullHtml, url, this.pConf.selectors?.content?.textNode)
 
-            const parentTextNodeInnerText = normalizeText(parentTextNode?.innerText)
-            if (parentTextNode && parentTextNodeInnerText && parentTextNodeInnerText.length > fullContentLenght * 2) {
-                //parentText.split("\n").forEach(par => (content.texts.push({ text: parentText, type: enuTextType.paragraph })))
-                debugNodeProcessor && log.debug(parentTextNode?.outerHTML, parentTextNodeInnerText)
+                const parentTextNodeInnerText = normalizeText(parentTextNode?.innerText)
+                if (parentTextNode && parentTextNodeInnerText && parentTextNodeInnerText.length > fullContentLenght * 2) {
+                    //parentText.split("\n").forEach(par => (content.texts.push({ text: parentText, type: enuTextType.paragraph })))
+                    debugNodeProcessor && log.debug(parentTextNode?.outerHTML, parentTextNodeInnerText)
 
-                this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                    this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                }
             }
         }
         let comments: IntfComment[] = []
@@ -710,13 +733,8 @@ export abstract class clsScrapper {
                     (comEl: HTMLElement) => {
                         const text = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.text)?.innerText)
                         const author = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.author)?.innerText)
-                        let el: HTMLElement | string | undefined
-                        if (typeof commentSelector.datetime === "string")
-                            el = this.selectElement(comEl, fullHtml, url, commentSelector.datetime) || undefined
-                        else if (commentSelector.datetime !== undefined)
-                            el = commentSelector.datetime(comEl)
 
-                        const date = this.extractDate(el, this.pConf.selectors?.datetime?.splitter)
+                        const date = commentDateTime(comEl, commentSelector.datetime)
 
                         if (text && text?.length > 2) {
                             const cmnt: IntfComment = { text }
@@ -730,8 +748,6 @@ export abstract class clsScrapper {
                 );
             }
         }
-        let qas: IntfComment[] = []
-        const commentSelector = this.pConf.selectors?.comments
 
 
 
