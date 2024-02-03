@@ -57,7 +57,7 @@ export class persiantools extends clsXenForoBased {
     else if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
     else if (second.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
     else if (second.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-    else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+    else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
     else if (second.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
     return mappedCat
   }

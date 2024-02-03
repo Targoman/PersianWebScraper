@@ -2,7 +2,7 @@ import { SocksProxyAgent } from "socks-proxy-agent"
 import { HTMLElement } from "node-html-parser"
 import { IntfRequestParams } from "./request"
 
-export enum enuDomains { 
+export enum enuDomains {
     abantether = "abantether",
     achareh = "achareh",
     activeidea = "activeidea",
@@ -70,6 +70,7 @@ export enum enuDomains {
     citna = "citna",
     clickaval = "clickaval",
     danakhabar = "danakhabar",
+    daadyab = "daadyab",
     dargi = "dargi",
     didarnews = "didarnews",
     didgahemrooz = "didgahemrooz",
@@ -262,7 +263,7 @@ export enum enuDomains {
     ramzarz = "ramzarz",
     rasadeghtesadi = "rasadeghtesadi",
     rasanews = "rasanews",
-    rasekhoon =  "rasekhoon",
+    rasekhoon = "rasekhoon",
     rastineh = "rastineh",
     rawanshenas = "rawanshenas",
     rayamarketing = "rayamarketing",
@@ -457,7 +458,7 @@ export enum enuMinorCategory {
     Social = "Social",
     Health = "Health",
     Medical = "Medical",
-    Economy = "Economy",
+    Economics = "Economics",
     Culture = "Art&Culture",
     Consultation = "Consultation",
     Sport = "Sport",
@@ -577,6 +578,13 @@ export interface IntfURLNormaliziztionConf {
     validPathsItemsToNormalize?: string[]
 }
 
+export interface IntfCommentContainer {
+    container?: string | IntfSelectAllFunction
+    datetime?: string | IntfSelectorToString
+    author?: string | IntfSelectorFunction
+    text?: string | IntfSelectorFunction
+}
+
 export interface IntfProcessorConfigs {
     selectors?: {
         article?: string | IntfSelectorFunction,
@@ -591,13 +599,13 @@ export interface IntfProcessorConfigs {
             alterTextContent?: IntfSelectorToString,
             ignoreTexts?: string[] | RegExp[],
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
+            qa?: {
+                q: IntfCommentContainer
+                a: IntfCommentContainer
+                multipleQuestion?: boolean
+            }
         },
-        comments?: {
-            container?: string | IntfSelectAllFunction,
-            datetime?: string | IntfSelectorToString,
-            author?: string | IntfSelectorFunction,
-            text?: string | IntfSelectorFunction
-        } | IntfGetCommentsByAPI,
+        comments?: IntfCommentContainer | IntfGetCommentsByAPI,
         tags?: string | IntfSelectAllFunction,
         datetime?: {
             conatiner?: string | IntfSelectorFunction,

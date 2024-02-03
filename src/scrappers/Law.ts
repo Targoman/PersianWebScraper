@@ -228,26 +228,27 @@ export class shoragc extends clsScrapper {
   constructor() {
     super(enuDomains.shoragc, "shora-gc.ir", {
       selectors: {
-        article: ".news_main_body",
-        title: "h1",
-        aboveTitle: ".newspage_rutitr",
-        subtitle: ".newspage_subtitle",
+        article: (_:HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelector(".comments-container")?.parentNode,
+        title: "NO_TITLE",
         datetime: {
-          conatiner: "span.date_2",
           acceptNoDate: true
         },
         content: {
-          main: ".body, .news_album_main_part div a",
-          ignoreNodeClasses: ["download_link"]
+          qa: {
+            q: {
+              container: ".comment-box",
+              text: ".comment-content",
+            },
+            a: {
+              container: ".comments-container+.comments-container li",
+              text: ".comment-content",
+              author: ".by-author a",
+              datetime: ".comment-head span"
+            },
+            multipleQuestion: false
+          },
         },
-        category: {
-          selector: ".news_path a"
-        },
-        tags: "a.tags_item",
       },
-      url: {
-        extraInvalidStartPaths: ["/ar"]
-      }
     })
   }
   mapCategory(cat?: string): IntfMappedCategory {
@@ -260,5 +261,29 @@ export class shoragc extends clsScrapper {
     if (first.startsWith('انطباق') || first.startsWith('قانون')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     return mappedCat
+  }
+}
+
+export class daadyab extends clsScrapper {
+  constructor() {
+    super(enuDomains.daadyab, "daadyab.com", {
+      selectors: {
+        article: "[itemprop='mainContentOfPage']",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+        },
+        content: {
+          main: ".entry-content",
+          ignoreNodeClasses: ["yarpp-related"],
+          ignoreTexts: ["بازگشت به فهرست"]
+        },
+      },
+      url: { removeWWW: true }
+    })
+  }
+  mapCategory(): IntfMappedCategory {
+    return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }

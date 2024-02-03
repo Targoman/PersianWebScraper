@@ -76,7 +76,7 @@ class clsStudioKhabarBased extends clsScrapper {
         } else if (second.startsWith("علم")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.ScienceTech; else mappedCat.minor = enuMinorCategory.ScienceTech
         } else if (second.startsWith("اقتصاد") || second.startsWith("بازرگانی") || second.startsWith("کسب")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economy; else mappedCat.minor = enuMinorCategory.Economy
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economics; else mappedCat.minor = enuMinorCategory.Economics
         } else if (second.startsWith("فرهنگ")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Culture; else mappedCat.minor = enuMinorCategory.Culture
         } else if (second.startsWith("ورزش")) {

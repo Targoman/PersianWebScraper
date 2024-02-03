@@ -132,7 +132,7 @@ export class boursy extends clsVBulletinBased {
 
   mapCategory(cat?: string): IntfMappedCategory {
     if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economy }
+    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economics }
   }
 
 }

@@ -576,12 +576,17 @@ export abstract class clsScrapper {
         url = this.normalizePath(this.safeCreateURL(url))
         log.progress("retrieving: ", url, proxy?.port, cookie)
 
-        const reqParams = { url, onSuccess: (data: any, resCookie: any) => ({ data, resCookie }), proxy, cookie, headers: this.extraHeaders() }
+        const reqParams = { url, onSuccess: (data: any, url: string, resCookie: any) => ({ data, url, resCookie }), proxy, cookie, headers: this.extraHeaders() }
         const result = await axiosGet(log, reqParams)
         if (!result || result.err) {
             delete this.proxyCookie[proxy?.port || "none"]
             throw new Error(result?.err || "ERROR")
         }
+
+        const finalURL = this.normalizePath(this.safeCreateURL(result.url))
+
+        if (finalURL !== url)
+            log.warn("URL Changed:", finalURL)
 
         this.proxyCookie[proxy?.port || "none"] = result.resCookie
         const html = this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data
@@ -651,7 +656,7 @@ export abstract class clsScrapper {
         article.querySelectorAll("script").forEach(x => x.remove());
 
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
-        const title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
+        const title = this.pConf.selectors?.title === "NO_TITLE" ? "NO_TITLE" : normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
         const summary = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.summary)?.innerText)
 
@@ -725,6 +730,10 @@ export abstract class clsScrapper {
                 );
             }
         }
+        let qas: IntfComment[] = []
+        const commentSelector = this.pConf.selectors?.comments
+
+
 
         const result: IntfPageContent = {
             url: url.toString(), links
@@ -810,13 +819,13 @@ export abstract class clsScrapper {
             return false
 
         const invalidStartPaths = [
-            "/print/", "/fa/print/", "/printmail/", 
+            "/print/", "/fa/print/", "/printmail/",
             "/print?", "/fa/print?", "/printmail?",
             "/newspart-print", "/print-content", "/printnews",
             "/upload/", "/fa/upload/", "/fa/download/", "/download/", "/files/", "/img/",
             "/redirect/",
             "/redirect?",
-            "/fa/rss/", "/rss/", 
+            "/fa/rss/", "/rss/",
             "/fa/rss?", "/rss?",
             "/fa/ads/", "/ads/",
             "/save", "/fa/save",
@@ -870,7 +879,7 @@ export abstract class clsScrapper {
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
         let hostname = url.hostname
-        if (effective.removeWWW) {
+        if (effective.removeWWW || hostname.split(".").length > 2) {
             if (hostname.startsWith("www."))
                 hostname = hostname.substring(4)
         } else {
