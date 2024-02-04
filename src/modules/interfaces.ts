@@ -253,6 +253,7 @@ export enum enuDomains {
     podium = "podium",
     ponisha = "ponisha",
     poonehmedia = "poonehmedia",
+    porsan = "porsan",
     portal = "portal",
     qavanin = "qavanin",
     qudsonline = "qudsonline",
@@ -426,6 +427,7 @@ export interface IntfPageContent {
         summary?: string,
         content?: IntfText[],
         comments?: IntfComment[]
+        qa?: IntfQAcontainer[]
         images?: IntfImage[],
         tags?: string[],
     }
@@ -448,6 +450,7 @@ export interface IntfDocFilecontent {
 
 export enum enuMajorCategory {
     News = "News",
+    QA = "QA",
     Literature = "Literature",
     Forum = "Forum",
     Undefined = "Undefined",
@@ -595,6 +598,7 @@ export interface IntfProcessorConfigs {
         article?: string | IntfSelectorFunction,
         aboveTitle?: string | IntfSelectorFunction,
         title?: string | IntfSelectorFunction,
+        acceptNoTitle? : boolean
         subtitle?: string | IntfSelectorFunction,
         summary?: string | IntfSelectorFunction,
         content?: {
@@ -621,10 +625,11 @@ export interface IntfProcessorConfigs {
         category?: {
             selector?: string | IntfSelectAllFunction,
             startIndex?: number,
+            lastIndex?: number
         }
     },
+    api? : {(url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent>},
     url?: IntfURLNormaliziztionConf
     basePath?: string
     preHTMLParse?: (html: string) => string
 }
-

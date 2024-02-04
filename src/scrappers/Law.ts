@@ -228,27 +228,26 @@ export class shoragc extends clsScrapper {
   constructor() {
     super(enuDomains.shoragc, "shora-gc.ir", {
       selectors: {
-        article: (_:HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelector(".comments-container")?.parentNode,
-        title: "NO_TITLE",
+        article: ".news_main_body",
+        title: "h1",
+        aboveTitle: ".newspage_rutitr",
+        subtitle: ".newspage_subtitle",
         datetime: {
+          conatiner: "span.date_2",
           acceptNoDate: true
         },
         content: {
-          qa: {
-            q: {
-              container: ".comment-box",
-              text: ".comment-content",
-            },
-            a: {
-              container: ".comments-container+.comments-container li",
-              text: ".comment-content",
-              author: ".by-author a",
-              datetime: ".comment-head span"
-            },
-            multipleQuestion: false
-          },
+          main: ".body, .news_album_main_part div a",
+          ignoreNodeClasses: ["download_link"]
         },
+        category: {
+          selector: ".news_path a"
+        },
+        tags: "a.tags_item",
       },
+      url: {
+        extraInvalidStartPaths: ["/ar"]
+      }
     })
   }
   mapCategory(cat?: string): IntfMappedCategory {
@@ -264,26 +263,3 @@ export class shoragc extends clsScrapper {
   }
 }
 
-export class daadyab extends clsScrapper {
-  constructor() {
-    super(enuDomains.daadyab, "daadyab.com", {
-      selectors: {
-        article: "[itemprop='mainContentOfPage']",
-        title: "h1",
-        datetime: {
-          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-          splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
-        },
-        content: {
-          main: ".entry-content",
-          ignoreNodeClasses: ["yarpp-related"],
-          ignoreTexts: ["بازگشت به فهرست"]
-        },
-      },
-      url: { removeWWW: true }
-    })
-  }
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
-  }
-}

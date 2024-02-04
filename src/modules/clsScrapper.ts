@@ -578,6 +578,7 @@ export abstract class clsScrapper {
         log.progress("retrieving: ", url, proxy?.port, cookie)
 
         const reqParams = { url, onSuccess: (data: any, url: string, resCookie: any) => ({ data, url, resCookie }), proxy, cookie, headers: this.extraHeaders() }
+
         const result = await axiosGet(log, reqParams)
         if (!result || result.err) {
             delete this.proxyCookie[proxy?.port || "none"]
@@ -590,6 +591,10 @@ export abstract class clsScrapper {
             log.warn("URL Changed:", finalURL)
 
         this.proxyCookie[proxy?.port || "none"] = result.resCookie
+
+        if (this.pConf.api)
+            return await this.pConf.api(this.safeCreateURL(url), reqParams, result.data)
+
         const html = this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data
         return await this.parse(url, HP.parse(html, { parseNoneClosedTags: true }), result.data, reqParams);
     }
@@ -656,7 +661,7 @@ export abstract class clsScrapper {
         void fullHtml
         article.querySelectorAll("script").forEach(x => x.remove());
 
-        const commentDateTime = (container: HTMLElement, selector?: string| IntfSelectorToString, ) =>{
+        const commentDateTime = (container: HTMLElement, selector?: string | IntfSelectorToString,) => {
             let el: HTMLElement | string | undefined
             if (typeof selector === "string")
                 el = this.selectElement(container, fullHtml, url, selector) || undefined
@@ -667,7 +672,7 @@ export abstract class clsScrapper {
         }
 
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
-        const title = this.pConf.selectors?.title === "NO_TITLE" ? "NO_TITLE" : normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
+        const title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
         const summary = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.summary)?.innerText)
 
@@ -675,26 +680,50 @@ export abstract class clsScrapper {
         let date: string | undefined = this.extractDate(datetimeElement, this.pConf.selectors?.datetime?.splitter, fullHtml)
         const tags = this.selectAllElements(article, fullHtml, this.pConf.selectors?.tags)?.map(tag => (normalizeText(tag.innerText) || "").replace(/[,،؛]/g, ""))
 
-        const categoryEl = this.selectAllElements(article, fullHtml, this.pConf.selectors?.category?.selector)
+        const categoryEls = this.selectAllElements(article, fullHtml, this.pConf.selectors?.category?.selector)
         let category: string | undefined
-        if (categoryEl) {
+        if (categoryEls) {
             const startIndex = this.pConf.selectors?.category?.startIndex || 0
-            category = categoryEl.at(startIndex)?.innerText.trim()
-                + (categoryEl.length > startIndex + 1 ? "/" + categoryEl.at(startIndex + 1)?.innerText.trim() : "")
-            category = normalizeText(category)
+            const lastIndex = this.pConf.selectors?.category?.lastIndex || categoryEls.length
+            category = categoryEls.slice(startIndex, lastIndex).map(cat => normalizeText(cat.innerText)).join("/")
         }
 
         const content: IntfContentHolder = { texts: [], images: [] }
-        const qa: IntfQAcontainer[] = []
-        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.container)
+        const qas: IntfQAcontainer[] = []
+        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.containers)
         if (qaContainers?.length) {
-            qaContainers.forEach(container)
-                const question = this.selectElement(qaContainers[0], fullHtml
-                const qText = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
-                const qAuthor = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
-                const qDateTime = commentDateTime(qaContainers[0], this.pConf.selectors?.content?.qa?.q?.datetime)
-                const answers = 
-            }
+            qaContainers.forEach(container => {
+                const question = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.q.container)
+                if (question?.length) {
+                    const qText = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
+                    if (qText) {
+                        const qa: IntfQAcontainer = { q: { text: normalizeText(qText.textContent) } };
+                        const qAuthor = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
+                        if (qAuthor) qa.q.author = normalizeText(qAuthor.innerText)
+                        const qDateTime = commentDateTime(question[0], this.pConf.selectors?.content?.qa?.q?.datetime)
+                        if (qDateTime) qa.q.date = qDateTime
+                        const answers = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.a.container)
+
+                        if (answers?.length) {
+                            qa.a = []
+                            answers.forEach(ansContainer => {
+                                const text = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a.text)
+                                if (text) {
+                                    const ans: IntfComment = ({ text: normalizeText(text.textContent) })
+                                    const author = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a?.author)
+                                    if (author) ans.author = normalizeText(author.innerText)
+                                    const dateTime = commentDateTime(ansContainer, this.pConf.selectors?.content?.qa?.a?.datetime)
+                                    if (dateTime) ans.date = dateTime
+
+                                    qa.a?.push(ans)
+                                }
+                            })
+                        }
+                        qas.push(qa)
+                    }
+                }
+            })
+
         } else {
             let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
             if (!contentElements || contentElements.length === 0)
@@ -783,7 +812,7 @@ export abstract class clsScrapper {
             }
             date = "NO_DATE"
         }
-        if (!title) {
+        if (!title && !this.pConf.selectors?.acceptNoTitle) {
             if ((date && date !== "NO_DATE") || subtitle) {
                 if ((gConfigs.debugVerbosity || 0) > 9)
                     throw new Error("Title not found")
@@ -799,6 +828,7 @@ export abstract class clsScrapper {
             if (subtitle) result.article.subtitle = subtitle
             if (summary && summary !== subtitle) result.article.summary = summary
             if (content.texts.length) result.article.content = content.texts
+            if (qas?.length) result.article.qa = qas
             if (tags && tags.length) result.article.tags = tags
             if (comments?.length) result.article.comments = comments
             if (content.images.length) {
@@ -895,13 +925,12 @@ export abstract class clsScrapper {
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
         let hostname = url.hostname
-        if (effective.removeWWW || hostname.split(".").length > 2) {
-            if (hostname.startsWith("www."))
-                hostname = hostname.substring(4)
-        } else {
-            if (!hostname.startsWith("www.") && hostname.split(".").length === 2)
-                hostname = "www." + hostname
-        }
+        const hostnameParts = hostname.split(".")
+        if (hostnameParts[0] === 'www' && (effective.removeWWW || hostnameParts.length > 3))
+            hostname = hostname.substring(4)
+        else if (effective.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
+            hostname = "www." + hostname
+
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
