@@ -921,11 +921,12 @@ export abstract class clsScrapper {
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
         let hostname = url.hostname
-        if (effective.removeWWW || hostname.split(".").length > 2) {
+        const hostnameParts = hostname.split(".")
+        if (effective.removeWWW || (hostnameParts.length > 2 && hostnameParts[0] === 'www')) {
             if (hostname.startsWith("www."))
                 hostname = hostname.substring(4)
         } else {
-            if (!hostname.startsWith("www.") && hostname.split(".").length === 2)
+            if (hostnameParts[0] !== "www" && hostnameParts.length === 2)
                 hostname = "www." + hostname
         }
         const pathParts = url.pathname.split("/")

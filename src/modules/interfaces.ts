@@ -449,6 +449,7 @@ export interface IntfDocFilecontent {
 
 export enum enuMajorCategory {
     News = "News",
+    QA = "QA",
     Literature = "Literature",
     Forum = "Forum",
     Undefined = "Undefined",
