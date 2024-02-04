@@ -656,7 +656,7 @@ export abstract class clsScrapper {
         void fullHtml
         article.querySelectorAll("script").forEach(x => x.remove());
 
-        const commentDateTime = (container: HTMLElement, selector?: string| IntfSelectorToString, ) =>{
+        const commentDateTime = (container: HTMLElement, selector?: string | IntfSelectorToString,) => {
             let el: HTMLElement | string | undefined
             if (typeof selector === "string")
                 el = this.selectElement(container, fullHtml, url, selector) || undefined
@@ -685,16 +685,41 @@ export abstract class clsScrapper {
         }
 
         const content: IntfContentHolder = { texts: [], images: [] }
-        const qa: IntfQAcontainer[] = []
-        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.container)
+        const qas: IntfQAcontainer[] = []
+        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.containers)
         if (qaContainers?.length) {
-            qaContainers.forEach(container)
-                const question = this.selectElement(qaContainers[0], fullHtml
-                const qText = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
-                const qAuthor = this.selectElement(qaContainers[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
-                const qDateTime = commentDateTime(qaContainers[0], this.pConf.selectors?.content?.qa?.q?.datetime)
-                const answers = 
-            }
+            qaContainers.forEach(container => {
+                const question = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.q.container)
+                if (question?.length) {
+                    const qText = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
+                    if (qText) {
+                        const qa: IntfQAcontainer = { q: { text: normalizeText(qText.textContent) } };
+                        const qAuthor = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
+                        if (qAuthor) qa.q.author = normalizeText(qAuthor.innerText)
+                        const qDateTime = commentDateTime(question[0], this.pConf.selectors?.content?.qa?.q?.datetime)
+                        if (qDateTime) qa.q.date = qDateTime
+                        const answers = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.a.container)
+
+                        if (answers?.length) {
+                            qa.a = []
+                            answers.forEach(ansContainer => {
+                                const text = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a.text)
+                                if (text) {
+                                    const ans: IntfComment = ({ text: normalizeText(qText.textContent) })
+                                    const author = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a?.author)
+                                    if (author) ans.author = normalizeText(author.innerText)
+                                    const dateTime = commentDateTime(ansContainer, this.pConf.selectors?.content?.qa?.a?.datetime)
+                                    if (dateTime) ans.date = dateTime
+
+                                    qa.a?.push(ans)
+                                }
+                            })
+                        }
+                        qas.push(qa)
+                    }
+                }
+            })
+
         } else {
             let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
             if (!contentElements || contentElements.length === 0)
@@ -799,6 +824,7 @@ export abstract class clsScrapper {
             if (subtitle) result.article.subtitle = subtitle
             if (summary && summary !== subtitle) result.article.summary = summary
             if (content.texts.length) result.article.content = content.texts
+            if(qas?.length) result.article.qa = qas
             if (tags && tags.length) result.article.tags = tags
             if (comments?.length) result.article.comments = comments
             if (content.images.length) {

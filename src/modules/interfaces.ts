@@ -426,6 +426,7 @@ export interface IntfPageContent {
         summary?: string,
         content?: IntfText[],
         comments?: IntfComment[]
+        qa?: IntfQAcontainer[]
         images?: IntfImage[],
         tags?: string[],
     }
