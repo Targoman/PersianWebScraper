@@ -55,7 +55,7 @@ export class porsan extends clsScrapper {
             api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
                 const pageContent: IntfPageContent = { url: url.toString(), links: [] }
                 if (url.pathname === "" || url.pathname === "/")
-                    for (let i = 1; i < 1000000; i++)
+                    for (let i = 1; i < 10; i++)
                         pageContent.links.push(`https://porsan.ir/api/v1/client_ui/question/${i}?page=1&count=30`)
                 else {
                     const removeHTML = (str: string) => {
@@ -79,7 +79,9 @@ export class porsan extends clsScrapper {
                     pageContent.article.tags = data?.data?.question?.tags?.map((tag: any) => normalizeText(tag.title))
                     if (data?.data?.responses?.totalPages > data?.data?.responses?.page)
                         pageContent.links.push(`https://porsan.ir/api/v1/client_ui/question/${data?.data?.question?.questionIntId}?page=${data?.data?.responses?.page + 1}&count=30`)
-
+                    else 
+                        for (let i = 1; i < 10; i++)
+                            pageContent.links.push(`https://porsan.ir/api/v1/client_ui/question/${i + data?.data?.question?.questionIntId}?page=1&count=30`)
                 }
                 return pageContent
             },
@@ -140,7 +142,7 @@ export class bonyadvokala extends clsScrapper {
                 }
             },
             url: {
-                extraInvalidStartPaths: ["/products", "/lawyers"]
+                extraInvalidStartPaths: ["/products", "/lawyers", "/legal-phone-advice"]
             }
         })
     }

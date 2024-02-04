@@ -1,0 +1,25 @@
+{
+  "url": "https://porsan.ir/api/v1/client_ui/question/23?page=1&count=30",
+  "category": {
+    "original": "سفر",
+    "major": "Undefined"
+  },
+  "qa": [
+    {
+      "q": {
+        "text": "برای تور سنگاپور کدوم سایت گردشگری رو پیشنهاد می‌کنید؟",
+        "author": "مرجان اصغری",
+        "date": "2021-10-03T11:51:15.690Z"
+      },
+      "a": [
+        {
+          "text": "hiholiday.ir",
+          "author": "",
+          "date": "2021-10-03T12:04:58.188Z"
+        }
+      ]
+    }
+  ],
+  "date": "2021-10-03",
+  "tags": []
+}

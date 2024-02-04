@@ -467,13 +467,17 @@ export abstract class clsScrapper {
                 c.a?.forEach(a => (wc += a.text.split(" ").length))
             })
 
+            log.progress(`storing: ${id}:${page.url} -> {body: ${page.article?.content?.length}, comments: ${page.article?.comments?.length},  wc: ${wc}, links: ${page.links.length}}`)
+            page.links.forEach((link: string) => this.db.addToMustFetch(link))
+
             if (wc === 0) {
                 log.file(this.domain, "No content found on: ", page.url)
+                if (id)
+                    this.db.setStatus(id, enuURLStatus.Finished)
+
                 return
             }
 
-            log.progress(`storing: ${id}:${page.url} -> {body: ${page.article?.content?.length}, comments: ${page.article?.comments?.length},  wc: ${wc}, links: ${page.links.length}}`)
-            page.links.forEach((link: string) => this.db.addToMustFetch(link))
             if (id) {
                 try {
                     if (page.article) {
