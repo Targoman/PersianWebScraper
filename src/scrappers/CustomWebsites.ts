@@ -220,29 +220,6 @@ export class eporsesh extends clsScrapper {
   }
 }
 
-export class pasokhgoo extends clsScrapper {
-  constructor() {
-    super(enuDomains.pasokhgoo, "pasokhgoo.ir", {
-      selectors: {
-        article: "body.node-type-article, body.node-type-gallery",
-        title: "h1",
-        subtitle: ".field-name-field-subtitle div div",
-        datetime: {
-          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span[property='dc:date dc:created']"),
-          splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-        },
-        content: {
-          main: ".field-type-text-with-summary div div, .field-name-field-pasokh div div, .field-name-field-image div div a, .flexslider ul li",
-        },
-        category: {
-          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")
-        },
-        tags: ".field-name-field-tags div div a"
-      },
-    })
-  }
-}
-
 export class nazaratshora extends clsScrapper {
   constructor() {
     super(enuDomains.nazaratshora, "nazarat.shora-rc.ir", {
