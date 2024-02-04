@@ -25,7 +25,10 @@ class clsAsamBased extends clsScrapper {
                 },
                 tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a',
                 datetime: {
-                    conatiner: (article: HTMLElement, fullHtml: HTMLElement) => article.querySelector("time") || fullHtml.querySelector("time"),
+                    conatiner: (article: HTMLElement, fullHtml: HTMLElement) => article.querySelector("time")
+                        || fullHtml.querySelector(".news_time")
+                        || fullHtml.querySelector(".news-time")
+                        || fullHtml.querySelector("time"),
                     splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
                 },
                 category: {
@@ -93,7 +96,7 @@ class clsAsamBased extends clsScrapper {
         if (first.startsWith("سفر "))
             return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
         if (first.startsWith("نرخ") || first.startsWith("واحد"))
-            return { ...mappedCat, minor: enuMinorCategory.Economy }
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
 
         if (false
             || first.startsWith("چندرسانه‌ای")
@@ -123,7 +126,7 @@ class clsAsamBased extends clsScrapper {
             || first.includes("حمل ")
             || first.includes("کارگری")
         )
-            mappedCat.minor = enuMinorCategory.Economy
+            mappedCat.minor = enuMinorCategory.Economics
         else if (first.includes("فرهنگ") || first.includes("رسانه") || first.includes("هنری"))
             mappedCat.minor = enuMinorCategory.Culture
         else if (first.includes("المپیک") || first.includes("ورزش") || first.includes("جام جهانی") || first.includes("باشگاهی"))
@@ -164,7 +167,7 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("زندگی")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.LifeStyle; else mappedCat.minor = enuMinorCategory.LifeStyle
         } else if (second.includes("اقتصاد")) {
-            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economy; else mappedCat.minor = enuMinorCategory.Economy
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economics; else mappedCat.minor = enuMinorCategory.Economics
         } else if (second.includes("قضایی")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Law; else mappedCat.minor = enuMinorCategory.Law
         } else if (second.includes("جامعه") || second.includes("شهری") || second.includes("محیط")) {
@@ -252,11 +255,11 @@ export class mojnews extends clsAsamBased {
         else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         else if (cat.includes("IT")) return { ...mappedCat, minor: enuMinorCategory.IT }
         else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصادی/علم")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("ارز دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.CryptoCurrency }
-        else if (cat.includes("اقتصاد جهانی")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصادی/علم")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("ارز دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.CryptoCurrency }
+        else if (cat.includes("اقتصاد جهانی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
+        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
         else if (cat.includes("بانوان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Women }
         else if (cat.includes("المپیک") || cat.includes("جام جهانی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
@@ -289,14 +292,14 @@ export class ilna extends clsAsamBased {
             || cat.includes("چندرسانه")
             || cat.includes("کاریکاتور")
             || cat.includes("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("اقتصادی/گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("اقتصادی/گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Tourism }
+        else if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Defence }
+        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
         else if (cat.includes("اقتصاد")
             || cat.includes("کارگری")
             || cat.includes("بازار")
             || cat.includes("ارز")
-            || cat.includes("نرخ")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+            || cat.includes("نرخ")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
         else if (cat.includes("فرهنگ و هنر/رسانه")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Media }
         else if (cat.includes("فرهنگ") || cat.includes("ایثار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
@@ -425,7 +428,7 @@ export class pana extends clsAsamBased {
         else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
 
@@ -447,6 +450,9 @@ export class rokna extends clsAsamBased {
                 category: {
                     startIndex: 2
                 }
+            },
+            url: {
+                extraInvalidStartPaths: ["/fa/admin/newsstudios/edit"]
             }
         })
     }
@@ -467,8 +473,8 @@ export class rokna extends clsAsamBased {
         else if (cat.includes("گردشگری") || cat.includes("سفر")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Tourism }
         else if (cat.includes("سلامت") || cat.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Health }
         else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("اقتصاد") || cat.includes("بازرگانی")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        else if (cat.includes("اقتصاد") || cat.includes("بازرگانی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (cat.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
         else if (cat.includes("داستان")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
@@ -524,7 +530,7 @@ export class fardanews extends clsAsamBased {
         else if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (first.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (first.startsWith("اقتصاد") || first.startsWith("قیمت")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (first.startsWith("اقتصاد") || first.startsWith("قیمت")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (second.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         else if (second.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         else if (first.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -581,7 +587,7 @@ export class bartarinha extends clsAsamBased {
         else if (cat.startsWith("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
         else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
         else if (cat.startsWith("سلامت") || cat.startsWith("ساختمان پزشکان")) return { ...mappedCat, minor: enuMinorCategory.Health }
         else if (cat.includes("فرهنگ و هنر") || cat.startsWith("تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Culture }
@@ -613,7 +619,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("آب و هوا")) return { ...mappedCat, minor: enuMinorCategory.Weather }
         if (cat.startsWith("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Advert }
         if (cat.startsWith("آموزشی")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        if (cat.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (cat.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (cat.startsWith("انتخابات")) return { ...mappedCat, minor: enuMinorCategory.Political }
         if (cat.startsWith("انسان")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat.startsWith("ایران‌گردی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
@@ -650,12 +656,12 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
         if (cat.startsWith("فال ")) return { ...mappedCat, minor: enuMinorCategory.Fun }
         if (cat.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        if (cat.startsWith("فروشنده")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (cat.startsWith("فروشنده")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (cat.startsWith("فضا")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (cat.startsWith("فن بیان")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat.startsWith("فیزیک")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (cat.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        if (cat.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (cat.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (cat.startsWith("گفتگو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
         if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
         if (cat.includes("داستان")) return { ...mappedCat, minor: enuMinorCategory.Literature, subminor: enuMinorCategory.Text }
@@ -667,7 +673,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
         if (cat.startsWith("مدیریت")) return { ...mappedCat, minor: enuMinorCategory.Education }
         if (cat.startsWith("معما")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        if (cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (cat.startsWith("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
         if (cat.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         if (cat.startsWith("ویدیو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -874,6 +880,10 @@ export class eghtesadnews extends clsAsamBased {
             }
         })
     }
+
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class afkarnews extends clsAsamBased {
@@ -902,6 +912,10 @@ export class etemadonline extends clsAsamBased {
                 content: {
                     main: ".echo-detail, img",
                     ignoreNodeClasses: ["news-short-info"]
+                },
+                datetime: {
+                    conatiner: ".news-time",
+                    splitter: "/"
                 },
                 tags: ".article-tag a",
                 category: {
@@ -1251,7 +1265,7 @@ export class armanmeli extends clsAsamBased {
                 article: "article",
                 content: {
                     main: "#echo_detail>*, #echo_detail div:nth-child(1) div:nth-child(1) div div:nth-child(2), .primary_files",
-                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news"]
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news"],
                 },
             },
         })

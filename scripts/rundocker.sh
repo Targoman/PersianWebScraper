@@ -386,7 +386,8 @@ function run() {
 
 function reset() {
        stop $1
-       sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "UPDATE tblURLs SET status = 'N' WHERE status='E' OR (wc=0 AND (status IN ('F', 'C')))"
+       sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "UPDATE tblURLs SET status = 'D' WHERE status NOT IN ('C') AND (url LIKE 'https://www.static%' OR url LIKE 'https://static%')" -v 4
+       sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "UPDATE tblURLs SET status = 'N' WHERE (status='E' AND lastError NOT LIKE '%code 400%' AND lastError NOT LIKE '%code 403%' AND lastError NOT LIKE '%code 404%' AND lastError NOT LIKE '%code 414%' ) OR (wc=0 AND (status IN ('F', 'C')))" -v 4
        sudo docker run -d --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --recheck ${@:2}
 }
 

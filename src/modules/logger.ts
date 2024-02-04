@@ -103,14 +103,14 @@ export class clsLogger {
         if (this.blessed)
             this.blessed.body.pushLine(`\x1b[31m[${logTime()}][ERR][${this.moduleName}]:\x1b[0m` + this.formatArgs(theArgs) + '\x1b[0m');
         else
-            console.error(`\x1b[31m[${logTime()}][ERR][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, false, clsLogger.verbosity ? 5 : 3, true), '\x1b[0m');
+            console.error(`\x1b[31m[${logTime()}][ERR][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, false, clsLogger.verbosity ? 6 : 3, true), '\x1b[0m');
     }
     info(...theArgs: any) {
         if (gConfigs.showInfo) {
             if (this.blessed)
                 this.blessed.body.pushLine(`\x1b[36m[${logTime()}][INF][${this.moduleName}]:\x1b[0m` + this.formatArgs(theArgs) + '\x1b[0m')
             else
-                console.info(`\x1b[36m[${logTime()}][INF][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, {depth: clsLogger.verbosity ? 5 : 3, colors: true, maxArrayLength: 500}), '\x1b[0m');
+                console.info(`\x1b[36m[${logTime()}][INF][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, {depth: clsLogger.verbosity ? 6 : 3, colors: true, maxArrayLength: 500}), '\x1b[0m');
         }
     }
     warn(...theArgs: any) {
@@ -118,7 +118,7 @@ export class clsLogger {
             if (this.blessed)
                 this.blessed.body.pushLine(`\x1b[43m[${logTime()}][WRN][${this.moduleName}]:\x1b[0m` + this.formatArgs(theArgs) + '\x1b[0m')
             else
-                console.warn(`\x1b[43m[${logTime()}][WRN][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, false, clsLogger.verbosity ? 5 : 3, true), '\x1b[0m')
+                console.warn(`\x1b[43m[${logTime()}][WRN][${this.moduleName}]:\x1b[0m`, util.inspect(theArgs, false, clsLogger.verbosity ? 6 : 3, true), '\x1b[0m')
         }
     }
     file(scraper:string, ...theArgs:any) {

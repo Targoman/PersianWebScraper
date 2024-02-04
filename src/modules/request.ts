@@ -61,7 +61,7 @@ export interface IntfRequestParams {
     ua?: string,
     conf?: AxiosRequestConfig,
     headers?: IntfKeyVal,
-    onSuccess: (data: any, cookie?: string, res?: AxiosResponse, retries?: number) => any,
+    onSuccess: (data: any, url: string, cookie?: string, axiosRes?: AxiosResponse, retries?: number) => any,
     onFail?: (err: AxiosError, retries: number) => any,
     oErrorMessage?: string,
     proxy?: IntfProxy,
@@ -81,7 +81,7 @@ export async function axiosGet(log: clsLogger, params: IntfRequestParams, retrie
                 await sleep(2100)
                 return await axiosGet(log, { ...params, cookie })
             }
-            return params.onSuccess(data, params.cookie, res, 3 - retries);
+            return params.onSuccess(data, res.request.res.responseUrl, params.cookie, res, 3 - retries);
         })
         .catch(async (err: AxiosError) => {
             return await onAxiosError(err, params, retries, (cookie?: string) => axiosGet(log, { ...params, cookie }, retries - 1))
@@ -96,7 +96,7 @@ export async function axiosPost(log: clsLogger, data: any, params: IntfRequestPa
         .post(params.url, data, configWithUA(params))
         .then((res) => {
             const data = res.data
-            return params.onSuccess(data, params.cookie, res, 3 - retries);
+            return params.onSuccess(data, res.request.res.responseUrl, params.cookie, res, 3 - retries);
         })
         .catch(async (err: AxiosError) => {
             return await onAxiosError(err, params, retries, (cookie?: string) => axiosPost(log, data, { ...params, cookie }, retries - 1))

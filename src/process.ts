@@ -48,6 +48,7 @@ const args = {
     configFile: option({ type: optional(string), long: 'configFile', short: "c", description: "set configFile to be used" }),
     debugVerbosity: option({ type: optional(number), long: 'verbosity', short: "v", description: "set verbosity level from 0 to 10" }),
     statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
+    keepOriginalCat: flag({ long: "keepOriginalCat", description: "reports original category even if there are mapped category" }),
 
     force: flag({ long: "force", description: "forces normalization of category even if the category was set priorly" }),
     domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}. If ommited all domains will be checked` }),
@@ -318,7 +319,7 @@ const app = command({
                         }
 
                         let catStr = doc.category['original'];
-                        if (doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
+                        if (!args.keepOriginalCat && doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
                             catStr = doc.category['major'];
                             if (doc.category['minor'])
                                 catStr += "." + doc.category['minor'];

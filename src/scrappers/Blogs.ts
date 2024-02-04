@@ -72,6 +72,9 @@ export class ninisite extends clsScrapper {
                     text: ".comment__content, .post-message"
                 }
             },
+            url: {
+                extraInvalidStartPaths: ["/user/", "/imen/", ]
+            }
         })
     }
 
@@ -116,7 +119,7 @@ export class ninisite extends clsScrapper {
         if (first.startsWith("شیرخوار")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle }
         if (first.startsWith("طنز")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun }
         if (first.startsWith("علم و تکنولوژی")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.ScienceTech }
-        if (first.startsWith("فروشگاههای")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economy }
+        if (first.startsWith("فروشگاههای")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economics }
         if (first.startsWith("فلسفه")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture }
         if (first.startsWith("فیلم")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Multimedia }
         if (first.startsWith("کارتون")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Multimedia }
@@ -1469,39 +1472,6 @@ export class iranhotelonline extends clsScrapper {
     }
 }
 
-export class bonyadvokala extends clsScrapper {
-    constructor() {
-        super(enuDomains.bonyadvokala, "bonyadvokala.com", {
-            basePath: "/blog",
-            selectors: {
-                article: "article",
-                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
-                },
-                content: {
-                    main: ".entry-content, figure.single-featured-image",
-                    ignoreNodeClasses: ["ez-toc-title-container", "mini-posts-box", "eztoc-toggle-hide-by-default", "tagcloud"],
-                },
-                category: {
-                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb a"),
-                    startIndex: 1
-                },
-                tags: "span.tagcloud a",
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
-                    author: "footer .comment-author b",
-                    datetime: "time",
-                    text: ".comment-content"
-                }
-            },
-            url: {
-                extraInvalidStartPaths: ["/products", "/lawyers"]
-            }
-        })
-    }
-}
 
 export class apademy extends clsScrapper {
     constructor() {
@@ -3179,7 +3149,7 @@ export class tlyn extends clsScrapper {
     }
     mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.GoldSilver }
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.GoldSilver }
     }
 }
 
@@ -3518,7 +3488,7 @@ export class podium extends clsScrapper {
         })
     }
     mapCategory(cat?: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economy }
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economics }
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
@@ -3526,8 +3496,8 @@ export class podium extends clsScrapper {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (first.startsWith("اخبار")) mappedCat.major = enuMajorCategory.News
-        if (first.startsWith("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism, subminor: enuMinorCategory.Economy }
-        if (second.startsWith("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.Economy }
+        if (first.startsWith("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism, subminor: enuMinorCategory.Economics }
+        if (second.startsWith("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.Economics }
 
         return mappedCat
     }
@@ -3567,7 +3537,7 @@ export class infogramacademy extends clsScrapper {
         const second = catParts.length > 1 ? catParts[1] : ''
 
 
-        if (second.includes("بازاریابی")) mappedCat.minor = enuMinorCategory.Economy
+        if (second.includes("بازاریابی")) mappedCat.minor = enuMinorCategory.Economics
 
         return mappedCat
     }
@@ -3733,7 +3703,7 @@ export class fardaname extends clsScrapper {
     }
     mapCategory(_: string, tags?: string[]): IntfMappedCategory {
         void tags
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economy }
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economics }
     }
 }
 

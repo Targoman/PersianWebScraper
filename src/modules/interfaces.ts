@@ -2,7 +2,7 @@ import { SocksProxyAgent } from "socks-proxy-agent"
 import { HTMLElement } from "node-html-parser"
 import { IntfRequestParams } from "./request"
 
-export enum enuDomains { 
+export enum enuDomains {
     abantether = "abantether",
     achareh = "achareh",
     activeidea = "activeidea",
@@ -70,6 +70,7 @@ export enum enuDomains {
     citna = "citna",
     clickaval = "clickaval",
     danakhabar = "danakhabar",
+    daadyab = "daadyab",
     dargi = "dargi",
     didarnews = "didarnews",
     didgahemrooz = "didgahemrooz",
@@ -253,6 +254,7 @@ export enum enuDomains {
     podium = "podium",
     ponisha = "ponisha",
     poonehmedia = "poonehmedia",
+    porsan = "porsan",
     portal = "portal",
     qavanin = "qavanin",
     qudsonline = "qudsonline",
@@ -263,7 +265,7 @@ export enum enuDomains {
     ramzarz = "ramzarz",
     rasadeghtesadi = "rasadeghtesadi",
     rasanews = "rasanews",
-    rasekhoon =  "rasekhoon",
+    rasekhoon = "rasekhoon",
     rastineh = "rastineh",
     rawanshenas = "rawanshenas",
     rayamarketing = "rayamarketing",
@@ -412,6 +414,11 @@ export interface IntfComment { text: string, author?: string, date?: string }
 export interface IntfImage { src: string, alt?: string }
 export interface IntfContentHolder { texts: IntfText[], images: IntfImage[] }
 
+export interface IntfQAcontainer {
+    q: IntfComment,
+    a?: IntfComment[]
+}
+
 export interface IntfPageContent {
     url: string,
     category?: string,
@@ -423,6 +430,7 @@ export interface IntfPageContent {
         summary?: string,
         content?: IntfText[],
         comments?: IntfComment[]
+        qa?: IntfQAcontainer[]
         images?: IntfImage[],
         tags?: string[],
     }
@@ -445,6 +453,7 @@ export interface IntfDocFilecontent {
 
 export enum enuMajorCategory {
     News = "News",
+    QA = "QA",
     Literature = "Literature",
     Forum = "Forum",
     Undefined = "Undefined",
@@ -460,7 +469,7 @@ export enum enuMinorCategory {
     Social = "Social",
     Health = "Health",
     Medical = "Medical",
-    Economy = "Economy",
+    Economics = "Economics",
     Culture = "Art&Culture",
     Consultation = "Consultation",
     Sport = "Sport",
@@ -581,11 +590,19 @@ export interface IntfURLNormaliziztionConf {
     http?: boolean
 }
 
+export interface IntfCommentContainer {
+    container?: string | IntfSelectAllFunction
+    datetime?: string | IntfSelectorToString
+    author?: string | IntfSelectorFunction
+    text?: string | IntfSelectorFunction
+}
+
 export interface IntfProcessorConfigs {
     selectors?: {
         article?: string | IntfSelectorFunction,
         aboveTitle?: string | IntfSelectorFunction,
         title?: string | IntfSelectorFunction,
+        acceptNoTitle? : boolean
         subtitle?: string | IntfSelectorFunction,
         summary?: string | IntfSelectorFunction,
         content?: {
@@ -595,14 +612,13 @@ export interface IntfProcessorConfigs {
             alterTextContent?: IntfSelectorToString,
             ignoreTexts?: string[] | RegExp[],
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
-            qa?: boolean
+            qa?: {
+                containers: string | IntfSelectAllFunction
+                q: IntfCommentContainer
+                a: IntfCommentContainer
+            }
         },
-        comments?: {
-            container?: string | IntfSelectAllFunction,
-            datetime?: string | IntfSelectorToString,
-            author?: string | IntfSelectorFunction,
-            text?: string | IntfSelectorFunction
-        } | IntfGetCommentsByAPI,
+        comments?: IntfCommentContainer | IntfGetCommentsByAPI,
         tags?: string | IntfSelectAllFunction,
         datetime?: {
             conatiner?: string | IntfSelectorFunction,
@@ -613,10 +629,11 @@ export interface IntfProcessorConfigs {
         category?: {
             selector?: string | IntfSelectAllFunction,
             startIndex?: number,
+            lastIndex?: number
         }
     },
+    api? : {(url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent>},
     url?: IntfURLNormaliziztionConf
     basePath?: string
     preHTMLParse?: (html: string) => string
 }
-

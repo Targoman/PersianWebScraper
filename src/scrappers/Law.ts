@@ -262,3 +262,4 @@ export class shoragc extends clsScrapper {
     return mappedCat
   }
 }
+

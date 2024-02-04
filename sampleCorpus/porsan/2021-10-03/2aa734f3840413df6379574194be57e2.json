@@ -1,0 +1,19 @@
+{
+  "url": "https://porsan.ir/api/v1/client_ui/question/37?page=1&count=30",
+  "category": {
+    "original": "عمومی",
+    "major": "Undefined"
+  },
+  "qa": [
+    {
+      "q": {
+        "text": "اکثر درآمد و سود هتل‌ها از چه راه‌هایی است؟",
+        "author": "مرجان اصغری",
+        "date": "2021-10-03T11:51:15.974Z"
+      },
+      "a": []
+    }
+  ],
+  "date": "2021-10-03",
+  "tags": []
+}

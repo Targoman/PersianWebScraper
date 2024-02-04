@@ -145,7 +145,10 @@ Configuring scrapper to scrap new WebSites is also easy.
 
         //A css selector or a function to select HTML element in the article containing title
         title?: string | IntfSelectorFunction,
-
+        
+        //Set to true if it is allowed to have a page without title
+        acceptNoTitle? : boolean
+        
         //A css selector or a function to select HTML element in the article containing subtitle
         subtitle?: string | IntfSelectorFunction,
 
@@ -159,9 +162,40 @@ Configuring scrapper to scrap new WebSites is also easy.
             //A css selector or a function to select HTML element in the article containing main content if main selector fails
             alternative?: string | IntfSelectAllFunction,
 
+            //Used when the site has Question/Answers
+            qa?: {
+                //A css selector or a function to select HTML elements representing a Q/A box
+                containers: string | IntfSelectAllFunction
+                q: {
+                    //A css selector or a function to select HTML elements representing a question box
+                    container?: string | IntfSelectAllFunction,
+
+                    //A css selector or a function to capture date of the question
+                    datetime?: string | IntfSelectorToString,
+
+                    //A css selector or a function to capture author of the question
+                    author?: string | IntfSelectorFunction,
+
+                    //A css selector or a function to capture text of the question
+                    text?: string | IntfSelectorFunction
+                }
+                a: {
+                    //A css selector or a function to select HTML elements representing an answer box
+                    container?: string | IntfSelectAllFunction,
+
+                    //A css selector or a function to capture date of the answer
+                    datetime?: string | IntfSelectorToString,
+
+                    //A css selector or a function to capture author of the answer
+                    author?: string | IntfSelectorFunction,
+
+                    //A css selector or a function to capture text of the answer
+                    text?: string | IntfSelectorFunction
+                }
+            }
+
             //A css selector or a function to select HTML element in the article containing text content used on old-fashion sites
             textNode?: string | IntfSelectorFunction,
-
 
             //list of strings or regularexpression which will be checked against each paragrpah and discard them if matched 
             ignoreTexts?: string[] | RegExp[],
@@ -169,6 +203,7 @@ Configuring scrapper to scrap new WebSites is also easy.
             //list of classNames or a function to check if the node must be proceessed as a text node or discarded 
             ignoreNodeClasses?: string[] | IntfIsValidFunction,
         },
+
         //Comments can be selected using following configuration or by providing a method for AJAX loaded comments (ex. farsnews)
         comments?: {
             //A css selector or a function to select HTML elements representing a comment box
@@ -183,14 +218,17 @@ Configuring scrapper to scrap new WebSites is also easy.
             //A css selector or a function to capture text of the comment
             text?: string | IntfSelectorFunction
         },
+
         //A css selector or a function to select HTML elements representing tags
         tags?: string | IntfSelectAllFunction,
+
         datetime?: {
             //A css selector or a function to select HTML element representing publication date
             conatiner?: string | IntfSelectorFunction,
             //An string to split date from hour or a function for complex date detectors (check samples in special virgool)
             splitter?: string | IntfSelectorToString
         }
+
         category?: {
             //A css selector or a function to select HTML elements representing category or breadcrumb items
             selector?: string | IntfSelectAllFunction,

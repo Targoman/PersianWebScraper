@@ -30,7 +30,7 @@ export class lioncomputer extends clsScrapper {
       },
       url: {
         removeWWW: true,
-        ignoreContentOnPath: ["/topic"]
+        ignoreContentOnPath: ["/topic", "/profile"]
       }
     })
   }

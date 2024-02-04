@@ -71,7 +71,7 @@ export class rajanews extends clsIranDrupal {
         else if ((first.startsWith("اجتماعی") || first.startsWith("جامعه")) && second.includes("تعلیم")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
         else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
 
 

@@ -852,8 +852,6 @@ clear; rm -rf .db corpora; yarn dev && yarn start bookland -u https://bookland.i
 clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/abnic-village/
 clear; rm -rf .db corpora; yarn dev && yarn start iranhotelonline -u https://www.iranhotelonline.com/blog/post-1840/زیباترین-جاذبه-های-گردشگری-استرالیا/
 
-clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
-clear; rm -rf .db corpora; yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
 
 clear; rm -rf .db corpora; yarn dev && yarn start apademy -u https://apademy.com/article/The-best-software-for-ui-ux-design
 clear; rm -rf .db corpora; yarn dev && yarn start apademy -u https://apademy.com/article/Photoshop-vs-illustrator
@@ -1210,9 +1208,20 @@ yarn dev && yarn start pasokhgoo
 yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/کنیه-و-لقب-امام-جواد-علیه%E2%80%8Cالسلام
 yarn dev && yarn start pasokhgoo -u https://www.pasokhgoo.ir/content/حدیث-فضیلت-پرسش-و-پاسخ
 
-yarn dev && yarn start nazaratshora
-yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=5R/R8tp/ttE=&TN=l7tLyhyOobj0SooAFUE3m9d5XYGi044i6e4f+1NCQCI=&MN=csaqpt/F9Oo=&id=El3wsWvyRw8=&tablename02=l7tLyhyOobj0SooAFUE3m68PnpG7MruN
-yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=dNIZx9wvxnU=&TN=/XG7FYxY/yd2hSO3SoFiUAsWSQGkNzoB5OZg5UTstWY=&MN=csaqpt/F9Oo=&id=omNGZ/2eR/w=&tablename02=/XG7FYxY/yd2hSO3SoFiUBDhmJI8yPJ0
+yarn dev && yarn start daadyab 
+yarn dev && yarn start daadyab -u https://www.daadyab.com/Question/ShowPublicQuestion/1044
+yarn dev && yarn start daadyab -u https://www.daadyab.com/%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87-%D8%AD%D9%82%D9%88%D9%82%DB%8C-%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86-%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86
+yarn dev && yarn start daadyab -u https://www.daadyab.com/Blog/%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%88%DA%A9%DB%8C%D9%84-%DB%8C%D8%A7-%D9%85%D8%B4%D8%A7%D9%88%D8%B1-%D9%85%D9%84%DA%A9%DB%8C
+
+yarn dev && yarn start porsan
+yarn dev && yarn start porsan -u https://porsan.ir/question/q-992656
+yarn dev && yarn start porsan -u https://porsan.ir/mim
+
+yarn dev && yarn start bonyadvokala 
+yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87-%D8%AD%D9%82%D9%88%D9%82%DB%8C/40399260
+yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87-%D8%AD%D9%82%D9%88%D9%82%DB%8C/15880934
+yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
+yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
 
 https://motamem.org/
 /**/

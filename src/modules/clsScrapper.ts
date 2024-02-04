@@ -18,7 +18,8 @@ import {
     IntfIsValidFunction,
     IntfURLNormaliziztionConf,
     IntfMappedCategory,
-    enuMajorCategory
+    enuMajorCategory,
+    IntfQAcontainer
 } from "./interfaces"
 import { log } from "./logger"
 import HP, { HTMLElement, Node, NodeType } from "node-html-parser"
@@ -463,8 +464,22 @@ export abstract class clsScrapper {
             page.article?.content?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.comments?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.images?.forEach(c => (wc += c.alt ? c.alt.split(" ").length : 0))
+            page.article?.qa?.forEach(c => {
+                wc += c.q.text.split(" ").length
+                c.a?.forEach(a => (wc += a.text.split(" ").length))
+            })
+
             log.progress(`storing: ${id}:${page.url} -> {body: ${page.article?.content?.length}, comments: ${page.article?.comments?.length},  wc: ${wc}, links: ${page.links.length}}`)
             page.links.forEach((link: string) => this.db.addToMustFetch(link))
+
+            if (wc === 0) {
+                log.file(this.domain, "No content found on: ", page.url)
+                if (id)
+                    this.db.setStatus(id, enuURLStatus.Finished)
+
+                return
+            }
+
             if (id) {
                 try {
                     if (page.article) {
@@ -482,8 +497,6 @@ export abstract class clsScrapper {
                         log.debug("content stored in: " + filePath + "/" + Md5.hashStr(page.url))
                     } else
                         this.db.setStatus(id, enuURLStatus.Finished)
-                    if (page.article?.content?.length === 0)
-                        log.file(this.domain, "No content found on: ", page.url)
                 } catch (e) {
                     console.error(e)
                     throw e
@@ -578,14 +591,24 @@ export abstract class clsScrapper {
         url = this.normalizePath(this.safeCreateURL(url))
         log.progress("retrieving: ", url, proxy?.port, cookie)
 
-        const reqParams = { url, onSuccess: (data: any, resCookie: any) => ({ data, resCookie }), proxy, cookie, headers: this.extraHeaders() }
+        const reqParams = { url, onSuccess: (data: any, url: string, resCookie: any) => ({ data, url, resCookie }), proxy, cookie, headers: this.extraHeaders() }
+
         const result = await axiosGet(log, reqParams)
         if (!result || result.err) {
             delete this.proxyCookie[proxy?.port || "none"]
             throw new Error(result?.err || "ERROR")
         }
 
+        const finalURL = this.normalizePath(this.safeCreateURL(result.url))
+
+        if (finalURL !== url)
+            log.warn("URL Changed:", finalURL)
+
         this.proxyCookie[proxy?.port || "none"] = result.resCookie
+
+        if (this.pConf.api)
+            return await this.pConf.api(this.safeCreateURL(url), reqParams, result.data)
+
         const html = this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data
         return await this.parse(url, HP.parse(html, { parseNoneClosedTags: true }), result.data, reqParams);
     }
@@ -652,6 +675,16 @@ export abstract class clsScrapper {
         void fullHtml
         article.querySelectorAll("script").forEach(x => x.remove());
 
+        const commentDateTime = (container: HTMLElement, selector?: string | IntfSelectorToString,) => {
+            let el: HTMLElement | string | undefined
+            if (typeof selector === "string")
+                el = this.selectElement(container, fullHtml, url, selector) || undefined
+            else if (selector !== undefined)
+                el = selector(container)
+
+            return this.extractDate(el, this.pConf.selectors?.datetime?.splitter)
+        }
+
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
         let title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
@@ -661,40 +694,76 @@ export abstract class clsScrapper {
         let date: string | undefined = this.extractDate(datetimeElement, this.pConf.selectors?.datetime?.splitter, fullHtml)
         const tags = this.selectAllElements(article, fullHtml, this.pConf.selectors?.tags)?.map(tag => (normalizeText(tag.innerText) || "").replace(/[,،؛]/g, ""))
 
-        const categoryEl = this.selectAllElements(article, fullHtml, this.pConf.selectors?.category?.selector)
+        const categoryEls = this.selectAllElements(article, fullHtml, this.pConf.selectors?.category?.selector)
         let category: string | undefined
-        if (categoryEl) {
+        if (categoryEls) {
             const startIndex = this.pConf.selectors?.category?.startIndex || 0
-            category = categoryEl.at(startIndex)?.innerText.trim()
-                + (categoryEl.length > startIndex + 1 ? "/" + categoryEl.at(startIndex + 1)?.innerText.trim() : "")
-            category = normalizeText(category)
+            const lastIndex = this.pConf.selectors?.category?.lastIndex || categoryEls.length
+            category = categoryEls.slice(startIndex, lastIndex).map(cat => normalizeText(cat.innerText)).join("/")
         }
 
         const content: IntfContentHolder = { texts: [], images: [] }
-        let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
-        if (!contentElements || contentElements.length === 0)
-            contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
+        const qas: IntfQAcontainer[] = []
+        const qaContainers = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.qa?.containers)
+        if (qaContainers?.length) {
+            qaContainers.forEach(container => {
+                const question = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.q.container)
+                if (question?.length) {
+                    const qText = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.text)
+                    if (qText) {
+                        const qa: IntfQAcontainer = { q: { text: normalizeText(qText.textContent) } };
+                        const qAuthor = this.selectElement(question[0], fullHtml, url, this.pConf.selectors?.content?.qa?.q?.author)
+                        if (qAuthor) qa.q.author = normalizeText(qAuthor.innerText)
+                        const qDateTime = commentDateTime(question[0], this.pConf.selectors?.content?.qa?.q?.datetime)
+                        if (qDateTime) qa.q.date = qDateTime
+                        const answers = this.selectAllElements(container, fullHtml, this.pConf.selectors?.content?.qa?.a.container)
 
-        if (contentElements) {
-            contentElements.forEach((textEl: HTMLElement, index, all) => {
-                if (this.textNodeMustBeIgnored(textEl, index, all))
-                    return
-                this.processTextContent(textEl, content, this.pConf.selectors?.content?.ignoreNodeClasses)
-            });
+                        if (answers?.length) {
+                            qa.a = []
+                            answers.forEach(ansContainer => {
+                                const text = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a.text)
+                                if (text) {
+                                    const ans: IntfComment = ({ text: normalizeText(text.textContent) })
+                                    const author = this.selectElement(ansContainer, fullHtml, url, this.pConf.selectors?.content?.qa?.a?.author)
+                                    if (author) ans.author = normalizeText(author.innerText)
+                                    const dateTime = commentDateTime(ansContainer, this.pConf.selectors?.content?.qa?.a?.datetime)
+                                    if (dateTime) ans.date = dateTime
 
-            let fullContentLenght = 0
-            content.texts.forEach(item => (fullContentLenght += item.text.length))
+                                    qa.a?.push(ans)
+                                }
+                            })
+                        }
+                        qas.push(qa)
+                    }
+                }
+            })
 
-            let parentTextNode = this.selectElement(article, fullHtml, url, this.pConf.selectors?.content?.textNode)
-            if (!parentTextNode)
-                parentTextNode = this.selectElement(fullHtml, fullHtml, url, this.pConf.selectors?.content?.textNode)
+        } else {
+            let contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.main)
+            if (!contentElements || contentElements.length === 0)
+                contentElements = this.selectAllElements(article, fullHtml, this.pConf.selectors?.content?.alternative)
 
-            const parentTextNodeInnerText = normalizeText(parentTextNode?.innerText)
-            if (parentTextNode && parentTextNodeInnerText && parentTextNodeInnerText.length > fullContentLenght * 2) {
-                //parentText.split("\n").forEach(par => (content.texts.push({ text: parentText, type: enuTextType.paragraph })))
-                debugNodeProcessor && log.debug(parentTextNode?.outerHTML, parentTextNodeInnerText)
+            if (contentElements) {
+                contentElements.forEach((textEl: HTMLElement, index, all) => {
+                    if (this.textNodeMustBeIgnored(textEl, index, all))
+                        return
+                    this.processTextContent(textEl, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                });
 
-                this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                let fullContentLenght = 0
+                content.texts.forEach(item => (fullContentLenght += item.text.length))
+
+                let parentTextNode = this.selectElement(article, fullHtml, url, this.pConf.selectors?.content?.textNode)
+                if (!parentTextNode)
+                    parentTextNode = this.selectElement(fullHtml, fullHtml, url, this.pConf.selectors?.content?.textNode)
+
+                const parentTextNodeInnerText = normalizeText(parentTextNode?.innerText)
+                if (parentTextNode && parentTextNodeInnerText && parentTextNodeInnerText.length > fullContentLenght * 2) {
+                    //parentText.split("\n").forEach(par => (content.texts.push({ text: parentText, type: enuTextType.paragraph })))
+                    debugNodeProcessor && log.debug(parentTextNode?.outerHTML, parentTextNodeInnerText)
+
+                    this.processTextContent(parentTextNode, content, this.pConf.selectors?.content?.ignoreNodeClasses)
+                }
             }
         }
         let comments: IntfComment[] = []
@@ -707,13 +776,8 @@ export abstract class clsScrapper {
                     (comEl: HTMLElement) => {
                         const text = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.text)?.innerText)
                         const author = normalizeText(this.selectElement(comEl, fullHtml, url, commentSelector.author)?.innerText)
-                        let el: HTMLElement | string | undefined
-                        if (typeof commentSelector.datetime === "string")
-                            el = this.selectElement(comEl, fullHtml, url, commentSelector.datetime) || undefined
-                        else if (commentSelector.datetime !== undefined)
-                            el = commentSelector.datetime(comEl)
 
-                        const date = this.extractDate(el, this.pConf.selectors?.datetime?.splitter)
+                        const date = commentDateTime(comEl, commentSelector.datetime)
 
                         if (text && text?.length > 2) {
                             const cmnt: IntfComment = { text }
@@ -727,6 +791,8 @@ export abstract class clsScrapper {
                 );
             }
         }
+
+
 
         const result: IntfPageContent = {
             url: url.toString(), links
@@ -762,7 +828,7 @@ export abstract class clsScrapper {
             }
             date = "NO_DATE"
         }
-        if (!title) {
+        if (!title && !this.pConf.selectors?.acceptNoTitle) {
             if ((date && date !== "NO_DATE") || subtitle) {
                 if ((gConfigs.debugVerbosity || 0) > 9)
                     throw new Error("Title not found")
@@ -771,6 +837,7 @@ export abstract class clsScrapper {
             }
             return result
         }
+
         result.article = { date }
         if (result.article) {
             if (aboveTitle) result.article.aboveTitle = aboveTitle
@@ -778,6 +845,7 @@ export abstract class clsScrapper {
             if (subtitle) result.article.subtitle = subtitle
             if (summary && summary !== subtitle) result.article.summary = summary
             if (content.texts.length) result.article.content = content.texts
+            if (qas?.length) result.article.qa = qas
             if (tags && tags.length) result.article.tags = tags
             if (comments?.length) result.article.comments = comments
             if (content.images.length) {
@@ -814,13 +882,13 @@ export abstract class clsScrapper {
             return false
 
         const invalidStartPaths = [
-            "/print/", "/fa/print/", "/printmail/", 
+            "/print/", "/fa/print/", "/printmail/",
             "/print?", "/fa/print?", "/printmail?",
             "/newspart-print", "/print-content", "/printnews",
             "/upload/", "/fa/upload/", "/fa/download/", "/download/", "/files/", "/img/",
             "/redirect/",
             "/redirect?",
-            "/fa/rss/", "/rss/", 
+            "/fa/rss/", "/rss/",
             "/fa/rss?", "/rss?",
             "/fa/ads/", "/ads/",
             "/save", "/fa/save",
@@ -874,13 +942,12 @@ export abstract class clsScrapper {
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
         let hostname = url.hostname
-        if (effective.removeWWW) {
-            if (hostname.startsWith("www."))
-                hostname = hostname.substring(4)
-        } else {
-            if (!hostname.startsWith("www.") && hostname.split(".").length === 2)
-                hostname = "www." + hostname
-        }
+        const hostnameParts = hostname.split(".")
+        if (hostnameParts[0] === 'www' && (effective.removeWWW || hostnameParts.length > 3))
+            hostname = hostname.substring(4)
+        else if (effective.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
+            hostname = "www." + hostname
+
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 

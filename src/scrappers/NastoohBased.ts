@@ -67,13 +67,13 @@ export class hamshahrionline extends clsNastoohBased {
             || first.includes("TV")
             || second.includes("گزارش")
             || second.includes("تصویری")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("اقتصاد‌ جهان")) return { ...mappedCat, minor: enuMinorCategory.Economy, subminor: enuSubMinorCategory.Intl }
+        else if (second.startsWith("اقتصاد‌ جهان")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
         else if (second.startsWith("فوتبال جهان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
         else if (first.includes("جهان") || second.includes("خارجی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (second.startsWith("دفاع")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
         else if (second.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
         else if (cat.includes("سیاس")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("اقتصاد") || first.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصاد") || first.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (first.startsWith("سلامت")
             || second.startsWith("پزشکی")
             || second.startsWith("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Health }
@@ -136,7 +136,7 @@ export class irna extends clsNastoohBased {
             || first.startsWith("چندرسانه‌ای")
         ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
 
-        if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (first.startsWith("جامعه")) {
             mappedCat.minor = enuMinorCategory.Social
             if (second.includes("حوادث")) return { ...mappedCat, subminor: enuSubMinorCategory.Accident }
@@ -169,7 +169,7 @@ export class irna extends clsNastoohBased {
             mappedCat.minor = enuMinorCategory.ScienceTech
             if (second.includes("جعلی") || second.includes("راستی")) mappedCat.minor = enuMinorCategory.Generic
             else if (second.includes("ایران")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
-            else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+            else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
             else if (second.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
             else if (second.includes("بین‌الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
             else if (second.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
@@ -221,7 +221,7 @@ export class mashreghnews extends clsNastoohBased {
         else if (cat.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (cat.startsWith("اقتصاد")
             || cat.startsWith("بازار")
-            || cat.startsWith("بورس")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+            || cat.startsWith("بورس")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.startsWith("عکس") || cat.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (cat.startsWith("جهان") || cat.startsWith("تحولات منطقه") || cat.startsWith("انتخابات امریکا")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.startsWith("محور مقاومت")) return { ...mappedCat, minor: enuMinorCategory.Political }
@@ -300,7 +300,7 @@ export class mehrnews extends clsNastoohBased {
         else if (second.startsWith("گپ")) return { ...mappedCat, minor: enuMinorCategory.Talk }
         else if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
         else if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (cat.includes("اقتصاد") || cat.includes("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
         else if (second.startsWith("سیاست خارجی") || cat.includes("بین") || cat.includes("دنیا")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
         else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
@@ -340,7 +340,7 @@ export class imna extends clsNastoohBased {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (first.startsWith("عکس") || first.startsWith("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (first.startsWith("جامعه")) {
             mappedCat.minor = enuMinorCategory.Social
             if (second.includes("حوادث")) return { ...mappedCat, subminor: enuSubMinorCategory.Accident }
@@ -403,7 +403,7 @@ export class chtn extends clsNastoohBased {
     constructor() {
         super(enuDomains.chtn, "chtn.ir", {
             selectors: {
-                article: ".main-content, #photo"
+                article: "#mainbody .main-content.col-lg-6, #photo"
             },
             url: {
                 extraInvalidStartPaths: ["/d/"]
@@ -421,7 +421,7 @@ export class chtn extends clsNastoohBased {
         if (second.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (second.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (second.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        else if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (second.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         else if (second.startsWith("گردشگری")) return { ...mappedCat, subminor: enuMinorCategory.Tourism }
 
@@ -741,7 +741,7 @@ export class saat24 extends clsNastoohBased {
         const catParts = cat.split('/')
         const second = catParts.length > 1 ? catParts[1] : ''
 
-        if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economy }
+        if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (second.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (second.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (second.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
