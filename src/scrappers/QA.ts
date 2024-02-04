@@ -181,3 +181,40 @@ export class pasokhgoo extends clsScrapper {
       })
     }
 }
+
+export class islamquest extends clsScrapper {
+    constructor() {
+      super(enuDomains.islamquest, "islamquest.net", {
+        basePath: "/fa",
+        selectors: {
+          article: ".question-details, #quran-big-page",
+          title: ".main-question, .sure-title",
+          datetime: {
+            conatiner: ".last-up span.item",
+            acceptNoDate: true
+          },
+          content: {
+            main: ".quran-text, .translate-text, .tafsir-text",
+            qa: {
+                containers: ".question-main",
+                q: {
+                    container: ".full-question, .short-question",
+                    text: "#A2_1, #A1_1",
+                },
+                a: {
+                    container: ".short-answer",
+                    text: '#A3_1'
+                }
+            }
+          },
+          category: {
+            selector: ".category a"
+          },
+          tags: ".tags a",
+        },
+        url: {
+          extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
+        }
+      })
+    }
+  }
