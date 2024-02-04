@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -45,7 +45,7 @@ export class persiantools extends clsXenForoBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -72,7 +72,7 @@ export class majidonline extends clsXenForoBased {
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
   }
 }
 
@@ -82,6 +82,6 @@ export class bazicenter extends clsXenForoBased {
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
+    return {textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }

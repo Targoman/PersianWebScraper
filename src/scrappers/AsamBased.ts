@@ -512,7 +512,7 @@ export class khabarfoori extends clsAsamBased {
             }
         })
     }
-    //from parent mapCategoryImpl(cat?: string): IntfMappedCatgory 
+    //super.mapCategoryImpl(cat?: string)
 }
 
 /***********************************************************/
@@ -905,7 +905,7 @@ export class etemadonline extends clsAsamBased {
             }
         })
     }
-    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+    protected normalizeCategoryImpl(cat: string | undefined): string | undefined {
         return cat?.replace(/^خانه\//, "").trim()
     }
 }

@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -63,7 +63,7 @@ export class webhostingtalk extends clsVBulletinBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -81,7 +81,7 @@ export class barnamenevis extends clsVBulletinBased {
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
 
@@ -91,7 +91,7 @@ export class p30world extends clsVBulletinBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -122,7 +122,7 @@ export class tarfandestan extends clsVBulletinBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -148,8 +148,8 @@ export class boursy extends clsVBulletinBased {
   }
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     void cat, first, second
-    if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
-    return { major: enuMajorCategory.Weblog, minor:enuMinorCategory.Economics }
+    if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
+    return {textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor:enuMinorCategory.Economics }
   }
 
 }
@@ -175,7 +175,7 @@ export class soft98 extends clsVBulletinBased {
     })
   }
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
 
@@ -193,7 +193,7 @@ export class sakhtafzarmag extends clsVBulletinBased {
     })
   }
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Hardware }
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Hardware }
   }
 }
 
@@ -221,7 +221,7 @@ export class joomlafarsi extends clsVBulletinBased {
     })
   }
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
 
@@ -234,7 +234,7 @@ export class moshaver extends clsVBulletinBased {
     })
   }
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -257,7 +257,7 @@ export class oghyanos extends clsVBulletinBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
+    const mappedCat: IntfMappedCategory = {textType: enuTextType.Informal, major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     void cat, first, second
 

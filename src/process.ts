@@ -271,7 +271,7 @@ const app = command({
             }
 
             if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
-                doc.category = scrapper.mapCategory(typeof docCategory === 'string' ? docCategory : doc.category['original'], doc['tags']);
+                doc.category = scrapper.mapCategory(typeof docCategory === 'string' ? docCategory : doc.category['original'], doc.url);
                 if (typeof docCategory === 'string')
                     doc.category['original'] = docCategory;
                 anythingChanged = true
@@ -295,13 +295,12 @@ const app = command({
                         if (index === 0) return
                         const parts = line.split(",")
                         if (parts.length > 14) {
-                            const cat = scrapper.mapCategory(parts[1]);
+                            const cat = scrapper.mapCategory(parts[1], doc['url']);
                             const outStr = parts.slice(0, 14).join(",") + "," + cat.major + "," + cat.minor + "," + cat.subminor + "," + parts[17]
                             appendFileSync(outPath, outStr + "\n")
                             console.log({ org: parts[1], cat })
                         }
                     })
-
 
                 }, true)
                 log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
@@ -441,7 +440,7 @@ const app = command({
                         const domain = scrapper.name();
                         const docCategory = !doc.category ? "undefined" : doc.category;
                         if (typeof docCategory === 'string') {
-                            doc.category = scrapper.mapCategory(docCategory);
+                            doc.category = scrapper.mapCategory(docCategory, doc.url);
                             doc.category['original'] = docCategory;
                         }
 

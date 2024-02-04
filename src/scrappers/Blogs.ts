@@ -708,10 +708,10 @@ export class snappfood extends clsScrapper {
             }
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle }
         if (!category) return mappedCat
-        void first, second, tags
+        void first, second
 
         if (first.startsWith("آموزش آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (first.startsWith("تهیه انواع ترشی و شور")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
@@ -776,10 +776,10 @@ export class nobitex extends clsScrapper {
         })
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.CryptoCurrency }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("آموزش")) return { ...mappedCat, subminor: enuMinorCategory.Education }
         if (first.startsWith("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
         return mappedCat
@@ -818,10 +818,10 @@ export class snappmarket extends clsScrapper {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^خانه\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (first.startsWith("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
@@ -889,10 +889,10 @@ export class namava extends clsScrapper {
             }
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("اخبار") || first.startsWith("خبر")) return { ...mappedCat, major: enuMajorCategory.News }
         if (first.startsWith("چهره ها")) return { ...mappedCat, subminor: enuSubMinorCategory.Celebrities }
         if (first.startsWith("مد و دکوراسیون")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
@@ -1229,10 +1229,10 @@ export class okala extends clsScrapper {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^خانه\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (first.startsWith("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
@@ -1267,10 +1267,10 @@ export class faradars extends clsScrapper {
             }
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("اخبار")) return { ...mappedCat, major: enuMajorCategory.News }
         if (first.startsWith("ارز دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.CryptoCurrency, subminor: enuMinorCategory.Education }
         if (first.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Education }
@@ -1310,10 +1310,10 @@ export class kalleh extends clsScrapper {
             },
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (first.startsWith("دستورپخت")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         return mappedCat
     }
@@ -1439,7 +1439,7 @@ export class filimoshot extends clsScrapper {
             },
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(): IntfMappedCategory {
         return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
@@ -1501,9 +1501,9 @@ export class maktabkhooneh extends clsScrapper {
             }
         })
     }
-    public mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    public mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
-        void first, second, category, tags
+        void category, first, second
         if (first.startsWith("هوش مصنوعی")) return { ...mappedCat, subminor: enuSubMinorCategory.AI }
         if (first.startsWith("هنر")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
         if (first.startsWith("C ، C++ و C#")
@@ -1736,9 +1736,9 @@ export class iranicard extends clsScrapper {
             },
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Economics }
-        void category, first, second, tags
+        void category, first, second
 
         if (first.includes("ارز دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.CryptoCurrency }
         if (first.includes("کریپتو")) return { ...mappedCat, minor: enuMinorCategory.CryptoCurrency }
@@ -1837,9 +1837,9 @@ export class ponisha extends clsScrapper {
             },
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
-        void category, first, second, tags
+        void category, first, second
 
         if (first.includes("برنامه نویسی")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
         if (first.includes("عکاسی و ویدیو")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
@@ -3305,7 +3305,8 @@ export class zhaket extends clsScrapper {
             },
         })
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        void category,first,second
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
         if (first.startsWith("اخبار")) return { ...mappedCat, major: enuMajorCategory.News }
         if (first.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -4342,10 +4343,10 @@ export class karlancer extends clsScrapper {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^خانه\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
         if (!category) return mappedCat
-        void first, second, tags
+        void category, first, second
         if (category.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (category.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (category.includes("شبکه")) return { ...mappedCat, minor: enuMinorCategory.IT }
@@ -4523,9 +4524,9 @@ export class mizbanfa extends clsScrapper {
 
         return cat
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.SEO }
-        void category, first, second, tags
+        void category, first, second
 
         if (category?.includes("آموزش")) return { ...mappedCat, subminor: enuMinorCategory.Education }
         if (category?.includes("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
@@ -4567,9 +4568,9 @@ export class jadvalyab extends clsScrapper {
         return cat?.replace(/^خانه\//, "").trim()
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Generic }
-        void category, first, second, tags
+        void category, first, second
 
         if (category?.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (category?.includes("تاریخی")) return { ...mappedCat, minor: enuMinorCategory.Historical }
@@ -4641,8 +4642,8 @@ export class ghafaridiet extends clsScrapper {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^مقالات\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
-        void category, first, second, tags
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        void category, first, second
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health }
         if (category?.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (category?.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Medical }
@@ -4797,9 +4798,9 @@ export class sheypoor extends clsScrapper {
         return cat?.replace(/^خانه\//, "").trim()
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
-        void category, first, second, tags
+        void category, first, second
 
         if (category?.includes("خودرو")) return { ...mappedCat, subminor: enuSubMinorCategory.Car }
         if (category?.includes("دنیای دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
@@ -5150,9 +5151,9 @@ export class rahatblog extends clsScrapper {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.split("/").at(0)?.trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat = { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
-        void category, first, second, tags
+        void category, first, second
         if (category?.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         if (category?.includes(" سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (category?.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }

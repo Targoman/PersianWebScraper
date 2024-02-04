@@ -929,9 +929,9 @@ export class shahraranews extends clsIransamaneh {
         })
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
-        void category, first, second, tags
+        void category, first, second
 
         if (first.includes("افغانستان")) return { ...mappedCat, subminor: enuSubMinorCategory.Intl }
         if (first.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -1207,7 +1207,7 @@ export class aghigh extends clsIransamaneh {
         if (!cat) return mappedCat
         void cat, first, second
 
-        if (first.startsWith("خانه")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
+        if (first.startsWith("خانه")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
         if (first.startsWith("گفت‌و‌گو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
         if (first.startsWith("سرویس صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (first.startsWith("گزارش تصویری")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -1217,12 +1217,12 @@ export class aghigh extends clsIransamaneh {
         if (second.endsWith("مذهبی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
         if (second.startsWith("اخبار")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (second.startsWith("تیتر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        if (second.startsWith("نقد شعر")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
-        if (second.startsWith("شعر جوان")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
-        if (second.startsWith("مداحی")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
-        if (second.startsWith("شب های دلتنگی")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
-        if (second.startsWith("حرف دل")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
-        if (first.startsWith("شعر آیینی")) return {...mappedCat,  major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+        if (second.startsWith("نقد شعر")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+        if (second.startsWith("شعر جوان")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        if (second.startsWith("مداحی")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        if (second.startsWith("شب های دلتنگی")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        if (second.startsWith("حرف دل")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        if (first.startsWith("شعر آیینی")) return { ...mappedCat, major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
 
         return mappedCat
     }
@@ -1591,9 +1591,9 @@ export class tabnakbato extends clsIransamaneh {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
-        void category, first, second, tags
+        void category, first, second
         if (first.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (first.includes("چهره‌ها")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Celebrities }
         if (first.includes("چیدمان و هنر")
@@ -1671,7 +1671,7 @@ export class sabakhabar extends clsIransamaneh {
             },
         })
     }
-    public mapCategory(): IntfMappedCategory {
+    public mapCategoryImpl(): IntfMappedCategory {
         return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
     }
 }
@@ -1723,9 +1723,9 @@ export class titre20 extends clsIransamaneh {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
-        void category, first, second, tags
+        void category, first, second
         if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (first.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (first.startsWith("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -1769,9 +1769,9 @@ export class khabaredagh extends clsIransamaneh {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
-        void category, first, second, tags
+        void category, first, second
 
         if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (first.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -2001,9 +2001,9 @@ export class tabnakjavan extends clsIransamaneh {
         })
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
-        void category, first, second, tags
+        void category, first, second
         if (first.includes("چند رسانه ای")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (second.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (second.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
@@ -2627,7 +2627,7 @@ export class sadohejdahsafar extends clsIransamaneh {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+    protected mapCategoryImpl(): IntfMappedCategory {
         return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
     }
 }
@@ -2653,7 +2653,7 @@ export class hakimemehr extends clsIransamaneh {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+    protected mapCategoryImpl(): IntfMappedCategory {
         return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Medical }
     }
 }
@@ -2706,7 +2706,7 @@ export class hourgan extends clsIransamaneh {
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         return cat?.replace(/^صفحه نخست\//, "").trim()
     }
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+    protected mapCategoryImpl(): IntfMappedCategory {
         return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }

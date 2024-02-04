@@ -376,9 +376,9 @@ export class noozdahkala extends clsScrapper {
   protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
     return cat?.replace(/^فروشگاه اینترنتی 19کالا\//, "").trim()
   }
-  protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+  protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.ICT }
-    void category, first, second, tags
+    void category, first, second
     if (first.includes("کامپیوتر")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
     if (first.includes("جانبی")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
     if (first.includes("تجهیزات")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }

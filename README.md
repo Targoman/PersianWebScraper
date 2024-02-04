@@ -289,12 +289,12 @@ protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string
 
 - A method to normalize original category string
 ```
-public normalizeCategoryImpl(category?: string, catFirstPart? :string, catSecondPart?: string, tags?: string[]): IntfMappedCatgory 
+public normalizeCategoryImpl(cat: string | undefined): string | undefined 
 ```
 
 - A method to convert category string into predefined categories and subcategories
 ```
-public mapCategoryImpl(category?: string, catFirstPart? :string, catSecondPart?: string, tags?: string[]): IntfMappedCatgory 
+public mapCategoryImpl(category: string|undefined, catFirstPart :string, catSecondPart: string, url: string): IntfMappedCatgory 
 ```
 
 

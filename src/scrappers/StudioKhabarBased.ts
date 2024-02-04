@@ -48,7 +48,7 @@ class clsStudioKhabarBased extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -104,6 +104,7 @@ export class jahannews extends clsStudioKhabarBased {
 
         return url.protocol + "//" + url.hostname + path
     }
+    //super.mapCategoryImpl(cat?: string)
 }
 
 
@@ -134,7 +135,6 @@ export class baharnews extends clsStudioKhabarBased {
 
         return url.protocol + "//" + url.hostname + path
     }
-
-
+    //super.mapCategoryImpl(cat?: string)
 }
 

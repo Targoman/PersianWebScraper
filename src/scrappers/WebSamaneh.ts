@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -29,7 +29,7 @@ class clsWebSmanehBased extends clsScrapper {
                     startIndex: 1,
                 }
             },
-            url:{
+            url: {
                 removeWWW: true
             }
         }
@@ -42,6 +42,10 @@ class clsWebSmanehBased extends clsScrapper {
 export class ictnews extends clsWebSmanehBased {
     constructor() {
         super(enuDomains.ictnews, "ictnews.ir")
+    }
+
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
     }
 }
 

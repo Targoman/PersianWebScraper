@@ -63,7 +63,7 @@ export abstract class clsScrapper {
 
     async check(url: string) {
         const page = await this.getPageContent(url)
-        const category = this.mapCategory(page.category, page.article?.tags)
+        const category = this.mapCategory(page.category, page.url)
 
         log.info({ ...page, category })
     }
@@ -479,7 +479,7 @@ export abstract class clsScrapper {
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
-                        const category = this.mapCategory(page.category, page.article.tags)
+                        const category = this.mapCategory(page.category, page.url)
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
@@ -972,12 +972,12 @@ export abstract class clsScrapper {
         return cat
     }
 
-    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[]): IntfMappedCategory {
-        void category, first, second, tags
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, url: string): IntfMappedCategory {
+        void category, first, second, url
         return { textType: enuTextType.Unk, major: enuMajorCategory.Undefined, original: category || "N/A" }
     }
 
-    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
+    public mapCategory(category: string | undefined, url: string): IntfMappedCategory {
         category = this.normalizeCategoryImpl(this.baseNormalizeCategory(category))
         let catFirstPart = "", catSecondPart = ""
         if (category) {
@@ -987,6 +987,6 @@ export abstract class clsScrapper {
             catSecondPart = (catParts.length > 1 ? catParts[1] : '').trim()
         }
 
-        return { original: category, ...this.mapCategoryImpl(category, catFirstPart, catSecondPart, tags) }
+        return { original: category, ...this.mapCategoryImpl(category, catFirstPart, catSecondPart, url) }
     }
 }

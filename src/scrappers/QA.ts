@@ -668,9 +668,9 @@ export class doctoryab extends clsScrapper {
 
     protected mapCategoryImpl(cat?: string): IntfMappedCategory {
         if (cat?.toLowerCase() === "undefined")
-            return { textType: enuTextType.Hybrid, major: enuMajorCategory.QA, minor: enuMinorCategory.Health }
+            return { textType: enuTextType.Hybrid, major: enuMajorCategory.QA, minor: enuMinorCategory.Medical }
         else
-            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health }
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     }
 }
 
@@ -712,6 +712,7 @@ export class adleiranian extends clsScrapper {
         })
     }
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        void cat, first, second
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
         if (first.includes("عدل"))
             return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
@@ -795,9 +796,12 @@ export class dadvarzyar extends clsScrapper {
             },
         })
     }
-    /*mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
-}*/
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.includes("پرسش"))
+            return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+        else
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+    }
 }
 
 export class ksymg extends clsScrapper {
@@ -832,6 +836,17 @@ export class ksymg extends clsScrapper {
                 },
             },
         })
+    }
+
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^صفحه نخست\//, "").trim()
+    }
+
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.includes("سوال"))
+            return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+        else
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
     }
 }
 
@@ -870,6 +885,12 @@ export class hisalamat extends clsScrapper {
             },
         })
     }
+    mapCategoryImpl(cat: string | undefined, url: string): IntfMappedCategory {
+        if (url.includes("/ques/"))
+            return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
+        else
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+    }
 }
 
 export class drhast extends clsScrapper {
@@ -899,7 +920,7 @@ export class drhast extends clsScrapper {
         })
     }
     protected mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Medical }
+        return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Medical }
     }
 }
 
@@ -933,6 +954,9 @@ export class adlpors extends clsScrapper {
             },
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+    }
 }
 
 export class soja extends clsScrapper {
@@ -965,6 +989,17 @@ export class soja extends clsScrapper {
                 }
             },
         })
+    }
+
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^سوال و جواب\/گروه بندی\//, "").trim()
+    }
+
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.toLowerCase() === "undefined")
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+        else
+            return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Medical }
     }
 }
 
@@ -1006,5 +1041,16 @@ export class haal extends clsScrapper {
                 }
             },
         })
+    }
+
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^مجله سلامت\//, "").trim()
+    }
+
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.toLowerCase() === "undefined")
+            return { textType: enuTextType.Informal, major: enuMajorCategory.QA, minor: enuMinorCategory.Medical }
+        else
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     }
 }
