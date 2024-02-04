@@ -462,6 +462,16 @@ export abstract class clsScrapper {
             page.article?.content?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.comments?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.images?.forEach(c => (wc += c.alt ? c.alt.split(" ").length : 0))
+            page.article?.qa?.forEach(c => {
+                wc += c.q.text.split(" ").length
+                c.a?.forEach(a => (wc += a.text.split(" ").length))
+            })
+
+            if (wc === 0) {
+                log.file(this.domain, "No content found on: ", page.url)
+                return
+            }
+
             log.progress(`storing: ${id}:${page.url} -> {body: ${page.article?.content?.length}, comments: ${page.article?.comments?.length},  wc: ${wc}, links: ${page.links.length}}`)
             page.links.forEach((link: string) => this.db.addToMustFetch(link))
             if (id) {
@@ -481,8 +491,6 @@ export abstract class clsScrapper {
                         log.debug("content stored in: " + filePath + "/" + Md5.hashStr(page.url))
                     } else
                         this.db.setStatus(id, enuURLStatus.Finished)
-                    if (page.article?.content?.length === 0)
-                        log.file(this.domain, "No content found on: ", page.url)
                 } catch (e) {
                     console.error(e)
                     throw e
@@ -801,7 +809,6 @@ export abstract class clsScrapper {
             else throw new Error("Invalid date: " + date)
         }
 
-
         if (!date) {
             if ((title || subtitle)) {
                 log.debug({ txt: datetimeElement?.innerText, article: article.innerHTML.substring(0, 10000) })
@@ -821,6 +828,7 @@ export abstract class clsScrapper {
             }
             return result
         }
+
         result.article = { date }
         if (result.article) {
             if (aboveTitle) result.article.aboveTitle = aboveTitle
