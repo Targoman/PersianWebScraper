@@ -1223,5 +1223,13 @@ yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/%D9%85%D8%B4
 yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
 yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
 
+yarn dev && yarn start nazaratshora
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=5R/R8tp/ttE=&TN=l7tLyhyOobj0SooAFUE3m9d5XYGi044i6e4f+1NCQCI=&MN=csaqpt/F9Oo=&id=El3wsWvyRw8=&tablename02=l7tLyhyOobj0SooAFUE3m68PnpG7MruN
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=dNIZx9wvxnU=&TN=/XG7FYxY/yd2hSO3SoFiUAsWSQGkNzoB5OZg5UTstWY=&MN=csaqpt/F9Oo=&id=omNGZ/2eR/w=&tablename02=/XG7FYxY/yd2hSO3SoFiUBDhmJI8yPJ0
+
+yarn dev && yarn start vindad 
+yarn dev && yarn start vindad -u https://vindad.com/questions/روش-خروج-مدرک-تحصیلی-از-34/
+yarn dev && yarn start vindad -u https://vindad.com/blog/قرارداد-مدیر-بازرگانی/
+
 https://motamem.org/
 /**/

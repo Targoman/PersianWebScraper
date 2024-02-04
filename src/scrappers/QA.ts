@@ -180,6 +180,10 @@ export class pasokhgoo extends clsScrapper {
         },
       })
     }
+
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
+    }
 }
 
 export class islamquest extends clsScrapper {
@@ -217,4 +221,47 @@ export class islamquest extends clsScrapper {
         }
       })
     }
-  }
+
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
+    }
+}
+
+export class vindad extends clsScrapper {
+    constructor() {
+        super(enuDomains.vindad, "vindad.com", {
+            selectors: {
+                article: ".qaFormArea, body.single-post",
+                title: "h1 a, h1",
+                datetime: {
+                    conatiner: ".elementor-post-info__item--type-custom",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#articleContent"),
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("div.col-lg-8"),
+                        q: {
+                            container: "section > div .qaFormArea ",
+                            author: ".faq__header .faq__name h2",
+                            text: ".pt-2",
+                        },
+                        a: {
+                            container: "div .mx-3.mx-lg-5",
+                            text: ".pt-2",
+                            author: ".faq__header .faq__name h2",
+                        },
+                    },
+                    ignoreNodeClasses: ["lwptoc"]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelectorAll("li.breadcrumb-item a span, .elementor-post-info__terms-list a"),
+                }
+            },
+        })
+    }
+
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+    }
+}

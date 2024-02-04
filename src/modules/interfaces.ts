@@ -353,6 +353,7 @@ export enum enuDomains {
     vananews = "vananews",
     varzesh3 = "varzesh3",
     virgool = "virgool",
+    vindad = "vindad",
     watereng = "watereng",
     webhostingtalk = "webhostingtalk",
     webkima = "webkima",
