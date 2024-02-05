@@ -1240,5 +1240,9 @@ yarn dev && yarn start vakiltik
 yarn dev && yarn start vakiltik -u https://www.vakiltik.com/Home/LegalQADetail?id=84373
 yarn dev && yarn start vakiltik -u https://blog.vakiltik.com/وکیل-تیک،-گزینه%e2%80%8cی-اقتصادی،-راحت-و-سری/
 
+yarn dev && yarn start getzoop
+yarn dev && yarn start getzoop -u https://getzoop.com/question/75547
+yarn dev && yarn start getzoop -u https://getzoop.com/علائم-حواس--پرتی
+
 https://motamem.org/
 /**/

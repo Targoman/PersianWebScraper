@@ -341,3 +341,36 @@ export class vakiltik extends clsScrapper {
         })
     }
 }
+
+export class getzoop extends clsScrapper {
+    constructor() {
+        super(enuDomains.getzoop, "getzoop.com", {
+            selectors: {
+                article: ".col-xs-12.col-xs-padding_none, .article_page_content",
+                title: "#question-title-span2, h1",
+                datetime: {
+                    conatiner: "time",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".all_text_art, .default_pic_article",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".col-xs-12.col-xs-padding_none"),
+                        q: {
+                            container: ".question-body-right",
+                            text: ".question-text",
+                        },
+                        a: {
+                            container: ".answers-of-question div .col-lg-10 .DivAllJavabeDr, .answers-of-question .col-lg-10 div .name-and-content",
+                            text: "p.responder-answer-content, span.asker-answer-content",
+                            author: "span.responder-name",
+                        },
+                    },
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a")
+                },
+            },
+        })
+    }
+}
