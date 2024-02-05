@@ -1231,5 +1231,10 @@ yarn dev && yarn start vindad
 yarn dev && yarn start vindad -u https://vindad.com/questions/روش-خروج-مدرک-تحصیلی-از-34/
 yarn dev && yarn start vindad -u https://vindad.com/blog/قرارداد-مدیر-بازرگانی/
 
+yarn dev && yarn start dadrah 
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/consulting-paper.php?requestID=1961
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/danesh/قرارداد-اجاره-و-روابط-موجر-و-مستاجر/
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/5ff044bb1b80e/blog/696-همه-چیز-درباره-دستور-تخلیه-فوری
+
 https://motamem.org/
 /**/

@@ -260,8 +260,42 @@ export class vindad extends clsScrapper {
             },
         })
     }
+}
 
-    mapCategory(): IntfMappedCategory {
-        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+export class dadrah extends clsScrapper {
+    constructor() {
+        super(enuDomains.dadrah, "dadrah.ir", {
+            selectors: {
+                article: ".media.mediaBlock, body.single-post, #blog.container-fluid.mt-1",
+                title: "h1",
+                datetime: {
+                    conatiner: "div:nth-child(3) .media-body p.text-left span:nth-child(2), .practice-box-wrap .meta ul li:nth-child(4), #date-blog small",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".content, #description-blog, .col-xs-12.col-md-8 img",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".media.mediaBlock"),
+                        q: {
+                            container: ".mediaQuestion",
+                            text: "p",
+                        },
+                        a: {
+                            container: ".media.response .media-body",
+                            text: "p.text-justify",
+                            author: "h4.media-heading a",
+                            datetime: "p.text-left span:nth-child(2)"
+                        },
+                    },
+                },
+                tags: "a.tags, .meta-tags ul li a",
+                category: {
+                    selector: "a.category_link"
+                }
+            },
+            url: {
+                extraInvalidStartPaths: ["/lawyer-information.php", "/lawyer-tag.php", "/lawyer-city.php"]
+            }
+        })
     }
 }
