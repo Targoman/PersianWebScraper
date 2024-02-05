@@ -41,6 +41,8 @@ interface IntfCatStats {
         altWC: number
         commentCount: number
         commentWC: number
+        qaCount: number
+        qaWC: number
     }
 }
 const args = {
@@ -227,6 +229,21 @@ const app = command({
                         return gregorianDate
                     }
 
+                    const normalizeArray = (arr: any) => {
+                        for (let i = 0; i < arr.length; ++i) {
+                            if (typeof arr[i] === "string")
+                                arr[i] = normalize(arr[i])
+                            else
+                                for (const innerKey in arr[i]) {
+                                    if (innerKey === "date")
+                                        arr[i][innerKey] = normalizeDate(arr[i][innerKey])
+                                    else
+                                        arr[i][innerKey] = normalize(arr[i][innerKey])
+                                }
+                        }
+                        return arr
+                    }
+
                     for (const key in doc) {
                         if (key === "category")
                             continue
@@ -234,18 +251,16 @@ const app = command({
                             doc[key] = normalizeDate(doc[key])
                         else if (typeof doc[key] === "string")
                             doc[key] = normalize(doc[key])
-                        else
-                            for (let i = 0; i < doc[key].length; ++i) {
-                                if (typeof doc[key][i] === "string")
-                                    doc[key][i] = normalize(doc[key][i])
-                                else
-                                    for (const innerKey in doc[key][i])
-                                        if (innerKey === "date")
-                                            doc[key][i][innerKey] = normalizeDate(doc[key][i][innerKey])
-                                        else
-                                            doc[key][i][innerKey] = normalize(doc[key][i][innerKey])
+                        else if (key === "qa" && doc["qa"]) {
+                            for (let i = 0; i < doc["qa"].length; ++i) {
+                                doc["qa"][i].q = normalizeArray([doc["qa"][i].q])[0]
+                                if (doc["qa"][i].a)
+                                    normalizeArray(doc["qa"][i].a)
                             }
+                        } else
+                            normalizeArray(doc[key])
                     }
+
 
                     if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
                         doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
@@ -281,7 +296,7 @@ const app = command({
                     let wc = 0
                     const writeStatsFile = () => {
                         if (args.statFile)
-                            writeFileSync(args.statFile, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
+                            writeFileSync(args.statFile, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
                         wc = 0
                         for (const dom in domainCats) {
                             for (const cat in domainCats[dom]) {
@@ -293,9 +308,10 @@ const app = command({
                                     s.summaryWC +
                                     s.titleWC +
                                     s.altWC +
-                                    s.commentWC
+                                    s.commentWC +
+                                    s.qaWC
                                 if (args.statFile)
-                                    appendFileSync(args.statFile, `${dom}, ${cat}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${curCatWC}\n`)
+                                    appendFileSync(args.statFile, `${dom}, ${cat}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${s.qaCount}, ${s.qaWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${curCatWC}\n`)
                                 wc += curCatWC
                             }
                         }
@@ -307,9 +323,15 @@ const app = command({
                         let altWC = 0
                         let commentsWC = 0
                         let commentCount = 0
+                        let qaWC = 0
+                        let qaCount = 0
                         doc.content?.forEach(c => { parCount++; mainWC += wordCount(c.text) })
                         doc.images?.forEach(c => { altWC += c.alt ? wordCount(c.alt) : 0 })
                         doc.comments?.forEach(c => { commentCount++; commentsWC += c.text ? wordCount(c.text) : 0 })
+                        doc.qa?.forEach(qa => {
+                            qaCount++; qaWC += wordCount(qa.q.text)
+                            qa.a?.forEach(a => { qaWC += wordCount(a.text) })
+                        })
 
                         const domain = scrapper.name();
                         const docCategory = !doc.category ? "undefined" : doc.category;
@@ -333,6 +355,7 @@ const app = command({
                                 altWC: 0, docs: 0,
                                 commentCount: 0, commentWC: 0,
                                 titleWC: 0, surtitleWC: 0, subtitleWC: 0, summaryWC: 0,
+                                qaCount: 0, qaWC: 0
                             };
                             if (!domainCats)
                                 domainCats = { [domain]: { [catStr]: initial } };
@@ -341,6 +364,7 @@ const app = command({
                             else
                                 domainCats[domain][catStr] = initial;
                         }
+
                         domainCats[domain][catStr].docs++;
                         domainCats[domain][catStr].mainWC += mainWC;
                         domainCats[domain][catStr].mainParagraphs += parCount;
@@ -352,6 +376,9 @@ const app = command({
                         domainCats[domain][catStr].altWC += altWC;
                         domainCats[domain][catStr].commentCount += commentCount;
                         domainCats[domain][catStr].commentWC += commentsWC;
+                        domainCats[domain][catStr].qaCount += qaCount;
+                        domainCats[domain][catStr].qaWC += qaWC;
+
                         if (processedCount % 1000 === 0) {
                             writeStatsFile();
                             log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(wc)} ----------`);

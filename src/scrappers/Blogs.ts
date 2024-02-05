@@ -73,7 +73,7 @@ export class ninisite extends clsScrapper {
                 }
             },
             url: {
-                extraInvalidStartPaths: ["/user/", "/imen/", ]
+                extraInvalidStartPaths: ["/user/", "/imen/", "/discussion/hashtag"]
             }
         })
     }
@@ -295,7 +295,7 @@ export class romanman extends clsScrapper {
         const second = catParts.length > 1 ? catParts[1] : ''
 
         if (second.startsWith("آرایش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        if (second.startsWith("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        if (second.startsWith("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (second.startsWith("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Health }
         if (second.startsWith("رمان")) return { ...mappedCat, minor: enuMinorCategory.Literature, subminor: enuMinorCategory.Text }
         if (second.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
@@ -4009,7 +4009,7 @@ export class azki extends clsScrapper {
         })
     }
     mapCategory(cat?: string): IntfMappedCategory {
-        if(cat?.includes("خبر")) return  { major: enuMajorCategory.News, minor: enuMinorCategory.Insurance }
+        if (cat?.includes("خبر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Insurance }
         return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Insurance }
     }
 }

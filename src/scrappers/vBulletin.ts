@@ -210,7 +210,7 @@ export class moshaver extends clsVBulletinBased {
     if (second.includes("آموزش")) mappedCat.subminor = enuMinorCategory.Education
     else if (second.includes("پزشکی")) mappedCat.subminor = enuMinorCategory.Health
     else if (second.includes("جنسی")) mappedCat.subminor = enuMinorCategory.Health
-    else if (second.includes("روانشناسی")) mappedCat.subminor = enuMinorCategory.Health
+    else if (second.includes("روانشناسی")) mappedCat.subminor = enuMinorCategory.Psychology
     else if (second.includes("هنر")) mappedCat.subminor = enuMinorCategory.Culture
     return mappedCat
   }

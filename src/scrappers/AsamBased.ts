@@ -175,7 +175,7 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("سلامت")) {
             if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Health; else mappedCat.minor = enuMinorCategory.Health
         } else if (second.includes("آشپزی")) {
-            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Cooking; else mappedCat.minor = enuMinorCategory.LifeStyle
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Cooking; else mappedCat.minor = enuMinorCategory.Cooking
         } else if (second.includes("حوادث")) {
             if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Accident; else mappedCat.minor = enuMinorCategory.Social
         } else if (second.includes("دفاع") || second.includes("نظامی")) {
@@ -351,6 +351,7 @@ export class tasnim extends clsAsamBased {
             },
             url: {
                 extraValidDomains: ["tasnimnews.org", "tasnimnews.com"],
+                extraInvalidStartPaths: ["/Tasnim/Uploaded/Video"]
             },
             preHTMLParse: (html: string) => html.replace(/<a +href="https:\/\/vpn.tasnimnews.org\/ContentManager\/\d+\/https:\/\/www.tasnimnews.com" +target="_blank">/, "")
         })
@@ -493,12 +494,12 @@ export class rokna extends clsAsamBased {
         else if (cat.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         else if (cat.includes("گوناگون")) return { ...mappedCat, minor: enuMinorCategory.Generic }
         else if (cat.includes("حوادث") || cat.includes("حادثه")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("رک پلاس")
             || cat.includes("زندگی")
             || cat.includes("عاطفه")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentry }
+        else if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentary }
         else if (cat.includes("فال") || cat.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
         else if (cat.includes("رپرتاژ")) return { ...mappedCat, minor: enuMinorCategory.Advert }
 
@@ -645,7 +646,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("داستان")) return { ...mappedCat, minor: enuMinorCategory.Literature, subminor: enuMinorCategory.Text }
         if (cat.startsWith("خودشناسی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (cat.startsWith("رابطه")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        if (cat.startsWith("روانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.startsWith("روانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Psychology }
         if (cat.startsWith("زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat.startsWith("زیبایی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat.startsWith("سنتی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }

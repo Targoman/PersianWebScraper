@@ -91,7 +91,7 @@ export class hamshahrionline extends clsNastoohBased {
             || first.startsWith("کودک")
             || first.startsWith("روز هفتم")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         else if (second.startsWith("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        if (cat.includes("آشپزی")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        if (cat.includes("آشپزی")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Cooking }
         else if (first.startsWith("زندگی") || first.startsWith("تندرستی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         else if (cat.includes("شهر")
             || cat.includes("استان")

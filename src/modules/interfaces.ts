@@ -446,6 +446,7 @@ export interface IntfDocFilecontent {
     comments?: IntfComment[]
     images?: IntfImage[],
     tags?: string[],
+    qa?: IntfQAcontainer[]
 }
 
 export enum enuMajorCategory {
@@ -466,6 +467,7 @@ export enum enuMinorCategory {
     Social = "Social",
     Health = "Health",
     Medical = "Medical",
+    Psychology = "psychology",
     Economics = "Economics",
     Culture = "Art&Culture",
     Consultation = "Consultation",
@@ -476,6 +478,7 @@ export enum enuMinorCategory {
     Journalism = "Journalism",
     Undefined = "Undefined",
     Generic = "Generic",
+    Food = "Food",
     Multimedia = "Multimedia",
     Talk = "Talk",
     Discussion = "Discussion",
@@ -500,6 +503,8 @@ export enum enuMinorCategory {
     ICT = "ICT",
     DigitalMarketing = "DigitalMarketing",
     Tourism = "Tourism",
+    Startup = "Startup",
+    Cooking = "Cooking"
 }
 
 export enum enuSubMinorCategory {
@@ -518,6 +523,7 @@ export enum enuSubMinorCategory {
     Energy = "Energy",
     Gadgets = "Gadgets",
     AI = "AI",
+    IOT = "IOT",
     Intl = "Intl",
     Accident = "Accident",
     Art = "Art",
@@ -526,9 +532,9 @@ export enum enuSubMinorCategory {
     Radio = "Radio",
     Book = "Book",
     Celebrities = "Celebrities",
-    Cooking = "Cooking",
     Cinema = "Cinema",
-    Documentry = "Documentry",
+    Photo = "Photo",
+    Documentary = "Documentary",
     Music = "Music",
     Media = "Media",
     Theatre = "Theatre",
@@ -598,7 +604,7 @@ export interface IntfProcessorConfigs {
         article?: string | IntfSelectorFunction,
         aboveTitle?: string | IntfSelectorFunction,
         title?: string | IntfSelectorFunction,
-        acceptNoTitle? : boolean
+        acceptNoTitle?: boolean
         subtitle?: string | IntfSelectorFunction,
         summary?: string | IntfSelectorFunction,
         content?: {
@@ -628,7 +634,7 @@ export interface IntfProcessorConfigs {
             lastIndex?: number
         }
     },
-    api? : {(url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent>},
+    api?: { (url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent> },
     url?: IntfURLNormaliziztionConf
     basePath?: string
     preHTMLParse?: (html: string) => string

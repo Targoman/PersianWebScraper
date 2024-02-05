@@ -629,7 +629,7 @@ export class namnak extends clsScrapper {
         else if (cat.includes("جامعه") || first.startsWith("خانواده")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (cat.includes("اقتصاد") || cat.includes("استخدام")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (cat.includes("سلامت") || cat.includes("بارداری")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.startsWith("آشپز")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.startsWith("آشپز")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("تناسب") || cat.includes("دنیای مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         else if (cat.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
         else if (cat.includes("دین")) return { ...mappedCat, minor: enuMinorCategory.Religious }
@@ -666,6 +666,7 @@ export class beytoote extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
         if (!cat) return mappedCat
 
+        if (cat.includes("روانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Psychology }
         if (cat.includes("پزشکی")
             || cat.includes("ایدز")
             || cat.includes("دارویی")
@@ -676,7 +677,6 @@ export class beytoote extends clsScrapper {
             || cat.includes("بیماری")
             || cat.includes("درمان")
             || cat.includes("بیماری")
-            || cat.includes("روانشناسی")
             || cat.includes("سالم")
             || cat.includes("تغذیه")
             || cat.includes("جنسی")
@@ -684,11 +684,6 @@ export class beytoote extends clsScrapper {
             || cat.includes("سلامت")
             || cat.includes("رژیمی")
             || cat.includes("کالری")
-            || cat.includes("تغذیه")
-            || cat.includes("تغذیه")
-            || cat.includes("تغذیه")
-            || cat.includes("تغذیه")
-            || cat.includes("تغذیه")
             || cat.includes("تغذیه")
         ) return { ...mappedCat, minor: enuMinorCategory.Health }
         else if (cat.includes("علمی و آموزشی")) return { ...mappedCat, minor: enuMinorCategory.Education }
@@ -699,7 +694,7 @@ export class beytoote extends clsScrapper {
             || cat.includes("شیرینی")
             || cat.includes("ترشیجات")
             || cat.includes("آشپزی")
-        ) return { ...mappedCat, subminor: enuSubMinorCategory.Cooking }
+        ) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.startsWith("ابزار")
             || cat.includes("تکنولوژی")
             || cat.includes("اختراعات")
