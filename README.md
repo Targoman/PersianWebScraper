@@ -117,6 +117,10 @@ PersianWebScrapper scrapes whole contents of the target site in order to find al
                                 //{ text: string, author?: string, date?: string }
     images?: IntfImage[],       //List of image URLs used in the article with their alt-texts.
                                 //{ src: string, alt?: string }
+    qa? : {                     //If the site has Question/Answer structure itmes will be stored in this schema
+        q: IntfComment,         //Question part { text: string, author?: string, date?: string }
+        a?: IntfComment[]       //Answers part 
+    }[],
     tags?: string[],            //List of tags provided with the article
 }
 ```

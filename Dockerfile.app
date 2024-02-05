@@ -1,14 +1,8 @@
-FROM node:current-alpine as builder
-RUN apk add --no-cache python3 g++ make
-
+ARG BUILDER_IMAGE
+FROM $BUILDER_IMAGE as builder
 WORKDIR /usr/src/app
-COPY ["./package.json",  "./yarn.lock", "./.eslintrc.js", "./tsconfig.json", "/usr/src/app/"]
-RUN yarn install --frozen-lockfile
 COPY ./src /usr/src/app/src/
 RUN ls -l && yarn dev
-
-#RUN npm i && npm cache clean --force
-#COPY .build/ .build
 
 FROM node:current-alpine
 WORKDIR /usr/src/app
