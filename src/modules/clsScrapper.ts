@@ -116,6 +116,8 @@ export abstract class clsScrapper {
     private tagName2Type(tagName: string) {
         switch (tagName) {
             case 'P': return enuTextType.paragraph
+            case 'P-Q': return enuTextType.pq
+            case 'P-A': return enuTextType.pa
             case 'H1': return enuTextType.h1
             case 'H2': return enuTextType.h2
             case 'H3': return enuTextType.h3
@@ -952,6 +954,8 @@ export abstract class clsScrapper {
             if (validPathsToNormalize?.includes(pathParts[pathToCheckIndex]))
                 path = `${pathParts.slice(0, pathToCheckIndex + 1).join("/")}/${pathParts[pathToCheckIndex + 1]}`
         }
+        if(this.pConf.url?.http)
+            return  "http://" + hostname + path + url.search
         return url.protocol + "//" + hostname + path + url.search
     }
 

@@ -1223,5 +1223,30 @@ yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/%D9%85%D8%B4
 yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/مواردی-از-حقوق-قانونی-متهم/
 yarn dev && yarn start bonyadvokala -u https://www.bonyadvokala.com/blog/چگونه-ویزای-همراه-فرانسه-بگیرم/
 
+yarn dev && yarn start nazaratshora
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=5R/R8tp/ttE=&TN=l7tLyhyOobj0SooAFUE3m9d5XYGi044i6e4f+1NCQCI=&MN=csaqpt/F9Oo=&id=El3wsWvyRw8=&tablename02=l7tLyhyOobj0SooAFUE3m68PnpG7MruN
+yarn dev && yarn start nazaratshora -u http://nazarat.shora-rc.ir/Forms/frmMatn.aspx?id00=dNIZx9wvxnU=&TN=/XG7FYxY/yd2hSO3SoFiUAsWSQGkNzoB5OZg5UTstWY=&MN=csaqpt/F9Oo=&id=omNGZ/2eR/w=&tablename02=/XG7FYxY/yd2hSO3SoFiUBDhmJI8yPJ0
+
+yarn dev && yarn start vindad 
+yarn dev && yarn start vindad -u https://vindad.com/questions/روش-خروج-مدرک-تحصیلی-از-34/
+yarn dev && yarn start vindad -u https://vindad.com/blog/قرارداد-مدیر-بازرگانی/
+
+yarn dev && yarn start dadrah 
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/consulting-paper.php?requestID=1961
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/danesh/قرارداد-اجاره-و-روابط-موجر-و-مستاجر/
+yarn dev && yarn start dadrah -u https://www.dadrah.ir/5ff044bb1b80e/blog/696-همه-چیز-درباره-دستور-تخلیه-فوری
+
+yarn dev && yarn start vakiltik 
+yarn dev && yarn start vakiltik -u https://www.vakiltik.com/Home/LegalQADetail?id=84373
+yarn dev && yarn start vakiltik -u https://blog.vakiltik.com/وکیل-تیک،-گزینه%e2%80%8cی-اقتصادی،-راحت-و-سری/
+
+yarn dev && yarn start getzoop
+yarn dev && yarn start getzoop -u https://getzoop.com/question/75547
+yarn dev && yarn start getzoop -u https://getzoop.com/علائم-حواس--پرتی
+
+yarn dev && yarn start mihanpezeshk 
+yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Questions/Show/13/سلام_آیا_برای_افتادگی_پلکی_که_چشم_حرکت_نداره_درمانی_وجود_داره؟.html
+yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Article/168/هر-آنچه-باید-در-مورد-استرس-و-اضطراب-بدانید
+
 https://motamem.org/
 /**/

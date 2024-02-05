@@ -69,6 +69,7 @@ export enum enuDomains {
     cinemapress = "cinemapress",
     citna = "citna",
     clickaval = "clickaval",
+    dadrah = "dadrah",
     danakhabar = "danakhabar",
     daadyab = "daadyab",
     dargi = "dargi",
@@ -115,6 +116,7 @@ export enum enuDomains {
     fitamin = "fitamin",
     flightio = "flightio",
     foodpress = "foodpress",
+    getzoop = "getzoop",
     gashtaninews = "gashtaninews",
     ghafaridiet = "ghafaridiet",
     gishniz = "gishniz",
@@ -204,6 +206,7 @@ export enum enuDomains {
     melipayamak = "melipayamak",
     mendellab = "mendellab",
     miare = "miare",
+    mihanpezeshk = "mihanpezeshk",
     mihanwebhost = "mihanwebhost",
     mizanonline = "mizanonline",
     mizbanfa = "mizbanfa",
@@ -223,6 +226,7 @@ export enum enuDomains {
     namava = "namava",
     namnak = "namnak",
     nasim = "nasim",
+    nazaratshora = "nazaratshora",
     neshanonline = "neshanonline",
     niknews = "niknews",
     niniban = "niniban",
@@ -349,9 +353,11 @@ export enum enuDomains {
     toseeirani = "toseeirani",
     transis = "transis",
     trip = "trip",
+    vakiltik = "vakiltik",
     vananews = "vananews",
     varzesh3 = "varzesh3",
     virgool = "virgool",
+    vindad = "vindad",
     watereng = "watereng",
     webhostingtalk = "webhostingtalk",
     webkima = "webkima",
@@ -392,6 +398,8 @@ export interface IntfGlobalConfigs {
 
 export enum enuTextType {
     paragraph = "p",
+    pq = "p-q",
+    pa = "p-a",
     caption = "caption",
     cite = "cite",
     h1 = "h1",
@@ -589,7 +597,8 @@ export interface IntfURLNormaliziztionConf {
     ignoreContentOnPath?: string[],
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
-    validPathsItemsToNormalize?: string[]
+    validPathsItemsToNormalize?: string[],
+    http?: boolean
 }
 
 export interface IntfCommentContainer {

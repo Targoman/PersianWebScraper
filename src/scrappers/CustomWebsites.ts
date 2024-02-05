@@ -1,6 +1,6 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory } from "../modules/interfaces";
-import { HTMLElement } from "node-html-parser"
+import { HTMLElement, parse } from "node-html-parser"
 
 export class divar extends clsScrapper {
   constructor() {
@@ -167,33 +167,6 @@ export class rasekhoon extends clsScrapper {
   }
 }
 
-
-export class islamquest extends clsScrapper {
-  constructor() {
-    super(enuDomains.islamquest, "islamquest.net", {
-      basePath: "/fa",
-      selectors: {
-        article: ".question-details, #quran-big-page",
-        title: ".main-question, .sure-title",
-        datetime: {
-          conatiner: ".last-up span.item",
-          acceptNoDate: true
-        },
-        content: {
-          main: ".full-question, .short-answer, .quran-text, .translate-text, .tafsir-text",
-        },
-        category: {
-          selector: ".category a"
-        },
-        tags: ".tags a",
-      },
-      url: {
-        extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
-      }
-    })
-  }
-}
-
 export class eporsesh extends clsScrapper {
   constructor() {
     super(enuDomains.eporsesh, "eporsesh.com", {
@@ -220,25 +193,26 @@ export class eporsesh extends clsScrapper {
   }
 }
 
-export class pasokhgoo extends clsScrapper {
+export class nazaratshora extends clsScrapper {
   constructor() {
-    super(enuDomains.pasokhgoo, "pasokhgoo.ir", {
+    super(enuDomains.nazaratshora, "nazarat.shora-rc.ir", {
       selectors: {
-        article: "body.node-type-article, body.node-type-gallery",
-        title: "h1",
-        subtitle: ".field-name-field-subtitle div div",
+        article: "#panel_SiteMaster pre",
+        acceptNoTitle: true,
         datetime: {
-          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span[property='dc:date dc:created']"),
-          splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+          acceptNoDate: true
         },
         content: {
-          main: ".field-type-text-with-summary div div, .field-name-field-pasokh div div, .field-name-field-image div div a, .flexslider ul li",
+          main: (_, fullHtml: HTMLElement) => {
+            const content = fullHtml.querySelectorAll("#panel_SiteMaster")[0]?.childNodes[1].childNodes[3].childNodes[1].rawText
+            return [parse(content)]
+          },
         },
-        category: {
-          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")
-        },
-        tags: ".field-name-field-tags div div a"
       },
+      url: {
+        removeWWW: true,
+        http : true
+      }
     })
   }
 }
