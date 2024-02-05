@@ -1236,5 +1236,9 @@ yarn dev && yarn start dadrah -u https://www.dadrah.ir/consulting-paper.php?requ
 yarn dev && yarn start dadrah -u https://www.dadrah.ir/danesh/قرارداد-اجاره-و-روابط-موجر-و-مستاجر/
 yarn dev && yarn start dadrah -u https://www.dadrah.ir/5ff044bb1b80e/blog/696-همه-چیز-درباره-دستور-تخلیه-فوری
 
+yarn dev && yarn start vakiltik 
+yarn dev && yarn start vakiltik -u https://www.vakiltik.com/Home/LegalQADetail?id=84373
+yarn dev && yarn start vakiltik -u https://blog.vakiltik.com/وکیل-تیک،-گزینه%e2%80%8cی-اقتصادی،-راحت-و-سری/
+
 https://motamem.org/
 /**/

@@ -198,7 +198,7 @@ export class nazaratshora extends clsScrapper {
     super(enuDomains.nazaratshora, "nazarat.shora-rc.ir", {
       selectors: {
         article: "#panel_SiteMaster pre",
-        title: () => null,
+        acceptNoTitle: true,
         datetime: {
           acceptNoDate: true
         },

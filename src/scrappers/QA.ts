@@ -299,3 +299,45 @@ export class dadrah extends clsScrapper {
         })
     }
 }
+
+export class vakiltik extends clsScrapper {
+    constructor() {
+        super(enuDomains.vakiltik, "vakiltik.com", {
+            selectors: {
+                article: ".col-lg-9, body.single-post",
+                title: "h1",
+                acceptNoTitle: true,
+                datetime: {
+                    conatiner: "small.text-muted, time",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content, .entry-thumb img",
+                    qa: {
+                        containers: ".card",
+                        q: {
+                            container: ".card-body",
+                            text: ".text-muted.mt-4",
+                        },
+                        a: {
+                            container: "ul.media-list li.mt-4",
+                            text: ".mt-3",
+                            author: "h6 a",
+                            datetime: "small.text-muted"
+                        },
+                    },
+                },
+                tags: "a.post-tag",
+                category: {
+                    selector: "a.post__cat",
+                    startIndex: 0,
+                    lastIndex: 2
+                }
+            },
+            url: {
+                extraValidDomains: ["blog.vakiltik.com"],
+                removeWWW: true
+            }
+        })
+    }
+}

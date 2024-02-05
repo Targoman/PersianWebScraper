@@ -351,6 +351,7 @@ export enum enuDomains {
     toseeirani = "toseeirani",
     transis = "transis",
     trip = "trip",
+    vakiltik = "vakiltik",
     vananews = "vananews",
     varzesh3 = "varzesh3",
     virgool = "virgool",

@@ -686,7 +686,7 @@ export abstract class clsScrapper {
         }
 
         const aboveTitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.aboveTitle)?.innerText)
-        let title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
+        const title = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.title)?.innerText)
         const subtitle = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.subtitle)?.innerText)
         const summary = normalizeText(this.selectElement(article, fullHtml, url, this.pConf.selectors?.summary)?.innerText)
 
@@ -814,9 +814,6 @@ export abstract class clsScrapper {
                 date = "INVALID"
             else throw new Error("Invalid date: " + date)
         }
-
-        if(this.pConf.selectors?.title?.toString() === (() => null).toString())
-            title = "NO_TITLE"
 
         if (!date) {
             if ((title || subtitle)) {
