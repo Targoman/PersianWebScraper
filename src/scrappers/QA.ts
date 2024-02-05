@@ -374,3 +374,35 @@ export class getzoop extends clsScrapper {
         })
     }
 }
+
+export class mihanpezeshk extends clsScrapper {
+    constructor() {
+        super(enuDomains.mihanpezeshk, "mihanpezeshk.com", {
+            selectors: {
+                article: "body.show-question, .blog-single",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".details, img.img-post",
+                    qa: {
+                        containers: ".header-question div:nth-child(2)",
+                        q: {
+                            container: ".col-12",
+                            text: ".show-question__body",
+                        },
+                        a: {
+                            container: ".show-question__answers .show-question__answer",
+                            text: "p.show-question__answer__description",
+                            author: "h3.show-question__answer__uername a",
+                        },
+                    },
+                },
+                category: {
+                    selector: ".header-question .col-md-12 div a"
+                },
+            },
+        })
+    }
+}

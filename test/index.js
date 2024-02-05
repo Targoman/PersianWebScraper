@@ -1244,5 +1244,9 @@ yarn dev && yarn start getzoop
 yarn dev && yarn start getzoop -u https://getzoop.com/question/75547
 yarn dev && yarn start getzoop -u https://getzoop.com/علائم-حواس--پرتی
 
+yarn dev && yarn start mihanpezeshk 
+yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Questions/Show/13/سلام_آیا_برای_افتادگی_پلکی_که_چشم_حرکت_نداره_درمانی_وجود_داره؟.html
+yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Article/168/هر-آنچه-باید-در-مورد-استرس-و-اضطراب-بدانید
+
 https://motamem.org/
 /**/
