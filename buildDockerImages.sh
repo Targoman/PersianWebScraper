@@ -10,6 +10,17 @@ ImageName="$Registry/webscrap/scrapper"
 Container="scrapper"
 ContainerParams=""
 
+fingerprint=$(cat package.json yarn.lock .eslintrc.js tsconfig.json | md5sum | cut -d ' ' -f 1) 
+rebuild=0
+if [ -f .fingerprint ]; then    
+    if [ "$(cat .fingerprint)" != "$fingerprint" ]; then
+        rebuild=1
+    fi
+else
+    echo $fingerprint > .fingerprint
+    rebuild=1
+fi
+
 yarn dev
 if [ $? -ne 0 ];then 
 	exit 1
@@ -23,7 +34,21 @@ if [ -z "$LastVersion" ];then
 else
     NewVersion=$(echo $LastVersion | sed "s/\_.*//g")"_$Date"
 fi
-sudo docker rm -f $Container; \
+
+LastVersion=`sudo docker images | grep "$ImageName" | cut -d ' ' -f 4 | sort | tail -n 1`
+
+echo "$fingerprint => rebuild: $rebuild"
+
+sudo docker pull ${ImageName}:builder || true && \
+
+if [ $rebuild -eq 1 ];then
+    sudo docker build -t ${ImageName}:builder -f Dockerfile.builder . && \
+    sudo docker push "${ImageName}:builder"   
+
+    if [ $? -ne 0 ];then exit 1; fi 
+fi
+
+sudo docker rm -f $Container; 
 # Pull older versions of the builder and final images from the registry (if any)
 #sudo docker pull ${ImageName}:builder || true && \
 sudo docker pull ${ImageName}:latest || true && \
@@ -31,7 +56,7 @@ sudo docker pull ${ImageName}:latest || true && \
 #sudo docker build --cache-from ${ImageName}:builder -t ${ImageName}:builder . && \
 # Build the final image by using the older final image as a cache
 # ...but also the local cache from the previous builder build
-sudo docker build --cache-from ${IMAGE}:latest -t ${ImageName}:$NewVersion . && \
+sudo docker build --cache-from ${IMAGE}:latest -f Dockerfile.app --build-arg BUILDER_IMAGE=${ImageName}:builder -t ${ImageName}:$NewVersion . && \
 sudo docker rmi "$ImageName:latest" || true && \
 sudo docker tag "$ImageName:$NewVersion" "$ImageName:latest" && \
 #sudo docker push "$ImageName:builder"  && \

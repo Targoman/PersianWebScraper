@@ -247,14 +247,14 @@ export class tabnak extends clsIransamaneh {
         else if (cat.startsWith("سرگرمی")
             || cat.startsWith("کمدی")
             || cat.startsWith("تلخند")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
         else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         else if (cat.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Law }
         else if (cat.includes("بازی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Game }
         else if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
         else if (cat.includes("ادیبستان")) return { ...mappedCat, minor: enuMinorCategory.Poem }
-        else if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentry }
+        else if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentary }
         else if (cat.includes("مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
 
         return { major: enuMajorCategory.News }
@@ -514,7 +514,7 @@ export class fararu extends clsIransamaneh {
         else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
         else if (cat.includes("تبلیغات")) return { ...mappedCat, minor: enuMinorCategory.Advert }
         else if (cat.includes("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Health }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("تناسب")
             || cat.includes("دکوراسیون")
             || cat.includes("آداب")
@@ -584,7 +584,7 @@ export class parsine extends clsIransamaneh {
         else if (cat.includes("سیاست") || cat.includes("مجلس")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
         else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
         else if (cat.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
         else if (cat.includes("گوناگون")) return { ...mappedCat, minor: enuMinorCategory.Generic }
@@ -635,7 +635,7 @@ export class shianews extends clsIransamaneh {
         else if (cat.includes("سبک") || cat.includes("مشاوره")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         else if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
         else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Cooking }
+        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
         else if (cat.includes("عمومی")
             || cat.includes("مجازی")
