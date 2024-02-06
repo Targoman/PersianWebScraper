@@ -1060,6 +1060,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.acti
 
 clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/psychology/کمبود-چه-ویتامینی-افسردگی-میاره-؟/
 clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/healthy-content/10-تا-از-بهترین-دکتر-اعصاب-و-روان-در-تهران/
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://doctor-yab.ir/faq/2YuE/کلوستومی/
 
 clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/26549/حملات-پانیک/
 clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/7377/drug-omeprazole/

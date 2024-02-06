@@ -531,3 +531,48 @@ export class isovisit extends clsScrapper {
         })
     }
 }
+
+export class doctoryab extends clsScrapper {
+    constructor() {
+        super(enuDomains.doctoryab, "doctor-yab.ir", {
+            selectors: {
+                article: "article, [itemprop='mainEntity']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='mainEntity']"),
+                        q: {
+                            container: "div:nth-child(1)",
+                            text: ".faq-text",
+                        },
+                        a: {
+                            container: "ul.ans li",
+                            text: "[itemprop='text']",
+                            author: "b.name-dr",
+                        },
+                    },
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "kk-star-ratings", "post-shortlink", "mag-box"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                extraValidDomains: ["blog.doctor-yab.ir"],
+            }
+        })
+    }
+}
