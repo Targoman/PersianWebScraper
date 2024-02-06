@@ -406,3 +406,46 @@ export class mihanpezeshk extends clsScrapper {
         })
     }
 }
+
+export class isovisit extends clsScrapper {
+    constructor() {
+        super(enuDomains.isovisit, "isovisit.com", {
+            selectors: {
+                article: "section.section-show-question, article",
+                title: "h1",
+                datetime: {
+                    conatiner: ".section-title div p",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".section-description, .gy-3.lh-md, .box-img-medicines",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.section-show-question"),
+                        q: {
+                            container: ".card",
+                            text: ".card-body > p",
+                            author: ".card-text .m-0.ms-2"
+                        },
+                        a: {
+                            container: "div:nth-child(2) div",
+                            text: ".card-body",
+                            author: ".card-text .fs-16, .card-text .m-0",
+                            datetime: ".card-text.fs-14 span"
+                        },
+                    },
+                    ignoreNodeClasses: ["links-article-related"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#more_comment_container .mb-3 div .card"),
+                    author: ".figure-caption > span.text-start",
+                    text: ".card-text",
+                    datetime: "figcaption > div > span:nth-child(2)"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a span")
+            },
+        })
+    }
+}
