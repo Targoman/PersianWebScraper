@@ -849,7 +849,7 @@ export class achareh extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -878,7 +878,7 @@ export class aparat extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .single-featured",
@@ -908,7 +908,7 @@ export class taaghche extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: "section.content_post, img.mainpic",
@@ -929,7 +929,7 @@ export class jabama extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .wp-block-image figure, figure.single-featured-image",
@@ -999,7 +999,7 @@ export class rayamarketing extends clsScrapper {
                 subtitle: "p.post__subtitle",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE",
                     acceptNoDate: true
                 },
                 content: {
@@ -1108,7 +1108,7 @@ export class okala extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .single-featured",
@@ -1305,7 +1305,7 @@ export class maktabkhooneh extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE",
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -1365,7 +1365,7 @@ export class modireweb extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: (_, fullHtml: HTMLElement) =>
@@ -1398,7 +1398,7 @@ export class doctoreto extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".start-content",
@@ -1455,7 +1455,7 @@ export class iranhotelonline extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: (_, fullHtml: HTMLElement) =>
@@ -1545,7 +1545,7 @@ export class hamrah extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -1574,7 +1574,7 @@ export class asiatech extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".post_content",
@@ -1667,7 +1667,7 @@ export class parshistory extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .single-featured a",
@@ -1690,7 +1690,7 @@ export class rawanshenas extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".text, .featured-image",
@@ -1729,7 +1729,7 @@ export class telescope extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: (_, fullHtml: HTMLElement) =>
@@ -1847,7 +1847,7 @@ export class wikiravan extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -1925,7 +1925,7 @@ export class chemibazar extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -1955,7 +1955,7 @@ export class mehrdadcivil extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -1987,7 +1987,7 @@ export class sakkook extends clsScrapper {
                 subtitle: "h2.entry-sub-title",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -2018,7 +2018,7 @@ export class bestfarsi extends clsScrapper {
                 subtitle: "h2.entry-sub-title",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -2171,7 +2171,7 @@ export class digistyle extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".post-content, .post-format",
@@ -2194,7 +2194,7 @@ export class parscoders extends clsScrapper {
                 title: "h1, h2",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], .container-xxl .col-lg-8 .pt-2 .col-md-4"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || el.querySelector(".align-self-end")?.innerText || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || el.querySelector(".align-self-end")?.innerText || "NO_DATE"
                 },
                 content: {
                     main: ".post-content",
@@ -2227,7 +2227,7 @@ export class liangroup extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".elementor-widget-text-editor div, .rd-single-thumbnail",
@@ -2289,7 +2289,7 @@ export class malltina extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: "section.post-content",
@@ -2486,7 +2486,7 @@ export class exbito extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".post-content, figure.post-image div",
@@ -2516,7 +2516,7 @@ export class tarjomic extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, img.wp-post-image",
@@ -2544,7 +2544,7 @@ export class sesotweb extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".wpb_text_column",
@@ -2568,7 +2568,7 @@ export class amuzeshtak extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -2599,7 +2599,7 @@ export class tehranserver extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -2630,7 +2630,7 @@ export class iranestekhdam extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -2667,7 +2667,7 @@ export class sinapub extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: "div:nth-child(3), #page-post-cover-container div div",
@@ -2724,7 +2724,7 @@ export class fitamin extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".article-text, figure.wp-block-image",
@@ -2755,7 +2755,7 @@ export class ivahid extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".sitePost__content, figure.wp-block-image",
@@ -2780,7 +2780,7 @@ export class cafeamoozeshgah extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -2803,7 +2803,7 @@ export class khanoumi extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.wp-block-image",
@@ -2834,7 +2834,7 @@ export class portal extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: "time",
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".blog-single-content, .mb-md-5",
@@ -2866,7 +2866,7 @@ export class arongroups extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".elementor-widget-text-editor .elementor-widget-container>*, .elementor-widget-image div img, .parallax-thumb div",
@@ -2891,7 +2891,7 @@ export class taraz extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.wp-block-image",
@@ -2973,7 +2973,7 @@ export class arazcloud extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -3043,7 +3043,7 @@ export class kidzy extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".elementor-widget-theme-post-content .elementor-widget-container>*, .elementor-widget-theme-post-featured-image",
@@ -3076,7 +3076,7 @@ export class khanomsin extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .post-thumbnail img.size-full",
@@ -3102,7 +3102,7 @@ export class techranco extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".single-content",
@@ -3129,7 +3129,7 @@ export class tlyn extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .entry-header .post-thumb-img-content",
@@ -3282,7 +3282,7 @@ export class farazsms extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".cdesc.cforms",
@@ -3367,7 +3367,7 @@ export class mopon extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".post-content",
@@ -3395,7 +3395,7 @@ export class clickaval extends clsScrapper {
                 subtitle: ".description-text",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".single-article-textarea",
@@ -3474,7 +3474,7 @@ export class podium extends clsScrapper {
                 title: "h2",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".single-post__content",
@@ -3552,7 +3552,7 @@ export class idpay extends clsScrapper {
                 summary: ".field-name-field-summary",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".field-name-field-p-body, .image",
@@ -3605,7 +3605,7 @@ export class nabzemarketing extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".elementor-widget-theme-post-content .elementor-widget-container>*, img.attachment-large",
@@ -3772,7 +3772,7 @@ export class doctoryab extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -3829,7 +3829,7 @@ export class webkima extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .entry-image a",
@@ -3929,7 +3929,7 @@ export class karlancer extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".content-art.mb-5, .thumb-art",
@@ -3959,7 +3959,7 @@ export class hitalki extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, img.aligncenter, figure.single-featured-image",
@@ -3990,7 +3990,7 @@ export class azki extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -4051,7 +4051,7 @@ export class karokasb extends clsScrapper {
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -4075,7 +4075,7 @@ export class mizbanfa extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -4104,7 +4104,7 @@ export class jadvalyab extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -4133,7 +4133,7 @@ export class basalam extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, figure.wp-block-post-featured-image",
@@ -4184,7 +4184,7 @@ export class myket extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content",
@@ -4272,7 +4272,7 @@ export class sheypoor extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, a.post-thumbnail",
@@ -4306,7 +4306,7 @@ export class drsaina extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
-                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".entry-content, .single-featured",

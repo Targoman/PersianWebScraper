@@ -51,7 +51,7 @@ export class extern extends clsScrapper {
       },
     })
   }
-  
+
   mapCategory(cat?: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     if (!cat) return mappedCat
@@ -75,7 +75,7 @@ export class rastineh extends clsScrapper {
         title: "h1",
         datetime: {
           conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
-          splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+          splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
         },
         content: {
           main: ".single_content",
@@ -178,8 +178,8 @@ export class eporsesh extends clsScrapper {
           acceptNoDate: true
         },
         content: {
-          main: ".group-header, .field-name-field-image div div, .field-type-text-with-summary div div, .flexslider ul li," + 
-           ".field-name-field-picnews-headpic div div, .field-name-field-montakhabepayamaki-questio div div",
+          main: ".group-header, .field-name-field-image div div, .field-type-text-with-summary div div, .flexslider ul li," +
+            ".field-name-field-picnews-headpic div div, .field-name-field-montakhabepayamaki-questio div div",
           ignoreTexts: [/.*eitaa.*/]
         },
         category: {
@@ -211,7 +211,7 @@ export class nazaratshora extends clsScrapper {
       },
       url: {
         removeWWW: true,
-        http : true
+        forceHTTP: true
       }
     })
   }

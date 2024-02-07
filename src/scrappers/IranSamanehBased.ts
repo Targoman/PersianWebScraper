@@ -16,7 +16,8 @@ export class clsIransamaneh extends clsScrapper {
                 content: {
                     main: '.body>*, .lead_image, .album_listi>*, .image_set a',
                     alternative: '.album_content>*',
-                    textNode: ".body"
+                    textNode: ".body",
+
                 },
                 comments: {
                     container: ".comments_item, .comm_answer_line, .comm_answer",
@@ -40,7 +41,8 @@ export class clsIransamaneh extends clsScrapper {
             },
             url: {
                 pathToCheckIndex: 2,
-                validPathsItemsToNormalize: ["news", "photos"]
+                validPathsItemsToNormalize: ["news", "photos"],
+                ignoreContentOnPath: ["/fa/tag"]
             }
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
@@ -1286,6 +1288,9 @@ export class tejaratonline extends clsIransamaneh {
             selectors: {
                 article: ".news_content",
             },
+            url: {
+                extraInvalidStartPaths: ["/000"]
+            }
         })
     }
 

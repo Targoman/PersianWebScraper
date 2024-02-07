@@ -102,7 +102,11 @@ export abstract class clsScrapper {
             this.db.reset()
             if (recheck || (await this.db.hasAnyURL() === undefined)) {
                 log.debug({ recheck })
-                if (!await this.retrieveAndProcessPage(this.normalizePath(this.safeCreateURL("https://" + this.baseURL + (this.pConf.basePath || "/")))))
+                if (!await this.retrieveAndProcessPage(
+                    this.normalizePath(
+                        this.safeCreateURL(
+                            (this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + (this.pConf.basePath || "/"))
+                    )))
                     throw new Error("No content retrieved")
             }
             await sleep(1000)
@@ -116,8 +120,6 @@ export abstract class clsScrapper {
     private tagName2Type(tagName: string) {
         switch (tagName) {
             case 'P': return enuTextType.paragraph
-            case 'P-Q': return enuTextType.pq
-            case 'P-A': return enuTextType.pa
             case 'H1': return enuTextType.h1
             case 'H2': return enuTextType.h2
             case 'H3': return enuTextType.h3
@@ -137,7 +139,7 @@ export abstract class clsScrapper {
         try {
             return new URL(url)
         } catch (e) {
-            return new URL("https://" + this.baseURL + "/Invalid/" + url)
+            return new URL((this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + "/Invalid/" + url)
         }
     }
 
@@ -306,7 +308,7 @@ export abstract class clsScrapper {
         if (ref.startsWith("data:"))
             return ""
         if (!ref.includes("://"))
-            ref = `https://www.${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
+            ref = `http${this.pConf.url?.forceHTTP ? "" : "s"}://www.${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
         return this.normalizePath(this.safeCreateURL(ref))
     }
 
@@ -954,8 +956,6 @@ export abstract class clsScrapper {
             if (validPathsToNormalize?.includes(pathParts[pathToCheckIndex]))
                 path = `${pathParts.slice(0, pathToCheckIndex + 1).join("/")}/${pathParts[pathToCheckIndex + 1]}`
         }
-        if(this.pConf.url?.http)
-            return  "http://" + hostname + path + url.search
         return url.protocol + "//" + hostname + path + url.search
     }
 

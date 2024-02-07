@@ -398,8 +398,6 @@ export interface IntfGlobalConfigs {
 
 export enum enuTextType {
     paragraph = "p",
-    pq = "p-q",
-    pa = "p-a",
     caption = "caption",
     cite = "cite",
     h1 = "h1",
@@ -466,7 +464,8 @@ export enum enuMajorCategory {
     Weblog = "Weblog",
     Wiki = "Wiki",
     SocialMedia = "SocialMedia",
-    Doc = "Doc"
+    Doc = "Doc",
+    NA = "NA"
 }
 
 export enum enuMinorCategory {
@@ -560,7 +559,8 @@ export enum enuSubMinorCategory {
 export interface IntfMappedCategory {
     major: enuMajorCategory,
     minor?: enuMinorCategory,
-    subminor?: enuSubMinorCategory | enuMinorCategory
+    subminor?: enuSubMinorCategory | enuMinorCategory,
+    original?: string
 }
 
 export interface IntfProxy {
@@ -598,7 +598,7 @@ export interface IntfURLNormaliziztionConf {
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
     validPathsItemsToNormalize?: string[],
-    http?: boolean
+    forceHTTP?: boolean
 }
 
 export interface IntfCommentContainer {

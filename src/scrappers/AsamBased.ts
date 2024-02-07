@@ -29,7 +29,7 @@ class clsAsamBased extends clsScrapper {
                         || fullHtml.querySelector(".news_time")
                         || fullHtml.querySelector(".news-time")
                         || fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 category: {
                     selector: (article: HTMLElement) => article.querySelector(".breadcrumb_list, .breadcrumb")?.querySelectorAll("li a"),
@@ -220,7 +220,8 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("کشتی")) {
             mappedCat.minor = enuMinorCategory.Sport
             mappedCat.subminor = enuSubMinorCategory.Wrestling
-        }
+        } else 
+            return {major: enuMajorCategory.NA, original: cat}
         return mappedCat
     }
 }
@@ -680,7 +681,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("ویدیو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (cat.startsWith("یادگیری")) return { ...mappedCat, minor: enuMinorCategory.Education }
 
-        return mappedCat
+        return {major: enuMajorCategory.NA, original: cat}
     }
 }
 
