@@ -1462,7 +1462,8 @@ export class gashtaninews extends clsAsamBased {
             selectors: {
                 article: "article",
                 content: {
-                    ignoreNodeClasses: ["others_known", "inline-news-box"]
+                    ignoreNodeClasses: ["others_known", "inline-news-box", 'quad_news2'],
+                    ignoreTexts: ["پایگاه خبری تحلیلی گشتنی نیوز :"]
                 },
                 category: {
                     selector: "ul.bread_crump li a"
