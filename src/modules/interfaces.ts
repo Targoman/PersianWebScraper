@@ -6,6 +6,7 @@ export enum enuDomains {
     abantether = "abantether",
     achareh = "achareh",
     activeidea = "activeidea",
+    adleiranian = "adleiranian",
     afkarnews = "afkarnews",
     aftabnews = "aftabnews",
     aghigh = "aghigh",

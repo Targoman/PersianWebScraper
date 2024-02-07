@@ -1254,5 +1254,9 @@ yarn dev && yarn start isovisit -u https://isovisit.com/topics/3517
 yarn dev && yarn start isovisit -u https://isovisit.com/articles/Popular-weight-loss-diets
 yarn dev && yarn start isovisit -u https://isovisit.com/medicines/شلیور
 
+yarn dev && yarn start adleiranian
+yarn dev && yarn start adleiranian -u https://adleiranian.co/questions/question/سهل-انگاری-وکیل-در-انجام-امور-پرونده-و-ن
+yarn dev && yarn start adleiranian -u https://adleiranian.co/وکیل-پایه-یک-دادگستری-در-تهران-مشاوره/
+
 https://motamem.org/
 /**/

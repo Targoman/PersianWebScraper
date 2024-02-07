@@ -576,3 +576,42 @@ export class doctoryab extends clsScrapper {
         })
     }
 }
+
+export class adleiranian extends clsScrapper {
+    constructor() {
+        super(enuDomains.adleiranian, "adleiranian.co", {
+            selectors: {
+                article: "body.sabai-entity-bundle-name-questions, body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post_content",
+                    qa: {
+                        containers: ".sabai-main",
+                        q: {
+                            container: ".sabai-questions-main",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                        a: {
+                            container:".sabai-questions-answers",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                    },
+                    ignoreNodeClasses: ["lwptoc"]
+                },
+                category: {
+                    selector: ".sabai-questions-taxonomy a, .rank-math-breadcrumb p a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
