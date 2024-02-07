@@ -1267,5 +1267,9 @@ yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/question/نقض-رأ
 yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/رای-شماره-۲۵۲۴۱۳۰-هيات-عمومی-ديوان-عدا/
 yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/قانون-اساسی-فصل-چهارم-%e2%80%8e-اقتصاد-و-امور-م/
 
+yarn dev && yarn start ksymg 
+yarn dev && yarn start ksymg -u https://www.ksymg.com/questions/question/سوال-در-مورد-اثبات-شهادت-کذب
+yarn dev && yarn start ksymg -u https://www.ksymg.com/اصول-و-شرایط-وکالت-در-طلاق/
+
 https://motamem.org/
 /**/

@@ -191,6 +191,7 @@ export enum enuDomains {
     khodrotak = "khodrotak",
     khordad = "khordad",
     kidzy = "kidzy",
+    ksymg = "ksymg",
     labourlaw = "labourlaw",
     lastsecond = "lastsecond",
     liangroup = "liangroup",

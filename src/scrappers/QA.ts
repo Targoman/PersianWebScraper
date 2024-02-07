@@ -687,3 +687,38 @@ export class dadvarzyar extends clsScrapper {
         })
     }
 }
+
+export class ksymg extends clsScrapper {
+    constructor() {
+        super(enuDomains.ksymg, "ksymg.com", {
+            selectors: {
+                article: "body.sabai-entity-bundle-name-questions, body.single-post",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post .the_content_wrapper",
+                    qa: {
+                        containers: ".sabai-main",
+                        q: {
+                            container: ".sabai-questions-main",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                        a: {
+                            container:".sabai-questions-answers",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                    },
+                },
+                category: {
+                    selector: "ul.breadcrumbs li a",
+                    startIndex: 0,
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
