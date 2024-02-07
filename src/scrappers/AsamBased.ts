@@ -15,7 +15,7 @@ class clsAsamBased extends clsScrapper {
                 content: {
                     main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files, .primary_image',
                     ignoreTexts: [/.*tavoos_init_player.*/],
-                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt", "tinyurl_form"]
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt", "tinyurl_form"],
                 },
                 comments: {
                     container: ".comments-list li, .new_gallery_list>*",
@@ -36,6 +36,9 @@ class clsAsamBased extends clsScrapper {
                     startIndex: 1,
                 }
             },
+            url: {
+                ignoreContentOnPath: ["/tag", "/fa/tag"]
+            }
         }
 
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
@@ -220,8 +223,8 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("کشتی")) {
             mappedCat.minor = enuMinorCategory.Sport
             mappedCat.subminor = enuSubMinorCategory.Wrestling
-        } else 
-            return {major: enuMajorCategory.NA, original: cat}
+        } else
+            return { major: enuMajorCategory.NA, original: cat }
         return mappedCat
     }
 }
@@ -681,7 +684,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("ویدیو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (cat.startsWith("یادگیری")) return { ...mappedCat, minor: enuMinorCategory.Education }
 
-        return {major: enuMajorCategory.NA, original: cat}
+        return { major: enuMajorCategory.NA, original: cat }
     }
 }
 
