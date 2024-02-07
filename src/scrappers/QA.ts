@@ -615,3 +615,38 @@ export class adleiranian extends clsScrapper {
         })
     }
 }
+
+export class dadpardaz extends clsScrapper {
+    constructor() {
+        super(enuDomains.dadpardaz, "dadpardaz.com", {
+            selectors: {
+                article: ".btn-faq-reply",
+                acceptNoTitle: true,
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".main-container div div .row"),
+                        q: {
+                            container: ".faqs-item-text",
+                            text: ".faqs-item-text-title",
+                        },
+                        a: {
+                            container: ".faqs-comments-list .col-md-12",
+                            text: ".faqs-item-text-description",
+                            author: ".faqs-item-avatar-name",
+                            datetime: ".faqs-item-text-date"
+                        },
+                    },
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb div a span")
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

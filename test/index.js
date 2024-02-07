@@ -1258,5 +1258,9 @@ yarn dev && yarn start adleiranian
 yarn dev && yarn start adleiranian -u https://adleiranian.co/questions/question/سهل-انگاری-وکیل-در-انجام-امور-پرونده-و-ن
 yarn dev && yarn start adleiranian -u https://adleiranian.co/وکیل-پایه-یک-دادگستری-در-تهران-مشاوره/
 
+yarn dev && yarn start dadpardaz
+yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13095
+yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13
+
 https://motamem.org/
 /**/
