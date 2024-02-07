@@ -2074,8 +2074,7 @@ export class hamgardi extends clsScrapper {
     protected normalizePath(url: URL): string {
         if (url.pathname.includes("cdn.hamgardi.com")) {
             return url.toString().replace("www.hamgardi.com", "")
-        }
-        else
+        } else
             return url.toString()
     }
 }
@@ -2724,7 +2723,7 @@ export class fitamin extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".article-text, figure.wp-block-image",
@@ -3367,7 +3366,7 @@ export class mopon extends clsScrapper {
                 title: "h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".post-content",
@@ -3474,7 +3473,7 @@ export class podium extends clsScrapper {
                 title: "h2",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-                    splitter: (el: HTMLElement) =>el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 content: {
                     main: ".single-post__content",

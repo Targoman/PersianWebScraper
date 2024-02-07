@@ -47,23 +47,6 @@ export class clsIransamaneh extends clsScrapper {
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
     }
-
-    /*protected normalizePath(url: URL): string {
-        let hostname = url.hostname
-        if (!hostname.startsWith("www."))
-            hostname = "www." + hostname
-        const pathParts = url.pathname.split("/")
-        let path = url.pathname
-
-        if (pathParts.length > 3
-            && (pathParts[2] === "news"
-                || pathParts[2] === "photos"
-            )
-        )
-            path = `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}`
-
-        return url.protocol + "//" + hostname + path
-    }*/
 }
 
 /***********************************************************/

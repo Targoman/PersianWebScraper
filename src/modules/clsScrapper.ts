@@ -16,7 +16,7 @@ import {
     IntfContentHolder,
     IntfSelectorToString,
     IntfIsValidFunction,
-    IntfURLNormaliziztionConf,
+    IntfURLNormalizationConf,
     IntfMappedCategory,
     enuMajorCategory,
     IntfQAcontainer
@@ -103,7 +103,7 @@ export abstract class clsScrapper {
             if (recheck || (await this.db.hasAnyURL() === undefined)) {
                 log.debug({ recheck })
                 if (!await this.retrieveAndProcessPage(
-                    this.normalizePath(
+                    this.normalizeURL(
                         this.safeCreateURL(
                             (this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + (this.pConf.basePath || "/"))
                     )))
@@ -309,7 +309,7 @@ export abstract class clsScrapper {
             return ""
         if (!ref.includes("://"))
             ref = `http${this.pConf.url?.forceHTTP ? "" : "s"}://www.${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
-        return this.normalizePath(this.safeCreateURL(ref))
+        return this.normalizeURL(this.safeCreateURL(ref))
     }
 
     private autoExtractDate(datetimeStr: string) {
@@ -531,7 +531,7 @@ export abstract class clsScrapper {
                         return
                     }
 
-                    validLinks.push(this.normalizePath(url))
+                    validLinks.push(this.normalizeURL(url))
                 } catch (e) {
                     log.debug(e)
                 }
@@ -590,7 +590,7 @@ export abstract class clsScrapper {
     private async getPageContent(url: string) {
         const proxy = await nextProxy()
         const cookie = await this.retrieveCookie(proxy, url)
-        url = this.normalizePath(this.safeCreateURL(url))
+        url = this.normalizeURL(this.safeCreateURL(url))
         log.progress("retrieving: ", url, proxy?.port, cookie)
 
         const reqParams = { url, onSuccess: (data: any, url: string, resCookie: any) => ({ data, url, resCookie }), proxy, cookie, headers: this.extraHeaders() }
@@ -601,7 +601,7 @@ export abstract class clsScrapper {
             throw new Error(result?.err || "ERROR")
         }
 
-        const finalURL = this.normalizePath(this.safeCreateURL(result.url))
+        const finalURL = this.normalizeURL(this.safeCreateURL(result.url))
 
         if (finalURL !== url)
             log.warn("URL Changed:", finalURL)
@@ -932,31 +932,40 @@ export abstract class clsScrapper {
         void proxy, url; return undefined
     }
 
-    protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string {
-        const effective: IntfURLNormaliziztionConf = {
+    private effectiveURLNormalizetionConf(conf?: IntfURLNormalizationConf) : IntfURLNormalizationConf {
+        return {
             extraInvalidStartPaths: conf && conf.extraInvalidStartPaths !== undefined ? conf.extraInvalidStartPaths : this.pConf.url?.extraInvalidStartPaths,
             extraValidDomains: conf && conf.extraValidDomains !== undefined ? conf.extraValidDomains : this.pConf.url?.extraValidDomains,
             pathToCheckIndex: conf && conf.pathToCheckIndex !== undefined ? conf.pathToCheckIndex : this.pConf.url?.pathToCheckIndex,
             removeWWW: conf && conf.removeWWW !== undefined ? conf.removeWWW : this.pConf.url?.removeWWW,
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
-        let hostname = url.hostname
-        const hostnameParts = hostname.split(".")
-        if (hostnameParts[0] === 'www' && (effective.removeWWW || hostnameParts.length > 3))
-            hostname = hostname.substring(4)
-        else if (effective.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
-            hostname = "www." + hostname
+    }
 
+    protected normalizePath(url: URL, conf?: IntfURLNormalizationConf): string {
+        const effectiveConf = this.effectiveURLNormalizetionConf(conf)
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
-        const validPathsToNormalize = effective.validPathsItemsToNormalize || ["news", "media", "photo"]
-        const pathToCheckIndex = effective.pathToCheckIndex
+        const validPathsToNormalize = effectiveConf.validPathsItemsToNormalize || ["news", "media", "photo"]
+        const pathToCheckIndex = effectiveConf.pathToCheckIndex
         if (typeof pathToCheckIndex === "number") {
             if (validPathsToNormalize?.includes(pathParts[pathToCheckIndex]))
                 path = `${pathParts.slice(0, pathToCheckIndex + 1).join("/")}/${pathParts[pathToCheckIndex + 1]}`
         }
-        return url.protocol + "//" + hostname + path + url.search
+        return url.protocol + "//" + url.hostname + path + url.search
+    }
+
+    private normalizeURL(url:URL, conf?: IntfURLNormalizationConf) : string {
+        const effectiveConf = this.effectiveURLNormalizetionConf(conf)
+        let hostname = url.hostname
+        const hostnameParts = hostname.split(".")
+        if (hostnameParts[0] === 'www' && (effectiveConf.removeWWW || hostnameParts.length > 3))
+            hostname = hostname.substring(4)
+        else if (effectiveConf.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
+            hostname = "www." + hostname
+
+        return this.normalizePath(this.safeCreateURL(url.protocol + "//" + hostname + url.pathname + url.search), effectiveConf)
     }
 
     public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {

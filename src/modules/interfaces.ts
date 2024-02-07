@@ -591,7 +591,7 @@ export interface IntfSelectorToString {
     (element: HTMLElement, fullHtml?: HTMLElement): string
 }
 
-export interface IntfURLNormaliziztionConf {
+export interface IntfURLNormalizationConf {
     extraValidDomains?: string[]
     extraInvalidStartPaths?: string[],
     ignoreContentOnPath?: string[],
@@ -644,7 +644,7 @@ export interface IntfProcessorConfigs {
         }
     },
     api?: { (url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent> },
-    url?: IntfURLNormaliziztionConf
+    url?: IntfURLNormalizationConf
     basePath?: string
     preHTMLParse?: (html: string) => string
 }

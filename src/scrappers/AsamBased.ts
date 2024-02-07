@@ -48,9 +48,6 @@ class clsAsamBased extends clsScrapper {
         if (url.toString().match(/(\.jpg|\.jpeg|\.png|media)/))
             return url.toString();
         try {
-            let hostname = url.hostname
-            if (!hostname.startsWith("www."))
-                hostname = "www." + hostname
             const pathParts = url.pathname.split("/")
             let path = url.pathname
 
@@ -59,9 +56,9 @@ class clsAsamBased extends clsScrapper {
                 && pathParts[1] !== "links"
                 && pathParts[1] !== "fa"
                 && pathParts[2] !== "")
-                path = `/fa/tiny/news-${pathParts[2].split("-")[0]}` //+ "--->" + url.pathname
+                path = `/fa/tiny/news-${pathParts[2].split("-")[0]}` 
 
-            return url.protocol + "//" + hostname + path
+            return url.protocol + "//" + url.hostname + path
         } catch (e) {
             console.error(e)
             return ""
@@ -363,9 +360,6 @@ export class tasnim extends clsAsamBased {
 
     protected normalizePath(url: URL): string {
         try {
-            let hostname = url.hostname
-            if (!hostname.startsWith("www."))
-                hostname = "www." + hostname
             const pathParts = url.pathname.split("/")
             let path = url.pathname
 
@@ -375,7 +369,7 @@ export class tasnim extends clsAsamBased {
                     || pathParts[2] === "media"))
                 path = `/fa/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${pathParts[5]}/${pathParts[6]}` //+ "--->" + url.pathname
 
-            return url.protocol + "//" + hostname + path
+            return url.protocol + "//" + url.hostname + path
         } catch (e) {
             console.error(e)
             return ""
