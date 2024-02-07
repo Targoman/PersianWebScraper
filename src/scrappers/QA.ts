@@ -650,3 +650,40 @@ export class dadpardaz extends clsScrapper {
         })
     }
 }
+
+export class dadvarzyar extends clsScrapper {
+    constructor() {
+        super(enuDomains.dadvarzyar, "dadvarzyar.com", {
+            selectors: {
+                article: "body.single-dwqa-question, article.full-layout",
+                title: ".dwqa-current, h2.entry-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='DC.date.issued'], time"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content p, .entry-content h1, .entry-content h2, picture.post-img",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-single-question"),
+                        q: {
+                            container: ".dwqa-question-item",
+                            text: ".dwqa-question-content",
+                            author: ".dwqa-question-meta span a",
+                        },
+                        a: {
+                            container: ".dwqa-answers",
+                            text: ".dwqa-answer-content",
+                            author: ".dwqa-answer-meta span a",
+                            datetime: ".faqs-item-text-date"
+                        },
+                    },
+                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-breadcrumbs a, [rel='category tag']")
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}

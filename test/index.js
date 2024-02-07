@@ -1262,5 +1262,10 @@ yarn dev && yarn start dadpardaz
 yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13095
 yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13
 
+yarn dev && yarn start dadvarzyar
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/question/نقض-رأی-یا-نقض-تاریخ-پرداخت-نفقعه/
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/رای-شماره-۲۵۲۴۱۳۰-هيات-عمومی-ديوان-عدا/
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/قانون-اساسی-فصل-چهارم-%e2%80%8e-اقتصاد-و-امور-م/
+
 https://motamem.org/
 /**/
