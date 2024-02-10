@@ -220,10 +220,10 @@ export abstract class clsScrapper {
             }
         } else if (el.tagName === "IMG") {
             stack.push("IMG")
-            const result = { 
-                text: normalizeText(el.getAttribute("alt")), 
-                type: enuTextType.alt, 
-                ref: this.normalizeURL(this.normalizeRef(el.getAttribute("data-src") || el.getAttribute("src") || "/")) 
+            const result = {
+                text: normalizeText(el.getAttribute("alt")),
+                type: enuTextType.alt,
+                ref: this.normalizeURL(this.normalizeRef(el.getAttribute("data-src") || el.getAttribute("src") || "/"))
             }
             debugNodeProcessor && log.debug("IMG", stack.join(">"), result, el.outerHTML)
             stack.pop()
@@ -895,7 +895,7 @@ export abstract class clsScrapper {
             "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
-            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf"
+            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {
