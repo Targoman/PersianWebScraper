@@ -773,6 +773,9 @@ export class farhangemrooz extends clsNastoohBased {
                 category: {
                     selector: "span.item-service a"
                 }
+            },
+            url:{
+                extraInvalidStartPaths: ["/page/archive.xhtml?d"]
             }
         })
     }

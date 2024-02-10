@@ -691,7 +691,6 @@ export class dadpardaz extends clsScrapper {
             },
             url: {
                 removeWWW: true,
-                extraInvalidStartPaths: ["/lawyer/resume"]
             }
         })
     }

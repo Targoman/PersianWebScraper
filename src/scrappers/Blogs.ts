@@ -4295,6 +4295,12 @@ export class drsaina extends clsScrapper {
                     text: ".comment-content"
                 }
             },
+            url: {
+                extraInvalidStartPaths: [
+                    "/doctorConsulation", "/doctors_", "/doctorp", "/RegisterLogin", "/doctor-location", "/ProfileVideo",
+                    "/ProfilePaper", 
+                ]
+            }
         })
     }
 }
