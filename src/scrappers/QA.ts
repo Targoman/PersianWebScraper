@@ -533,3 +533,237 @@ export class mihanpezeshk extends clsScrapper {
         })
     }
 }
+
+export class isovisit extends clsScrapper {
+    constructor() {
+        super(enuDomains.isovisit, "isovisit.com", {
+            selectors: {
+                article: "section.section-show-question, article",
+                title: "h1",
+                datetime: {
+                    conatiner: ".section-title div p",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".section-description, .gy-3.lh-md, .box-img-medicines",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.section-show-question"),
+                        q: {
+                            container: ".card",
+                            text: ".card-body > p",
+                            author: ".card-text .m-0.ms-2"
+                        },
+                        a: {
+                            container: "div:nth-child(2) div",
+                            text: ".card-body",
+                            author: ".card-text .fs-16, .card-text .m-0",
+                            datetime: ".card-text.fs-14 span"
+                        },
+                    },
+                    ignoreNodeClasses: ["links-article-related"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#more_comment_container .mb-3 div .card"),
+                    author: ".figure-caption > span.text-start",
+                    text: ".card-text",
+                    datetime: "figcaption > div > span:nth-child(2)"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a span")
+            },
+        })
+    }
+}
+
+export class doctoryab extends clsScrapper {
+    constructor() {
+        super(enuDomains.doctoryab, "doctor-yab.ir", {
+            selectors: {
+                article: "article, [itemprop='mainEntity']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='mainEntity']"),
+                        q: {
+                            container: "div:nth-child(1)",
+                            text: ".faq-text",
+                        },
+                        a: {
+                            container: "ul.ans li",
+                            text: "[itemprop='text']",
+                            author: "b.name-dr",
+                        },
+                    },
+                    ignoreNodeClasses: ["ez-toc-v2_0_61", "kk-star-ratings", "post-shortlink", "mag-box"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                }
+            },
+            url: {
+                extraValidDomains: ["blog.doctor-yab.ir"],
+            }
+        })
+    }
+}
+
+export class adleiranian extends clsScrapper {
+    constructor() {
+        super(enuDomains.adleiranian, "adleiranian.co", {
+            selectors: {
+                article: "body.sabai-entity-bundle-name-questions, body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post_content",
+                    qa: {
+                        containers: ".sabai-main",
+                        q: {
+                            container: ".sabai-questions-main",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                        a: {
+                            container:".sabai-questions-answers",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                    },
+                    ignoreNodeClasses: ["lwptoc"]
+                },
+                category: {
+                    selector: ".sabai-questions-taxonomy a, .rank-math-breadcrumb p a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class dadpardaz extends clsScrapper {
+    constructor() {
+        super(enuDomains.dadpardaz, "dadpardaz.com", {
+            selectors: {
+                article: ".btn-faq-reply",
+                acceptNoTitle: true,
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".main-container div div .row"),
+                        q: {
+                            container: ".faqs-item-text",
+                            text: ".faqs-item-text-title",
+                        },
+                        a: {
+                            container: ".faqs-comments-list .col-md-12",
+                            text: ".faqs-item-text-description",
+                            author: ".faqs-item-avatar-name",
+                            datetime: ".faqs-item-text-date"
+                        },
+                    },
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb div a span")
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class dadvarzyar extends clsScrapper {
+    constructor() {
+        super(enuDomains.dadvarzyar, "dadvarzyar.com", {
+            selectors: {
+                article: "body.single-dwqa-question, article.full-layout",
+                title: ".dwqa-current, h2.entry-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='DC.date.issued'], time"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content p, .entry-content h1, .entry-content h2, picture.post-img",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-single-question"),
+                        q: {
+                            container: ".dwqa-question-item",
+                            text: ".dwqa-question-content",
+                            author: ".dwqa-question-meta span a",
+                        },
+                        a: {
+                            container: ".dwqa-answers",
+                            text: ".dwqa-answer-content",
+                            author: ".dwqa-answer-meta span a",
+                            datetime: ".faqs-item-text-date"
+                        },
+                    },
+                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-breadcrumbs a, [rel='category tag']")
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}
+
+export class ksymg extends clsScrapper {
+    constructor() {
+        super(enuDomains.ksymg, "ksymg.com", {
+            selectors: {
+                article: "body.sabai-entity-bundle-name-questions, body.single-post",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post .the_content_wrapper",
+                    qa: {
+                        containers: ".sabai-main",
+                        q: {
+                            container: ".sabai-questions-main",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                        a: {
+                            container:".sabai-questions-answers",
+                            text: ".sabai-questions-body",
+                            author: ".sabai-user"
+                        },
+                    },
+                },
+                category: {
+                    selector: "ul.breadcrumbs li a",
+                    startIndex: 0,
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}

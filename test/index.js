@@ -1060,6 +1060,7 @@ clear; rm -rf .db corpora; yarn dev && yarn start activeidea -u https://www.acti
 
 clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/psychology/کمبود-چه-ویتامینی-افسردگی-میاره-؟/
 clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://blog.doctor-yab.ir/healthy-content/10-تا-از-بهترین-دکتر-اعصاب-و-روان-در-تهران/
+clear; rm -rf .db corpora; yarn dev && yarn start doctoryab -u https://doctor-yab.ir/faq/2YuE/کلوستومی/
 
 clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/26549/حملات-پانیک/
 clear; rm -rf .db corpora; yarn dev && yarn start paziresh24 -u https://www.paziresh24.com/blog/7377/drug-omeprazole/
@@ -1247,6 +1248,28 @@ yarn dev && yarn start getzoop -u https://getzoop.com/علائم-حواس--پر�
 yarn dev && yarn start mihanpezeshk 
 yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Questions/Show/13/سلام_آیا_برای_افتادگی_پلکی_که_چشم_حرکت_نداره_درمانی_وجود_داره؟.html
 yarn dev && yarn start mihanpezeshk -u https://www.mihanpezeshk.com/Article/168/هر-آنچه-باید-در-مورد-استرس-و-اضطراب-بدانید
+
+yarn dev && yarn start isovisit 
+yarn dev && yarn start isovisit -u https://isovisit.com/topics/3517
+yarn dev && yarn start isovisit -u https://isovisit.com/articles/Popular-weight-loss-diets
+yarn dev && yarn start isovisit -u https://isovisit.com/medicines/شلیور
+
+yarn dev && yarn start adleiranian
+yarn dev && yarn start adleiranian -u https://adleiranian.co/questions/question/سهل-انگاری-وکیل-در-انجام-امور-پرونده-و-ن
+yarn dev && yarn start adleiranian -u https://adleiranian.co/وکیل-پایه-یک-دادگستری-در-تهران-مشاوره/
+
+yarn dev && yarn start dadpardaz
+yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13095
+yarn dev && yarn start dadpardaz -u https://dadpardaz.com/faqs/view/13
+
+yarn dev && yarn start dadvarzyar
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/question/نقض-رأی-یا-نقض-تاریخ-پرداخت-نفقعه/
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/رای-شماره-۲۵۲۴۱۳۰-هيات-عمومی-ديوان-عدا/
+yarn dev && yarn start dadvarzyar -u https://dadvarzyar.com/قانون-اساسی-فصل-چهارم-%e2%80%8e-اقتصاد-و-امور-م/
+
+yarn dev && yarn start ksymg 
+yarn dev && yarn start ksymg -u https://www.ksymg.com/questions/question/سوال-در-مورد-اثبات-شهادت-کذب
+yarn dev && yarn start ksymg -u https://www.ksymg.com/اصول-و-شرایط-وکالت-در-طلاق/
 
 https://motamem.org/
 /**/
