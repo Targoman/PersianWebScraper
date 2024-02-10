@@ -5,6 +5,8 @@ import { existsSync, mkdirSync, readdirSync, renameSync, rmSync, statSync } from
 import gConfigs from './gConfigs';
 import { Md5 } from 'ts-md5';
 import { always, date2Gregorian } from './common';
+import * as scrappers from '../scrappers'
+import { clsScrapper } from './clsScrapper';
 
 export enum enuURLStatus {
     New = 'N',
@@ -137,12 +139,25 @@ export default class clsDB {
             let updated = 0
             let deleted = 0
 
+            const scrapper: clsScrapper = new scrappers[this.domain]
+            if (!scrapper)
+                throw new Error("Unable to find scrapper for: " + this.domain)
+
             while (always) {
                 this.db.prepare(`UPDATE tblURLs set wc=0 WHERE status != 'C' LIMIT 1`).run()
                 const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE id > ? AND status = 'C' LIMIT 1`).get(lastID)
                 if (rc) {
                     const hash = Md5.hashStr(rc.url)
                     const docSpec = fileMap[hash]
+                    const normalizedURL = scrapper.normalizeURL(rc.url)
+                    if (normalizedURL != rc.url) {
+                        log.warn("Stored URL is being updated", rc.url, normalizedURL)
+                        this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                        this.addToMustFetch(normalizedURL)
+                        log.progress("DELETE: ", rc.url)
+                        deleted++
+                    }
+
                     if (rc.url.includes("//www.cdn") || rc.url.includes("//www.static")) {
                         this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(rc.id)
                         log.progress("DELETE: ", rc.url)
@@ -190,8 +205,7 @@ export default class clsDB {
     }
 
     addToMustFetch(url: string) {
-        const insert = this.db.prepare(`INSERT OR IGNORE INTO tblURLs (url, hash) VALUES (?,?)`)
-        return insert.run(url, Md5.hashStr(url))
+        return this.db.prepare(`INSERT OR IGNORE INTO tblURLs (url, hash) VALUES (?,?)`).run(url, Md5.hashStr(url))
     }
 
     setStatus(id: number, status: enuURLStatus, err: string | null = null, wc: number | null = null, docDate: string | null = null) {

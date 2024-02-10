@@ -542,6 +542,58 @@ export class tarafdari extends clsScrapper {
     }
 }
 
+/***********************************************************/
+export class pana extends clsScrapper {
+    constructor() {
+        super(enuDomains.pana, "pana.ir", {
+            selectors: {
+                article: "article[itemscope], #PhotoGalleryContainer",
+                aboveTitle: "#Content_rutitr",
+                title: "#Content_title",
+                subtitle: "#Content_UnderTitle, #Content_lid",
+                content: {
+                    main: ".NewsText>*, .photoThumbnail",
+                    ignoreNodeClasses: ["video-js", "btn"]
+                },
+                tags: "#keyWordContainer strong",
+                datetime: {
+                    conatiner: "#Content_publishdate",
+                    splitter: "-",
+                },
+                category: {
+                    selector: '#breadCrumbsContainer [itemprop="title"]',
+                }
+            },
+            url: {
+                pathToCheckIndex: 1,
+            }
+        })
+    }
+
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        const catParts = cat.split('/')
+        const first = catParts[0]
+        const second = catParts.length > 1 ? catParts[1] : ''
+
+        if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        else if (cat.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        else if (cat.startsWith("عکس") || cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        else if (cat.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        else if (cat.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
+    }
+}
+
 
 export class niknews extends clsScrapper {
     constructor() {

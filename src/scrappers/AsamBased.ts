@@ -23,9 +23,9 @@ class clsAsamBased extends clsScrapper {
                     author: ".author",
                     text: ".comment-body"
                 },
-                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a',
+                tags: '.article_tags li, .article_tag a, .news_tags a, .tags ul li a, .article-tag a, .all-tags div a, .tag_items a',
                 datetime: {
-                    conatiner: (article: HTMLElement, fullHtml: HTMLElement) => article.querySelector("time")
+                    conatiner: (article: HTMLElement, fullHtml: HTMLElement) => article.querySelector("time, .news_nav_title")
                         || fullHtml.querySelector(".news_time")
                         || fullHtml.querySelector(".news-time")
                         || fullHtml.querySelector("time"),
@@ -37,6 +37,7 @@ class clsAsamBased extends clsScrapper {
                 }
             },
             url: {
+                extraInvalidStartPaths: ["/fa/admin", "/admin"],
                 ignoreContentOnPath: ["/tag", "/fa/tag"]
             }
         }
@@ -51,12 +52,17 @@ class clsAsamBased extends clsScrapper {
             const pathParts = url.pathname.split("/")
             let path = url.pathname
 
-            if (pathParts.length > 2
+            if ((url.hostname.startsWith('www') || url.hostname.split('.').length === 2)
+                && pathParts.length > 2
                 && pathParts[1] !== "tags"
                 && pathParts[1] !== "links"
-                && pathParts[1] !== "fa"
-                && pathParts[2] !== "")
-                path = `/fa/tiny/news-${pathParts[2].split("-")[0]}` 
+            ) {
+                if (pathParts[1] !== "fa"
+                    && pathParts[2] !== "")
+                    path = `/fa/tiny/news-${pathParts[2].split("-")[0]}`
+                else if (pathParts[1] === "fa" && pathParts[2] === "news" && pathParts.at(3) !== "")
+                    path = `/fa/tiny/news-${pathParts[3].split("-")[0]}`
+            }
 
             return url.protocol + "//" + url.hostname + path
         } catch (e) {
@@ -352,7 +358,7 @@ export class tasnim extends clsAsamBased {
             },
             url: {
                 extraValidDomains: ["tasnimnews.org", "tasnimnews.com"],
-                extraInvalidStartPaths: ["/Tasnim/Uploaded/Video"]
+                extraInvalidStartPaths: ["/Tasnim/Uploaded/Video", "/ContentManager"]
             },
             preHTMLParse: (html: string) => html.replace(/<a +href="https:\/\/vpn.tasnimnews.org\/ContentManager\/\d+\/https:\/\/www.tasnimnews.com" +target="_blank">/, "")
         })
@@ -377,62 +383,6 @@ export class tasnim extends clsAsamBased {
     }
 
 
-}
-
-/***********************************************************/
-export class pana extends clsAsamBased {
-    constructor() {
-        super(enuDomains.pana, "pana.ir", {
-            selectors: {
-                article: "article",
-                aboveTitle: "#Content_rutitr",
-                title: "#Content_title",
-                subtitle: "#Content_UnderTitle",
-                content: {
-                    main: ".NewsText>*",
-                    ignoreNodeClasses: ["video-js", "btn"]
-                },
-                tags: "#keyWordContainer strong",
-                datetime: {
-                    conatiner: "#Content_publishdate",
-                    splitter: "-",
-                },
-                category: {
-                    selector: '#breadCrumbsContainer [itemprop="title"]',
-                }
-            },
-            url: {
-                pathToCheckIndex: 1,
-            }
-        })
-    }
-
-    protected normalizePath(url: URL): string {
-        return this.baseNormalizePath(url)
-    }
-
-    mapCategory(cat?: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
-        if (!cat) return mappedCat
-        const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
-        if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (cat.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
-        else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("عکس") || cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
-        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
-
-        return mappedCat
-    }
 }
 
 /***********************************************************/
@@ -701,6 +651,7 @@ export class iana extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class donyaeeqtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.donyaeeqtesad, "donya-e-eqtesad.com", {
@@ -715,6 +666,7 @@ export class donyaeeqtesad extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class eghtesadonline extends clsAsamBased {
     constructor() {
         super(enuDomains.eghtesadonline, "eghtesadonline.com", {
@@ -734,6 +686,7 @@ export class eghtesadonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class titrekootah extends clsAsamBased {
     constructor() {
         super(enuDomains.titrekootah, "titrekootah.ir", {
@@ -753,6 +706,7 @@ export class titrekootah extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class didgahemrooz extends clsAsamBased {
     constructor() {
         super(enuDomains.didgahemrooz, "didgahemrooz.ir", {
@@ -774,6 +728,7 @@ export class didgahemrooz extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class wikigardi extends clsAsamBased {
     constructor() {
         super(enuDomains.wikigardi, "wikigardi.ir", {
@@ -789,6 +744,7 @@ export class wikigardi extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class jahanemana extends clsAsamBased {
     constructor() {
         super(enuDomains.jahanemana, "jahanemana.ir", {
@@ -802,6 +758,7 @@ export class jahanemana extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class shomavaeghtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.shomavaeghtesad, "shomavaeghtesad.com", {
@@ -818,6 +775,7 @@ export class shomavaeghtesad extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class ecoiran extends clsAsamBased {
     constructor() {
         super(enuDomains.ecoiran, "ecoiran.com", {
@@ -837,6 +795,7 @@ export class ecoiran extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class sharghdaily extends clsAsamBased {
     constructor() {
         super(enuDomains.sharghdaily, "sharghdaily.com", {
@@ -856,7 +815,7 @@ export class sharghdaily extends clsAsamBased {
     }
 }
 
-
+/***********************************************************/
 export class nasim extends clsAsamBased {
     constructor() {
         super(enuDomains.nasim, "nasim.news", {
@@ -867,6 +826,7 @@ export class nasim extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class eghtesadnews extends clsAsamBased {
     constructor() {
         super(enuDomains.eghtesadnews, "eghtesadnews.com", {
@@ -885,6 +845,7 @@ export class eghtesadnews extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class afkarnews extends clsAsamBased {
     constructor() {
         super(enuDomains.afkarnews, "afkarnews.com", {
@@ -902,6 +863,7 @@ export class afkarnews extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class etemadonline extends clsAsamBased {
     constructor() {
         super(enuDomains.etemadonline, "etemadonline.com", {
@@ -926,6 +888,7 @@ export class etemadonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class gostaresh extends clsAsamBased {
     constructor() {
         super(enuDomains.gostaresh, "gostaresh.news", {
@@ -940,6 +903,7 @@ export class gostaresh extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class moniban extends clsAsamBased {
     constructor() {
         super(enuDomains.moniban, "moniban.ir", {
@@ -956,6 +920,7 @@ export class moniban extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class honaronline extends clsAsamBased {
     constructor() {
         super(enuDomains.honaronline, "honaronline.ir", {
@@ -971,6 +936,7 @@ export class honaronline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class mosalasonline extends clsAsamBased {
     constructor() {
         super(enuDomains.mosalasonline, "mosalasonline.com", {
@@ -985,6 +951,7 @@ export class mosalasonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class tejaratefarda extends clsAsamBased {
     constructor() {
         super(enuDomains.tejaratefarda, "tejaratefarda.com", {
@@ -1003,6 +970,7 @@ export class tejaratefarda extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class fartaknews extends clsAsamBased {
     constructor() {
         super(enuDomains.fartaknews, "fartaknews.com", {
@@ -1021,6 +989,7 @@ export class fartaknews extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class shayanews extends clsAsamBased {
     constructor() {
         super(enuDomains.shayanews, "shayanews.com", {
@@ -1030,10 +999,14 @@ export class shayanews extends clsAsamBased {
                     main: "#echo_detail div [dir='rtl'], .image_top_primary, #echo_detail div [style='text-align:center']",
                 },
             },
+            url: {
+                removeWWW: true
+            }
         })
     }
 }
 
+/***********************************************************/
 export class cann extends clsAsamBased {
     constructor() {
         super(enuDomains.cann, "cann.ir", {
@@ -1047,6 +1020,7 @@ export class cann extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class shomanews extends clsAsamBased {
     constructor() {
         super(enuDomains.shomanews, "shomanews.com", {
@@ -1063,6 +1037,7 @@ export class shomanews extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class mostaghelonline extends clsAsamBased {
     constructor() {
         super(enuDomains.mostaghelonline, "mostaghelonline.com", {
@@ -1076,6 +1051,7 @@ export class mostaghelonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class iranart extends clsAsamBased {
     constructor() {
         super(enuDomains.iranart, "iranart.news", {
@@ -1098,6 +1074,7 @@ export class iranart extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class neshanonline extends clsAsamBased {
     constructor() {
         super(enuDomains.neshanonline, "neshanonline.com", {
@@ -1115,6 +1092,7 @@ export class neshanonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class chabokonline extends clsAsamBased {
     constructor() {
         super(enuDomains.chabokonline, "chabokonline.com", {
@@ -1133,6 +1111,7 @@ export class chabokonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class toseeirani extends clsAsamBased {
     constructor() {
         super(enuDomains.toseeirani, "toseeirani.ir", {
@@ -1150,6 +1129,7 @@ export class toseeirani extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class baeghtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.baeghtesad, "baeghtesad.com", {
@@ -1182,6 +1162,7 @@ export class baeghtesad extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class mamlekatonline extends clsAsamBased {
     constructor() {
         super(enuDomains.mamlekatonline, "mamlekatonline.ir", {
@@ -1195,6 +1176,7 @@ export class mamlekatonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class khanefootball extends clsAsamBased {
     constructor() {
         super(enuDomains.khanefootball, "khanefootball.com", {
@@ -1209,6 +1191,7 @@ export class khanefootball extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class honarmrooz extends clsAsamBased {
     constructor() {
         super(enuDomains.honarmrooz, "honarmrooz.com", {
@@ -1222,6 +1205,7 @@ export class honarmrooz extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class moroornews extends clsAsamBased {
     constructor() {
         super(enuDomains.moroornews, "moroornews.com", {
@@ -1239,7 +1223,7 @@ export class moroornews extends clsAsamBased {
     }
 }
 
-
+/***********************************************************/
 export class keshavarzplus extends clsAsamBased {
     constructor() {
         super(enuDomains.keshavarzplus, "keshavarzplus.com", {
@@ -1257,6 +1241,7 @@ export class keshavarzplus extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class armanmeli extends clsAsamBased {
     constructor() {
         super(enuDomains.armanmeli, "armanmeli.ir", {
@@ -1271,24 +1256,7 @@ export class armanmeli extends clsAsamBased {
     }
 }
 
-export class farazdaily extends clsAsamBased {
-    constructor() {
-        super(enuDomains.farazdaily, "farazdaily.com", {
-            selectors: {
-                article: "article",
-                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
-                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.lead"),
-                content: {
-                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".echo-detail>*, .image-top-primary, .landing-album-two figure a"),
-                },
-                category: {
-                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb-list li a"),
-                },
-            },
-        })
-    }
-}
-
+/***********************************************************/
 export class arshehonline extends clsAsamBased {
     constructor() {
         super(enuDomains.arshehonline, "arshehonline.com", {
@@ -1303,6 +1271,7 @@ export class arshehonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class khodrotak extends clsAsamBased {
     constructor() {
         super(enuDomains.khodrotak, "khodrotak.com", {
@@ -1321,6 +1290,7 @@ export class khodrotak extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class zenhar extends clsAsamBased {
     constructor() {
         super(enuDomains.zenhar, "zenhar.news", {
@@ -1334,6 +1304,7 @@ export class zenhar extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class ayandnews extends clsAsamBased {
     constructor() {
         super(enuDomains.ayandnews, "ayandnews.com", {
@@ -1347,6 +1318,7 @@ export class ayandnews extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class tapesh3 extends clsAsamBased {
     constructor() {
         super(enuDomains.tapesh3, "tapesh3.com", {
@@ -1357,6 +1329,7 @@ export class tapesh3 extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class panjahopanjonline extends clsAsamBased {
     constructor() {
         super(enuDomains.panjahopanjonline, "55online.news", {
@@ -1370,6 +1343,7 @@ export class panjahopanjonline extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class donyayemadan extends clsAsamBased {
     constructor() {
         super(enuDomains.donyayemadan, "donyayemadan.com", {
@@ -1380,6 +1354,7 @@ export class donyayemadan extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class taraznameheghtesad extends clsAsamBased {
     constructor() {
         super(enuDomains.taraznameheghtesad, "taraznameheghtesad.ir", {
@@ -1393,6 +1368,7 @@ export class taraznameheghtesad extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class bazarebours extends clsAsamBased {
     constructor() {
         super(enuDomains.bazarebours, "bazarebours.com", {
@@ -1407,6 +1383,7 @@ export class bazarebours extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class panjere extends clsAsamBased {
     constructor() {
         super(enuDomains.panjere, "panjere.news", {
@@ -1427,6 +1404,7 @@ export class panjere extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class econegar extends clsAsamBased {
     constructor() {
         super(enuDomains.econegar, "econegar.com", {
@@ -1440,6 +1418,7 @@ export class econegar extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class rasadeghtesadi extends clsAsamBased {
     constructor() {
         super(enuDomains.rasadeghtesadi, "rasadeghtesadi.com", {
@@ -1453,6 +1432,7 @@ export class rasadeghtesadi extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class gashtaninews extends clsAsamBased {
     constructor() {
         super(enuDomains.gashtaninews, "gashtaninews.com", {
@@ -1471,6 +1451,7 @@ export class gashtaninews extends clsAsamBased {
 
 }
 
+/***********************************************************/
 export class revayatnameh extends clsAsamBased {
     constructor() {
         super(enuDomains.revayatnameh, "revayatnameh.com", {
@@ -1486,6 +1467,7 @@ export class revayatnameh extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class sornakhabar extends clsAsamBased {
     constructor() {
         super(enuDomains.sornakhabar, "sornakhabar.com", {

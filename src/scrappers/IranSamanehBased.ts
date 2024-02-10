@@ -10,8 +10,8 @@ export class clsIransamaneh extends clsScrapper {
             selectors: {
                 article: "article",
                 aboveTitle: ".rutitr, .news-rutitr",
-                title: ".title, .news-title",
-                subtitle: ".subtitle, .news-subtitle",
+                title: ".title, .news-title, .title-news",
+                subtitle: ".subtitle, .news-subtitle, .subtitle-news",
                 summary: ".sub_ax, .subtitle_photo",
                 content: {
                     main: '.body>*, .lead_image, .album_listi>*, .image_set a',
@@ -46,6 +46,26 @@ export class clsIransamaneh extends clsScrapper {
             }
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
+    }
+}
+
+/***********************************************************/
+export class farazdaily extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.farazdaily, "farazdaily.com", {
+            selectors: {
+                article: ".news-cnt",
+                content: {
+                    main: ".body"
+                },
+                category: {
+                    selector: ".news_path a"
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
     }
 }
 

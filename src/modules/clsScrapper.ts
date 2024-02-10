@@ -103,10 +103,7 @@ export abstract class clsScrapper {
             if (recheck || (await this.db.hasAnyURL() === undefined)) {
                 log.debug({ recheck })
                 if (!await this.retrieveAndProcessPage(
-                    this.normalizeURL(
-                        this.safeCreateURL(
-                            (this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + (this.pConf.basePath || "/"))
-                    )))
+                    this.normalizeURL((this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + (this.pConf.basePath || "/"))))
                     throw new Error("No content retrieved")
             }
             await sleep(1000)
@@ -201,7 +198,7 @@ export abstract class clsScrapper {
                 stack.pop()
             }
             try {
-                const ref = this.normalizeRef(el.getAttribute("href") || "")
+                const ref = this.normalizeURL(this.normalizeRef(el.getAttribute("href") || ""))
                 const refURL = this.safeCreateURL(ref)
                 const sameDomain = this.isSameDomain(refURL)
                 const type = sameDomain ? enuTextType.ilink : enuTextType.link
@@ -223,7 +220,11 @@ export abstract class clsScrapper {
             }
         } else if (el.tagName === "IMG") {
             stack.push("IMG")
-            const result = { text: normalizeText(el.getAttribute("alt")), type: enuTextType.alt, ref: this.normalizeRef(el.getAttribute("data-src") || el.getAttribute("src") || "/") }
+            const result = { 
+                text: normalizeText(el.getAttribute("alt")), 
+                type: enuTextType.alt, 
+                ref: this.normalizeURL(this.normalizeRef(el.getAttribute("data-src") || el.getAttribute("src") || "/")) 
+            }
             debugNodeProcessor && log.debug("IMG", stack.join(">"), result, el.outerHTML)
             stack.pop()
             return [result]
@@ -308,8 +309,8 @@ export abstract class clsScrapper {
         if (ref.startsWith("data:"))
             return ""
         if (!ref.includes("://"))
-            ref = `http${this.pConf.url?.forceHTTP ? "" : "s"}://www.${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
-        return this.normalizeURL(this.safeCreateURL(ref))
+            ref = `http${this.pConf.url?.forceHTTP ? "" : "s"}://${this.baseURL}` + `/${ref.startsWith("#") ? "/" : ref}`.replace(/\/\//g, "/").replace(/\/\//g, "/")
+        return ref
     }
 
     private autoExtractDate(datetimeStr: string) {
@@ -410,7 +411,7 @@ export abstract class clsScrapper {
 
         extracted.forEach(pt => {
             if (pt.type === enuTextType.alt && pt.ref) {
-                const img: IntfImage = { src: this.normalizeRef(pt.ref) }
+                const img: IntfImage = { src: this.normalizeURL(this.normalizeRef(pt.ref)) }
                 if (pt.text) img.alt = pt.text
                 contentContainer.images.push(img)
             } else if (pt.type && pt.text
@@ -436,7 +437,7 @@ export abstract class clsScrapper {
                 pt.text = normalizeText(pt.text)
                 if (pt.text) {
                     if (pt.ref)
-                        contentContainer.texts.push({ type: pt.type, text: pt.text, ref: this.normalizeRef(pt.ref) })
+                        contentContainer.texts.push({ type: pt.type, text: pt.text, ref: this.normalizeURL(this.normalizeRef(pt.ref)) })
                     else
                         contentContainer.texts.push({ type: pt.type, text: pt.text })
                 }
@@ -472,7 +473,7 @@ export abstract class clsScrapper {
             })
 
             log.progress(`storing: ${id}:${page.url} -> {body: ${page.article?.content?.length}, comments: ${page.article?.comments?.length},  wc: ${wc}, links: ${page.links.length}}`)
-            page.links.forEach((link: string) => this.db.addToMustFetch(link))
+            page.links.forEach((link: string) => this.db.addToMustFetch(this.normalizeURL(link)))
 
             if (wc === 0) {
                 log.file(this.domain, "No content found on: ", page.url)
@@ -527,7 +528,7 @@ export abstract class clsScrapper {
                     const url = this.safeCreateURL(this.normalizeRef(href))
 
                     if (url.pathname === "" || url.pathname === "/" || !this.isValidInternalLink(url)) {
-                        //log.debug("ignoredDomain--->" + href)
+                        log.debug("ignoredDomain--->" + href)
                         return
                     }
 
@@ -590,7 +591,7 @@ export abstract class clsScrapper {
     private async getPageContent(url: string) {
         const proxy = await nextProxy()
         const cookie = await this.retrieveCookie(proxy, url)
-        url = this.normalizeURL(this.safeCreateURL(url))
+        url = this.normalizeURL(url)
         log.progress("retrieving: ", url, proxy?.port, cookie)
 
         const reqParams = { url, onSuccess: (data: any, url: string, resCookie: any) => ({ data, url, resCookie }), proxy, cookie, headers: this.extraHeaders() }
@@ -600,11 +601,6 @@ export abstract class clsScrapper {
             delete this.proxyCookie[proxy?.port || "none"]
             throw new Error(result?.err || "ERROR")
         }
-
-        const finalURL = this.normalizeURL(this.safeCreateURL(result.url))
-
-        if (finalURL !== url)
-            log.warn("URL Changed:", url,finalURL)
 
         this.proxyCookie[proxy?.port || "none"] = result.resCookie
 
@@ -932,7 +928,7 @@ export abstract class clsScrapper {
         void proxy, url; return undefined
     }
 
-    private effectiveURLNormalizetionConf(conf?: IntfURLNormalizationConf) : IntfURLNormalizationConf {
+    private effectiveURLNormalizetionConf(conf?: IntfURLNormalizationConf): IntfURLNormalizationConf {
         return {
             extraInvalidStartPaths: conf && conf.extraInvalidStartPaths !== undefined ? conf.extraInvalidStartPaths : this.pConf.url?.extraInvalidStartPaths,
             extraValidDomains: conf && conf.extraValidDomains !== undefined ? conf.extraValidDomains : this.pConf.url?.extraValidDomains,
@@ -956,8 +952,10 @@ export abstract class clsScrapper {
         return url.protocol + "//" + url.hostname + path + url.search
     }
 
-    private normalizeURL(url:URL, conf?: IntfURLNormalizationConf) : string {
+    public normalizeURL(url: URL | string, conf?: IntfURLNormalizationConf): string {
         const effectiveConf = this.effectiveURLNormalizetionConf(conf)
+        if (typeof url === "string") url = this.safeCreateURL(url)
+
         let hostname = url.hostname
         const hostnameParts = hostname.split(".")
         if (hostnameParts[0] === 'www' && (effectiveConf.removeWWW || hostnameParts.length > 3))
@@ -965,7 +963,10 @@ export abstract class clsScrapper {
         else if (effectiveConf.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
             hostname = "www." + hostname
 
-        return this.normalizePath(this.safeCreateURL(url.protocol + "//" + hostname + url.pathname + url.search), effectiveConf)
+        const normalized = this.normalizePath(this.safeCreateURL(url.protocol + "//" + hostname + url.pathname + url.search), effectiveConf)
+        if (normalized !== url.toString())
+            log.debug("URL updated: ", url.toString(), normalized)
+        return normalized
     }
 
     public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
