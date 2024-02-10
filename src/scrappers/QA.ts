@@ -827,8 +827,39 @@ export class drhast extends clsScrapper {
                             author: ".doctor-ui-name",
                         },
                     },
-                    ignoreNodeClasses: ["rootitrr", "singleTitle", "date", "lidd"]
                 },
+            },
+        })
+    }
+}
+
+export class adlpors extends clsScrapper {
+    constructor() {
+        super(enuDomains.adlpors, "adlpors.ir", {
+            selectors: {
+                article: ".pt-5",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: ".col-lg-8",
+                        q: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article"),
+                            text: ".card-body .card-text",
+                            author: ".post-meta a"
+                        },
+                        a: {
+                            container: "article:nth-child(5)",
+                            text: ".card-body .card-text",
+                            author: ".col-md-10.col-md-10 small a",
+                        },
+                    },
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                }
             },
         })
     }

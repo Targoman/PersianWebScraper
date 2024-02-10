@@ -1280,5 +1280,8 @@ yarn dev && yarn start drhast
 yarn dev && yarn start drhast -u https://drhast.com/q/gj1PB
 yarn dev && yarn start drhast -u https://drhast.com/q/YZlkv
 
+yarn dev && yarn start adlpors 
+yarn dev && yarn start adlpors -u https://adlpors.ir/consultation/question/59
+
 https://motamem.org/
 /**/
