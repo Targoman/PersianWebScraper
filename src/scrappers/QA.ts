@@ -643,7 +643,7 @@ export class adleiranian extends clsScrapper {
                             author: ".sabai-user"
                         },
                         a: {
-                            container:".sabai-questions-answers",
+                            container: ".sabai-questions-answers",
                             text: ".sabai-questions-body",
                             author: ".sabai-user"
                         },
@@ -690,7 +690,8 @@ export class dadpardaz extends clsScrapper {
                 },
             },
             url: {
-                removeWWW: true
+                removeWWW: true,
+                extraInvalidStartPaths: ["/lawyer/resume"]
             }
         })
     }
@@ -752,7 +753,7 @@ export class ksymg extends clsScrapper {
                             author: ".sabai-user"
                         },
                         a: {
-                            container:".sabai-questions-answers",
+                            container: ".sabai-questions-answers",
                             text: ".sabai-questions-body",
                             author: ".sabai-user"
                         },
