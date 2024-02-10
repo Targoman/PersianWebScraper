@@ -15,7 +15,7 @@ class clsAsamBased extends clsScrapper {
                 content: {
                     main: '.article_body .echo_detail>*, .article_body #echo_detail>*, .article_body #echo_details>*, #main_ck_editor>*, .gallery_containar figure, .contain_img, .res, .album_content>*, #echo_detail>*, .image_top_primary, .primary_files img, .primary-files, .primary_image',
                     ignoreTexts: [/.*tavoos_init_player.*/],
-                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt", "tinyurl_form"]
+                    ignoreNodeClasses: ["article_tag", "sec_info", "share_news", "short_link_cnt", "tinyurl_form"],
                 },
                 comments: {
                     container: ".comments-list li, .new_gallery_list>*",
@@ -29,13 +29,16 @@ class clsAsamBased extends clsScrapper {
                         || fullHtml.querySelector(".news_time")
                         || fullHtml.querySelector(".news-time")
                         || fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
                 },
                 category: {
                     selector: (article: HTMLElement) => article.querySelector(".breadcrumb_list, .breadcrumb")?.querySelectorAll("li a"),
                     startIndex: 1,
                 }
             },
+            url: {
+                ignoreContentOnPath: ["/tag", "/fa/tag"]
+            }
         }
 
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
@@ -45,9 +48,6 @@ class clsAsamBased extends clsScrapper {
         if (url.toString().match(/(\.jpg|\.jpeg|\.png|media)/))
             return url.toString();
         try {
-            let hostname = url.hostname
-            if (!hostname.startsWith("www."))
-                hostname = "www." + hostname
             const pathParts = url.pathname.split("/")
             let path = url.pathname
 
@@ -56,9 +56,9 @@ class clsAsamBased extends clsScrapper {
                 && pathParts[1] !== "links"
                 && pathParts[1] !== "fa"
                 && pathParts[2] !== "")
-                path = `/fa/tiny/news-${pathParts[2].split("-")[0]}` //+ "--->" + url.pathname
+                path = `/fa/tiny/news-${pathParts[2].split("-")[0]}` 
 
-            return url.protocol + "//" + hostname + path
+            return url.protocol + "//" + url.hostname + path
         } catch (e) {
             console.error(e)
             return ""
@@ -220,7 +220,8 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("کشتی")) {
             mappedCat.minor = enuMinorCategory.Sport
             mappedCat.subminor = enuSubMinorCategory.Wrestling
-        }
+        } else
+            return { major: enuMajorCategory.NA, original: cat }
         return mappedCat
     }
 }
@@ -359,9 +360,6 @@ export class tasnim extends clsAsamBased {
 
     protected normalizePath(url: URL): string {
         try {
-            let hostname = url.hostname
-            if (!hostname.startsWith("www."))
-                hostname = "www." + hostname
             const pathParts = url.pathname.split("/")
             let path = url.pathname
 
@@ -371,7 +369,7 @@ export class tasnim extends clsAsamBased {
                     || pathParts[2] === "media"))
                 path = `/fa/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${pathParts[5]}/${pathParts[6]}` //+ "--->" + url.pathname
 
-            return url.protocol + "//" + hostname + path
+            return url.protocol + "//" + url.hostname + path
         } catch (e) {
             console.error(e)
             return ""
@@ -680,7 +678,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("ویدیو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (cat.startsWith("یادگیری")) return { ...mappedCat, minor: enuMinorCategory.Education }
 
-        return mappedCat
+        return { major: enuMajorCategory.NA, original: cat }
     }
 }
 
@@ -1461,7 +1459,8 @@ export class gashtaninews extends clsAsamBased {
             selectors: {
                 article: "article",
                 content: {
-                    ignoreNodeClasses: ["others_known", "inline-news-box"]
+                    ignoreNodeClasses: ["others_known", "inline-news-box", 'quad_news2'],
+                    ignoreTexts: ["پایگاه خبری تحلیلی گشتنی نیوز :"]
                 },
                 category: {
                     selector: "ul.bread_crump li a"

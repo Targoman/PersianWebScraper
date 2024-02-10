@@ -108,50 +108,97 @@ export class porsan extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.QA, minor: enuMinorCategory.Generic }
         if (!cat) return mappedCat
 
-        if (cat === "اقتصاد") return { ...mappedCat, minor: enuMinorCategory.Economics }
-        if (cat === "عمومی") return { ...mappedCat, minor: enuMinorCategory.Generic }
-        if (cat === "تغذیه و سلامت"
-            || cat.startsWith("کودک ")
-            || cat.startsWith("زنان")
-            || cat.startsWith("سلامت")
-        ) return { ...mappedCat, minor: enuMinorCategory.Health }
-        if (cat === "روانشناسی") return { ...mappedCat, minor: enuMinorCategory.Psychology }
-        if (cat === "امنیت سایبری") return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Security }
-        if (cat === "مهندسی نرم افزار"
-            || cat === "برنامه نویسی"
-            || cat === "شبکه اجتماعی"
-        ) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Software }
-        if (cat.startsWith("شغل ")
+        if (cat === "اقتصاد"
+            || cat.startsWith("شغل ")
             || cat.startsWith("کارآفرینی")
             || cat.startsWith("بازاریابی")
+            || cat === "فین تک"
+            || cat === "فریلنسری"
         ) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        if (cat === "مذهبی") return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (cat === "عمومی"
+            || cat === "سایر"
+        ) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.startsWith("تغذیه ")
+            || cat.startsWith("زنان")
+            || cat.startsWith("سلامت")
+            || cat.startsWith("احساسات")
+            || cat.startsWith("استعمال")
+            || cat.startsWith("تربیت جنسی")
+            || cat.startsWith("ویروس کرونا")
+        ) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat === "پزشکی و دندانپزشکی") return { ...mappedCat, minor: enuMinorCategory.Medical }
+        if (cat === "روانشناسی"
+            || cat === "اختلالات روانشناختی"
+            || cat.startsWith("سلامت روان")
+            || cat.startsWith("کودک ")
+            || cat.startsWith("محتوای جنسی و عکس بدن")
+            || cat === "مسائل مربوط به سنین کم"
+            || cat === "مهارت های ذهنی"
+            || cat === "نیازهای ویژه و مشکلات یادگیری"
+            || cat === "والدین و گوشی تلفن"
+        ) return { ...mappedCat, minor: enuMinorCategory.Psychology }
+        if (cat === "امنیت سایبری"
+            || cat === "حریم خصوصی و امنیت در اینترنت"
+            || cat === "کلاه برداری و باج گیری اینترنتی"
+        ) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Security }
+        if (cat === "مهندسی نرم افزار"
+            || cat === "برنامه نویسی"
+            || cat === "تجربه کاربری"
+            || cat === "مدت زمان استفاده از صفحه نمایش"
+        ) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Software }
+        if (cat === "شبکه اجتماعی"
+            || cat === "اینستاگرام و شبکه های اجتماعی"
+        ) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuMinorCategory.Social }
+        if (cat === "مذهبی"
+            || cat === "ماه رمضان"
+            || cat === "تربیت معنوی")
+            return { ...mappedCat, minor: enuMinorCategory.Religious }
         if (cat === "علوم"
+            || cat === "هوا فضا"
             || cat == "محیط زیست"
         ) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (cat === "طراحی دیجیتال"
         ) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Art }
-        if (cat === "تحصیلی") return { ...mappedCat, minor: enuMinorCategory.Education }
-        if (cat === "زیبایی") return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat.startsWith("تحصیلی")
+            || cat === "برگشت به مدرسه"
+            || cat === "یادگیری از طریق فناوری"
+        ) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (cat === "زیبایی"
+            || cat === "قوت شخصیتی و سبک زندگی"
+        ) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat === "ورزشی") return { ...mappedCat, minor: enuMinorCategory.Sport }
         if (cat === "سفر") return { ...mappedCat, minor: enuMinorCategory.Tourism }
         if (cat === "استارتاپ") return { ...mappedCat, minor: enuMinorCategory.Startup }
         if (cat === "فیلم و سینما") return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        if (cat === "پزشکی و دندانپزشکی") return { ...mappedCat, minor: enuMinorCategory.Medical }
         if (cat === "غذا و نوشیدنی") return { ...mappedCat, minor: enuMinorCategory.Food }
         if (cat === "سیاست") return { ...mappedCat, minor: enuMinorCategory.Political }
         if (cat === "تاریخ") return { ...mappedCat, minor: enuMinorCategory.Historical }
         if (cat === "خودرو") return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         if (cat === "هنر") return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat === "فرهنگ") return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat === "حقوقی") return { ...mappedCat, minor: enuMinorCategory.Law }
         if (cat === "اینترنت اشیاء") return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.IOT }
-        if (cat === "روابط") return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.startsWith("روابط")
+            || cat === "رابطه"
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat === "موسیقی") return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
         if (cat === "نویسندگی"
+            || cat === "خواندن"
             || cat === "داستان"
         ) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentary }
         if (cat === "عکاسی") return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Photo }
         if (cat === "کتاب") return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
-        if (cat === "خانواده") return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat === "پادکست") return { ...mappedCat, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Podcast }
+        if (cat.startsWith("تماشا")
+            || cat === "فیلم و سینما"
+        ) return { ...mappedCat, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Cinema }
+        if (cat === "رسانه") return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat === "خانواده"
+            || cat === "خشونت در رسانه"
+            || cat === "خودشناسی"
+            || cat === "بهره وری"
+            || cat === "خودکشی"
+        ) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat === "پول رمزی") return { ...mappedCat, minor: enuMinorCategory.CryptoCurrency }
         if (cat === "فرهنگ") return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat === "داستان") return { ...mappedCat, minor: enuMinorCategory.Generic }
@@ -159,12 +206,10 @@ export class porsan extends clsScrapper {
         if (cat === "هوش مصنوعی") return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.AI }
         if (cat === "مهاجرت") return { ...mappedCat, minor: enuMinorCategory.Tourism }
         if (cat === "موفقیت") return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        if (cat === "فین تک") return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (cat === "غلط ننویسیم") return { ...mappedCat, minor: enuMinorCategory.Culture }
-        if (cat === "هوا فضا") return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        if (cat === "آشپزی") return { ...mappedCat, minor: enuMinorCategory.Cooking }
-        if (cat === "بهره وری") return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        if (cat === "فریلنسری") return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat === "آشپزی"
+            || cat === "غذا و نوشیدنی"
+        ) return { ...mappedCat, minor: enuMinorCategory.Cooking }
 
         return mappedCat
     }
@@ -186,8 +231,8 @@ export class bonyadvokala extends clsScrapper {
                             fullHtml.querySelector("meta[property='og:updated_time'], .last-updated") :
                             article.querySelector(".question__item time"),
                     splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.split("T").at(0) ||
-                     el.innerText.replace("به‌روز شده: ", "").replace(/^(.*) (.*), (.*)$/, "$2 $1 $3").split(" ").map((s,i)=>i==1 ? persianMonthNumber(s) : s).join("-") 
-                     || "NO_DATE",
+                        el.innerText.replace("به‌روز شده: ", "").replace(/^(.*) (.*), (.*)$/, "$2 $1 $3").split(" ").map((s, i) => i == 1 ? persianMonthNumber(s) : s).join("-")
+                        || "NO_DATE",
                 },
                 content: {
                     main: ".entry-content, figure.single-featured-image",
@@ -226,41 +271,41 @@ export class bonyadvokala extends clsScrapper {
         })
     }
     mapCategory(cat?: string): IntfMappedCategory {
-            return { major: cat?.startsWith("مشاوره") ? enuMajorCategory.QA : enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+        return { major: cat?.startsWith("مشاوره") ? enuMajorCategory.QA : enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
     }
 }
 
 export class pasokhgoo extends clsScrapper {
     constructor() {
-      super(enuDomains.pasokhgoo, "pasokhgoo.ir", {
-        selectors: {
-          article: "body.node-type-article, body.node-type-gallery",
-          title: "h1",
-          subtitle: ".field-name-field-subtitle div div",
-          datetime: {
-            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span[property='dc:date dc:created']"),
-            splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-          },
-          content: {
-            main: ".field-name-field-image div div a, .flexslider ul li",
-            qa: {
-                containers: ".node-article",
-                q: {
-                    container: ".field-type-text-with-summary div div",
-                    text: "p",
+        super(enuDomains.pasokhgoo, "pasokhgoo.ir", {
+            selectors: {
+                article: "body.node-type-article, body.node-type-gallery",
+                title: "h1",
+                subtitle: ".field-name-field-subtitle div div",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("span[property='dc:date dc:created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
                 },
-                a: {
-                    container: ".field-name-field-pasokh div div",
-                    text: 'p'
-                }
-            }
-          },
-          category: {
-            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")
-          },
-          tags: ".field-name-field-tags div div a"
-        },
-      })
+                content: {
+                    main: ".field-name-field-image div div a, .flexslider ul li",
+                    qa: {
+                        containers: ".node-article",
+                        q: {
+                            container: ".field-type-text-with-summary div div",
+                            text: "p",
+                        },
+                        a: {
+                            container: ".field-name-field-pasokh div div",
+                            text: 'p'
+                        }
+                    }
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".field-name-field-subject div div span a")
+                },
+                tags: ".field-name-field-tags div div a"
+            },
+        })
     }
 
     mapCategory(): IntfMappedCategory {
@@ -270,38 +315,38 @@ export class pasokhgoo extends clsScrapper {
 
 export class islamquest extends clsScrapper {
     constructor() {
-      super(enuDomains.islamquest, "islamquest.net", {
-        basePath: "/fa",
-        selectors: {
-          article: ".question-details, #quran-big-page",
-          title: ".main-question, .sure-title",
-          datetime: {
-            conatiner: ".last-up span.item",
-            acceptNoDate: true
-          },
-          content: {
-            main: ".quran-text, .translate-text, .tafsir-text",
-            qa: {
-                containers: ".question-main",
-                q: {
-                    container: ".full-question, .short-question",
-                    text: "#A2_1, #A1_1",
+        super(enuDomains.islamquest, "islamquest.net", {
+            basePath: "/fa",
+            selectors: {
+                article: ".question-details, #quran-big-page",
+                title: ".main-question, .sure-title",
+                datetime: {
+                    conatiner: ".last-up span.item",
+                    acceptNoDate: true
                 },
-                a: {
-                    container: ".short-answer",
-                    text: '#A3_1'
-                }
+                content: {
+                    main: ".quran-text, .translate-text, .tafsir-text",
+                    qa: {
+                        containers: ".question-main",
+                        q: {
+                            container: ".full-question, .short-question",
+                            text: "#A2_1, #A1_1",
+                        },
+                        a: {
+                            container: ".short-answer",
+                            text: '#A3_1'
+                        }
+                    }
+                },
+                category: {
+                    selector: ".category a"
+                },
+                tags: ".tags a",
+            },
+            url: {
+                extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
             }
-          },
-          category: {
-            selector: ".category a"
-          },
-          tags: ".tags a",
-        },
-        url: {
-          extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
-        }
-      })
+        })
     }
 
     mapCategory(): IntfMappedCategory {

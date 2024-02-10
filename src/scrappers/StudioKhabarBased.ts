@@ -36,9 +36,6 @@ class clsStudioKhabarBased extends clsScrapper {
     }
 
     protected normalizePath(url: URL): string {
-        let hostname = url.hostname
-        if (!hostname.startsWith("www."))
-            hostname = "www." + hostname
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
@@ -47,7 +44,7 @@ class clsStudioKhabarBased extends clsScrapper {
         )
             path = `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}`
 
-        return url.protocol + "//" + hostname + path
+        return url.protocol + "//" + url.hostname + path
     }
 
     mapCategory(cat?: string): IntfMappedCategory {
@@ -100,9 +97,6 @@ export class jahannews extends clsStudioKhabarBased {
     }
 
     protected normalizePath(url: URL): string {
-        let hostname = url.hostname
-        if (!hostname.startsWith("www."))
-            hostname = "www." + hostname
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
@@ -111,7 +105,7 @@ export class jahannews extends clsStudioKhabarBased {
         )
             path = `/${pathParts[1]}/${pathParts[2]}`
 
-        return url.protocol + "//" + hostname + path
+        return url.protocol + "//" + url.hostname + path
     }
 }
 
@@ -133,9 +127,6 @@ export class baharnews extends clsStudioKhabarBased {
     }
 
     protected normalizePath(url: URL): string {
-        let hostname = url.hostname
-        if (!hostname.startsWith("www."))
-            hostname = "www." + hostname
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
@@ -144,7 +135,7 @@ export class baharnews extends clsStudioKhabarBased {
         )
             path = `/${pathParts[1]}/${pathParts[2]}`
 
-        return url.protocol + "//" + hostname + path
+        return url.protocol + "//" + url.hostname + path
     }
 
 

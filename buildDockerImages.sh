@@ -12,14 +12,15 @@ ContainerParams=""
 
 fingerprint=$(cat package.json yarn.lock .eslintrc.js tsconfig.json | md5sum | cut -d ' ' -f 1) 
 rebuild=0
-if [ -f .fingerprint ]; then    
-    if [ "$(cat .fingerprint)" != "$fingerprint" ]; then
+if [ -f docker/.fingerprint ]; then    
+    if [ "$(cat docker/.fingerprint)" != "$fingerprint" ]; then
         rebuild=1
     fi
 else
-    echo $fingerprint > .fingerprint
     rebuild=1
 fi
+
+echo $fingerprint > docker/.fingerprint
 
 yarn dev
 if [ $? -ne 0 ];then 
@@ -42,7 +43,7 @@ echo "$fingerprint => rebuild: $rebuild"
 sudo docker pull ${ImageName}:builder || true && \
 
 if [ $rebuild -eq 1 ];then
-    sudo docker build -t ${ImageName}:builder -f Dockerfile.builder . && \
+    sudo docker build -t ${ImageName}:builder -f docker/Dockerfile.builder . && \
     sudo docker push "${ImageName}:builder"   
 
     if [ $? -ne 0 ];then exit 1; fi 
@@ -56,7 +57,11 @@ sudo docker pull ${ImageName}:latest || true && \
 #sudo docker build --cache-from ${ImageName}:builder -t ${ImageName}:builder . && \
 # Build the final image by using the older final image as a cache
 # ...but also the local cache from the previous builder build
-sudo docker build --cache-from ${IMAGE}:latest -f Dockerfile.app --build-arg BUILDER_IMAGE=${ImageName}:builder -t ${ImageName}:$NewVersion . && \
+if [ $rebuild -eq 1 ];then
+    sudo docker build -f docker/Dockerfile.app --build-arg BUILDER_IMAGE=${ImageName}:builder -t ${ImageName}:$NewVersion . 
+else 
+    sudo docker build -f docker/Dockerfile.partial --build-arg BUILDER_IMAGE=${ImageName}:builder --build-arg LAST_IMAGE=${ImageName}:latest -t ${ImageName}:$NewVersion . 
+fi && \
 sudo docker rmi "$ImageName:latest" || true && \
 sudo docker tag "$ImageName:$NewVersion" "$ImageName:latest" && \
 #sudo docker push "$ImageName:builder"  && \

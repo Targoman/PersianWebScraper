@@ -163,7 +163,7 @@ export class shenasname extends clsScrapper {
         title: ".entry-title, .qa-main-heading h1 a",
         datetime: {
           conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
-          splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE"
+          splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
         },
         content: {
           main: ".entry-content",

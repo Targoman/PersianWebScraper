@@ -1,7 +1,7 @@
 import DatabaseConstructor, { Database } from 'better-sqlite3';
 import { log } from './logger';
 import { enuDomains } from './interfaces';
-import { existsSync, mkdirSync, readdirSync, renameSync, statSync } from 'fs';
+import { existsSync, mkdirSync, readdirSync, renameSync, rmSync, statSync } from 'fs';
 import gConfigs from './gConfigs';
 import { Md5 } from 'ts-md5';
 import { always, date2Gregorian } from './common';
@@ -24,7 +24,7 @@ export default class clsDB {
         this.domain = domain
     }
 
-    init() {
+    init(checkURLWithFiles = false) {
         if (!gConfigs.db)
             throw new Error("db config not set")
 
@@ -53,7 +53,36 @@ export default class clsDB {
                 'lastError' TEXT DEFAULT NULL
             )`)
 
+        const listAllFiles = () => {
+            const fileMap = {}
+            const listAllFiles = (dir: string) => {
+                log.progress("loading " + dir)
+                if (!existsSync(dir)) {
+                    if (existsSync(dir + ".tgz"))
+                        throw new Error("Directory not found but there is the compressed version!")
+                    else
+                        throw new Error("Directory not found!")
+                }
+                const files = readdirSync(dir);
+
+                for (const file of files) {
+                    const filePath = `${dir}/${file}`;
+                    const fileStat = statSync(filePath);
+                    if (fileStat.isDirectory())
+                        listAllFiles(filePath);
+                    else
+                        fileMap[file.replace(".json", "")] = { d: date2Gregorian(dir.split('/').at(-1)), p: filePath }
+                }
+            }
+
+            log.info("Listing files")
+            listAllFiles(gConfigs.corpora + "/" + this.domain)
+            log.info(`There are ${Object.keys(fileMap).length} entries`)
+            return fileMap
+        }
+
         if (!this.hasAnyURL() && existsSync(`${gConfigs.db}/${this.domain}.db`)) {
+            const fileMap = listAllFiles()
             log.warn("moving old DB to new structure")
             let lastID = 0
             let count = 0
@@ -63,24 +92,6 @@ export default class clsDB {
             this.oldDB.pragma('journal_mode = WAL');
 
             try {
-                const fileMap = {}
-                const listAllFiles = (dir: string) => {
-                    log.progress("loading " + dir)
-                    const files = readdirSync(dir);
-
-                    for (const file of files) {
-                        const filePath = `${dir}/${file}`;
-                        const fileStat = statSync(filePath);
-                        if (fileStat.isDirectory())
-                            listAllFiles(filePath);
-                        else
-                            fileMap[file.replace(".json", "")] = date2Gregorian(dir.split('/').at(-1))
-                    }
-                }
-
-                log.info("Listing files")
-                listAllFiles(gConfigs.corpora + "/" + this.domain)
-                log.info(`There are ${Object.keys(fileMap).length} entries`)
                 while (always) {
                     const orc: any = this.oldDB.prepare(`SELECT * FROM tblURLs WHERE id > ? LIMIT 1`).get(lastID)
                     if (orc) {
@@ -90,7 +101,7 @@ export default class clsDB {
                         const hash = Md5.hashStr(orc.url)
                         let docDate: string | undefined = undefined
                         if (orc.status === 'C') {
-                            docDate = fileMap[hash]
+                            docDate = fileMap[hash]?.d
                             if (!docDate || docDate === "IGNORED" || docDate === "NO_DATE")
                                 docDate = "NOT_SET"
 
@@ -98,7 +109,7 @@ export default class clsDB {
                         }
 
                         if (count % 1000 === 0)
-                            log.progress(`Migration progress: (${this.domain})`, count, lastID)
+                            log.status({ i: `Migration progress: (${this.domain})`, count, lastID })
 
                         insert.run(orc.url, hash, orc.creation, orc.lastChange, orc.status, orc.wc, docDate || null, orc.lastError)
                         lastID = orc.id
@@ -107,7 +118,7 @@ export default class clsDB {
                         break
                 }
                 this.oldDB.close()
-                log.progress('Moved from oldDB', count)
+                log.status({ 'Moved from oldDB': count })
                 const trashBin = gConfigs.db + "/trash"
                 if (!existsSync(trashBin))
                     if (!mkdirSync(trashBin, { recursive: true }))
@@ -118,6 +129,57 @@ export default class clsDB {
                 process.exit()
             }
         }
+
+        if (checkURLWithFiles) {
+            const fileMap = listAllFiles()
+            let lastID = 0
+            let count = 0
+            let updated = 0
+            let deleted = 0
+
+            while (always) {
+                this.db.prepare(`UPDATE tblURLs set wc=0 WHERE status != 'C' LIMIT 1`).run()
+                const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE id > ? AND status = 'C' LIMIT 1`).get(lastID)
+                if (rc) {
+                    const hash = Md5.hashStr(rc.url)
+                    const docSpec = fileMap[hash]
+                    if (rc.url.includes("//www.cdn") || rc.url.includes("//www.static")) {
+                        this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(rc.id)
+                        log.progress("DELETE: ", rc.url)
+                        deleted++
+                    } else if (!docSpec) {
+                        this.db.prepare(`UPDATE tblURLs SET status='N', wc=0 WHERE id=?`).run(rc.id)
+                        log.progress("UPDATE: ", rc.url)
+                        updated++
+                    }
+
+                    if (count % 1000 === 0)
+                        log.status({ i: `DB-check progress: (${this.domain})`, count, updated, deleted, lastID })
+
+                    lastID = rc.id
+                    count++
+                } else
+                    break
+            }
+
+            log.status("Removing extra files")
+            const hashes = Object.keys(fileMap)
+            let filesChecked = 0
+            hashes.forEach(hash => {
+                const rc: any = this.db.prepare(`SELECT status FROM tblURLs WHERE hash = ? AND status = 'C' LIMIT 1`).get(hash)
+                if (!rc) {
+                    rmSync(fileMap[hash].p)
+                    log.progress("DELETED: ", fileMap[hash].p)
+                    deleted++
+                }
+                if (filesChecked % 1000 === 0)
+                    log.status({ i: `DB-check progress: (${this.domain})`, progress: ((filesChecked / hashes.length) * 10000) / 100, updated, deleted })
+                filesChecked++
+            })
+
+            log.status({ i: `DB-check finished: (${this.domain})`, count, updated, deleted })
+        }
+
     }
 
     runQuery(query: string) {
