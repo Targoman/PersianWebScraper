@@ -1276,5 +1276,9 @@ yarn dev && yarn start hisalamat -u https://www.hisalamat.com/ques/17904/
 yarn dev && yarn start hisalamat -u https://www.hisalamat.com/magazine/singleNews.php?id=405
 yarn dev && yarn start hisalamat -u https://www.hisalamat.com/singleArticle.php?art_id=821&doc_id=214
 
+yarn dev && yarn start drhast
+yarn dev && yarn start drhast -u https://drhast.com/q/gj1PB
+yarn dev && yarn start drhast -u https://drhast.com/q/YZlkv
+
 https://motamem.org/
 /**/

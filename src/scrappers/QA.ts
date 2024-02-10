@@ -804,3 +804,32 @@ export class hisalamat extends clsScrapper {
         })
     }
 }
+
+export class drhast extends clsScrapper {
+    constructor() {
+        super(enuDomains.drhast, "drhast.com", {
+            selectors: {
+                article: "[itemprop='mainEntity']",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='mainEntity']"),
+                        q: {
+                            container: ".main-question",
+                            text: ".main-question__body",
+                        },
+                        a: {
+                            container: "div:nth-child(2) .main-question__answer",
+                            text: ".main-question__answer-body [itemprop='text']",
+                            author: ".doctor-ui-name",
+                        },
+                    },
+                    ignoreNodeClasses: ["rootitrr", "singleTitle", "date", "lidd"]
+                },
+            },
+        })
+    }
+}

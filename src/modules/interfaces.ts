@@ -89,6 +89,7 @@ export enum enuDomains {
     donyayekhodro = "donyayekhodro",
     donyayemadan = "donyayemadan",
     dotic = "dotic",
+    drhast = "drhast",
     drsaina = "drsaina",
     dsport = "dsport",
     ecoiran = "ecoiran",
