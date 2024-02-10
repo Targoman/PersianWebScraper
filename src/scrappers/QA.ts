@@ -722,7 +722,8 @@ export class dadvarzyar extends clsScrapper {
                             datetime: ".faqs-item-text-date"
                         },
                     },
-                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/]
+                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/, /.*لینک کانال.*/, /.*لینک صفحه.*/, 
+                      /.*لطفابا ثبت.*/, /.*جهت نگارش لایحه.*/, /.*جهت مشاوره با وکیل.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-breadcrumbs a, [rel='category tag']")
