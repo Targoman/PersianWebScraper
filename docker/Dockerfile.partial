@@ -1,0 +1,18 @@
+ARG BUILDER_IMAGE
+ARG LAST_IMAGE
+FROM $BUILDER_IMAGE as builder
+WORKDIR /usr/src/app
+COPY ./src /usr/src/app/src/
+RUN ls -l && yarn dev
+
+FROM $LAST_IMAGE 
+WORKDIR /usr/src/app
+COPY --from=builder "/usr/src/app/.build/" "/usr/src/app/.build/"
+RUN chown node:node ./
+USER node
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
+
+ENV TZ="Asia/Tehran"
+
+

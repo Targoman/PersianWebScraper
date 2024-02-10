@@ -403,8 +403,6 @@ export interface IntfGlobalConfigs {
 
 export enum enuTextType {
     paragraph = "p",
-    pq = "p-q",
-    pa = "p-a",
     caption = "caption",
     cite = "cite",
     h1 = "h1",
@@ -471,7 +469,8 @@ export enum enuMajorCategory {
     Weblog = "Weblog",
     Wiki = "Wiki",
     SocialMedia = "SocialMedia",
-    Doc = "Doc"
+    Doc = "Doc",
+    NA = "NA"
 }
 
 export enum enuMinorCategory {
@@ -565,7 +564,8 @@ export enum enuSubMinorCategory {
 export interface IntfMappedCategory {
     major: enuMajorCategory,
     minor?: enuMinorCategory,
-    subminor?: enuSubMinorCategory | enuMinorCategory
+    subminor?: enuSubMinorCategory | enuMinorCategory,
+    original?: string
 }
 
 export interface IntfProxy {
@@ -596,14 +596,14 @@ export interface IntfSelectorToString {
     (element: HTMLElement, fullHtml?: HTMLElement): string
 }
 
-export interface IntfURLNormaliziztionConf {
+export interface IntfURLNormalizationConf {
     extraValidDomains?: string[]
     extraInvalidStartPaths?: string[],
     ignoreContentOnPath?: string[],
     removeWWW?: boolean,
     pathToCheckIndex?: number | null
     validPathsItemsToNormalize?: string[],
-    http?: boolean
+    forceHTTP?: boolean
 }
 
 export interface IntfCommentContainer {
@@ -649,7 +649,7 @@ export interface IntfProcessorConfigs {
         }
     },
     api?: { (url: URL, reParams: IntfRequestParams, data?: string): Promise<IntfPageContent> },
-    url?: IntfURLNormaliziztionConf
+    url?: IntfURLNormalizationConf
     basePath?: string
     preHTMLParse?: (html: string) => string
 }

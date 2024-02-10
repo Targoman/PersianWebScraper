@@ -16,7 +16,8 @@ export class clsIransamaneh extends clsScrapper {
                 content: {
                     main: '.body>*, .lead_image, .album_listi>*, .image_set a',
                     alternative: '.album_content>*',
-                    textNode: ".body"
+                    textNode: ".body",
+
                 },
                 comments: {
                     container: ".comments_item, .comm_answer_line, .comm_answer",
@@ -40,28 +41,12 @@ export class clsIransamaneh extends clsScrapper {
             },
             url: {
                 pathToCheckIndex: 2,
-                validPathsItemsToNormalize: ["news", "photos"]
+                validPathsItemsToNormalize: ["news", "photos"],
+                ignoreContentOnPath: ["/fa/tag"]
             }
         }
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
     }
-
-    /*protected normalizePath(url: URL): string {
-        let hostname = url.hostname
-        if (!hostname.startsWith("www."))
-            hostname = "www." + hostname
-        const pathParts = url.pathname.split("/")
-        let path = url.pathname
-
-        if (pathParts.length > 3
-            && (pathParts[2] === "news"
-                || pathParts[2] === "photos"
-            )
-        )
-            path = `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}`
-
-        return url.protocol + "//" + hostname + path
-    }*/
 }
 
 /***********************************************************/
@@ -1286,6 +1271,9 @@ export class tejaratonline extends clsIransamaneh {
             selectors: {
                 article: ".news_content",
             },
+            url: {
+                extraInvalidStartPaths: ["/000"]
+            }
         })
     }
 

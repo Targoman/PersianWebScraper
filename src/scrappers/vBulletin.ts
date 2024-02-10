@@ -23,7 +23,7 @@ class clsVBulletinBased extends clsScrapper {
         }
       },
       url: {
-        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external"]
+        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply.php", "/printthread.php", "/attachment.php"]
       }
     }
 
@@ -58,7 +58,7 @@ export class webhostingtalk extends clsVBulletinBased {
 
 export class barnamenevis extends clsVBulletinBased {
   constructor() {
-    super(enuDomains.barnamenevis, "barnamenevis.org")
+    super(enuDomains.barnamenevis, "barnamenevis.org" )
   }
 
   mapCategory(): IntfMappedCategory {
