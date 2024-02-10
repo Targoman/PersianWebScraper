@@ -722,3 +722,40 @@ export class ksymg extends clsScrapper {
         })
     }
 }
+
+export class hisalamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.hisalamat, "hisalamat.com", {
+            selectors: {
+                article: ".quespadd, .main321",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, .matun3.ta div.orange"),
+                acceptNoTitle: true,
+                subtitle: ".lidd",
+                datetime: {
+                    conatiner: ".date span:nth-child(1)",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".matnasli, .col-sm-12.quespadd.ta .matun3 .quesP>*"),
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".col-sm-9.quespadd.ta .matun3"),
+                        q: {
+                            container: ".quesP",
+                            text: ".red",
+                        },
+                        a: {
+                            container: ".ansP",
+                            text: ".quesP",
+                            author: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".base .col-xs-9.ta"),
+                        },
+                    },
+                    ignoreNodeClasses: ["rootitrr", "singleTitle", "date", "lidd"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".base div:nth-child(1), .rootitrr")
+
+                },
+            },
+        })
+    }
+}

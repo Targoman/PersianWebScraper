@@ -1271,5 +1271,10 @@ yarn dev && yarn start ksymg
 yarn dev && yarn start ksymg -u https://www.ksymg.com/questions/question/سوال-در-مورد-اثبات-شهادت-کذب
 yarn dev && yarn start ksymg -u https://www.ksymg.com/اصول-و-شرایط-وکالت-در-طلاق/
 
+yarn dev && yarn start hisalamat 
+yarn dev && yarn start hisalamat -u https://www.hisalamat.com/ques/17904/
+yarn dev && yarn start hisalamat -u https://www.hisalamat.com/magazine/singleNews.php?id=405
+yarn dev && yarn start hisalamat -u https://www.hisalamat.com/singleArticle.php?art_id=821&doc_id=214
+
 https://motamem.org/
 /**/
