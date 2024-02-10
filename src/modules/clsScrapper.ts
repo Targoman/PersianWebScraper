@@ -70,7 +70,7 @@ export abstract class clsScrapper {
     async start(recheck = false) {
         try {
             log.progress("Starting " + this.domain)
-            this.db.init()
+            this.db.init(recheck)
             if (!existsSync(this.corporaPath))
                 if (!mkdirSync(this.corporaPath, { recursive: true }))
                     throw new Error("Unable to create corpora directory: " + this.corporaPath)
@@ -604,7 +604,7 @@ export abstract class clsScrapper {
         const finalURL = this.normalizeURL(this.safeCreateURL(result.url))
 
         if (finalURL !== url)
-            log.warn("URL Changed:", finalURL)
+            log.warn("URL Changed:", url,finalURL)
 
         this.proxyCookie[proxy?.port || "none"] = result.resCookie
 
