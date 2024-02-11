@@ -24,8 +24,8 @@ class clsVBulletinBased extends clsScrapper {
       },
       url: {
         extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply", "/printthread", "/attachment",
-		"/sendmessage", "/misc"
-	]
+          "/sendmessage", "/misc"
+        ]
       },
       preHTMLParse: (html) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html; }
     }
@@ -33,13 +33,18 @@ class clsVBulletinBased extends clsScrapper {
     super(domain, baseURL, deepmerge(baseConfig, conf || {}))
   }
   protected normalizePath(url: URL): string {
-      if (url.pathname === '/showthread.php' && url.searchParams?.has('t') )
-           return 'https://' + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + (url.searchParams.get('page')||"1")
-      const sp :string[] = []
-      for(const [key, value] of url.searchParams.entries())  // each 'entry' is a [key, value] tupple
-         if(key !== 's') sp.push(key+"="+value)
-  
-      return url.protocol + "//" + url.hostname + url.pathname + (sp.length ? ("?" + sp.join("&")) : "") 
+    const protocol = `http${this.pConf.url?.forceHTTP ? "" : "s"}://`
+    if (url.pathname === '/showthread.php' && url.searchParams?.has('t'))
+      return + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + (url.searchParams.get('page') || "1")
+
+    if (/\/threads\/[0-9]+-.*/.test(url.pathname) || /\/forums\/[0-9]+-.*/.test(url.pathname))
+      return protocol + url.hostname + url.pathname.split("-").at(0)
+
+    const sp: string[] = []
+    for (const [key, value] of url.searchParams.entries())  // each 'entry' is a [key, value] tupple
+      if (key !== 's') sp.push(key + "=" + value)
+
+    return protocol + url.hostname + url.pathname + (sp.length ? ("?" + sp.join("&")) : "")
   }
 }
 
@@ -70,7 +75,7 @@ export class webhostingtalk extends clsVBulletinBased {
 
 export class barnamenevis extends clsVBulletinBased {
   constructor() {
-    super(enuDomains.barnamenevis, "barnamenevis.org" )
+    super(enuDomains.barnamenevis, "barnamenevis.org")
   }
 
   mapCategory(): IntfMappedCategory {
@@ -194,6 +199,21 @@ export class sakhtafzarmag extends clsVBulletinBased {
 export class joomlafarsi extends clsVBulletinBased {
   constructor() {
     super(enuDomains.joomlafarsi, "forum.joomlafarsi.com", {
+      selectors: {
+        datetime: {
+          splitter: (el: HTMLElement) => {
+            const date = el.textContent.match(/\d{2}-\d{2}-\d{4}/);
+            if (date) {
+              const dateParts = date[0].split("-")
+              if (dateParts.length === 3)
+                return dateParts[2] + '-' + dateParts[0] + '-' + dateParts[1];
+              return "INVALID_DATE"
+            }
+            else
+              return "NO_DATE";
+          }
+        }
+      },
       url: {
         removeWWW: true
       }

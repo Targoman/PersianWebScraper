@@ -1,7 +1,7 @@
 import DatabaseConstructor, { Database } from 'better-sqlite3';
 import { log } from './logger';
 import { enuDomains } from './interfaces';
-import { existsSync, mkdirSync, readdirSync, renameSync, rmSync, statSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'fs';
 import gConfigs from './gConfigs';
 import { Md5 } from 'ts-md5';
 import { always, date2Gregorian } from './common';
@@ -152,10 +152,31 @@ export default class clsDB {
                     const normalizedURL = scrapper.normalizeURL(rc.url)
                     if (normalizedURL != rc.url) {
                         log.warn("Stored URL is being updated", rc.url, normalizedURL)
-                        this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
-                        this.addToMustFetch(normalizedURL)
-                        log.progress("DELETE: ", rc.url)
-                        deleted++
+                        try {
+                            const content = readFileSync(fileMap[hash].p, 'utf8')
+                            const json = JSON.parse(content)
+                            const newHash = Md5.hashStr(normalizedURL)
+                            json.url = normalizedURL
+                            const path = fileMap[hash].p.split("/")
+                            path.pop()
+                            writeFileSync(path.join("/") + newHash + ".json", JSON.stringify(json))
+
+                            log.progress("UPDATING", fileMap[hash].p, path.join("/") + "/" + newHash + ".json")
+                            try {
+                                this.db.prepare(`UPDATE tblURLs SET url=?, hash=? WHERE url=?`).run(normalizedURL, newHash, rc.url)
+                            } catch (e) {
+                                void e
+                            }
+                            rc.url = normalizedURL
+                            updated++
+                        } catch (e) {
+                            log.debug(e)
+                            log.warn("Unable to inplace update so removing and adding to fetch")
+                            this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                            this.addToMustFetch(normalizedURL)
+                            log.progress("DELETE: ", rc.url)
+                            deleted++
+                        }
                     }
 
                     if (rc.url.includes("//www.cdn") || rc.url.includes("//www.static")) {
