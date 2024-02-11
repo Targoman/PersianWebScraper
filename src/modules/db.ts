@@ -160,6 +160,7 @@ export default class clsDB {
                             const path = fileMap[hash].p.split("/")
                             path.pop()
                             writeFileSync(path.join("/") + newHash + ".json", JSON.stringify(json))
+                            rmSync
 
                             log.progress("UPDATING", fileMap[hash].p, path.join("/") + "/" + newHash + ".json")
                             try {
@@ -185,7 +186,7 @@ export default class clsDB {
                         deleted++
                     } else if (!docSpec) {
                         this.db.prepare(`UPDATE tblURLs SET status='N', wc=0 WHERE id=?`).run(rc.id)
-                        log.progress("UPDATE: ", rc.url)
+                        log.progress("UPDATE 2 New: ", rc.url)
                         updated++
                     }
 

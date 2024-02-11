@@ -37,8 +37,11 @@ class clsVBulletinBased extends clsScrapper {
     if (url.pathname === '/showthread.php' && url.searchParams?.has('t'))
       return + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + (url.searchParams.get('page') || "1")
 
-    if (/\/threads\/[0-9]+-.*/.test(url.pathname) || /\/forums\/[0-9]+-.*/.test(url.pathname))
-      return protocol + url.hostname + url.pathname.split("-").at(0)
+    if (/\/threads\/[0-9]+-.*/.test(url.pathname) || /\/forums\/[0-9]+-.*/.test(url.pathname)) {
+      const rx = /.*\/page([0-9]+).*/
+      const page = rx.test(url.pathname) ? url.pathname.replace(rx,"$1") : "1"
+      return protocol + url.hostname + url.pathname.split("-").at(0) + "/page" + page
+    }
 
     const sp: string[] = []
     for (const [key, value] of url.searchParams.entries())  // each 'entry' is a [key, value] tupple
