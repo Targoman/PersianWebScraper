@@ -1,11 +1,11 @@
 ARG BUILDER_IMAGE
-ARG LAST_IMAGE
+ARG BASE_IMAGE
 FROM $BUILDER_IMAGE as builder
 WORKDIR /usr/src/app
 COPY ./src /usr/src/app/src/
 RUN ls -l && yarn dev
 
-FROM $LAST_IMAGE 
+FROM $BASE_IMAGE 
 WORKDIR /usr/src/app
 COPY --from=builder "/usr/src/app/.build/" "/usr/src/app/.build/"
 RUN chown node:node ./

@@ -159,14 +159,14 @@ export default class clsDB {
                             json.url = normalizedURL
                             const path = fileMap[hash].p.split("/")
                             path.pop()
-                            writeFileSync(path.join("/") + newHash + ".json", JSON.stringify(json))
-                            rmSync
-
-                            log.progress("UPDATING", fileMap[hash].p, path.join("/") + "/" + newHash + ".json")
+                            const newFile = path.join("/") + "/" + newHash + ".json"
+                            log.progress("UPDATING", fileMap[hash].p, newFile)
                             try {
+                                writeFileSync(newFile, JSON.stringify(json))
+                                rmSync(fileMap[hash].p)
                                 this.db.prepare(`UPDATE tblURLs SET url=?, hash=? WHERE url=?`).run(normalizedURL, newHash, rc.url)
                             } catch (e) {
-                                void e
+                                log.debug(e)
                             }
                             rc.url = normalizedURL
                             updated++
