@@ -184,7 +184,7 @@ export default class clsDB {
                             }
                         } else {
                             log.warn("File not stored: ", oldHash)
-                            this.safeUpdate(rc.url, 'N', normalizedURL, newHash)
+                            this.safeUpdate(rc.url, enuURLStatus.New, normalizedURL, newHash)
                             updated++
                         }                         
                     }
