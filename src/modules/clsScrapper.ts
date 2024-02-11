@@ -607,8 +607,7 @@ export abstract class clsScrapper {
         if (this.pConf.api)
             return await this.pConf.api(this.safeCreateURL(url), reqParams, result.data)
 
-        const html = this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data
-	html = html.replace(/>[ \t\n\r]+?</g, "> <");
+        const html = (this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data).replace(/>[ \t\n\r]+?</g, "> <");
         return await this.parse(url, HP.parse(html, { parseNoneClosedTags: true }), result.data, reqParams);
     }
 

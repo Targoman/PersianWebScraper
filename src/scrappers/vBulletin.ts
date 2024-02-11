@@ -23,8 +23,8 @@ class clsVBulletinBased extends clsScrapper {
         }
       },
       url: {
-        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply.php", "/printthread.php", "/attachment.php",
-		"/newreply"
+        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply", "/printthread", "/attachment",
+		"/sendmessage", "/misc"
 	]
       },
       preHTMLParse: (html) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html; }
@@ -33,9 +33,13 @@ class clsVBulletinBased extends clsScrapper {
     super(domain, baseURL, deepmerge(baseConfig, conf || {}))
   }
   protected normalizePath(url: URL): string {
-      if (url.hostname === 'showthread.php' && url.searchParams?.has('t') && url.searchParams.has('page'))
-           return 'https://' + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + url.searchParams.get('page')
-      return url.toString()
+      if (url.pathname === '/showthread.php' && url.searchParams?.has('t') )
+           return 'https://' + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + (url.searchParams.get('page')||"1")
+      const sp :string[] = []
+      for(const [key, value] of url.searchParams.entries())  // each 'entry' is a [key, value] tupple
+         if(key !== 's') sp.push(key+"="+value)
+  
+      return url.protocol + "//" + url.hostname + url.pathname + (sp.length ? ("?" + sp.join("&")) : "") 
   }
 }
 
