@@ -132,7 +132,7 @@ export abstract class clsScrapper {
         }
     }
 
-    private safeCreateURL(url: string) {
+    protected safeCreateURL(url: string) {
         try {
             return new URL(url)
         } catch (e) {

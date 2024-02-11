@@ -7,7 +7,7 @@ import { log } from "./logger";
 import Cache from './timed-cache';
 
 const proxyCache = new Cache
-let lastInUse: number = -1
+let lastInUse: number =  Math.floor(Math.random() * (gConfigs.proxies?.length ||0)) - 1 
 
 export async function nextProxy(): Promise<IntfProxy | undefined> {
     if (gConfigs.proxies && gConfigs.hostIP) {

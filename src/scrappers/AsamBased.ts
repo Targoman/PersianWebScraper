@@ -375,7 +375,7 @@ export class tasnim extends clsAsamBased {
                 || pathParts[2] === "media"))
                 path = `/${pathParts[6]}` //+ "--->" + url.pathname
 
-            return "https://" + url.hostname + path
+            return "https://tasnimnews.com" + path
         } catch (e) {
             console.error(e)
             return ""

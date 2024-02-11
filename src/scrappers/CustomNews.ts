@@ -60,11 +60,19 @@ export class farsnews extends clsScrapper {
                 }
             },
             url: {
+		extraInvalidStartPaths: ["/newstext", "/printable", "/af", "/api"],
                 validPathsItemsToNormalize: ["news", "media"],
                 pathToCheckIndex: 1,
                 extraValidDomains: ["farsnews.com"]
             },
         })
+    }
+
+    protected normalizePath(url: URL): string {
+            const u = this.safeCreateURL(super.normalizePath(url))
+            u.hostname="www.farsnews.ir"
+            u.protocol="https:"
+            return u.toString()  
     }
 }
 

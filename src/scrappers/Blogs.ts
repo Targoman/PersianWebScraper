@@ -2067,7 +2067,7 @@ export class hamgardi extends clsScrapper {
                 }
             },
             url: {
-                extraInvalidStartPaths: ["/flight", "/hotel", "/fa/Visa", "/fa/Tour"]
+                extraInvalidStartPaths: ["/flight", "/hotel", "/fa/Visa", "/fa/Tour", "/fa/Tickets", "/fa/Gallery", "/fa/Place"]
             }
         })
     }
