@@ -7,6 +7,7 @@ domains='
 abantether
 achareh
 activeidea
+adleiranian
 afkarnews
 aftabnews
 aghigh
@@ -70,7 +71,11 @@ chtn
 cinemapress
 citna
 clickaval
+dadrah
 danakhabar
+daadyab
+dadpardaz
+dadvarzyar
 dargi
 didarnews
 didgahemrooz
@@ -93,6 +98,7 @@ eghtesadnews
 eghtesadonline
 ekhtebar
 emalls
+eporsesh
 etemadonline
 exbito
 eximnews
@@ -114,6 +120,7 @@ filimoshot
 fitamin
 flightio
 foodpress
+getzoop
 gashtaninews
 ghafaridiet
 gishniz
@@ -150,6 +157,8 @@ irasin
 iribnews
 irna
 iscanews
+isovisit
+islamquest
 isna
 itna
 ivahid
@@ -183,6 +192,7 @@ khatebazar
 khodrotak
 khordad
 kidzy
+ksymg
 labourlaw
 lastsecond
 liangroup
@@ -202,6 +212,7 @@ mehrnews
 melipayamak
 mendellab
 miare
+mihanpezeshk
 mihanwebhost
 mizanonline
 mizbanfa
@@ -221,6 +232,7 @@ naghdfarsi
 namava
 namnak
 nasim
+nazaratshora
 neshanonline
 niknews
 niniban
@@ -241,6 +253,7 @@ parscoders
 parshistory
 parsine
 parspack
+pasokhgoo
 payamekhanevadeh
 payamgostar
 paydarymelli
@@ -250,6 +263,7 @@ persiantools
 podium
 ponisha
 poonehmedia
+porsan
 portal
 qavanin
 qudsonline
@@ -260,6 +274,7 @@ rajanews
 ramzarz
 rasadeghtesadi
 rasanews
+rasekhoon
 rastineh
 rawanshenas
 rayamarketing
@@ -344,9 +359,11 @@ tlyn
 toseeirani
 transis
 trip
+vakiltik
 vananews
 varzesh3
 virgool
+vindad
 watereng
 webhostingtalk
 webkima
@@ -363,6 +380,7 @@ wppersian
 yekpezeshk
 yektanet
 yjc
+zanjani
 zenhar
 zhaket
 zibamoon
@@ -370,25 +388,29 @@ zoomit
 '
 
 
-VOLUMES="-v/var/lib/ws/db:/db -v/var/lib/ws/corpora:/corpora -v$cwd/log:/log --mount type=bind,source=$cwd/config.json,target=/etc/config.json" 
+VOLUMES="-v/var/lib/ws/db:/db -v/var/lib/ws/corpora:/corpora -v$cwd/log:/log --mount type=bind,source=$cwd/config.json,target=/etc/config.json"
 IMAGE=docker-registry.tip.co.ir/webscrap/scrapper:latest
 COMMAND="node .build/index.js"
 PROC_COMMAND="node .build/process.js"
 CONFIG="-c /etc/config.json"
 function stop(){
-       sudo  docker rm -f $1
+        sudo  docker rm -f $1
 }
 
 function run() {
         stop $1
-        sudo docker run -d --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG ${@:2}
+        if [ -f "ws/corpora/$1.tgz" ]; then
+                echo "tgz found ignoring"
+        else
+                sudo docker run -d --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG ${@:2}
+        fi
 }
 
 function reset() {
-       stop $1
-       sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "DELETE FROM tblURLs WHERE url LIKE 'https://www.static%' OR url LIKE 'https://www.cdn%'" -v 4
-       sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "UPDATE tblURLs SET status = 'N' WHERE (status='E' AND lastError NOT LIKE '%code 400%' AND lastError NOT LIKE '%code 403%' AND lastError NOT LIKE '%code 404%' AND lastError NOT LIKE '%code 414%' ) OR (wc=0 AND (status IN ('F', 'C')))" -v 4
-       sudo docker run -d --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --recheck ${@:2}
+        stop $1
+        sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "DELETE FROM tblURLs WHERE url LIKE 'https://www.static%' OR url LIKE 'https://www.cdn%'" -v 4
+        sudo docker run --rm -t --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "UPDATE tblURLs SET status = 'N' WHERE (status='E' AND lastError NOT LIKE '%code 400%' AND lastError NOT LIKE '%code 403%' AND lastError NOT LIKE '%code 404%' AND lastError NOT LIKE '%code 414%' ) OR (wc=0 AND (status IN ('F', 'C')))" -v 4
+        sudo docker run -d --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --recheck ${@:2}
 }
 
 function update() {
@@ -397,88 +419,93 @@ function update() {
 }
 
 if [ -z "$1" ]; then
-    for d in $domains; do
-            run $d
-            sleep $RUNSleep
-    done
-elif [ "$1" == "reset" ]; then
-    if [ -z "$2" ]; then
-        for i in $domains; do
-            reset $i
-            sleep $RUNSleep
+        for d in $domains; do
+                run $d
+                sleep $RUNSleep
         done
-    else
-        reset $2
-    fi
+elif [ "$1" == "reset" ]; then
+        if [ -z "$2" ]; then
+                for i in $domains; do
+                        reset $i
+                        sleep $RUNSleep
+                done
+        else
+                reset $2
+        fi
 elif [ "$2" == "query" ];then
-    stop $1
-    docker run -t --rm --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "$3"
+        stop $1
+        docker run -t --rm --name $1 $VOLUMES $IMAGE $COMMAND $1 $CONFIG --runQuery "$3"
 elif [ $1 == "show" ]; then
-    if [ -n "$2" ]; then
-        domains=$2
-    fi
-    cat log/lastStats
-    echo "--------------------------------------------------------------------------------"
-    twc=0
-    tur=0
-    tdc=0
-    tpu=0
-    for i in $domains; do
-        res=`sudo docker logs --tail 100 $i 2>/dev/null | grep fetching | tail -n 1`
-        echo "$res  $i"
-        wc=`echo $res | cut -d ',' -f 7 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
-        dc=`echo $res | cut -d ',' -f 6 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
-        ur=`echo $res | cut -d ',' -f 2 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
-        pu=`echo $res | cut -d ',' -f 5 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
-#       echo $ur
-        twc=$(($wc + $twc))
-        tdc=$(($dc + $tdc))
-        tur=$(($ur + $tur))
-        tpu=$(($pu + $tpu))
-    done
-    echo "--------------------------------------------------------------------------------"
-    printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc
-    printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc > log/lastStats
+        if [ -n "$2" ]; then
+                if [ $2 != "u" ]; then
+                        domains=$2
+                fi
+        fi
+        cat log/lastStats
+        echo "--------------------------------------------------------------------------------"
+        twc=0
+        tur=0
+        tdc=0
+        tpu=0
+        for i in $domains; do
+                if [ "$2" == "u" ]; then
+                        docker run -d --name $i $VOLUMES $IMAGE $COMMAND $i $CONFIG >/dev/null 2>/dev/null
+                fi
+                res=`sudo docker logs --tail 100 $i 2>/dev/null | grep fetching | tail -n 1`
+                echo "$res  $i"
+                wc=`echo $res | cut -d ',' -f 7 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
+                dc=`echo $res | cut -d ',' -f 6 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
+                ur=`echo $res | cut -d ',' -f 2 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
+                pu=`echo $res | cut -d ',' -f 5 | cut -d ':' -f 2 | xargs | sed -e 's/\x1b\[[0-9;]*m//g'`
+                #       echo $ur
+                twc=$(($wc + $twc))
+                tdc=$(($dc + $tdc))
+                tur=$(($ur + $tur))
+                tpu=$(($pu + $tpu))
+        done
+        echo "--------------------------------------------------------------------------------"
+        printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc
+        printf "Total URLs: %'.0f \t Processed URLs: %'.0f \t Total Docs: %'.0f \t Total WC: %'.0f \t\n" $tur $tpu $tdc $twc > log/lastStats
 
 elif [ "$1" == "stop" ];then
-    if [ -z "$2" ]; then
-        for d in $domains; do
-            stop $d
-        done
-    else
-        stop $2
-    fi
+        if [ -z "$2" ]; then
+                for d in $domains; do
+                        stop $d
+                done
+        else
+                stop $2
+        fi
 
 elif  [ "$1" == "update" ]; then
-    if [ -z "$2" ]; then
-        for d in $domains; do
-            update $d
-            sleep $RUNSleep
-        done
-    else
-        update $2
-    fi
+        if [ -z "$2" ]; then
+                for d in $domains; do
+                        update $d
+                        sleep $RUNSleep
+                done
+        else
+                update $2
+        fi
 
 elif  [ "$1" == "stats" ];then
-    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/stats.csv ${@:2}
+        sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/stats.csv   ${@:2}
 elif  [ "$1" == "stats2" ];then
-    if [ -n "$2" ]; then statsFile=$3; else statsFile='stats'; fi
-    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/$statFile.csv ${@:2}
+        if [ -n "$3" ]; then statsFile=$3; else statsFile='stats'; fi
+        sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND catStats $CONFIG -s /log/$statsFile.csv   ${@:2}
 elif  [ "$1" == "normalize" ];then
-    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND normalize $CONFIG ${@:2}
-    if [ -n "$3" ];then
-            rm -rvf /var/lib/ws/corpora/$3/13*
-            rm -rvf /var/lib/ws/corpora/$3/14*
-            rm -rvf /var/lib/ws/corpora/$3/NO_DATE*
-            ls /var/lib/ws/corpora/$3/
-    fi
+        sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND normalize $CONFIG ${@:2}
+        if [ -n "$3" ];then
+                rm -rvf /var/lib/ws/corpora/$3/13*
+                rm -rvf /var/lib/ws/corpora/$3/14*
+                rm -rvf /var/lib/ws/corpora/$3/NO_DATE*
+                ls /var/lib/ws/corpora/$3/
+        fi
 elif  [ "$1" == "toText" ];then
-    sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND toText $CONFIG -t /out ${@:2}
-    if [ -n "$3" ];then
-        cd /var/lib/ws/text
-        tar -czv $3 > $3.tgz
-    fi
+        sudo docker run --rm -t --name $1-$3 $VOLUMES $IMAGE $PROC_COMMAND toText $CONFIG -t /out ${@:2}
+        if [ -n "$3" ];then
+                cd /var/lib/ws/text
+                tar -czv $3 > $3.tgz
+        fi
 else
-    run $*
-    sudo docker logs -f $1
+        run $*
+        sudo docker logs -f $1
 fi

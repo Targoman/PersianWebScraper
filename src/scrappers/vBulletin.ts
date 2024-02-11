@@ -23,11 +23,19 @@ class clsVBulletinBased extends clsScrapper {
         }
       },
       url: {
-        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply.php", "/printthread.php", "/attachment.php"]
-      }
+        extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply.php", "/printthread.php", "/attachment.php",
+		"/newreply"
+	]
+      },
+      preHTMLParse: (html) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html; }
     }
 
     super(domain, baseURL, deepmerge(baseConfig, conf || {}))
+  }
+  protected normalizePath(url: URL): string {
+      if (url.hostname === 'showthread.php' && url.searchParams?.has('t') && url.searchParams.has('page'))
+           return 'https://' + url.hostname + url.pathname + '?t=' + url.searchParams.get("t") + "&page=" + url.searchParams.get('page')
+      return url.toString()
   }
 }
 
@@ -129,10 +137,9 @@ export class boursy extends clsVBulletinBased {
       }
     })
   }
-
   mapCategory(cat?: string): IntfMappedCategory {
     if (cat === "انجمن/تالار فرهنگی- هنری و آزاد") return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Culture }
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Economics }
+    return { major: enuMajorCategory.NA, original: cat }
   }
 
 }

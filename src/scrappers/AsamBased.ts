@@ -372,10 +372,10 @@ export class tasnim extends clsAsamBased {
             if (pathParts.length > 6
                 && pathParts[1] === "fa"
                 && (pathParts[2] === "news"
-                    || pathParts[2] === "media"))
-                path = `/fa/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${pathParts[5]}/${pathParts[6]}` //+ "--->" + url.pathname
+                || pathParts[2] === "media"))
+                path = `/${pathParts[6]}` //+ "--->" + url.pathname
 
-            return url.protocol + "//" + url.hostname + path
+            return "https://" + url.hostname + path
         } catch (e) {
             console.error(e)
             return ""

@@ -60,7 +60,7 @@ export class porsan extends clsScrapper {
                         pageContent.links.push(`https://porsan.ir/api/v1/client_ui/question/${i}?page=1&count=30`)
                 else {
                     const removeHTML = (str: string) => {
-                        return normalizeText(str.replace(/<\/?[^>]>/, ""))
+                        return normalizeText(str.replace(/<\/?[^>]>/g, ""))
                     }
                     pageContent.article = { qa: [] }
 
@@ -333,8 +333,9 @@ export class islamquest extends clsScrapper {
                             text: "#A2_1, #A1_1",
                         },
                         a: {
-                            container: ".short-answer",
-                            text: '#A3_1'
+                            container: ".short-answer, .full-answer",
+                            text: '#A3_1, #A4_1',
+                            author: '#A3, #A4'
                         }
                     }
                 },
@@ -345,7 +346,8 @@ export class islamquest extends clsScrapper {
             },
             url: {
                 extraInvalidStartPaths: ["/ur", "/en", "/ar", "/id", "/ms", "/tr", "/ru", "/th", "/fr", "/az", "/es", "/de", "/it", "/sw", "/ha", "/hi"]
-            }
+            },
+            preHTMLParse: (html: string) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html }
         })
     }
 

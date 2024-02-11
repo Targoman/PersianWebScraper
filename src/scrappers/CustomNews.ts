@@ -565,6 +565,7 @@ export class pana extends clsScrapper {
                 }
             },
             url: {
+                extraInvalidStartPaths: ["/newspdf"],
                 pathToCheckIndex: 1,
             }
         })

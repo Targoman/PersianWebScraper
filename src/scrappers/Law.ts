@@ -88,7 +88,7 @@ export class qavanin extends clsScrapper {
         subtitle: "h2",
         datetime: {
           conatiner: "h2",
-          splitter: (el: HTMLElement) => super.extractDate(el.innerText.replace("مصوب ", "").replace(/ .*/, ""), " ") || "DATE NOT FOUND"
+          splitter: (el: HTMLElement) => super.extractDate(el.innerText.replace("مصوب ", "").replace(/ .*/g, ""), " ") || "DATE NOT FOUND"
         },
         content: {
           main: "#treeText",

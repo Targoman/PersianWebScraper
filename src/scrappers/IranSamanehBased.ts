@@ -41,6 +41,7 @@ export class clsIransamaneh extends clsScrapper {
             },
             url: {
                 pathToCheckIndex: 2,
+                extraInvalidStartPaths: ["/fa/ajax"],
                 validPathsItemsToNormalize: ["news", "photos"],
                 ignoreContentOnPath: ["/fa/tag"]
             }
@@ -1549,7 +1550,7 @@ export class khabaredagh extends clsIransamaneh {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
-            }
+            },
         })
     }
 }

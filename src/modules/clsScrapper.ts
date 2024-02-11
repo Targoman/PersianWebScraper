@@ -608,6 +608,7 @@ export abstract class clsScrapper {
             return await this.pConf.api(this.safeCreateURL(url), reqParams, result.data)
 
         const html = this.pConf.preHTMLParse ? this.pConf.preHTMLParse(result.data) : result.data
+	html = html.replace(/>[ \t\n\r]+?</g, "> <");
         return await this.parse(url, HP.parse(html, { parseNoneClosedTags: true }), result.data, reqParams);
     }
 
@@ -955,6 +956,11 @@ export abstract class clsScrapper {
     public normalizeURL(url: URL | string, conf?: IntfURLNormalizationConf): string {
         const effectiveConf = this.effectiveURLNormalizetionConf(conf)
         if (typeof url === "string") url = this.safeCreateURL(url)
+
+        if(!this.isValidInternalLink(url)) {
+            log.debug("Is not valid Internal: ", url.toString())
+            return "/Invalid"
+        }
 
         let hostname = url.hostname
         const hostnameParts = hostname.split(".")

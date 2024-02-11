@@ -12,7 +12,8 @@ import * as scrappers from './scrappers'
 enum enuCommands {
     catStats = 'catStats',
     normalize = "normalize",
-    toText = "toText"
+    toText = "toText",
+    toJsonl = "toJsonl",
 }
 
 enum enuDateResolution {
@@ -49,19 +50,27 @@ const args = {
     command: positional({ type: oneOf(Object.keys(enuCommands).concat(Object.values(enuCommands).map(e => e.toLowerCase()))), displayName: "Command", description: `Command to be executed can be one of:  ${Object.keys(enuCommands).join(", ")}` }),
     configFile: option({ type: optional(string), long: 'configFile', short: "c", description: "set configFile to be used" }),
     debugVerbosity: option({ type: optional(number), long: 'verbosity', short: "v", description: "set verbosity level from 0 to 10" }),
-    statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
-    keepOriginalCat: flag({ long: "keepOriginalCat", description: "reports original category even if there are mapped category" }),
 
-    force: flag({ long: "force", description: "forces normalization of category even if the category was set priorly" }),
+    targetPath: option({ type: optional(string), long: 'target', short: "t", description: "Target Folder to store results on converting to text or jsonl" }),
+    statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
+
     domain: option({ type: optional(oneOf(Object.keys(enuDomains).concat(Object.values(enuDomains)))), long: 'domain', short: "d", description: `Domain to be checked${Object.keys(enuDomains).join(", ")}. If ommited all domains will be checked` }),
+
+    keepOriginalCat: flag({ long: "keepOriginalCat", description: "reports original category even if there are mapped category" }),
+    forceNormal: flag({ long: "forceNormal", description: "forces normalization of category even if the category was set priorly" }),
+
     minDocWC: option({ type: optional(number), long: 'minwc', description: "Minimum word count of target document file" }),
+
     justFormal: flag({ long: "justFormal", description: "limits extraction to Title, AboveTitle, subtitle, summary, main content, alt" }),
     justInformal: flag({ long: "justInformal", description: "limits extraction to comments" }),
+    validMajorCats: option({ type: optional(string), long: 'validMajorCats', description: "Comma separated major cats" }),
+    validMinorCats: option({ type: optional(string), long: 'validMinorCats', description: "Comma separated minor cats" }),
+    invalidMajorCats: option({ type: optional(string), long: 'invalidMajorCats', description: "Comma separated major cats to exclude" }),
+    invalidMinorCats: option({ type: optional(string), long: 'invalidMinorCats', description: "Comma separated minor cats to exclude" }),
+
     altAsFormalText: flag({ long: "altAsFormalText", description: "output ALT text as formal text" }),
-    targetPath: option({ type: optional(string), long: 'target', short: "t", description: "Target Folder to store results" }),
     dateResolution: option({ type: optional(oneOf(Object.keys(enuDateResolution))), long: 'dateRes', description: `Target path date resolution can be:  ${Object.keys(enuCommands).join(", ")}` }),
     minDate: option({ type: optional(string), long: 'minDate', description: "Min date to extract texts" }),
-    keepCat: option({ type: optional(oneOf(Object.keys(enuCategory))), long: 'dateRes', description: `Target path date resolution can be:  ${Object.keys(enuCommands).join(", ")}` }),
 }
 
 function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string): void }) {
@@ -125,18 +134,44 @@ const app = command({
         log.info({ activeConfigs: gConfigs })
         let processedCount = 0
 
+        if (args.validMajorCats)
+            args.validMajorCats = args.validMajorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Major category: " + cat); return cat })
+        if (args.validMinorCats)
+            args.validMinorCats = args.validMinorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Minor category: " + cat); return cat })
+        if (args.invalidMajorCats)
+            args.invalidMajorCats = args.invalidMajorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Major category: " + cat); return cat })
+        if (args.invalidMinorCats)
+            args.invalidMinorCats = args.invalidMinorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Minor category: " + cat); return cat })
+
+
         switch (args.command) {
+            case enuCommands.toJsonl:
             case enuCommands.toText: {
                 let ignoredBySize = 0
                 let ignoredByDate = 0
+                let ignoredByCategory = 0
 
                 processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
                     const fileName = filePath.split("/").pop()?.replace(".json", "")
                     const baseOutpath = (args.targetPath || "./out") + "/" + scrapper.name() + "/"
                     const docTimeStamp = Date.parse(doc.date || "INVALID")
                     if (processedCount % 1000 === 0)
-                        log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
+                        log.status({
+                            processed: formatNumber(processedCount),
+                            ignoredByDate: formatNumber(ignoredByDate),
+                            ignoredBySize: formatNumber(ignoredBySize),
+                            ignoredByCategory: formatNumber(ignoredByCategory),
+                        });
                     processedCount++
+
+                    if ((args.validMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major) != true)
+                        || (args.validMinorCats && typeof doc.category !== "string" && args.validMinorCats.includes(doc.category.minor) != true)
+                        || (args.invalidMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major))
+                        || (args.invalidMinorCats && typeof doc.category !== "string" && args.invalidMinorCats.includes(doc.category.minor))
+                    ) {
+                        ignoredByCategory++
+                        return
+                    }
 
                     if (args.minDate) {
                         const minTimeStamp = Date.parse(args.minDate)

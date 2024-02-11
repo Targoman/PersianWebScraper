@@ -413,6 +413,7 @@ export class blogsky extends clsScrapper {
             },
             url: {
                 removeWWW: true,
+		extraInvalidStartPaths: ["/dailylink", '/tag']
             }
         })
     }
@@ -3240,6 +3241,9 @@ export class ipresta extends clsScrapper {
                     startIndex: 1
                 },
             },
+            url:{
+                extraInvalidStartPaths: ["/discover/"]
+            }
         })
     }
 }

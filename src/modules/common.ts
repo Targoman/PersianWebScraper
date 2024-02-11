@@ -159,7 +159,7 @@ export function normalizeText(text?: string, removeNewLine = true) {
         .replace(/ى/g, 'ی')
 
     if (removeNewLine)
-        decoded.replace(/\n/, ' ')
+        decoded.replace(/\n/g, ' ')
 
     return PersianShaper.convertArabicBack(decoded).trim()
 }

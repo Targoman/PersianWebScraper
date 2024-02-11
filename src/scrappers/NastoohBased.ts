@@ -35,7 +35,7 @@ class clsNastoohBased extends clsScrapper {
                 }
             },
             url: {
-                extraInvalidStartPaths: ["/old/upload", '/d/'],
+                extraInvalidStartPaths: ["/old/upload", '/d/', '/page/archive.xhtml?d'],
                 pathToCheckIndex: 1,
             }
         }
@@ -774,9 +774,6 @@ export class farhangemrooz extends clsNastoohBased {
                     selector: "span.item-service a"
                 }
             },
-            url:{
-                extraInvalidStartPaths: ["/page/archive.xhtml?d"]
-            }
         })
     }
 }
