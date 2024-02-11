@@ -165,22 +165,28 @@ export default class clsDB {
                         const content = readFileSync(fileMap[oldHash].p, 'utf8')
                         const json = JSON.parse(content)
                         json.url = normalizedURL
-                        const path = fileMap[oldHash].p.split("/")
-                        path.pop()
-                        const newFile = path.join("/") + "/" + newHash + ".json"
+                        const path = fileMap[oldHash].p?.split("/")
                         log.warn("Stored URL is being updated", rc.url, normalizedURL)
-                        try {
-                            writeFileSync(newFile, JSON.stringify(json))
-                            rmSync(fileMap[oldHash].p)
-                            this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
+                        if (path) {
+                            path.pop()
+                            const newFile = path.join("/") + "/" + newHash + ".json"
+                            try {
+                                writeFileSync(newFile, JSON.stringify(json))
+                                rmSync(fileMap[oldHash].p)
+                                this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
+                                updated++
+                            } catch (e) {
+                                log.debug(e)
+                                log.warn("Unable to inplace update so removing and adding to fetch")
+                                this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                                this.addToMustFetch(normalizedURL)
+                                deleted++
+                            }
+                        } else {
+                            log.warn("File not stored: ", oldHash)
+                            this.safeUpdate(rc.url, 'N', normalizedURL, newHash)
                             updated++
-                        } catch (e) {
-                            log.debug(e)
-                            log.warn("Unable to inplace update so removing and adding to fetch")
-                            this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
-                            this.addToMustFetch(normalizedURL)
-                            deleted++
-                        }
+                        }                         
                     }
                 }
 
