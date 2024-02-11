@@ -162,12 +162,12 @@ export default class clsDB {
                         else
                             this.safeUpdate(rc.url, rc.status, normalizedURL, newHash)
                     } else {
-                        const content = readFileSync(fileMap[oldHash].p, 'utf8')
-                        const json = JSON.parse(content)
-                        json.url = normalizedURL
-                        const path = fileMap[oldHash].p?.split("/")
-                        log.warn("Stored URL is being updated", rc.url, normalizedURL)
-                        if (path) {
+                        if (fileMap[oldHash]) {
+                            const content = readFileSync(fileMap[oldHash].p, 'utf8')
+                            const json = JSON.parse(content)
+                            json.url = normalizedURL
+                            const path = fileMap[oldHash].p.split("/")
+                            log.warn("Stored URL is being updated", rc.url, normalizedURL)
                             path.pop()
                             const newFile = path.join("/") + "/" + newHash + ".json"
                             try {
@@ -186,7 +186,7 @@ export default class clsDB {
                             log.warn("File not stored: ", oldHash)
                             this.safeUpdate(rc.url, enuURLStatus.New, normalizedURL, newHash)
                             updated++
-                        }                         
+                        }
                     }
                 }
 
