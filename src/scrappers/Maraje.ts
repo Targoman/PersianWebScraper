@@ -70,9 +70,6 @@ export class saafi extends clsScrapper {
                     main: ".bodyasli, .gallerygallery .sb-gallery-gallery",
                 },
             },
-            url: {
-                extraInvalidStartPaths: ["/ar", "/az", "/ur", "en", "/Invalid"]
-            }
         })
     }
 }

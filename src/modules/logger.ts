@@ -43,6 +43,10 @@ export class clsLogger {
         this.verbosity = v
     }
 
+    setModuleName(name: string) {
+        this.moduleName = name
+    }
+
     private initBlessed() {
         this.blessed.screen = blessed.screen({
             smartCSR: true

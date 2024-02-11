@@ -1,6 +1,6 @@
 import DatabaseConstructor, { Database } from 'better-sqlite3';
 import { log } from './logger';
-import { enuDomains } from './interfaces';
+import { INVALID_URL, enuDomains } from './interfaces';
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'fs';
 import gConfigs from './gConfigs';
 import { Md5 } from 'ts-md5';
@@ -111,7 +111,7 @@ export default class clsDB {
                         }
 
                         if (count % 1000 === 0)
-                            log.status({ i: `Migration progress: (${this.domain})`, count, lastID })
+                            log.status({ i: `Migration progress: `, count, lastID })
 
                         insert.run(orc.url, hash, orc.creation, orc.lastChange, orc.status, orc.wc, docDate || null, orc.lastError)
                         lastID = orc.id
@@ -144,59 +144,64 @@ export default class clsDB {
                 throw new Error("Unable to find scrapper for: " + this.domain)
 
             while (always) {
-                this.db.prepare(`UPDATE tblURLs set wc=0 WHERE status != 'C' LIMIT 1`).run()
-                const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE id > ? AND status = 'C' LIMIT 1`).get(lastID)
-                if (rc) {
-                    const hash = Md5.hashStr(rc.url)
-                    const docSpec = fileMap[hash]
-                    const normalizedURL = scrapper.normalizeURL(rc.url)
-                    if (normalizedURL != rc.url) {
-                        log.warn("Stored URL is being updated", rc.url, normalizedURL)
-                        try {
-                            const content = readFileSync(fileMap[hash].p, 'utf8')
-                            const json = JSON.parse(content)
-                            const newHash = Md5.hashStr(normalizedURL)
-                            json.url = normalizedURL
-                            const path = fileMap[hash].p.split("/")
-                            path.pop()
-                            const newFile = path.join("/") + "/" + newHash + ".json"
-                            log.progress("UPDATING", fileMap[hash].p, newFile)
-                            try {
-                                writeFileSync(newFile, JSON.stringify(json))
-                                rmSync(fileMap[hash].p)
-                                this.db.prepare(`UPDATE tblURLs SET url=?, hash=? WHERE url=?`).run(normalizedURL, newHash, rc.url)
-                            } catch (e) {
-                                log.debug(e)
-                            }
-                            rc.url = normalizedURL
-                            updated++
-                        } catch (e) {
-                            log.debug(e)
-                            log.warn("Unable to inplace update so removing and adding to fetch")
-                            this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
-                            this.addToMustFetch(normalizedURL)
-                            log.progress("DELETE: ", rc.url)
-                            deleted++
-                        }
+                const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE id > ? LIMIT 1`).get(lastID)
+                if (!rc)
+                    break;
+
+                const normalizedURL = scrapper.normalizeURL(rc.url)
+                const oldHash = Md5.hashStr(rc.url)
+                const newHash = Md5.hashStr(normalizedURL || "")
+                const docSpec = fileMap[oldHash]
+
+                if (normalizedURL != rc.url) {
+                    log.warn("Stored URL has changed", rc.url, normalizedURL)
+
+                    if (rc.status !== enuURLStatus.Content) {
+                        if (normalizedURL === INVALID_URL)
+                            this.safeUpdate(rc.url, enuURLStatus.Discarded, rc.url, oldHash)
+                        else
+                            this.safeUpdate(rc.url, rc.status, normalizedURL, newHash)
+                        continue
                     }
 
-                    if (rc.url.includes("//www.cdn") || rc.url.includes("//www.static")) {
-                        this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(rc.id)
-                        log.progress("DELETE: ", rc.url)
+                    const content = readFileSync(fileMap[oldHash].p, 'utf8')
+                    const json = JSON.parse(content)
+                    json.url = normalizedURL
+                    const path = fileMap[oldHash].p.split("/")
+                    path.pop()
+                    const newFile = path.join("/") + "/" + newHash + ".json"
+                    log.warn("Stored URL is being updated", rc.url, normalizedURL)
+                    try {
+                        writeFileSync(newFile, JSON.stringify(json))
+                        rmSync(fileMap[oldHash].p)
+                        this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
+                        updated++
+                    } catch (e) {
+                        log.debug(e)
+                        log.warn("Unable to inplace update so removing and adding to fetch")
+                        this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                        this.addToMustFetch(normalizedURL)
+                        deleted++
+                    }
+                }
+
+                if (rc.status === enuURLStatus.Content) {
+                    if (normalizedURL.includes("//www.cdn") || rc.url.includes("//www.static")) {
+                        this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(normalizedURL)
+                        log.progress("DELETED FROM DB: ", normalizedURL)
                         deleted++
                     } else if (!docSpec) {
                         this.db.prepare(`UPDATE tblURLs SET status='N', wc=0 WHERE id=?`).run(rc.id)
-                        log.progress("UPDATE 2 New: ", rc.url)
+                        log.progress("RE-FETCH: ", normalizedURL)
                         updated++
                     }
+                }
 
-                    if (count % 1000 === 0)
-                        log.status({ i: `DB-check progress: (${this.domain})`, count, updated, deleted, lastID })
+                if (count % 1000 === 0)
+                    log.status({ i: `DB process: `, count, updated, deleted, lastID })
 
-                    lastID = rc.id
-                    count++
-                } else
-                    break
+                lastID = rc.id
+                count++
             }
 
             log.status("Removing extra files")
@@ -205,18 +210,36 @@ export default class clsDB {
             hashes.forEach(hash => {
                 const rc: any = this.db.prepare(`SELECT status FROM tblURLs WHERE hash = ? AND status = 'C' LIMIT 1`).get(hash)
                 if (!rc) {
-                    rmSync(fileMap[hash].p)
-                    log.progress("DELETED: ", fileMap[hash].p)
-                    deleted++
+                    if (existsSync(fileMap[hash].p)) {
+                        rmSync(fileMap[hash].p)
+                        log.progress("DELETED FILE: ", fileMap[hash].p)
+                        deleted++
+                    }
                 }
                 if (filesChecked % 1000 === 0)
-                    log.status({ i: `DB-check progress: (${this.domain})`, progress: ((filesChecked / hashes.length) * 10000) / 100, updated, deleted })
+                    log.status({ i: `FileCheck progress: `, progress: ((filesChecked / hashes.length) * 10000) / 100, updated, deleted })
                 filesChecked++
             })
 
-            log.status({ i: `DB-check finished: (${this.domain})`, count, updated, deleted })
+            log.status({ i: `All finished: `, count, updated, deleted })
         }
 
+        this.db.prepare(`UPDATE tblURLs set wc=0 WHERE status != 'C' LIMIT 1`).run()
+    }
+
+    safeUpdate(oldURL: string, newStatus: enuURLStatus, newURL: string, newHash: string) {
+        try {
+            const q = this.db.prepare("SELECT url, status FROM tblURLs WHERE url =? ").get(oldURL)
+            if (q) {
+                log.warn("Normalized URL was stored before: ", q['url'], q['status'])
+                this.db.prepare("UPDATE tblURLs SET status='D' WHERE url=?").run(oldURL)
+            } else {
+                this.db.prepare("UPDATE tblURLs SET url=?, status=?, hash=? WHERE url=?").run(newURL, newStatus, newHash, oldURL)
+            }
+        } catch (e) {
+            log.debug(e)
+            process.exit()
+        }
     }
 
     runQuery(query: string) {

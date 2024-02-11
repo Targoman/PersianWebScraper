@@ -19,7 +19,8 @@ import {
     IntfURLNormalizationConf,
     IntfMappedCategory,
     enuMajorCategory,
-    IntfQAcontainer
+    IntfQAcontainer,
+    INVALID_URL
 } from "./interfaces"
 import { log } from "./logger"
 import HP, { HTMLElement, Node, NodeType } from "node-html-parser"
@@ -69,7 +70,8 @@ export abstract class clsScrapper {
 
     async start(recheck = false) {
         try {
-            log.progress("Starting " + this.domain)
+            log.setModuleName(this.domain)
+            log.progress("Starting...")
             this.db.init(recheck)
             if (!existsSync(this.corporaPath))
                 if (!mkdirSync(this.corporaPath, { recursive: true }))
@@ -136,7 +138,7 @@ export abstract class clsScrapper {
         try {
             return new URL(url)
         } catch (e) {
-            return new URL((this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + "/Invalid/" + url)
+            return new URL((this.pConf.url?.forceHTTP ? "http://" : "https://") + this.baseURL + INVALID_URL + url)
         }
     }
 
@@ -891,7 +893,7 @@ export abstract class clsScrapper {
             "/ar?", "/en?", "/tr?", "/ru?", "/fr?", "/es?", "/sw?", "/ps?", "/ha?",
             "/hi/", "/bd/", "/zh/", "/az/", "/my/", "/id/", "/ph/", "/de/", "/ur/", "/it/", "/tj/",
             "/hi?", "/bd?", "/zh?", "/az?", "/my?", "/id?", "/ph?", "/de?", "/ur?", "/it?", "/tj?",
-            "/Invalid/",
+            INVALID_URL,
             "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
@@ -956,9 +958,9 @@ export abstract class clsScrapper {
         const effectiveConf = this.effectiveURLNormalizetionConf(conf)
         if (typeof url === "string") url = this.safeCreateURL(url)
 
-        if(!this.isValidInternalLink(url)) {
+        if (!this.isValidInternalLink(url)) {
             log.debug("Is not valid Internal: ", url.toString())
-            return "/Invalid"
+            return INVALID_URL
         }
 
         let hostname = url.hostname

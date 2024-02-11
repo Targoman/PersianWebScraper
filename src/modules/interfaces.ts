@@ -657,3 +657,5 @@ export interface IntfProcessorConfigs {
     basePath?: string
     preHTMLParse?: (html: string) => string
 }
+
+export const INVALID_URL = "/Invalid"
