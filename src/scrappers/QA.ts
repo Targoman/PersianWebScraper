@@ -724,7 +724,8 @@ export class dadvarzyar extends clsScrapper {
                             datetime: ".faqs-item-text-date"
                         },
                     },
-                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/]
+                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/, /.*لینک کانال.*/, /.*لینک صفحه.*/, 
+                      /.*لطفابا ثبت.*/, /.*جهت نگارش لایحه.*/, /.*جهت مشاوره با وکیل.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-breadcrumbs a, [rel='category tag']")
@@ -765,6 +766,103 @@ export class ksymg extends clsScrapper {
                     startIndex: 0,
                     lastIndex: 2
                 },
+            },
+        })
+    }
+}
+
+export class hisalamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.hisalamat, "hisalamat.com", {
+            selectors: {
+                article: ".quespadd, .main321",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, .matun3.ta div.orange"),
+                acceptNoTitle: true,
+                subtitle: ".lidd",
+                datetime: {
+                    conatiner: ".date span:nth-child(1)",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".matnasli, .col-sm-12.quespadd.ta .matun3 .quesP>*"),
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".col-sm-9.quespadd.ta .matun3"),
+                        q: {
+                            container: ".quesP",
+                            text: ".red",
+                        },
+                        a: {
+                            container: ".ansP",
+                            text: ".quesP",
+                            author: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".base .col-xs-9.ta"),
+                        },
+                    },
+                    ignoreNodeClasses: ["rootitrr", "singleTitle", "date", "lidd"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".base div:nth-child(1), .rootitrr")
+
+                },
+            },
+        })
+    }
+}
+
+export class drhast extends clsScrapper {
+    constructor() {
+        super(enuDomains.drhast, "drhast.com", {
+            selectors: {
+                article: "[itemprop='mainEntity']",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='mainEntity']"),
+                        q: {
+                            container: ".main-question",
+                            text: ".main-question__body",
+                        },
+                        a: {
+                            container: "div:nth-child(2) .main-question__answer",
+                            text: ".main-question__answer-body [itemprop='text']",
+                            author: ".doctor-ui-name",
+                        },
+                    },
+                },
+            },
+        })
+    }
+}
+
+export class adlpors extends clsScrapper {
+    constructor() {
+        super(enuDomains.adlpors, "adlpors.ir", {
+            selectors: {
+                article: ".pt-5",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: ".col-lg-8",
+                        q: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article"),
+                            text: ".card-body .card-text",
+                            author: ".post-meta a"
+                        },
+                        a: {
+                            container: "article:nth-child(5)",
+                            text: ".card-body .card-text",
+                            author: ".col-md-10.col-md-10 small a",
+                        },
+                    },
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a")
+                }
             },
         })
     }
