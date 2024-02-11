@@ -144,7 +144,7 @@ export default class clsDB {
                 throw new Error("Unable to find scrapper for: " + this.domain)
 
             while (always) {
-                const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE id > ? LIMIT 1`).get(lastID)
+                const rc: any = this.db.prepare(`SELECT * FROM tblURLs WHERE status!='D' AND id > ? LIMIT 1`).get(lastID)
                 if (!rc)
                     break;
 
@@ -161,27 +161,26 @@ export default class clsDB {
                             this.safeUpdate(rc.url, enuURLStatus.Discarded, rc.url, oldHash)
                         else
                             this.safeUpdate(rc.url, rc.status, normalizedURL, newHash)
-                        continue
-                    }
-
-                    const content = readFileSync(fileMap[oldHash].p, 'utf8')
-                    const json = JSON.parse(content)
-                    json.url = normalizedURL
-                    const path = fileMap[oldHash].p.split("/")
-                    path.pop()
-                    const newFile = path.join("/") + "/" + newHash + ".json"
-                    log.warn("Stored URL is being updated", rc.url, normalizedURL)
-                    try {
-                        writeFileSync(newFile, JSON.stringify(json))
-                        rmSync(fileMap[oldHash].p)
-                        this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
-                        updated++
-                    } catch (e) {
-                        log.debug(e)
-                        log.warn("Unable to inplace update so removing and adding to fetch")
-                        this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
-                        this.addToMustFetch(normalizedURL)
-                        deleted++
+                    } else {
+                        const content = readFileSync(fileMap[oldHash].p, 'utf8')
+                        const json = JSON.parse(content)
+                        json.url = normalizedURL
+                        const path = fileMap[oldHash].p.split("/")
+                        path.pop()
+                        const newFile = path.join("/") + "/" + newHash + ".json"
+                        log.warn("Stored URL is being updated", rc.url, normalizedURL)
+                        try {
+                            writeFileSync(newFile, JSON.stringify(json))
+                            rmSync(fileMap[oldHash].p)
+                            this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
+                            updated++
+                        } catch (e) {
+                            log.debug(e)
+                            log.warn("Unable to inplace update so removing and adding to fetch")
+                            this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                            this.addToMustFetch(normalizedURL)
+                            deleted++
+                        }
                     }
                 }
 
