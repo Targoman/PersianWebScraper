@@ -59,8 +59,10 @@ sudo docker pull ${ImageName}:latest || true && \
 # ...but also the local cache from the previous builder build
 if [ $rebuild -eq 1 ];then
     sudo docker build -f docker/Dockerfile.app --build-arg BUILDER_IMAGE=${ImageName}:builder -t ${ImageName}:$NewVersion . 
+    sudo docker tag ${ImageName}:$NewVersion ${ImageName}:base
+    sudo docker push {ImageName}:base
 else 
-    sudo docker build -f docker/Dockerfile.partial --build-arg BUILDER_IMAGE=${ImageName}:builder --build-arg LAST_IMAGE=${ImageName}:latest -t ${ImageName}:$NewVersion . 
+    sudo docker build -f docker/Dockerfile.partial --build-arg BUILDER_IMAGE=${ImageName}:builder --build-arg BASE_IMAGE=${ImageName}:base -t ${ImageName}:$NewVersion . 
 fi && \
 sudo docker rmi "$ImageName:latest" || true && \
 sudo docker tag "$ImageName:$NewVersion" "$ImageName:latest" && \
