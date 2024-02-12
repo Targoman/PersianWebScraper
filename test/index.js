@@ -1286,5 +1286,9 @@ yarn dev && yarn start adlpors -u https://adlpors.ir/consultation/question/59
 yarn dev && yarn start soja 
 yarn dev && yarn start soja -u https://soja.ai/781/q/حجاب-در-قرآن
 
+yarn dev && yarn start haal 
+yarn dev && yarn start haal -u https://haal.ir/forum/question/سلام-خسته-نباشید-من-کبد-چرب-دارم-چه-دارو/
+yarn dev && yarn start haal -u https://haal.ir/blog/diseases/general-diseases/what-is-cholesterol/
+
 https://motamem.org/
 /**/
