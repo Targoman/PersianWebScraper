@@ -138,6 +138,7 @@ export default class clsDB {
             let count = 0
             let updated = 0
             let deleted = 0
+            let discarded = 0
 
             const scrapper: clsScrapper = new scrappers[this.domain]
             if (!scrapper)
@@ -150,13 +151,14 @@ export default class clsDB {
 
                 const normalizedURL = scrapper.normalizeURL(rc.url)
                 const oldHash = Md5.hashStr(rc.url)
-                const newHash = Md5.hashStr(normalizedURL || "")
+                const newHash = Md5.hashStr(normalizedURL || INVALID_URL)
                 const docSpec = fileMap[oldHash]
 
                 if (normalizedURL != rc.url) {
-                    log.warn("Stored URL has changed", rc.url, normalizedURL)
+                    log.progress("Stored URL has changed", rc.id, rc.status, rc.url, normalizedURL, oldHash, newHash)
 
                     if (rc.status !== enuURLStatus.Content) {
+                        log.progress("Updating non-contentURL", rc.status)
                         if (normalizedURL === INVALID_URL)
                             this.safeUpdate(rc.url, enuURLStatus.Discarded, rc.url, oldHash)
                         else
@@ -167,40 +169,45 @@ export default class clsDB {
                             const json = JSON.parse(content)
                             json.url = normalizedURL
                             const path = fileMap[oldHash].p.split("/")
-                            log.warn("Stored URL is being updated", rc.url, normalizedURL)
+                            log.progress("Stored URL is being updated", rc.url, normalizedURL)
                             path.pop()
                             const newFile = path.join("/") + "/" + newHash + ".json"
                             try {
                                 writeFileSync(newFile, JSON.stringify(json))
                                 rmSync(fileMap[oldHash].p)
                                 this.safeUpdate(rc.url, enuURLStatus.Content, normalizedURL, newHash)
+                                this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                                delete fileMap[oldHash]
+                                if (!fileMap[newHash])
+                                    fileMap[newHash] = { p: newFile, d: docSpec.d }
                                 updated++
                             } catch (e) {
                                 log.debug(e)
-                                log.warn("Unable to inplace update so removing and adding to fetch")
+                                log.progress("Unable to inplace update so removing and adding to fetch")
                                 this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
                                 this.addToMustFetch(normalizedURL)
                                 deleted++
                             }
                         } else {
-                            log.warn("File not stored: ", oldHash)
-                            this.safeUpdate(rc.url, enuURLStatus.New, normalizedURL, newHash)
-                            updated++
+                            log.progress("Non-existent old URL removed")
+                            this.db.prepare(`DELETE FROM tblURLs WHERE url=?`).run(rc.url)
+                            deleted++
                         }
+                    }
+                } else if (rc.status === enuURLStatus.Content) {
+                    if (normalizedURL.includes("//www.cdn") || rc.url.includes("//www.static")) {
+                        this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(normalizedURL)
+                        log.progress("DELETED Invalid content FROM DB: ", normalizedURL)
+                        deleted++
+                    } else if (!fileMap[newHash]) {
+                        if (this.safeUpdate(rc.url, enuURLStatus.New, normalizedURL, newHash)) {
+                            log.progress("RE-FETCH: ", normalizedURL, newHash)
+                            updated++
+                        } else
+                            discarded++
                     }
                 }
 
-                if (rc.status === enuURLStatus.Content) {
-                    if (normalizedURL.includes("//www.cdn") || rc.url.includes("//www.static")) {
-                        this.db.prepare(`DELETE FROM tblURLs WHERE id=?`).run(normalizedURL)
-                        log.progress("DELETED FROM DB: ", normalizedURL)
-                        deleted++
-                    } else if (!docSpec) {
-                        this.db.prepare(`UPDATE tblURLs SET status='N', wc=0 WHERE id=?`).run(rc.id)
-                        log.progress("RE-FETCH: ", normalizedURL)
-                        updated++
-                    }
-                }
 
                 if (count % 1000 === 0)
                     log.status({ i: `DB process: `, count, updated, deleted, lastID })
@@ -222,7 +229,7 @@ export default class clsDB {
                     }
                 }
                 if (filesChecked % 1000 === 0)
-                    log.status({ i: `FileCheck progress: `, progress: ((filesChecked / hashes.length) * 10000) / 100, updated, deleted })
+                    log.status({ i: `FileCheck progress: `, progress: ((filesChecked / hashes.length) * 10000) / 100, updated, deleted, discarded })
                 filesChecked++
             })
 
@@ -234,12 +241,15 @@ export default class clsDB {
 
     safeUpdate(oldURL: string, newStatus: enuURLStatus, newURL: string, newHash: string) {
         try {
-            const q = this.db.prepare("SELECT url, status FROM tblURLs WHERE url =? ").get(oldURL)
+            const q = this.db.prepare("SELECT url, status FROM tblURLs WHERE url = ? ").get(newURL)
             if (q) {
-                log.warn("Normalized URL was stored before: ", q['url'], q['status'])
-                this.db.prepare("UPDATE tblURLs SET status='D' WHERE url=?").run(oldURL)
+                log.progress("Normalized URL was stored before so old URL is removed: ", oldURL, q['url'], q['status'])
+                this.db.prepare("DELETE FROM tblURLs WHERE url = ?").run(oldURL)
+                return false
             } else {
-                this.db.prepare("UPDATE tblURLs SET url=?, status=?, hash=? WHERE url=?").run(newURL, newStatus, newHash, oldURL)
+                log.progress("oldURL updated to", oldURL, newURL, newStatus, newHash)
+                this.db.prepare("UPDATE tblURLs SET url=?, status=?, hash=?  WHERE url=?").run(newURL, newStatus, newHash, oldURL)
+                return true
             }
         } catch (e) {
             log.debug(e)

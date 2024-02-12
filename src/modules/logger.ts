@@ -95,7 +95,7 @@ export class clsLogger {
             this.blessed.inputBar.setText(this.formatArgs(statusObj));
             this.blessed.screen.render()
         } else {
-            console.log(`\x1b[45m[${logTime()}][STATS]:\x1b[0m`, util.inspect(statusObj, {breakLength: Infinity, depth, colors: true, compact: true}), '\x1b[0m')
+            console.log(`\x1b[45m[${logTime()}][STATS][${this.moduleName}]:\x1b[0m`, util.inspect(statusObj, {breakLength: Infinity, depth, colors: true, compact: true}), '\x1b[0m')
         }
     }
 
