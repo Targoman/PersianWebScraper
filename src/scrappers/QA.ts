@@ -865,3 +865,36 @@ export class adlpors extends clsScrapper {
         })
     }
 }
+
+export class soja extends clsScrapper {
+    constructor() {
+        super(enuDomains.soja, "soja.ai", {
+            selectors: {
+                article: ".Mainspan",
+                title: "#ContentPlaceHolder1_titleLabel",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: ".panel-body",
+                        q: {
+                            container: ".row-fluid",
+                            text: "#ContentPlaceHolder1_txtsoalText",
+                            author: "#ContentPlaceHolder1_ownerName"
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_dListItems span .AnsBlock"),
+                            text: ".span7",
+                            author: ".span3 a",
+                        },
+                    },
+                },
+                tags: "[rel='tag']",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_SiteMapPath1 span a")
+                }
+            },
+        })
+    }
+}

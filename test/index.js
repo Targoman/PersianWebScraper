@@ -1283,5 +1283,8 @@ yarn dev && yarn start drhast -u https://drhast.com/q/YZlkv
 yarn dev && yarn start adlpors 
 yarn dev && yarn start adlpors -u https://adlpors.ir/consultation/question/59
 
+yarn dev && yarn start soja 
+yarn dev && yarn start soja -u https://soja.ai/781/q/حجاب-در-قرآن
+
 https://motamem.org/
 /**/
