@@ -867,3 +867,77 @@ export class adlpors extends clsScrapper {
         })
     }
 }
+
+export class soja extends clsScrapper {
+    constructor() {
+        super(enuDomains.soja, "soja.ai", {
+            selectors: {
+                article: ".Mainspan",
+                title: "#ContentPlaceHolder1_titleLabel",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    qa: {
+                        containers: ".panel-body",
+                        q: {
+                            container: ".row-fluid",
+                            text: "#ContentPlaceHolder1_txtsoalText",
+                            author: "#ContentPlaceHolder1_ownerName"
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_dListItems span .AnsBlock"),
+                            text: ".span7",
+                            author: ".span3 a",
+                        },
+                    },
+                },
+                tags: "[rel='tag']",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_SiteMapPath1 span a")
+                }
+            },
+        })
+    }
+}
+
+export class haal extends clsScrapper {
+    constructor() {
+        super(enuDomains.haal, "haal.ir", {
+            selectors: {
+                article: "body.blog .main-page-wrapper, body.single-post .single-content article",
+                title: "h1",
+                acceptNoTitle: true,
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => (el.getAttribute("content") || el.getAttribute("datetime"))?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".haal-post-content",
+                    qa: {
+                        containers: ".inner-main-page",
+                        q: {
+                            container: ".question-container",
+                            text: ".break-words",
+                            author: ".pb-4 h2.text-sm-medium"
+                        },
+                        a: {
+                            container: ".inner-comment-container div .comment-item",
+                            text: ".comment-content",
+                            author: "h2.comment-author",
+                        },
+                    },
+                    ignoreNodeClasses: ["table-of-content", "line-clamp-1"],
+                    ignoreTexts: [/.*<img.*/, /.*<!DOCTYPE.*/, /.*بیشتر بخوانید:.*/]
+                },
+                tags: "[rel='tag']",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#haal-breadcrumbs li a"),
+                    startIndex: 1,
+                    lastIndex: 3
+                }
+            },
+        })
+    }
+}
