@@ -275,3 +275,30 @@ export class mihandownload extends clsScrapper {
     })
   }
 }
+
+export class uptvs extends clsScrapper {
+  constructor() {
+    super(enuDomains.uptvs, "uptvs.com", {
+      selectors: {
+        article: "body.single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+          splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
+        },
+        content: {
+          main: ".post-content .text-lg-right, img.top-single-img",
+          //ignoreNodeClasses: ["wp-block-buttons"],
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-body"),
+          author: ".vcard .pr-half span:nth-child(1)",
+          text: ".pr-lg-45 p"
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category_post a")
+        },
+      },
+    })
+  }
+}

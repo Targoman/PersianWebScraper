@@ -1298,5 +1298,9 @@ yarn dev && yarn start mihandownload
 yarn dev && yarn start mihandownload -u https://mihandownload.com/آموزش-مدل-های-تعالی-سازمانی-پارت-یکم-ف/
 yarn dev && yarn start mihandownload -u https://mihandownload.com/مجموعه-سیمپسون-ها-the-simpsons-full-episode/
 
+yarn dev && yarn start uptvs
+yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/سریال-هیلو-halo-فصل-اول.html
+yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/انیمه-سامورایی-چشم-آبی-blue-eye-samurai-فصل-اول.html
+
 https://motamem.org/
 /**/
