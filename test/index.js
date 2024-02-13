@@ -1294,5 +1294,9 @@ yarn dev && yarn start sariasan
 yarn dev && yarn start sariasan -u https://sariasan.com/python/basics2/python-and-its-uses/
 yarn dev && yarn start sariasan -u https://sariasan.com/photoshop-tutorial/elementary/learn-basics-under-25-minutes/
 
+yarn dev && yarn start mihandownload 
+yarn dev && yarn start mihandownload -u https://mihandownload.com/آموزش-مدل-های-تعالی-سازمانی-پارت-یکم-ف/
+yarn dev && yarn start mihandownload -u https://mihandownload.com/مجموعه-سیمپسون-ها-the-simpsons-full-episode/
+
 https://motamem.org/
 /**/

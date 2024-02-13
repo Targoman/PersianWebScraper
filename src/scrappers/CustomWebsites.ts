@@ -245,3 +245,33 @@ export class sariasan extends clsScrapper {
     })
   }
 }
+
+export class mihandownload extends clsScrapper {
+  constructor() {
+    super(enuDomains.mihandownload, "mihandownload.com", {
+      selectors: {
+        article: "#pri",
+        title: ".title-post-main a",
+        datetime: {
+          conatiner: ".dates "
+        },
+        content: {
+          main: ".content-post-main",
+          ignoreNodeClasses: ["wp-block-buttons"],
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body"),
+          author: ".comment-author cite.fn",
+          text: "p"
+        },
+        category: {
+          selector: ".category a"
+        },
+        tags: "[rel='tag']"
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
