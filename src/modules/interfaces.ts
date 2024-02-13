@@ -297,6 +297,7 @@ export enum enuDomains {
     salamatnews = "salamatnews",
     salameno = "salameno",
     samanehha = "samanehha",
+    sariasan = "sariasan",
     sarmadnews = "sarmadnews",
     scorize = "scorize",
     sedayebourse = "sedayebourse",

@@ -1290,5 +1290,9 @@ yarn dev && yarn start haal
 yarn dev && yarn start haal -u https://haal.ir/forum/question/سلام-خسته-نباشید-من-کبد-چرب-دارم-چه-دارو/
 yarn dev && yarn start haal -u https://haal.ir/blog/diseases/general-diseases/what-is-cholesterol/
 
+yarn dev && yarn start sariasan
+yarn dev && yarn start sariasan -u https://sariasan.com/python/basics2/python-and-its-uses/
+yarn dev && yarn start sariasan -u https://sariasan.com/photoshop-tutorial/elementary/learn-basics-under-25-minutes/
+
 https://motamem.org/
 /**/

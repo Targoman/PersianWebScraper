@@ -216,3 +216,32 @@ export class nazaratshora extends clsScrapper {
     })
   }
 }
+
+export class sariasan extends clsScrapper {
+  constructor() {
+    super(enuDomains.sariasan, "sariasan.com", {
+      selectors: {
+        article: "body.single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
+        },
+        content: {
+          main: ".post_content .wprt-container",
+          ignoreNodeClasses: ["saria-content_1"],
+          ignoreTexts: [/.*دانلود کنید:.*/, /.*اینجا کلیک کنید.*/, /.*حتما بخوانید:.*/, /.*همه زبان های برنامه نویسی.*/, /.*<img.*/]
+        },
+        comments: {
+          container: "ul.w-comments-list li",
+          author: ".w-comments-item-author",
+          text: ".w-comments-item-text"
+        },
+        category: {
+          selector: ".rank-math-breadcrumb p a"
+        },
+        tags: "[rel='tag']"
+      },
+    })
+  }
+}
