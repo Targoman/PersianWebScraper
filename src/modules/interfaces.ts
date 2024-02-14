@@ -231,6 +231,7 @@ export enum enuDomains {
     mosbatesabz = "mosbatesabz",
     moshaver = "moshaver",
     mostaghelonline = "mostaghelonline",
+    motamem = "motamem",
     myket = "myket",
     nabzemarketing = "nabzemarketing",
     nabznaft = "nabznaft",

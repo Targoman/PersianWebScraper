@@ -4335,3 +4335,25 @@ export class blogfa extends clsScrapper {
         })
     }
 }
+
+export class motamem extends clsScrapper {
+    constructor() {
+        super(enuDomains.motamem, "motamem.org", {
+            selectors: {
+                article: "#main #content1 .post",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry, img",
+                    ignoreNodeClasses: ["su-clearfix", "wp_rp_wrap", "su-note-inner", "sue-panel-content", "seriesbox", "widget_recent_comments", 
+                    "widget_black_studio_tinymce", "nd_tabs", "nd_form", "su-box"]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
