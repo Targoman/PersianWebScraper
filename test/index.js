@@ -1290,5 +1290,17 @@ yarn dev && yarn start haal
 yarn dev && yarn start haal -u https://haal.ir/forum/question/سلام-خسته-نباشید-من-کبد-چرب-دارم-چه-دارو/
 yarn dev && yarn start haal -u https://haal.ir/blog/diseases/general-diseases/what-is-cholesterol/
 
+yarn dev && yarn start sariasan
+yarn dev && yarn start sariasan -u https://sariasan.com/python/basics2/python-and-its-uses/
+yarn dev && yarn start sariasan -u https://sariasan.com/photoshop-tutorial/elementary/learn-basics-under-25-minutes/
+
+yarn dev && yarn start mihandownload 
+yarn dev && yarn start mihandownload -u https://mihandownload.com/آموزش-مدل-های-تعالی-سازمانی-پارت-یکم-ف/
+yarn dev && yarn start mihandownload -u https://mihandownload.com/مجموعه-سیمپسون-ها-the-simpsons-full-episode/
+
+yarn dev && yarn start uptvs
+yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/سریال-هیلو-halo-فصل-اول.html
+yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/انیمه-سامورایی-چشم-آبی-blue-eye-samurai-فصل-اول.html
+
 https://motamem.org/
 /**/

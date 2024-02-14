@@ -216,3 +216,89 @@ export class nazaratshora extends clsScrapper {
     })
   }
 }
+
+export class sariasan extends clsScrapper {
+  constructor() {
+    super(enuDomains.sariasan, "sariasan.com", {
+      selectors: {
+        article: "body.single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
+        },
+        content: {
+          main: ".post_content .wprt-container",
+          ignoreNodeClasses: ["saria-content_1"],
+          ignoreTexts: [/.*دانلود کنید:.*/, /.*اینجا کلیک کنید.*/, /.*حتما بخوانید:.*/, /.*همه زبان های برنامه نویسی.*/, /.*<img.*/]
+        },
+        comments: {
+          container: "ul.w-comments-list li",
+          author: ".w-comments-item-author",
+          text: ".w-comments-item-text"
+        },
+        category: {
+          selector: ".rank-math-breadcrumb p a"
+        },
+        tags: "[rel='tag']"
+      },
+    })
+  }
+}
+
+export class mihandownload extends clsScrapper {
+  constructor() {
+    super(enuDomains.mihandownload, "mihandownload.com", {
+      selectors: {
+        article: "#pri",
+        title: ".title-post-main a",
+        datetime: {
+          conatiner: ".dates "
+        },
+        content: {
+          main: ".content-post-main",
+          ignoreNodeClasses: ["wp-block-buttons"],
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body"),
+          author: ".comment-author cite.fn",
+          text: "p"
+        },
+        category: {
+          selector: ".category a"
+        },
+        tags: "[rel='tag']"
+      },
+      url: {
+        removeWWW: true
+      }
+    })
+  }
+}
+
+export class uptvs extends clsScrapper {
+  constructor() {
+    super(enuDomains.uptvs, "uptvs.com", {
+      selectors: {
+        article: "body.single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+          splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.split("T").at(0) || "NO_DATE"
+        },
+        content: {
+          main: ".post-content .text-lg-right, img.top-single-img",
+          //ignoreNodeClasses: ["wp-block-buttons"],
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-body"),
+          author: ".vcard .pr-half span:nth-child(1)",
+          text: ".pr-lg-45 p"
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category_post a")
+        },
+      },
+    })
+  }
+}
