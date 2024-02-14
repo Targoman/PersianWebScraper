@@ -302,3 +302,55 @@ export class uptvs extends clsScrapper {
     })
   }
 }
+
+export class mihanwp extends clsScrapper {
+  constructor() {
+      super(enuDomains.mihanwp, "mihanwp.com", {
+          selectors: {
+              article: ".single-post",
+              title: "h1",
+              datetime: {
+                  conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                  splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
+              },
+              content: {
+                  main: "article",
+                  ignoreNodeClasses: ["clearfix", "rmp-widgets-container", "ez-toc-v2_0_61", "wp-block-heading"],
+              },
+              category: {
+                  selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+              },
+              comments: {
+                  container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+                  author: ".comment-author-name",
+                  text: ".comment-block p"
+              }
+          },
+      })
+  }
+}
+
+export class noozdahkala extends clsScrapper {
+  constructor() {
+    super(enuDomains.noozdahkala, "19kala.com", {
+      selectors: {
+        article: ".product-page-content",
+        title: "h1",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".tabs-content, #tab-specification",
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#review .table tbody"),
+          text: "tr:nth-child(2) td .col-md-9"
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a")
+        },
+        tags: "[rel='tag']"
+      },
+    })
+  }
+}

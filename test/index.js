@@ -1302,5 +1302,15 @@ yarn dev && yarn start uptvs
 yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/سریال-هیلو-halo-فصل-اول.html
 yarn dev && yarn start uptvs -u https://www.uptvs.com/contents/انیمه-سامورایی-چشم-آبی-blue-eye-samurai-فصل-اول.html
 
+yarn dev && yarn start blogfa
+yarn dev && yarn start blogfa -u http://memcoijpc.blogfa.com/post/109
+yarn dev && yarn start blogfa -u http://fardidnameh.blogfa.com/post/631
+yarn dev && yarn start blogfa -u http://abuzaidabadpl.blogfa.com/post/336
+yarn dev && yarn start blogfa -u http://abuzaidabadpl.blogfa.com/post/336
+yarn dev && yarn start blogfa -u http://kazeroongeo.blogfa.com/post/854
+
+yarn dev && yarn start mihanwp
+yarn dev && yarn start mihanwp -u https://mihanwp.com/wordpress-common-errors/
+
 https://motamem.org/
 /**/
