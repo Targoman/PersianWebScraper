@@ -4308,3 +4308,30 @@ export class drsaina extends clsScrapper {
         })
     }
 }
+
+export class blogfa extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogfa, "blogfa.com", {
+            selectors: {
+                article: "#content, #page, #main, .page, .Sid, .Content, #posts table:nth-child(1)",
+                title: "h2, #ptitle a, .title a, .posttitle a, .Post-title a",
+                datetime: {
+                    conatiner: "#postdesc",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "div:nth-child(1) .postcontent, #post div:nth-child(2) p, div:nth-child(1) .content, .Content div:nth-child(3), "
+                      + ".post div:nth-child(2).C-post .CenterPost, .PostBody",
+                },
+                tags: ".tag a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bf-breadcrumb-items li a"),
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true,
+            }
+        })
+    }
+}
