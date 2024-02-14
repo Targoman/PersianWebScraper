@@ -320,7 +320,6 @@ export class mihanwp extends clsScrapper {
               category: {
                   selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
               },
-              tags: ".post-header-title .term-badges span a",
               comments: {
                   container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
                   author: ".comment-author-name",
@@ -328,5 +327,30 @@ export class mihanwp extends clsScrapper {
               }
           },
       })
+  }
+}
+
+export class noozdahkala extends clsScrapper {
+  constructor() {
+    super(enuDomains.noozdahkala, "19kala.com", {
+      selectors: {
+        article: ".product-page-content",
+        title: "h1",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          main: ".tabs-content, #tab-specification",
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#review .table tbody"),
+          text: "tr:nth-child(2) td .col-md-9"
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a")
+        },
+        tags: "[rel='tag']"
+      },
+    })
   }
 }
