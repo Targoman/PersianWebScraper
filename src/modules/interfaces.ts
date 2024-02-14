@@ -219,6 +219,7 @@ export enum enuDomains {
     mihandownload = "mihandownload",
     mihanpezeshk = "mihanpezeshk",
     mihanwebhost = "mihanwebhost",
+    mihanwp = "mihanwp",
     mizanonline = "mizanonline",
     mizbanfa = "mizbanfa",
     modireweb = "modireweb",

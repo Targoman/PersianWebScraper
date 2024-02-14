@@ -1309,5 +1309,8 @@ yarn dev && yarn start blogfa -u http://abuzaidabadpl.blogfa.com/post/336
 yarn dev && yarn start blogfa -u http://abuzaidabadpl.blogfa.com/post/336
 yarn dev && yarn start blogfa -u http://kazeroongeo.blogfa.com/post/854
 
+yarn dev && yarn start mihanwp
+yarn dev && yarn start mihanwp -u https://mihanwp.com/wordpress-common-errors/
+
 https://motamem.org/
 /**/
