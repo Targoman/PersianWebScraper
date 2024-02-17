@@ -4380,3 +4380,33 @@ export class rozblog extends clsScrapper {
         })
     }
 }
+
+export class avablog extends clsScrapper {
+    constructor() {
+        super(enuDomains.avablog, "avablog.ir", {
+            selectors: {
+                article: ".sendcomment, .comment",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".date .day"),
+                    acceptNoDate: true
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".prod > p > a"),
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".context"),
+                    ignoreTexts: [/.*بازدید :.*/, /.*].*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#bodyposts .commentlist"),
+                    author: "tr:nth-child(1) td:nth-child(1) span",
+                    text: "[colspan='2']"
+
+                }
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true
+            }
+        })
+    }
+}

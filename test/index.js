@@ -1318,5 +1318,10 @@ yarn dev && yarn start rozblog -u http://hdskala.rozblog.com/post/8
 yarn dev && yarn start rozblog -u http://pajuheshsara_gerash.rozblog.com/post/6
 yarn dev && yarn start rozblog -u https://www.rozblog.com/support/post/453
 
+yarn dev && yarn start avablog 
+yarn dev && yarn start avablog -u http://iranberezent.avablog.ir/post/285/فروش+برزنت+پی+وی+سی
+yarn dev && yarn start avablog -u http://enom.avablog.ir/post/414/پاتولوژی+فرایند+بدخیمی+
+yarn dev && yarn start avablog -u http://news.avablog.ir/post/36
+
 https://motamem.org/
 /**/
