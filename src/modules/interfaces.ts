@@ -260,6 +260,7 @@ export enum enuDomains {
     pansadonavadohasht = "pansadonavadohasht",
     parscoders = "parscoders",
     parshistory = "parshistory",
+    parsiblog = "parsiblog",
     parsine = "parsine",
     parspack = "parspack",
     pasokhgoo = "pasokhgoo",

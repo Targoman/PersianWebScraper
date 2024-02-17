@@ -1323,5 +1323,9 @@ yarn dev && yarn start avablog -u http://iranberezent.avablog.ir/post/285/فرو
 yarn dev && yarn start avablog -u http://enom.avablog.ir/post/414/پاتولوژی+فرایند+بدخیمی+
 yarn dev && yarn start avablog -u http://news.avablog.ir/post/36
 
+yarn dev && yarn start parsiblog
+yarn dev && yarn start parsiblog -u http://healthmagazine.parsiblog.com/Posts/35/ارتودنسي+پيشگيري%3a+بهترين+/
+yarn dev && yarn start parsiblog -u http://ashkeshafagh.parsiblog.com/Posts/1241/کل+ارض+کربلا+و+کل+يوم+عاشورا/
+
 https://motamem.org/
 /**/

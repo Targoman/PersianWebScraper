@@ -4410,3 +4410,35 @@ export class avablog extends clsScrapper {
         })
     }
 }
+
+export class parsiblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.parsiblog, "parsiblog.com", {
+            selectors: {
+                article: "article .post-nav .prev, table.post, .w3-button",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.entry-title, .post tbody tr:nth-child(1) td, tbody > tr:nth-child(1) > td:nth-child(2) > p > b > font"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.innerText;
+                        if (date) {
+                            const newDate = date.match(/(\d{3})\/(\d{2})\/(\d{2})/);
+                            if(!newDate) return "DATE NOT FOUND"
+                            return +newDate[1] + 1300 + "/" + newDate[2] + "/" + newDate[3];
+                        } else
+                            return "DATE NOT FOUND"
+                    },
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .post tbody tr:nth-child(3)"),
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true,
+                ignoreContentOnPath: ["/Archive"]
+            }
+        })
+    }
+}
