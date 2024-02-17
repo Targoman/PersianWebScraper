@@ -1312,5 +1312,11 @@ yarn dev && yarn start blogfa -u http://kazeroongeo.blogfa.com/post/854
 yarn dev && yarn start mihanwp
 yarn dev && yarn start mihanwp -u https://mihanwp.com/wordpress-common-errors/
 
+yarn dev && yarn start rozblog 
+yarn dev && yarn start rozblog -u http://maryamir24.rozblog.com/post/11
+yarn dev && yarn start rozblog -u http://hdskala.rozblog.com/post/8
+yarn dev && yarn start rozblog -u http://pajuheshsara_gerash.rozblog.com/post/6
+yarn dev && yarn start rozblog -u https://www.rozblog.com/support/post/453
+
 https://motamem.org/
 /**/

@@ -293,6 +293,7 @@ export enum enuDomains {
     romanman = "romanman",
     roozno = "roozno",
     roshadent = "roshadent",
+    rozblog = "rozblog",
     saafi = "saafi",
     saat24 = "saat24",
     sabakhabar = "sabakhabar",

@@ -4357,3 +4357,26 @@ export class motamem extends clsScrapper {
         })
     }
 }
+
+export class rozblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.rozblog, "rozblog.com", {
+            selectors: {
+                article: ".bodys_content .tags, #titlee .fa-comment, .messagerb, .comment_rb",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".pistbit span:nth-child(3), .date"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post_content, .CenterPost, .rb_content"),
+                    ignoreNodeClasses: ["rb-com-center", "wicon", "rb_com", "caption"],
+                    ignoreTexts: [/.*بازدید :.*/]
+                },
+            },
+            url: {
+                forceHTTP: true,
+            }
+        })
+    }
+}
