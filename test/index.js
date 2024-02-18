@@ -1325,7 +1325,9 @@ yarn dev && yarn start avablog -u http://news.avablog.ir/post/36
 
 yarn dev && yarn start parsiblog
 yarn dev && yarn start parsiblog -u http://healthmagazine.parsiblog.com/Posts/35/ارتودنسي+پيشگيري%3a+بهترين+/
-yarn dev && yarn start parsiblog -u http://ashkeshafagh.parsiblog.com/Posts/1241/کل+ارض+کربلا+و+کل+يوم+عاشورا/
+yarn dev && yarn start parsiblog -u http://fatimaaaa.parsiblog.com/Posts/5/تور+کوش+آداسي/
+yarn dev && yarn start parsiblog -u http://solutionmanual.parsiblog.com/Posts/39/حل+المسائل+کتاب+معادلات+ديفرانسيل+ديپريما+و+بويس+ويرايش+نهم+Elem/
+yarn dev && yarn start parsiblog -u http://mooon.parsiblog.com/Posts/908/جواني+13/
 
 https://motamem.org/
 /**/

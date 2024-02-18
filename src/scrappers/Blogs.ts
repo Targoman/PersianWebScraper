@@ -4415,14 +4415,14 @@ export class parsiblog extends clsScrapper {
     constructor() {
         super(enuDomains.parsiblog, "parsiblog.com", {
             selectors: {
-                article: "article .post-nav .prev, table.post, .w3-button",
-                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.entry-title, .post tbody tr:nth-child(1) td, tbody > tr:nth-child(1) > td:nth-child(2) > p > b > font"),
-                datetime: {
-                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                article: "article .post-nav .prev, .w3-button, [rel='prev'], [rel='next'], .Content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.entry-title, .title, h3.blog-title, .PostTitle"),
+                datetime: { 
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time, .postdesc"),
                     splitter: (el: HTMLElement) => {
                         const date = el.innerText;
                         if (date) {
-                            const newDate = date.match(/(\d{3})\/(\d{2})\/(\d{2})/);
+                            const newDate = date.match(/(\d{2,3})\/(\d{1,2})\/(\d{1,2})/);
                             if(!newDate) return "DATE NOT FOUND"
                             return +newDate[1] + 1300 + "/" + newDate[2] + "/" + newDate[3];
                         } else
@@ -4431,7 +4431,8 @@ export class parsiblog extends clsScrapper {
                     acceptNoDate: true
                 },
                 content: {
-                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .post tbody tr:nth-child(3)"),
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .w3-col > article > div," 
+                     + "article.blogu, .postbody"),
                 },
             },
             url: {
