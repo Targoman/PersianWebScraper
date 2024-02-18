@@ -1335,5 +1335,8 @@ yarn dev && yarn start deyblog -u https://mamabitcoin.deyblog.ir/post/12
 yarn dev && yarn start blogsazan 
 yarn dev && yarn start blogsazan -u https://ketabarian.blogsazan.com/post/3VTJ/متن-معروف-کتاب-1984-در-مورد-آگاهی
 
+yarn dev && yarn start isblog
+yarn dev && yarn start isblog -u https://isblog.ir/when-bahareh-afshari-becomes-agham-mohammad-khan-qajar-blogs/
+
 https://motamem.org/
 /**/

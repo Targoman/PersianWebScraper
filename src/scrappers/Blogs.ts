@@ -4486,3 +4486,27 @@ export class blogsazan extends clsScrapper {
         })
     }
 }
+
+export class isblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.isblog, "isblog.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["safine-full-schema-container", "fsrs-star-rating"],
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            },
+        })
+    }
+}
