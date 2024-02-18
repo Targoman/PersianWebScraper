@@ -4464,3 +4464,25 @@ export class deyblog extends clsScrapper {
         })
     }
 }
+
+export class blogsazan extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogsazan, "blogsazan.com", {
+            selectors: {
+                article: ".blog_center_bar",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                tags: ".tagsbox a",
+                content: {
+                    main: "div:nth-child(3).main_content",
+                    ignoreNodeClasses: ["post_footer", "tagsbox", "bloglinkbox", "post_date", "mid_post_box"]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

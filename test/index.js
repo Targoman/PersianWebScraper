@@ -1332,5 +1332,8 @@ yarn dev && yarn start parsiblog -u http://mooon.parsiblog.com/Posts/908/جوا�
 yarn dev && yarn start deyblog
 yarn dev && yarn start deyblog -u https://mamabitcoin.deyblog.ir/post/12
 
+yarn dev && yarn start blogsazan 
+yarn dev && yarn start blogsazan -u https://ketabarian.blogsazan.com/post/3VTJ/متن-معروف-کتاب-1984-در-مورد-آگاهی
+
 https://motamem.org/
 /**/
