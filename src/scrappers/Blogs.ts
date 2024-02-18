@@ -4443,3 +4443,24 @@ export class parsiblog extends clsScrapper {
         })
     }
 }
+
+export class deyblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.deyblog, "deyblog.ir", {
+            selectors: {
+                article: ".post",
+                title: ".posttitle",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".postcontent",
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true
+            }
+        })
+    }
+}

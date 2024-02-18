@@ -1329,5 +1329,8 @@ yarn dev && yarn start parsiblog -u http://fatimaaaa.parsiblog.com/Posts/5/تو�
 yarn dev && yarn start parsiblog -u http://solutionmanual.parsiblog.com/Posts/39/حل+المسائل+کتاب+معادلات+ديفرانسيل+ديپريما+و+بويس+ويرايش+نهم+Elem/
 yarn dev && yarn start parsiblog -u http://mooon.parsiblog.com/Posts/908/جواني+13/
 
+yarn dev && yarn start deyblog
+yarn dev && yarn start deyblog -u https://mamabitcoin.deyblog.ir/post/12
+
 https://motamem.org/
 /**/
