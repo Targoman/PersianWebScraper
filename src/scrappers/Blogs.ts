@@ -4510,3 +4510,20 @@ export class isblog extends clsScrapper {
         })
     }
 }
+
+export class monoblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.monoblog, "monoblog.ir", {
+            selectors: {
+                article: ".comment-box",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".post-title"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-cnt"),
+                },
+            },
+        })
+    }
+}

@@ -229,6 +229,7 @@ export enum enuDomains {
     modireweb = "modireweb",
     mojnews = "mojnews",
     moniban = "moniban",
+    monoblog = "monoblog",
     mopon = "mopon",
     moroornews = "moroornews",
     mosalasonline = "mosalasonline",
