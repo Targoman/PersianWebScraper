@@ -1349,5 +1349,9 @@ yarn dev && yarn start niloblog -u https://ghavaninjadid.niloblog.com/p/33/مص�
 yarn dev && yarn start rahatblog 
 yarn dev && yarn start rahatblog -u https://rahatblog.ir/جزئیات-افزایش-تعرفه-اینترنت-اپراتورهای-ارتباطی/
 
+yarn dev && yarn start toonblog 
+yarn dev && yarn start toonblog -u http://technoplus.toonblog.ir/post/2
+yarn dev && yarn start toonblog -u http://nilodecore.toonblog.ir/post/32
+
 https://motamem.org/
 /**/
