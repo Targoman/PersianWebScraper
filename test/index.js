@@ -1338,5 +1338,16 @@ yarn dev && yarn start blogsazan -u https://ketabarian.blogsazan.com/post/3VTJ/�
 yarn dev && yarn start isblog
 yarn dev && yarn start isblog -u https://isblog.ir/when-bahareh-afshari-becomes-agham-mohammad-khan-qajar-blogs/
 
+yarn dev && yarn start monoblog 
+yarn dev && yarn start monoblog -u https://aryamag.monoblog.ir/1402/11/29/شناسایی--بسته-سرمایهگذاری-کشاورزی-در-مازندران
+yarn dev && yarn start monoblog -u https://namavashco.monoblog.ir/1402/11/29/-نمای-کرتین-وال-چیست-
+
+yarn dev && yarn start niloblog
+yarn dev && yarn start niloblog -u https://nimkoreyerast.niloblog.com/p/126/خاطره-هاتون-نباشه-آرزوهای-ماها
+yarn dev && yarn start niloblog -u https://ghavaninjadid.niloblog.com/p/33/مصوبات-اداری
+
+yarn dev && yarn start rahatblog 
+yarn dev && yarn start rahatblog -u https://rahatblog.ir/جزئیات-افزایش-تعرفه-اینترنت-اپراتورهای-ارتباطی/
+
 https://motamem.org/
 /**/

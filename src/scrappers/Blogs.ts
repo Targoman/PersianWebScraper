@@ -4510,3 +4510,66 @@ export class isblog extends clsScrapper {
         })
     }
 }
+
+export class monoblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.monoblog, "monoblog.ir", {
+            selectors: {
+                article: ".comment-box",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".post-title"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-cnt"),
+                },
+            },
+        })
+    }
+}
+
+export class niloblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.niloblog, "niloblog.com", {
+            selectors: {
+                article: ".middle .center :nth-child(2) i.fa-copy",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("div > div > p > span:nth-child(5)"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll('.center .text'),
+                    ignoreNodeClasses: ["info"]
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class rahatblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.rahatblog, "rahatblog.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_62", "author_bio_section"],
+
+                },
+                tags: ".tags-links a",
+                category: {
+                    selector: "ul.post-categories li a"
+                },
+            },
+        })
+    }
+}
