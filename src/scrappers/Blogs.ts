@@ -4357,3 +4357,156 @@ export class motamem extends clsScrapper {
         })
     }
 }
+
+export class rozblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.rozblog, "rozblog.com", {
+            selectors: {
+                article: ".bodys_content .tags, #titlee .fa-comment, .messagerb, .comment_rb",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".pistbit span:nth-child(3), .date"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post_content, .CenterPost, .rb_content"),
+                    ignoreNodeClasses: ["rb-com-center", "wicon", "rb_com", "caption"],
+                    ignoreTexts: [/.*بازدید :.*/]
+                },
+            },
+            url: {
+                forceHTTP: true,
+            }
+        })
+    }
+}
+
+export class avablog extends clsScrapper {
+    constructor() {
+        super(enuDomains.avablog, "avablog.ir", {
+            selectors: {
+                article: ".sendcomment, .comment",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".date .day"),
+                    acceptNoDate: true
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".prod > p > a"),
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".context"),
+                    ignoreTexts: [/.*بازدید :.*/, /.*].*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#bodyposts .commentlist"),
+                    author: "tr:nth-child(1) td:nth-child(1) span",
+                    text: "[colspan='2']"
+
+                }
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class parsiblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.parsiblog, "parsiblog.com", {
+            selectors: {
+                article: "article .post-nav .prev, .w3-button, [rel='prev'], [rel='next'], .Content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.entry-title, .title, h3.blog-title, .PostTitle"),
+                datetime: { 
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time, .postdesc"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.innerText;
+                        if (date) {
+                            const newDate = date.match(/(\d{2,3})\/(\d{1,2})\/(\d{1,2})/);
+                            if(!newDate) return "DATE NOT FOUND"
+                            return +newDate[1] + 1300 + "/" + newDate[2] + "/" + newDate[3];
+                        } else
+                            return "DATE NOT FOUND"
+                    },
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .w3-col > article > div," 
+                     + "article.blogu, .postbody"),
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true,
+                ignoreContentOnPath: ["/Archive"]
+            }
+        })
+    }
+}
+
+export class deyblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.deyblog, "deyblog.ir", {
+            selectors: {
+                article: ".post",
+                title: ".posttitle",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".postcontent",
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class blogsazan extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogsazan, "blogsazan.com", {
+            selectors: {
+                article: ".blog_center_bar",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                tags: ".tagsbox a",
+                content: {
+                    main: "div:nth-child(3).main_content",
+                    ignoreNodeClasses: ["post_footer", "tagsbox", "bloglinkbox", "post_date", "mid_post_box"]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class isblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.isblog, "isblog.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["safine-full-schema-container", "fsrs-star-rating"],
+                    ignoreTexts: [/.*حتما بخوانید.*/]
+
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            },
+        })
+    }
+}

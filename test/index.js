@@ -1312,5 +1312,31 @@ yarn dev && yarn start blogfa -u http://kazeroongeo.blogfa.com/post/854
 yarn dev && yarn start mihanwp
 yarn dev && yarn start mihanwp -u https://mihanwp.com/wordpress-common-errors/
 
+yarn dev && yarn start rozblog 
+yarn dev && yarn start rozblog -u http://maryamir24.rozblog.com/post/11
+yarn dev && yarn start rozblog -u http://hdskala.rozblog.com/post/8
+yarn dev && yarn start rozblog -u http://pajuheshsara_gerash.rozblog.com/post/6
+yarn dev && yarn start rozblog -u https://www.rozblog.com/support/post/453
+
+yarn dev && yarn start avablog 
+yarn dev && yarn start avablog -u http://iranberezent.avablog.ir/post/285/فروش+برزنت+پی+وی+سی
+yarn dev && yarn start avablog -u http://enom.avablog.ir/post/414/پاتولوژی+فرایند+بدخیمی+
+yarn dev && yarn start avablog -u http://news.avablog.ir/post/36
+
+yarn dev && yarn start parsiblog
+yarn dev && yarn start parsiblog -u http://healthmagazine.parsiblog.com/Posts/35/ارتودنسي+پيشگيري%3a+بهترين+/
+yarn dev && yarn start parsiblog -u http://fatimaaaa.parsiblog.com/Posts/5/تور+کوش+آداسي/
+yarn dev && yarn start parsiblog -u http://solutionmanual.parsiblog.com/Posts/39/حل+المسائل+کتاب+معادلات+ديفرانسيل+ديپريما+و+بويس+ويرايش+نهم+Elem/
+yarn dev && yarn start parsiblog -u http://mooon.parsiblog.com/Posts/908/جواني+13/
+
+yarn dev && yarn start deyblog
+yarn dev && yarn start deyblog -u https://mamabitcoin.deyblog.ir/post/12
+
+yarn dev && yarn start blogsazan 
+yarn dev && yarn start blogsazan -u https://ketabarian.blogsazan.com/post/3VTJ/متن-معروف-کتاب-1984-در-مورد-آگاهی
+
+yarn dev && yarn start isblog
+yarn dev && yarn start isblog -u https://isblog.ir/when-bahareh-afshari-becomes-agham-mohammad-khan-qajar-blogs/
+
 https://motamem.org/
 /**/
