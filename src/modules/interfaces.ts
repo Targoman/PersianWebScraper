@@ -247,6 +247,7 @@ export enum enuDomains {
     nazaratshora = "nazaratshora",
     neshanonline = "neshanonline",
     niknews = "niknews",
+    niloblog = "niloblog",
     niniban = "niniban",
     ninisite = "ninisite",
     noandish = "noandish",

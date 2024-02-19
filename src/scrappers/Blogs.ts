@@ -4527,3 +4527,25 @@ export class monoblog extends clsScrapper {
         })
     }
 }
+
+export class niloblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.niloblog, "niloblog.com", {
+            selectors: {
+                article: ".middle .center :nth-child(2) i.fa-copy",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("div > div > p > span:nth-child(5)"),
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll('.center .text'),
+                    ignoreNodeClasses: ["info"]
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

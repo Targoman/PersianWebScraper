@@ -1342,5 +1342,9 @@ yarn dev && yarn start monoblog
 yarn dev && yarn start monoblog -u https://aryamag.monoblog.ir/1402/11/29/شناسایی--بسته-سرمایهگذاری-کشاورزی-در-مازندران
 yarn dev && yarn start monoblog -u https://namavashco.monoblog.ir/1402/11/29/-نمای-کرتین-وال-چیست-
 
+yarn dev && yarn start niloblog
+yarn dev && yarn start niloblog -u https://nimkoreyerast.niloblog.com/p/126/خاطره-هاتون-نباشه-آرزوهای-ماها
+yarn dev && yarn start niloblog -u https://ghavaninjadid.niloblog.com/p/33/مصوبات-اداری
+
 https://motamem.org/
 /**/
