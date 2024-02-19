@@ -4549,3 +4549,27 @@ export class niloblog extends clsScrapper {
         })
     }
 }
+
+export class rahatblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.rahatblog, "rahatblog.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ez-toc-v2_0_62", "author_bio_section"],
+
+                },
+                tags: ".tags-links a",
+                category: {
+                    selector: "ul.post-categories li a"
+                },
+            },
+        })
+    }
+}

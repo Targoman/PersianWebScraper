@@ -284,6 +284,7 @@ export enum enuDomains {
     qudsonline = "qudsonline",
     quera = "quera",
     radareghtesad = "radareghtesad",
+    rahatblog = "rahatblog",
     rahbordemoaser = "rahbordemoaser",
     rajanews = "rajanews",
     ramzarz = "ramzarz",

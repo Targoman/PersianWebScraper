@@ -1346,5 +1346,8 @@ yarn dev && yarn start niloblog
 yarn dev && yarn start niloblog -u https://nimkoreyerast.niloblog.com/p/126/خاطره-هاتون-نباشه-آرزوهای-ماها
 yarn dev && yarn start niloblog -u https://ghavaninjadid.niloblog.com/p/33/مصوبات-اداری
 
+yarn dev && yarn start rahatblog 
+yarn dev && yarn start rahatblog -u https://rahatblog.ir/جزئیات-افزایش-تعرفه-اینترنت-اپراتورهای-ارتباطی/
+
 https://motamem.org/
 /**/
