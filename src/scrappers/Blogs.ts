@@ -4573,3 +4573,25 @@ export class rahatblog extends clsScrapper {
         })
     }
 }
+
+export class toonblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.toonblog, "toonblog.ir", {
+            selectors: {
+                article: ".mod_center div:nth-child(2).post, #content > div:nth-child(1)",
+                title: ".posttitle",
+                datetime: {
+                    conatiner: ".postinfo",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".cnt, .postcontent",
+                },
+                tags: "blogposttagsblock a",
+            },
+            url: {
+                forceHTTP: true,
+            }
+        })
+    }
+}
