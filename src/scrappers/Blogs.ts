@@ -4634,7 +4634,7 @@ export class niniweblog extends clsScrapper {
 
     normalizePath(url: URL): string {
         if ((url.toString().includes(".niniweblog") || url.toString().includes("m/niniweblog")))
-            return url.protocol + "//" + url.href.substring(23)
+            return url.toString().replace("https://niniweblog.com/", "https://")
         return url.toString();
     }
 }
