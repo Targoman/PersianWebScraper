@@ -4638,3 +4638,23 @@ export class niniweblog extends clsScrapper {
         return url.toString();
     }
 }
+
+export class b88 extends clsScrapper {
+    constructor() {
+        super(enuDomains.b88, "b88.ir", {
+            selectors: {
+                article: ".comment-block",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".post-title"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-cnt"),
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

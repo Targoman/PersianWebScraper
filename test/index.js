@@ -1357,5 +1357,9 @@ yarn dev && yarn start niniweblog
 yarn dev && yarn start niniweblog -u https://jokond_81.niniweblog.com/post/300/کادو-برای-مامان.html
 yarn dev && yarn start niniweblog -u https://niniweblog.com/ask/سریال-تینیجری-معرفی-میکنید/14853
 
+yarn dev && yarn start b88
+yarn dev && yarn start b88 -u https://geekgirl.b88.ir/post/210099
+yarn dev && yarn start b88 -u https://zghorbani1380.b88.ir/post/210478
+
 https://motamem.org/
 /**/
