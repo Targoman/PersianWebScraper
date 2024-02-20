@@ -1353,5 +1353,16 @@ yarn dev && yarn start toonblog
 yarn dev && yarn start toonblog -u http://technoplus.toonblog.ir/post/2
 yarn dev && yarn start toonblog -u http://nilodecore.toonblog.ir/post/32
 
+yarn dev && yarn start niniweblog
+yarn dev && yarn start niniweblog -u https://jokond_81.niniweblog.com/post/300/کادو-برای-مامان.html
+yarn dev && yarn start niniweblog -u https://niniweblog.com/ask/سریال-تینیجری-معرفی-میکنید/14853
+
+yarn dev && yarn start b88
+yarn dev && yarn start b88 -u https://geekgirl.b88.ir/post/210099
+yarn dev && yarn start b88 -u https://zghorbani1380.b88.ir/post/210478
+
+yarn dev && yarn start blogiran
+yarn dev && yarn start blogiran -u https://websitedesignin.blogiran.net/Post/81/انواع+سرور+از+نظر+نوع+سیستم+عامل
+
 https://motamem.org/
 /**/

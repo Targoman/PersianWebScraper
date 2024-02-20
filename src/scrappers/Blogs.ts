@@ -4595,3 +4595,87 @@ export class toonblog extends clsScrapper {
         })
     }
 }
+
+export class niniweblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.niniweblog, "niniweblog.com", {
+            selectors: {
+                article: "article.post, article.boxask",
+                title: "h1",
+                datetime: {
+                    conatiner: ".postdesc, #date",
+                },
+                content: {
+                    main: ".post3",
+                    qa: {
+                        containers: ".box-body",
+                        q: {
+                            container: ".pad10",
+                            text: ".askz1",
+                            datetime: "#date",
+                            author: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".userimg a"),
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".box-comments .box-comment"),
+                            text: ".comment-text",
+                            author: ".pskuser a",
+                            datetime: ".pskd"
+                        },
+                    },
+                    ignoreNodeClasses: ["catpost", "pskuser"]
+                },
+                tags: ".catpost a, .psk-hashtag a",
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        if ((url.toString().includes(".niniweblog") || url.toString().includes("m/niniweblog")))
+            return url.toString().replace("https://niniweblog.com/", "https://")
+        return url.toString();
+    }
+}
+
+export class b88 extends clsScrapper {
+    constructor() {
+        super(enuDomains.b88, "b88.ir", {
+            selectors: {
+                article: ".comment-block",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".post-title"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-cnt"),
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class blogiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogiran, "blogiran.net", {
+            selectors: {
+                article: "vb\\:comment_block",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".titlee"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".pistbit div:nth-child(3)")
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post_content"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
