@@ -4658,3 +4658,24 @@ export class b88 extends clsScrapper {
         })
     }
 }
+
+export class blogiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.blogiran, "blogiran.net", {
+            selectors: {
+                article: "vb\\:comment_block",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".titlee"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".pistbit div:nth-child(3)")
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post_content"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
