@@ -1353,5 +1353,9 @@ yarn dev && yarn start toonblog
 yarn dev && yarn start toonblog -u http://technoplus.toonblog.ir/post/2
 yarn dev && yarn start toonblog -u http://nilodecore.toonblog.ir/post/32
 
+yarn dev && yarn start niniweblog
+yarn dev && yarn start niniweblog -u https://jokond_81.niniweblog.com/post/300/کادو-برای-مامان.html
+yarn dev && yarn start niniweblog -u https://niniweblog.com/ask/سریال-تینیجری-معرفی-میکنید/14853
+
 https://motamem.org/
 /**/

@@ -250,6 +250,7 @@ export enum enuDomains {
     niloblog = "niloblog",
     niniban = "niniban",
     ninisite = "ninisite",
+    niniweblog = "niniweblog",
     noandish = "noandish",
     nobitex = "nobitex",
     noozdahkala = "noozdahkala",

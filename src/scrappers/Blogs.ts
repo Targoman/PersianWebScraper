@@ -4595,3 +4595,46 @@ export class toonblog extends clsScrapper {
         })
     }
 }
+
+export class niniweblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.niniweblog, "niniweblog.com", {
+            selectors: {
+                article: "article.post, article.boxask",
+                title: "h1",
+                datetime: {
+                    conatiner: ".postdesc, #date",
+                },
+                content: {
+                    main: ".post3",
+                    qa: {
+                        containers: ".box-body",
+                        q: {
+                            container: ".pad10",
+                            text: ".askz1",
+                            datetime: "#date",
+                            author: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".userimg a"),
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".box-comments .box-comment"),
+                            text: ".comment-text",
+                            author: ".pskuser a",
+                            datetime: ".pskd"
+                        },
+                    },
+                    ignoreNodeClasses: ["catpost", "pskuser"]
+                },
+                tags: ".catpost a, .psk-hashtag a",
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        if ((url.toString().includes(".niniweblog") || url.toString().includes("m/niniweblog")))
+            return url.protocol + "//" + url.href.substring(23)
+        return url.toString();
+    }
+}
