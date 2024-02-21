@@ -4720,3 +4720,44 @@ export class asblog extends clsScrapper {
         })
     }
 }
+
+export class roocket extends clsScrapper {
+    constructor() {
+        super(enuDomains.roocket, "roocket.ir", {
+            basePath: "/articles",
+            selectors: {
+                article: ".p-8.mb-8, .mt-9.mb-20",
+                title: ".mt-5 h1, .mb-6 h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], .sm\\:mt-0.mt-3 div div span"),
+                    splitter: (el: HTMLElement) =>  el.getAttribute("content") || el.getAttribute("data-time-realtime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article.content-area",
+                    qa: {
+                        containers: ".container > div",
+                        q: {
+                            container: ".mb-6.pt-10.px-5",
+                            text: ".mb-6 .content-area",
+                            author: ".hover\\:underline",
+                            datetime: ".sm\\:mt-0.mt-3 div div span"
+                        },
+                        a: {
+                            container: "#replies-list > div",
+                            text: ".content-area",
+                            author: ".mr-4 a.mb-2",
+                            datetime: ".sm\\:mt-0.mt-1 span:nth-child(2)"
+                        },
+                    },
+                },
+                tags: "span.hashtag",
+                category: {
+                    selector: ".px-5.py-2"
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
