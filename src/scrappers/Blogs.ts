@@ -4698,3 +4698,25 @@ export class nasrblog extends clsScrapper {
         })
     }
 }
+
+export class asblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.asblog, "asblog.ir", {
+            selectors: {
+                article: "#content > div:nth-child(1)",
+                title: "h2.posttitle",
+                datetime: {
+                    conatiner: ".postinfo",
+                },
+                content: {
+                    main: ".postcontent",
+                    ignoreNodeClasses: ["rating"],
+                },
+                tags: ".posttags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

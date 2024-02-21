@@ -1367,5 +1367,8 @@ yarn dev && yarn start blogiran -u https://websitedesignin.blogiran.net/Post/81/
 yarn dev && yarn start nasrblog 
 yarn dev && yarn start nasrblog -u http://salamati2.nasrblog.ir/post-116861.html
 
+yarn dev && yarn start asblog
+yarn dev && yarn start asblog -u http://drsalamat.asblog.ir/post/161
+
 https://motamem.org/
 /**/
