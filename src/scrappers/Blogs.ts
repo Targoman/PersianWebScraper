@@ -4679,3 +4679,22 @@ export class blogiran extends clsScrapper {
         })
     }
 }
+
+export class nasrblog extends clsScrapper {
+    constructor() {
+        super(enuDomains.nasrblog, "nasrblog.ir", {
+            selectors: {
+                article: ".bodyposts div:nth-child(1)",
+                title: "h2.hl",
+                datetime: {
+                    conatiner: ".info span:nth-child(2)",
+                },
+                content: {
+                    main: ".cnt",
+                    ignoreNodeClasses: ["rating"],
+                    ignoreTexts: [/.*برچسب:.*/, /.*بازدید:.*/, /.*رتبه از پنج:.*/, /.*امتیاز دهید:.*/]
+                },
+            },
+        })
+    }
+}

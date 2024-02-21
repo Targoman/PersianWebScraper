@@ -1364,5 +1364,8 @@ yarn dev && yarn start b88 -u https://zghorbani1380.b88.ir/post/210478
 yarn dev && yarn start blogiran
 yarn dev && yarn start blogiran -u https://websitedesignin.blogiran.net/Post/81/انواع+سرور+از+نظر+نوع+سیستم+عامل
 
+yarn dev && yarn start nasrblog 
+yarn dev && yarn start nasrblog -u http://salamati2.nasrblog.ir/post-116861.html
+
 https://motamem.org/
 /**/
