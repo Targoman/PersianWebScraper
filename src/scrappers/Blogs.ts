@@ -4796,7 +4796,6 @@ export class moshaveranetahsili extends clsScrapper {
           content: {
             main: ".news",
             ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
-            //ignoreTexts: [/.*IRPP.*/]
           },
           category: {
             selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs li a")
@@ -4807,3 +4806,25 @@ export class moshaveranetahsili extends clsScrapper {
     }
   }
   
+
+export class hamrahmoshaver extends clsScrapper {
+    constructor() {
+      super(enuDomains.hamrahmoshaver, "hamrahmoshaver.com", {
+        selectors: {
+          article: ".content-box",
+          title: "h1",
+          datetime: {
+            acceptNoDate: true
+        },
+          content: {
+            main: ".alink",
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement']"),
+            startIndex: 0,
+            lastIndex: 2
+          },
+        },
+      })
+    }
+}
