@@ -4761,3 +4761,30 @@ export class roocket extends clsScrapper {
         })
     }
 }
+
+export class hamyarwp extends clsScrapper {
+    constructor() {
+      super(enuDomains.hamyarwp, "hamyarwp.com", {
+        selectors: {
+          article: "body.single-post",
+          title: "h1",
+          datetime: {
+            conatiner: ".time"
+          },
+          content: {
+            main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.category-articles .entry-content"),
+            //ignoreNodeClasses: ["wp-block-buttons"],
+            ignoreTexts: [/.*IRPP.*/]
+          },
+          // comments: {
+          //   container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#review .table tbody"),
+          //   text: "tr:nth-child(2) td .col-md-9"
+          // },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
+          },
+        },
+      })
+    }
+  }
+  
