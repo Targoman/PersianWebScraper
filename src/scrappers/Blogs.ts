@@ -4761,3 +4761,70 @@ export class roocket extends clsScrapper {
         })
     }
 }
+
+export class hamyarwp extends clsScrapper {
+    constructor() {
+      super(enuDomains.hamyarwp, "hamyarwp.com", {
+        selectors: {
+          article: "body.single-post",
+          title: "h1",
+          datetime: {
+            conatiner: ".time"
+          },
+          content: {
+            main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.category-articles .entry-content"),
+            ignoreTexts: [/.*IRPP.*/]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
+          },
+        },
+      })
+    }
+}
+
+export class moshaveranetahsili extends clsScrapper {
+    constructor() {
+      super(enuDomains.moshaveranetahsili, "moshaveranetahsili.ir", {
+        selectors: {
+          article: "#single-blog",
+          title: ".news-title",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+        },
+          content: {
+            main: ".news",
+            ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs li a")
+          },
+          tags: "[rel='tag']"
+        },
+      })
+    }
+  }
+  
+
+export class hamrahmoshaver extends clsScrapper {
+    constructor() {
+      super(enuDomains.hamrahmoshaver, "hamrahmoshaver.com", {
+        selectors: {
+          article: ".content-box",
+          title: "h1",
+          datetime: {
+            acceptNoDate: true
+        },
+          content: {
+            main: ".alink",
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement']"),
+            startIndex: 0,
+            lastIndex: 2
+          },
+        },
+      })
+    }
+}

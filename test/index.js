@@ -1373,5 +1373,11 @@ yarn dev && yarn start asblog -u http://drsalamat.asblog.ir/post/161
 yarn dev && yarn start roocket
 yarn dev && yarn start roocket -u https://roocket.ir/articles/learn-typescript-in-30-minutes
 
+yarn dev && yarn start hamyarwp
+yarn dev && yarn start hamyarwp -u https://hamyarwp.com/set-favorite-page-to-homepage/
+
+yarn dev && yarn start moshaveranetahsili 
+yarn dev && yarn start moshaveranetahsili -u https://moshaveranetahsili.ir/سوالات-و-کلید-سوالات-ارشد-کامپیوتر-1403/
+
 https://motamem.org/
 /**/
