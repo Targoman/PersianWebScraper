@@ -4773,16 +4773,35 @@ export class hamyarwp extends clsScrapper {
           },
           content: {
             main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.category-articles .entry-content"),
-            //ignoreNodeClasses: ["wp-block-buttons"],
             ignoreTexts: [/.*IRPP.*/]
           },
-          // comments: {
-          //   container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#review .table tbody"),
-          //   text: "tr:nth-child(2) td .col-md-9"
-          // },
           category: {
             selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
           },
+        },
+      })
+    }
+}
+
+export class moshaveranetahsili extends clsScrapper {
+    constructor() {
+      super(enuDomains.moshaveranetahsili, "moshaveranetahsili.ir", {
+        selectors: {
+          article: "#single-blog",
+          title: ".news-title",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+        },
+          content: {
+            main: ".news",
+            ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
+            //ignoreTexts: [/.*IRPP.*/]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs li a")
+          },
+          tags: "[rel='tag']"
         },
       })
     }
