@@ -4847,3 +4847,25 @@ export class panamag extends clsScrapper {
       })
     }
 }
+
+export class bloging extends clsScrapper {
+    constructor() {
+      super(enuDomains.bloging, "bloging.ir", {
+        selectors: {
+          article: ".classic-blog",
+          title: "h2.post-title",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+          },
+          content: {
+            main: ".post-content",
+            ignoreNodeClasses: ["kk-star-ratings", "meta", "post-title"]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category a"),
+          },
+        },
+      })
+    }
+}

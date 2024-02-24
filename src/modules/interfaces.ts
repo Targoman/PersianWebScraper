@@ -57,6 +57,7 @@ export enum enuDomains {
     bidarbourse = "bidarbourse",
     bitpin = "bitpin",
     blogfa = "blogfa",
+    bloging = "bloging",
     blogir = "blogir",
     blogiran = "blogiran",
     blogsazan = "blogsazan",

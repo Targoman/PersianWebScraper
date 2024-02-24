@@ -1382,5 +1382,8 @@ yarn dev && yarn start moshaveranetahsili -u https://moshaveranetahsili.ir/سو�
 yarn dev && yarn start panamag
 yarn dev && yarn start panamag -u https://panamag.ir/9298-pancake-dach-baby/
 
+yarn dev && yarn start bloging
+yarn dev && yarn start bloging -u https://bloging.ir/blogging/blogsky/ساخت-وبلاگ-در-بلاگ-اسکای/
+
 https://motamem.org/
 /**/
