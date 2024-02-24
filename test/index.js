@@ -1379,5 +1379,11 @@ yarn dev && yarn start hamyarwp -u https://hamyarwp.com/set-favorite-page-to-hom
 yarn dev && yarn start moshaveranetahsili 
 yarn dev && yarn start moshaveranetahsili -u https://moshaveranetahsili.ir/سوالات-و-کلید-سوالات-ارشد-کامپیوتر-1403/
 
+yarn dev && yarn start panamag
+yarn dev && yarn start panamag -u https://panamag.ir/9298-pancake-dach-baby/
+
+yarn dev && yarn start bloging
+yarn dev && yarn start bloging -u https://bloging.ir/blogging/blogsky/ساخت-وبلاگ-در-بلاگ-اسکای/
+
 https://motamem.org/
 /**/

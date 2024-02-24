@@ -4792,7 +4792,7 @@ export class moshaveranetahsili extends clsScrapper {
           datetime: {
             conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
             splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-        },
+          },
           content: {
             main: ".news",
             ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
@@ -4804,7 +4804,7 @@ export class moshaveranetahsili extends clsScrapper {
         },
       })
     }
-  }
+}
   
 
 export class hamrahmoshaver extends clsScrapper {
@@ -4823,6 +4823,47 @@ export class hamrahmoshaver extends clsScrapper {
             selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement']"),
             startIndex: 0,
             lastIndex: 2
+          },
+        },
+      })
+    }
+}
+
+export class panamag extends clsScrapper {
+    constructor() {
+      super(enuDomains.panamag, "panamag.ir", {
+        selectors: {
+          article: "article.entry",
+          title: "h1",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+          },
+          content: {
+            main: ".post-content",
+          },
+
+        },
+      })
+    }
+}
+
+export class bloging extends clsScrapper {
+    constructor() {
+      super(enuDomains.bloging, "bloging.ir", {
+        selectors: {
+          article: ".classic-blog",
+          title: "h2.post-title",
+          datetime: {
+            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+          },
+          content: {
+            main: ".post-content",
+            ignoreNodeClasses: ["kk-star-ratings", "meta", "post-title"]
+          },
+          category: {
+            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category a"),
           },
         },
       })
