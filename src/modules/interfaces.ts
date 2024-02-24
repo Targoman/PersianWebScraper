@@ -268,6 +268,7 @@ export enum enuDomains {
     okala = "okala",
     p30world = "p30world",
     pana = "pana",
+    panamag = "panamag",
     panjahopanjonline = "panjahopanjonline",
     panjere = "panjere",
     pansadonavadohasht = "pansadonavadohasht",
