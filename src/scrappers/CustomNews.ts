@@ -1032,3 +1032,23 @@ export class ofoghnews extends clsScrapper {
     }
 }
 
+export class iwna extends clsScrapper {
+    constructor() {
+        super(enuDomains.iwna, "iwna.ir", {
+            selectors: {
+                article: "section.single, .gallery-p",
+                title: "h1, .title h2 a",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".post-content .con, .lightgallery",
+                },
+                tags: "[rel='tag']"
+            }
+        })
+    }
+}

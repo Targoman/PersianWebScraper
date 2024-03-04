@@ -1385,7 +1385,11 @@ yarn dev && yarn start panamag -u https://panamag.ir/9298-pancake-dach-baby/
 yarn dev && yarn start bloging
 yarn dev && yarn start bloging -u https://bloging.ir/blogging/blogsky/ساخت-وبلاگ-در-بلاگ-اسکای/
 
+yarn dev && yarn start pishgamfanavari
 yarn dev && yarn start pishgamfanavari -u https://www.pishgamfanavari.ir/بخش-اخبار-2/618-گفتگو-با-سینا-عظام-در-مورد-تاثیر-هوش-مصنوعی-فناوری-بلاکچین-در-حوزه-املاک-مستغلات
+
+yarn dev && yarn start iwna
+yarn dev && yarn start iwna -u https://iwna.ir/news/کنعانی-اعلام-کرد-آمادگی-برای-همکاری-سا
 
 https://motamem.org/
 /**/
