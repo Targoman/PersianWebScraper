@@ -89,6 +89,7 @@ export enum enuDomains {
     didgahemrooz = "didgahemrooz",
     digiato = "digiato",
     digikala = "digikala",
+    digikaproducts = "digikaproducts",
     digistyle = "digistyle",
     diibache = "diibache",
     divar = "divar",

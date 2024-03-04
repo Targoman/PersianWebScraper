@@ -1,6 +1,8 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfPageContent } from "../modules/interfaces";
 import { HTMLElement, parse } from "node-html-parser"
+import { IntfRequestParams } from "../modules/request";
+//import { normalizeText } from "../modules/common";
 
 export class divar extends clsScrapper {
   constructor() {
@@ -352,5 +354,42 @@ export class noozdahkala extends clsScrapper {
         tags: "[rel='tag']"
       },
     })
+  }
+}
+
+export class digikaproducts extends clsScrapper {
+  constructor() {
+      super(enuDomains.digikaproducts, "digikala.com", {
+          api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
+              const pageContent: IntfPageContent = { url: url.toString(), links: [] }
+              reParams
+              pageContent.links.push("https://api.digikala.com/v1/brands/");
+              
+              if(data.data && data.data.brands) {
+                const brand_codes: string[] = [];
+                Object.values(data.data.brands).forEach((brand: any) => {
+                  brand.forEach((code) => {
+                    brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
+                  });
+                });
+                await Promise.all(brand_codes.map(async (brand_code) => {
+                let pageExists = true;
+                let page = 1;
+                while(pageExists) {
+                  const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
+                  pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
+                  const brand = await productsResponse.json();
+                  if (page < brand.data.pager.total_pages) {
+                    page++;
+                  } else {
+                    pageExists = false;
+                  }
+                }
+                }))
+              }
+              return pageContent
+          },
+          url: { removeWWW: true }
+      })
   }
 }
