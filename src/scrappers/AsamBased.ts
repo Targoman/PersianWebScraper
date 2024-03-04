@@ -1477,3 +1477,14 @@ export class sornakhabar extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class pishgamfanavari extends clsAsamBased {
+    constructor() {
+        super(enuDomains.pishgamfanavari, "pishgamfanavari.ir", {
+            selectors: {
+                tags: "a.article_tags_link"
+            },
+        })
+    }
+}

@@ -286,6 +286,7 @@ export enum enuDomains {
     paziresh24 = "paziresh24",
     pdf = "pdf",
     persiantools = "persiantools",
+    pishgamfanavari = "pishgamfanavari",
     podium = "podium",
     ponisha = "ponisha",
     poonehmedia = "poonehmedia",
