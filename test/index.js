@@ -1395,6 +1395,8 @@ yarn dev && yarn start vido
 yarn dev && yarn start vido -u https://vido.ir/harry-potter-percy-weasley-what-happened
 yarn dev && yarn start vido -u https://vido.ir/anime-suggestions-first-series
 
+yarn dev && yarn start cinemaema
+yarn dev && yarn start cinemaema -u https://www.cinemaema.com/fa/news/15440/پسر-هريسون-فورد-خبر-داد-بابا-خوبه-درب-و-داغان-اما-خوب
 
 https://motamem.org/
 /**/

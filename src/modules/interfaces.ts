@@ -75,6 +75,7 @@ export enum enuDomains {
     chemibazar = "chemibazar",
     chetor = "chetor",
     chtn = "chtn",
+    cinemaema = "cinemaema",
     cinemapress = "cinemapress",
     citna = "citna",
     clickaval = "clickaval",
