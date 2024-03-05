@@ -1052,3 +1052,32 @@ export class iwna extends clsScrapper {
         })
     }
 }
+
+export class vido extends clsScrapper {
+    constructor() {
+        super(enuDomains.vido, "vido.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: "a.post-cat"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
