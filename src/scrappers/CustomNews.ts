@@ -1081,3 +1081,21 @@ export class vido extends clsScrapper {
         })
     }
 }
+
+export class filmmagazine extends clsScrapper {
+    constructor() {
+        super(enuDomains.filmmagazine, "film-magazine.com", {
+            selectors: {
+                article: ".content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h4 span")
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content"),
+                    ignoreTexts: ["[ماهنامه فیلم]"]
+                },
+            },
+        })
+    }
+}
