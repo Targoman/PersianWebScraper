@@ -397,6 +397,7 @@ export enum enuDomains {
     vakiltik = "vakiltik",
     vananews = "vananews",
     varzesh3 = "varzesh3",
+    vido = "vido",
     virgool = "virgool",
     vindad = "vindad",
     watereng = "watereng",

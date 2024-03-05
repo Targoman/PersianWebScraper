@@ -1391,5 +1391,10 @@ yarn dev && yarn start pishgamfanavari -u https://www.pishgamfanavari.ir/بخش-
 yarn dev && yarn start iwna
 yarn dev && yarn start iwna -u https://iwna.ir/news/کنعانی-اعلام-کرد-آمادگی-برای-همکاری-سا
 
+yarn dev && yarn start vido
+yarn dev && yarn start vido -u https://vido.ir/harry-potter-percy-weasley-what-happened
+yarn dev && yarn start vido -u https://vido.ir/anime-suggestions-first-series
+
+
 https://motamem.org/
 /**/
