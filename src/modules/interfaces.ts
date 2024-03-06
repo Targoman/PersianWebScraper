@@ -39,6 +39,7 @@ export enum enuDomains {
     baeghtesad = "baeghtesad",
     baharnews = "baharnews",
     bahjat = "bahjat",
+    bamdad24 = "bamdad24",
     bankdariirani = "bankdariirani",
     barghnews = "barghnews",
     barnamenevis = "barnamenevis",

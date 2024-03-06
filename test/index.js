@@ -1401,5 +1401,8 @@ yarn dev && yarn start cinemaema -u https://www.cinemaema.com/fa/news/15440/پس
 yarn dev && yarn start filmmagazine
 yarn dev && yarn start filmmagazine -u https://www.film-magazine.com/reviews/iran/50333612/
 
+yarn dev && yarn start bamdad24
+yarn dev && yarn start bamdad24 -u http://bamdad24.ir/fa/news/16376/کودکان-را-به-دوستانی-مهربان-برای-محیط-زیست-تبدیل-کنیم
+
 https://motamem.org/
 /**/
