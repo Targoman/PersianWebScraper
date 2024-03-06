@@ -1411,5 +1411,8 @@ yarn dev && yarn start shiraze
 yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162999/بیش-از-یک%E2%80%8Cصد-تیم-شرکت%E2%80%8Cکننده-به-رقابت-پرداختند
 yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162958/منتخبان-مردم-فارس-در-مجلس-دوازدهم-مشخص-شدند
 
+yarn dev && yarn start fhnews
+yarn dev && yarn start fhnews -u http://fhnews.ir/fa/news/138530/نمایش-نوروزی-سلام-بهار-در-خانه-فرهنگ-باصفا
+
 https://motamem.org/
 /**/

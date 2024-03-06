@@ -1875,3 +1875,16 @@ export class shiraze extends clsIransamaneh {
         })
     }
 }
+
+export class fhnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.fhnews, "fhnews.ir", {
+            selectors: {
+                article: ".col1_dakheli_index",
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
