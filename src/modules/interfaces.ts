@@ -349,6 +349,7 @@ export enum enuDomains {
     shenasname = "shenasname",
     sheypoor = "sheypoor",
     shianews = "shianews",
+    shiraze = "shiraze",
     shoaresal = "shoaresal",
     shohadayeiran = "shohadayeiran",
     shomanews = "shomanews",

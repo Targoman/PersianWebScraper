@@ -1407,5 +1407,9 @@ yarn dev && yarn start bamdad24 -u http://bamdad24.ir/fa/news/16376/کودکان
 yarn dev && yarn start asrkhabar
 yarn dev && yarn start asrkhabar -u https://asrkhabar.com/fa/news/620234/ممنوعیت-استفاده-از-بالن-آرزو-در-چهارشن/
 
+yarn dev && yarn start shiraze
+yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162999/بیش-از-یک%E2%80%8Cصد-تیم-شرکت%E2%80%8Cکننده-به-رقابت-پرداختند
+yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162958/منتخبان-مردم-فارس-در-مجلس-دوازدهم-مشخص-شدند
+
 https://motamem.org/
 /**/
