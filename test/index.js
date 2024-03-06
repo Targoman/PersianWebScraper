@@ -1404,5 +1404,8 @@ yarn dev && yarn start filmmagazine -u https://www.film-magazine.com/reviews/ira
 yarn dev && yarn start bamdad24
 yarn dev && yarn start bamdad24 -u http://bamdad24.ir/fa/news/16376/کودکان-را-به-دوستانی-مهربان-برای-محیط-زیست-تبدیل-کنیم
 
+yarn dev && yarn start asrkhabar
+yarn dev && yarn start asrkhabar -u https://asrkhabar.com/fa/news/620234/ممنوعیت-استفاده-از-بالن-آرزو-در-چهارشن/
+
 https://motamem.org/
 /**/
