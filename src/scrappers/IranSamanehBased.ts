@@ -1845,3 +1845,16 @@ export class cinemaema extends clsIransamaneh {
         })
     }
 }
+
+export class bamdad24 extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.bamdad24, "bamdad24.ir", {
+            selectors: {
+                article: ".dakheli",
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

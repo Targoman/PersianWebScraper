@@ -1076,7 +1076,9 @@ export class vido extends clsScrapper {
                 }
             },
             url: {
-                removeWWW: true
+                removeWWW: true,
+                extraInvalidStartPaths: ["/www.", "/instagram", "/uupload", "/beeptunes", "/upera", "/vakil", "/elitland",
+                 "/amoozeshgahan", "/saziha"]
             }
         })
     }
