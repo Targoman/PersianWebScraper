@@ -1101,3 +1101,27 @@ export class filmmagazine extends clsScrapper {
         })
     }
 }
+
+export class asrkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.asrkhabar, "asrkhabar.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta", "post-shortlink"]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 0,
+                    lastIndex: 2
+                },
+                tags: "[rel='tag']"
+            }
+        })
+    }
+}
