@@ -1858,3 +1858,33 @@ export class bamdad24 extends clsIransamaneh {
         })
     }
 }
+export class shiraze extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shiraze, "shiraze.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "div.title h1:nth-child(2)",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            }
+        })
+    }
+}
+
+export class fhnews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.fhnews, "fhnews.ir", {
+            selectors: {
+                article: ".col1_dakheli_index",
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
