@@ -1888,3 +1888,19 @@ export class fhnews extends clsIransamaneh {
         })
     }
 }
+
+export class tik extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tik, "tik.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                }
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

@@ -1414,5 +1414,8 @@ yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162958/منتخبا
 yarn dev && yarn start fhnews
 yarn dev && yarn start fhnews -u http://fhnews.ir/fa/news/138530/نمایش-نوروزی-سلام-بهار-در-خانه-فرهنگ-باصفا
 
+yarn dev && yarn start tik
+yarn dev && yarn start tik -u http://tik.ir/fa/news/426364/وزیر-کشور-امر-به-معروف-و-نهی-از-منکر-مجوز-نمی%E2%80%8Cخواهد-لازم-است-در-برابر-بی%E2%80%8Cحجابی-بایستیم
+
 https://motamem.org/
 /**/
