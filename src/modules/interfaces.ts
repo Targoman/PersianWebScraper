@@ -147,6 +147,7 @@ export enum enuDomains {
     hamshahrionline = "hamshahrionline",
     hamyarwp = "hamyarwp",
     haal = "haal",
+    hashtsobh = "hashtsobh",
     hawzahnews = "hawzahnews",
     hisalamat = "hisalamat",
     hitalki = "hitalki",

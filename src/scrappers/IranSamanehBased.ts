@@ -1904,3 +1904,26 @@ export class tik extends clsIransamaneh {
         })
     }
 }
+
+export class hashtsobh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.hashtsobh, "8sobh.ir", {
+            selectors: {
+                article: "section.single",
+                subtitle: ".lead",
+                title: "h2.single-post-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#nt-body-ck"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='tag']"),
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
+                }
+            },
+        })
+    }
+}

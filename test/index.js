@@ -1417,5 +1417,8 @@ yarn dev && yarn start fhnews -u http://fhnews.ir/fa/news/138530/نمایش-نو
 yarn dev && yarn start tik
 yarn dev && yarn start tik -u http://tik.ir/fa/news/426364/وزیر-کشور-امر-به-معروف-و-نهی-از-منکر-مجوز-نمی%E2%80%8Cخواهد-لازم-است-در-برابر-بی%E2%80%8Cحجابی-بایستیم
 
+yarn dev && yarn start hashtsobh
+yarn dev && yarn start hashtsobh -u https://8sobh.ir/خلیلی-از-مسابقات-گل-کوچک-با-پیشکسوتان/
+
 https://motamem.org/
 /**/
