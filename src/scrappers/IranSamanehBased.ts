@@ -1951,3 +1951,24 @@ export class tadbir24 extends clsIransamaneh {
         })
     }
 }
+
+export class ecoview extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.ecoview, "ecoview.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

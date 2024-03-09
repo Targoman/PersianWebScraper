@@ -1420,5 +1420,8 @@ yarn dev && yarn start tik -u http://tik.ir/fa/news/426364/وزیر-کشور-ا�
 yarn dev && yarn start hashtsobh
 yarn dev && yarn start hashtsobh -u https://8sobh.ir/خلیلی-از-مسابقات-گل-کوچک-با-پیشکسوتان/
 
+yarn dev && yarn start ecoview 
+yarn dev && yarn start ecoview -u http://ecoview.ir/fa/news/6146/دلیل-متضرر-شدن-سهامداران-بانک%E2%80%8Cها-در-بورس
+
 https://motamem.org/
 /**/
