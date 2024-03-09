@@ -1927,3 +1927,27 @@ export class hashtsobh extends clsIransamaneh {
         })
     }
 }
+
+export class tadbir24 extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tadbir24, "tadbir24.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1 a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    main: ".body, .lead_image, .body div div"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[class='tags_item']"),
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                }
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
