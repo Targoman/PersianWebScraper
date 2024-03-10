@@ -1996,3 +1996,22 @@ export class kanoonhend extends clsIransamaneh {
         })
     }
 }
+
+export class shafaonline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shafaonline, "shafaonline.ir", {
+            selectors: {
+                article: ".inner_b.col-xs-36",
+                title: "h1.title a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate"),
+                    acceptNoDate: true
+                },
+            },
+            url: {
+                forceHTTP: true,
+                removeWWW: true
+            }
+        })
+    }
+}
