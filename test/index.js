@@ -1423,5 +1423,8 @@ yarn dev && yarn start hashtsobh -u https://8sobh.ir/خلیلی-از-مسابق�
 yarn dev && yarn start ecoview 
 yarn dev && yarn start ecoview -u http://ecoview.ir/fa/news/6146/دلیل-متضرر-شدن-سهامداران-بانک%E2%80%8Cها-در-بورس
 
+yarn dev && yarn start nateghan
+yarn dev && yarn start nateghan -u http://nateghan.ir/fa/news/325947/آمریکا-بدنبال-درگیر-شدن-با-ایران-نیست
+
 https://motamem.org/
 /**/
