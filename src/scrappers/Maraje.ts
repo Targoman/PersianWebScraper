@@ -1,6 +1,8 @@
 import { clsScrapper } from "../modules/clsScrapper"
-import { enuDomains } from "../modules/interfaces"
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces"
 import { HTMLElement } from "node-html-parser"
+
+void enuMinorCategory, enuSubMinorCategory
 
 export class sistani extends clsScrapper {
     constructor() {
@@ -53,6 +55,10 @@ export class agorgani extends clsScrapper {
                 extraInvalidStartPaths: ["/ar"]
             }
         })
+    }
+    mapCategory(cat?: string): IntfMappedCategory {
+        void cat
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
     }
 }
 

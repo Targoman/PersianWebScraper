@@ -584,6 +584,7 @@ export enum enuSubMinorCategory {
     Art = "Art",
     Agriculture = "Agriculture",
     TV = "TV",
+    Pet = "Pet",
     Radio = "Radio",
     Book = "Book",
     Podcast = "Podcast",

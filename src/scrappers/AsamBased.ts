@@ -79,8 +79,8 @@ class clsAsamBased extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        let first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        let first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("اخبار"))
             first = first.substring(6).trim()
@@ -226,8 +226,8 @@ class clsAsamBased extends clsScrapper {
         } else if (second.includes("کشتی")) {
             mappedCat.minor = enuMinorCategory.Sport
             mappedCat.subminor = enuSubMinorCategory.Wrestling
-        } else
-            return { major: enuMajorCategory.NA, original: cat }
+        }
+
         return mappedCat
     }
 }
@@ -290,8 +290,8 @@ export class ilna extends clsAsamBased {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
         else if (cat.includes("فیلم")
@@ -372,7 +372,7 @@ export class tasnim extends clsAsamBased {
             if (pathParts.length > 6
                 && pathParts[1] === "fa"
                 && (pathParts[2] === "news"
-                || pathParts[2] === "media"))
+                    || pathParts[2] === "media"))
                 path = `/${pathParts[6]}` //+ "--->" + url.pathname
 
             return "https://tasnimnews.com" + path
@@ -472,8 +472,8 @@ export class fardanews extends clsAsamBased {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (second.startsWith("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
         else if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }

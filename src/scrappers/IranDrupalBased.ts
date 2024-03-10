@@ -50,8 +50,8 @@ export class rajanews extends clsIranDrupal {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (second.startsWith("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
         else if (cat.includes("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }

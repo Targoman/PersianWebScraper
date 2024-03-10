@@ -117,20 +117,22 @@ export class alef extends clsScrapper {
     mapCategory(cat?: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
-        else if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.startsWith("یادداشت بینندگان")) return { ...mappedCat, minor: enuMinorCategory.Discussion }
-        else if (cat.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
-        else if (cat.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.startsWith("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        cat = cat.trim()
+
+        if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.startsWith("یادداشت بینندگان")) return { ...mappedCat, minor: enuMinorCategory.Discussion }
+        if (cat.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.startsWith("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
+        if (cat.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.startsWith("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
 
         return mappedCat
     }
@@ -377,8 +379,8 @@ export class itna extends clsScrapper {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
 
         if (second.startsWith("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
@@ -583,8 +585,8 @@ export class pana extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
         else if (cat.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
@@ -627,8 +629,10 @@ export class niknews extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("اق") || second.startsWith("اتص")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (second.startsWith("سی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         if (second.endsWith("عی")) return { ...mappedCat, minor: enuMinorCategory.Social }
@@ -673,8 +677,8 @@ export class namnak extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (second.startsWith("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Historical }
         else if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
@@ -863,8 +867,10 @@ export class arzdigital extends clsScrapper {
         const mappedCat = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("بیاموزید") || second.startsWith("دانشنامه")) return { ...mappedCat, subminor: enuMinorCategory.Education }
         if (second.startsWith("مصاحبه")) return { ...mappedCat, subminor: enuMinorCategory.Talk }
         return mappedCat
@@ -905,8 +911,10 @@ export class ramzarz extends clsScrapper {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia, subminor: enuMinorCategory.CryptoCurrency }
         if (second.startsWith("رپورتاژ")) return { ...mappedCat, subminor: enuSubMinorCategory.Reportage }
         return mappedCat

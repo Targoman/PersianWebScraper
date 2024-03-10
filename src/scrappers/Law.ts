@@ -66,8 +66,10 @@ export class ekhtebar extends clsScrapper {
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const first = catParts[0]
-
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
+    
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (first.startsWith('آگهی')) return { ...mappedCat, minor: enuMinorCategory.Advert }
     if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
@@ -148,7 +150,9 @@ export class rcmajlis extends clsScrapper {
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.startsWith('قوانین') || second.startsWith('طرح')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
     return mappedCat
@@ -189,7 +193,9 @@ export class shenasname extends clsScrapper {
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const first = catParts[0]
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
@@ -255,7 +261,9 @@ export class shoragc extends clsScrapper {
 
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const first = catParts[0]
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (first.startsWith('انطباق') || first.startsWith('قانون')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 

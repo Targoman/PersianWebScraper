@@ -58,7 +58,9 @@ export class extern extends clsScrapper {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.startsWith("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.Health }
     if (second.startsWith("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }

@@ -48,7 +48,9 @@ export class persiantools extends clsXenForoBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     else if (second.includes("برنامه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }

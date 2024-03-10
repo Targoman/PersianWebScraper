@@ -14,6 +14,7 @@ enum enuCommands {
     normalize = "normalize",
     toText = "toText",
     toJsonl = "toJsonl",
+    checkCategories = "checkCategories"
 }
 
 enum enuDateResolution {
@@ -51,6 +52,7 @@ const args = {
     configFile: option({ type: optional(string), long: 'configFile', short: "c", description: "set configFile to be used" }),
     debugVerbosity: option({ type: optional(number), long: 'verbosity', short: "v", description: "set verbosity level from 0 to 10" }),
 
+    corporaPath: option({ type: optional(string), long: 'corporaPath', description: "Path to corpora" }),
     targetPath: option({ type: optional(string), long: 'target', short: "t", description: "Target Folder to store results on converting to text or jsonl" }),
     statFile: option({ type: optional(string), long: 'statFile', short: "s", description: "path to store result CSV" }),
 
@@ -73,7 +75,7 @@ const args = {
     minDate: option({ type: optional(string), long: 'minDate', description: "Min date to extract texts" }),
 }
 
-function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string): void }) {
+function processDir(args: any, processor: { (scrapper: clsScrapper, doc: IntfDocFilecontent | any, filePath: string): void }, isCSV = false) {
     function getScrapper(domain?: string) {
         if (!domain) return undefined
         const scrapper = new scrappers[domain];
@@ -85,12 +87,21 @@ function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: Int
     function processDirInternal(dir: string, scrapper?: clsScrapper) {
         readdirSync(dir).forEach(item => {
             const absPath = path.join(dir, item);
-            if (statSync(absPath).isDirectory())
+            if (isCSV) {
+                if (absPath.endsWith(".csv")) {
+                    const scrapperName = item.replace(".csv", "")
+                    if (args.domain && args.domain != scrapperName)
+                        return
+                    processor(getScrapper(scrapperName), readFileSync(absPath, 'utf8'), absPath);
+                } else
+                    return
+            } else if (statSync(absPath).isDirectory())
                 processDirInternal(absPath, scrapper || getScrapper(item));
             else if (scrapper && typeof scrapper !== "string") {
                 if (absPath.endsWith('.updated')) return
                 try {
-                    jsonProcessor(scrapper, JSON.parse(readFileSync(absPath, 'utf8')), absPath);
+                    const data = readFileSync(absPath, 'utf8')
+                    processor(scrapper, JSON.parse(data), absPath);
                 }
                 catch (e) {
                     log.error("Invalid JSON File: ", absPath, e)
@@ -98,7 +109,7 @@ function processDir(args: any, jsonProcessor: { (scrapper: clsScrapper, doc: Int
             }
         });
     }
-    processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (args.domain || ""), getScrapper(args.domain))
+    processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (isCSV ? "" : args.domain || ""), getScrapper(args.domain))
 }
 
 const app = command({
@@ -142,55 +153,176 @@ const app = command({
             args.invalidMajorCats = args.invalidMajorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Major category: " + cat); return cat })
         if (args.invalidMinorCats)
             args.invalidMinorCats = args.invalidMinorCats.split(",").map((cat: string) => { if (!enuCategory[cat]) throw new Error("Invalid Minor category: " + cat); return cat })
+        if (args.corporaPath)
+            gConfigs.corpora = args.corporaPath
 
+        let ignoredBySize = 0
+        let ignoredByDate = 0
+        let ignoredByCategory = 0
+
+        const baseSpecs = (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string, defaultTarget: string) => {
+            const fileName = filePath.split("/").pop()?.replace(".json", "")
+            const baseOutpath = (args.targetPath || "./" + defaultTarget) + "/" + scrapper.name() + "/"
+            const docTimeStamp = Date.parse(doc.date || "INVALID")
+
+            if (processedCount % 1000 === 0)
+                log.status({
+                    processed: formatNumber(processedCount),
+                    ignoredByDate: formatNumber(ignoredByDate),
+                    ignoredBySize: formatNumber(ignoredBySize),
+                    ignoredByCategory: formatNumber(ignoredByCategory),
+                });
+            processedCount++
+            if (isFiltered(doc, docTimeStamp))
+                return null
+
+            let dateOnPath = doc.date || "NOT_SET"
+            if (!isNaN(docTimeStamp)) {
+                const docDate = new Date(doc.date || "")
+                switch (args.dateResolution) {
+                    case enuDateResolution.year:
+                        dateOnPath = docDate.getFullYear() + ""; break;
+                    case enuDateResolution.month:
+                        dateOnPath = docDate.getFullYear() + "-" + (docDate.getMonth() + 1 + "").padStart(2, "0")
+                }
+            }
+
+            return { fileName, baseOutpath, docTimeStamp, dateOnPath }
+        }
+
+        const isFiltered = (doc: IntfDocFilecontent, docTimeStamp: number) => {
+            if ((args.validMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major) != true)
+                || (args.validMinorCats && typeof doc.category !== "string" && args.validMinorCats.includes(doc.category.minor) != true)
+                || (args.invalidMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major))
+                || (args.invalidMinorCats && typeof doc.category !== "string" && args.invalidMinorCats.includes(doc.category.minor))
+            ) {
+                ignoredByCategory++
+                return true
+            }
+
+            if (args.minDate) {
+                const minTimeStamp = Date.parse(args.minDate)
+                if (!isNaN(docTimeStamp) && docTimeStamp < minTimeStamp) {
+                    ignoredByDate++
+                    return true
+                }
+            }
+            return false
+        }
+
+        const normalizeDoc = (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+            const docCategory = !doc.category ? "undefined" : doc.category;
+            let anythingChanged = false
+
+            const normalize = (text?: string) => {
+                if (!text) return text
+                const normalizedText = normalizeText(text)
+                if (normalizedText != text) {
+                    log.debug({ text })
+                    anythingChanged = true
+                }
+                return normalizedText
+            }
+
+            const normalizeDate = (date?: string) => {
+                const gregorianDate = date2Gregorian(date)
+                if (date === "IGNORED" || date === "NO_DATE")
+                    return "NOT_SET"
+                if (gregorianDate?.startsWith("INVALID:"))
+                    log.file(scrapper.name(), filePath, date)
+
+                if (gregorianDate != date) {
+                    log.debug({ date })
+                    anythingChanged = true
+                }
+                return gregorianDate
+            }
+
+            const normalizeArray = (arr: any) => {
+                for (let i = 0; i < arr.length; ++i) {
+                    if (typeof arr[i] === "string")
+                        arr[i] = normalize(arr[i])
+                    else
+                        for (const innerKey in arr[i]) {
+                            if (innerKey === "date")
+                                arr[i][innerKey] = normalizeDate(arr[i][innerKey])
+                            else
+                                arr[i][innerKey] = normalize(arr[i][innerKey])
+                        }
+                }
+                return arr
+            }
+
+            for (const key in doc) {
+                if (key === "category")
+                    continue
+                else if (key === "date")
+                    doc[key] = normalizeDate(doc[key])
+                else if (typeof doc[key] === "string")
+                    doc[key] = normalize(doc[key])
+                else if (key === "qa" && doc["qa"]) {
+                    for (let i = 0; i < doc["qa"].length; ++i) {
+                        doc["qa"][i].q = normalizeArray([doc["qa"][i].q])[0]
+                        if (doc["qa"][i].a)
+                            normalizeArray(doc["qa"][i].a)
+                    }
+                } else
+                    normalizeArray(doc[key])
+            }
+
+            if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
+                doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
+                if (typeof docCategory === 'string')
+                    doc.category['original'] = docCategory;
+                anythingChanged = true
+            }
+
+            return { doc, anythingChanged }
+        }
 
         switch (args.command) {
-            case enuCommands.toJsonl:
-            case enuCommands.toText: {
-                let ignoredBySize = 0
-                let ignoredByDate = 0
-                let ignoredByCategory = 0
+            case enuCommands.checkCategories: {
+                const outdir = gConfigs.corpora + "/processed"
+                if (!existsSync(outdir))
+                    mkdirSync(outdir)
+                processDir(args, (scrapper: clsScrapper, doc: any, filePath: string) => {
+                    const spec = baseSpecs(scrapper, doc, filePath, "cat")
+                    if (!spec) return
 
+                    const outPath = outdir + "/" + scrapper.name() + ".csv"
+                    writeFileSync(outPath, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor,sumWC\n")
+                    doc.split("\n").forEach((line, index) => {
+                        if(index ===0) return
+                        const parts = line.split(",")
+                        if (parts.length > 14) {
+                            const cat = scrapper.mapCategory(parts[1]);
+                            const outStr = parts.slice(0, 14).join(",") + "," + cat.major + "," + cat.minor + "," + cat.subminor + "," + parts[17]
+                            appendFileSync(outPath, outStr + "\n")
+                            console.log({ org: parts[1], cat })
+                        }
+                    })
+
+
+                }, true)
+                log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
+                break;
+            }
+            case enuCommands.toJsonl: {
                 processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
-                    const fileName = filePath.split("/").pop()?.replace(".json", "")
-                    const baseOutpath = (args.targetPath || "./out") + "/" + scrapper.name() + "/"
-                    const docTimeStamp = Date.parse(doc.date || "INVALID")
-                    if (processedCount % 1000 === 0)
-                        log.status({
-                            processed: formatNumber(processedCount),
-                            ignoredByDate: formatNumber(ignoredByDate),
-                            ignoredBySize: formatNumber(ignoredBySize),
-                            ignoredByCategory: formatNumber(ignoredByCategory),
-                        });
-                    processedCount++
+                    const spec = baseSpecs(scrapper, doc, filePath, "jsonl")
+                    if (!spec) return
+                    //const path = `${spec.baseOutpath}/${spec.dateOnPath}.jsonl`
+                    //appendFileSync(path, )
+                })
+                log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
 
-                    if ((args.validMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major) != true)
-                        || (args.validMinorCats && typeof doc.category !== "string" && args.validMinorCats.includes(doc.category.minor) != true)
-                        || (args.invalidMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major))
-                        || (args.invalidMinorCats && typeof doc.category !== "string" && args.invalidMinorCats.includes(doc.category.minor))
-                    ) {
-                        ignoredByCategory++
-                        return
-                    }
+            }
+                break;
 
-                    if (args.minDate) {
-                        const minTimeStamp = Date.parse(args.minDate)
-                        if (!isNaN(docTimeStamp) && docTimeStamp < minTimeStamp) {
-                            ignoredByDate++
-                            return
-                        }
-                    }
-
-                    let dateOnPath = doc.date || "NOT_SET"
-                    if (!isNaN(docTimeStamp)) {
-                        const docDate = new Date(doc.date || "")
-                        switch (args.dateResolution) {
-                            case enuDateResolution.year:
-                                dateOnPath = docDate.getFullYear() + ""; break;
-                            case enuDateResolution.month:
-                                dateOnPath = docDate.getFullYear() + "-" + (docDate.getMonth() + 1 + "").padStart(2, "0")
-                        }
-                    }
+            case enuCommands.toText: {
+                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                    const spec = baseSpecs(scrapper, doc, filePath, "out")
+                    if (!spec) return
 
                     let paragraphs: string[] = []
                     const addToParagraphs = (item?: string | string[]) => {
@@ -207,9 +339,9 @@ const app = command({
                             ignoredBySize++
                             return
                         }
-                        const path = `${baseOutpath}/${type}/${dateOnPath}`
+                        const path = `${spec.baseOutpath}/${type}/${spec.dateOnPath}`
                         if (!existsSync(path)) mkdirSync(path, { recursive: true })
-                        writeFileSync(`${path}/${fileName}.txt`, text)
+                        writeFileSync(`${path}/${spec.fileName}.txt`, text)
                     }
 
                     if (!args.justInformal) {
@@ -237,72 +369,10 @@ const app = command({
             case enuCommands.normalize: {
                 let updatedCount = 0;
                 processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
-                    const docCategory = !doc.category ? "undefined" : doc.category;
-                    let anythingChanged = false
+                    const res = normalizeDoc(scrapper, doc, filePath)
+                    doc = res.doc
+                    let anythingChanged = res.anythingChanged
 
-                    const normalize = (text?: string) => {
-                        if (!text) return text
-                        const normalizedText = normalizeText(text)
-                        if (normalizedText != text) {
-                            log.debug({ text })
-                            anythingChanged = true
-                        }
-                        return normalizedText
-                    }
-
-                    const normalizeDate = (date?: string) => {
-                        const gregorianDate = date2Gregorian(date)
-                        if (date === "IGNORED" || date === "NO_DATE")
-                            return "NOT_SET"
-                        if (gregorianDate?.startsWith("INVALID:"))
-                            log.file(scrapper.name(), filePath, date)
-
-                        if (gregorianDate != date) {
-                            log.debug({ date })
-                            anythingChanged = true
-                        }
-                        return gregorianDate
-                    }
-
-                    const normalizeArray = (arr: any) => {
-                        for (let i = 0; i < arr.length; ++i) {
-                            if (typeof arr[i] === "string")
-                                arr[i] = normalize(arr[i])
-                            else
-                                for (const innerKey in arr[i]) {
-                                    if (innerKey === "date")
-                                        arr[i][innerKey] = normalizeDate(arr[i][innerKey])
-                                    else
-                                        arr[i][innerKey] = normalize(arr[i][innerKey])
-                                }
-                        }
-                        return arr
-                    }
-
-                    for (const key in doc) {
-                        if (key === "category")
-                            continue
-                        else if (key === "date")
-                            doc[key] = normalizeDate(doc[key])
-                        else if (typeof doc[key] === "string")
-                            doc[key] = normalize(doc[key])
-                        else if (key === "qa" && doc["qa"]) {
-                            for (let i = 0; i < doc["qa"].length; ++i) {
-                                doc["qa"][i].q = normalizeArray([doc["qa"][i].q])[0]
-                                if (doc["qa"][i].a)
-                                    normalizeArray(doc["qa"][i].a)
-                            }
-                        } else
-                            normalizeArray(doc[key])
-                    }
-
-
-                    if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
-                        doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
-                        if (typeof docCategory === 'string')
-                            doc.category['original'] = docCategory;
-                        anythingChanged = true
-                    }
                     const filePathParts: string[] = filePath.split("/")
                     const pathDate = filePathParts.at(filePathParts.length - 2)
                     if (pathDate !== doc["date"])
@@ -431,6 +501,5 @@ const app = command({
         process.exit()
     },
 });
-
 
 run(app, process.argv.slice(2))

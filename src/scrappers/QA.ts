@@ -661,6 +661,22 @@ export class adleiranian extends clsScrapper {
             }
         })
     }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+        if (!cat) return mappedCat
+        const catParts = cat.split('/')
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
+        console.log(first)
+
+
+        if (first.includes("عدل"))
+            return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+
+        return mappedCat
+    }
 }
 
 export class dadpardaz extends clsScrapper {
@@ -724,8 +740,8 @@ export class dadvarzyar extends clsScrapper {
                             datetime: ".faqs-item-text-date"
                         },
                     },
-                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/, /.*لینک کانال.*/, /.*لینک صفحه.*/, 
-                      /.*لطفابا ثبت.*/, /.*جهت نگارش لایحه.*/, /.*جهت مشاوره با وکیل.*/]
+                    ignoreTexts: [/.*ما را در شبکه های.*/, /.*دانلود اپلیکیشن.*/, /.*لینک کانال.*/, /.*لینک صفحه.*/,
+                        /.*لطفابا ثبت.*/, /.*جهت نگارش لایحه.*/, /.*جهت مشاوره با وکیل.*/]
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".dwqa-breadcrumbs a, [rel='category tag']")

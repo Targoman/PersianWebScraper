@@ -38,7 +38,9 @@ export class lioncomputer extends clsScrapper {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
     else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }

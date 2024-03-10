@@ -162,8 +162,8 @@ export class ana extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
         else if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -295,8 +295,8 @@ export class snn extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (second.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
         else if (first.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
@@ -360,8 +360,8 @@ export class yjc extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (cat.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (first.startsWith("فرهنگی") && second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
@@ -425,8 +425,10 @@ export class bultannews extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (second.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
@@ -733,8 +735,8 @@ export class basijnews extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (false
             || first.startsWith("فیلم و نماهنگ")
@@ -840,8 +842,8 @@ export class didarnews extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("فیلم")
             || first.startsWith("عکس")
@@ -892,8 +894,10 @@ export class niniban extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (second.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
 
@@ -962,8 +966,8 @@ export class javanonline extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (false
             || first.startsWith("چندرسانه‌ای")
@@ -1051,8 +1055,8 @@ export class aghigh extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("خانه")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
         else if (first.startsWith("گفت‌و‌گو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
@@ -1138,8 +1142,8 @@ export class danakhabar extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
         else if (first.startsWith("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
@@ -1166,8 +1170,10 @@ export class iraneconomist extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         else if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
@@ -1258,8 +1264,10 @@ export class sedayiran extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (second.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
         else if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
@@ -1472,8 +1480,10 @@ export class bankdariirani extends clsIransamaneh {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         else if (second.startsWith("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
         else if (second.startsWith("زنگ تفریح")) return { ...mappedCat, minor: enuMinorCategory.Fun }

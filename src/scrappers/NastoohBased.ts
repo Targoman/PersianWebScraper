@@ -58,9 +58,10 @@ export class hamshahrionline extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (first.startsWith("چندرسانه")
             || first.startsWith("عکس")
             || first.startsWith("داستان")
@@ -124,9 +125,10 @@ export class irna extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (first.startsWith("استان"))
             return { ...mappedCat, minor: enuMinorCategory.Local }
 
@@ -274,9 +276,10 @@ export class mehrnews extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
         else if (first.startsWith("هنر") && second.startsWith("سینما") || second.startsWith("جشنواره")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         else if (first.startsWith("هنر") && second.startsWith("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
@@ -336,9 +339,10 @@ export class imna extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (first.startsWith("عکس") || first.startsWith("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (first.startsWith("جامعه")) {
@@ -416,8 +420,10 @@ export class chtn extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         else if (second.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
         else if (second.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -460,8 +466,10 @@ export class ibna extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("دین")) return { ...mappedCat, minor: enuMinorCategory.Religious }
         else if (second.startsWith("کودک") || second.startsWith("مدیریت") || second.startsWith("ادبیات") || second.startsWith("تازه")) return { ...mappedCat, minor: enuMinorCategory.Literature }
         else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Literature, subminor: enuMinorCategory.Local }
@@ -739,8 +747,10 @@ export class saat24 extends clsNastoohBased {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         else if (second.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
         else if (second.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political }

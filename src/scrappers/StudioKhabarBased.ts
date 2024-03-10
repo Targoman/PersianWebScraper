@@ -52,9 +52,10 @@ class clsStudioKhabarBased extends clsScrapper {
         if (!cat) return mappedCat
 
         const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
-
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+    
         if (false
             || first.startsWith("عکس")
             || first.startsWith("فیلم")

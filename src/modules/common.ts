@@ -68,6 +68,7 @@ export function isIranProvinceString(str: string) {
         || str.startsWith("کاشان")
         || str.startsWith("کردستان")
         || str.startsWith("کرمان")
+        || str.startsWith("کرمان")
         || str.startsWith("کهگلویه")
         || str.startsWith("گلستان")
         || str.startsWith("گیلان")

@@ -66,7 +66,9 @@ export class webhostingtalk extends clsVBulletinBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
     else if (second.includes("شبکه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
@@ -95,7 +97,9 @@ export class p30world extends clsVBulletinBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("سیستم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
     else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
@@ -127,7 +131,9 @@ export class tarfandestan extends clsVBulletinBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
     else if (second.includes("تبلت‌")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
@@ -239,7 +245,9 @@ export class moshaver extends clsVBulletinBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("آموزش")) mappedCat.subminor = enuMinorCategory.Education
     else if (second.includes("پزشکی")) mappedCat.subminor = enuMinorCategory.Health
@@ -263,7 +271,9 @@ export class oghyanos extends clsVBulletinBased {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    const first = catParts[0].trim()
+    const second = (catParts.length > 1 ? catParts[1] : '').trim()
+    void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
     else if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
