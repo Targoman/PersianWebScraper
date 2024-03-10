@@ -1426,5 +1426,8 @@ yarn dev && yarn start ecoview -u http://ecoview.ir/fa/news/6146/دلیل-متض
 yarn dev && yarn start nateghan
 yarn dev && yarn start nateghan -u http://nateghan.ir/fa/news/325947/آمریکا-بدنبال-درگیر-شدن-با-ایران-نیست
 
+yarn dev && yarn start hedayatgar
+yarn dev && yarn start hedayatgar -u https://hedayatgar.ir/fa/news/6981/سخن-امام-سجادع-درباره-ارزش-اخلاص-در-کار
+
 https://motamem.org/
 /**/
