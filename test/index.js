@@ -1414,5 +1414,20 @@ yarn dev && yarn start shiraze -u https://shiraze.ir/fa/news/162958/منتخبا
 yarn dev && yarn start fhnews
 yarn dev && yarn start fhnews -u http://fhnews.ir/fa/news/138530/نمایش-نوروزی-سلام-بهار-در-خانه-فرهنگ-باصفا
 
+yarn dev && yarn start tik
+yarn dev && yarn start tik -u http://tik.ir/fa/news/426364/وزیر-کشور-امر-به-معروف-و-نهی-از-منکر-مجوز-نمی%E2%80%8Cخواهد-لازم-است-در-برابر-بی%E2%80%8Cحجابی-بایستیم
+
+yarn dev && yarn start hashtsobh
+yarn dev && yarn start hashtsobh -u https://8sobh.ir/خلیلی-از-مسابقات-گل-کوچک-با-پیشکسوتان/
+
+yarn dev && yarn start ecoview 
+yarn dev && yarn start ecoview -u http://ecoview.ir/fa/news/6146/دلیل-متضرر-شدن-سهامداران-بانک%E2%80%8Cها-در-بورس
+
+yarn dev && yarn start nateghan
+yarn dev && yarn start nateghan -u http://nateghan.ir/fa/news/325947/آمریکا-بدنبال-درگیر-شدن-با-ایران-نیست
+
+yarn dev && yarn start hedayatgar
+yarn dev && yarn start hedayatgar -u https://hedayatgar.ir/fa/news/6981/سخن-امام-سجادع-درباره-ارزش-اخلاص-در-کار
+
 https://motamem.org/
 /**/
