@@ -2077,3 +2077,23 @@ export class asrpress extends clsIransamaneh {
         })
     }
 }
+
+export class ofoghetazenews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.ofoghetazenews, "ofoghetazenews.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1.title a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+            },
+            url: {
+                forceHTTP: true,
+            }
+        })
+    }
+}
