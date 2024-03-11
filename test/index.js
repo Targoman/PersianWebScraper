@@ -1436,5 +1436,9 @@ yarn dev && yarn start moaser
 yarn dev && yarn start moaser -u https://moaser.ir/fa/news/75547/برندگان-اسکار-۲۰۲۴-معرفی-شدند-اوپنهایمر-در-صدر
 
 
+yarn dev && yarn start sadohejdahsafar
+yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/news/5322/تجربه%E2%80%8Cی-یک-روز-با-آبشار-تزرج-از-جاذبه%E2%80%8Cهای-بی%E2%80%8Cمانند-گردشگری
+yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/introduction/9
+
 https://motamem.org/
 /**/
