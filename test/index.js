@@ -1429,5 +1429,8 @@ yarn dev && yarn start nateghan -u http://nateghan.ir/fa/news/325947/آمریک�
 yarn dev && yarn start hedayatgar
 yarn dev && yarn start hedayatgar -u https://hedayatgar.ir/fa/news/6981/سخن-امام-سجادع-درباره-ارزش-اخلاص-در-کار
 
+yarn dev && yarn start asrpress
+yarn dev && yarn start asrpress -u http://asrpress.ir/fa/news/37296/ورود-سامانه-بارشی-جدید-به-کشور-از-فردا
+
 https://motamem.org/
 /**/
