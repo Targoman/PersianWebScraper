@@ -1432,5 +1432,9 @@ yarn dev && yarn start hedayatgar -u https://hedayatgar.ir/fa/news/6981/سخن-�
 yarn dev && yarn start asrpress
 yarn dev && yarn start asrpress -u http://asrpress.ir/fa/news/37296/ورود-سامانه-بارشی-جدید-به-کشور-از-فردا
 
+yarn dev && yarn start moaser
+yarn dev && yarn start moaser -u https://moaser.ir/fa/news/75547/برندگان-اسکار-۲۰۲۴-معرفی-شدند-اوپنهایمر-در-صدر
+
+
 https://motamem.org/
 /**/

@@ -244,6 +244,7 @@ export enum enuDomains {
     mihanwp = "mihanwp",
     mizanonline = "mizanonline",
     mizbanfa = "mizbanfa",
+    moaser = "moaser",
     modireweb = "modireweb",
     mojnews = "mojnews",
     moniban = "moniban",

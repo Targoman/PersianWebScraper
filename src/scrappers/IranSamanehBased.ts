@@ -2097,3 +2097,24 @@ export class ofoghetazenews extends clsIransamaneh {
         })
     }
 }
+
+export class moaser extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.moaser, "moaser.ir", {
+            selectors: {
+                article: "section.news-content",
+                title: "h1.title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+            },
+            url: {
+                forceHTTP: true,
+            }
+        })
+    }
+}
