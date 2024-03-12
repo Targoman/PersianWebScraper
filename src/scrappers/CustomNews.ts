@@ -1173,3 +1173,31 @@ export class pedal extends clsScrapper {
         })
     }
 }
+
+export class car extends clsScrapper {
+    constructor() {
+        super(enuDomains.car, "car.ir", {
+            selectors: {
+                article: ".box__details",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.dates"
+                },
+                content: {
+                    main: ".text__ordered",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-items ul li"),
+                    author: ".avatar span:nth-child(2)",
+                    text: "p.text__ordered"
+                },
+                category: {
+                    selector: ".pull-right .category a",
+                },
+            },
+            url: {
+                extraInvalidStartPaths: ["/prices"]
+            }
+        })
+    }
+}

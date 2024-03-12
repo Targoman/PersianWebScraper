@@ -73,6 +73,7 @@ export enum enuDomains {
     bultannews = "bultannews",
     cafeamoozeshgah = "cafeamoozeshgah",
     cann = "cann",
+    car = "car",
     chabokonline = "chabokonline",
     chamedanmag = "chamedanmag",
     chemibazar = "chemibazar",

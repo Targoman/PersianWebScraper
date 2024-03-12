@@ -1448,5 +1448,9 @@ yarn dev && yarn start zoomg -u https://www.zoomg.ir/reload/350811-reload-reside
 yarn dev && yarn start pedal
 yarn dev && yarn start pedal -u https://www.pedal.ir/news/supply-imported-cars-integrated-system/
 
+yarn dev && yarn start car
+yarn dev && yarn start car -u https://car.ir/news/28038-kmc-nowruz-plan-1403
+yarn dev && yarn start car -u https://car.ir/news/27973-dena-plus-sale-esfand-1402
+
 https://motamem.org/
 /**/
