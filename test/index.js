@@ -1452,5 +1452,8 @@ yarn dev && yarn start car
 yarn dev && yarn start car -u https://car.ir/news/28038-kmc-nowruz-plan-1403
 yarn dev && yarn start car -u https://car.ir/news/27973-dena-plus-sale-esfand-1402
 
+yarn dev && yarn start kojaro
+yarn dev && yarn start kojaro -u https://www.kojaro.com/shopping/197654-souvenir-zanjan/
+
 https://motamem.org/
 /**/

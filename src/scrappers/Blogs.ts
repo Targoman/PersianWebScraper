@@ -4869,3 +4869,25 @@ export class bloging extends clsScrapper {
       })
     }
 }
+
+export class kojaro extends clsScrapper {
+    constructor() {
+        super(enuDomains.kojaro, "kojaro.com", {
+            selectors: {
+                article: "[role='main']",
+                title: "h1",
+                datetime: {
+                    conatiner: ".authorDetails div span:nth-child(2)"
+                },
+                content: {
+                    main: "#printArea",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            }
+        })
+    }
+}

@@ -220,6 +220,7 @@ export enum enuDomains {
     khodrotak = "khodrotak",
     khordad = "khordad",
     kidzy = "kidzy",
+    kojaro = "kojaro",
     ksymg = "ksymg",
     labourlaw = "labourlaw",
     lastsecond = "lastsecond",
