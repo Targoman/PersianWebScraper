@@ -1445,5 +1445,8 @@ yarn dev && yarn start zoomg
 yarn dev && yarn start zoomg -u https://www.zoomg.ir/game-news/367299-monster-hunter-world-25m-sold/
 yarn dev && yarn start zoomg -u https://www.zoomg.ir/reload/350811-reload-resident-evil-4/
 
+yarn dev && yarn start pedal
+yarn dev && yarn start pedal -u https://www.pedal.ir/news/supply-imported-cars-integrated-system/
+
 https://motamem.org/
 /**/

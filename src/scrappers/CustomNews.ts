@@ -1138,16 +1138,37 @@ export class zoomg extends clsScrapper {
                 },
                 content: {
                     main: "#bodyContainer, img.cover",
-                    //ignoreNodeClasses: ["post-bottom-meta", "post-shortlink"]
-                },
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li.comment"),
-                    text: ".comment-text p"
                 },
                 category: {
                     selector: ".topicCategories a",
                 },
-                tags: "[rel='tag']"
+            }
+        })
+    }
+}
+
+export class pedal extends clsScrapper {
+    constructor() {
+        super(enuDomains.pedal, "pedal.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .single-comment"),
+                    author: ".comment_header p cite",
+                    text: ".comment-content .comment"
+                },
+                category: {
+                    selector: "span.post-cat-wrap a",
+                },
             }
         })
     }
