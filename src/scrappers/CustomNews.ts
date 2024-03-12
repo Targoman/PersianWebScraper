@@ -1125,3 +1125,30 @@ export class asrkhabar extends clsScrapper {
         })
     }
 }
+
+export class zoomg extends clsScrapper {
+    constructor() {
+        super(enuDomains.zoomg, "zoomg.ir", {
+            selectors: {
+                article: ".article-content",
+                title: "h1 span span",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#bodyContainer, img.cover",
+                    //ignoreNodeClasses: ["post-bottom-meta", "post-shortlink"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li.comment"),
+                    text: ".comment-text p"
+                },
+                category: {
+                    selector: ".topicCategories a",
+                },
+                tags: "[rel='tag']"
+            }
+        })
+    }
+}

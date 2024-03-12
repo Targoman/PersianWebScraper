@@ -1440,5 +1440,10 @@ yarn dev && yarn start sadohejdahsafar
 yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/news/5322/تجربه%E2%80%8Cی-یک-روز-با-آبشار-تزرج-از-جاذبه%E2%80%8Cهای-بی%E2%80%8Cمانند-گردشگری
 yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/introduction/9
 
+
+yarn dev && yarn start zoomg
+yarn dev && yarn start zoomg -u https://www.zoomg.ir/game-news/367299-monster-hunter-world-25m-sold/
+yarn dev && yarn start zoomg -u https://www.zoomg.ir/reload/350811-reload-resident-evil-4/
+
 https://motamem.org/
 /**/
