@@ -1461,5 +1461,8 @@ yarn dev && yarn start gitionline -u https://gitionline.ir/مانور-حادثه
 yarn dev && yarn start hourgan 
 yarn dev && yarn start hourgan -u https://hourgan.ir/fa/news/19616/امسال-پیک-نوروزی-نداریم
 
+yarn dev && yarn start
+yarn dev && yarn start avayerodkof -u https://avayerodkof.ir/fa/news/35437/کلنگ-زنی-و-اغاز-عملیات-فاز-سوم-جاده-لنده-تراب-در-سال-جدید-جزئیات
+
 https://motamem.org/
 /**/
