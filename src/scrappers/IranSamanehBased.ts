@@ -2158,3 +2158,26 @@ export class hakimemehr extends clsIransamaneh {
         })
     }
 }
+
+export class gitionline extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.gitionline, "gitionline.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: " ul.news-detile li:nth-child(2) span",
+                },
+                content: {
+                    main: ".entry, .heding .thumbnail a img"
+                },
+                category: {
+                    selector: ".crumbs a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}

@@ -1455,5 +1455,8 @@ yarn dev && yarn start car -u https://car.ir/news/27973-dena-plus-sale-esfand-14
 yarn dev && yarn start kojaro
 yarn dev && yarn start kojaro -u https://www.kojaro.com/shopping/197654-souvenir-zanjan/
 
+yarn dev && yarn start gitionline
+yarn dev && yarn start gitionline -u https://gitionline.ir/مانور-حادثه-ترافیکی-همراه-با-زیستی-در-ب/
+
 https://motamem.org/
 /**/
