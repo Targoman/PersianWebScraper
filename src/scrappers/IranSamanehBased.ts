@@ -2199,3 +2199,30 @@ export class hourgan extends clsIransamaneh {
         })
     }
 }
+
+export class avayerodkof extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.avayerodkof, "avayerodkof.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1.title a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    ignoreNodeClasses: ["share_button", "tags_title", "newsletter_link_news", "row-comment"],
+                    ignoreTexts: [/.*Telegram.*/, /.*بازدید از.*/, /.*Share.*/, /.*.*/]
+                //, /.*.*/, /.*.*/, /.*.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+                tags: ".tags_title a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
