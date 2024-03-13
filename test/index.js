@@ -1458,5 +1458,8 @@ yarn dev && yarn start kojaro -u https://www.kojaro.com/shopping/197654-souvenir
 yarn dev && yarn start gitionline
 yarn dev && yarn start gitionline -u https://gitionline.ir/مانور-حادثه-ترافیکی-همراه-با-زیستی-در-ب/
 
+yarn dev && yarn start hourgan 
+yarn dev && yarn start hourgan -u https://hourgan.ir/fa/news/19616/امسال-پیک-نوروزی-نداریم
+
 https://motamem.org/
 /**/
