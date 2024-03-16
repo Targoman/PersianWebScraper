@@ -1467,5 +1467,9 @@ yarn dev && yarn start avayerodkof -u https://avayerodkof.ir/fa/news/35437/کل�
 yarn dev && yarn start sofiamag 
 yarn dev && yarn start sofiamag -u https://sofiamag.ir/.post/shrayt-aatay-tshylat-bors-thsyly-bh-danshjoyan-alom-pzshky-dakhl-kshor-qtod
 
+yarn dev && yarn  start gamefa
+yarn dev && yarn  start gamefa -u https://gamefa.com/1027994/peaky-blinders-creator-steven-knight-returns-to-tv-with-this-town-trailer/
+yarn dev && yarn  start gamefa -u https://gamefa.com/1027983/among-us-animated-series-adds-randall-park-elijah-wood-more-to-the-crew/
+
 https://motamem.org/
 /**/

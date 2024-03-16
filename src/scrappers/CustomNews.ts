@@ -1221,3 +1221,31 @@ export class sofiamag extends clsScrapper {
         })
     }
 }
+
+export class gamefa extends clsScrapper {
+    constructor() {
+        super(enuDomains.gamefa, "gamefa.com", {
+            selectors: {
+                article: ".single-article ",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content, .thumbnail img",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.pr-0 li.comment .comment-body"),
+                    author: ".comment-author cite a",
+                    text: "p"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".aioseo-breadcrumbs span a"),
+                    startIndex: 1
+                },
+                tags: "[rel='tag']"
+            }
+        })
+    }
+}
