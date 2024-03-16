@@ -2246,3 +2246,21 @@ export class roozplus extends clsIransamaneh {
         })
     }
 }
+
+export class ayatemandegar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.ayatemandegar, "ayatemandegar.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
