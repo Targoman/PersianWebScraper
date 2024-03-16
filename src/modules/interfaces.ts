@@ -400,6 +400,7 @@ export enum enuDomains {
     taraz = "taraz",
     taraznameheghtesad = "taraznameheghtesad",
     tarfandestan = "tarfandestan",
+    tarikhema = "tarikhema",
     tarjomic = "tarjomic",
     tasnim = "tasnim",
     tebna = "tebna",

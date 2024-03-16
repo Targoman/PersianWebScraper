@@ -4891,3 +4891,23 @@ export class kojaro extends clsScrapper {
         })
     }
 }
+
+export class tarikhema extends clsScrapper {
+    constructor() {
+      super(enuDomains.tarikhema, "tarikhema.org", {
+        selectors: {
+          article: "body.single-post",
+          title: "h1",
+          datetime: {
+            conatiner: ".time"
+          },
+          content: {
+            main: ".entry-content",
+          },
+          category: {
+            selector: ".post-header-title .term-badge a"
+          },
+        },
+      })
+    }
+}

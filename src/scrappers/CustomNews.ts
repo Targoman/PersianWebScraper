@@ -1216,11 +1216,6 @@ export class sofiamag extends clsScrapper {
                     main: "#rt-post-body-content",
                     ignoreNodeClasses: ["r-row"]
                 },
-                // comments: {
-                //     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .single-comment"),
-                //     author: ".comment_header p cite",
-                //     text: ".comment-content .comment"
-                // },
                 tags: ".border-bottom a"
             }
         })
