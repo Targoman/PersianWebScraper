@@ -1201,3 +1201,28 @@ export class car extends clsScrapper {
         })
     }
 }
+
+export class sofiamag extends clsScrapper {
+    constructor() {
+        super(enuDomains.sofiamag, "sofiamag.ir", {
+            selectors: {
+                article: ".rounded.py-3 > section",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#rt-post-body-content",
+                    ignoreNodeClasses: ["r-row"]
+                },
+                // comments: {
+                //     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .single-comment"),
+                //     author: ".comment_header p cite",
+                //     text: ".comment-content .comment"
+                // },
+                tags: ".border-bottom a"
+            }
+        })
+    }
+}

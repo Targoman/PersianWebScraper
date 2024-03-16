@@ -1464,5 +1464,8 @@ yarn dev && yarn start hourgan -u https://hourgan.ir/fa/news/19616/امسال-پ
 yarn dev && yarn start
 yarn dev && yarn start avayerodkof -u https://avayerodkof.ir/fa/news/35437/کلنگ-زنی-و-اغاز-عملیات-فاز-سوم-جاده-لنده-تراب-در-سال-جدید-جزئیات
 
+yarn dev && yarn start sofiamag 
+yarn dev && yarn start sofiamag -u https://sofiamag.ir/.post/shrayt-aatay-tshylat-bors-thsyly-bh-danshjoyan-alom-pzshky-dakhl-kshor-qtod
+
 https://motamem.org/
 /**/
