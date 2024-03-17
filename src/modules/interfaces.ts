@@ -141,6 +141,7 @@ export enum enuDomains {
     flightio = "flightio",
     foodpress = "foodpress",
     gamefa = "gamefa",
+    gardeshban = "gardeshban",
     getzoop = "getzoop",
     gashtaninews = "gashtaninews",
     ghafaridiet = "ghafaridiet",

@@ -2329,3 +2329,25 @@ export class khabarkhodro extends clsIransamaneh {
         })
     }
 }
+
+export class gardeshban extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.gardeshban, "gardeshban.ir", {
+            selectors: {
+                article: "#news",
+                title: "h2.title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".pathe_news a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

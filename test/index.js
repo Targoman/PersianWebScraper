@@ -1478,5 +1478,8 @@ yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8175/روایت-هوید�
 yarn dev && yarn start khabarkhodro
 yarn dev && yarn start khabarkhodro -u http://khabarkhodro.com/fa/news/716533/جهش-قیمت-خودرو-در-بازار-شب-عید
 
+yarn dev && yarn start gardeshban
+yarn dev && yarn start gardeshban -u http://gardeshban.ir/fa/news/61774/هشدار-به-مسافران-نوروزی-طی-۳-روز-آینده-شرایط-جوی-برای-سفر-مناسب-نیست
+
 https://motamem.org/
 /**/
