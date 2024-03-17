@@ -2285,3 +2285,27 @@ export class khodrokaar extends clsIransamaneh {
         })
     }
 }
+
+export class irdc extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.irdc, "irdc.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/fa/publications"]
+            }
+        })
+    }
+}

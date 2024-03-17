@@ -1467,9 +1467,13 @@ yarn dev && yarn start avayerodkof -u https://avayerodkof.ir/fa/news/35437/کل�
 yarn dev && yarn start sofiamag 
 yarn dev && yarn start sofiamag -u https://sofiamag.ir/.post/shrayt-aatay-tshylat-bors-thsyly-bh-danshjoyan-alom-pzshky-dakhl-kshor-qtod
 
-yarn dev && yarn  start gamefa
-yarn dev && yarn  start gamefa -u https://gamefa.com/1027994/peaky-blinders-creator-steven-knight-returns-to-tv-with-this-town-trailer/
-yarn dev && yarn  start gamefa -u https://gamefa.com/1027983/among-us-animated-series-adds-randall-park-elijah-wood-more-to-the-crew/
+yarn dev && yarn start gamefa
+yarn dev && yarn start gamefa -u https://gamefa.com/1027994/peaky-blinders-creator-steven-knight-returns-to-tv-with-this-town-trailer/
+yarn dev && yarn start gamefa -u https://gamefa.com/1027983/among-us-animated-series-adds-randall-park-elijah-wood-more-to-the-crew/
+
+yarn dev && yarn start irdc
+yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8800/رزم%E2%80%8Cآرا-چگونه-از-سر-راه-ملی%E2%80%8Cشدن-نفت-برداشته-شد-سند
+yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8175/روایت-هویدا-از-اهانت-انگلیسی%E2%80%8Cها-به-ملت-ایران-در-دوران-پهلوی
 
 https://motamem.org/
 /**/

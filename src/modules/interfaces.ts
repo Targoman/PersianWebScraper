@@ -184,6 +184,7 @@ export enum enuDomains {
     iranhotelonline = "iranhotelonline",
     iranicard = "iranicard",
     irasin = "irasin",
+    irdc = "irdc",
     iribnews = "iribnews",
     irna = "irna",
     isblog = "isblog",
