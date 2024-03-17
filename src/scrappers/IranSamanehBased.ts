@@ -2264,3 +2264,24 @@ export class ayatemandegar extends clsIransamaneh {
         })
     }
 }
+
+export class khodrokaar extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.khodrokaar, "khodrokaar.ir", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
