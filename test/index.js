@@ -1475,5 +1475,8 @@ yarn dev && yarn start irdc
 yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8800/رزم%E2%80%8Cآرا-چگونه-از-سر-راه-ملی%E2%80%8Cشدن-نفت-برداشته-شد-سند
 yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8175/روایت-هویدا-از-اهانت-انگلیسی%E2%80%8Cها-به-ملت-ایران-در-دوران-پهلوی
 
+yarn dev && yarn start khabarkhodro
+yarn dev && yarn start khabarkhodro -u http://khabarkhodro.com/fa/news/716533/جهش-قیمت-خودرو-در-بازار-شب-عید
+
 https://motamem.org/
 /**/
