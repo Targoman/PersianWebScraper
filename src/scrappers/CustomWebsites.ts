@@ -54,13 +54,10 @@ export class extern extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
+    void cat, first, second
 
     if (second.startsWith("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.Health }
     if (second.startsWith("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
@@ -96,53 +93,6 @@ export class rastineh extends clsScrapper {
           text: "p"
         }
       },
-    })
-  }
-}
-
-export class bahjat extends clsScrapper {
-  constructor() {
-    super(enuDomains.bahjat, "bahjat.ir", {
-      basePath: "/fa",
-      selectors: {
-        article: ".nodeWrapper, .barge, body.node-type-ahkam",
-        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, title"),
-        subtitle: ".subTitle",
-        datetime: {
-          conatiner: "time",
-          acceptNoDate: true
-        },
-        content: {
-          main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cBody, section.ahkam-teaser .wrapper, span.imgTeaser a"),
-        },
-        tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".nodeWrapper .entry-tags span a"),
-      },
-      url: {
-        extraInvalidStartPaths: ["/ur", "/en"]
-      }
-    })
-  }
-}
-
-export class zanjani extends clsScrapper {
-  constructor() {
-    super(enuDomains.zanjani, "zanjani.ir", {
-      selectors: {
-        article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
-        title: ".single-content-title, .article span:nth-child(1), h1",
-        datetime: {
-          acceptNoDate: true
-        },
-        content: {
-          main: ".single-content-content, .article_box, #lightgallery",
-        },
-        category: {
-          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
-        },
-      },
-      url: {
-        extraInvalidStartPaths: ["/?ar"]
-      }
     })
   }
 }
@@ -309,28 +259,28 @@ export class uptvs extends clsScrapper {
 
 export class mihanwp extends clsScrapper {
   constructor() {
-      super(enuDomains.mihanwp, "mihanwp.com", {
-          selectors: {
-              article: ".single-post",
-              title: "h1",
-              datetime: {
-                  conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                  splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
-              },
-              content: {
-                  main: "article",
-                  ignoreNodeClasses: ["clearfix", "rmp-widgets-container", "ez-toc-v2_0_61", "wp-block-heading"],
-              },
-              category: {
-                  selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
-              },
-              comments: {
-                  container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
-                  author: ".comment-author-name",
-                  text: ".comment-block p"
-              }
-          },
-      })
+    super(enuDomains.mihanwp, "mihanwp.com", {
+      selectors: {
+        article: ".single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
+        },
+        content: {
+          main: "article",
+          ignoreNodeClasses: ["clearfix", "rmp-widgets-container", "ez-toc-v2_0_61", "wp-block-heading"],
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+          author: ".comment-author-name",
+          text: ".comment-block p"
+        }
+      },
+    })
   }
 }
 
@@ -361,37 +311,37 @@ export class noozdahkala extends clsScrapper {
 
 export class digikaproducts extends clsScrapper {
   constructor() {
-      super(enuDomains.digikaproducts, "digikala.com", {
-          api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
-              const pageContent: IntfPageContent = { url: url.toString(), links: [] }
-              reParams
-              pageContent.links.push("https://api.digikala.com/v1/brands/");
-              
-              if(data.data && data.data.brands) {
-                const brand_codes: string[] = [];
-                Object.values(data.data.brands).forEach((brand: any) => {
-                  brand.forEach((code) => {
-                    brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
-                  });
-                });
-                await Promise.all(brand_codes.map(async (brand_code) => {
-                let pageExists = true;
-                let page = 1;
-                while(pageExists) {
-                  const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
-                  pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
-                  const brand = await productsResponse.json();
-                  if (page < brand.data.pager.total_pages) {
-                    page++;
-                  } else {
-                    pageExists = false;
-                  }
-                }
-                }))
+    super(enuDomains.digikaproducts, "digikala.com", {
+      api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
+        const pageContent: IntfPageContent = { url: url.toString(), links: [] }
+        reParams
+        pageContent.links.push("https://api.digikala.com/v1/brands/");
+
+        if (data.data && data.data.brands) {
+          const brand_codes: string[] = [];
+          Object.values(data.data.brands).forEach((brand: any) => {
+            brand.forEach((code) => {
+              brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
+            });
+          });
+          await Promise.all(brand_codes.map(async (brand_code) => {
+            let pageExists = true;
+            let page = 1;
+            while (pageExists) {
+              const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
+              pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
+              const brand = await productsResponse.json();
+              if (page < brand.data.pager.total_pages) {
+                page++;
+              } else {
+                pageExists = false;
               }
-              return pageContent
-          },
-          url: { removeWWW: true }
-      })
+            }
+          }))
+        }
+        return pageContent
+      },
+      url: { removeWWW: true }
+    })
   }
 }

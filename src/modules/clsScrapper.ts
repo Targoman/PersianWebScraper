@@ -449,8 +449,9 @@ export abstract class clsScrapper {
         debugNodeProcessor && log.debug("----------FINISH---------")
     }
 
-    private updateCategory(page) {
+    private updateCategory(page: IntfPageContent) {
         const origianlCategory = normalizeCategory(page.category)
+
         const mappedCat = this.mapCategory(origianlCategory)
         const category = { original: origianlCategory }
         if (mappedCat) {
@@ -976,8 +977,20 @@ export abstract class clsScrapper {
         return normalized
     }
 
-    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
-        void category, tags
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[]): IntfMappedCategory {
+        void category, first, second, tags
         return { major: enuMajorCategory.Undefined }
+    }
+
+    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
+        let catFirstPart = "", catSecondPart = ""
+        if (category) {
+            category = category.trim()
+            const catParts = category.split('/')
+            catFirstPart = catParts[0].trim()
+            catSecondPart = (catParts.length > 1 ? catParts[1] : '').trim()
+        }
+
+        return this.mapCategoryImpl(category, catFirstPart, catSecondPart, tags)
     }
 }

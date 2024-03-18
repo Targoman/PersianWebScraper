@@ -32,7 +32,7 @@ export class dotic extends clsScrapper {
     return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
   }
 
-  mapCategory(): IntfMappedCategory {
+  mapCategoryImpl(): IntfMappedCategory {
     return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
@@ -61,15 +61,12 @@ export class ekhtebar extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
-    
+    void cat, first, second
+
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (first.startsWith('آگهی')) return { ...mappedCat, minor: enuMinorCategory.Advert }
     if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
@@ -108,7 +105,7 @@ export class qavanin extends clsScrapper {
   async initialCookie(proxy?: IntfProxy, url?: string) {
     return await getArvanCookie(url || "https://qavanin.ir", this.baseURL, proxy)
   }
-  mapCategory(): IntfMappedCategory {
+  mapCategoryImpl(): IntfMappedCategory {
     return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
   }
 }
@@ -145,14 +142,11 @@ export class rcmajlis extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
+    void cat, first, second
 
     if (second.startsWith('قوانین') || second.startsWith('طرح')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
     return mappedCat
@@ -188,14 +182,11 @@ export class shenasname extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
+    void cat, first, second
 
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
@@ -225,7 +216,7 @@ export class labourlaw extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(): IntfMappedCategory {
+  mapCategoryImpl(): IntfMappedCategory {
     return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
@@ -256,14 +247,10 @@ export class shoragc extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
-
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
+    void cat, first, second
 
     if (first.startsWith('انطباق') || first.startsWith('قانون')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 

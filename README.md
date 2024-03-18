@@ -288,7 +288,7 @@ protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string
 
 - A method to convert category string into predefined categories and subcategories
 ```
-public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory 
+public mapCategoryImpl(category?: string, catFirstPart? :string, catSecondPart?: string, tags?: string[]): IntfMappedCatgory 
 ```
 
 ## Corpus

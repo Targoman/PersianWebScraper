@@ -44,7 +44,7 @@ export class daadyab extends clsScrapper {
             }
         })
     }
-    mapCategory(cat: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string): IntfMappedCategory {
         if (!cat) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
         return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
     }
@@ -104,9 +104,10 @@ export class porsan extends clsScrapper {
             url: { removeWWW: true }
         })
     }
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.QA, minor: enuMinorCategory.Generic }
         if (!cat) return mappedCat
+        void cat, first, second
 
         if (cat === "اقتصاد"
             || cat.startsWith("شغل ")
@@ -270,7 +271,8 @@ export class bonyadvokala extends clsScrapper {
             }
         })
     }
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        void cat, first, second
         return { major: cat?.startsWith("مشاوره") ? enuMajorCategory.QA : enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
     }
 }
@@ -308,7 +310,7 @@ export class pasokhgoo extends clsScrapper {
         })
     }
 
-    mapCategory(): IntfMappedCategory {
+    mapCategoryImpl(): IntfMappedCategory {
         return { major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
     }
 }
@@ -351,7 +353,7 @@ export class islamquest extends clsScrapper {
         })
     }
 
-    mapCategory(): IntfMappedCategory {
+    mapCategoryImpl(): IntfMappedCategory {
         return { major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
     }
 }
@@ -661,16 +663,10 @@ export class adleiranian extends clsScrapper {
             }
         })
     }
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
         if (!cat) return mappedCat
-        const catParts = cat.split('/')
-        const first = catParts[0].trim()
-        const second = (catParts.length > 1 ? catParts[1] : '').trim()
-        void first, second
-    
-        console.log(first)
-
+        void cat, first, second
 
         if (first.includes("عدل"))
             return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
@@ -712,6 +708,10 @@ export class dadpardaz extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+}
+
 }
 
 export class dadvarzyar extends clsScrapper {
@@ -750,6 +750,9 @@ export class dadvarzyar extends clsScrapper {
             },
         })
     }
+    /*mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+}*/
 }
 
 export class ksymg extends clsScrapper {

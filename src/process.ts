@@ -292,7 +292,7 @@ const app = command({
                     const outPath = outdir + "/" + scrapper.name() + ".csv"
                     writeFileSync(outPath, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor,sumWC\n")
                     doc.split("\n").forEach((line, index) => {
-                        if(index ===0) return
+                        if (index === 0) return
                         const parts = line.split(",")
                         if (parts.length > 14) {
                             const cat = scrapper.mapCategory(parts[1]);

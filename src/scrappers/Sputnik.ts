@@ -31,8 +31,7 @@ class clsSputnikBased extends clsScrapper {
         super(domain, baseURL, deepmerge(baseConfig, conf || {}))
     }
 
-    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
-        void category, tags
+    public mapCategoryImpl(): IntfMappedCategory {
         return { major: enuMajorCategory.News }
     }
 }

@@ -56,9 +56,8 @@ export class agorgani extends clsScrapper {
             }
         })
     }
-    mapCategory(cat?: string): IntfMappedCategory {
-        void cat
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Religious }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -76,6 +75,59 @@ export class saafi extends clsScrapper {
                     main: ".bodyasli, .gallerygallery .sb-gallery-gallery",
                 },
             },
+        })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
+    }
+}
+
+export class bahjat extends clsScrapper {
+    constructor() {
+        super(enuDomains.bahjat, "bahjat.ir", {
+            basePath: "/fa",
+            selectors: {
+                article: ".nodeWrapper, .barge, body.node-type-ahkam",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, title"),
+                subtitle: ".subTitle",
+                datetime: {
+                    conatiner: "time",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cBody, section.ahkam-teaser .wrapper, span.imgTeaser a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".nodeWrapper .entry-tags span a"),
+            },
+            url: {
+                extraInvalidStartPaths: ["/ur", "/en"]
+            }
+        })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
+    }
+}
+
+export class zanjani extends clsScrapper {
+    constructor() {
+        super(enuDomains.zanjani, "zanjani.ir", {
+            selectors: {
+                article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
+                title: ".single-content-title, .article span:nth-child(1), h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".single-content-content, .article_box, #lightgallery",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
+                },
+            },
+            url: {
+                extraInvalidStartPaths: ["/?ar"]
+            }
         })
     }
 }

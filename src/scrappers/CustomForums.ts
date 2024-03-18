@@ -34,13 +34,10 @@ export class lioncomputer extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
     const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0].trim()
-    const second = (catParts.length > 1 ? catParts[1] : '').trim()
-    void first, second
+    void cat, first, second
 
     if (second.includes("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
     if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
@@ -84,7 +81,7 @@ export class bazmineh extends clsScrapper {
     })
   }
 
-  mapCategory(): IntfMappedCategory {
+  mapCategoryImpl(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
   }
 }
@@ -115,7 +112,7 @@ export class wppersian extends clsScrapper {
       }
     })
   }
-  mapCategory(): IntfMappedCategory {
+  mapCategoryImpl(): IntfMappedCategory {
     return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }

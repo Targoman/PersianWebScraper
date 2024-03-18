@@ -521,6 +521,7 @@ export enum enuMajorCategory {
     Wiki = "Wiki",
     SocialMedia = "SocialMedia",
     Doc = "Doc",
+    Formal = "Formal",
     NA = "NA"
 }
 
@@ -605,6 +606,10 @@ export enum enuSubMinorCategory {
     Theatre = "Theatre",
     Football = "Football",
     Basketball = "Basketball",
+    Nautics = "Nautics",
+    Chess = "Chess",
+    Bicycle = "Bicycle",
+    Karate = "Karate",
     Ball = "Ball",
     Wrestling = "Wrestling",
     Martial = "Martial",

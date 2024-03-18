@@ -75,12 +75,10 @@ class clsAsamBased extends clsScrapper {
         return super.normalizePath(url)
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
-        const catParts = cat.split('/')
-        let first = catParts[0].trim()
-        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void cat, first, second
 
         if (first.startsWith("اخبار"))
             first = first.substring(6).trim()
@@ -95,6 +93,10 @@ class clsAsamBased extends clsScrapper {
             return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
         if (first.startsWith("سیاست خارجی") || first.includes("الملل"))
             return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.startsWith("سیاست"))
+            return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("اقتصاد"))
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
         if (first.startsWith("سینما"))
             return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         if (first.startsWith("کتاب"))
@@ -103,10 +105,14 @@ class clsAsamBased extends clsScrapper {
             return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
         if (first.startsWith("نرخ") || first.startsWith("واحد"))
             return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("فضای مجازی"))
+            return { ...mappedCat, minor: enuMinorCategory.IT }
 
         if (false
             || first.startsWith("چندرسانه‌ای")
             || first.startsWith("عکس")
+            || first.startsWith("ویدیو")
+            || first.startsWith("ویدئو")
             || first.startsWith("تصویر")
             || first.startsWith("کاریکاتور")
         ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
@@ -227,7 +233,6 @@ class clsAsamBased extends clsScrapper {
             mappedCat.minor = enuMinorCategory.Sport
             mappedCat.subminor = enuSubMinorCategory.Wrestling
         }
-
         return mappedCat
     }
 }
@@ -243,10 +248,11 @@ export class mojnews extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
 
         if (!cat) return mappedCat
+        void cat, first, second
 
         if (cat.includes("دین")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
         if (cat.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
@@ -286,12 +292,10 @@ export class ilna extends clsAsamBased {
         super(enuDomains.ilna, "ilna.ir")
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
-        const catParts = cat.split('/')
-        const first = catParts[0].trim()
-        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void cat, first, second
 
         if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
         if (cat.includes("فیلم")
@@ -406,9 +410,11 @@ export class rokna extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
+        void cat, first, second
+
         if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
         if (cat.includes("گالری")
             || cat.includes("ویدیو")
@@ -468,12 +474,10 @@ export class fardanews extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
-        const catParts = cat.split('/')
-        const first = catParts[0].trim()
-        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void cat, first, second
 
         if (second.startsWith("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
         if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
@@ -508,7 +512,7 @@ export class khabarfoori extends clsAsamBased {
             }
         })
     }
-    //from parent mapCategory(cat?: string): IntfMappedCatgory 
+    //from parent mapCategoryImpl(cat?: string): IntfMappedCatgory 
 }
 
 /***********************************************************/
@@ -522,9 +526,10 @@ export class bartarinha extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
+        void cat, first, second
 
         if (cat.startsWith("سبک زندگی") || cat.startsWith("دکوراسیون") || cat.startsWith("گردشگری") || cat.startsWith("مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat.startsWith("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
@@ -537,13 +542,15 @@ export class bartarinha extends clsAsamBased {
         if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        if (cat.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
         if (cat.startsWith("سلامت") || cat.startsWith("ساختمان پزشکان")) return { ...mappedCat, minor: enuMinorCategory.Health }
         if (cat.includes("فرهنگ و هنر") || cat.startsWith("تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat.includes("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (cat.startsWith("علم و دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         if (cat.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
         if (cat.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        if (cat.startsWith("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
+        if (cat.startsWith("چهره")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Celebrities }
         if (cat.startsWith("اخبار")) return { major: enuMajorCategory.News }
 
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Generic }
@@ -561,9 +568,10 @@ export class faradeed extends clsAsamBased {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
+        void cat, first, second
 
         if (cat.startsWith("آب و هوا")) return { ...mappedCat, minor: enuMinorCategory.Weather }
         if (cat.startsWith("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Advert }
@@ -840,7 +848,7 @@ export class eghtesadnews extends clsAsamBased {
         })
     }
 
-    mapCategory(): IntfMappedCategory {
+    mapCategoryImpl(): IntfMappedCategory {
         return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
