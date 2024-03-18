@@ -81,7 +81,7 @@ export class ninisite extends clsScrapper {
     normalizePath(url: URL) {
         if (url.pathname.startsWith("/video/") || url.pathname.startsWith("/photo/"))
             return super.normalizePath(url, { pathToCheckIndex: 1, validPathsItemsToNormalize: ["video", "photo"] })
-        else if (url.pathname.startsWith("/clinic/question/") || url.pathname.startsWith("/discussion/topic/")) {
+        if (url.pathname.startsWith("/clinic/question/") || url.pathname.startsWith("/discussion/topic/")) {
             const pathParts = url.pathname.split("/")
             if (pathParts.length > 3)
                 return url.protocol + "//" + url.hostname + `/${pathParts[1]}/${pathParts[2]}/${pathParts[3]}/` + url.search
@@ -242,7 +242,7 @@ export class tebyan extends clsScrapper {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
         if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (second.startsWith("ارتباطات")) return { ...mappedCat, minor: enuMinorCategory.Social }
@@ -297,7 +297,7 @@ export class romanman extends clsScrapper {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("آرایش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (second.startsWith("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
         if (second.startsWith("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Health }
@@ -417,7 +417,7 @@ export class blogsky extends clsScrapper {
             },
             url: {
                 removeWWW: true,
-		extraInvalidStartPaths: ["/dailylink", '/tag']
+                extraInvalidStartPaths: ["/dailylink", '/tag']
             }
         })
     }
@@ -469,32 +469,32 @@ export class technolife extends clsScrapper {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
 
         if (second.includes("آموزش")) return { ...mappedCat, subminor: enuMinorCategory.Education }
-        else if (second.includes("بازی")) return { ...mappedCat, subminor: enuMinorCategory.Game }
-        else if (second.includes("اپلیکیشن")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-        else if (second.includes("تکنولوژی")) return { ...mappedCat, subminor: enuMinorCategory.Generic }
-        else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("لپ تاپ")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-        else if (second.includes("اسپیکر")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("باکس")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("پاور")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
-        else if (second.includes("تبلت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("ساعت")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
-        else if (second.includes("گوشی")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-        else if (second.includes("مانیتور")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("هارد")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-        else if (second.includes("هندزفری")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
-        else if (second.includes("ویدیویی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.includes("دوربین")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
-        else if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuMinorCategory.Game }
-        else if (second.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (second.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (second.includes("سریال")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.TV }
-        else if (second.includes("گیمزکام")) return { ...mappedCat, minor: enuMinorCategory.Game }
+        if (second.includes("بازی")) return { ...mappedCat, subminor: enuMinorCategory.Game }
+        if (second.includes("اپلیکیشن")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+        if (second.includes("تکنولوژی")) return { ...mappedCat, subminor: enuMinorCategory.Generic }
+        if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("لپ تاپ")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+        if (second.includes("اسپیکر")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("باکس")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("پاور")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+        if (second.includes("تبلت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("ساعت")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+        if (second.includes("گوشی")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+        if (second.includes("مانیتور")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("هارد")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (second.includes("هندزفری")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+        if (second.includes("ویدیویی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (second.includes("دوربین")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+        if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuMinorCategory.Game }
+        if (second.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (second.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.includes("سریال")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.TV }
+        if (second.includes("گیمزکام")) return { ...mappedCat, minor: enuMinorCategory.Game }
 
         return mappedCat
     }
@@ -920,6 +920,9 @@ export class aparat extends clsScrapper {
             }
         })
     }
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Multimedia }
+    }
 }
 
 export class taaghche extends clsScrapper {
@@ -1007,8 +1010,8 @@ export class jobinja extends clsScrapper {
         void first, second
 
         if (second.includes("اخبار جابینجا")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (second.includes("تعادل کار و زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (second.includes("منهای کار")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (second.includes("تعادل کار و زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (second.includes("منهای کار")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
 
         return mappedCat
     }
@@ -2613,6 +2616,10 @@ export class amuzeshtak extends clsScrapper {
             },
         })
     }
+
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Art }
+    }
 }
 
 export class tehranserver extends clsScrapper {
@@ -3024,7 +3031,7 @@ export class arazcloud extends clsScrapper {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("آموزشی")) return { ...mappedCat, subminor: enuMinorCategory.Education }
         if (second.startsWith("ارز دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.CryptoCurrency }
         if (second.startsWith("همه")) return { ...mappedCat, minor: enuMinorCategory.Generic }
@@ -3215,15 +3222,15 @@ export class parspack extends clsScrapper {
         const first = catParts[0].trim()
 
         if (first.startsWith("آموزش برنامه نویسی")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-        else if (first.startsWith("آموزش سیستم عامل")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-        else if (first.startsWith("آموزش شبکه")) return { ...mappedCat, subminor: enuSubMinorCategory.Network }
-        else if (first.startsWith("اخبار فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
-        else if (first.startsWith("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
-        else if (first.startsWith("سرویس های میزبانی")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-        else if (first.startsWith("کسب و کار اینترنتی")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-        else if (first.startsWith("کنترل پنل")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-        else if (first.startsWith("مدیریت محتوا")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-        else if (first.startsWith("معرفی قوانین انتقال، خرید و ثبت انواع دامنه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        if (first.startsWith("آموزش سیستم عامل")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+        if (first.startsWith("آموزش شبکه")) return { ...mappedCat, subminor: enuSubMinorCategory.Network }
+        if (first.startsWith("اخبار فناوری")) return { major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
+        if (first.startsWith("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
+        if (first.startsWith("سرویس های میزبانی")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        if (first.startsWith("کسب و کار اینترنتی")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        if (first.startsWith("کنترل پنل")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        if (first.startsWith("مدیریت محتوا")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+        if (first.startsWith("معرفی قوانین انتقال، خرید و ثبت انواع دامنه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
 
         return mappedCat
     }
@@ -3268,7 +3275,7 @@ export class ipresta extends clsScrapper {
                     startIndex: 1
                 },
             },
-            url:{
+            url: {
                 extraInvalidStartPaths: ["/discover/"]
             }
         })
@@ -3567,7 +3574,7 @@ export class infogramacademy extends clsScrapper {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.includes("بازاریابی")) mappedCat.minor = enuMinorCategory.Economics
 
         return mappedCat
@@ -4330,7 +4337,7 @@ export class drsaina extends clsScrapper {
             url: {
                 extraInvalidStartPaths: [
                     "/doctorConsulation", "/doctors_", "/doctorp", "/RegisterLogin", "/doctor-location", "/ProfileVideo",
-                    "/ProfilePaper", 
+                    "/ProfilePaper",
                 ]
             }
         })
@@ -4349,7 +4356,7 @@ export class blogfa extends clsScrapper {
                 },
                 content: {
                     main: "div:nth-child(1) .postcontent, #post div:nth-child(2) p, div:nth-child(1) .content, .Content div:nth-child(3), "
-                      + ".post div:nth-child(2).C-post .CenterPost, .PostBody",
+                        + ".post div:nth-child(2).C-post .CenterPost, .PostBody",
                 },
                 tags: ".tag a",
                 category: {
@@ -4375,8 +4382,8 @@ export class motamem extends clsScrapper {
                 },
                 content: {
                     main: ".entry, img",
-                    ignoreNodeClasses: ["su-clearfix", "wp_rp_wrap", "su-note-inner", "sue-panel-content", "seriesbox", "widget_recent_comments", 
-                    "widget_black_studio_tinymce", "nd_tabs", "nd_form", "su-box"]
+                    ignoreNodeClasses: ["su-clearfix", "wp_rp_wrap", "su-note-inner", "sue-panel-content", "seriesbox", "widget_recent_comments",
+                        "widget_black_studio_tinymce", "nd_tabs", "nd_form", "su-box"]
                 },
             },
             url: {
@@ -4445,13 +4452,13 @@ export class parsiblog extends clsScrapper {
             selectors: {
                 article: "article .post-nav .prev, .w3-button, [rel='prev'], [rel='next'], .Content",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.entry-title, .title, h3.blog-title, .PostTitle"),
-                datetime: { 
+                datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time, .postdesc"),
                     splitter: (el: HTMLElement) => {
                         const date = el.innerText;
                         if (date) {
                             const newDate = date.match(/(\d{2,3})\/(\d{1,2})\/(\d{1,2})/);
-                            if(!newDate) return "DATE NOT FOUND"
+                            if (!newDate) return "DATE NOT FOUND"
                             return +newDate[1] + 1300 + "/" + newDate[2] + "/" + newDate[3];
                         } else
                             return "DATE NOT FOUND"
@@ -4459,8 +4466,8 @@ export class parsiblog extends clsScrapper {
                     acceptNoDate: true
                 },
                 content: {
-                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .w3-col > article > div," 
-                     + "article.blogu, .postbody"),
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content, .w3-col > article > div,"
+                        + "article.blogu, .postbody"),
                 },
             },
             url: {
@@ -4747,6 +4754,9 @@ export class asblog extends clsScrapper {
             }
         })
     }
+    mapCategory(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog }
+    }
 }
 
 export class roocket extends clsScrapper {
@@ -4758,7 +4768,7 @@ export class roocket extends clsScrapper {
                 title: ".mt-5 h1, .mb-6 h1",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], .sm\\:mt-0.mt-3 div div span"),
-                    splitter: (el: HTMLElement) =>  el.getAttribute("content") || el.getAttribute("data-time-realtime")?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("data-time-realtime")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: "article.content-area",
@@ -4792,108 +4802,108 @@ export class roocket extends clsScrapper {
 
 export class hamyarwp extends clsScrapper {
     constructor() {
-      super(enuDomains.hamyarwp, "hamyarwp.com", {
-        selectors: {
-          article: "body.single-post",
-          title: "h1",
-          datetime: {
-            conatiner: ".time"
-          },
-          content: {
-            main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.category-articles .entry-content"),
-            ignoreTexts: [/.*IRPP.*/]
-          },
-          category: {
-            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
-          },
-        },
-      })
+        super(enuDomains.hamyarwp, "hamyarwp.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".time"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.category-articles .entry-content"),
+                    ignoreTexts: [/.*IRPP.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='category tag']")
+                },
+            },
+        })
     }
 }
 
 export class moshaveranetahsili extends clsScrapper {
     constructor() {
-      super(enuDomains.moshaveranetahsili, "moshaveranetahsili.ir", {
-        selectors: {
-          article: "#single-blog",
-          title: ".news-title",
-          datetime: {
-            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-          },
-          content: {
-            main: ".news",
-            ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
-          },
-          category: {
-            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs li a")
-          },
-          tags: "[rel='tag']"
-        },
-      })
+        super(enuDomains.moshaveranetahsili, "moshaveranetahsili.ir", {
+            selectors: {
+                article: "#single-blog",
+                title: ".news-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news",
+                    ignoreNodeClasses: ["ez-toc-v2_0_62", "wp-block-buttons"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs li a")
+                },
+                tags: "[rel='tag']"
+            },
+        })
     }
 }
-  
+
 
 export class hamrahmoshaver extends clsScrapper {
     constructor() {
-      super(enuDomains.hamrahmoshaver, "hamrahmoshaver.com", {
-        selectors: {
-          article: ".content-box",
-          title: "h1",
-          datetime: {
-            acceptNoDate: true
-        },
-          content: {
-            main: ".alink",
-          },
-          category: {
-            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement']"),
-            startIndex: 0,
-            lastIndex: 2
-          },
-        },
-      })
+        super(enuDomains.hamrahmoshaver, "hamrahmoshaver.com", {
+            selectors: {
+                article: ".content-box",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".alink",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='itemListElement']"),
+                    startIndex: 0,
+                    lastIndex: 2
+                },
+            },
+        })
     }
 }
 
 export class panamag extends clsScrapper {
     constructor() {
-      super(enuDomains.panamag, "panamag.ir", {
-        selectors: {
-          article: "article.entry",
-          title: "h1",
-          datetime: {
-            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
-            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-          },
-          content: {
-            main: ".post-content",
-          },
+        super(enuDomains.panamag, "panamag.ir", {
+            selectors: {
+                article: "article.entry",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
 
-        },
-      })
+            },
+        })
     }
 }
 
 export class bloging extends clsScrapper {
     constructor() {
-      super(enuDomains.bloging, "bloging.ir", {
-        selectors: {
-          article: ".classic-blog",
-          title: "h2.post-title",
-          datetime: {
-            conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
-            splitter: (el: HTMLElement) =>  el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
-          },
-          content: {
-            main: ".post-content",
-            ignoreNodeClasses: ["kk-star-ratings", "meta", "post-title"]
-          },
-          category: {
-            selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category a"),
-          },
-        },
-      })
+        super(enuDomains.bloging, "bloging.ir", {
+            selectors: {
+                article: ".classic-blog",
+                title: "h2.post-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["kk-star-ratings", "meta", "post-title"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("span.category a"),
+                },
+            },
+        })
     }
 }

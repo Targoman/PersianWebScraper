@@ -43,16 +43,16 @@ export class lioncomputer extends clsScrapper {
     void first, second
 
     if (second.includes("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
-    else if (second.includes("عمومی")
+    if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+    if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+    if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+    if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
+    if (second.includes("عمومی")
       || second.includes("بازارچه")
       || second.includes("بلاگ")
       || second.includes("کلاب")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-    else if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("ارزهای")) return { ...mappedCat, subminor: enuMinorCategory.CryptoCurrency }
+    if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+    if (second.includes("ارزهای")) return { ...mappedCat, subminor: enuMinorCategory.CryptoCurrency }
     return mappedCat
   }
 }

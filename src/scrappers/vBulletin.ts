@@ -71,9 +71,9 @@ export class webhostingtalk extends clsVBulletinBased {
     void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-    else if (second.includes("شبکه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
-    else if (second.includes("داده")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+     if (second.includes("شبکه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+     if (second.includes("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
+     if (second.includes("داده")) return { ...mappedCat, subminor: enuMinorCategory.IT }
     return mappedCat
   }
 }
@@ -102,13 +102,13 @@ export class p30world extends clsVBulletinBased {
     void first, second
 
     if (second.includes("سیستم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
-    else if (second.includes("هـنــــر")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
-    else if (second.includes("بازی")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("لپ تاپ")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+     if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+     if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+     if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+     if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
+     if (second.includes("هـنــــر")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
+     if (second.includes("بازی")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+     if (second.includes("لپ تاپ")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
     return mappedCat
   }
 }
@@ -136,13 +136,13 @@ export class tarfandestan extends clsVBulletinBased {
     void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-    else if (second.includes("تبلت‌")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("بازی")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("شبکه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
-    else if (second.includes("سایر")) return { ...mappedCat, subminor: enuMinorCategory.Generic }
-    else if (second.includes("تحصیل")) return { ...mappedCat, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Education }
+     if (second.includes("تبلت‌")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+     if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+     if (second.includes("بازی")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+     if (second.includes("شبکه")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+     if (second.includes("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
+     if (second.includes("سایر")) return { ...mappedCat, subminor: enuMinorCategory.Generic }
+     if (second.includes("تحصیل")) return { ...mappedCat, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Education }
     return mappedCat
   }
 }
@@ -276,17 +276,17 @@ export class oghyanos extends clsVBulletinBased {
     void first, second
 
     if (second.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-    else if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-    else if (second.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-    else if (second.includes("رایانه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
-    else if (second.includes("خانواده")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-    else if (second.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Art }
-    else if (second.includes("تفریح")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-    else if (second.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
-    else if (second.includes("گیاهان")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Agriculture }
-    else if (second.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Defence }
-    else if (second.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+     if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+     if (second.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+     if (second.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+     if (second.includes("رایانه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+     if (second.includes("خانواده")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+     if (second.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Art }
+     if (second.includes("تفریح")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+     if (second.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
+     if (second.includes("گیاهان")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Agriculture }
+     if (second.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Defence }
+     if (second.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
     return mappedCat
   }
 }

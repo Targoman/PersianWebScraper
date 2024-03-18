@@ -93,16 +93,16 @@ export class aftabnews extends clsIransamaneh {
     mapCategory(cat?: string): IntfMappedCategory {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Discussion }
         if (!cat) return mappedCat
-        else if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.startsWith("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.startsWith("چندرسانه‌ایی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.startsWith("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.endsWith("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.startsWith("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.startsWith("چندرسانه‌ایی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.startsWith("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.endsWith("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return mappedCat
     }
@@ -120,18 +120,18 @@ export class seratnews extends clsIransamaneh {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
-        else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("اقتصاد/بین")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("سیاست/بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("سیاس")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("جامعه/حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("اقتصاد/بین")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("سیاست/بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("سیاس")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("جامعه/حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
 
         return mappedCat
     }
@@ -166,20 +166,20 @@ export class ana extends clsIransamaneh {
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (first.startsWith("فرهنگ") && second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
-        else if (first.startsWith("فرهنگ") && second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (first.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (first.startsWith("علم") || cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (first.startsWith("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (first.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("حقوق")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
-        else if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (first.startsWith("خانه") || first.startsWith("هومیانا")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("هوش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.AI }
-        else if (first.startsWith("ارتباطات")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        if (first.startsWith("اقتصاد") || first.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.startsWith("فرهنگ") && second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        if (first.startsWith("فرهنگ") && second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (first.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (first.startsWith("علم") || cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.startsWith("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (first.startsWith("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("حقوق")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Law }
+        if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("خانه") || first.startsWith("هومیانا")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("هوش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.AI }
+        if (first.startsWith("ارتباطات")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
 
         return { ...mappedCat, minor: enuMinorCategory.Local }
     }
@@ -203,22 +203,22 @@ export class tabnak extends clsIransamaneh {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
-        else if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
-        else if (cat.startsWith("عکس")
+        if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
+        if (cat.startsWith("عکس")
             || cat.startsWith("فیلم")
             || cat.startsWith("توییترگرام")
             || cat.startsWith("روزنما")
             || cat.startsWith("نگاه")
             || cat.startsWith("رقم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (cat.startsWith("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
-        else if (cat.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
-        else if (cat.startsWith("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
-        else if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (cat.includes("بین")
+        if (cat.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (cat.startsWith("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
+        if (cat.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        if (cat.startsWith("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+        if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat.includes("بین")
             || cat.includes("خارجی")
             || cat.includes("انرژی هسته")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("سیاسی")
+        if (cat.includes("سیاسی")
             || cat.includes("مجلس")
             || cat.includes("رهبری")
             || cat.includes("دولت")
@@ -226,42 +226,42 @@ export class tabnak extends clsIransamaneh {
             || cat.includes("شورا")
             || cat.includes("مجمع")
             || cat.includes("داخلی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("اجتماعی")
+        if (cat.includes("اجتماعی")
             || cat.includes("جامعه")
             || cat.includes("محیط")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("فرهنگ")
+        if (cat.includes("فرهنگ")
             || cat.includes("دفاع مقدس")
             || cat.includes("جغرافیا")
             || cat.includes("رادیو")
             || cat.includes("نمایش")
             || cat.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("دفاع")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("علمی")
+        if (cat.includes("دفاع")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        if (cat.includes("علمی")
             || cat.includes("فناوری")
             || cat.includes("مجازی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("حیات وحش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Animals }
-        else if (cat.includes("بهداشت") || cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد")
+        if (cat.includes("حیات وحش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Animals }
+        if (cat.includes("بهداشت") || cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("اقتصاد")
             || cat.includes("بورس")
             || cat.includes("شرکت")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.startsWith("ساعت صفر")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (cat.includes("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Advert }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.startsWith("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (cat.startsWith("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (cat.startsWith("سرگرمی")
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.startsWith("ساعت صفر")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (cat.includes("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Advert }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.startsWith("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (cat.startsWith("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (cat.startsWith("سرگرمی")
             || cat.startsWith("کمدی")
             || cat.startsWith("تلخند")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Law }
-        else if (cat.includes("بازی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Game }
-        else if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("ادیبستان")) return { ...mappedCat, minor: enuMinorCategory.Poem }
-        else if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentary }
-        else if (cat.includes("مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        if (cat.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Law }
+        if (cat.includes("بازی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Game }
+        if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("ادیبستان")) return { ...mappedCat, minor: enuMinorCategory.Poem }
+        if (cat.includes("مستند")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Documentary }
+        if (cat.includes("مد")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
 
         return { major: enuMajorCategory.News }
     }
@@ -299,31 +299,31 @@ export class snn extends clsIransamaneh {
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (second.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
-        else if (first.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (first.startsWith("بین") || (second.includes("خارجی"))) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (second.startsWith("اقتصاد بین")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
-        else if (second.startsWith("اقتصاد سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Political }
-        else if (first.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("ورزش جهان") || second.startsWith("فوتبال جهان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
-        else if (second.startsWith("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
-        else if (second.startsWith("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
-        else if (second.includes("بانوان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Women }
-        else if (second.startsWith("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (first.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (second.startsWith("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
-        else if (second.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
-        else if (second.startsWith("قضایی")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
-        else if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (second.startsWith("دین و اندیشه") || first.startsWith("حسینیه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
-        else if (second.includes("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
-        else if (second.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
-        else if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (second.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (first.startsWith("دیگر رسانه‌")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Media }
-        else if (first.startsWith("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("بین") || (second.includes("خارجی"))) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (second.startsWith("اقتصاد بین")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Intl }
+        if (second.startsWith("اقتصاد سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Political }
+        if (first.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (second.startsWith("ورزش جهان") || second.startsWith("فوتبال جهان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
+        if (second.startsWith("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
+        if (second.startsWith("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
+        if (second.includes("بانوان")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Women }
+        if (second.startsWith("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (first.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (second.startsWith("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
+        if (second.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        if (second.startsWith("قضایی")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
+        if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (second.startsWith("دین و اندیشه") || first.startsWith("حسینیه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        if (second.includes("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+        if (second.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (second.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (first.startsWith("دیگر رسانه‌")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Media }
+        if (first.startsWith("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
 
         return { major: enuMajorCategory.News }
     }
@@ -355,35 +355,35 @@ export class yjc extends clsIransamaneh {
         })
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
-        if (!cat) return mappedCat
-
-        const catParts = cat.split('/')
-        const first = catParts[0].trim()
-        const second = (catParts.length > 1 ? catParts[1] : '').trim()
-
-        if (cat.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (first.startsWith("فرهنگی") && second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
-        else if (first.startsWith("فرهنگی") && second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (first.startsWith("فرهنگی") && second.includes("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Music }
-        else if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (cat.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
-        else if (cat.includes("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
-        else if (first.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (first.startsWith("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (second.startsWith("بهداشت") || second.startsWith("کلینیک")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (first.startsWith("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (first.startsWith("وب") || cat.includes("اخبار داغ")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.startsWith("سیاسی") || cat.includes("مجلس") || cat.includes("اخبار")) return { ...mappedCat, minor: enuMinorCategory.Political }
-
-        return { ...mappedCat, minor: enuMinorCategory.Local }
-    }
+    /* mapCategory(cat?: string): IntfMappedCategory {
+         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+         if (!cat) return mappedCat
+ 
+         const catParts = cat.split('/')
+         const first = catParts[0].trim()
+         const second = (catParts.length > 1 ? catParts[1] : '').trim()
+ 
+         if (cat.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+         if (first.startsWith("فرهنگی") && second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+         if (first.startsWith("فرهنگی") && second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+         if (first.startsWith("فرهنگی") && second.includes("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Music }
+         if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+         if (cat.includes("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+         if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+         if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+         if (cat.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+         if (cat.includes("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
+         if (first.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+         if (first.startsWith("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+         if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+         if (second.startsWith("بهداشت") || second.startsWith("کلینیک")) return { ...mappedCat, minor: enuMinorCategory.Health }
+         if (first.startsWith("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+         if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+         if (first.startsWith("وب") || cat.includes("اخبار داغ")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+         if (cat.startsWith("سیاسی") || cat.includes("مجلس") || cat.includes("اخبار")) return { ...mappedCat, minor: enuMinorCategory.Political }
+ 
+         return { ...mappedCat, minor: enuMinorCategory.Local }
+     }*/
 }
 
 /***********************************************************/
@@ -428,23 +428,23 @@ export class bultannews extends clsIransamaneh {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (second.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (second.startsWith("دین و اندیشه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (second.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (second.startsWith("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (second.startsWith("بولتن2")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (second.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (second.startsWith("فرهنگ و هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("هسته ای")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (second.startsWith("IT")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
-        else if (second.startsWith("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (second.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.startsWith("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.startsWith("دین و اندیشه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (second.startsWith("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (second.startsWith("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.startsWith("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (second.startsWith("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (second.startsWith("بولتن2")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (second.startsWith("فرهنگ و هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.startsWith("هسته ای")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.startsWith("IT")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        if (second.startsWith("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Political }
 
         return { major: enuMajorCategory.News }
     }
@@ -471,8 +471,8 @@ export class boursenews extends clsIransamaneh {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
-        else if (cat.includes("فیلم") || cat.includes("عکس") || cat.includes("صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Advert }
+        if (cat.includes("فیلم") || cat.includes("عکس") || cat.includes("صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("آگهی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Advert }
 
         return { ...mappedCat, minor: enuMinorCategory.Economics }
     }
@@ -492,38 +492,38 @@ export class fararu extends clsIransamaneh {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
-        else if (cat.includes("ویدیو") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("فوتبال جهان")
+        if (cat.includes("ویدیو") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("فوتبال جهان")
             || cat.includes("جام ")
             || cat.includes("المپیک")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Media }
-        else if (cat.includes("سینما") || cat.includes("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (cat.includes("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
-        else if (cat.includes("فرهنگ و هنر/تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.TV }
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (cat.includes("ارزهای دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.CryptoCurrency }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("اقتصاد")
+        if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Media }
+        if (cat.includes("سینما") || cat.includes("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (cat.includes("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        if (cat.includes("فرهنگ و هنر/تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.TV }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (cat.includes("ارزهای دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.CryptoCurrency }
+        if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        if (cat.includes("اقتصاد")
             || cat.includes("بازار")
             || cat.includes("مدیریت")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("اپلیکیشن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
-        else if (cat.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
-        else if (cat.includes("علم و تکنولوژی/پزشکی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.Health }
-        else if (cat.includes("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("دین")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Historical }
-        else if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("جامعه/حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("تبلیغات")) return { ...mappedCat, minor: enuMinorCategory.Advert }
-        else if (cat.includes("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Health }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
-        else if (cat.includes("تناسب")
+        if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("اپلیکیشن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+        if (cat.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        if (cat.includes("علم و تکنولوژی/پزشکی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.Health }
+        if (cat.includes("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("دین")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Historical }
+        if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("جامعه/حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("تبلیغات")) return { ...mappedCat, minor: enuMinorCategory.Advert }
+        if (cat.includes("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Health }
+        if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
+        if (cat.includes("تناسب")
             || cat.includes("دکوراسیون")
             || cat.includes("آداب")
             || cat.includes("مد")
@@ -532,15 +532,15 @@ export class fararu extends clsIransamaneh {
             || cat.includes("زیبایی")
             || cat.includes("رشد")
             || cat.includes("گل")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.TV }
-        else if (cat.includes("قانون")) return { ...mappedCat, minor: enuMinorCategory.Law }
-        else if (cat.includes("سفر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("طنز")
+        if (cat.includes("تلویزیون")) return { ...mappedCat, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.TV }
+        if (cat.includes("قانون")) return { ...mappedCat, minor: enuMinorCategory.Law }
+        if (cat.includes("سفر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
+        if (cat.includes("طنز")
             || cat.includes("پیامک")
             || cat.includes("چهره")
             || cat.includes("کاریکاتور")
             || cat.includes("فال")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (cat.includes("بازی")) return { ...mappedCat, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.Game }
+        if (cat.includes("بازی")) return { ...mappedCat, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.Game }
 
         return { major: enuMajorCategory.News }
     }
@@ -559,44 +559,44 @@ export class parsine extends clsIransamaneh {
         const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
         if (!cat) return mappedCat
 
-        else if (cat.includes("چندرسانه")
+        if (cat.includes("چندرسانه")
             || cat.includes("عکس")
             || cat.includes("فیلم")
             || cat.includes("طنزیکاتور")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("اقتصاد") || cat.includes("بانک")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
-        else if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (cat.includes("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (cat.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
-        else if (cat.includes("بسکتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Basketball }
-        else if (cat.includes("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
-        else if (cat.includes("ورزش") || cat.includes("بازیهای")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("بین") || cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (cat.includes("سلامت") || cat.includes("طب")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
-        else if (cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
-        else if (cat.includes("تبلیغ")) return { ...mappedCat, minor: enuMinorCategory.Advert }
-        else if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("خانواده")
+        if (cat.includes("اقتصاد") || cat.includes("بانک")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
+        if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat.includes("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (cat.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+        if (cat.includes("بسکتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Basketball }
+        if (cat.includes("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
+        if (cat.includes("ورزش") || cat.includes("بازیهای")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("بین") || cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (cat.includes("سلامت") || cat.includes("طب")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
+        if (cat.includes("تبلیغ")) return { ...mappedCat, minor: enuMinorCategory.Advert }
+        if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
+        if (cat.includes("خانواده")
             || cat.includes("عروسی")
             || cat.includes("دکوراسیون")
             || cat.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("حقوق") || cat.includes("قضایی")) return { ...mappedCat, minor: enuMinorCategory.Law }
-        else if (cat.includes("شورا")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Local }
-        else if (cat.includes("دفاعی") || cat.includes("نظامی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("سیاست") || cat.includes("مجلس")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
-        else if (cat.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (cat.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (cat.includes("گوناگون")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("مصاحبه")) return { ...mappedCat, subminor: enuMinorCategory.Talk }
+        if (cat.includes("حقوق") || cat.includes("قضایی")) return { ...mappedCat, minor: enuMinorCategory.Law }
+        if (cat.includes("شورا")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Local }
+        if (cat.includes("دفاعی") || cat.includes("نظامی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        if (cat.includes("سیاست") || cat.includes("مجلس")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
+        if (cat.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (cat.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (cat.includes("گوناگون")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("مصاحبه")) return { ...mappedCat, subminor: enuMinorCategory.Talk }
 
         return { major: enuMajorCategory.News }
     }
@@ -625,39 +625,39 @@ export class shianews extends clsIransamaneh {
             || cat.includes("صوت")
             || cat.includes("چندرسانه")
             || cat.includes("اینفوگرافیک")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("علمی") || cat.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("سیاسی")
+        if (cat.includes("علمی") || cat.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("دفاعی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuMinorCategory.Defence }
+        if (cat.includes("سیاسی")
             || cat.includes("سیاست")
             || cat.includes("بشر")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("دیده") || cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
-        else if (cat.includes("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
-        else if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (cat.includes("اخبار خارجی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("سبک") || cat.includes("مشاوره")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("عمومی")
+        if (cat.includes("دیده") || cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("توپ")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Ball }
+        if (cat.includes("رزمی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Martial }
+        if (cat.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (cat.includes("اخبار خارجی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("سبک") || cat.includes("مشاوره")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
+        if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (cat.includes("آشپزی")) return { ...mappedCat, minor: enuMinorCategory.Cooking }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("عمومی")
             || cat.includes("مجازی")
             || cat.includes("نوشته")
             || cat.includes("گوناگون")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("شیعه")
+        if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("شیعه")
             || cat.includes("دین")
             || cat.includes("حوزه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (cat.includes("حقوق")
+        if (cat.includes("حقوق")
             || cat.includes("لاریجانی")
             || cat.includes("رئیسی")
             || cat.includes("قضا")) return { ...mappedCat, minor: enuMinorCategory.Law }
-        else if (cat.includes("رپورتاژ")) return { ...mappedCat, minor: enuMinorCategory.Advert }
+        if (cat.includes("رپورتاژ")) return { ...mappedCat, minor: enuMinorCategory.Advert }
 
         return { major: enuMajorCategory.News }
     }
@@ -745,23 +745,25 @@ export class basijnews extends clsIransamaneh {
         ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
 
         if (first.startsWith("باشگاه") || isIranProvinceString(first)) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (first.startsWith("اجتماعی")) {
+        if (first.startsWith("اجتماعی")) {
             mappedCat.minor = enuMinorCategory.Social
             if (second.startsWith("انتظامی")) return { ...mappedCat, subminor: enuSubMinorCategory.Police }
             if (second.startsWith("بهداشت")) return { ...mappedCat, subminor: enuMinorCategory.Health }
             if (second.startsWith("زن")) return { ...mappedCat, subminor: enuSubMinorCategory.Women }
             if (second.startsWith("عفاف")) return { ...mappedCat, subminor: enuMinorCategory.Religious }
             if (second.startsWith("قضایی")) return { ...mappedCat, subminor: enuMinorCategory.Law }
-        } else if (first.startsWith("اساتید")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (first.startsWith("اقتصاد") || first.endsWith("تعاون"))
+            return mappedCat
+        }
+        if (first.startsWith("اساتید")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (first.startsWith("اقتصاد") || first.endsWith("تعاون"))
             return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (first.includes("روابط بین"))
+        if (first.includes("روابط بین"))
             return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (first.startsWith("اقشار") || first.startsWith("بسیج") || first.startsWith("محور") || first.startsWith("رزمایش"))
+        if (first.startsWith("اقشار") || first.startsWith("بسیج") || first.startsWith("محور") || first.startsWith("رزمایش"))
             return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (first.includes("رسانه") || first.includes("فرهنگی"))
+        if (first.includes("رسانه") || first.includes("فرهنگی"))
             return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (first.includes("علمی"))
+        if (first.includes("علمی"))
             return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
         return { ...mappedCat, minor: enuMinorCategory.Generic }
     }
@@ -807,17 +809,17 @@ export class rasanews extends clsIransamaneh {
             || cat.includes("ویدئو")
             || cat.includes("فیلم")
             || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("گفتگو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
-        else if (cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("بازار") || cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("حوزه") || cat.includes("سیره")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("گفتگو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
+        if (cat.includes("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("کتاب")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("بازار") || cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat.includes("حوزه") || cat.includes("سیره")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News }
     }
@@ -856,20 +858,21 @@ export class didarnews extends clsIransamaneh {
         if (second.startsWith("گفتگو") || second.startsWith("میزگرد") || second.startsWith("مصاحبه")) {
             mappedCat.minor = enuMinorCategory.Talk
             if (first.startsWith("سیاسی")) return { ...mappedCat, subminor: enuMinorCategory.Political }
-            else if (first.startsWith("اقتصاد")) return { ...mappedCat, subminor: enuMinorCategory.Economics }
-            else if (first.startsWith("اجتماعی")) return { ...mappedCat, subminor: enuMinorCategory.Social }
-            else if (first.startsWith("ورزشی")) return { ...mappedCat, subminor: enuMinorCategory.Sport }
-            else if (first.startsWith("الملل")) return { ...mappedCat, subminor: enuMinorCategory.Political }
-            else if (first.startsWith("سبک")) return { ...mappedCat, subminor: enuMinorCategory.LifeStyle }
+            if (first.startsWith("اقتصاد")) return { ...mappedCat, subminor: enuMinorCategory.Economics }
+            if (first.startsWith("اجتماعی")) return { ...mappedCat, subminor: enuMinorCategory.Social }
+            if (first.startsWith("ورزشی")) return { ...mappedCat, subminor: enuMinorCategory.Sport }
+            if (first.startsWith("الملل")) return { ...mappedCat, subminor: enuMinorCategory.Political }
+            if (first.startsWith("سبک")) return { ...mappedCat, subminor: enuMinorCategory.LifeStyle }
+            return mappedCat
         }
-        else if (second.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (first.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (first.startsWith("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (first.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (first.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (first.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (first.startsWith("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.startsWith("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.startsWith("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
 
         return mappedCat
     }
@@ -897,9 +900,9 @@ export class niniban extends clsIransamaneh {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (second.startsWith("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
 
         return { ...mappedCat, minor: enuMinorCategory.Health }
     }
@@ -935,18 +938,18 @@ export class noandish extends clsIransamaneh {
         if (!cat) return mappedCat
 
         if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("بین") || cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("جامعه") || cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("بین") || cat.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("علم")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("جامعه") || cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        if (cat.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
 
         return { major: enuMajorCategory.News }
     }
@@ -1059,24 +1062,21 @@ export class aghigh extends clsIransamaneh {
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.startsWith("خانه")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Generic }
-        else if (first.startsWith("گفت‌و‌گو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
-
-        else if (first.startsWith("سرویس صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (first.startsWith("گزارش تصویری")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (second.startsWith("برنامه تلویزیونی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-
-        else if (second.endsWith("هیئت")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (second.endsWith("هیات ها")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (second.endsWith("مذهبی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        else if (second.startsWith("اخبار")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (second.startsWith("تیتر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-
-        else if (second.startsWith("نقد شعر")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
-        else if (second.startsWith("شعر جوان")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
-        else if (second.startsWith("مداحی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
-        else if (second.startsWith("شب های دلتنگی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
-        else if (second.startsWith("حرف دل")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
-        else if (first.startsWith("شعر آیینی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+        if (first.startsWith("گفت‌و‌گو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
+        if (first.startsWith("سرویس صوت")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.startsWith("گزارش تصویری")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (second.startsWith("برنامه تلویزیونی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (second.endsWith("هیئت")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (second.endsWith("هیات ها")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (second.endsWith("مذهبی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (second.startsWith("اخبار")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.startsWith("تیتر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.startsWith("نقد شعر")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
+        if (second.startsWith("شعر جوان")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        if (second.startsWith("مداحی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Poem }
+        if (second.startsWith("شب های دلتنگی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        if (second.startsWith("حرف دل")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Text }
+        if (first.startsWith("شعر آیینی")) return { major: enuMajorCategory.Literature, minor: enuMinorCategory.Talk }
 
         return { major: enuMajorCategory.News }
     }
@@ -1102,15 +1102,15 @@ export class paydarymelli extends clsIransamaneh {
         if (!cat) return mappedCat
 
 
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("عکس")
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("عکس")
             || cat.includes("فیلم")
             || cat.includes("گرافیک")
             || cat.includes("اینفوگرافی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("دفاع اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("اقتصاد") || cat.includes("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("مصاحبه")) return { ...mappedCat, minor: enuMinorCategory.Talk }
-        else if (cat.includes("پدافند")
+        if (cat.includes("دفاع اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Defence }
+        if (cat.includes("اقتصاد") || cat.includes("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("مصاحبه")) return { ...mappedCat, minor: enuMinorCategory.Talk }
+        if (cat.includes("پدافند")
             || cat.includes("فنی")
             || cat.includes("راهبرد")
             || cat.includes("زیر")
@@ -1118,11 +1118,11 @@ export class paydarymelli extends clsIransamaneh {
             || cat.includes("ریاست")
             || cat.includes("مردم")
             || cat.includes("طرح")) return { ...mappedCat, minor: enuMinorCategory.Defence }
-        else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Defence }
-        else if (cat.includes("ارتباطات")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("استان") || cat.includes("شهری")) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (cat.includes("نخست")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education, subminor: enuMinorCategory.Defence }
+        if (cat.includes("ارتباطات")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("استان") || cat.includes("شهری")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (cat.includes("نخست")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { ...mappedCat, minor: enuMinorCategory.Local }
     }
@@ -1146,11 +1146,11 @@ export class danakhabar extends clsIransamaneh {
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
 
         if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
-        else if (first.startsWith("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (first.startsWith("ایرانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (second.startsWith("راهبرد")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (second.startsWith("خبر")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (first.startsWith("دانش")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.startsWith("ایرانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.startsWith("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (second.startsWith("راهبرد")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.startsWith("خبر")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { ...mappedCat, minor: enuMinorCategory.Generic }
     }
@@ -1173,15 +1173,15 @@ export class iraneconomist extends clsIransamaneh {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (second.startsWith("چهره") || second.startsWith("دیدنی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.startsWith("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.startsWith("چهره") || second.startsWith("دیدنی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { ...mappedCat, minor: enuMinorCategory.Economics }
     }
@@ -1222,21 +1222,21 @@ export class shohadayeiran extends clsIransamaneh {
 
 
 
-        else if (cat.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("فرهنگی")
+        if (cat.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("فرهنگی")
             || cat.includes("هجوم")
             || cat.includes("ایثار")
             || cat.includes("پویا نمایی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("چند رسانه") || cat.includes("مجازی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("مذهبی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
-        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("عمومی") || cat.includes("خبری")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (cat.includes("چند رسانه") || cat.includes("مجازی")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("مذهبی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Religious }
+        if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("عمومی") || cat.includes("خبری")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
 
         return { major: enuMajorCategory.News }
     }
@@ -1267,28 +1267,28 @@ export class sedayiran extends clsIransamaneh {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
+
         if (second.startsWith("سینما")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
-        else if (second.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
-        else if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
-        else if (second.startsWith("شعر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Poem }
-        else if (second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
-        else if (cat.includes("فرهنگی") || cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (cat.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("سیاسی") || cat.includes("مجلس")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("اقتصاد") || second.startsWith("استخدام")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
-        else if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.University }
-        else if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
-        else if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (second.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
-        else if (second.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (second.includes("تئاتر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Theatre }
+        if (second.startsWith("موسیقی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Music }
+        if (second.startsWith("شعر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Poem }
+        if (second.startsWith("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        if (cat.includes("فرهنگی") || cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat.startsWith("فیلم")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("سیاسی") || cat.includes("مجلس")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("اقتصاد") || second.startsWith("استخدام")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        if (second.startsWith("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.University }
+        if (cat.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Education }
+        if (cat.includes("اجتماعی") || cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (second.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+        if (second.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News }
     }
@@ -1319,13 +1319,13 @@ export class tejaratonline extends clsIransamaneh {
             || cat.includes("گزارش")
             || cat.includes("یادداشت")
             || cat.includes("بیمه")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("فیلم") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
-        else if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("خواندنی") || cat.includes("ایران")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("فیلم") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("خواندنی") || cat.includes("ایران")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { major: enuMajorCategory.News }
     }
@@ -1345,26 +1345,26 @@ export class sarmadnews extends clsIransamaneh {
         if (!cat) return mappedCat
 
         if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("سیاسی") || cat.includes("شهروندی")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("بهداشت")) return { ...mappedCat, subminor: enuMinorCategory.Health }
-        else if (cat.includes("قوانین")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("حیات وحش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Animals }
-        else if (cat.includes("اجتماعی")
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("سیاسی") || cat.includes("شهروندی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("بهداشت")) return { ...mappedCat, subminor: enuMinorCategory.Health }
+        if (cat.includes("قوانین")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Law }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("حیات وحش")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuSubMinorCategory.Animals }
+        if (cat.includes("اجتماعی")
             || cat.includes("زیست")
             || cat.includes("محیط")
             || cat.includes("منابع")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("فن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-        else if (cat.includes("اقتصاد")
+        if (cat.includes("فن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (cat.includes("اقتصاد")
             || cat.includes("بانکی")
             || cat.includes("نظام")
             || cat.includes("شرکت")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
-        else if (cat.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-        else if (cat.includes("هوا")) return { ...mappedCat, minor: enuMinorCategory.Weather }
+        if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (cat.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (cat.includes("هوا")) return { ...mappedCat, minor: enuMinorCategory.Weather }
 
         return { major: enuMajorCategory.News }
     }
@@ -1400,26 +1400,26 @@ export class tejaratemrouz extends clsIransamaneh {
         if (!cat) return mappedCat
 
         if (cat.includes("سیاست خارجی")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
-        else if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
-        else if (cat.includes("تلفن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
-        else if (cat.includes("اینترنت")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("شبکه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
-        else if (cat.includes("اقتصاد سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Political }
-        else if (cat.includes("اقتصاد ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Sport }
-        else if (cat.includes("اقتصاد")
+        if (cat.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("تلفن")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+        if (cat.includes("اینترنت")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("شبکه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        if (cat.includes("اقتصاد سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Political }
+        if (cat.includes("اقتصاد ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuMinorCategory.Sport }
+        if (cat.includes("اقتصاد")
             || cat.includes("مالی")
             || cat.includes("تجارت")
             || cat.includes("مدیریت")
             || cat.includes("انرژی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-        else if (cat.includes("سیاسی") || cat.includes("انتخابات")) return { ...mappedCat, minor: enuMinorCategory.Political }
-        else if (cat.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
-        else if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-        else if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
-        else if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-        else if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
-        else if (cat.includes("خواندنی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (cat.includes("سیاسی") || cat.includes("انتخابات")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+        if (cat.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Generic, subminor: enuSubMinorCategory.Accident }
+        if (cat.includes("خواندنی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
 
         return { ...mappedCat, minor: enuMinorCategory.Economics }
     }
@@ -1483,11 +1483,11 @@ export class bankdariirani extends clsIransamaneh {
         const first = catParts[0].trim()
         const second = (catParts.length > 1 ? catParts[1] : '').trim()
         void first, second
-    
-        if (second.startsWith("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        else if (second.startsWith("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
-        else if (second.startsWith("زنگ تفریح")) return { ...mappedCat, minor: enuMinorCategory.Fun }
 
+        if (second.startsWith("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (second.startsWith("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        if (second.startsWith("زنگ تفریح")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        
         return mappedCat
     }
 }
@@ -1526,6 +1526,21 @@ export class avayekhazar extends clsIransamaneh {
                 },
             },
         })
+    }
+
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+
+        const catParts = cat.split('/')
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+
+        if (second.startsWith("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (second.startsWith("داخلی")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
     }
 }
 
@@ -1616,6 +1631,33 @@ export class arakhabar extends clsIransamaneh {
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
             }
         })
+    }
+    mapCategory(cat?: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        if (!cat) return mappedCat
+        const catParts = cat.split('/')
+        const first = catParts[0].trim()
+        const second = (catParts.length > 1 ? catParts[1] : '').trim()
+        void first, second
+
+        if (isIranProvinceString(first)) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        if (first.includes("سیاسی")
+            || first.includes("مجلس")
+            || second.includes("مجلس")
+        ) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("ورزشی")
+            || second.includes("ورزشی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("اجتماعی")
+            || second.includes("اجتماعی")
+            || first.includes("فرهنگی")
+            || second.includes("فرهنگی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("بین الملل")
+            || second.includes("بین الملل")
+        ) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        return mappedCat
     }
 }
 
