@@ -1490,5 +1490,8 @@ yarn dev && yarn start aryanews -u https://www.aryanews.com/News/120240318085850
 yarn dev && yarn start 
 yarn dev && yarn start sinapress -u https://sinapress.ir/news/528638/نماینده-ویژه-وزیر-در-راهاندازی-شهر-ج/
 
+yarn dev && yarn start shomalnews
+yarn dev && yarn start shomalnews -u https://www.shomalnews.com/view/251477/ریاست-فدراسیون-والیبال-به-مازندرانی-ها-رسید-/
+
 https://motamem.org/
 /**/

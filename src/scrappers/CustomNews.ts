@@ -1316,3 +1316,22 @@ export class sinapress extends clsScrapper {
         })
     }
 }
+
+export class shomalnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.shomalnews, "shomalnews.com", {
+            selectors: {
+                article: ".content.news",
+                aboveTitle: ".rutitr",
+                title: ".title",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date .left"
+                },
+                content: {
+                    main: ".news_body",
+                },
+            },
+        })
+    }
+}
