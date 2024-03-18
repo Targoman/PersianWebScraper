@@ -1359,3 +1359,30 @@ export class artanpress extends clsScrapper {
         })
     }
 }
+
+export class manbaekhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.manbaekhabar, "manbaekhabar.ir", {
+            selectors: {
+                article: "article.is-single",
+                aboveTitle: ".lid_news ",
+                title: "h1",
+                summary: ".desc_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".news_content",
+                    ignoreNodeClasses: ["post_source"]
+                },
+                category: {
+                    selector: ".breadcrumb a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tag_wrap a"
+            },
+        })
+    }
+}

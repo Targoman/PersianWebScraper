@@ -1496,5 +1496,8 @@ yarn dev && yarn start shomalnews -u https://www.shomalnews.com/view/251477/ری
 yarn dev && yarn start artanpress
 yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-بازار-سهام-سبز-شد/
 
+yarn dev && yarn start manbaekhabar
+yarn dev && yarn start manbaekhabar -u https://www.manbaekhabar.ir/29/11/1402/8041/
+
 https://motamem.org/
 /**/
