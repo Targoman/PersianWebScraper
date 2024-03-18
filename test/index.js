@@ -1487,5 +1487,8 @@ yarn dev && yarn start ictnn -u https://ictnn.ir/gaming/بازی-ghost-of-tsushi
 yarn dev && yarn start aryanews
 yarn dev && yarn start aryanews -u https://www.aryanews.com/News/120240318085850512/دستیابی-به-جایگاه-برتر-در-حوزه-شرکت%E2%80%8Cهای-دانش-بنیان-مستلزم-جدیت-در-رفع-موانع-این-بخش-است
 
+yarn dev && yarn start 
+yarn dev && yarn start sinapress -u https://sinapress.ir/news/528638/نماینده-ویژه-وزیر-در-راهاندازی-شهر-ج/
+
 https://motamem.org/
 /**/

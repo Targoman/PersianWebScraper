@@ -383,6 +383,7 @@ export enum enuDomains {
     shomavaeghtesad = "shomavaeghtesad",
     shoragc = "shoragc",
     sid = "sid",
+    sinapress = "sinapress",
     sinapub = "sinapub",
     sistani = "sistani",
     snapp = "snapp",

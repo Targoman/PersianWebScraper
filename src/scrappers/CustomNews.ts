@@ -1286,12 +1286,33 @@ export class aryanews extends clsScrapper {
                 },
                 content: {
                     main: ".main-news",
-                    //ignoreTexts: [/.*مجله خبری.*/]
                 },
                 category: {
                     selector: ".section-name a",
                 },
             },
+        })
+    }
+}
+
+export class sinapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.sinapress, "sinapress.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["st-post-tags"]
+                },
+                tags: ".st-post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
         })
     }
 }
