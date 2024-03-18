@@ -1493,5 +1493,8 @@ yarn dev && yarn start sinapress -u https://sinapress.ir/news/528638/نماین�
 yarn dev && yarn start shomalnews
 yarn dev && yarn start shomalnews -u https://www.shomalnews.com/view/251477/ریاست-فدراسیون-والیبال-به-مازندرانی-ها-رسید-/
 
+yarn dev && yarn start artanpress
+yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-بازار-سهام-سبز-شد/
+
 https://motamem.org/
 /**/

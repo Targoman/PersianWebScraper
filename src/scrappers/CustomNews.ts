@@ -1335,3 +1335,27 @@ export class shomalnews extends clsScrapper {
         })
     }
 }
+
+export class artanpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.artanpress, "artanpress.ir", {
+            selectors: {
+                article: ".ap_newssingle .ap-single",
+                aboveTitle: ".catpo",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#entry .entry",
+                    ignoreNodeClasses: ["tag"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+        })
+    }
+}
