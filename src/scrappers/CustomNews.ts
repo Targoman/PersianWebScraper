@@ -1125,3 +1125,127 @@ export class asrkhabar extends clsScrapper {
         })
     }
 }
+
+export class zoomg extends clsScrapper {
+    constructor() {
+        super(enuDomains.zoomg, "zoomg.ir", {
+            selectors: {
+                article: ".article-content",
+                title: "h1 span span",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#bodyContainer, img.cover",
+                },
+                category: {
+                    selector: ".topicCategories a",
+                },
+            }
+        })
+    }
+}
+
+export class pedal extends clsScrapper {
+    constructor() {
+        super(enuDomains.pedal, "pedal.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li .single-comment"),
+                    author: ".comment_header p cite",
+                    text: ".comment-content .comment"
+                },
+                category: {
+                    selector: "span.post-cat-wrap a",
+                },
+            }
+        })
+    }
+}
+
+export class car extends clsScrapper {
+    constructor() {
+        super(enuDomains.car, "car.ir", {
+            selectors: {
+                article: ".box__details",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.dates"
+                },
+                content: {
+                    main: ".text__ordered",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-items ul li"),
+                    author: ".avatar span:nth-child(2)",
+                    text: "p.text__ordered"
+                },
+                category: {
+                    selector: ".pull-right .category a",
+                },
+            },
+            url: {
+                extraInvalidStartPaths: ["/prices"]
+            }
+        })
+    }
+}
+
+export class sofiamag extends clsScrapper {
+    constructor() {
+        super(enuDomains.sofiamag, "sofiamag.ir", {
+            selectors: {
+                article: ".rounded.py-3 > section",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#rt-post-body-content",
+                    ignoreNodeClasses: ["r-row"]
+                },
+                tags: ".border-bottom a"
+            }
+        })
+    }
+}
+
+export class gamefa extends clsScrapper {
+    constructor() {
+        super(enuDomains.gamefa, "gamefa.com", {
+            selectors: {
+                article: ".single-article ",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content, .thumbnail img",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.pr-0 li.comment .comment-body"),
+                    author: ".comment-author cite a",
+                    text: "p"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".aioseo-breadcrumbs span a"),
+                    startIndex: 1
+                },
+                tags: "[rel='tag']"
+            }
+        })
+    }
+}

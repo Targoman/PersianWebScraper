@@ -4869,3 +4869,45 @@ export class bloging extends clsScrapper {
       })
     }
 }
+
+export class kojaro extends clsScrapper {
+    constructor() {
+        super(enuDomains.kojaro, "kojaro.com", {
+            selectors: {
+                article: "[role='main']",
+                title: "h1",
+                datetime: {
+                    conatiner: ".authorDetails div span:nth-child(2)"
+                },
+                content: {
+                    main: "#printArea",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            }
+        })
+    }
+}
+
+export class tarikhema extends clsScrapper {
+    constructor() {
+      super(enuDomains.tarikhema, "tarikhema.org", {
+        selectors: {
+          article: "body.single-post",
+          title: "h1",
+          datetime: {
+            conatiner: ".time"
+          },
+          content: {
+            main: ".entry-content",
+          },
+          category: {
+            selector: ".post-header-title .term-badge a"
+          },
+        },
+      })
+    }
+}
