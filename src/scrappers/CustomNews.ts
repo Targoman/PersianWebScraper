@@ -1274,3 +1274,24 @@ export class ictnn extends clsScrapper {
         })
     }
 }
+
+export class aryanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.aryanews, "aryanews.com", {
+            selectors: {
+                article: ".col-md-8 #content-news",
+                title: "h1.title-news",
+                datetime: {
+                    conatiner: "span.date-created"
+                },
+                content: {
+                    main: ".main-news",
+                    //ignoreTexts: [/.*مجله خبری.*/]
+                },
+                category: {
+                    selector: ".section-name a",
+                },
+            },
+        })
+    }
+}

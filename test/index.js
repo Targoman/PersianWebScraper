@@ -1484,5 +1484,8 @@ yarn dev && yarn start gardeshban -u http://gardeshban.ir/fa/news/61774/هشدا
 yarn dev && yarn start ictnn
 yarn dev && yarn start ictnn -u https://ictnn.ir/gaming/بازی-ghost-of-tsushima-مرجع-خوبی-برای-ساخت-rise-of-the-ronin-بود.html
 
+yarn dev && yarn start aryanews
+yarn dev && yarn start aryanews -u https://www.aryanews.com/News/120240318085850512/دستیابی-به-جایگاه-برتر-در-حوزه-شرکت%E2%80%8Cهای-دانش-بنیان-مستلزم-جدیت-در-رفع-موانع-این-بخش-است
+
 https://motamem.org/
 /**/
