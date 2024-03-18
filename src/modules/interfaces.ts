@@ -168,6 +168,7 @@ export enum enuDomains {
     iana = "iana",
     ibna = "ibna",
     ictnews = "ictnews",
+    ictnn = "ictnn",
     idpay = "idpay",
     ifsm = "ifsm",
     ilna = "ilna",

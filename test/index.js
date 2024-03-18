@@ -1481,5 +1481,8 @@ yarn dev && yarn start khabarkhodro -u http://khabarkhodro.com/fa/news/716533/ج
 yarn dev && yarn start gardeshban
 yarn dev && yarn start gardeshban -u http://gardeshban.ir/fa/news/61774/هشدار-به-مسافران-نوروزی-طی-۳-روز-آینده-شرایط-جوی-برای-سفر-مناسب-نیست
 
+yarn dev && yarn start ictnn
+yarn dev && yarn start ictnn -u https://ictnn.ir/gaming/بازی-ghost-of-tsushima-مرجع-خوبی-برای-ساخت-rise-of-the-ronin-بود.html
+
 https://motamem.org/
 /**/
