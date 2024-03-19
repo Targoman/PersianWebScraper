@@ -1481,5 +1481,23 @@ yarn dev && yarn start khabarkhodro -u http://khabarkhodro.com/fa/news/716533/ج
 yarn dev && yarn start gardeshban
 yarn dev && yarn start gardeshban -u http://gardeshban.ir/fa/news/61774/هشدار-به-مسافران-نوروزی-طی-۳-روز-آینده-شرایط-جوی-برای-سفر-مناسب-نیست
 
+yarn dev && yarn start ictnn
+yarn dev && yarn start ictnn -u https://ictnn.ir/gaming/بازی-ghost-of-tsushima-مرجع-خوبی-برای-ساخت-rise-of-the-ronin-بود.html
+
+yarn dev && yarn start aryanews
+yarn dev && yarn start aryanews -u https://www.aryanews.com/News/120240318085850512/دستیابی-به-جایگاه-برتر-در-حوزه-شرکت%E2%80%8Cهای-دانش-بنیان-مستلزم-جدیت-در-رفع-موانع-این-بخش-است
+
+yarn dev && yarn start 
+yarn dev && yarn start sinapress -u https://sinapress.ir/news/528638/نماینده-ویژه-وزیر-در-راهاندازی-شهر-ج/
+
+yarn dev && yarn start shomalnews
+yarn dev && yarn start shomalnews -u https://www.shomalnews.com/view/251477/ریاست-فدراسیون-والیبال-به-مازندرانی-ها-رسید-/
+
+yarn dev && yarn start artanpress
+yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-بازار-سهام-سبز-شد/
+
+yarn dev && yarn start manbaekhabar
+yarn dev && yarn start manbaekhabar -u https://www.manbaekhabar.ir/29/11/1402/8041/
+
 https://motamem.org/
 /**/

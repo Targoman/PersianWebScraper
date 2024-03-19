@@ -1249,3 +1249,140 @@ export class gamefa extends clsScrapper {
         })
     }
 }
+
+export class ictnn extends clsScrapper {
+    constructor() {
+        super(enuDomains.ictnn, "ictnn.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.jeg_post_title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreTexts: [/.*مجله خبری.*/]
+                },
+                category: {
+                    selector: "span.breadcrumb_last_link a",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class aryanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.aryanews, "aryanews.com", {
+            selectors: {
+                article: ".col-md-8 #content-news",
+                title: "h1.title-news",
+                datetime: {
+                    conatiner: "span.date-created"
+                },
+                content: {
+                    main: ".main-news",
+                },
+                category: {
+                    selector: ".section-name a",
+                },
+            },
+        })
+    }
+}
+
+export class sinapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.sinapress, "sinapress.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["st-post-tags"]
+                },
+                tags: ".st-post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class shomalnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.shomalnews, "shomalnews.com", {
+            selectors: {
+                article: ".content.news",
+                aboveTitle: ".rutitr",
+                title: ".title",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date .left"
+                },
+                content: {
+                    main: ".news_body",
+                },
+            },
+        })
+    }
+}
+
+export class artanpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.artanpress, "artanpress.ir", {
+            selectors: {
+                article: ".ap_newssingle .ap-single",
+                aboveTitle: ".catpo",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#entry .entry",
+                    ignoreNodeClasses: ["tag"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+        })
+    }
+}
+
+export class manbaekhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.manbaekhabar, "manbaekhabar.ir", {
+            selectors: {
+                article: "article.is-single",
+                aboveTitle: ".lid_news ",
+                title: "h1",
+                summary: ".desc_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".news_content",
+                    ignoreNodeClasses: ["post_source"]
+                },
+                category: {
+                    selector: ".breadcrumb a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tag_wrap a"
+            },
+        })
+    }
+}
