@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs, IntfProxy } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs, IntfProxy } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 import { getArvanCookie } from "../modules/request";
@@ -213,7 +213,7 @@ export class mashreghnews extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType:enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -240,7 +240,7 @@ export class mashreghnews extends clsNastoohBased {
         if (cat.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (cat.startsWith("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
         if (cat.startsWith("دین") || cat.includes("حسینیه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
-        if (cat.startsWith("وبلاگستان")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Undefined }
+        if (cat.startsWith("وبلاگستان")) return { ...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Undefined }
 
         return { major: enuMajorCategory.News }
     }

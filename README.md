@@ -101,9 +101,10 @@ PersianWebScrapper scrapes whole contents of the target site in order to find al
     url: string,                //Article normalized URL
     category: {
         original: string        //Category as specified by the article
-        major: string           //Major category acn be News, Literature, Forum, Weblog, Wiki, SocialMedia, Undefined
-        minor?: string          //Minor category
-        subminor?: string       //Subminor category
+        textType: string        //Main content textType, can be: Formal, Informal, Hybrid, Unknown
+        major: string           //Major category can be: News, QA (Question & Answer), Literature, Forum, Weblog, SocialMedia, Doc, Undefined
+        minor?: string          //Minor category (see source code for list of avaialable minor categories)
+        subminor?: string       //Subminor category (see source code for list of avaialable minor and subminor categories)
     },          
     date: string,               //Article publish date (if specified)
     title: string,              //Title of the article

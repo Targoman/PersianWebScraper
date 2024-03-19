@@ -5,7 +5,7 @@ import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import path from 'path';
-import { formatNumber, normalizeCategory, date2Gregorian, normalizeText, wordCount } from './modules/common';
+import { formatNumber, date2Gregorian, normalizeText, wordCount } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
 import * as scrappers from './scrappers'
 
@@ -271,7 +271,7 @@ const app = command({
             }
 
             if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
-                doc.category = scrapper.mapCategory(normalizeCategory(typeof docCategory === 'string' ? docCategory : doc.category['original']), doc['tags']);
+                doc.category = scrapper.mapCategory(typeof docCategory === 'string' ? docCategory : doc.category['original'], doc['tags']);
                 if (typeof docCategory === 'string')
                     doc.category['original'] = docCategory;
                 anythingChanged = true
@@ -441,7 +441,7 @@ const app = command({
                         const domain = scrapper.name();
                         const docCategory = !doc.category ? "undefined" : doc.category;
                         if (typeof docCategory === 'string') {
-                            doc.category = scrapper.mapCategory(normalizeCategory(docCategory));
+                            doc.category = scrapper.mapCategory(docCategory);
                             doc.category['original'] = docCategory;
                         }
 

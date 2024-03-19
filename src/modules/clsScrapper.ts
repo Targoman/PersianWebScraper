@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian, dateOffsetToDate } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, date2Gregorian, dateOffsetToDate } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -63,7 +63,7 @@ export abstract class clsScrapper {
 
     async check(url: string) {
         const page = await this.getPageContent(url)
-        const category = this.updateCategory(page)
+        const category = this.mapCategory(page.category, page.article?.tags)
 
         log.info({ ...page, category })
     }
@@ -449,21 +449,6 @@ export abstract class clsScrapper {
         debugNodeProcessor && log.debug("----------FINISH---------")
     }
 
-    private updateCategory(page: IntfPageContent) {
-        const origianlCategory = normalizeCategory(page.category)
-
-        const mappedCat = this.mapCategory(origianlCategory)
-        const category = { original: origianlCategory }
-        if (mappedCat) {
-            category["major"] = mappedCat.major
-            if (mappedCat.minor)
-                category["minor"] = mappedCat.minor
-            if (mappedCat.subminor)
-                category["subminor"] = mappedCat.subminor
-        }
-        return category
-    }
-
     private async storePage(page?: IntfPageContent, id?: number) {
         if (page) {
             let wc = 0
@@ -494,7 +479,7 @@ export abstract class clsScrapper {
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
-                        const category = this.updateCategory(page)
+                        const category = this.mapCategory(page.category, page.article.tags)
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
@@ -977,12 +962,23 @@ export abstract class clsScrapper {
         return normalized
     }
 
+    private baseNormalizeCategory(cat?: string) {
+        if (cat === "undefined")
+            return "Undefined"
+        return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
+    }
+
+    protected normalizeCategoryImpl(cat?: string) {
+        return cat
+    }
+
     protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[]): IntfMappedCategory {
         void category, first, second, tags
-        return { major: enuMajorCategory.Undefined }
+        return { textType: enuTextType.Unk, major: enuMajorCategory.Undefined, original: category || "N/A" }
     }
 
     public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
+        category = this.normalizeCategoryImpl(this.baseNormalizeCategory(category))
         let catFirstPart = "", catSecondPart = ""
         if (category) {
             category = category.trim()
@@ -991,6 +987,6 @@ export abstract class clsScrapper {
             catSecondPart = (catParts.length > 1 ? catParts[1] : '').trim()
         }
 
-        return this.mapCategoryImpl(category, catFirstPart, catSecondPart, tags)
+        return { original: category, ...this.mapCategoryImpl(category, catFirstPart, catSecondPart, tags) }
     }
 }
