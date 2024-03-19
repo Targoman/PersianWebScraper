@@ -1429,5 +1429,75 @@ yarn dev && yarn start nateghan -u http://nateghan.ir/fa/news/325947/آمریک�
 yarn dev && yarn start hedayatgar
 yarn dev && yarn start hedayatgar -u https://hedayatgar.ir/fa/news/6981/سخن-امام-سجادع-درباره-ارزش-اخلاص-در-کار
 
+yarn dev && yarn start asrpress
+yarn dev && yarn start asrpress -u http://asrpress.ir/fa/news/37296/ورود-سامانه-بارشی-جدید-به-کشور-از-فردا
+
+yarn dev && yarn start moaser
+yarn dev && yarn start moaser -u https://moaser.ir/fa/news/75547/برندگان-اسکار-۲۰۲۴-معرفی-شدند-اوپنهایمر-در-صدر
+
+
+yarn dev && yarn start sadohejdahsafar
+yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/news/5322/تجربه%E2%80%8Cی-یک-روز-با-آبشار-تزرج-از-جاذبه%E2%80%8Cهای-بی%E2%80%8Cمانند-گردشگری
+yarn dev && yarn start sadohejdahsafar -u https://118safar.com/fa/introduction/9
+
+
+yarn dev && yarn start zoomg
+yarn dev && yarn start zoomg -u https://www.zoomg.ir/game-news/367299-monster-hunter-world-25m-sold/
+yarn dev && yarn start zoomg -u https://www.zoomg.ir/reload/350811-reload-resident-evil-4/
+
+yarn dev && yarn start pedal
+yarn dev && yarn start pedal -u https://www.pedal.ir/news/supply-imported-cars-integrated-system/
+
+yarn dev && yarn start car
+yarn dev && yarn start car -u https://car.ir/news/28038-kmc-nowruz-plan-1403
+yarn dev && yarn start car -u https://car.ir/news/27973-dena-plus-sale-esfand-1402
+
+yarn dev && yarn start kojaro
+yarn dev && yarn start kojaro -u https://www.kojaro.com/shopping/197654-souvenir-zanjan/
+
+yarn dev && yarn start gitionline
+yarn dev && yarn start gitionline -u https://gitionline.ir/مانور-حادثه-ترافیکی-همراه-با-زیستی-در-ب/
+
+yarn dev && yarn start hourgan 
+yarn dev && yarn start hourgan -u https://hourgan.ir/fa/news/19616/امسال-پیک-نوروزی-نداریم
+
+yarn dev && yarn start
+yarn dev && yarn start avayerodkof -u https://avayerodkof.ir/fa/news/35437/کلنگ-زنی-و-اغاز-عملیات-فاز-سوم-جاده-لنده-تراب-در-سال-جدید-جزئیات
+
+yarn dev && yarn start sofiamag 
+yarn dev && yarn start sofiamag -u https://sofiamag.ir/.post/shrayt-aatay-tshylat-bors-thsyly-bh-danshjoyan-alom-pzshky-dakhl-kshor-qtod
+
+yarn dev && yarn start gamefa
+yarn dev && yarn start gamefa -u https://gamefa.com/1027994/peaky-blinders-creator-steven-knight-returns-to-tv-with-this-town-trailer/
+yarn dev && yarn start gamefa -u https://gamefa.com/1027983/among-us-animated-series-adds-randall-park-elijah-wood-more-to-the-crew/
+
+yarn dev && yarn start irdc
+yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8800/رزم%E2%80%8Cآرا-چگونه-از-سر-راه-ملی%E2%80%8Cشدن-نفت-برداشته-شد-سند
+yarn dev && yarn start irdc -u https://irdc.ir/fa/news/8175/روایت-هویدا-از-اهانت-انگلیسی%E2%80%8Cها-به-ملت-ایران-در-دوران-پهلوی
+
+yarn dev && yarn start khabarkhodro
+yarn dev && yarn start khabarkhodro -u http://khabarkhodro.com/fa/news/716533/جهش-قیمت-خودرو-در-بازار-شب-عید
+
+yarn dev && yarn start gardeshban
+yarn dev && yarn start gardeshban -u http://gardeshban.ir/fa/news/61774/هشدار-به-مسافران-نوروزی-طی-۳-روز-آینده-شرایط-جوی-برای-سفر-مناسب-نیست
+
+yarn dev && yarn start ictnn
+yarn dev && yarn start ictnn -u https://ictnn.ir/gaming/بازی-ghost-of-tsushima-مرجع-خوبی-برای-ساخت-rise-of-the-ronin-بود.html
+
+yarn dev && yarn start aryanews
+yarn dev && yarn start aryanews -u https://www.aryanews.com/News/120240318085850512/دستیابی-به-جایگاه-برتر-در-حوزه-شرکت%E2%80%8Cهای-دانش-بنیان-مستلزم-جدیت-در-رفع-موانع-این-بخش-است
+
+yarn dev && yarn start 
+yarn dev && yarn start sinapress -u https://sinapress.ir/news/528638/نماینده-ویژه-وزیر-در-راهاندازی-شهر-ج/
+
+yarn dev && yarn start shomalnews
+yarn dev && yarn start shomalnews -u https://www.shomalnews.com/view/251477/ریاست-فدراسیون-والیبال-به-مازندرانی-ها-رسید-/
+
+yarn dev && yarn start artanpress
+yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-بازار-سهام-سبز-شد/
+
+yarn dev && yarn start manbaekhabar
+yarn dev && yarn start manbaekhabar -u https://www.manbaekhabar.ir/29/11/1402/8041/
+
 https://motamem.org/
 /**/
