@@ -683,6 +683,9 @@ export class eximnews extends clsNastoohBased {
     constructor() {
         super(enuDomains.eximnews, "eximnews.ir")
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class payamekhanevadeh extends clsNastoohBased {
@@ -829,6 +832,9 @@ export class sedayebourse extends clsNastoohBased {
 export class donyayekhodro extends clsNastoohBased {
     constructor() {
         super(enuDomains.donyayekhodro, "donyayekhodro.com")
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
     }
 }
 

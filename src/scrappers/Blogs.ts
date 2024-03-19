@@ -1475,6 +1475,9 @@ export class doctoreto extends clsScrapper {
             },
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return {major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health}
+    }
 }
 
 export class bookland extends clsScrapper {
@@ -2493,6 +2496,9 @@ export class emalls extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return {major: enuMajorCategory.NA}
+    }
 }
 
 export class shereno extends clsScrapper {
@@ -2582,6 +2588,9 @@ export class exbito extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.CryptoCurrency }
     }
 }
 
@@ -2825,6 +2834,9 @@ export class fitamin extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health }
     }
 }
 
@@ -3386,6 +3398,9 @@ export class farazsms extends clsScrapper {
                 }
             },
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.ICT }
     }
 }
 

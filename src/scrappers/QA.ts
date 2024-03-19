@@ -624,6 +624,9 @@ export class doctoryab extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return {major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health}
+    }
 }
 
 export class adleiranian extends clsScrapper {
@@ -852,6 +855,9 @@ export class drhast extends clsScrapper {
                 },
             },
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return {major: enuMajorCategory.QA, minor: enuMinorCategory.Medical}
     }
 }
 

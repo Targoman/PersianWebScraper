@@ -672,6 +672,9 @@ export class donyaeeqtesad extends clsAsamBased {
             },
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 /***********************************************************/
@@ -889,11 +892,23 @@ export class etemadonline extends clsAsamBased {
                 tags: ".article-tag a",
                 category: {
                     selector: "ul.breadcrumb-list li a",
-                    startIndex: 0
+                    startIndex: 1
                 }
             }
         })
     }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        if (cat) {
+            cat = cat.replace("خانه/", "").trim()
+            const catParts = cat.split('/')
+            first = catParts[0].trim()
+            second = (catParts.length > 1 ? catParts[1] : '').trim()
+        }
+
+
+        return super.mapCategoryImpl(cat, first, second)
+    }
+    //remove first part 
 }
 
 /***********************************************************/
@@ -1359,6 +1374,12 @@ export class donyayemadan extends clsAsamBased {
                 article: "article, .album-bg",
             },
         })
+    }
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.startsWith("ورزش")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        if (cat?.startsWith("تصویر")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        if (cat?.startsWith("فیلم")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Multimedia }
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 

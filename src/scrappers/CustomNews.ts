@@ -1089,6 +1089,9 @@ export class filmmagazine extends clsScrapper {
             },
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor:enuSubMinorCategory.Cinema }
+    }
 }
 
 export class asrkhabar extends clsScrapper {

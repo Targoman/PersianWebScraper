@@ -145,6 +145,10 @@ export class eporsesh extends clsScrapper {
       }
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+  }
+
 }
 
 export class nazaratshora extends clsScrapper {

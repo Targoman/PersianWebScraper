@@ -1563,7 +1563,7 @@ export class bazarnews extends clsIransamaneh {
         void cat, first, second
 
         if (first.includes("دیجیتال")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        if(second.includes("خودرو")) return { ...mappedCat, subminor: enuSubMinorCategory.Car }
+        if (second.includes("خودرو")) return { ...mappedCat, subminor: enuSubMinorCategory.Car }
         return mappedCat
     }
 }
@@ -1669,6 +1669,27 @@ export class diibache extends clsIransamaneh {
             }
         })
     }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (cat.includes("تلویزیون") || cat.includes("تلوبیون")) return { ...mappedCat, subminor: enuSubMinorCategory.TV }
+        if (cat.includes("سینما")) return { ...mappedCat, subminor: enuSubMinorCategory.Cinema }
+        if (cat.includes("موسیقی")) return { ...mappedCat, subminor: enuSubMinorCategory.Music }
+        if (cat.includes("فرهنگ")) return { ...mappedCat, subminor: enuMinorCategory.Social }
+        if (cat.includes("جامعه")) return { ...mappedCat, subminor: enuMinorCategory.Social }
+        if (cat.includes("گردشگری")) return { ...mappedCat, subminor: enuMinorCategory.Tourism }
+        if (cat.includes("ادبیات")) return { ...mappedCat, subminor: enuMinorCategory.Literature }
+        if (cat.startsWith("تصویری")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+
+        if (first.startsWith("ورزش")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            if (second.includes("فوتبال")) mappedCat.subminor = enuSubMinorCategory.Football
+        }
+
+        return mappedCat
+    }
 }
 
 export class mana extends clsIransamaneh {
@@ -1738,6 +1759,9 @@ export class dsport extends clsIransamaneh {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return {major: enuMajorCategory.News, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football}
+    }
 }
 
 export class farhangesadid extends clsIransamaneh {
@@ -1780,20 +1804,20 @@ export class basna extends clsIransamaneh {
         if (first.includes("دانشجو")) return { ...mappedCat, minor: enuMinorCategory.University }
         if (first.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
         if (first.includes("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
-        if (first.includes("ورزشی")){
-            mappedCat.minor =  enuMinorCategory.Sport
-            if(second.includes("فوتبال") ) mappedCat.subminor =  enuSubMinorCategory.Football
-            if(second.includes("دوچرخه‌سواری") ) mappedCat.subminor =  enuSubMinorCategory.Bicycle
-            if(second.includes("شطرنج") ) mappedCat.subminor =  enuSubMinorCategory.Chess
-            if(second.includes("شنا") ) mappedCat.subminor =  enuSubMinorCategory.Nautics
-            if(second.includes("کاراته") ) mappedCat.subminor =  enuSubMinorCategory.Karate
-            if(second.includes("کشتی") ) mappedCat.subminor =  enuSubMinorCategory.Wrestling
-        } 
-        if (first.includes("فرهنگ")){
-            mappedCat.minor =  enuMinorCategory.Culture
-            if(second.includes("دین و اندیشه") || second.includes("دفاع مقدس")) mappedCat.subminor =  enuMinorCategory.Religious
-            if(second.includes("سینما و تئاتر")) mappedCat.subminor =  enuSubMinorCategory.Cinema
-        } 
+        if (first.includes("ورزشی")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            if (second.includes("فوتبال")) mappedCat.subminor = enuSubMinorCategory.Football
+            if (second.includes("دوچرخه‌سواری")) mappedCat.subminor = enuSubMinorCategory.Bicycle
+            if (second.includes("شطرنج")) mappedCat.subminor = enuSubMinorCategory.Chess
+            if (second.includes("شنا")) mappedCat.subminor = enuSubMinorCategory.Nautics
+            if (second.includes("کاراته")) mappedCat.subminor = enuSubMinorCategory.Karate
+            if (second.includes("کشتی")) mappedCat.subminor = enuSubMinorCategory.Wrestling
+        }
+        if (first.includes("فرهنگ")) {
+            mappedCat.minor = enuMinorCategory.Culture
+            if (second.includes("دین و اندیشه") || second.includes("دفاع مقدس")) mappedCat.subminor = enuMinorCategory.Religious
+            if (second.includes("سینما و تئاتر")) mappedCat.subminor = enuSubMinorCategory.Cinema
+        }
         return mappedCat
     }
 }
@@ -1891,7 +1915,7 @@ export class cinemaema extends clsIransamaneh {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return  {major: enuMajorCategory.News, minor:  enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema}
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
 
@@ -1949,6 +1973,9 @@ export class fhnews extends clsIransamaneh {
                 forceHTTP: true
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
     }
 }
 
