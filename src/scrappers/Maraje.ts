@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper"
-import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces"
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType } from "../modules/interfaces"
 import { HTMLElement } from "node-html-parser"
 
 void enuMinorCategory, enuSubMinorCategory
@@ -26,6 +26,9 @@ export class sistani extends clsScrapper {
                 extraInvalidStartPaths: ["/arabic", "/urdu", "/english", "/turkish", "/azari", "/french", "/persian/send-question/"]
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -57,7 +60,7 @@ export class agorgani extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -78,7 +81,7 @@ export class saafi extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -105,7 +108,7 @@ export class bahjat extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Formal, minor: enuMinorCategory.Religious }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -129,5 +132,12 @@ export class zanjani extends clsScrapper {
                 extraInvalidStartPaths: ["/?ar"]
             }
         })
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }

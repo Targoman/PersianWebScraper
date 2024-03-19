@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces";
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 
 export class lioncomputer extends clsScrapper {
@@ -35,7 +35,7 @@ export class lioncomputer extends clsScrapper {
     })
   }
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+    const mappedCat: IntfMappedCategory = { textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -82,7 +82,7 @@ export class bazmineh extends clsScrapper {
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+    return { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
   }
 }
 
@@ -113,6 +113,6 @@ export class wppersian extends clsScrapper {
     })
   }
   mapCategoryImpl(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    return { textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }

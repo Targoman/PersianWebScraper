@@ -54,7 +54,7 @@ export class hamshahrionline extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -88,7 +88,7 @@ export class hamshahrionline extends clsNastoohBased {
             || first.startsWith("کودک")
             || first.startsWith("روز هفتم")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (second.startsWith("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
-        if (cat.includes("آشپزی")) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Cooking }
+        if (cat.includes("آشپزی")) return { ...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Cooking }
         if (first.startsWith("زندگی") || first.startsWith("تندرستی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (cat.includes("شهر")
             || cat.includes("استان")
@@ -117,7 +117,7 @@ export class irna extends clsNastoohBased {
     breadcrumbbreadcrumb
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -213,7 +213,7 @@ export class mashreghnews extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { textType:enuTextType.Formal, major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -261,6 +261,23 @@ export class khabaronline extends clsNastoohBased {
         return index > allElements.length - 5
             && (tag.innerText.match(/^[۱۲۳۴۵۶۷۸۹۰1234567890]+$/) ? true : false)
     }
+
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second, tags
+        if (first.includes("اخبار اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("اخبار اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("اخبار جهان")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("اخبار دانش و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("اخبار سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("اخبار فرهنگی و هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("اخبار ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("چندرسانه‌ای")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("چهره‌‌ها")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Celebrities }
+        if (first.includes("وبلاگ")) return { ...mappedCat, major: enuMajorCategory.Weblog }
+
+        return mappedCat
+    }
 }
 
 /***********************************************************/
@@ -279,7 +296,7 @@ export class mehrnews extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -338,7 +355,7 @@ export class imna extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -412,6 +429,10 @@ export class shana extends clsNastoohBased {
     async initialCookie(proxy?: IntfProxy, url?: string) {
         return await getArvanCookie(url || "https://www.shana.ir", this.baseURL, proxy)
     }
+
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
+    }
 }
 
 /***********************************************************/
@@ -428,7 +449,7 @@ export class chtn extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -452,6 +473,9 @@ export class shahr extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 
 /***********************************************************/
@@ -470,7 +494,7 @@ export class ibna extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -482,7 +506,7 @@ export class ibna extends clsNastoohBased {
         if (second.startsWith("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
         if (second.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
 
-        return { major: enuMajorCategory.News }
+        return mappedCat
     }
 }
 
@@ -505,7 +529,7 @@ export class hawzahnews extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -813,7 +837,7 @@ export class cinemapress extends clsNastoohBased {
         super(enuDomains.cinemapress, "cinemapress.ir")
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return  {major: enuMajorCategory.News, minor:  enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema}
+        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
 
@@ -844,7 +868,7 @@ export class chamedanmag extends clsNastoohBased {
     }
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
         void cat, first, second
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism}
+        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
     }
 }
 

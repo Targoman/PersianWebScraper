@@ -905,18 +905,9 @@ export class etemadonline extends clsAsamBased {
             }
         })
     }
-    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        if (cat) {
-            cat = cat.replace(/^خانه\//, "").trim()
-            const catParts = cat.split('/')
-            first = catParts[0].trim()
-            second = (catParts.length > 1 ? catParts[1] : '').trim()
-        }
-
-
-        return super.mapCategoryImpl(cat, first, second)
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
     }
-    //remove first part 
 }
 
 /***********************************************************/

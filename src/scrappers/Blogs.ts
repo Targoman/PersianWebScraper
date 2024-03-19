@@ -4516,10 +4516,10 @@ export class mizbanfa extends clsScrapper {
     }
     protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
         if (cat?.startsWith("خانه/"))
-        return cat?.replace(/^خانه\//, "").trim()
+            return cat?.replace(/^خانه\//, "").trim()
 
         if (cat?.startsWith("مگ/"))
-        return cat?.replace(/^مگ\//, "").trim()
+            return cat?.replace(/^مگ\//, "").trim()
 
         return cat
     }
@@ -4798,7 +4798,7 @@ export class sheypoor extends clsScrapper {
     }
 
     protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
-        const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog}
+        const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
         void category, first, second, tags
 
         if (category?.includes("خودرو")) return { ...mappedCat, subminor: enuSubMinorCategory.Car }
@@ -4806,7 +4806,8 @@ export class sheypoor extends clsScrapper {
         if (category?.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
         if (category?.includes("قیمت ها")) return { ...mappedCat, minor: enuMinorCategory.Economics }
         return mappedCat
-    }}
+    }
+}
 
 export class drsaina extends clsScrapper {
     constructor() {
@@ -4879,7 +4880,7 @@ export class blogfa extends clsScrapper {
     }
 
     protected mapCategoryImpl(): IntfMappedCategory {
-        return {textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog}
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -4903,6 +4904,9 @@ export class motamem extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
+    }
 }
 
 export class rozblog extends clsScrapper {
@@ -4925,6 +4929,9 @@ export class rozblog extends clsScrapper {
                 forceHTTP: true,
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -4955,6 +4962,9 @@ export class avablog extends clsScrapper {
                 removeWWW: true
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -4989,6 +4999,9 @@ export class parsiblog extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
+    }
 }
 
 export class deyblog extends clsScrapper {
@@ -5010,8 +5023,8 @@ export class deyblog extends clsScrapper {
             }
         })
     }
-    mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5035,8 +5048,8 @@ export class blogsazan extends clsScrapper {
             }
         })
     }
-    mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5062,6 +5075,9 @@ export class isblog extends clsScrapper {
             },
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
+    }
 }
 
 export class monoblog extends clsScrapper {
@@ -5078,6 +5094,9 @@ export class monoblog extends clsScrapper {
                 },
             },
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5100,6 +5119,9 @@ export class niloblog extends clsScrapper {
                 removeWWW: true,
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5125,6 +5147,24 @@ export class rahatblog extends clsScrapper {
             },
         })
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.split("/").at(0)?.trim()
+    }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+        const mappedCat = { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
+        void category, first, second, tags
+        if (category?.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (category?.includes(" سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (category?.includes("سرگرمی")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (category?.includes("بازیگران")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Celebrities }
+        if (category?.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (category?.includes("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (category?.includes("روانشناسی")) return { ...mappedCat, minor: enuMinorCategory.Psychology }
+        if (category?.includes("مذهب")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (category?.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (category?.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        return mappedCat
+    }
 }
 
 export class toonblog extends clsScrapper {
@@ -5146,6 +5186,9 @@ export class toonblog extends clsScrapper {
                 forceHTTP: true,
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5190,6 +5233,9 @@ export class niniweblog extends clsScrapper {
             return url.toString().replace("https://niniweblog.com/", "https://")
         return url.toString();
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
+    }
 }
 
 export class b88 extends clsScrapper {
@@ -5211,7 +5257,7 @@ export class b88 extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5235,7 +5281,7 @@ export class blogiran extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog }
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5255,6 +5301,9 @@ export class nasrblog extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5279,7 +5328,7 @@ export class asblog extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog }
+        return { textType: enuTextType.Hybrid, major: enuMajorCategory.Weblog }
     }
 }
 
@@ -5322,6 +5371,9 @@ export class roocket extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
+    }
 }
 
 export class hamyarwp extends clsScrapper {
@@ -5342,6 +5394,9 @@ export class hamyarwp extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
     }
 }
 
@@ -5366,6 +5421,12 @@ export class moshaveranetahsili extends clsScrapper {
             },
         })
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
+    }
 }
 
 
@@ -5389,6 +5450,12 @@ export class hamrahmoshaver extends clsScrapper {
             },
         })
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+    }
 }
 
 export class panamag extends clsScrapper {
@@ -5407,6 +5474,12 @@ export class panamag extends clsScrapper {
 
             },
         })
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Cooking }
     }
 }
 
@@ -5431,7 +5504,7 @@ export class bloging extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.Weblog }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
     }
 }
 
@@ -5455,6 +5528,9 @@ export class kojaro extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
+    }
 }
 
 export class tarikhema extends clsScrapper {
@@ -5474,5 +5550,8 @@ export class tarikhema extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Historical }
     }
 }

@@ -1,9 +1,9 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory } from "../modules/interfaces";
+import { IntfProxy, enuDomains, IntfComment, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, enuTextType } from "../modules/interfaces";
 import HP, { HTMLElement } from "node-html-parser"
 import { axiosGet, axiosPost, getArvanCookie, IntfRequestParams } from "../modules/request";
 import { log } from "../modules/logger";
-import { normalizeText, dateOffsetToDate } from "../modules/common";
+import { normalizeText, dateOffsetToDate, isIranProvinceString } from "../modules/common";
 
 export class farsnews extends clsScrapper {
     constructor() {
@@ -74,6 +74,167 @@ export class farsnews extends clsScrapper {
         u.protocol = "https:"
         return u.toString()
     }
+
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (first.startsWith("اخبار"))
+            first = first.substring(6).trim()
+
+        if (first.startsWith("استان") || isIranProvinceString(first))
+            return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.startsWith("فوتبال"))
+            return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (first.startsWith("رالی"))
+            return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Car }
+        if (first.startsWith("کشتی"))
+            return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+        if (first.startsWith("سیاست خارجی") || first.includes("الملل"))
+            return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.startsWith("سیاست"))
+            return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("اقتصاد"))
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.startsWith("سینما"))
+            return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (first.startsWith("کتاب"))
+            return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Book }
+        if (first.startsWith("سفر "))
+            return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Tourism }
+        if (first.startsWith("نرخ") || first.startsWith("واحد"))
+            return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("فضای مجازی"))
+            return { ...mappedCat, minor: enuMinorCategory.IT }
+
+        if (false
+            || first.startsWith("چندرسانه‌ای")
+            || first.startsWith("عکس")
+            || first.startsWith("ویدیو")
+            || first.startsWith("ویدئو")
+            || first.startsWith("تصویر")
+            || first.startsWith("کاریکاتور")
+        ) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+
+        if (first.includes("اجتماعی") || first.startsWith("جامعه") || first.startsWith("محیط") || first.includes("شهروند"))
+            mappedCat.minor = enuMinorCategory.Social
+        else if (first.includes("اقتصادی")
+            || first.includes("پولی")
+            || first.includes("قیمت")
+            || first.includes("تولید")
+            || first.includes("بازار")
+            || first.includes("مالیات")
+            || first.includes("اشتغال")
+            || first.includes("بورس")
+            || first.includes("بیمه")
+            || first.includes("نفت")
+            || first.includes("خودرو")
+            || first.includes("ارز ")
+            || first.includes(" سکه ")
+            || first.includes("سکه ")
+            || first.includes(" سکه")
+            || first.includes("بازرگانی")
+            || first.includes("حمل ")
+            || first.includes("کارگری")
+        )
+            mappedCat.minor = enuMinorCategory.Economics
+        else if (first.includes("فرهنگ") || first.includes("رسانه") || first.includes("هنری"))
+            mappedCat.minor = enuMinorCategory.Culture
+        else if (first.includes("المپیک") || first.includes("ورزش") || first.includes("جام جهانی") || first.includes("باشگاهی"))
+            mappedCat.minor = enuMinorCategory.Sport
+        else if (first.includes("زندگی") || first.includes("آشپزی") || first.includes("زیبایی"))
+            mappedCat.minor = enuMinorCategory.LifeStyle
+        else if (first.includes("کنکور"))
+            mappedCat.minor = enuMinorCategory.Education
+        else if (first.includes("دانشگاه"))
+            mappedCat.minor = enuMinorCategory.University
+        else if (first.includes("سلامت"))
+            mappedCat.minor = enuMinorCategory.Health
+        else if (first.includes("حوادث") || first.includes("زورگیری"))
+            return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        else if (first.includes("سفر"))
+            return { ...mappedCat, minor: enuMinorCategory.LifeStyle, subminor: enuMinorCategory.Tourism }
+        else if (first.includes("قضایی"))
+            return { ...mappedCat, minor: enuMinorCategory.Law }
+        else if (first.includes("سلبریتی") || first.includes("آرامش"))
+            mappedCat.minor = enuMinorCategory.LifeStyle
+        else if (first.includes("سرگرمی") || first.includes("فال "))
+            mappedCat.minor = enuMinorCategory.Fun
+        else if (first.includes("پاسخ"))
+            mappedCat.minor = enuMinorCategory.Talk
+        else if (first.includes("حقوق"))
+            mappedCat.minor = enuMinorCategory.Law
+        else if (first.includes("انتخابات") || first.includes("جنبش عدم تعهد") || first.includes("سیاسی"))
+            mappedCat.minor = enuMinorCategory.Political
+        else if (first.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        else if (first.includes("تکنولوژی") || first.includes("فناوری") || first.includes("علم") || first.includes("دانش")) mappedCat.minor = enuMinorCategory.ScienceTech
+
+        if (second.includes("انتخابات")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Political; else mappedCat.minor = enuMinorCategory.Political
+        } else if (second.includes("آموزش")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Education; else mappedCat.minor = enuMinorCategory.Education
+        } else if (second.includes("قرآن") || second.includes("قران")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Religious; else mappedCat.minor = enuMinorCategory.Religious
+        } else if (second.includes("زندگی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.LifeStyle; else mappedCat.minor = enuMinorCategory.LifeStyle
+        } else if (second.includes("اقتصاد")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Economics; else mappedCat.minor = enuMinorCategory.Economics
+        } else if (second.includes("قضایی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Law; else mappedCat.minor = enuMinorCategory.Law
+        } else if (second.includes("جامعه") || second.includes("شهری") || second.includes("محیط")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Social; else mappedCat.minor = enuMinorCategory.Social
+        } else if (second.includes("سلامت")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Health; else mappedCat.minor = enuMinorCategory.Health
+        } else if (second.includes("آشپزی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Cooking; else mappedCat.minor = enuMinorCategory.Cooking
+        } else if (second.includes("حوادث")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Accident; else mappedCat.minor = enuMinorCategory.Social
+        } else if (second.includes("دفاع") || second.includes("نظامی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Defence; else mappedCat.minor = enuMinorCategory.Defence
+        } else if (second.includes("کتاب")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Book; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("تلویزیون")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.TV; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("سینما")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Cinema; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("انرژی") || second.includes("نفت")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Energy; else mappedCat.minor = enuMinorCategory.ScienceTech
+        } else if (second.includes("کشاورزی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Agriculture; else mappedCat.minor = enuMinorCategory.ScienceTech
+        } else if (second.includes("دانشگاه")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.University; else mappedCat.minor = enuMinorCategory.University
+        } else if (second.includes("تکنولوژی") || second.includes("فناوری") || second.includes("علم") || second.includes("دانش")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.ScienceTech; else mappedCat.minor = enuMinorCategory.ScienceTech
+        } else if (second.includes("هنر")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Art; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("موسیقی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Music; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("مذهبی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Religious; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("تاریخی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Historical; else mappedCat.minor = enuMinorCategory.Historical
+        } else if (second.includes("گردشگری") || second.includes("سفر")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Tourism; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("المپیک") || second.includes("ورزش") || second.includes("جام جهانی") || second.includes("باشگاهی")) {
+            if (mappedCat.minor) mappedCat.subminor = enuMinorCategory.Sport; else mappedCat.minor = enuMinorCategory.Sport
+        } else if (second.includes("گالری")) {
+            if (mappedCat.minor) mappedCat.subminor = enuSubMinorCategory.Art; else mappedCat.minor = enuMinorCategory.Culture
+        } else if (second.includes("رالی")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            mappedCat.subminor = enuSubMinorCategory.Car
+        } else if (second.includes("فوتبال")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            mappedCat.subminor = enuSubMinorCategory.Football
+        } else if (second.includes("رزمی")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            mappedCat.subminor = enuSubMinorCategory.Martial
+        } else if (second.includes("کشتی")) {
+            mappedCat.minor = enuMinorCategory.Sport
+            mappedCat.subminor = enuSubMinorCategory.Wrestling
+        }
+        return mappedCat
+    }
 }
 
 export class alef extends clsScrapper {
@@ -115,7 +276,7 @@ export class alef extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -182,7 +343,7 @@ export class isna extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -306,10 +467,9 @@ export class khamenei extends clsScrapper {
     }
 
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
-
 
 export class citna extends clsScrapper {
     constructor() {
@@ -335,7 +495,7 @@ export class citna extends clsScrapper {
     }
 
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
     }
 }
 
@@ -374,7 +534,7 @@ export class itna extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -390,7 +550,6 @@ export class itna extends clsScrapper {
     }
 }
 
-/************************************* */
 export class zoomit extends clsScrapper {
     constructor() {
         super(enuDomains.zoomit, "zoomit.ir", {
@@ -456,9 +615,24 @@ export class zoomit extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (second.startsWith("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+        if (second.startsWith("روباتیك")) return { ...mappedCat, subminor: enuSubMinorCategory.Robotic }
+        if (second.startsWith("بازی")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+        if (second.startsWith("سخت‌افزار") || second.startsWith("كامپیوتر همراه")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+        if (first.startsWith("ارتباطات") || first.includes("ICT")) return { ...mappedCat, subminor: enuMinorCategory.ICT }
+        if (first.startsWith("نجوم") || first.includes("ICT")) return { ...mappedCat, subminor: enuSubMinorCategory.Cosmos }
+        if (first.startsWith("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+        if (first.startsWith("امنیت")) return { ...mappedCat, subminor: enuSubMinorCategory.Security }
+
+        return mappedCat
+    }
 }
 
-/************************************* */
 export class varzesh3 extends clsScrapper {
     constructor() {
         super(enuDomains.varzesh3, "varzesh3.com", {
@@ -495,11 +669,10 @@ export class varzesh3 extends clsScrapper {
     }
 
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
     }
 }
 
-/************************************* */
 export class tarafdari extends clsScrapper {
     constructor() {
         super(enuDomains.tarafdari, "tarafdari.com", {
@@ -541,11 +714,10 @@ export class tarafdari extends clsScrapper {
     }
 
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
     }
 }
 
-/***********************************************************/
 export class pana extends clsScrapper {
     constructor() {
         super(enuDomains.pana, "pana.ir", {
@@ -575,7 +747,7 @@ export class pana extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -595,7 +767,6 @@ export class pana extends clsScrapper {
         return mappedCat
     }
 }
-
 
 export class niknews extends clsScrapper {
     constructor() {
@@ -617,7 +788,7 @@ export class niknews extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -662,7 +833,7 @@ export class namnak extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -713,7 +884,7 @@ export class beytoote extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -761,7 +932,7 @@ export class beytoote extends clsScrapper {
             || cat.endsWith("مستحبی")
         ) return { ...mappedCat, minor: enuMinorCategory.Religious }
         if (cat.includes("تحصیلی")) return { ...mappedCat, minor: enuMinorCategory.University }
-        if (cat.includes("روزنامه")) return { major: enuMajorCategory.News }
+        if (cat.includes("روزنامه")) return { ...mappedCat, major: enuMajorCategory.News }
         if (cat.includes("اجتماعی") || cat.startsWith("خانواده")) return { ...mappedCat, minor: enuMinorCategory.Social }
         if (cat.includes("اقتصاد")
             || cat.includes("مشاغل")
@@ -850,7 +1021,7 @@ export class arzdigital extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
+        const mappedCat = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -891,7 +1062,7 @@ export class ramzarz extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.CryptoCurrency }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -933,7 +1104,7 @@ export class digiato extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -976,6 +1147,9 @@ export class khatebazar extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class jomhouriat extends clsScrapper {
@@ -999,6 +1173,59 @@ export class jomhouriat extends clsScrapper {
             }
         })
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second, tags
+        if (first.includes("اقتصاد")
+            || first.includes("بانک")
+            || first.includes("بیمه")
+            || first.includes("بورس")
+            || first.includes("تجارت")
+            || first.includes("تولید")
+            || first.includes("بانک")
+            || first.includes("صنعت")
+            || first.includes("مسکن و راه")
+        ) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("شرعی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (first.includes("انتخابات")
+            || first.includes("دولت")
+            || first.includes("سیاست")
+        ) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("بیوگرافی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Celebrities }
+        if (first.includes("پتروشیمی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Petroleum }
+        if (first.includes("پوشاک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (first.includes("تعبیر خواب")
+            || first.includes("فال ")
+        ) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (first.includes("توپ و تور")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("جامعه")
+            || first.includes("زناشویی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Law }
+        if (first.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (first.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        if (first.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (first.includes("سینما")
+            || first.includes("فیلم")
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (first.includes("صنایع دستی")
+            || first.includes("فرهنگ")
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Photo }
+        if (first.includes("فن آوری")
+            || first.includes("فناوری")
+        ) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("شرعی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (first.includes("شرعی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        return mappedCat
+    }
 }
 
 export class ofoghnews extends clsScrapper {
@@ -1018,6 +1245,10 @@ export class ofoghnews extends clsScrapper {
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
             }
         })
+    }
+
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
 
@@ -1039,6 +1270,9 @@ export class iwna extends clsScrapper {
                 tags: "[rel='tag']"
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
 
@@ -1071,6 +1305,9 @@ export class vido extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+    }
 }
 
 export class filmmagazine extends clsScrapper {
@@ -1090,7 +1327,7 @@ export class filmmagazine extends clsScrapper {
         })
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor:enuSubMinorCategory.Cinema }
+        return { textType:enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
 
@@ -1116,6 +1353,25 @@ export class asrkhabar extends clsScrapper {
             }
         })
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+    protected mapCategoryImpl(category: string | undefined): IntfMappedCategory {
+        const mappedCat:IntfMappedCategory = {textType: enuTextType.Formal, major:enuMajorCategory.News}
+        if(category?.includes("اجتماعی")) return {...mappedCat, minor:enuMinorCategory.Social}
+        if(category?.includes("اقتصاد")) return {...mappedCat, minor:enuMinorCategory.Economics}
+        if(category?.includes("بازار")) return {...mappedCat, minor:enuMinorCategory.Economics}
+        if(category?.includes("خارجی")) return {...mappedCat, minor:enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl}
+        if(category?.includes("سرگرمی")) return {...mappedCat, minor:enuMinorCategory.Fun}
+        if(category?.includes("سلامت")) return {...mappedCat, minor:enuMinorCategory.Health}
+        if(category?.includes("سیاست")) return {...mappedCat, minor:enuMinorCategory.Political}
+        if(category?.includes("عکس و فیلم")) return {...mappedCat, minor:enuMinorCategory.Multimedia}
+        if(category?.includes("علم، فنآوری و IT")) return {...mappedCat, minor:enuMinorCategory.ScienceTech}
+        if(category?.includes("فرهنگ و هنر")) return {...mappedCat, minor:enuMinorCategory.Culture}
+        if(category?.includes("فیلم و سینما و تلویزیون")) return {...mappedCat, minor:enuMinorCategory.Culture}
+        if(category?.includes("ورزش")) return {...mappedCat, minor:enuMinorCategory.Sport}
+        return mappedCat
+    }
 }
 
 export class zoomg extends clsScrapper {
@@ -1136,6 +1392,9 @@ export class zoomg extends clsScrapper {
                 },
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.Game }
     }
 }
 
@@ -1164,6 +1423,9 @@ export class pedal extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+    }
 }
 
 export class car extends clsScrapper {
@@ -1191,6 +1453,10 @@ export class car extends clsScrapper {
                 extraInvalidStartPaths: ["/prices"]
             }
         })
+    }
+
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
     }
 }
 
@@ -1240,6 +1506,10 @@ export class gamefa extends clsScrapper {
             }
         })
     }
+
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun, subminor: enuSubMinorCategory.Game }
+    }
 }
 
 export class ictnn extends clsScrapper {
@@ -1265,6 +1535,21 @@ export class ictnn extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.ICT }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (cat.includes("نرم افزار")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
+        if (cat.includes("Gaming")) return { ...mappedCat,  subminor: enuSubMinorCategory.Game }
+        if (cat.includes("Security")) return { ...mappedCat,  subminor: enuSubMinorCategory.Security }
+        if (cat.includes("اقتصاد")) return { ...mappedCat,  subminor: enuMinorCategory.Economics }
+        if (cat.includes("Smartphone")) return { ...mappedCat,  subminor: enuSubMinorCategory.Mobile }
+        if (cat.includes("Computers")) return { ...mappedCat,  subminor: enuSubMinorCategory.Hardware }
+        if (cat.includes("Photography")) return { ...mappedCat,  subminor: enuSubMinorCategory.Photo }
+
+        return mappedCat
+    }
 }
 
 export class aryanews extends clsScrapper {
@@ -1284,6 +1569,29 @@ export class aryanews extends clsScrapper {
                 },
             },
         })
+    }
+
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor:enuSubMinorCategory.Art }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (first.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        if (first.startsWith("عکس") || cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        if (first.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Health }
+
+        return mappedCat
     }
 }
 
@@ -1307,6 +1615,9 @@ export class sinapress extends clsScrapper {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
+    }
 }
 
 export class shomalnews extends clsScrapper {
@@ -1325,6 +1636,9 @@ export class shomalnews extends clsScrapper {
                 },
             },
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
 
@@ -1349,6 +1663,14 @@ export class artanpress extends clsScrapper {
                 },
             },
         })
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        if(!cat) return cat
+        const parts = cat.split("/")
+        return parts.at(0) + (parts.length > 1 ? ("/" + parts.at(1)) : "")
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
@@ -1376,5 +1698,28 @@ export class manbaekhabar extends clsScrapper {
                 tags: ".tag_wrap a"
             },
         })
+    }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor:enuSubMinorCategory.Art }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+        if (first.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+        if (first.startsWith("عکس") || cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+        if (first.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (first.includes("کشتی")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Wrestling }
+
+        return mappedCat
     }
 }
