@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -48,7 +48,7 @@ class clsStudioKhabarBased extends clsScrapper {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 

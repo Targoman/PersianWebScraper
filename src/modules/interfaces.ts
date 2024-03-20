@@ -633,6 +633,7 @@ export enum enuSubMinorCategory {
     Celebrities = "Celebrities",
     Cinema = "Cinema",
     Photo = "Photo",
+    Insurance = "Insurance",
     Documentary = "Documentary",
     Music = "Music",
     Media = "Media",

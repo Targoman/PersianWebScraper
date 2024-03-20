@@ -494,7 +494,7 @@ export class ibna extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -529,7 +529,7 @@ export class hawzahnews extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -555,6 +555,10 @@ export class khabarvarzeshi extends clsNastoohBased {
             }
         })
     }
+
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Sport }
+    }
 }
 
 export class sena extends clsNastoohBased {
@@ -566,6 +570,9 @@ export class sena extends clsNastoohBased {
                 },
             }
         })
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
@@ -585,11 +592,46 @@ export class mefda extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Education }
+        void category, first, second, tags
+        if (category?.includes("قرآن")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (category?.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (category?.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+
+        return { ...mappedCat, subminor: enuMinorCategory.University }
+    }
 }
 
 export class iscanews extends clsNastoohBased {
     constructor() {
         super(enuDomains.iscanews, "iscanews.ir")
+    }
+
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^صفحه نخست\//, "").trim()
+    }
+
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (cat.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (cat.includes("فیلم") || cat.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (cat.includes("بین")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (cat.includes("بانوان")) return { ...mappedCat, minor: enuMinorCategory.Religious, subminor: enuSubMinorCategory.Women }
+        if (cat.includes("گفتگو")) return { ...mappedCat, minor: enuMinorCategory.Talk }
+        if (cat.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (cat.includes("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (cat.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (cat.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (cat.includes("دانشگاه")) return { ...mappedCat, minor: enuMinorCategory.University }
+        if (cat.includes("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (cat.includes("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (cat.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+
+        return { ...mappedCat, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -605,7 +647,7 @@ export class behzisti extends clsNastoohBased {
     }
 
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -623,6 +665,9 @@ export class tahlilbazaar extends clsNastoohBased {
     constructor() {
         super(enuDomains.tahlilbazaar, "tahlilbazaar.com")
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class kanoonnews extends clsNastoohBased {
@@ -639,6 +684,9 @@ export class kanoonnews extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
+    }
 }
 
 export class imereport extends clsNastoohBased {
@@ -654,6 +702,9 @@ export class imereport extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+    }
 }
 
 export class oipf extends clsNastoohBased {
@@ -667,11 +718,33 @@ export class oipf extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Petroleum }
+    }
 }
 
 export class salameno extends clsNastoohBased {
     constructor() {
         super(enuDomains.salameno, "salameno.com")
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^صفحه اصلی\//, "").trim()
+    }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second
+        if (first.includes("فرهنگ و هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("علم و فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("همدان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
     }
 }
 
@@ -679,17 +752,61 @@ export class tehrannews extends clsNastoohBased {
     constructor() {
         super(enuDomains.tehrannews, "tehrannews.ir")
     }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second
+
+        if (first.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
+    }
 }
 
 export class tahririeh extends clsNastoohBased {
     constructor() {
         super(enuDomains.tahririeh, "tahririeh.com")
     }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^صفحه اصلی\//, "").trim()
+    }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second
+        if (first.includes("فرهنگ و هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("اقتصادی")
+            || first.includes("بازار")
+            || first.includes("کسب ")
+        ) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("سبک زندگی")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (first.includes("چند رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("همدان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
+    }
+
 }
 
 export class atiyeonline extends clsNastoohBased {
     constructor() {
         super(enuDomains.atiyeonline, "atiyeonline.ir")
+    }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Insurance }
     }
 }
 
@@ -701,6 +818,9 @@ export class salamatnews extends clsNastoohBased {
             }
         })
     }
+    protected mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+    }
 }
 
 export class eximnews extends clsNastoohBased {
@@ -708,13 +828,16 @@ export class eximnews extends clsNastoohBased {
         super(enuDomains.eximnews, "eximnews.ir")
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
 export class payamekhanevadeh extends clsNastoohBased {
     constructor() {
         super(enuDomains.payamekhanevadeh, "payamekhanevadeh.ir")
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.LifeStyle }
     }
 }
 
@@ -728,11 +851,37 @@ export class qudsonline extends clsNastoohBased {
             }
         })
     }
+
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, tags?: string[] | undefined): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void first, second, category, tags
+
+        if (first.startsWith("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.startsWith("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.startsWith("بین‌الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.startsWith("جامعه")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.startsWith("چندرسانه‌ای")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.startsWith("خراسان رضوی")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (first.startsWith("دین و اندیشه")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (first.startsWith("رواق")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (first.startsWith("سیاست")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.startsWith("فرهنگ و هنر")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.startsWith("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.startsWith("طنز")) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (second.startsWith("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
+        if (second.startsWith("مردم")) return { ...mappedCat, minor: enuMinorCategory.Social }
+
+        return mappedCat
+    }
 }
 
 export class karafarinnews extends clsNastoohBased {
     constructor() {
         super(enuDomains.karafarinnews, "karafarinnews.ir")
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
@@ -741,13 +890,16 @@ export class bidarbourse extends clsNastoohBased {
         super(enuDomains.bidarbourse, "bidarbourse.com")
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
 export class shahryarnews extends clsNastoohBased {
     constructor() {
         super(enuDomains.shahryarnews, "shahryarnews.net")
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Local }
     }
 }
 
@@ -770,6 +922,30 @@ export class sahebkhabar extends clsNastoohBased {
             }
         })
     }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        if (!cat) return mappedCat
+        void cat, first, second
+
+        if (second.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (second.includes("جامعه")
+            || second.includes("اجتماعی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (second.includes("جهان")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (second.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (second.includes("قرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (second.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (second.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (second.includes("استانی")) return { ...mappedCat, minor: enuMinorCategory.Local }
+        if (second.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (second.includes("متفرقه")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+        if (second.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (second.includes("فیلم")) return { ...mappedCat, subminor: enuMinorCategory.Multimedia }
+        if (second.includes("عکس")) return { ...mappedCat, subminor: enuMinorCategory.Multimedia }
+
+        return mappedCat
+    }
 }
 
 export class saat24 extends clsNastoohBased {
@@ -791,7 +967,7 @@ export class saat24 extends clsNastoohBased {
         })
     }
     mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
         void cat, first, second
 
@@ -830,6 +1006,9 @@ export class farhangemrooz extends clsNastoohBased {
             },
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture }
+    }
 }
 
 export class cinemapress extends clsNastoohBased {
@@ -837,7 +1016,7 @@ export class cinemapress extends clsNastoohBased {
         super(enuDomains.cinemapress, "cinemapress.ir")
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
     }
 }
 
@@ -845,11 +1024,17 @@ export class ifsm extends clsNastoohBased {
     constructor() {
         super(enuDomains.ifsm, "ifsm.ir")
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Local }
+    }
 }
 
 export class sedayebourse extends clsNastoohBased {
     constructor() {
         super(enuDomains.sedayebourse, "sedayebourse.ir")
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Economics }
     }
 }
 
@@ -858,7 +1043,7 @@ export class donyayekhodro extends clsNastoohBased {
         super(enuDomains.donyayekhodro, "donyayekhodro.com")
     }
     mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
+        return {textType:enuTextType.Formal major: enuMajorCategory.News, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Car }
     }
 }
 
@@ -866,9 +1051,8 @@ export class chamedanmag extends clsNastoohBased {
     constructor() {
         super(enuDomains.chamedanmag, "chamedanmag.com")
     }
-    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-        void cat, first, second
-        return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Tourism }
     }
 }
 
@@ -889,6 +1073,9 @@ export class irasin extends clsNastoohBased {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.News}
+    }
 }
 
 export class tebna extends clsNastoohBased {
@@ -900,6 +1087,24 @@ export class tebna extends clsNastoohBased {
                 }
             }
         })
+    }
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second
+
+        if (first.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("اقتصادی")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("فناوری")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+
+        return mappedCat
     }
 }
 
@@ -916,17 +1121,29 @@ export class foodpress extends clsNastoohBased {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.News}
+    }
 }
 
 export class fardayeeghtesad extends clsNastoohBased {
     constructor() {
         super(enuDomains.fardayeeghtesad, "fardayeeghtesad.com")
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.News}
+    }
 }
 
 export class radareghtesad extends clsNastoohBased {
     constructor() {
         super(enuDomains.radareghtesad, "radareghtesad.ir")
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^صفحه اصلی\//, "").trim()
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.News}
     }
 }
 
@@ -939,5 +1156,8 @@ export class karajemrouz extends clsNastoohBased {
                 },
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return {textType:enuTextType.Formal, major: enuMajorCategory.News, minor:enuMinorCategory.Local}
     }
 }

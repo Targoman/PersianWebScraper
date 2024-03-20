@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import deepmerge from "deepmerge";
 import { HTMLElement } from "node-html-parser"
 
@@ -32,7 +32,7 @@ class clsSputnikBased extends clsScrapper {
     }
 
     public mapCategoryImpl(): IntfMappedCategory {
-        return { major: enuMajorCategory.News }
+        return { textType:enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
 
