@@ -258,3 +258,40 @@ export class shoragc extends clsScrapper {
   }
 }
 
+<<<<<<< HEAD
+=======
+export class daadyab extends clsScrapper {
+  constructor() {
+    super(enuDomains.daadyab, "daadyab.com", {
+      selectors: {
+        article: (_:HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelector(".comments-container")?.parentNode,
+        title: "NO_TITLE",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          qa: {
+            containers: ".col-md-12",
+            q: {
+              container: ".comment-box",
+              text: ".comment-content",
+            },
+            a: {
+              container: ".comments-container+.comments-container li",
+              text: ".comment-content",
+              author: ".by-author a",
+              datetime: ".comment-head span"
+            },
+          },
+        },
+      },
+      url:{
+        removeWWW:false
+      }
+    })
+  }
+  mapCategory(): IntfMappedCategory {
+    return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+  }
+}
+>>>>>>> e920d38 (partial)
