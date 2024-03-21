@@ -1,12 +1,12 @@
 #!/bin/sh 
 
 if [ -z "$1" ];then
-    Registry="docker-registry.tip.co.ir"
+    Registry="docker-hub.targoman.com/projects"
 else 
     Registry = $1
 fi 
 
-ImageName="$Registry/webscrap/scrapper"
+ImageName="$Registry/persian-web-scrapper/scrapper"
 Container="scrapper"
 ContainerParams=""
 

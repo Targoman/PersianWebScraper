@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -47,13 +47,10 @@ class clsStudioKhabarBased extends clsScrapper {
         return url.protocol + "//" + url.hostname + path
     }
 
-    mapCategory(cat?: string): IntfMappedCategory {
-        const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News }
+    mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
         if (!cat) return mappedCat
-
-        const catParts = cat.split('/')
-        const first = catParts[0]
-        const second = catParts.length > 1 ? catParts[1] : ''
+        void cat, first, second
 
         if (false
             || first.startsWith("عکس")
@@ -107,6 +104,7 @@ export class jahannews extends clsStudioKhabarBased {
 
         return url.protocol + "//" + url.hostname + path
     }
+    //super.mapCategoryImpl(cat?: string)
 }
 
 
@@ -137,7 +135,6 @@ export class baharnews extends clsStudioKhabarBased {
 
         return url.protocol + "//" + url.hostname + path
     }
-
-
+    //super.mapCategoryImpl(cat?: string)
 }
 

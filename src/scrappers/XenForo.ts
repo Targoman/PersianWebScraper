@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfProcessorConfigs } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import deepmerge from "deepmerge";
 
@@ -44,21 +44,20 @@ export class persiantools extends clsXenForoBased {
     super(enuDomains.persiantools, "forum.persiantools.com")
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    void cat, first, second
 
     if (second.includes("کامپیوتر") || second.includes("اینترنت")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
-    else if (second.includes("برنامه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-    else if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
-    else if (second.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
-    else if (second.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
-    else if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
-    else if (second.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+    if (second.includes("برنامه")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+    if (second.includes("موبایل")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Mobile }
+    if (second.includes("عمومی")) return { ...mappedCat, minor: enuMinorCategory.Generic }
+    if (second.includes("فرهنگ")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+    if (second.includes("سبک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+    if (second.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+    if (second.includes("اقتصاد")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+    if (second.includes("تکنولوژی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
     return mappedCat
   }
 }
@@ -72,8 +71,8 @@ export class majidonline extends clsXenForoBased {
     })
   }
 
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+  mapCategoryImpl(): IntfMappedCategory {
+    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
   }
 }
 
@@ -82,7 +81,7 @@ export class bazicenter extends clsXenForoBased {
     super(enuDomains.bazicenter, "forum.bazicenter.com")
   }
 
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
+  mapCategoryImpl(): IntfMappedCategory {
+    return {textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }

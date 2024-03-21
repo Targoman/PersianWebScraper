@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfProxy } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuTextType, IntfMappedCategory, IntfProxy } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 import { getArvanCookie } from "../modules/request";
 
@@ -32,8 +32,8 @@ export class dotic extends clsScrapper {
     return await getArvanCookie(url || "https://dotic.ir", this.baseURL, proxy)
   }
 
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategoryImpl(): IntfMappedCategory {
+    return {textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
 
@@ -61,20 +61,19 @@ export class ekhtebar extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0]
+    void cat, first, second
 
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (first.startsWith('آگهی')) return { ...mappedCat, minor: enuMinorCategory.Advert }
-    if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
-    if (first.startsWith('آوای')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
-    if (first.startsWith('دانلود')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
-    if (first.startsWith('قوانین') || first.startsWith('منابع')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
-    if (first.startsWith('ویدئو')) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Law }
+    if (first.startsWith('آموزش')) return {...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
+    if (first.startsWith('آوای')) return {...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+    if (first.startsWith('دانلود')) return {...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law }
+    if (first.startsWith('قوانین') || first.startsWith('منابع')) return {...mappedCat, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+    if (first.startsWith('ویدئو')) return {...mappedCat, major: enuMajorCategory.News, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Law }
     return mappedCat
   }
 }
@@ -106,8 +105,8 @@ export class qavanin extends clsScrapper {
   async initialCookie(proxy?: IntfProxy, url?: string) {
     return await getArvanCookie(url || "https://qavanin.ir", this.baseURL, proxy)
   }
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+  mapCategoryImpl(): IntfMappedCategory {
+    return {textType:enuTextType.Formal, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
   }
 }
 
@@ -143,14 +142,13 @@ export class rcmajlis extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    void cat, first, second
 
-    if (second.startsWith('قوانین') || second.startsWith('طرح')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+    if (second.startsWith('قوانین') || second.startsWith('طرح')) return {...mappedCat, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
     return mappedCat
   }
 }
@@ -184,17 +182,16 @@ export class shenasname extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0]
+    void cat, first, second
 
     if (first.startsWith('آزمون') || first.startsWith('وکالت')) return { ...mappedCat, subminor: enuMinorCategory.Education }
-    if (first.startsWith('آموزش')) return { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
+    if (first.startsWith('آموزش')) return {...mappedCat, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Law, subminor: enuMinorCategory.Education }
     if (first.startsWith('آگهی')) return { ...mappedCat, minor: enuMinorCategory.Advert }
-    if (first.startsWith('اخبار')) return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+    if (first.startsWith('اخبار')) return {...mappedCat, major: enuMajorCategory.News, minor: enuMinorCategory.Law }
 
     return mappedCat
   }
@@ -219,8 +216,8 @@ export class labourlaw extends clsScrapper {
       url: { removeWWW: true }
     })
   }
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.News, minor: enuMinorCategory.Law }
+  mapCategoryImpl(): IntfMappedCategory {
+    return {textType:enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Law }
   }
 }
 
@@ -250,16 +247,51 @@ export class shoragc extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
-
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = {textType:enuTextType.Formal, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const first = catParts[0]
+    void cat, first, second
 
-    if (first.startsWith('انطباق') || first.startsWith('قانون')) return { major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
+    if (first.startsWith('انطباق') || first.startsWith('قانون')) return {...mappedCat, major: enuMajorCategory.Doc, minor: enuMinorCategory.Law }
 
     return mappedCat
   }
 }
 
+<<<<<<< HEAD
+=======
+export class daadyab extends clsScrapper {
+  constructor() {
+    super(enuDomains.daadyab, "daadyab.com", {
+      selectors: {
+        article: (_:HTMLElement, fullHTML: HTMLElement) => fullHTML.querySelector(".comments-container")?.parentNode,
+        title: "NO_TITLE",
+        datetime: {
+          acceptNoDate: true
+        },
+        content: {
+          qa: {
+            containers: ".col-md-12",
+            q: {
+              container: ".comment-box",
+              text: ".comment-content",
+            },
+            a: {
+              container: ".comments-container+.comments-container li",
+              text: ".comment-content",
+              author: ".by-author a",
+              datetime: ".comment-head span"
+            },
+          },
+        },
+      },
+      url:{
+        removeWWW:false
+      }
+    })
+  }
+  mapCategory(): IntfMappedCategory {
+    return { major: enuMajorCategory.QA, minor: enuMinorCategory.Law }
+  }
+}
+>>>>>>> e920d38 (partial)

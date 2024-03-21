@@ -1,6 +1,8 @@
 import { clsScrapper } from "../modules/clsScrapper"
-import { enuDomains } from "../modules/interfaces"
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType } from "../modules/interfaces"
 import { HTMLElement } from "node-html-parser"
+
+void enuMinorCategory, enuSubMinorCategory
 
 export class sistani extends clsScrapper {
     constructor() {
@@ -24,6 +26,9 @@ export class sistani extends clsScrapper {
                 extraInvalidStartPaths: ["/arabic", "/urdu", "/english", "/turkish", "/azari", "/french", "/persian/send-question/"]
             }
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }
 
@@ -54,6 +59,9 @@ export class agorgani extends clsScrapper {
             }
         })
     }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+    }
 }
 
 export class saafi extends clsScrapper {
@@ -71,5 +79,65 @@ export class saafi extends clsScrapper {
                 },
             },
         })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+    }
+}
+
+export class bahjat extends clsScrapper {
+    constructor() {
+        super(enuDomains.bahjat, "bahjat.ir", {
+            basePath: "/fa",
+            selectors: {
+                article: ".nodeWrapper, .barge, body.node-type-ahkam",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, title"),
+                subtitle: ".subTitle",
+                datetime: {
+                    conatiner: "time",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cBody, section.ahkam-teaser .wrapper, span.imgTeaser a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".nodeWrapper .entry-tags span a"),
+            },
+            url: {
+                extraInvalidStartPaths: ["/ur", "/en"]
+            }
+        })
+    }
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+    }
+}
+
+export class zanjani extends clsScrapper {
+    constructor() {
+        super(enuDomains.zanjani, "zanjani.ir", {
+            selectors: {
+                article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
+                title: ".single-content-title, .article span:nth-child(1), h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".single-content-content, .article_box, #lightgallery",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
+                },
+            },
+            url: {
+                extraInvalidStartPaths: ["/?ar"]
+            }
+        })
+    }
+    protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+        return cat?.replace(/^خانه\//, "").trim()
+    }
+
+    mapCategoryImpl(): IntfMappedCategory {
+        return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
     }
 }

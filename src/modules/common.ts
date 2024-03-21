@@ -42,10 +42,6 @@ export function formatNumber(num: number) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export function normalizeCategory(cat?: string) {
-    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
-}
-
 export function isIranProvinceString(str: string) {
     return str.startsWith("ایران")
         || str.startsWith("استان")
@@ -67,6 +63,7 @@ export function isIranProvinceString(str: string) {
         || str.startsWith("قم")
         || str.startsWith("کاشان")
         || str.startsWith("کردستان")
+        || str.startsWith("کرمان")
         || str.startsWith("کرمان")
         || str.startsWith("کهگلویه")
         || str.startsWith("گلستان")
