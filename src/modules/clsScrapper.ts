@@ -924,22 +924,11 @@ export abstract class clsScrapper {
             removeWWW: conf && conf.removeWWW !== undefined ? conf.removeWWW : this.pConf.url?.removeWWW,
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
-<<<<<<< HEAD
     }
 
     protected normalizePath(url: URL, conf?: IntfURLNormalizationConf): string {
         const effectiveConf = this.effectiveURLNormalizetionConf(conf)
-=======
-        let hostname = url.hostname
-        const hostnameParts = hostname.split(".")
-        if (effective.removeWWW || (hostnameParts.length > 2 && hostnameParts[0] === 'www')) {
-            if (hostname.startsWith("www."))
-                hostname = hostname.substring(4)
-        } else {
-            if (hostnameParts[0] !== "www" && hostnameParts.length === 2)
-                hostname = "www." + hostname
-        }
->>>>>>> e920d38 (partial)
+
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
