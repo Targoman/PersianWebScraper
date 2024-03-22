@@ -57,8 +57,11 @@ export abstract class clsScrapper {
         this.proxyCookie = {}
     }
 
-    get name() {
+    get domainName() {
         return this.domain
+    }
+    get domainURL() {
+        return this.baseURL
     }
 
     async check(url: string) {
@@ -72,7 +75,7 @@ export abstract class clsScrapper {
         try {
             log.setModuleName(this.domain)
             log.progress("Starting...")
-            this.db.init(recheck)
+            await this.db.init(recheck)
             if (!existsSync(this.corporaPath))
                 if (!mkdirSync(this.corporaPath, { recursive: true }))
                     throw new Error("Unable to create corpora directory: " + this.corporaPath)
@@ -397,7 +400,7 @@ export abstract class clsScrapper {
             return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
-            log.file(this.name, gregorian)
+            log.file(this.domain, gregorian)
         return gregorian
     }
 
@@ -901,7 +904,7 @@ export abstract class clsScrapper {
     }
 
     async runQuery(query: string) {
-        this.db.init()
+        await this.db.init()
         log.info(this.db.runQuery(query))
     }
 

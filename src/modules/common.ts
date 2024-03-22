@@ -212,7 +212,7 @@ export function date2Gregorian(date?: string): string | undefined {
     const dateParts = date.split("-")
     try {
         if (dateParts.length >= 3) {
-            log.debug({ dateParts })
+            //log.debug({ dateParts })
             if (dateParts[dateParts.length - 1].length === 4)
                 date = dateParts.reverse().join("-")
             if (dateParts[0].length === 4) {
