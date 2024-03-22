@@ -57,7 +57,7 @@ export abstract class clsScrapper {
         this.proxyCookie = {}
     }
 
-    name() {
+    get name() {
         return this.domain
     }
 
@@ -397,7 +397,7 @@ export abstract class clsScrapper {
             return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
-            log.file(this.name(), gregorian)
+            log.file(this.name, gregorian)
         return gregorian
     }
 

@@ -1,6 +1,6 @@
 import { string, optional, number, positional, option, oneOf, flag } from 'cmd-ts';
 import { command, run } from 'cmd-ts';
-import { enuDomains, enuMajorCategory, IntfDocFilecontent, IntfGlobalConfigs } from './modules/interfaces';
+import { enuDomains, enuMajorCategory, IntfDocFilecontent as IntfDocFileContent, IntfGlobalConfigs } from './modules/interfaces';
 import { clsLogger, log } from "./modules/logger";
 import gConfigs from './modules/gConfigs';
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
@@ -8,6 +8,7 @@ import path from 'path';
 import { formatNumber, date2Gregorian, normalizeText, wordCount } from './modules/common';
 import { clsScrapper } from './modules/clsScrapper';
 import * as scrappers from './scrappers'
+import clsDB from "./modules/db"
 
 enum enuCommands {
     catStats = 'catStats',
@@ -75,7 +76,11 @@ const args = {
     minDate: option({ type: optional(string), long: 'minDate', description: "Min date to extract texts" }),
 }
 
-function processDir(args: any, processor: { (scrapper: clsScrapper, doc: IntfDocFilecontent | any, filePath: string): void }, isCSV = false) {
+async function processDir(args: any,
+    processor: { (scrapper: clsScrapper, doc: IntfDocFileContent | any, filePath: string): void },
+    beforeProcess: { (scrapper: clsScrapper): Promise<void> } | undefined = undefined,
+    afterProcess: { (scrapper: clsScrapper): Promise<void> } | undefined = undefined,
+    isCSV = false) {
     function getScrapper(domain?: string) {
         if (!domain) return undefined
         const scrapper = new scrappers[domain];
@@ -84,8 +89,8 @@ function processDir(args: any, processor: { (scrapper: clsScrapper, doc: IntfDoc
         log.progress("Processing ", domain);
         return scrapper
     }
-    function processDirInternal(dir: string, scrapper?: clsScrapper) {
-        readdirSync(dir).forEach(item => {
+    async function processDirInternal(dir: string, scrapper?: clsScrapper) {
+        readdirSync(dir).forEach(async item => {
             const absPath = path.join(dir, item);
             if (isCSV) {
                 if (absPath.endsWith(".csv")) {
@@ -95,21 +100,29 @@ function processDir(args: any, processor: { (scrapper: clsScrapper, doc: IntfDoc
                     processor(getScrapper(scrapperName), readFileSync(absPath, 'utf8'), absPath);
                 } else
                     return
-            } else if (statSync(absPath).isDirectory())
-                processDirInternal(absPath, scrapper || getScrapper(item));
-            else if (scrapper && typeof scrapper !== "string") {
+            } else if (statSync(absPath).isDirectory()) {
+                const activeScrapper = scrapper || getScrapper(item)
+                if (beforeProcess) await beforeProcess(activeScrapper)
+                processDirInternal(absPath, activeScrapper);
+                if (afterProcess) await afterProcess(activeScrapper)
+
+            } else if (scrapper && typeof scrapper !== "string") {
                 if (absPath.endsWith('.updated')) return
                 try {
                     const data = readFileSync(absPath, 'utf8')
                     processor(scrapper, JSON.parse(data), absPath);
-                }
-                catch (e) {
+                } catch (e) {
                     log.error("Invalid JSON File: ", absPath, e)
                 }
             }
         });
     }
-    processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (isCSV ? "" : args.domain || ""), getScrapper(args.domain))
+    const activeScrapper = getScrapper(args.scrapper)
+    if (args.domain && beforeProcess) await beforeProcess(activeScrapper)
+    await processDirInternal((gConfigs.corpora || "./corpora/") + "/" + (isCSV ? "" : args.domain || ""), getScrapper(args.domain))
+    if (args.domain && afterProcess)
+        await afterProcess(activeScrapper)
+
 }
 
 const app = command({
@@ -160,9 +173,10 @@ const app = command({
         let ignoredByDate = 0
         let ignoredByCategory = 0
 
-        const baseSpecs = (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string, defaultTarget: string) => {
+        const baseTargetPath = (defaultTarget: string) => (args.targetPath || "./" + defaultTarget)
+        const baseSpecs = (scrapper: clsScrapper, doc: IntfDocFileContent, filePath: string, defaultTarget: string) => {
             const fileName = filePath.split("/").pop()?.replace(".json", "")
-            const baseOutpath = (args.targetPath || "./" + defaultTarget) + "/" + scrapper.name() + "/"
+            const baseOutPath = baseTargetPath(defaultTarget) + "/" + scrapper.name + "/"
             const docTimeStamp = Date.parse(doc.date || "INVALID")
 
             if (processedCount % 1000 === 0)
@@ -187,10 +201,10 @@ const app = command({
                 }
             }
 
-            return { fileName, baseOutpath, docTimeStamp, dateOnPath }
+            return { fileName, baseOutpath: baseOutPath, docTimeStamp, dateOnPath }
         }
 
-        const isFiltered = (doc: IntfDocFilecontent, docTimeStamp: number) => {
+        const isFiltered = (doc: IntfDocFileContent, docTimeStamp: number) => {
             if ((args.validMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major) != true)
                 || (args.validMinorCats && typeof doc.category !== "string" && args.validMinorCats.includes(doc.category.minor) != true)
                 || (args.invalidMajorCats && typeof doc.category !== "string" && args.validMajorCats.includes(doc.category.major))
@@ -210,7 +224,7 @@ const app = command({
             return false
         }
 
-        const normalizeDoc = (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+        const normalizeDoc = (scrapper: clsScrapper, doc: IntfDocFileContent, filePath: string) => {
             const docCategory = !doc.category ? "undefined" : doc.category;
             let anythingChanged = false
 
@@ -229,7 +243,7 @@ const app = command({
                 if (date === "IGNORED" || date === "NO_DATE")
                     return "NOT_SET"
                 if (gregorianDate?.startsWith("INVALID:"))
-                    log.file(scrapper.name(), filePath, date)
+                    log.file(scrapper.name, filePath, date)
 
                 if (gregorianDate != date) {
                     log.debug({ date })
@@ -280,6 +294,96 @@ const app = command({
             return { doc, anythingChanged }
         }
 
+        let domainCategories: { [key: string]: IntfCatStats } = {}
+        let catStr: string = ""
+        let totalWC = 0
+        let totalDocs = 0
+        const writeStatsFile = () => {
+            if (args.statFile)
+                writeFileSync(args.statFile, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
+            totalWC = 0
+            for (const dom in domainCategories) {
+                for (const cat in domainCategories[dom]) {
+                    const s = domainCategories[dom][cat]
+                    const curCatWC = s.mainWC +
+                        s.titleWC +
+                        s.surtitleWC +
+                        s.subtitleWC +
+                        s.summaryWC +
+                        s.titleWC +
+                        s.altWC +
+                        s.commentWC +
+                        s.qaWC
+                    if (args.statFile)
+                        appendFileSync(args.statFile, `${dom}, ${cat}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${s.qaCount}, ${s.qaWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${curCatWC}\n`)
+                    totalWC += curCatWC
+                }
+            }
+        }
+
+        const updateDomainStats = (scrapper: clsScrapper, doc: IntfDocFileContent) => {
+            let mainWC = 0
+            let parCount = 0
+            let altWC = 0
+            let commentsWC = 0
+            let commentCount = 0
+            let qaWC = 0
+            let qaCount = 0
+            doc.content?.forEach(c => { parCount++; mainWC += wordCount(c.text) })
+            doc.images?.forEach(c => { altWC += c.alt ? wordCount(c.alt) : 0 })
+            doc.comments?.forEach(c => { commentCount++; commentsWC += c.text ? wordCount(c.text) : 0 })
+            doc.qa?.forEach(qa => {
+                qaCount++; qaWC += wordCount(qa.q.text)
+                qa.a?.forEach(a => { qaWC += wordCount(a.text) })
+            })
+
+            const domain = scrapper.name;
+            const docCategory = !doc.category ? "undefined" : doc.category;
+            if (typeof docCategory === 'string') {
+                doc.category = scrapper.mapCategory(docCategory, doc.url);
+                doc.category['original'] = docCategory;
+            }
+
+            catStr = doc.category['original'];
+            if (!args.keepOriginalCat && doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
+                catStr = doc.category['major'];
+                if (doc.category['minor'])
+                    catStr += "." + doc.category['minor'];
+                if (doc.category['subminor'])
+                    catStr += "." + doc.category['subminor'];
+            }
+
+            if (!domainCategories || !domainCategories[domain] || !domainCategories[domain][catStr]) {
+                const initial = {
+                    mainWC: 0, mainParagraphs: 0,
+                    altWC: 0, docs: 0,
+                    commentCount: 0, commentWC: 0,
+                    titleWC: 0, surtitleWC: 0, subtitleWC: 0, summaryWC: 0,
+                    qaCount: 0, qaWC: 0
+                };
+                if (!domainCategories)
+                    domainCategories = { [domain]: { [catStr]: initial } };
+                else if (!domainCategories[domain])
+                    domainCategories[domain] = { [catStr]: initial };
+                else
+                    domainCategories[domain][catStr] = initial;
+            }
+
+            domainCategories[domain][catStr].docs++;
+            domainCategories[domain][catStr].mainWC += mainWC;
+            domainCategories[domain][catStr].mainParagraphs += parCount;
+            domainCategories[domain][catStr].titleWC += wordCount(doc.title);
+            domainCategories[domain][catStr].surtitleWC += wordCount(doc.aboveTitle);
+            domainCategories[domain][catStr].subtitleWC += wordCount(doc.subtitle);
+            domainCategories[domain][catStr].summaryWC += wordCount(doc.summary);
+            domainCategories[domain][catStr].titleWC += wordCount(doc.title);
+            domainCategories[domain][catStr].altWC += altWC;
+            domainCategories[domain][catStr].commentCount += commentCount;
+            domainCategories[domain][catStr].commentWC += commentsWC;
+            domainCategories[domain][catStr].qaCount += qaCount;
+            domainCategories[domain][catStr].qaWC += qaWC;
+        }
+
         switch (args.command) {
             case enuCommands.checkCategories: {
                 const outdir = gConfigs.corpora + "/processed"
@@ -289,7 +393,7 @@ const app = command({
                     const spec = baseSpecs(scrapper, doc, filePath, "cat")
                     if (!spec) return
 
-                    const outPath = outdir + "/" + scrapper.name() + ".csv"
+                    const outPath = outdir + "/" + scrapper.name + ".csv"
                     writeFileSync(outPath, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor,sumWC\n")
                     doc.split("\n").forEach((line, index) => {
                         if (index === 0) return
@@ -302,24 +406,53 @@ const app = command({
                         }
                     })
 
-                }, true)
+                }, undefined, undefined, true)
                 log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
                 break;
             }
             case enuCommands.toJsonl: {
-                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
-                    const spec = baseSpecs(scrapper, doc, filePath, "jsonl")
-                    if (!spec) return
-                    //const path = `${spec.baseOutpath}/${spec.dateOnPath}.jsonl`
-                    //appendFileSync(path, )
-                })
-                log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
+                processDir(args,
+                    (scrapper: clsScrapper, doc: IntfDocFileContent, filePath: string) => {
+                        const spec = baseSpecs(scrapper, doc, filePath, "jsonl")
+                        if (!spec) return
+                        const path = `${spec.baseOutpath}/${spec.dateOnPath}.jsonl`
+                        const res = normalizeDoc(scrapper, doc, filePath)
+                        if (processedCount % 1000 === 0) {
+                            writeStatsFile();
+                            log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(totalWC)} ----------`);
+                            for (const cat in domainCategories[scrapper.name])
+                                log.status({ [cat]: domainCategories[scrapper.name][cat] });
+                        }
+                        processedCount++;
 
+                        appendFileSync(path, JSON.stringify(res.doc))
+                    },
+                    async () => { totalWC = 0, totalDocs = 0, domainCategories = {}, catStr = "" },
+                    async (scrapper: clsScrapper) => {
+                        const db = new clsDB(scrapper.name)
+                        const stats = await db.stats() || {}
+
+                        writeFileSync(`${baseTargetPath("jsonl")}/${scrapper.name}-stats.json`, JSON.stringify(
+                            {
+                                urls: stats['total'],
+                                fetched: stats['processed'],
+                                discarded: stats['discarded'],
+                                errors: stats['error'],
+                                documents: totalDocs,
+                                totalWordCount: totalWC,
+                                categories: domainCategories
+                            }
+                            , null, 2
+                        ))
+                        writeStatsFile()
+                    })
+
+                log.status({ processed: formatNumber(processedCount), ignoredByDate: formatNumber(ignoredByDate), ignoredBySize: formatNumber(ignoredBySize) });
             }
                 break;
 
             case enuCommands.toText: {
-                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                processDir(args, (scrapper: clsScrapper, doc: IntfDocFileContent, filePath: string) => {
                     const spec = baseSpecs(scrapper, doc, filePath, "out")
                     if (!spec) return
 
@@ -367,7 +500,7 @@ const app = command({
                 break;
             case enuCommands.normalize: {
                 let updatedCount = 0;
-                processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent, filePath: string) => {
+                processDir(args, (scrapper: clsScrapper, doc: IntfDocFileContent, filePath: string) => {
                     const res = normalizeDoc(scrapper, doc, filePath)
                     doc = res.doc
                     let anythingChanged = res.anythingChanged
@@ -396,103 +529,23 @@ const app = command({
             }
             case enuCommands.catStats:
                 {
-                    let domainCats: { [key: string]: IntfCatStats } = {}
-                    let wc = 0
-                    const writeStatsFile = () => {
-                        if (args.statFile)
-                            writeFileSync(args.statFile, "domain,category,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
-                        wc = 0
-                        for (const dom in domainCats) {
-                            for (const cat in domainCats[dom]) {
-                                const s = domainCats[dom][cat]
-                                const curCatWC = s.mainWC +
-                                    s.titleWC +
-                                    s.surtitleWC +
-                                    s.subtitleWC +
-                                    s.summaryWC +
-                                    s.titleWC +
-                                    s.altWC +
-                                    s.commentWC +
-                                    s.qaWC
-                                if (args.statFile)
-                                    appendFileSync(args.statFile, `${dom}, ${cat}, ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${s.qaCount}, ${s.qaWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${curCatWC}\n`)
-                                wc += curCatWC
+                    processDir(args,
+                        (scrapper: clsScrapper, doc: IntfDocFileContent) => {
+                            updateDomainStats(scrapper, doc)
+                            if (processedCount % 1000 === 0) {
+                                writeStatsFile();
+                                log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(totalWC)} ----------`);
+                                for (const cat in domainCategories[scrapper.name])
+                                    log.status({ [cat]: domainCategories[scrapper.name][cat] });
                             }
+                            processedCount++;
+                        },
+                        async () => { totalWC = 0, totalDocs = 0, domainCategories = {}, catStr = "" },
+                        async () => {
+                            log.status(domainCategories, 3)
+                            writeStatsFile()
                         }
-                    }
-
-                    processDir(args, (scrapper: clsScrapper, doc: IntfDocFilecontent) => {
-                        let mainWC = 0
-                        let parCount = 0
-                        let altWC = 0
-                        let commentsWC = 0
-                        let commentCount = 0
-                        let qaWC = 0
-                        let qaCount = 0
-                        doc.content?.forEach(c => { parCount++; mainWC += wordCount(c.text) })
-                        doc.images?.forEach(c => { altWC += c.alt ? wordCount(c.alt) : 0 })
-                        doc.comments?.forEach(c => { commentCount++; commentsWC += c.text ? wordCount(c.text) : 0 })
-                        doc.qa?.forEach(qa => {
-                            qaCount++; qaWC += wordCount(qa.q.text)
-                            qa.a?.forEach(a => { qaWC += wordCount(a.text) })
-                        })
-
-                        const domain = scrapper.name();
-                        const docCategory = !doc.category ? "undefined" : doc.category;
-                        if (typeof docCategory === 'string') {
-                            doc.category = scrapper.mapCategory(docCategory, doc.url);
-                            doc.category['original'] = docCategory;
-                        }
-
-                        let catStr = doc.category['original'];
-                        if (!args.keepOriginalCat && doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
-                            catStr = doc.category['major'];
-                            if (doc.category['minor'])
-                                catStr += "." + doc.category['minor'];
-                            if (doc.category['subminor'])
-                                catStr += "." + doc.category['subminor'];
-                        }
-
-                        if (!domainCats || !domainCats[domain] || !domainCats[domain][catStr]) {
-                            const initial = {
-                                mainWC: 0, mainParagraphs: 0,
-                                altWC: 0, docs: 0,
-                                commentCount: 0, commentWC: 0,
-                                titleWC: 0, surtitleWC: 0, subtitleWC: 0, summaryWC: 0,
-                                qaCount: 0, qaWC: 0
-                            };
-                            if (!domainCats)
-                                domainCats = { [domain]: { [catStr]: initial } };
-                            else if (!domainCats[domain])
-                                domainCats[domain] = { [catStr]: initial };
-                            else
-                                domainCats[domain][catStr] = initial;
-                        }
-
-                        domainCats[domain][catStr].docs++;
-                        domainCats[domain][catStr].mainWC += mainWC;
-                        domainCats[domain][catStr].mainParagraphs += parCount;
-                        domainCats[domain][catStr].titleWC += wordCount(doc.title);
-                        domainCats[domain][catStr].surtitleWC += wordCount(doc.aboveTitle);
-                        domainCats[domain][catStr].subtitleWC += wordCount(doc.subtitle);
-                        domainCats[domain][catStr].summaryWC += wordCount(doc.summary);
-                        domainCats[domain][catStr].titleWC += wordCount(doc.title);
-                        domainCats[domain][catStr].altWC += altWC;
-                        domainCats[domain][catStr].commentCount += commentCount;
-                        domainCats[domain][catStr].commentWC += commentsWC;
-                        domainCats[domain][catStr].qaCount += qaCount;
-                        domainCats[domain][catStr].qaWC += qaWC;
-
-                        if (processedCount % 1000 === 0) {
-                            writeStatsFile();
-                            log.status(`--------- ${catStr} - docs: ${formatNumber(processedCount)} - wc: ${formatNumber(wc)} ----------`);
-                            for (const cat in domainCats[domain])
-                                log.status({ [cat]: domainCats[domain][cat] });
-                        }
-                        processedCount++;
-                    })
-                    log.status(domainCats, 3)
-                    writeStatsFile()
+                    )
                 }
                 break
         }
