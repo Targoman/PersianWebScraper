@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="root"></div>
+
+    <script type="text/javascript" src="/jsonview.js"></script>
+    <script type="text/javascript">
+        const tree = jsonview.create(<%- json %>);
+        jsonview.render(tree, document.querySelector('.root'));
+        jsonview.expand(tree);
+    </script>
+</body>
+
+</html>
