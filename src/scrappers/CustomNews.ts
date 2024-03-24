@@ -1386,3 +1386,34 @@ export class manbaekhabar extends clsScrapper {
         })
     }
 }
+
+export class vigiato extends clsScrapper {
+    constructor() {
+        super(enuDomains.vigiato, "vigiato.net", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content",
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                },
+                category: {
+                    selector: "#breadcrumb > span > span > a",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

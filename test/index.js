@@ -1499,5 +1499,9 @@ yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-باز
 yarn dev && yarn start manbaekhabar
 yarn dev && yarn start manbaekhabar -u https://www.manbaekhabar.ir/29/11/1402/8041/
 
+yarn dev && yarn start vigiato
+yarn dev && yarn start vigiato -u https://vigiato.net/p/461258
+yarn dev && yarn start vigiato -u https://vigiato.net/p/461139
+
 https://motamem.org/
 /**/
