@@ -1511,5 +1511,8 @@ yarn dev && yarn start techrato
 yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/telegram-filtering-in-spain/
 yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/phone-price-list-today-5-farvardin-1403/
 
+yarn dev && yarn start gadgetnews
+yarn dev && yarn start gadgetnews -u https://gadgetnews.net/844454/difference-between-dedicated-and-virtual-server-what-is-the-difference-between-working-process-of-these-two-servers/
+
 https://motamem.org/
 /**/

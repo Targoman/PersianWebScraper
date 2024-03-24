@@ -1785,3 +1785,26 @@ export class techrato extends clsScrapper {
         })
     }
 }
+
+export class gadgetnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.gadgetnews, "gadgetnews.net", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["box-inner-block"]
+                },               
+                tags: ".post-tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
