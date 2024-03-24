@@ -14,6 +14,7 @@ const approvedLogos = `${statsPath}/app/approved`
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(cookieParser());
+app.use(express.json())
 
 function loadCachedInfo() {
     if (!fs.existsSync(cachePath)) throw new Error("Unable to open cache file")
@@ -22,17 +23,46 @@ function loadCachedInfo() {
     cached.info.latestDoc = new Date(cached.info.latestDoc)
     return cached
 }
+function formatNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+app.get('/corpusSample/:domain', (req, res) => {
+    const files = fs.readdirSync(statsPath + "/" + req.params.domain).filter(f=>f.endsWith('.gz'))
+    const file = statsPath + "/" + files.at(Math.floor(files.length / 2))
+    res.writeHead(200, {
+        "Content-Type": "application/gzip",
+        "Content-Length": fs.statSync(file).size,
+    });
+    res.end(fs.readFileSync(file));
+})
+
+app.get('/statistics/:domain', (req, res) => {
+    const file = statsPath + "/" + req.params.domain + "-cats.csv"
+    res.writeHead(200, {
+        "Content-Type": "text/csv",
+        "Content-Length": fs.statSync(file).size,
+    });
+    res.end(fs.readFileSync(file));
+})
 
 app.get('/details/:domain', (req, res) => {
     const json = fs.readFileSync(statsPath + "/" + req.params.domain + "-stats.json")
-    const stats = JSON.parse(json)
-    res.render('details', { title: req.params.domain, json, domain: stats.domain,  });
+    const info = JSON.parse(json)
+    info.oldestArticle = new Date(info.oldestArticle).toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
+    info.newestArticle = new Date(info.newestArticle).toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
+    info.urls = formatNumber(info.urls)
+    info.fetched = formatNumber(info.fetched)
+    info.discarded = formatNumber(info.discarded)
+    info.errors = formatNumber(info.errors)
+    info.documents = formatNumber(info.documents)
+    info.totalWordCount = formatNumber(info.totalWordCount)
+    res.render('details', { title: req.params.domain, info });
 })
 
 app.post('/requestLicense', (req, res) => {
     const cached = loadCachedInfo()
     const ssid = req.cookies.ssid
-    console.log({ ssid, b: req.body })
+    console.log({ ssid, b: req })
 
     //key.decrypt(req.body.catcha, 'base64')
 })
@@ -45,7 +75,7 @@ app.get("/captcha", (req, res) => {
         height: 50,
         from: 100,
         to: 999,
-        lines: 10,
+        lines: 5,
     });
     const image = Buffer.from(captcha.image, "base64");
     const encrypted = cached.endec.encrypt(`${captcha.number}`, 'base64')
@@ -56,7 +86,6 @@ app.get("/captcha", (req, res) => {
         "Content-Length": image.length,
     });
 
-    console.log(captcha.number)
     res.end(image);
 });
 
@@ -144,8 +173,6 @@ app.get('/', (req, res) => {
     }
 
     const cached = loadCachedInfo()
-
-    console.log(cached)
 
     res.render('index', {
         rows: cached.rows,

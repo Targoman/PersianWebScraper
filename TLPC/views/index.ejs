@@ -312,20 +312,14 @@
                 email: form.querySelector('[name="email"]').value,
             }
 
-            fetch("/request", {
+            fetch("/requestLicense", {
                 method: "POST",
-                body: JSON.stringify({
-                    userId: 1,
-                    title: "Fix my bugs",
-                    completed: false
-                }),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
+                body: JSON.stringify(items),
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            }).then(r => {
+                form.querySelector('[type="submit"]').style.display = 'none'
+                form.querySelector(".result").innerHTML = "تقاضای شما با موفقی ثبت شد. پس از بررسی به شما اطلاع داده خواهد شد"
             });
-
-            form.querySelector('[type="submit"]').style.display = 'none'
-            form.querySelector(".result").innerHTML = "تقاضای شما با موفقی ثبت شد. پس از بررسی به شما اطلاع داده خواهد شد"
 
             return false
         }
