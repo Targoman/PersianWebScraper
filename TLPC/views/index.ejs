@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="datatable/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/datatable/dataTables.dataTables.min.css">
     <title>کلان‌پیکره زبان فارسی ترگمان (TLPC)</title>
 </head>
 
 <body>
     <div class="header">
         <div class="logo-container">
-            <img class="justOn-light" src="img/tip-colored.svg" alt="پردازش هوشمند ترگمان">
-            <img class="justOn-dark" src="img/tip-logo-white.svg" alt="پردازش هوشمند ترگمان">
-            <!-- <img src="img/SetadHoush.svg" alt="ستاد فناوری‌های هوش مصنوعی و رباتیک معاونت علمی، فناوری و اقتصاد دیجیتال ریاست جمهوری"> -->
+            <img class="justOn-light" src="/img/tip-colored.svg" alt="پردازش هوشمند ترگمان">
+            <img class="justOn-dark" src="/img/tip-logo-white.svg" alt="پردازش هوشمند ترگمان">
+            <!-- <img src="/img/SetadHoush.svg" alt="ستاد فناوری‌های هوش مصنوعی و رباتیک معاونت علمی، فناوری و اقتصاد دیجیتال ریاست جمهوری"> -->
         </div>
         <div class="menu desktopView">
             <div class="item"><a href="#intro">معرفی</a></div>
@@ -27,8 +27,8 @@
         <div class="menu mobileView">
             <div class="dropdown">
                 <button class="dropbtn">
-                    <img class="justOn-light" src="img/Hamburger_icon.black.png">
-                    <img class="justOn-dark" src="img/Hamburger_icon.white.png">
+                    <img class="justOn-light" src="/img/Hamburger_icon.black.png">
+                    <img class="justOn-dark" src="/img/Hamburger_icon.white.png">
                 </button>
                 <div class="dropdown-content">
                     <a href="#intro">معرفی</a>
@@ -120,7 +120,7 @@
                 از طریق گیت‌هاب در دسترس می‌باشد
 
             </p>
-            <p class="en"><img class="inline-logo" src="img/github.png"
+            <p class="en"><img class="inline-logo" src="/img/github.png"
                     alt="https://github.com/Targoman/PersianWebScraper"><a target="_blank"
                     href="https://github.com/Targoman/PersianWebScraper">https://github.com/Targoman/PersianWebScraper</a>
             </p>
@@ -186,7 +186,7 @@
                 گروه می باشد
             </p>
             <div style="text-align: center;"><a class="filter-hover" target="_blank" href="https://houshafarin.ir"><img
-                        src="img/houshafarin.svg" alt="مجموعه مدل‌های زبانی هوش‌آفرین"></a></div>
+                        src="/img/houshafarin.svg" alt="مجموعه مدل‌های زبانی هوش‌آفرین"></a></div>
             <p>همچنین نسخه محدودی از این پیکره (در حدود ۱۳ میلیارد کلمه) در اختیار مرکز فراداده مرکز ملی فضای مجازی قرار
                 گرفت تا در هکاتون توسعه مدل‌های زبانی بزرگ مورد استفاده قرار گیرد. </p>
         </article>
@@ -202,18 +202,22 @@
                 حق بهره‌برداری از این کلان‌پیکره را به عموم ارگان‌های دولتی و شرکت‌های دانش‌بنیان مورد تایید معاونت علمی
                 اعطا کرده است.
             </p>
-            <img class="license" src="img/License-noSign.png" alt="حق بهره‌برداری تجاری کلان‌پیکره فارسی ترگمان TLPC"
+            <img class="license" src="/img/License-noSign.png" alt="حق بهره‌برداری تجاری کلان‌پیکره فارسی ترگمان TLPC"
                 srcset="">
         </article>
         <article class="anchor" id="statistics"></article>
         <article>
             <h2>آمار داده‌ها</h2>
             <p class="faNum">
-                تا تاریخ <%=latestDoc%> تعداد <%=domainCount%> سایت داخلی شامل بیش از <%=totalURLs%> میلیون آدرس مورد خزش قرار گرفته‌اند و
-                ماحصل این خزش‌ها گردآوری بیش از <%=totalDocs%> میلیون سند حاوی بیش از <%=totalWC%> میلیارد توکن در حوزه‌های مختلف بوده است.
-                آمار جزیی این پیکره در جدول زیر ارایه شده است. با کلیک بر روی هر آدرس می‌توانید به جزییات بیشتری از
-                اطلاعات آماری دامنه مذکور دست پیدا کنید. دقت شود که شمارش توکن‌ها بدون استفاده از توکنایزر و صرفا مبتنی
-                بر شمارش فاصله‌ها صورت گرفته در نتیجه آمار نهایی پیکره بیش از آمار ابرازی است.
+                تا تاریخ <%=latestDoc%> تعداد <%=domainCount%> سایت داخلی شامل بیش از <%=totalURLs%> میلیون آدرس مورد
+                            خزش قرار گرفته‌اند و
+                            ماحصل این خزش‌ها گردآوری بیش از <%=totalDocs%> میلیون سند حاوی بیش از <%=totalWC%> میلیارد
+                                    توکن در حوزه‌های مختلف بوده است.
+                                    آمار جزیی این پیکره در جدول زیر ارایه شده است. با کلیک بر روی هر آدرس می‌توانید به
+                                    جزییات بیشتری از
+                                    اطلاعات آماری دامنه مذکور دست پیدا کنید. دقت شود که شمارش توکن‌ها بدون استفاده از
+                                    توکنایزر و صرفا مبتنی
+                                    بر شمارش فاصله‌ها صورت گرفته در نتیجه آمار نهایی پیکره بیش از آمار ابرازی است.
             </p>
             <div class="table faNum">
                 <table>
@@ -253,28 +257,37 @@
             <form onsubmit="return sendRequest()">
                 <div><label>
                         نام شرکت دانش‌بنیان یا سازمان دولتی
-                    </label><input required name="company"></div>
+                    </label><input required name="company">
+                </div>
                 <div><label>
                         شناسه ملی
-                    </label><input required name="company-nid"></div>
+                    </label><input required name="company-nid">
+                </div>
                 <div><label>
                         نام و نام خانوادگی نماینده
-                    </label><input required name="name"></div>
+                    </label><input required name="name">
+                </div>
                 <div><label>
                         شماره موبایل نماینده
-                    </label><input required name="mobile"></div>
+                    </label><input required name="mobile">
+                </div>
                 <div><label>
                         آدرس ایمیل
-                    </label><input required name="email"></div>
+                    </label><input required name="email">
+                </div>
+                <div class="center"><img class="captcha" src="/captcha"><input required name="captcha"
+                        placeholder="عدد سه رقمی تصویر"></div>
                 <div><input type="submit" value="ارسال درخواست"></div>
                 <div class="result center"></div>
             </form>
+            <h2>دریافت‌کنندگان حق بهره‌برداری</h2>
+            <div><%- logos %></div>
         </article>
         <article class="last"></article>
     </div>
-    <script src="datatable/jquery-3.7.1.min.js"></script>
-    <script src="datatable/dataTables.min.js"></script>
-    <script src="datatable/scrolling.js"></script>
+    <script src="/datatable/jquery-3.7.1.min.js"></script>
+    <script src="/datatable/dataTables.min.js"></script>
+    <script src="/datatable/scrolling.js"></script>
     <script>
         const table = new DataTable("table", {
             responsive: true,
@@ -299,7 +312,17 @@
                 email: form.querySelector('[name="email"]').value,
             }
 
-            fetch()
+            fetch("/request", {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: 1,
+                    title: "Fix my bugs",
+                    completed: false
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            });
 
             form.querySelector('[type="submit"]').style.display = 'none'
             form.querySelector(".result").innerHTML = "تقاضای شما با موفقی ثبت شد. پس از بررسی به شما اطلاع داده خواهد شد"

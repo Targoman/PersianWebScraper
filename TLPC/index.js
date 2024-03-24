@@ -1,17 +1,64 @@
 const express = require('express');
 const fs = require('fs')
+const Buffer = require("buffer").Buffer;
+const { createCaptcha } = require("nastaliq-captcha");
+const NodeRSA = require('node-rsa');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 3000
-const cachePath = './data.table'
 const statsPath = "../jsonl"
+const cachePath = `${statsPath}/app/cachedInfo`
+const approvedLogos = `${statsPath}/app/approved`
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(cookieParser());
+
+function loadCachedInfo() {
+    if (!fs.existsSync(cachePath)) throw new Error("Unable to open cache file")
+    const cached = JSON.parse(fs.readFileSync(cachePath))
+    cached.endec = new NodeRSA(cached.rsa.private)
+    cached.info.latestDoc = new Date(cached.info.latestDoc)
+    return cached
+}
 
 app.get('/details/:domain', (req, res) => {
-    res.render('details', { title: req.params.domain, json: fs.readFileSync(statsPath + "/" + req.params.domain + "-stats.json") });
+    const json = fs.readFileSync(statsPath + "/" + req.params.domain + "-stats.json")
+    const stats = JSON.parse(json)
+    res.render('details', { title: req.params.domain, json, domain: stats.domain,  });
 })
+
+app.post('/requestLicense', (req, res) => {
+    const cached = loadCachedInfo()
+    const ssid = req.cookies.ssid
+    console.log({ ssid, b: req.body })
+
+    //key.decrypt(req.body.catcha, 'base64')
+})
+
+app.get("/captcha", (req, res) => {
+    const cached = loadCachedInfo()
+
+    const captcha = createCaptcha({
+        width: 150,
+        height: 50,
+        from: 100,
+        to: 999,
+        lines: 10,
+    });
+    const image = Buffer.from(captcha.image, "base64");
+    const encrypted = cached.endec.encrypt(`${captcha.number}`, 'base64')
+    res.cookie('ssid', encrypted, { maxAge: 1000 * 60 * 3, httpOnly: true, signed: false })
+
+    res.writeHead(200, {
+        "Content-Type": "image/png",
+        "Content-Length": image.length,
+    });
+
+    console.log(captcha.number)
+    res.end(image);
+});
 
 app.get('/', (req, res) => {
     let totalWC = 0
@@ -20,6 +67,7 @@ app.get('/', (req, res) => {
     let latestDoc = undefined
     let files = []
     const rows = []
+    const logos = []
     if (!fs.existsSync(cachePath) || Date.now() - fs.statSync(cachePath).mtime > 3600) {
         files = fs.readdirSync(statsPath).filter(fn => fn.endsWith('.json'))
 
@@ -72,16 +120,41 @@ app.get('/', (req, res) => {
             row += '</tr>'
             rows.push(row)
         }
-        fs.writeFileSync(cachePath, rows.join("\n"))
+        const logoFiles = fs.readdirSync(approvedLogos).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
+        logoFiles.forEach(logo => logos.push(`<div class="approved-logo"><img src="/approved/${logo}"></div>`))
+
+        const rsaKey = new NodeRSA({ b: 512 });
+        fs.writeFileSync(cachePath, JSON.stringify({
+            rsa: {
+                public: rsaKey.exportKey('pkcs8-public-pem'),
+                private: rsaKey.exportKey('pkcs8-private-pem')
+            },
+            info: {
+                latestDoc,
+                totalDocs,
+                totalWC,
+                totalURLs,
+                totalURLs,
+                domainCount: files.length
+            },
+            rows: rows.join("\n"),
+            logos: logos.join("\n")
+        }))
+
     }
 
+    const cached = loadCachedInfo()
+
+    console.log(cached)
+
     res.render('index', {
-        rows: fs.readFileSync(cachePath),
-        latestDoc: latestDoc.toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
-        totalDocs: Math.floor(totalDocs / 1e6),
-        totalWC: Math.floor(totalWC / 1e9),
-        totalURLs: Math.floor(totalURLs / 1e6),
-        domainCount: files.length
+        rows: cached.rows,
+        logos: cached.logos,
+        latestDoc: cached.info.latestDoc?.toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
+        totalDocs: Math.floor(cached.info.totalDocs / 1e6),
+        totalWC: Math.floor(cached.info.totalWC / 1e9),
+        totalURLs: Math.floor(cached.info.totalURLs / 1e6),
+        domainCount: cached.info.domainCount
     });
 });
 
