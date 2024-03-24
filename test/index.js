@@ -1503,5 +1503,9 @@ yarn dev && yarn start vigiato
 yarn dev && yarn start vigiato -u https://vigiato.net/p/461258
 yarn dev && yarn start vigiato -u https://vigiato.net/p/461139
 
+yarn dev && yarn start rooziato
+yarn dev && yarn start rooziato -u https://rooziato.com/1403616213/چند-حقیقت-جالب-و-خواندنی-درباره-خودروه/
+yarn dev && yarn start rooziato -u https://rooziato.com/1402607236/قسمت-اول-اسپین-آف-جدید-مردگان-متحرک/
+
 https://motamem.org/
 /**/

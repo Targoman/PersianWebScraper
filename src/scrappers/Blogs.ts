@@ -5556,3 +5556,35 @@ export class tarikhema extends clsScrapper {
         return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Historical }
     }
 }
+
+export class rooziato extends clsScrapper {
+    constructor() {
+        super(enuDomains.rooziato, "rooziato.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#main_content > div > div:nth-child(4)",
+                    ignoreNodeClasses: ["post_tags"]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comment-list .comment"),
+                    author: "header .name",
+                    text: "div"
+                },
+                category: {
+                    selector: ".post-categories ul li a",
+                    startIndex: 1
+                },
+                tags: ".post_tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
