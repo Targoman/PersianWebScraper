@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory } from "../modules/interfaces";
+import { IntfMappedCategory, enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType } from "../modules/interfaces";
 import { HTMLElement } from "node-html-parser"
 
 export class lioncomputer extends clsScrapper {
@@ -34,23 +34,22 @@ export class lioncomputer extends clsScrapper {
       }
     })
   }
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    void cat, first, second
 
     if (second.includes("نرم")) return { ...mappedCat, subminor: enuSubMinorCategory.Software }
-    else if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
-    else if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
-    else if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
-    else if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
-    else if (second.includes("عمومی")
+    if (second.includes("سخت")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+    if (second.includes("اینترنت")) return { ...mappedCat, subminor: enuMinorCategory.IT }
+    if (second.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+    if (second.includes("گـرافیک")) return { ...mappedCat, subminor: enuSubMinorCategory.Art }
+    if (second.includes("عمومی")
       || second.includes("بازارچه")
       || second.includes("بلاگ")
       || second.includes("کلاب")) return { ...mappedCat, minor: enuMinorCategory.Generic }
-    else if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
-    else if (second.includes("ارزهای")) return { ...mappedCat, subminor: enuMinorCategory.CryptoCurrency }
+    if (second.includes("گیمینگ")) return { ...mappedCat, subminor: enuSubMinorCategory.Game }
+    if (second.includes("ارزهای")) return { ...mappedCat, subminor: enuMinorCategory.CryptoCurrency }
     return mappedCat
   }
 }
@@ -82,8 +81,8 @@ export class bazmineh extends clsScrapper {
     })
   }
 
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
+  mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.LifeStyle }
   }
 }
 
@@ -113,7 +112,7 @@ export class wppersian extends clsScrapper {
       }
     })
   }
-  mapCategory(): IntfMappedCategory {
-    return { major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
+  mapCategoryImpl(): IntfMappedCategory {
+    return { textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }

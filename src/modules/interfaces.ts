@@ -539,17 +539,22 @@ export interface IntfDocFilecontent {
     qa?: IntfQAcontainer[]
 }
 
+export enum enuTextType {
+    Formal = "Formal",
+    Informal = "Informal",
+    Hybrid = "Hybrid",
+    Unk = "Unk"
+}
+
 export enum enuMajorCategory {
+    Undefined = "Undefined",
     News = "News",
     QA = "QA",
     Literature = "Literature",
     Forum = "Forum",
-    Undefined = "Undefined",
     Weblog = "Weblog",
-    Wiki = "Wiki",
     SocialMedia = "SocialMedia",
     Doc = "Doc",
-    NA = "NA"
 }
 
 export enum enuMinorCategory {
@@ -600,6 +605,7 @@ export enum enuMinorCategory {
 
 export enum enuSubMinorCategory {
     Game = "Game",
+    Cosmos = "Cosmos",
     GoldSilver = "GoldSilver",
     Reportage = "Reportage",
     Security = "Security",
@@ -620,18 +626,25 @@ export enum enuSubMinorCategory {
     Art = "Art",
     Agriculture = "Agriculture",
     TV = "TV",
+    Pet = "Pet",
+    Petroleum = "Petroleum",
     Radio = "Radio",
     Book = "Book",
     Podcast = "Podcast",
     Celebrities = "Celebrities",
     Cinema = "Cinema",
     Photo = "Photo",
+    Insurance = "Insurance",
     Documentary = "Documentary",
     Music = "Music",
     Media = "Media",
     Theatre = "Theatre",
     Football = "Football",
     Basketball = "Basketball",
+    Nautics = "Nautics",
+    Chess = "Chess",
+    Bicycle = "Bicycle",
+    Karate = "Karate",
     Ball = "Ball",
     Wrestling = "Wrestling",
     Martial = "Martial",
@@ -642,6 +655,7 @@ export enum enuSubMinorCategory {
 }
 
 export interface IntfMappedCategory {
+    textType : enuTextType,
     major: enuMajorCategory,
     minor?: enuMinorCategory,
     subminor?: enuSubMinorCategory | enuMinorCategory,

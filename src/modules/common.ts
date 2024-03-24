@@ -42,10 +42,6 @@ export function formatNumber(num: number) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-export function normalizeCategory(cat?: string) {
-    return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
-}
-
 export function isIranProvinceString(str: string) {
     return str.startsWith("ایران")
         || str.startsWith("استان")
@@ -67,6 +63,7 @@ export function isIranProvinceString(str: string) {
         || str.startsWith("قم")
         || str.startsWith("کاشان")
         || str.startsWith("کردستان")
+        || str.startsWith("کرمان")
         || str.startsWith("کرمان")
         || str.startsWith("کهگلویه")
         || str.startsWith("گلستان")
@@ -215,7 +212,7 @@ export function date2Gregorian(date?: string): string | undefined {
     const dateParts = date.split("-")
     try {
         if (dateParts.length >= 3) {
-            log.debug({ dateParts })
+            //log.debug({ dateParts })
             if (dateParts[dateParts.length - 1].length === 4)
                 date = dateParts.reverse().join("-")
             if (dateParts[0].length === 4) {

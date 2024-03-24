@@ -101,9 +101,10 @@ PersianWebScrapper scrapes whole contents of the target site in order to find al
     url: string,                //Article normalized URL
     category: {
         original: string        //Category as specified by the article
-        major: string           //Major category acn be News, Literature, Forum, Weblog, Wiki, SocialMedia, Undefined
-        minor?: string          //Minor category
-        subminor?: string       //Subminor category
+        textType: string        //Main content textType, can be: Formal, Informal, Hybrid, Unknown
+        major: string           //Major category can be: News, QA (Question & Answer), Literature, Forum, Weblog, SocialMedia, Doc, Undefined
+        minor?: string          //Minor category (see source code for list of avaialable minor categories)
+        subminor?: string       //Subminor category (see source code for list of avaialable minor and subminor categories)
     },          
     date: string,               //Article publish date (if specified)
     title: string,              //Title of the article
@@ -286,10 +287,16 @@ async initialCookie(proxy?: IntfProxy, url?: string): Promise<string | undefined
 protected normalizePath(url: URL, conf?: IntfURLNormaliziztionConf): string 
 ```
 
+- A method to normalize original category string
+```
+public normalizeCategoryImpl(cat: string | undefined): string | undefined 
+```
+
 - A method to convert category string into predefined categories and subcategories
 ```
-public mapCategory(category?: string, tags?: string[]): IntfMappedCatgory 
+public mapCategoryImpl(category: string|undefined, catFirstPart :string, catSecondPart: string, url: string): IntfMappedCatgory 
 ```
+
 
 ## Corpus
 We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which will be soon published on Huggingface

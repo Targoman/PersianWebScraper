@@ -1,5 +1,5 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, IntfMappedCategory, IntfPageContent } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfPageContent } from "../modules/interfaces";
 import { HTMLElement, parse } from "node-html-parser"
 import { IntfRequestParams } from "../modules/request";
 //import { normalizeText } from "../modules/common";
@@ -25,7 +25,11 @@ export class divar extends clsScrapper {
       }
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
+  }
 }
+
 export class extern extends clsScrapper {
   constructor() {
     super(enuDomains.extern, "extern.ir", {
@@ -54,14 +58,13 @@ export class extern extends clsScrapper {
     })
   }
 
-  mapCategory(cat?: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = { major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     if (!cat) return mappedCat
-    const catParts = cat.split('/')
-    const second = catParts.length > 1 ? catParts[1] : ''
+    void cat, first, second
 
     if (second.startsWith("سلامتی")) return { ...mappedCat, minor: enuMinorCategory.Health }
-    if (second.startsWith("اخبار")) return { major: enuMajorCategory.News, minor: enuMinorCategory.Health }
+    if (second.startsWith("اخبار")) return { ...mappedCat, major: enuMajorCategory.News, minor: enuMinorCategory.Health }
     if (second.startsWith("سؤالات")) return { ...mappedCat, subminor: enuMinorCategory.FAQ }
     if (second.startsWith("کتاب‌ها")) return { ...mappedCat, subminor: enuMinorCategory.Education }
     if (second.startsWith("آموزش")) return { ...mappedCat, subminor: enuMinorCategory.Education }
@@ -96,52 +99,8 @@ export class rastineh extends clsScrapper {
       },
     })
   }
-}
-
-export class bahjat extends clsScrapper {
-  constructor() {
-    super(enuDomains.bahjat, "bahjat.ir", {
-      basePath: "/fa",
-      selectors: {
-        article: ".nodeWrapper, .barge, body.node-type-ahkam",
-        title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1, title"),
-        subtitle: ".subTitle",
-        datetime: {
-          conatiner: "time",
-          acceptNoDate: true
-        },
-        content: {
-          main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".cBody, section.ahkam-teaser .wrapper, span.imgTeaser a"),
-        },
-        tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".nodeWrapper .entry-tags span a"),
-      },
-      url: {
-        extraInvalidStartPaths: ["/ur", "/en"]
-      }
-    })
-  }
-}
-
-export class zanjani extends clsScrapper {
-  constructor() {
-    super(enuDomains.zanjani, "zanjani.ir", {
-      selectors: {
-        article: ".singe-content, [data-xhr='qa-content'], .wrapper-single-post-gallery",
-        title: ".single-content-title, .article span:nth-child(1), h1",
-        datetime: {
-          acceptNoDate: true
-        },
-        content: {
-          main: ".single-content-content, .article_box, #lightgallery",
-        },
-        category: {
-          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".article-art-breadcrumb span a")
-        },
-      },
-      url: {
-        extraInvalidStartPaths: ["/?ar"]
-      }
-    })
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Health }
   }
 }
 
@@ -166,6 +125,45 @@ export class rasekhoon extends clsScrapper {
         removeWWW: true
       }
     })
+  }
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+    if (!cat) return mappedCat
+    void cat, first, second
+
+    if (first === "مقالات" || first === "ویژه نامه")
+      first = second
+
+    if (first.includes("اجتماعی")) return { ...mappedCat, minor: enuMinorCategory.Social }
+    if (first.includes("استان")) return { ...mappedCat, minor: enuMinorCategory.Local }
+    if (first.includes("اقتصاد") || second.startsWith("بازار")) return { ...mappedCat, minor: enuMinorCategory.Economics }
+    if (first.includes("الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+    if (first.includes("سیاسی")) return { ...mappedCat, minor: enuMinorCategory.Political }
+    if (first.includes("علمی")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+    if (first.includes("فرهنگی")) return { ...mappedCat, minor: enuMinorCategory.Culture }
+    if (first.includes("هنری")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Art }
+    if (first.includes("مشاهیر")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Celebrities }
+    if (first.includes("ورزشی")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+    if (first.includes("آموزش")) return { ...mappedCat, minor: enuMinorCategory.Education }
+    if (first.includes("مشاوره")) return { ...mappedCat, minor: enuMinorCategory.Psychology }
+    if (first.includes("ادبیات")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuMinorCategory.Literature }
+    if (first.includes("سینما") || cat.startsWith("ویدئو")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+    if (first.includes("بهداشت")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuMinorCategory.Health }
+    if (first.includes("پزشکی")) return { ...mappedCat, minor: enuMinorCategory.Medical }
+    if (first.includes("احادیث")
+      || first.includes("مهدویت")
+      || first.includes("وقف")
+      || first.includes("دین پژوهی")
+      || first.includes("حکومت دینی")
+    ) return { ...mappedCat, minor: enuMinorCategory.Religious }
+    if (first.includes("پیامک")
+      || first.includes("کارت پستال")
+    ) return { ...mappedCat, minor: enuMinorCategory.Fun }
+    if (first.includes("گالری تصاویر")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+    if (first.includes("تاریخ")) return { ...mappedCat, minor: enuMinorCategory.Historical }
+    if (first.includes("نرم افزار")) return { ...mappedCat, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Software }
+
+    return mappedCat
   }
 }
 
@@ -193,6 +191,10 @@ export class eporsesh extends clsScrapper {
       }
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Religious }
+  }
+
 }
 
 export class nazaratshora extends clsScrapper {
@@ -246,6 +248,9 @@ export class sariasan extends clsScrapper {
       },
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education, subminor: enuSubMinorCategory.Software }
+  }
 }
 
 export class mihandownload extends clsScrapper {
@@ -276,6 +281,9 @@ export class mihandownload extends clsScrapper {
       }
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, subminor: enuSubMinorCategory.Software }
+  }
 }
 
 export class uptvs extends clsScrapper {
@@ -303,33 +311,43 @@ export class uptvs extends clsScrapper {
       },
     })
   }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Multimedia, subminor: enuSubMinorCategory.Cinema }
+  }
 }
 
 export class mihanwp extends clsScrapper {
   constructor() {
-      super(enuDomains.mihanwp, "mihanwp.com", {
-          selectors: {
-              article: ".single-post",
-              title: "h1",
-              datetime: {
-                  conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                  splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
-              },
-              content: {
-                  main: "article",
-                  ignoreNodeClasses: ["clearfix", "rmp-widgets-container", "ez-toc-v2_0_61", "wp-block-heading"],
-              },
-              category: {
-                  selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
-              },
-              comments: {
-                  container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
-                  author: ".comment-author-name",
-                  text: ".comment-block p"
-              }
-          },
-      })
+    super(enuDomains.mihanwp, "mihanwp.com", {
+      selectors: {
+        article: ".single-post",
+        title: "h1",
+        datetime: {
+          conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+          splitter: (el: HTMLElement) => el.getAttribute("datetime") || "NO_DATE"
+        },
+        content: {
+          main: "article",
+          ignoreNodeClasses: ["clearfix", "rmp-widgets-container", "ez-toc-v2_0_61", "wp-block-heading"],
+        },
+        category: {
+          selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+        },
+        comments: {
+          container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+          author: ".comment-author-name",
+          text: ".comment-block p"
+        }
+      },
+    })
   }
+  protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+    return cat?.replace(/^خانه\//, "").trim()
+  }
+  protected mapCategoryImpl(): IntfMappedCategory {
+    return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT, subminor: enuSubMinorCategory.Software }
+  }
+
 }
 
 export class noozdahkala extends clsScrapper {
@@ -355,41 +373,54 @@ export class noozdahkala extends clsScrapper {
       },
     })
   }
+  protected normalizeCategoryImpl(cat?: string | undefined): string | undefined {
+    return cat?.replace(/^فروشگاه اینترنتی 19کالا\//, "").trim()
+  }
+  protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.ICT }
+    void category, first, second
+    if (first.includes("کامپیوتر")) return { ...mappedCat, subminor: enuSubMinorCategory.Hardware }
+    if (first.includes("جانبی")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+    if (first.includes("تجهیزات")) return { ...mappedCat, subminor: enuSubMinorCategory.Gadgets }
+    if (first.includes("موبایل")) return { ...mappedCat, subminor: enuSubMinorCategory.Mobile }
+
+    return mappedCat
+  }
 }
 
 export class digikaproducts extends clsScrapper {
   constructor() {
-      super(enuDomains.digikaproducts, "digikala.com", {
-          api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
-              const pageContent: IntfPageContent = { url: url.toString(), links: [] }
-              reParams
-              pageContent.links.push("https://api.digikala.com/v1/brands/");
-              
-              if(data.data && data.data.brands) {
-                const brand_codes: string[] = [];
-                Object.values(data.data.brands).forEach((brand: any) => {
-                  brand.forEach((code) => {
-                    brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
-                  });
-                });
-                await Promise.all(brand_codes.map(async (brand_code) => {
-                let pageExists = true;
-                let page = 1;
-                while(pageExists) {
-                  const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
-                  pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
-                  const brand = await productsResponse.json();
-                  if (page < brand.data.pager.total_pages) {
-                    page++;
-                  } else {
-                    pageExists = false;
-                  }
-                }
-                }))
+    super(enuDomains.digikaproducts, "digikala.com", {
+      api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
+        const pageContent: IntfPageContent = { url: url.toString(), links: [] }
+        reParams
+        pageContent.links.push("https://api.digikala.com/v1/brands/");
+
+        if (data.data && data.data.brands) {
+          const brand_codes: string[] = [];
+          Object.values(data.data.brands).forEach((brand: any) => {
+            brand.forEach((code) => {
+              brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
+            });
+          });
+          await Promise.all(brand_codes.map(async (brand_code) => {
+            let pageExists = true;
+            let page = 1;
+            while (pageExists) {
+              const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
+              pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
+              const brand = await productsResponse.json();
+              if (page < brand.data.pager.total_pages) {
+                page++;
+              } else {
+                pageExists = false;
               }
-              return pageContent
-          },
-          url: { removeWWW: true }
-      })
+            }
+          }))
+        }
+        return pageContent
+      },
+      url: { removeWWW: true }
+    })
   }
 }

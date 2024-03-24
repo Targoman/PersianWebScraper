@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { Md5 } from "ts-md5"
-import { fa2En, sleep, normalizeText, persianMonthNumber, always, normalizeCategory, date2Gregorian, dateOffsetToDate } from "./common"
+import { fa2En, sleep, normalizeText, persianMonthNumber, always, date2Gregorian, dateOffsetToDate } from "./common"
 import clsDB, { enuURLStatus } from "./db"
 import gConfigs from "./gConfigs"
 import {
@@ -57,13 +57,16 @@ export abstract class clsScrapper {
         this.proxyCookie = {}
     }
 
-    name() {
+    get domainName() {
         return this.domain
+    }
+    get domainURL() {
+        return this.baseURL
     }
 
     async check(url: string) {
         const page = await this.getPageContent(url)
-        const category = this.updateCategory(page)
+        const category = this.mapCategory(page.category, page.url)
 
         log.info({ ...page, category })
     }
@@ -72,7 +75,7 @@ export abstract class clsScrapper {
         try {
             log.setModuleName(this.domain)
             log.progress("Starting...")
-            this.db.init(recheck)
+            await this.db.init(recheck)
             if (!existsSync(this.corporaPath))
                 if (!mkdirSync(this.corporaPath, { recursive: true }))
                     throw new Error("Unable to create corpora directory: " + this.corporaPath)
@@ -397,7 +400,7 @@ export abstract class clsScrapper {
             return finalDateString
         const gregorian = date2Gregorian(finalDateString);
         if (gregorian?.startsWith("INVALID"))
-            log.file(this.name(), gregorian)
+            log.file(this.domain, gregorian)
         return gregorian
     }
 
@@ -449,20 +452,6 @@ export abstract class clsScrapper {
         debugNodeProcessor && log.debug("----------FINISH---------")
     }
 
-    private updateCategory(page) {
-        const origianlCategory = normalizeCategory(page.category)
-        const mappedCat = this.mapCategory(origianlCategory)
-        const category = { original: origianlCategory }
-        if (mappedCat) {
-            category["major"] = mappedCat.major
-            if (mappedCat.minor)
-                category["minor"] = mappedCat.minor
-            if (mappedCat.subminor)
-                category["subminor"] = mappedCat.subminor
-        }
-        return category
-    }
-
     private async storePage(page?: IntfPageContent, id?: number) {
         if (page) {
             let wc = 0
@@ -493,7 +482,7 @@ export abstract class clsScrapper {
                         if (!existsSync(filePath))
                             if (!mkdirSync(filePath, { recursive: true }))
                                 throw new Error("Unable to create file path: " + filePath)
-                        const category = this.updateCategory(page)
+                        const category = this.mapCategory(page.category, page.url)
                         const toWrite = { url: page.url, category, ...page.article }
                         writeFileSync(filePath + "/" + Md5.hashStr(page.url) + ".json",
                             gConfigs.compact ? JSON.stringify(toWrite) : JSON.stringify(toWrite, null, 2)
@@ -915,7 +904,7 @@ export abstract class clsScrapper {
     }
 
     async runQuery(query: string) {
-        this.db.init()
+        await this.db.init()
         log.info(this.db.runQuery(query))
     }
 
@@ -942,6 +931,7 @@ export abstract class clsScrapper {
 
     protected normalizePath(url: URL, conf?: IntfURLNormalizationConf): string {
         const effectiveConf = this.effectiveURLNormalizetionConf(conf)
+
         const pathParts = url.pathname.split("/")
         let path = url.pathname
 
@@ -976,8 +966,31 @@ export abstract class clsScrapper {
         return normalized
     }
 
-    public mapCategory(category?: string, tags?: string[]): IntfMappedCategory {
-        void category, tags
-        return { major: enuMajorCategory.Undefined }
+    private baseNormalizeCategory(cat?: string) {
+        if (cat === "undefined")
+            return "Undefined"
+        return cat ? normalizeText(cat.replace(/[\n\t]/g, " ").replace(/[,]/g, ' -').substring(0, 100)) : 'Undefined'
+    }
+
+    protected normalizeCategoryImpl(cat?: string) {
+        return cat
+    }
+
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string, url: string): IntfMappedCategory {
+        void category, first, second, url
+        return { textType: enuTextType.Unk, major: enuMajorCategory.Undefined, original: category || "N/A" }
+    }
+
+    public mapCategory(category: string | undefined, url: string): IntfMappedCategory {
+        category = this.normalizeCategoryImpl(this.baseNormalizeCategory(category))
+        let catFirstPart = "", catSecondPart = ""
+        if (category) {
+            category = category.trim()
+            const catParts = category.split('/')
+            catFirstPart = catParts[0].trim()
+            catSecondPart = (catParts.length > 1 ? catParts[1] : '').trim()
+        }
+
+        return { original: category, ...this.mapCategoryImpl(category, catFirstPart, catSecondPart, url) }
     }
 }

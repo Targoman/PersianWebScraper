@@ -7,6 +7,8 @@ import { Md5 } from 'ts-md5';
 import { always, date2Gregorian } from './common';
 import * as scrappers from '../scrappers'
 import { clsScrapper } from './clsScrapper';
+import util from 'util'
+import { exec } from 'child_process'
 
 export enum enuURLStatus {
     New = 'N',
@@ -17,16 +19,26 @@ export enum enuURLStatus {
     Finished = 'F'
 }
 
+const pExec = util.promisify(exec);
+
 export default class clsDB {
     private db: Database
     private oldDB: Database
     private domain: enuDomains
+    private dbPath: string
 
     constructor(domain: enuDomains) {
         this.domain = domain
+        this.dbPath = `${gConfigs.db}/${this.domain}.new.db`
     }
 
-    init(checkURLWithFiles = false) {
+    async close() {
+        this.db.close()
+        log.info("Compressing DB")
+        await pExec(`gzip ${this.dbPath}`)
+    }
+
+    async init(checkURLWithFiles = false) {
         if (!gConfigs.db)
             throw new Error("db config not set")
 
@@ -34,13 +46,22 @@ export default class clsDB {
             if (!mkdirSync(gConfigs.db, { recursive: true }))
                 throw new Error("Unable to create db directory: " + gConfigs.db)
 
-        this.db = new DatabaseConstructor(`${gConfigs.db}/${this.domain}.new.db`, {
+        if (!existsSync(this.dbPath) && existsSync(this.dbPath + ".gz"))
+            await pExec(`gunzip ${this.dbPath + ".gz"}`)
+
+        this.db = new DatabaseConstructor(this.dbPath, {
             verbose: (command) => log.db(command)
         });
         this.db.pragma('journal_mode = WAL');
 
         ['exit', 'SIGINT', 'SIGTERM', 'SIGQUIT'].forEach(
-            signal => process.on(signal, () => { log.info("Closing DB on exit"); try { this.db.close(); this.oldDB.close(); process.exit() } catch (e) {/**/ } })
+            signal => process.on(signal, () => {
+                try {
+                    this.db.close(); this.oldDB.close();
+                    log.info("Closed DB on exit");
+                } catch (e) {/**/ }
+                process.exit()
+            })
         )
 
         this.db.exec(`CREATE TABLE IF NOT EXISTS tblURLs(
