@@ -1754,3 +1754,34 @@ export class vigiato extends clsScrapper {
         })
     }
 }
+
+export class techrato extends clsScrapper {
+    constructor() {
+        super(enuDomains.techrato, "techrato.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "[itemprop='articleBody'] p, [itemprop='articleBody'] h2, [itemprop='articleBody'] table",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.comments-list article"),
+                    author: ".comment-meta div",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: ".post-categories li a",
+                },
+                tags: ".tags-nav a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

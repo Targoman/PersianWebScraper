@@ -1507,5 +1507,9 @@ yarn dev && yarn start rooziato
 yarn dev && yarn start rooziato -u https://rooziato.com/1403616213/چند-حقیقت-جالب-و-خواندنی-درباره-خودروه/
 yarn dev && yarn start rooziato -u https://rooziato.com/1402607236/قسمت-اول-اسپین-آف-جدید-مردگان-متحرک/
 
+yarn dev && yarn start techrato 
+yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/telegram-filtering-in-spain/
+yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/phone-price-list-today-5-farvardin-1403/
+
 https://motamem.org/
 /**/
