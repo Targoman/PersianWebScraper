@@ -1524,5 +1524,8 @@ yarn dev && yarn start akhbarelmi -u https://akhbarelmi.ir/233766/
 yarn dev && yarn start ettelaat
 yarn dev && yarn start ettelaat -u https://ettelaat.com/fa/news/36376/فقر-سال-آینده-بیداد-می%E2%80%8Cکند
 
+yarn dev && yarn start technoc
+yarn dev && yarn start technoc -u https://technoc.ir/nvidia-revealed-latte3d-generate-3d-models-from-prompts/
+
 https://motamem.org/
 /**/

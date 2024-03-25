@@ -422,6 +422,7 @@ export enum enuDomains {
     tasnim = "tasnim",
     tebna = "tebna",
     tebyan = "tebyan",
+    technoc = "technoc",
     technolife = "technolife",
     techranco = "techranco",
     techrato = "techrato",

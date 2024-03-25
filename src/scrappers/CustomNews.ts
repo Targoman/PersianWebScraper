@@ -1859,3 +1859,30 @@ export class ettelaat extends clsScrapper {
         })
     }
 }
+
+export class technoc extends clsScrapper {
+    constructor() {
+        super(enuDomains.technoc, "technoc.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["yarpp"],
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                tags: ".post-tag a",
+                category: {
+                    selector: "h6.entry-category a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
