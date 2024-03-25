@@ -120,6 +120,7 @@ export enum enuDomains {
     ekhtebar = "ekhtebar",
     emalls = "emalls",
     eporsesh = "eporsesh",
+    ettelaat = "ettelaat",
     etemadonline = "etemadonline",
     exbito = "exbito",
     eximnews = "eximnews",

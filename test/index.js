@@ -1521,5 +1521,8 @@ yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/185241_باورهای
 yarn dev && yarn start akhbarelmi
 yarn dev && yarn start akhbarelmi -u https://akhbarelmi.ir/233766/
 
+yarn dev && yarn start ettelaat
+yarn dev && yarn start ettelaat -u https://ettelaat.com/fa/news/36376/فقر-سال-آینده-بیداد-می%E2%80%8Cکند
+
 https://motamem.org/
 /**/

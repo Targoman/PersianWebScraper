@@ -1832,3 +1832,30 @@ export class akhbarelmi extends clsScrapper {
         })
     }
 }
+
+export class ettelaat extends clsScrapper {
+    constructor() {
+        super(enuDomains.ettelaat, "ettelaat.com", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                subtitle: ".leadRow",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".newsBody",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments .commentBox .cmItem"),
+                    author: ".cmName",
+                    text: ".cmMsg"
+                },
+                category: {
+                    selector: "a.newsBreadCrumb ",
+                },               
+            },
+        })
+    }
+}
