@@ -1723,3 +1723,166 @@ export class manbaekhabar extends clsScrapper {
         return mappedCat
     }
 }
+
+export class vigiato extends clsScrapper {
+    constructor() {
+        super(enuDomains.vigiato, "vigiato.net", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content",
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                },
+                category: {
+                    selector: "#breadcrumb > span > span > a",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class techrato extends clsScrapper {
+    constructor() {
+        super(enuDomains.techrato, "techrato.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "[itemprop='articleBody'] p, [itemprop='articleBody'] h2, [itemprop='articleBody'] table",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.comments-list article"),
+                    author: ".comment-meta div",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: ".post-categories li a",
+                },
+                tags: ".tags-nav a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class gadgetnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.gadgetnews, "gadgetnews.net", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["box-inner-block"]
+                },               
+                tags: ".post-tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class akhbarelmi extends clsScrapper {
+    constructor() {
+        super(enuDomains.akhbarelmi, "akhbarelmi.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                datetime: {
+                    conatiner: ".meta div:nth-child(2) a.link "
+                },
+                content: {
+                    main: "aside.fa_news",
+                },
+                category: {
+                    selector: ".meta div:nth-child(1) a.link ",
+                },               
+                tags: ".post-tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class ettelaat extends clsScrapper {
+    constructor() {
+        super(enuDomains.ettelaat, "ettelaat.com", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                subtitle: ".leadRow",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".newsBody",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments .commentBox .cmItem"),
+                    author: ".cmName",
+                    text: ".cmMsg"
+                },
+                category: {
+                    selector: "a.newsBreadCrumb ",
+                },               
+            },
+        })
+    }
+}
+
+export class technoc extends clsScrapper {
+    constructor() {
+        super(enuDomains.technoc, "technoc.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["yarpp"],
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                tags: ".post-tag a",
+                category: {
+                    selector: "h6.entry-category a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

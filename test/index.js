@@ -1499,5 +1499,33 @@ yarn dev && yarn start artanpress -u https://artanpress.ir/83321/نقشه-باز
 yarn dev && yarn start manbaekhabar
 yarn dev && yarn start manbaekhabar -u https://www.manbaekhabar.ir/29/11/1402/8041/
 
+yarn dev && yarn start vigiato
+yarn dev && yarn start vigiato -u https://vigiato.net/p/461258
+yarn dev && yarn start vigiato -u https://vigiato.net/p/461139
+
+yarn dev && yarn start rooziato
+yarn dev && yarn start rooziato -u https://rooziato.com/1403616213/چند-حقیقت-جالب-و-خواندنی-درباره-خودروه/
+yarn dev && yarn start rooziato -u https://rooziato.com/1402607236/قسمت-اول-اسپین-آف-جدید-مردگان-متحرک/
+
+yarn dev && yarn start techrato 
+yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/telegram-filtering-in-spain/
+yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/phone-price-list-today-5-farvardin-1403/
+
+yarn dev && yarn start gadgetnews
+yarn dev && yarn start gadgetnews -u https://gadgetnews.net/844454/difference-between-dedicated-and-virtual-server-what-is-the-difference-between-working-process-of-these-two-servers/
+
+yarn dev && yarn start hidoctor
+yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/361879_اگر-می-خواهید-در-برابر-سنگ-کلیه-بیمه-شوی.html/
+yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/185241_باورهای-رایج-درباره-شکلات.html/
+
+yarn dev && yarn start akhbarelmi
+yarn dev && yarn start akhbarelmi -u https://akhbarelmi.ir/233766/
+
+yarn dev && yarn start ettelaat
+yarn dev && yarn start ettelaat -u https://ettelaat.com/fa/news/36376/فقر-سال-آینده-بیداد-می%E2%80%8Cکند
+
+yarn dev && yarn start technoc
+yarn dev && yarn start technoc -u https://technoc.ir/nvidia-revealed-latte3d-generate-3d-models-from-prompts/
+
 https://motamem.org/
 /**/
