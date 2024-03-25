@@ -1808,3 +1808,27 @@ export class gadgetnews extends clsScrapper {
         })
     }
 }
+
+export class akhbarelmi extends clsScrapper {
+    constructor() {
+        super(enuDomains.akhbarelmi, "akhbarelmi.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                datetime: {
+                    conatiner: ".meta div:nth-child(2) a.link "
+                },
+                content: {
+                    main: "aside.fa_news",
+                },
+                category: {
+                    selector: ".meta div:nth-child(1) a.link ",
+                },               
+                tags: ".post-tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

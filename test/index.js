@@ -1518,5 +1518,8 @@ yarn dev && yarn start hidoctor
 yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/361879_اگر-می-خواهید-در-برابر-سنگ-کلیه-بیمه-شوی.html/
 yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/185241_باورهای-رایج-درباره-شکلات.html/
 
+yarn dev && yarn start akhbarelmi
+yarn dev && yarn start akhbarelmi -u https://akhbarelmi.ir/233766/
+
 https://motamem.org/
 /**/
