@@ -482,7 +482,7 @@ const app = command({
                         const dirItems = readdirSync(baseOutpath)
                         for (const item of dirItems) {
                             scLog.progress("compressing " + item)
-                            await pExec(`gzip ${baseOutpath}/${item}`)
+                            await pExec(`gzip '${baseOutpath}/${item}'`)
                         }
 
                         scLog.progress("Storing Statistics CSV")

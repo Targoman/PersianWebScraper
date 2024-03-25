@@ -1,9 +1,7 @@
 const express = require('express');
 const fs = require('fs')
 const Buffer = require("buffer").Buffer;
-const { createCaptcha } = require("nastaliq-captcha");
 const NodeRSA = require('node-rsa');
-const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 3000
@@ -13,7 +11,6 @@ const approvedLogos = `${statsPath}/app/approved`
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(cookieParser());
 app.use(express.json())
 
 function loadCachedInfo() {
@@ -27,8 +24,9 @@ function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 app.get('/corpusSample/:domain', (req, res) => {
+    console.log(req.params)
     const files = fs.readdirSync(statsPath + "/" + req.params.domain).filter(f => f.endsWith('.gz'))
-    const file = statsPath + "/" + files.at(Math.floor(files.length / 2))
+    const file = statsPath + "/" + req.params.domain + "/" + files.at(Math.floor(files.length / 2))
     res.writeHead(200, {
         "Content-Type": "application/gzip",
         "Content-Length": fs.statSync(file).size,
@@ -37,6 +35,7 @@ app.get('/corpusSample/:domain', (req, res) => {
 })
 
 app.get('/statistics/:domain', (req, res) => {
+    console.log(req.params)
     const file = statsPath + "/" + req.params.domain + "-cats.csv"
     res.writeHead(200, {
         "Content-Type": "text/csv",
@@ -115,7 +114,7 @@ app.get('/', (req, res) => {
         for (const file of files) {
             const stats = JSON.parse(fs.readFileSync(statsPath + "/" + file))
             let row = `<tr>`
-            row += `<th><a target="blank" href="/details/${file.split("-").at(0)}">${file.split("-").at(0)}</a></th>`
+            row += `<th><a target="blank" href="./details/${file.split("-").at(0)}">${file.split("-").at(0)}</a></th>`
             row += `<td>${stats.documents}</td>`
             row += `<td>${stats.oldestArticle ? new Date(stats.oldestArticle).toLocaleDateString("fa-IR") : "null"}</td>`
             row += `<td>${stats.newestArticle ? new Date(stats.newestArticle).toLocaleDateString("fa-IR") : "null"}</td>`
@@ -152,7 +151,7 @@ app.get('/', (req, res) => {
                 if (catNameParts.length > 1)
                     rowCats[catNameParts.at(1)] += stats.categories[catName].totalWC
                 else
-                    majorCats['Undefined'] += stats.categories[catName].totalWC
+                    rowCats['Undefined'] += stats.categories[catName].totalWC
             }
             Object.keys(rowCats).forEach(cat => (row += `<td>${rowCats[cat]}</td>`, overallStats.majorCatsWC[cat] += rowCats[cat]));
             Object.keys(rowTextTypes).forEach(type => overallStats.textTypesWC[type] += rowTextTypes[type])
@@ -160,7 +159,7 @@ app.get('/', (req, res) => {
             rows.push(row)
         }
         const logoFiles = fs.readdirSync(approvedLogos).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
-        logoFiles.forEach(logo => logos.push(`<div class="approved-logo"><img src="/approved/${logo}"></div>`))
+        logoFiles.forEach(logo => logos.push(`<div class="approved-logo"><img src="./approved/${logo}"></div>`))
 
         const rsaKey = new NodeRSA({ b: 512 });
         fs.writeFileSync(cachePath, JSON.stringify({
