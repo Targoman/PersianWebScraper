@@ -886,7 +886,8 @@ export abstract class clsScrapper {
             "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
-            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp"
+            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp",
+            "mov", "docx","pptx", "xlsx","xls","doc", "apt", "m4v","webm"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {

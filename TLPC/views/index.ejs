@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/datatable/dataTables.dataTables.min.css">
+    <title>کلان‌پیکره زبان فارسی ترگمان (TLPC)</title>
+    <script src="/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img class="justOn-light" src="/img/tip-colored.svg" alt="پردازش هوشمند ترگمان">
+            <img class="justOn-dark" src="/img/tip-logo-white.svg" alt="پردازش هوشمند ترگمان">
+            <!-- <img src="/img/SetadHoush.svg" alt="ستاد فناوری‌های هوش مصنوعی و رباتیک معاونت علمی، فناوری و اقتصاد دیجیتال ریاست جمهوری"> -->
+        </div>
+        <div class="menu desktopView">
+            <div class="item"><a href="#intro">معرفی</a></div>
+            <div class="item"><a href="#data-structure">ساختار داده‌ها</a></div>
+            <div class="item"><a href="#usecases">کاربری‌ها</a></div>
+            <div class="item"><a href="#license">حق بهره‌برداری</a></div>
+            <div class="item"><a href="#statistics">آمار</a></div>
+            <div class="item"><a href="#request">دریافت پیکره</a></div>
+        </div>
+        <div class="menu mobileView">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img class="justOn-light" src="/img/Hamburger_icon.black.png">
+                    <img class="justOn-dark" src="/img/Hamburger_icon.white.png">
+                </button>
+                <div class="dropdown-content">
+                    <a href="#intro">معرفی</a>
+                    <a href="#data-structure">ساختار داده‌ها</a>
+                    <a href="#usecases">کاربری‌ها</a>
+                    <a href="#license">حق بهره‌برداری</a>
+                    <a href="#statistics">آمار</a>
+                    <a href="#request">دریافت پیکره</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <article class="anchor" id="intro"></article>
+        <article>
+            <h1>کلان‌پیکره زبان فارسی</h1>
+            <p>از زمان اختراع رایانه انسان همواره علاقه داشته تا بتواند به زبان انسانی با رایانه‌ها گفتگو نماید. تحقیقات
+                و مجاهدت‌های دانشمندان و مهندسین ما را به دانش پردازش زبان انسانی و مدل‌های زبانی بزرگ رساند. مدل‌های
+                زبانی بزرگ با قابلیت‌های شگرف خود انقلابی را در صنعت هوش مصنوعی موجب شده‌اند که باعث تغییر انگاره‌ها در
+                خصوص توانایی‌های ماشین‌ها شده است. مدل‌های زبانی بزرگ نشان داده‌اند که هوش مصنوعی مولد دیگر صرفاً یک
+                موضوع فنی نبوده و می‌بایست علاوه بر نگاه صنعتی و بهره‌مندی از مواهب آن‌ها از سایر مناظر فرهنگی، سیاسی،
+                اعتقادی، اجتماعی و امنیتی نیز مورد توجه قرار بگیرند.
+            </p>
+            <p>
+                توسعه مدل‌های زبانی بزرگ علاوه بر نیاز به زیرساخت‌های پردازشی و مغزافزار مهندسی، نیازمند دسترسی به
+                دادگان عظیم است.
+                در زبان فارسی تاکنون مجاهدت‌های بسیاری برای تولید داده‌ها صورت گرفته و پیکره‌های متنی فراوانی هم منتشر
+                شده‌اند با این حال اکثریت قریب به اتفاق پیکره‌های ایجاد و منتشرشده دارای اشکالاتی برای بهره گیری جهت
+                آموزش مدل‌های زبانی بزرگ هستند. عمده این اشکالات عبارتند از:
+            </p>
+            <ol>
+                <li>اکثریت پیکره‌ها به صورت متن خالص و پیوسته بوده و در نتیجه پیوستگی موضوعی متون از دست رفته است. </li>
+                <li>در اکثریت پیکره‌ها متن به جملات شکسته شده و پیوستگی پاراگراف‌ها از دست رفته است</li>
+                <li>بیشتر پیکره‌ها با توجه به نیاز و نظر منتشرکننده نرمال‌سازی شده و بخشی از اطلاعات را از دست داده است.
+                </li>
+                <li>حوزه پوشش پیکره‌ها تنوع کاملی از زبان فارسی را در بر ندارد</li>
+                <li>حجم پیکره‌ها نسبت به حجم پیکره‌های مورد استفاده در سایر زبان‌ها محدود است. </li>
+            </ol>
+            <p>با هدف رفع این مشکلات و ایجاد یک پیکره متنی استاندارد که توانایی استفاده از آن در انواع وظایف مبتنی بر
+                پردازش زبان طبیعی فارسی وجود داشته باشد شرکت پردازش هوشمند ترگمان اقدام به توسعه خزشگر تخصصی برای خزش و
+                استخراج صحیح محتوا از وب فارسی نمیده و با بهره گیری از توان حدود ۵۰ سرور در طی مدت ۶ ماه، کلان‌پیکره
+                زبان فارسی را گردآوری نموده است. این پیکره با نام «کلان‌پیکره فارسی ترگمان» (Targoman Large Persian
+                Corpus) در اختیار عموم محققین و توسعه‌دهندگان ایزارهای پردازش زبان فارسی قرار گرفته است
+                این پیکره علاوه بر حجم بسیار زیاد دارای ویژگی‌های منحصر به فردی می‌باشد:
+            </p>
+            <ol>
+                <li>هر سند به صورت مستقل ذخیره شده و به ازای هر سند فراداده‌های زیر استخراج و در سند مربوطه ذخیره شده و
+                    با استفاده از این فراداده‌ها می توان انواع خروجی‌های مورد نظر را از پیکره بدست آورد:
+                    <ul>
+                        <li>تاریخ</li>
+                        <li>عنوان</li>
+                        <li>زیرتیتر، روتیتر و خلاصه (هرکدام در صورت وجود)</li>
+                        <li>کلمات کلیدی سند (در صورت وجود)</li>
+                        <li>لینک تصاویر سند به همراه توضیحات تصویر (در صورت وجود)</li>
+                        <li>ساختار پاراگراف‌ها و نوع متن اعم از پاراگراف، توضیح، تیتر، لینک و …</li>
+                        <li>ارجاعات سند (در صورت وجود)</li>
+                        <li>نظرات مردمی به صورت مستقل از متن اصلی به همراه تاریخ و نام نظر دهنده</li>
+                    </ul>
+                </li>
+                <li>خروجی به صورت Json که می‌تواند به سهولت و با اسکریپت‌های ارایه شده فیلتر و به متن خام متناسب با نیاز
+                    تبدیل شود </li>
+                <li>هر سند در حداقل یک و حداکثر ۳ سطح دسته‌بندی شده و می‌توان به سهولت متن‌های در دسته‌های مختلف را جدا
+                    کرد</li>
+                <li>متن محاوره و رسمی از هم تفکیک شده است</li>
+                <li>تنوع بالای حوزه‌های پوشش‌داده شده اعم از خبری، وبلاگ، انجمن‌های گفتگو، فروشگاه، و ... </li>
+            </ol>
+            <p>کلان‌پیکره ترگمان تاکنون با خزش بیش از ۴۰۰ سایت داخلی شامل بیش از ۳۵ میلیارد توکن منتج از بیش از ۶۵
+                میلیون سند در حوزه‌های گوناگون شده است. حوزه‌های پوشش داده شده توسط این پیکره از تنوع بالایی برخوردار
+                بوده و شامل حوزه‌های ذیل می‌باشد:
+            <ul>
+                <li>خبری</li>
+                <li>وبلاگ</li>
+                <li>قوانین</li>
+                <li>ادبیات</li>
+                <li>پرسش و پاسخ</li>
+                <li>انجمن گفتگو</li>
+                <li>مذهبی</li>
+                <li>پزشکی</li>
+                <li>محاوره</li>
+                <li>آموزشی</li>
+                <li>مرجع</li>
+                <li>و حتی: <a target="_blank" href="https://www.ninisite.com/">نی‌نی‌سایت</a></li>
+            </ul>
+            </p>
+            <p>
+                خزشگر تخصصی ترگمان برای گردآوری این پیکره به صورت کاملا متن‌باز و با حق بهره‌برداری
+                <a target="_blank" href="https://www.gnu.org/licenses/lgpl-3.0.en.html"><img class="inline-logo"
+                        src="./img/LGPLv3.png" alt="LGPL-v3" srcset=""></a>
+                از طریق گیت‌هاب در دسترس می‌باشد
+
+            </p>
+            <p class="en"><img class="inline-logo" src="/img/github.png"
+                    alt="https://github.com/Targoman/PersianWebScraper"><a target="_blank"
+                    href="https://github.com/Targoman/PersianWebScraper">https://github.com/Targoman/PersianWebScraper</a>
+            </p>
+        </article>
+        <article class="anchor" id="data-structure"></article>
+        <article>
+            <h2>ساختار داده‌ها</h2>
+            <p>کلان‌داده ترگمان یک داده متنی ساده نیست بلکه شامل تمامی فراداده‌های لازم برای پردازش‌های زبان طبیعی است.
+                داده‌های با ساختار <a target="_blank" href="https://jsonlines.org/">jsonl.gz</a> منتشر شده‌اند تا در
+                هنگام پردازش کمترین
+                میزان حافظه مورد نیاز باشد.
+                هر سطر داده در فایل شامل یک json است که دارای ساختاری مطابق زیر می‌باشد
+            </p>
+            <div class="json">
+                <pre>
+{
+    url: string,                //Article normalized URL
+    category: {
+        original: string        //Category as specified by the article
+        textType: string        //Main content textType, can be: 
+                                //   Formal, Informal, Hybrid, Unknown
+        major: string           //Major category can be: 
+                                //   News, QA (Question & Answer), Literature, 
+                                //   Forum, Weblog, SocialMedia, Doc, Undefined
+        minor?: string          //Minor category (see source code for list)
+        subminor?: string       //Subminor category (see source code for list)
+    },          
+    date: string,               //Article publish date (if specified)
+    title: string,              //Title of the article
+    aboveTitle?: string,        //Surtitle or any text provided before Title
+    subtitle?: string,          //Subtitle or Lead (if provided)
+    summary?: string,           //Summary (if provided)
+    content?: IntfText[],       //An array containing main article each item structure will be 
+                                //{ text: string, type: enuTextType, ref?: string } 
+                                //where ref is just for items provided with a hyperlink
+    comments?: IntfComment[]    //An array of comments (if any) in the following structure: 
+                                //{ text: string, author?: string, date?: string }
+    images?: IntfImage[],       //List of image URLs used in the article with their alt-texts.
+                                //{ src: string, alt?: string }
+    qa? : {                     //If the site has Question/Answer an array with following structure
+        q: IntfComment,         //Question part { text: string, author?: string, date?: string }
+        a?: IntfComment[]       //Answers part 
+    }[],
+    tags?: string[]             //List of tags provided with the article (if any)
+}
+                    </pre>
+            </div>
+        </article>
+        <article class="anchor" id="usecases"></article>
+        <article>
+            <h2>کاربری‌ها</h2>
+            <p>
+                کلان‌پیکره ترگمان در ابتدا با هدف استفاده در گروه مشارکت توسعه مدل زبانی فارسی متشکل از چهار شرکت
+                <a target="_blank" href="https://tip.co.ir"> پردازش هوشمند ترگمان</a>،
+                <a target="_blank" href="https://dadmatech.ir/">داده‌پردازان مبتکر آکام</a>،
+                <a target="_blank" href="http://farabar.net/"> عصر فناوری دانش</a> و
+                <a target="_blank" href="https://partdp.ir"> پردازش اطلاعات مالی پارت</a>،
+
+                اما به صورت مستقل ایجاد شد و
+                پس از بهره‌برداری موفق در توسعه مدل‌زبانی بزرگ پایه برای مراحل بعدی توسعه مدل زبانی از نوع insruction
+                tunning مورد توسعه و گسترش قرار گرفت. در حال حاضر مهمترین بهره‌بردار این پیکره عظیم گروه مشارکت
+                <a target="_blank" href="https://houshafarin.ir">هوش‌آفرین</a> و مجموعه مدل‌های زبانی مورد توسعه در این
+                گروه می باشد
+            </p>
+            <div style="text-align: center;"><a class="filter-hover" target="_blank" href="https://houshafarin.ir"><img
+                        src="/img/houshafarin.svg" alt="مجموعه مدل‌های زبانی هوش‌آفرین"></a></div>
+            <p>همچنین نسخه محدودی از این پیکره (در حدود ۱۳ میلیارد کلمه) در اختیار مرکز فراداده مرکز ملی فضای مجازی قرار
+                گرفت تا در هکاتون توسعه مدل‌های زبانی بزرگ مورد استفاده قرار گیرد. </p>
+        </article>
+        <article class="anchor" id="license"></article>
+        <article>
+            <h2>حق بهره‌برداری</h2>
+            <p>شرکت پردازش هوشمند ترگمان در راستای مسوولیت اجتماعی و با هدف گسترش فرهنگ آزادرسانی و تقویت هوش مصنوعی در
+                کشور حق بهره‌برداری از این کلان‌پیکره را حق بهره‌برداری
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es"><img
+                        class="inline-logo" src="./img/CC-BY-NC-SA.png" alt="CC-BY-NC-SA" srcset=""></a>
+                قرار داده است. در عین حال این شرکت در تفاهم با ستاد توسعه فناوری‌های هوش مصنوعی و رباتیک معاونت علمی،
+                فناوری و اقتصاد دانش‌بنیان ریاست جمهوری
+                حق بهره‌برداری از این کلان‌پیکره را به عموم ارگان‌های دولتی و شرکت‌های دانش‌بنیان مورد تایید معاونت علمی
+                اعطا کرده است.
+            </p>
+            <img class="license" src="/img/License-noSign.png" alt="حق بهره‌برداری تجاری کلان‌پیکره فارسی ترگمان TLPC"
+                srcset="">
+        </article>
+        <article class="anchor" id="statistics"></article>
+        <article>
+            <h2>آمار داده‌ها</h2>
+            <p class="faNum">
+                تا تاریخ <%=latestDoc%> تعداد <%=domainCount%> سایت داخلی شامل بیش از <%=totalURLs%> میلیون آدرس مورد
+                            خزش قرار گرفته‌اند و
+                            ماحصل این خزش‌ها گردآوری بیش از <%=totalDocs%> میلیون سند حاوی بیش از <%=totalWC%> میلیارد
+                                    توکن در حوزه‌های مختلف بوده است.
+                                    آمار جزیی این پیکره در جدول زیر ارایه شده است. با کلیک بر روی هر آدرس می‌توانید به
+                                    جزییات بیشتری از
+                                    اطلاعات آماری دامنه مذکور دست پیدا کنید. دقت شود که شمارش توکن‌ها بدون استفاده از
+                                    توکنایزر و صرفا مبتنی
+                                    بر شمارش فاصله‌ها صورت گرفته در نتیجه آمار نهایی پیکره بیش از آمار ابرازی است.
+            </p>
+            <div class="table faNum">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan=2>دامنه</th>
+                            <th rowspan=2>تعداد سند</th>
+                            <th rowspan=2>از تاریخ</th>
+                            <th rowspan=2>تا تاریخ</th>
+                            <th rowspan=2>تعداد کل توکن‌ها</th>
+                            <th colspan="8">تعداد توکن در دسته</th>
+                        </tr>
+                        <tr>
+                            <th>خبر</th>
+                            <th>ادبیات</th>
+                            <th>انجمن</th>
+                            <th>وبلاگ</th>
+                            <th>پرسش و پاسخ</th>
+                            <th>سند</th>
+                            <th>نامشخص</th>
+                            <th>تعیین‌نشده</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- rows %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="charts">
+                <div class="chart"><canvas id="chart-by-cat"></canvas></div><div class="chart"><canvas id="chart-by-type"></canvas></div>
+            </div>
+        </article>
+        <article class="anchor" id="request"></article>
+        <article>
+            <h2>دریافت پیکره</h2>
+            <p>
+                کلان‌پیکره ترگمان بر روی آدرس
+                <a target="_blank"
+                    href="https://huggingface.co/datasets/Targoman/TLPC/">https://huggingface.co/datasets/Targoman/TLPC/</a>
+                قرار گرفته و دسترسی به آن نیازمند تایید می‌باشد. جهت دریافت پیکره ابتدا در huggingface درخواست داده و
+                سپس برای دریافت حق بهره‌برداری تجاری از آن اطلاعات ذیل را به ایمیل
+                <a href="mailto:oss@targoman.com">oss@targoman.com</a> ارسال فرمایید:
+            <ul>
+                <li>نام سازمان یا شرکت دانش‌بنیان</li>
+                <li>شناسه ملی شرکت یا سازمان</li>
+                <li>نام و نام خانوادگی نماینده رسمی</li>
+                <li>کد ملی نماینده رسمی</li>
+                <li>شماره موبایل نماینده</li>
+                <li>تصویر معرفی‌نامه مهر و امضا‌شده</li>
+                <li>لوگوی با کیفیت در فرمت PNG با پس‌زمینه سفید </li>
+            </ul>
+            </p>
+            <h2>دریافت‌کنندگان حق بهره‌برداری</h2>
+            <div><%- logos %></div>
+        </article>
+        <article class="last"></article>
+    </div>
+    <script src="/datatable/jquery-3.7.1.min.js"></script>
+    <script src="/datatable/dataTables.min.js"></script>
+    <script src="/datatable/scrolling.js"></script>
+    <script>
+        const table = new DataTable("table", {
+            responsive: true,
+            pagingType: "scrolling",
+            pageLength: 25,
+            /*columnDefs: [{
+                //targets: [1,2,3,4,5,6,7,8,9, 10, 11], render: data => parseInt(data).toLocaleString('fa-IR')
+            }
+            ],*/
+            language: {
+                url: 'datatable/fa.json',
+            },
+        })
+
+        const overallStats = JSON.parse('<%-overallStats%>');
+        const brokenStats_Cats = {labels:[],data:[]}
+        const brokenStats_Types = {labels:[],data:[]}
+        Object.keys(overallStats.majorCatsWC).forEach(cat=>(brokenStats_Cats.labels.push(cat), brokenStats_Cats.data.push(overallStats.majorCatsWC[cat])))
+        Object.keys(overallStats.textTypesWC).forEach(type=>(brokenStats_Types.labels.push(type), brokenStats_Types.data.push(overallStats.textTypesWC[type])))
+        
+        const categoryPie = new Chart(document.getElementById('chart-by-cat'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Cats.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Cats.data,
+                    hoverOffset: 0
+                }]
+            },
+        });
+        const typePie = new Chart(document.getElementById('chart-by-type'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Types.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Types.data,
+                    hoverOffset: 4
+                }]
+            },
+        });
+
+    </script>
+</body>
+
+</html>

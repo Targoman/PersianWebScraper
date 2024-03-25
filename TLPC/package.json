@@ -1,0 +1,26 @@
+{
+  "name": "tlpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Targoman/PersianWebScraper.git"
+  },
+  "author": "S.Mehran M.Ziabary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Targoman/PersianWebScraper/issues"
+  },
+  "homepage": "https://github.com/Targoman/PersianWebScraper#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "nastaliq-captcha": "^2.0.0",
+    "node-rsa": "^1.1.1"
+  }
+}
