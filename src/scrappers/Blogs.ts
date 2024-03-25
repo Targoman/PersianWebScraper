@@ -5588,3 +5588,30 @@ export class rooziato extends clsScrapper {
         })
     }
 }
+
+export class hidoctor extends clsScrapper {
+    constructor() {
+        super(enuDomains.hidoctor, "hidoctor.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".post-content",
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list .comment .comment-body"),
+                    author: "span.author span",
+                    text: "section.cmtext"
+                },
+                category: {
+                    selector: ".cats a",
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}

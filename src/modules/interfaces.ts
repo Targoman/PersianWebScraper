@@ -162,6 +162,7 @@ export enum enuDomains {
     hashtsobh = "hashtsobh",
     hawzahnews = "hawzahnews",
     hedayatgar = "hedayatgar",
+    hidoctor = "hidoctor",
     hisalamat = "hisalamat",
     hitalki = "hitalki",
     honareseda = "honareseda",

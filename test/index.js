@@ -1514,5 +1514,9 @@ yarn dev && yarn start techrato -u https://techrato.com/2024/03/24/phone-price-l
 yarn dev && yarn start gadgetnews
 yarn dev && yarn start gadgetnews -u https://gadgetnews.net/844454/difference-between-dedicated-and-virtual-server-what-is-the-difference-between-working-process-of-these-two-servers/
 
+yarn dev && yarn start hidoctor
+yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/361879_اگر-می-خواهید-در-برابر-سنگ-کلیه-بیمه-شوی.html/
+yarn dev && yarn start hidoctor -u https://www.hidoctor.ir/185241_باورهای-رایج-درباره-شکلات.html/
+
 https://motamem.org/
 /**/
