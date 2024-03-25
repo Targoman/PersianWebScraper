@@ -9,6 +9,7 @@
     <title>
         <%= title %>
     </title>
+    <script src="/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -18,47 +19,118 @@
             <img class="justOn-dark" src="/img/tip-logo-white.svg" alt="پردازش هوشمند ترگمان">
             <!-- <img src="/img/SetadHoush.svg" alt="ستاد فناوری‌های هوش مصنوعی و رباتیک معاونت علمی، فناوری و اقتصاد دیجیتال ریاست جمهوری"> -->
         </div>
-        <h1>پیکره سایت <%=title%> </a></h1>
+        <h1 class="desktopView">پیکره <%=title%> </a></h1>
     </div>
     <div class="main faNum">
-        <ul style="margin-top: 2em;">
-            <li>آدرس دامنه: <a target="_blank" href="//<%=info.domain%>">
-                    <%=info.domain%>
-                </a>
-            </li>
-            <li>قدیمی‌ترین سند:
-                <%= info.oldestArticle %>
-            </li>
-            <li>جدید‌ترین سند:
-                <%= info.newestArticle %>
-            </li>
-            <li>آدرس‌های قابل دریافت:
-                <%= info.urls %>
-            </li>
-            <li>آدرس‌های دریافت‌شده:
-                <%= info.fetched %>
-            </li>
-            <li>آدرس‌های صرفنظرشده:
-                <%= info.discarded %>
-            </li>
-            <li>آدرس‌های منجر به خطا:
-                <%= info.errors %>
-            </li>
-            <li>تعداد سند در پیکره:
-                <%= info.documents %>
-            </li>
-            <li>تعداد توکن‌ها در پیکره:
-                <%= info.totalWordCount %>
-            </li>
-            <li>
-                نمونه فایل: <a href="/corpusSample/<%=title%>">دریافت</a>
-            </li>
-            <li>
-                آمارگان دسته‌ها: <a href="/statistics/<%=title%>">دریافت</a>
-            </li>
-        </ul>
-        <table></table>
+        <h1 class="mobileView">پیکره <%=title%> </a></h1>
+        <article>
+            <ul style="margin-top: 2em;">
+                <li>آدرس دامنه: <a target="_blank" href="//<%=info.domain%>">
+                        <%=info.domain%>
+                    </a>
+                </li>
+                <li>قدیمی‌ترین سند:
+                    <%= info.oldestArticle %>
+                </li>
+                <li>جدید‌ترین سند:
+                    <%= info.newestArticle %>
+                </li>
+                <li>آدرس‌های قابل دریافت:
+                    <%= info.urls %>
+                </li>
+                <li>آدرس‌های دریافت‌شده:
+                    <%= info.fetched %>
+                </li>
+                <li>آدرس‌های صرفنظرشده:
+                    <%= info.discarded %>
+                </li>
+                <li>آدرس‌های منجر به خطا:
+                    <%= info.errors %>
+                </li>
+                <li>تعداد سند در پیکره:
+                    <%= info.documents %>
+                </li>
+                <li>تعداد توکن‌ها در پیکره:
+                    <%= info.totalWordCount %>
+                </li>
+                <li>
+                    نمونه فایل: <a href="/corpusSample/<%=title%>">دریافت</a>
+                </li>
+                <li>
+                    آمارگان دسته‌ها: <a href="/statistics/<%=title%>">دریافت</a>
+                </li>
+            </ul>
+            <table></table>
+            <div class="charts">
+                <div class="chart"><canvas id="chart-by-type"></canvas>
+                </div><div class="chart"><canvas id="chart-by-cat"></canvas>
+                </div><div class="chart"><canvas id="chart-by-mincat"></canvas></div>
+            </div>
+        </article>
     </div>
+    <script>
+        const catStats = JSON.parse('<%-categories %>');
+        const majorCats = {}
+        const minorCats = {}
+        const types = {}
+
+        Object.keys(catStats).forEach(catName => {
+            const addCatStats = (holder, cat) => {
+                if (!holder[cat]) holder[cat] = catStats[catName].totalWC
+                else holder[cat] += catStats[catName].totalWC
+            }
+            const catNameParts = catName.split(".")
+            addCatStats(types, catNameParts.at(0))
+
+            if (catNameParts.length > 1) {
+                addCatStats(majorCats, catNameParts.at(1))
+                if (catNameParts.length > 2)
+                    addCatStats(minorCats, catNameParts.at(2))
+            }
+            else
+                addCatStats('Undefined')
+        })
+        const brokenStats_Cats = { labels: [], data: [] }
+        const brokenStats_MinorCats = { labels: [], data: [] }
+        const brokenStats_Types = { labels: [], data: [] }
+        Object.keys(types).forEach(type => (brokenStats_Types.labels.push(type), brokenStats_Types.data.push(types[type])))
+        Object.keys(majorCats).forEach(cat => (brokenStats_Cats.labels.push(cat), brokenStats_Cats.data.push(majorCats[cat])))
+        Object.keys(minorCats).forEach(cat => (brokenStats_MinorCats.labels.push(cat), brokenStats_MinorCats.data.push(minorCats[cat])))
+
+        new Chart(document.getElementById('chart-by-type'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Types.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Types.data,
+                    hoverOffset: 0
+                }]
+            },
+        });
+        new Chart(document.getElementById('chart-by-cat'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Cats.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Cats.data,
+                    hoverOffset: 0
+                }]
+            },
+        });
+        new Chart(document.getElementById('chart-by-mincat'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_MinorCats.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_MinorCats.data,
+                    hoverOffset: 0
+                }]
+            },
+        });
+    </script>
 </body>
 
 </html>

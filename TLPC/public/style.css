@@ -36,11 +36,17 @@
     .desktopView {
         display: none !important;
     }
+    .chart {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
     .mobileView {
         display: none !important;
+    }
+    .chart {
+        max-width: 50%;
     }
 }
 
@@ -295,4 +301,13 @@ form [type="submit"] {
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.charts {
+    margin-top: 1em;
+}
+.chart {
+    padding: .5em;
+    box-sizing: border-box;
+    display: inline-block;
 }

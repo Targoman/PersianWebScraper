@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/datatable/dataTables.dataTables.min.css">
     <title>کلان‌پیکره زبان فارسی ترگمان (TLPC)</title>
+    <script src="/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -246,40 +247,30 @@
                     </tbody>
                 </table>
             </div>
+            <div class="charts">
+                <div class="chart"><canvas id="chart-by-cat"></canvas></div><div class="chart"><canvas id="chart-by-type"></canvas></div>
+            </div>
         </article>
         <article class="anchor" id="request"></article>
         <article>
-            <h2>درخواست پیکره</h2>
+            <h2>دریافت پیکره</h2>
             <p>
-                برای دریافت حق بهره‌برداری تجاری از پیکره لطفا فرم زیر را پر کنید. پس از احراز صلاحیت لینک دانلود پیکره
-                برای شما ارسال می‌شود. نسخه با حق بهره‌برداری غیر تجاری به زودی روی huggingface قرار داده خواهد شد.
+                کلان‌پیکره ترگمان بر روی آدرس
+                <a target="_blank"
+                    href="https://huggingface.co/datasets/Targoman/TLPC/">https://huggingface.co/datasets/Targoman/TLPC/</a>
+                قرار گرفته و دسترسی به آن نیازمند تایید می‌باشد. جهت دریافت پیکره ابتدا در huggingface درخواست داده و
+                سپس برای دریافت حق بهره‌برداری تجاری از آن اطلاعات ذیل را به ایمیل
+                <a href="mailto:oss@targoman.com">oss@targoman.com</a> ارسال فرمایید:
+            <ul>
+                <li>نام سازمان یا شرکت دانش‌بنیان</li>
+                <li>شناسه ملی شرکت یا سازمان</li>
+                <li>نام و نام خانوادگی نماینده رسمی</li>
+                <li>کد ملی نماینده رسمی</li>
+                <li>شماره موبایل نماینده</li>
+                <li>تصویر معرفی‌نامه مهر و امضا‌شده</li>
+                <li>لوگوی با کیفیت در فرمت PNG با پس‌زمینه سفید </li>
+            </ul>
             </p>
-            <form onsubmit="return sendRequest()">
-                <div><label>
-                        نام شرکت دانش‌بنیان یا سازمان دولتی
-                    </label><input required name="company">
-                </div>
-                <div><label>
-                        شناسه ملی
-                    </label><input required name="company-nid">
-                </div>
-                <div><label>
-                        نام و نام خانوادگی نماینده
-                    </label><input required name="name">
-                </div>
-                <div><label>
-                        شماره موبایل نماینده
-                    </label><input required name="mobile">
-                </div>
-                <div><label>
-                        آدرس ایمیل
-                    </label><input required name="email">
-                </div>
-                <div class="center"><img class="captcha" src="/captcha"><input required name="captcha"
-                        placeholder="عدد سه رقمی تصویر"></div>
-                <div><input type="submit" value="ارسال درخواست"></div>
-                <div class="result center"></div>
-            </form>
             <h2>دریافت‌کنندگان حق بهره‌برداری</h2>
             <div><%- logos %></div>
         </article>
@@ -302,27 +293,35 @@
             },
         })
 
-        function sendRequest(e) {
-            const form = document.querySelector('form')
-            const items = {
-                company: form.querySelector('[name="company"]').value,
-                nid: form.querySelector('[name="company-nid"]').value,
-                name: form.querySelector('[name="name"]').value,
-                mobile: form.querySelector('[name="mobile"]').value,
-                email: form.querySelector('[name="email"]').value,
-            }
+        const overallStats = JSON.parse('<%-overallStats%>');
+        const brokenStats_Cats = {labels:[],data:[]}
+        const brokenStats_Types = {labels:[],data:[]}
+        Object.keys(overallStats.majorCatsWC).forEach(cat=>(brokenStats_Cats.labels.push(cat), brokenStats_Cats.data.push(overallStats.majorCatsWC[cat])))
+        Object.keys(overallStats.textTypesWC).forEach(type=>(brokenStats_Types.labels.push(type), brokenStats_Types.data.push(overallStats.textTypesWC[type])))
+        
+        const categoryPie = new Chart(document.getElementById('chart-by-cat'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Cats.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Cats.data,
+                    hoverOffset: 0
+                }]
+            },
+        });
+        const typePie = new Chart(document.getElementById('chart-by-type'), {
+            type: 'pie',
+            data: {
+                labels: brokenStats_Types.labels,
+                datasets: [{
+                    label: 'تعداد توکن‌ها',
+                    data: brokenStats_Types.data,
+                    hoverOffset: 4
+                }]
+            },
+        });
 
-            fetch("/requestLicense", {
-                method: "POST",
-                body: JSON.stringify(items),
-                headers: { "Content-type": "application/json; charset=UTF-8" }
-            }).then(r => {
-                form.querySelector('[type="submit"]').style.display = 'none'
-                form.querySelector(".result").innerHTML = "تقاضای شما با موفقی ثبت شد. پس از بررسی به شما اطلاع داده خواهد شد"
-            });
-
-            return false
-        }
     </script>
 </body>
 

@@ -27,7 +27,7 @@ function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 app.get('/corpusSample/:domain', (req, res) => {
-    const files = fs.readdirSync(statsPath + "/" + req.params.domain).filter(f=>f.endsWith('.gz'))
+    const files = fs.readdirSync(statsPath + "/" + req.params.domain).filter(f => f.endsWith('.gz'))
     const file = statsPath + "/" + files.at(Math.floor(files.length / 2))
     res.writeHead(200, {
         "Content-Type": "application/gzip",
@@ -49,22 +49,15 @@ app.get('/details/:domain', (req, res) => {
     const json = fs.readFileSync(statsPath + "/" + req.params.domain + "-stats.json")
     const info = JSON.parse(json)
     info.oldestArticle = new Date(info.oldestArticle).toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
-    info.newestArticle = new Date(info.newestArticle).toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
-    info.urls = formatNumber(info.urls)
+        info.newestArticle = new Date(info.newestArticle).toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
+        info.urls = formatNumber(info.urls)
     info.fetched = formatNumber(info.fetched)
     info.discarded = formatNumber(info.discarded)
     info.errors = formatNumber(info.errors)
     info.documents = formatNumber(info.documents)
     info.totalWordCount = formatNumber(info.totalWordCount)
-    res.render('details', { title: req.params.domain, info });
-})
 
-app.post('/requestLicense', (req, res) => {
-    const cached = loadCachedInfo()
-    const ssid = req.cookies.ssid
-    console.log({ ssid, b: req })
-
-    //key.decrypt(req.body.catcha, 'base64')
+    res.render('details', { title: req.params.domain, info , categories: JSON.stringify(info.categories)});
 })
 
 app.get("/captcha", (req, res) => {
@@ -97,6 +90,25 @@ app.get('/', (req, res) => {
     let files = []
     const rows = []
     const logos = []
+    const overallStats = {
+        majorCatsWC: {
+            News: 0,
+            Literature: 0,
+            Forum: 0,
+            Weblog: 0,
+            QA: 0,
+            Doc: 0,
+            Undefined: 0,
+            NA: 0
+        },
+        textTypesWC: {
+            Formal: 0,
+            Informal: 0,
+            Hybrid: 0,
+            Unk: 0,
+        }
+    }
+
     if (!fs.existsSync(cachePath) || Date.now() - fs.statSync(cachePath).mtime > 3600) {
         files = fs.readdirSync(statsPath).filter(fn => fn.endsWith('.json'))
 
@@ -116,6 +128,12 @@ app.get('/', (req, res) => {
             if (stats.newestArticle && (!latestDoc || latestDoc < newestArticle && newestArticle < new Date()))
                 latestDoc = newestArticle
 
+            const rowTextTypes = {
+                Formal: 0,
+                Informal: 0,
+                Hybrid: 0,
+                Unk: 0
+            }
             const rowCats = {
                 News: 0,
                 Literature: 0,
@@ -128,24 +146,16 @@ app.get('/', (req, res) => {
             }
 
             for (const catName of Object.keys(stats.categories)) {
-                const major = catName.split(".").at(0)
-                if (major === "News") rowCats.News += stats.categories[catName].totalWC
-                if (major === "Literature") rowCats.Literature += stats.categories[catName].totalWC
-                if (major === "Forum") rowCats.Forum += stats.categories[catName].totalWC
-                if (major === "Weblog") rowCats.Weblog += stats.categories[catName].totalWC
-                if (major === "QA") rowCats.QA += stats.categories[catName].totalWC
-                if (major === "Doc") rowCats.Doc += stats.categories[catName].totalWC
-                if (major === "Undefined") rowCats.Undefined += stats.categories[catName].totalWC
-                if (major === "NA") rowCats.NA += stats.categories[catName].totalWC
+                const catNameParts = catName.split(".")
+                rowTextTypes[catNameParts.at(0)] += stats.categories[catName].totalWC
+
+                if (catNameParts.length > 1)
+                    rowCats[catNameParts.at(1)] += stats.categories[catName].totalWC
+                else
+                    majorCats['Undefined'] += stats.categories[catName].totalWC
             }
-            row += `<td>${rowCats.News}</td>`
-            row += `<td>${rowCats.Literature}</td>`
-            row += `<td>${rowCats.Forum}</td>`
-            row += `<td>${rowCats.Weblog}</td>`
-            row += `<td>${rowCats.QA}</td>`
-            row += `<td>${rowCats.Doc}</td>`
-            row += `<td>${rowCats.Undefined}</td>`
-            row += `<td>${rowCats.NA}</td>`
+            Object.keys(rowCats).forEach(cat => (row += `<td>${rowCats[cat]}</td>`, overallStats.majorCatsWC[cat] += rowCats[cat]));
+            Object.keys(rowTextTypes).forEach(type => overallStats.textTypesWC[type] += rowTextTypes[type])
             row += '</tr>'
             rows.push(row)
         }
@@ -167,7 +177,8 @@ app.get('/', (req, res) => {
                 domainCount: files.length
             },
             rows: rows.join("\n"),
-            logos: logos.join("\n")
+            logos: logos.join("\n"),
+            overallStats
         }))
 
     }
@@ -181,7 +192,8 @@ app.get('/', (req, res) => {
         totalDocs: Math.floor(cached.info.totalDocs / 1e6),
         totalWC: Math.floor(cached.info.totalWC / 1e9),
         totalURLs: Math.floor(cached.info.totalURLs / 1e6),
-        domainCount: cached.info.domainCount
+        domainCount: cached.info.domainCount,
+        overallStats: JSON.stringify(cached.overallStats)
     });
 });
 

@@ -293,7 +293,7 @@ const app = command({
                     normalizeArray(doc[key])
             }
 
-            if (args.force || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
+            if (args.forceNormal || typeof docCategory === 'string' || docCategory['major'] === enuMajorCategory.Undefined) {
                 doc.category = scrapper.mapCategory(typeof docCategory === 'string' ? docCategory : doc.category['original'], doc.url);
                 if (typeof docCategory === 'string')
                     doc.category['original'] = docCategory;
@@ -321,12 +321,12 @@ const app = command({
 
         const writeStatsFile = (filePath?: string) => {
             if (filePath)
-                writeFileSync(filePath, "domain,category,oldest,newest,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
+                writeFileSync(filePath, "domain,category,oldest,newest,docs,mainPars,mainWC,titleWC,surtitleWC,subtitleWC,summaryWC,altWC,comments,commentsWC,qaCount,qaWC,TextType,Cat-major,Cat-minor,Cat-subminor, sumWC\n")
             for (const dom in domainCategories) {
                 for (const cat in domainCategories[dom]) {
                     const s = domainCategories[dom][cat]
                     if (filePath)
-                        appendFileSync(filePath, `${dom}, ${cat}, ${s.oldestArticleDate?.toISOString().split("T").at(0) || ""}, ${s.newestArticleDate?.toISOString().split("T").at(0) || ""},  ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${s.qaCount}, ${s.qaWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${s.totalWC}\n`)
+                        appendFileSync(filePath, `${dom}, ${cat}, ${s.oldestArticleDate?.toISOString().split("T").at(0) || ""}, ${s.newestArticleDate?.toISOString().split("T").at(0) || ""},  ${s.docs}, ${s.mainParagraphs}, ${s.mainWC}, ${s.titleWC}, ${s.surtitleWC}, ${s.subtitleWC}, ${s.summaryWC}, ${s.altWC}, ${s.commentCount}, ${s.commentWC}, ${s.qaCount}, ${s.qaWC}, ${cat.split('.').at(0)}, ${cat.split('.').at(1) || ""}, ${cat.split('.').at(2) || ""}, ${cat.split('.').at(3) || ""}, ${s.totalWC}\n`)
 
                     if (s.oldestArticleDate && (!oldestArticleDate || oldestArticleDate > s.oldestArticleDate))
                         oldestArticleDate = s.oldestArticleDate
@@ -362,7 +362,7 @@ const app = command({
 
             catStr = doc.category['original'];
             if (!args.keepOriginalCat && doc.category['major'] && doc.category['major'] !== enuMajorCategory.Undefined) {
-                catStr = doc.category['major'];
+                catStr = doc.category['textType'] + "." + doc.category['major'];
                 if (doc.category['minor'])
                     catStr += "." + doc.category['minor'];
                 if (doc.category['subminor'])

@@ -887,7 +887,7 @@ export abstract class clsScrapper {
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
             "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp",
-            "mov", "docx", "apt", "m4v","webm"
+            "mov", "docx","pptx", "xlsx","xls","doc", "apt", "m4v","webm"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {
