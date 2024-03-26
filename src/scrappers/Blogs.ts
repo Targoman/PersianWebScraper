@@ -5615,3 +5615,26 @@ export class hidoctor extends clsScrapper {
         })
     }
 }
+
+export class shabakehmag extends clsScrapper {
+    constructor() {
+        super(enuDomains.shabakehmag, "shabakeh-mag.com", {
+            selectors: {
+                article: "article",
+                aboveTitle: "div.field-name-field-kicker",
+                title: "h1",
+                summary: ".field-name-field-summary",
+                datetime: {
+                    conatiner: "span.date-display-single"
+                },
+                content: {
+                    main: ".field-name-body",
+                },               
+                category: {
+                    selector: ".field-name-field-topic a",
+                },
+                tags: ".field-name-field-tag div div a"
+            },
+        })
+    }
+}

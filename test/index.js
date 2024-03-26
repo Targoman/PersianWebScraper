@@ -1538,5 +1538,8 @@ yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/art
 yarn dev && yarn start click
 yarn dev && yarn start click -u https://www.click.ir/بخش-فناوری-334/401647-مرحله-اساسی-مجسمه-سازی-ساخت-ماکت-با-پرینتر-سه-بعدی
 
+yarn dev && yarn start shabakehmag
+yarn dev && yarn start shabakehmag -u https://www.shabakeh-mag.com/information-feature/artificial-intelligence/21076/تابع-فعال%E2%80%8Cسازی-در-شبکه-های-عصبی-چه-کاربردی-دارد؟
+
 https://motamem.org/
 /**/
