@@ -470,6 +470,7 @@ export enum enuDomains {
     zibamoon = "zibamoon",
     zoomg = "zoomg",
     zoomit = "zoomit",
+    zoomtech = "zoomtech",
 }
 
 export interface IntfGlobalConfigs {

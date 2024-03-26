@@ -1527,5 +1527,9 @@ yarn dev && yarn start ettelaat -u https://ettelaat.com/fa/news/36376/فقر-س�
 yarn dev && yarn start technoc
 yarn dev && yarn start technoc -u https://technoc.ir/nvidia-revealed-latte3d-generate-3d-models-from-prompts/
 
+yarn dev && yarn start zoomtech
+yarn dev && yarn start zoomtech -u https://zoomtech.org/هدفون-وان-پلاس-buds-v-به-بازار-چین-رسید/
+yarn dev && yarn start zoomtech -u https://zoomtech.org/پنج-مشخصه-جالب-lg-g2/
+
 https://motamem.org/
 /**/

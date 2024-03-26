@@ -1886,3 +1886,36 @@ export class technoc extends clsScrapper {
         })
     }
 }
+
+export class zoomtech extends clsScrapper {
+    constructor() {
+        super(enuDomains.zoomtech, "zoomtech.org", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["ctaText"],
+                    ignoreTexts: [/.*padding.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: ".article_tags a",
+                category: {
+                    selector: ".article_category a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
