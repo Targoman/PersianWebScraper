@@ -1531,5 +1531,9 @@ yarn dev && yarn start zoomtech
 yarn dev && yarn start zoomtech -u https://zoomtech.org/هدفون-وان-پلاس-buds-v-به-بازار-چین-رسید/
 yarn dev && yarn start zoomtech -u https://zoomtech.org/پنج-مشخصه-جالب-lg-g2/
 
+yarn dev && yarn start shahrsakhtafzar
+yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/news/graphic-card/50169-sisoftware-intel-battlemage-leak
+yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/articles-guides/smartphone/44936-how-to-set-clock-date-time-zone-xiaomi-phones
+
 https://motamem.org/
 /**/

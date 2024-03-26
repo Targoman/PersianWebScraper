@@ -1919,3 +1919,31 @@ export class zoomtech extends clsScrapper {
         })
     }
 }
+
+export class shahrsakhtafzar extends clsScrapper {
+    constructor() {
+        super(enuDomains.shahrsakhtafzar, "shahrsakhtafzar.com", {
+            selectors: {
+                article: "body.view-article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                    ignoreNodeClasses: ["typo6"]
+                },    
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".kmt-list li"),
+                    author: ".kmt-author span",
+                    datetime: "time",
+                    text: ".commentText"
+                },           
+                category: {
+                    selector: ".sazitem_imgcat a",
+                },               
+            },
+        })
+    }
+}
