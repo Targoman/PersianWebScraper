@@ -87,6 +87,7 @@ export enum enuDomains {
     cinemaema = "cinemaema",
     cinemapress = "cinemapress",
     citna = "citna",
+    click = "click",
     clickaval = "clickaval",
     dadrah = "dadrah",
     danakhabar = "danakhabar",
@@ -375,6 +376,7 @@ export enum enuDomains {
     shafaonline = "shafaonline",
     shahr = "shahr",
     shahraranews = "shahraranews",
+    shahrsakhtafzar = "shahrsakhtafzar",
     shahryarnews = "shahryarnews",
     shana = "shana",
     sharghdaily = "sharghdaily",
@@ -470,6 +472,7 @@ export enum enuDomains {
     zibamoon = "zibamoon",
     zoomg = "zoomg",
     zoomit = "zoomit",
+    zoomtech = "zoomtech",
 }
 
 export interface IntfGlobalConfigs {

@@ -1527,5 +1527,16 @@ yarn dev && yarn start ettelaat -u https://ettelaat.com/fa/news/36376/فقر-س�
 yarn dev && yarn start technoc
 yarn dev && yarn start technoc -u https://technoc.ir/nvidia-revealed-latte3d-generate-3d-models-from-prompts/
 
+yarn dev && yarn start zoomtech
+yarn dev && yarn start zoomtech -u https://zoomtech.org/هدفون-وان-پلاس-buds-v-به-بازار-چین-رسید/
+yarn dev && yarn start zoomtech -u https://zoomtech.org/پنج-مشخصه-جالب-lg-g2/
+
+yarn dev && yarn start shahrsakhtafzar
+yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/news/graphic-card/50169-sisoftware-intel-battlemage-leak
+yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/articles-guides/smartphone/44936-how-to-set-clock-date-time-zone-xiaomi-phones
+
+yarn dev && yarn start click
+yarn dev && yarn start click -u https://www.click.ir/بخش-فناوری-334/401647-مرحله-اساسی-مجسمه-سازی-ساخت-ماکت-با-پرینتر-سه-بعدی
+
 https://motamem.org/
 /**/
