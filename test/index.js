@@ -1535,5 +1535,8 @@ yarn dev && yarn start shahrsakhtafzar
 yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/news/graphic-card/50169-sisoftware-intel-battlemage-leak
 yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/articles-guides/smartphone/44936-how-to-set-clock-date-time-zone-xiaomi-phones
 
+yarn dev && yarn start click
+yarn dev && yarn start click -u https://www.click.ir/بخش-فناوری-334/401647-مرحله-اساسی-مجسمه-سازی-ساخت-ماکت-با-پرینتر-سه-بعدی
+
 https://motamem.org/
 /**/

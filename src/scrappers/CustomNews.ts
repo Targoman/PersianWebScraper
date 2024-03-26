@@ -1947,3 +1947,26 @@ export class shahrsakhtafzar extends clsScrapper {
         })
     }
 }
+
+export class click extends clsScrapper {
+    constructor() {
+        super(enuDomains.click, "click.ir", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".show_desk time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".echo_detail",
+                },      
+                tags: ".article_tag a",
+                category: {
+                    selector: ".show_desk [itemprop='name']",
+                },               
+            },
+        })
+    }
+}

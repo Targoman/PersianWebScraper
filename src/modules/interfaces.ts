@@ -87,6 +87,7 @@ export enum enuDomains {
     cinemaema = "cinemaema",
     cinemapress = "cinemapress",
     citna = "citna",
+    click = "click",
     clickaval = "clickaval",
     dadrah = "dadrah",
     danakhabar = "danakhabar",
