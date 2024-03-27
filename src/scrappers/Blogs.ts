@@ -5638,3 +5638,26 @@ export class shabakehmag extends clsScrapper {
         })
     }
 }
+
+export class iliadmag extends clsScrapper {
+    constructor() {
+        super(enuDomains.iliadmag, "iliadmag.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".content_article_en_date"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "div",
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#content_nav a"),
+                    startIndex: 1
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content_tags a")
+            },
+        })
+    }
+}

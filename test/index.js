@@ -1552,5 +1552,8 @@ yarn dev && yarn start alodoctor
 yarn dev && yarn start alodoctor -u https://www.alodoctor.com/158387/دانه-ای-که-سرشار-از-امگا3-است-و-قند-خون،-ف
 yarn dev && yarn start alodoctor -u https://www.alodoctor.com/news/details/39162/شربت-کتوتیفن-برای-چیست؟
 
+yarn dev && yarn start iliadmag 
+yarn dev && yarn start iliadmag -u https://iliadmag.com/fa/magazine/science/p/9901-غلبه-بر-یکی-از-محدودیت%E2%80%8Cهای-قانون-اول-ترمودینامیک
+
 https://motamem.org/
 /**/
