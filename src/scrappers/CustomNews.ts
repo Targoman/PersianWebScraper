@@ -2059,3 +2059,32 @@ export class alodoctor extends clsScrapper {
         })
     }
 }
+
+export class charkhan extends clsScrapper {
+    constructor() {
+        super(enuDomains.charkhan, "charkhan.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                summary: ".single-post-excerpt",
+                content: {
+                    main: "article > .entry-content",
+                    ignoreNodeClasses: ["drupysib"],
+                },               
+                comments: {
+                    container: "ol.comment-list li",
+                    author: "cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: ".post-header-title .term-badges span a",
+                },               
+            },
+        })
+    }
+}

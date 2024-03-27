@@ -1559,5 +1559,9 @@ yarn dev && yarn start par30games
 yarn dev && yarn start par30games -u https://par30games.net/248182/final-fantasy-16-pc-performance/
 yarn dev && yarn start par30games -u https://par30games.net/248160/the-callisto-protocol-was-cracked-by-rune/
 
+yarn dev && yarn start charkhan 
+yarn dev && yarn start charkhan -u https://charkhan.com/159618/رونمایی-از-رقیب-جدید-تسلا؛-شاسی-بلند-بر/
+yarn dev && yarn start charkhan -u https://charkhan.com/158250/ملاقات-فونیکس-تیگو-7-پرو-e-پلاس-هیبرید/
+
 https://motamem.org/
 /**/
