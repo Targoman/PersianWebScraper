@@ -2029,3 +2029,33 @@ export class digiro extends clsScrapper {
         })
     }
 }
+
+export class alodoctor extends clsScrapper {
+    constructor() {
+        super(enuDomains.alodoctor, "alodoctor.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                summary: ".single-post-excerpt",
+                content: {
+                    main: ".single-post-content-root",
+                    ignoreNodeClasses: ["single-post-tags-root"],
+                },               
+                comments: {
+                    container: ".comments-list .comment-item",
+                    author: "p.comment-author",
+                    text: ".pt-2.pl-0"
+                },
+                tags: ".single-post-tags-root div a",
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    lastIndex: 2
+                },               
+            },
+        })
+    }
+}
