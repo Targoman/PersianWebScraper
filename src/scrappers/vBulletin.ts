@@ -24,7 +24,7 @@ class clsVBulletinBased extends clsScrapper {
       },
       url: {
         extraInvalidStartPaths: ["/member", "/forumdisplay", "/search", "/external", "/private", "/newreply", "/printthread", "/attachment",
-          "/sendmessage", "/misc"
+          "/sendmessage", "/misc", "/category", "/all", "/1", "/school", "/test"
         ]
       },
       preHTMLParse: (html) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html; }
@@ -115,9 +115,6 @@ export class tarfandestan extends clsVBulletinBased {
           conatiner: "span.date",
         },
       },
-      url: {
-        extraInvalidStartPaths: ["/category", "/all", "/1", "/school", "/test"]
-      }
     })
   }
 

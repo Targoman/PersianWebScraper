@@ -7,7 +7,9 @@ const app = express();
 const port = 3000
 const statsPath = "../jsonl"
 const cachePath = `${statsPath}/app/cachedInfo`
-const approvedLogos = `${statsPath}/app/approved`
+const approval = `${statsPath}/app/approved`
+const approvedCommercial = `${approval}/commercial`
+const approvedNonCommercial = `${approval}/non-commercial`
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -56,7 +58,7 @@ app.get('/details/:domain', (req, res) => {
     info.documents = formatNumber(info.documents)
     info.totalWordCount = formatNumber(info.totalWordCount)
 
-    res.render('details', { title: req.params.domain, info , categories: JSON.stringify(info.categories)});
+    res.render('details', { title: req.params.domain, info, categories: JSON.stringify(info.categories) });
 })
 
 app.get("/captcha", (req, res) => {
@@ -88,7 +90,7 @@ app.get('/', (req, res) => {
     let latestDoc = undefined
     let files = []
     const rows = []
-    const logos = []
+    const approved = {commercial:[], nonCommercial:[]}
     const overallStats = {
         majorCatsWC: {
             News: 0,
@@ -98,7 +100,6 @@ app.get('/', (req, res) => {
             QA: 0,
             Doc: 0,
             Undefined: 0,
-            NA: 0
         },
         textTypesWC: {
             Formal: 0,
@@ -114,7 +115,7 @@ app.get('/', (req, res) => {
         for (const file of files) {
             const stats = JSON.parse(fs.readFileSync(statsPath + "/" + file))
             let row = `<tr>`
-            row += `<th><a target="blank" href="./details/${file.split("-").at(0)}">${file.split("-").at(0)}</a></th>`
+            row += `<th><a target="blank" href="/TLPC/details/${file.split("-").at(0)}">${file.split("-").at(0)}</a></th>`
             row += `<td>${stats.documents}</td>`
             row += `<td>${stats.oldestArticle ? new Date(stats.oldestArticle).toLocaleDateString("fa-IR") : "null"}</td>`
             row += `<td>${stats.newestArticle ? new Date(stats.newestArticle).toLocaleDateString("fa-IR") : "null"}</td>`
@@ -141,14 +142,16 @@ app.get('/', (req, res) => {
                 QA: 0,
                 Doc: 0,
                 Undefined: 0,
-                NA: 0
             }
 
             for (const catName of Object.keys(stats.categories)) {
                 const catNameParts = catName.split(".")
-                rowTextTypes[catNameParts.at(0)] += stats.categories[catName].totalWC
+                if (rowTextTypes[catNameParts.at(0)] != undefined)
+                    rowTextTypes[catNameParts.at(0)] += stats.categories[catName].totalWC
+                else
+                    rowTextTypes['Unk'] += stats.categories[catName].totalWC
 
-                if (catNameParts.length > 1)
+                if (catNameParts.length > 1 && rowCats[catNameParts.at(1)] !== undefined)
                     rowCats[catNameParts.at(1)] += stats.categories[catName].totalWC
                 else
                     rowCats['Undefined'] += stats.categories[catName].totalWC
@@ -158,8 +161,11 @@ app.get('/', (req, res) => {
             row += '</tr>'
             rows.push(row)
         }
-        const logoFiles = fs.readdirSync(approvedLogos).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
-        logoFiles.forEach(logo => logos.push(`<div class="approved-logo"><img src="./approved/${logo}"></div>`))
+        const commercialFiles = fs.readdirSync(approvedCommercial).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
+        commercialFiles.forEach(logo => approved.commercial.push(`<div class="approved-logo"><img src="/TLPC/approved/commercial/${logo}" alt="${logo.split("-")[1].split(".")[0]}"></div>`))
+        const nonComFiles = fs.readdirSync(approvedNonCommercial).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
+        nonComFiles.forEach(logo => approved.nonCommercial.push(`<div class="approved-logo"><a target="_blank" href="https://huggingface.co/${logo.split(".")[0]}"><img class="avatar" src="/TLPC/approved/non-commercial/${logo}" alt="${logo.split(".")[0]}"></a></div>`))
+        const failed = fs.readFileSync(approval + "/failed.csv",  { encoding: 'utf8', flag: 'r' }).trim().split("\n")
 
         const rsaKey = new NodeRSA({ b: 512 });
         fs.writeFileSync(cachePath, JSON.stringify({
@@ -176,7 +182,7 @@ app.get('/', (req, res) => {
                 domainCount: files.length
             },
             rows: rows.join("\n"),
-            logos: logos.join("\n"),
+            approval: {commercial: approved.commercial.join("\n"), nonCommercial: approved.nonCommercial.join("\n"), failed: failed.join(", ") },
             overallStats
         }))
 
@@ -186,7 +192,7 @@ app.get('/', (req, res) => {
 
     res.render('index', {
         rows: cached.rows,
-        logos: cached.logos,
+        approval: cached.approval,
         latestDoc: cached.info.latestDoc?.toLocaleDateString("fa-IR", { year: 'numeric', month: 'long', day: 'numeric' }),
         totalDocs: Math.floor(cached.info.totalDocs / 1e6),
         totalWC: Math.floor(cached.info.totalWC / 1e9),

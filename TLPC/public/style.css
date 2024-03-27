@@ -10,7 +10,8 @@
     --logo-width: 4em;
     --json-bgcolor: aliceblue;
     --link-color: darkblue;
-    --bgColor: white
+    --bgColor: white;
+    --TrEvenBG: lightgray;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,7 +19,8 @@
         --bgColor: #3c3c3c;
         --color: white;
         --json-bgcolor: darkslateblue;
-        --link-color: lightskyblue
+        --link-color: lightskyblue;
+        --TrEvenBG: #434343
     }
 
     .justOn-light {
@@ -36,7 +38,7 @@
     .desktopView {
         display: none !important;
     }
-    .chart {
+    .chart, .chart3 {
         width: 100%;
     }
 }
@@ -46,7 +48,10 @@
         display: none !important;
     }
     .chart {
-        max-width: 50%;
+        width: 50%;
+    }
+    .chart3 {
+        width: 33%;
     }
 }
 
@@ -212,7 +217,7 @@ a:hover {
 }
 
 article {
-    max-width: 1024px;
+    max-width: 1440px;
     margin: auto;
 }
 
@@ -231,6 +236,10 @@ th {
     font-size: 90%;
 }
 
+table.dataTable>tbody>tr:nth-child(even) {
+    background-color: var(--TrEvenBG);
+}
+
 th,
 td {
     text-align: center !important;
@@ -240,6 +249,9 @@ td {
     width: 100%;
     border: 2px solid;
     border-radius: 1em;
+    max-width: 800px;
+    margin: auto;
+    display: inherit;
 }
 
 .filter-hover:hover {
@@ -250,10 +262,9 @@ article.anchor {
     height: calc(var(--header-height) + 2em);
 }
 
-.last {
+article.last {
     height: 20em;
 }
-
 
 form {
     max-width: 400px;
@@ -293,6 +304,7 @@ form [type="submit"] {
     margin: .5em;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
 }
 .approved-logo img {
     max-width: 60px;
@@ -303,11 +315,46 @@ form [type="submit"] {
     transform: translate(-50%, -50%);
 }
 
+.cooperation strong{
+    font-weight: 900;
+    font-size: 120%;
+    margin-left: 0.5em;
+}
+
+.cooperation li {
+    margin-bottom: 0.5em;
+}
+
+.approved-logo img.avatar{
+    max-width: 80px;
+    max-height: 80px;
+}
+
 .charts {
     margin-top: 1em;
+    white-space: nowrap;
 }
-.chart {
+.chart, .chart3 {
     padding: .5em;
     box-sizing: border-box;
     display: inline-block;
+}
+
+button.dt-paging-button {
+    font-family: 'IRANSansXFaNum';
+}
+
+select#dt-length-0 {
+    font-family: 'IRANSansXFaNum';
+}
+
+.dt-paging.paging_full_numbers {
+    direction: rtl;
+}
+.dt-search {
+    direction: rtl;
+}
+
+option{
+    background-color: var(--bgColor);
 }
