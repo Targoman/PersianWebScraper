@@ -5661,3 +5661,30 @@ export class iliadmag extends clsScrapper {
         })
     }
 }
+
+export class par30games extends clsScrapper {
+    constructor() {
+        super(enuDomains.par30games, "par30games.net", {
+            basePath: "/mag",
+            selectors: {
+                article: ".single",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content > .post-content",
+                    ignoreNodeClasses: ["modality-outer"],
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
+                    author: ".title h3",
+                    text: ".comment-text p"
+                },
+                tags: ".news-tags a"
+            },
+        })
+    }
+}

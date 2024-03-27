@@ -1544,7 +1544,7 @@ yarn dev && yarn start shabakehmag -u https://www.shabakeh-mag.com/information-f
 yarn dev && yarn start gooyait
 yarn dev && yarn start gooyait -u https://www.gooyait.com/1402/12/27/معرفی-بهترین-صفحه-نمایش-گوشی.html
 
-yarn dev && yarn start digiro -u 
+yarn dev && yarn start digiro 
 yarn dev && yarn start digiro -u https://digiro.ir/things-we-want-from-gpt5/
 yarn dev && yarn start digiro -u https://digiro.ir/poco-c61-launched/
 
@@ -1554,6 +1554,10 @@ yarn dev && yarn start alodoctor -u https://www.alodoctor.com/news/details/39162
 
 yarn dev && yarn start iliadmag 
 yarn dev && yarn start iliadmag -u https://iliadmag.com/fa/magazine/science/p/9901-غلبه-بر-یکی-از-محدودیت%E2%80%8Cهای-قانون-اول-ترمودینامیک
+
+yarn dev && yarn start par30games
+yarn dev && yarn start par30games -u https://par30games.net/248182/final-fantasy-16-pc-performance/
+yarn dev && yarn start par30games -u https://par30games.net/248160/the-callisto-protocol-was-cracked-by-rune/
 
 https://motamem.org/
 /**/

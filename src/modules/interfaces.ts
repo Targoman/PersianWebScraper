@@ -313,6 +313,7 @@ export enum enuDomains {
     panjahopanjonline = "panjahopanjonline",
     panjere = "panjere",
     pansadonavadohasht = "pansadonavadohasht",
+    par30games = "par30games",
     parscoders = "parscoders",
     parshistory = "parshistory",
     parsiblog = "parsiblog",
