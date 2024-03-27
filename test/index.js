@@ -1544,5 +1544,9 @@ yarn dev && yarn start shabakehmag -u https://www.shabakeh-mag.com/information-f
 yarn dev && yarn start gooyait
 yarn dev && yarn start gooyait -u https://www.gooyait.com/1402/12/27/معرفی-بهترین-صفحه-نمایش-گوشی.html
 
+yarn dev && yarn start digiro -u 
+yarn dev && yarn start digiro -u https://digiro.ir/things-we-want-from-gpt5/
+yarn dev && yarn start digiro -u https://digiro.ir/poco-c61-launched/
+
 https://motamem.org/
 /**/

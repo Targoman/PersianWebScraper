@@ -101,6 +101,7 @@ export enum enuDomains {
     digiato = "digiato",
     digikala = "digikala",
     digikaproducts = "digikaproducts",
+    digiro = "digiro",
     digistyle = "digistyle",
     diibache = "diibache",
     divar = "divar",

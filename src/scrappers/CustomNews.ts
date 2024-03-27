@@ -2001,3 +2001,31 @@ export class gooyait extends clsScrapper {
         })
     }
 }
+
+export class digiro extends clsScrapper {
+    constructor() {
+        super(enuDomains.digiro, "digiro.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content ",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                },
+                tags: "[rel='tag']",
+                category: {
+                    selector: ".post-meta-wrap .term-badges  span a",
+                },               
+            },
+        })
+    }
+}
