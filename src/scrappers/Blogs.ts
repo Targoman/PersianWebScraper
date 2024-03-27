@@ -5615,3 +5615,76 @@ export class hidoctor extends clsScrapper {
         })
     }
 }
+
+export class shabakehmag extends clsScrapper {
+    constructor() {
+        super(enuDomains.shabakehmag, "shabakeh-mag.com", {
+            selectors: {
+                article: "article",
+                aboveTitle: "div.field-name-field-kicker",
+                title: "h1",
+                summary: ".field-name-field-summary",
+                datetime: {
+                    conatiner: "span.date-display-single"
+                },
+                content: {
+                    main: ".field-name-body",
+                },               
+                category: {
+                    selector: ".field-name-field-topic a",
+                },
+                tags: ".field-name-field-tag div div a"
+            },
+        })
+    }
+}
+
+export class iliadmag extends clsScrapper {
+    constructor() {
+        super(enuDomains.iliadmag, "iliadmag.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".content_article_en_date"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "div",
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#content_nav a"),
+                    startIndex: 1
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content_tags a")
+            },
+        })
+    }
+}
+
+export class par30games extends clsScrapper {
+    constructor() {
+        super(enuDomains.par30games, "par30games.net", {
+            basePath: "/mag",
+            selectors: {
+                article: ".single",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content > .post-content",
+                    ignoreNodeClasses: ["modality-outer"],
+                    ignoreTexts: [/.*<img.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
+                    author: ".title h3",
+                    text: ".comment-text p"
+                },
+                tags: ".news-tags a"
+            },
+        })
+    }
+}

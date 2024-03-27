@@ -1970,3 +1970,121 @@ export class click extends clsScrapper {
         })
     }
 }
+
+export class gooyait extends clsScrapper {
+    constructor() {
+        super(enuDomains.gooyait, "gooyait.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-main-content",
+                    ignoreNodeClasses: ["lwptoc"],
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: ".article_tags a",
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    lastIndex: 2
+                },               
+            },
+
+        })
+    }
+}
+
+export class digiro extends clsScrapper {
+    constructor() {
+        super(enuDomains.digiro, "digiro.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content ",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                },
+                tags: "[rel='tag']",
+                category: {
+                    selector: ".post-meta-wrap .term-badges  span a",
+                },               
+            },
+        })
+    }
+}
+
+export class alodoctor extends clsScrapper {
+    constructor() {
+        super(enuDomains.alodoctor, "alodoctor.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                summary: ".single-post-excerpt",
+                content: {
+                    main: ".single-post-content-root",
+                    ignoreNodeClasses: ["single-post-tags-root"],
+                },               
+                comments: {
+                    container: ".comments-list .comment-item",
+                    author: "p.comment-author",
+                    text: ".pt-2.pl-0"
+                },
+                tags: ".single-post-tags-root div a",
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    lastIndex: 2
+                },               
+            },
+        })
+    }
+}
+
+export class charkhan extends clsScrapper {
+    constructor() {
+        super(enuDomains.charkhan, "charkhan.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                summary: ".single-post-excerpt",
+                content: {
+                    main: "article > .entry-content",
+                    ignoreNodeClasses: ["drupysib"],
+                },               
+                comments: {
+                    container: "ol.comment-list li",
+                    author: "cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: ".post-header-title .term-badges span a",
+                },               
+            },
+        })
+    }
+}

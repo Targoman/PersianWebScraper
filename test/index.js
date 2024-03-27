@@ -1538,5 +1538,30 @@ yarn dev && yarn start shahrsakhtafzar -u https://www.shahrsakhtafzar.com/fa/art
 yarn dev && yarn start click
 yarn dev && yarn start click -u https://www.click.ir/بخش-فناوری-334/401647-مرحله-اساسی-مجسمه-سازی-ساخت-ماکت-با-پرینتر-سه-بعدی
 
+yarn dev && yarn start shabakehmag
+yarn dev && yarn start shabakehmag -u https://www.shabakeh-mag.com/information-feature/artificial-intelligence/21076/تابع-فعال%E2%80%8Cسازی-در-شبکه-های-عصبی-چه-کاربردی-دارد؟
+
+yarn dev && yarn start gooyait
+yarn dev && yarn start gooyait -u https://www.gooyait.com/1402/12/27/معرفی-بهترین-صفحه-نمایش-گوشی.html
+
+yarn dev && yarn start digiro 
+yarn dev && yarn start digiro -u https://digiro.ir/things-we-want-from-gpt5/
+yarn dev && yarn start digiro -u https://digiro.ir/poco-c61-launched/
+
+yarn dev && yarn start alodoctor
+yarn dev && yarn start alodoctor -u https://www.alodoctor.com/158387/دانه-ای-که-سرشار-از-امگا3-است-و-قند-خون،-ف
+yarn dev && yarn start alodoctor -u https://www.alodoctor.com/news/details/39162/شربت-کتوتیفن-برای-چیست؟
+
+yarn dev && yarn start iliadmag 
+yarn dev && yarn start iliadmag -u https://iliadmag.com/fa/magazine/science/p/9901-غلبه-بر-یکی-از-محدودیت%E2%80%8Cهای-قانون-اول-ترمودینامیک
+
+yarn dev && yarn start par30games
+yarn dev && yarn start par30games -u https://par30games.net/248182/final-fantasy-16-pc-performance/
+yarn dev && yarn start par30games -u https://par30games.net/248160/the-callisto-protocol-was-cracked-by-rune/
+
+yarn dev && yarn start charkhan 
+yarn dev && yarn start charkhan -u https://charkhan.com/159618/رونمایی-از-رقیب-جدید-تسلا؛-شاسی-بلند-بر/
+yarn dev && yarn start charkhan -u https://charkhan.com/158250/ملاقات-فونیکس-تیگو-7-پرو-e-پلاس-هیبرید/
+
 https://motamem.org/
 /**/
