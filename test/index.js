@@ -1567,5 +1567,9 @@ yarn dev && yarn start ensafnews
 yarn dev && yarn start ensafnews -u https://ensafnews.com/501157/فروش-فوق%e2%80%8cالعاده-دیگنیتی-بهمن-موتور-ث/
 yarn dev && yarn start ensafnews -u https://ensafnews.com/499518/فروش-پژو-پارس-برای-ایران%e2%80%8cخودرو-50-میلیو/
 
+yarn dev && yarn start pgnews 
+yarn dev && yarn start pgnews -u https://www.pgnews.ir/کارگران-پالایشگاه-پارس-جنوبی-مشکلات-ه/
+yarn dev && yarn start pgnews -u https://www.pgnews.ir/افزایش-مسمومیتهای-غذایی-در-استان-بوش/
+
 https://motamem.org/
 /**/
