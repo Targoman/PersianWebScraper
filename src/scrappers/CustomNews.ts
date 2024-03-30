@@ -2115,3 +2115,27 @@ export class ensafnews extends clsScrapper {
         })
     }
 }
+
+export class akharinkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.akharinkhabar, "akharinkhabar.ir", {
+            selectors: {
+                article: "#view-module",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: ".asset-metabar-time.asset-metabar-item",
+                },
+                content: {
+                    main: ".asset-double-wide",
+                    ignoreNodeClasses: ["main-share-box", "copy-link", "font-size--main-box"],
+                    ignoreTexts: [/.*«آخرین خبر».*/, /.*instagram.*/]
+                },               
+                category: {
+                    selector: ".asset-metabar-cat"
+                },
+                tags: ".tags-box a strong"           
+            },
+        })
+    }
+}
