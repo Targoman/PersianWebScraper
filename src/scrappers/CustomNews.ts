@@ -2139,3 +2139,30 @@ export class akharinkhabar extends clsScrapper {
         })
     }
 }
+
+export class pgnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.pgnews, "pgnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-tags", "pcsl-title", "heateor_sss_sharing_container", "penci-post-countview-number-check"],
+                    ignoreTexts: ["در این زمینه"]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
+                    author: ".author span",
+                    datetime: ".date",
+                    text: ".comment-content p"
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}
