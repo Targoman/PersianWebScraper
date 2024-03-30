@@ -1563,5 +1563,9 @@ yarn dev && yarn start charkhan
 yarn dev && yarn start charkhan -u https://charkhan.com/159618/رونمایی-از-رقیب-جدید-تسلا؛-شاسی-بلند-بر/
 yarn dev && yarn start charkhan -u https://charkhan.com/158250/ملاقات-فونیکس-تیگو-7-پرو-e-پلاس-هیبرید/
 
+yarn dev && yarn start ensafnews 
+yarn dev && yarn start ensafnews -u https://ensafnews.com/501157/فروش-فوق%e2%80%8cالعاده-دیگنیتی-بهمن-موتور-ث/
+yarn dev && yarn start ensafnews -u https://ensafnews.com/499518/فروش-پژو-پارس-برای-ایران%e2%80%8cخودرو-50-میلیو/
+
 https://motamem.org/
 /**/
