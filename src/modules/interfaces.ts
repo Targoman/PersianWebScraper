@@ -123,6 +123,7 @@ export enum enuDomains {
     eghtesadonline = "eghtesadonline",
     ekhtebar = "ekhtebar",
     emalls = "emalls",
+    ensafnews = "ensafnews",
     eporsesh = "eporsesh",
     ettelaat = "ettelaat",
     etemadonline = "etemadonline",
