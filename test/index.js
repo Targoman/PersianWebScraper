@@ -1571,5 +1571,9 @@ yarn dev && yarn start pgnews
 yarn dev && yarn start pgnews -u https://www.pgnews.ir/کارگران-پالایشگاه-پارس-جنوبی-مشکلات-ه/
 yarn dev && yarn start pgnews -u https://www.pgnews.ir/افزایش-مسمومیتهای-غذایی-در-استان-بوش/
 
+yarn dev && yarn start asemooni
+yarn dev && yarn start asemooni -u https://asemooni.com/mag/us-tourist-attractions
+yarn dev && yarn start asemooni -u https://asemooni.com/mag/robot-in-life
+
 https://motamem.org/
 /**/

@@ -5688,3 +5688,33 @@ export class par30games extends clsScrapper {
         })
     }
 }
+
+export class asemooni extends clsScrapper {
+    constructor() {
+        super(enuDomains.asemooni, "asemooni.com", {
+            basePath: "/mag",
+            selectors: {
+                article: ".single-blog-post",
+                title: "h1 a",
+                summary: ".hdl-ecxerpt",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li.comment .comment-body"),
+                    author: ".comment-author a",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: "ul.breadcumbs li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".hdl-post-footer-tags a"
+            },
+        })
+    }
+}
