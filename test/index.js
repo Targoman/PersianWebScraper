@@ -1575,5 +1575,8 @@ yarn dev && yarn start asemooni
 yarn dev && yarn start asemooni -u https://asemooni.com/mag/us-tourist-attractions
 yarn dev && yarn start asemooni -u https://asemooni.com/mag/robot-in-life
 
+yarn dev && yarn start fardmag 
+yarn dev && yarn start fardmag -u https://fardmag.ir/لوئیز-بونه-نمایش-فیگورهای-بدریختِ-اغر/
+
 https://motamem.org/
 /**/
