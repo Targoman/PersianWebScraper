@@ -5718,3 +5718,25 @@ export class asemooni extends clsScrapper {
         })
     }
 }
+
+export class fardmag extends clsScrapper {
+    constructor() {
+        super(enuDomains.fardmag, "fardmag.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                },               
+                category: {
+                    selector: ".post-cat-wrap a",
+                },
+            },
+        })
+    }
+}
