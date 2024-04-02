@@ -2183,12 +2183,6 @@ export class euronews extends clsScrapper {
                     ignoreNodeClasses: ["widget--type-related", "c-ad", "c-article-you-might-also-like"],
                     ignoreTexts: [/.*به کانال تلگرام یورونیوز.*/]
                 },               
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
-                    author: ".author span",
-                    datetime: ".date",
-                    text: ".comment-content p"
-                },
                 category: {
                     selector: "#adb-article-breadcrumb a",
                 },
@@ -2220,18 +2214,43 @@ export class peivast extends clsScrapper {
                     main: ".single-blog-content",
                     ignoreNodeClasses: ["grayboxe"],
                 },               
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
-                    author: "footer .comment-author b",
-                    datetime: "time",
-                    text: ".comment-content"
-                },
                 category: {
                     selector: "#breadcrumbs span span a",
                     startIndex: 1
                 },
                 tags: ".post-tags a"           
             },
+        })
+    }
+}
+
+export class trt extends clsScrapper {
+    constructor() {
+        super(enuDomains.trt, "trt.net.tr", {
+            basePath: "/persian",
+            selectors: {
+                article: "body.lang-fa-IR article",
+                title: "h1",
+                summary: "h2",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.textContent?.substring(0,10).split(".").reverse().join("/") || "NO_DATE"
+                },
+                content: {
+                    main: ".formatted",
+                    ignoreNodeClasses: ["tags"],
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    lastIndex: 2
+                },
+                tags: ".tags a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/afghaniuzbek", "/armenian", "/azerbaycan", "/turki", "/bulgarian", "/chinese",
+                  "/dari", "/georgian", "/greek", "/magyar", "/italiano", "/kazakh", "/kyrgyz", "/pashto", "/portuguese",
+                  "/romana", "/espanol", "/tatarca", "/tatarca", "/turkmen", "/turkmence", "/urdu", "/uyghur", "/uzbek"]
+            }
         })
     }
 }

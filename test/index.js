@@ -1588,5 +1588,8 @@ yarn dev && yarn start euronews -u https://parsi.euronews.com/culture/2024/03/28
 yarn dev && yarn start peivast
 yarn dev && yarn start peivast -u https://peivast.com/p/194423
 
+yarn dev && yarn start trt
+yarn dev && yarn start trt -u https://www.trt.net.tr/persian/qtsd/2024/04/02/nrkh-rz-w-tl-dr-bzr-azd-stnbwl-shshnbh-14-frwrdyn-1403-2123403
+
 https://motamem.org/
 /**/
