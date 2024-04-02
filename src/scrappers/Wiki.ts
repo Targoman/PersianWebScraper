@@ -1,6 +1,7 @@
 import { clsScrapper } from "../modules/clsScrapper";
 import { IntfProcessorConfigs, enuDomains } from "../modules/interfaces";
 import deepmerge from "deepmerge";
+import { HTMLElement } from "node-html-parser"
 
 class clsWiki extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
@@ -83,6 +84,27 @@ export class wikishia extends clsWiki {
             url: {
                 removeWWW: true,
                 extraInvalidStartPaths: ["/w"]
+            }
+        })
+    }
+}
+
+export class wikishahid extends clsWiki {
+    constructor() {
+        super(enuDomains.wikishahid, "wikishahid.com", { 
+            selectors: {
+                article: ".rade",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("div[style='margin:2px 2px 2px 2px;']"),
+                    ignoreNodeClasses: ["black", "Tools-pdf", "titlemenu", "edit_tpc", "rade"]
+                },
+                datetime: { 
+                    acceptNoDate: true
+                },
+            },
+            url: {
+                removeWWW: true,
             }
         })
     }
