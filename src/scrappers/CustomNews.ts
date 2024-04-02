@@ -2166,3 +2166,91 @@ export class pgnews extends clsScrapper {
         })
     }
 }
+
+export class euronews extends clsScrapper {
+    constructor() {
+        super(enuDomains.euronews, "parsi.euronews.com", {
+            selectors: {
+                article: "article.o-article-newsy",
+                title: "h1",
+                summary: "p.c-article-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".c-article-content",
+                    ignoreNodeClasses: ["widget--type-related", "c-ad", "c-article-you-might-also-like"],
+                    ignoreTexts: [/.*به کانال تلگرام یورونیوز.*/]
+                },               
+                category: {
+                    selector: "#adb-article-breadcrumb a",
+                },
+                tags: "#adb-article-tags div a"           
+            },
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if (url.pathname.includes("parsi.euronews.com")) {
+            return url.toString().replace("/parsi.euronews.com", "")
+        } else
+            return url.toString()
+    }
+}
+
+export class peivast extends clsScrapper {
+    constructor() {
+        super(enuDomains.peivast, "peivast.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".grayboxe",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-blog-content",
+                    ignoreNodeClasses: ["grayboxe"],
+                },               
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}
+
+export class trt extends clsScrapper {
+    constructor() {
+        super(enuDomains.trt, "trt.net.tr", {
+            basePath: "/persian",
+            selectors: {
+                article: "body.lang-fa-IR article",
+                title: "h1",
+                summary: "h2",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.textContent?.substring(0,10).split(".").reverse().join("/") || "NO_DATE"
+                },
+                content: {
+                    main: ".formatted",
+                    ignoreNodeClasses: ["tags"],
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                    lastIndex: 2
+                },
+                tags: ".tags a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/afghaniuzbek", "/armenian", "/azerbaycan", "/turki", "/bulgarian", "/chinese",
+                  "/dari", "/georgian", "/greek", "/magyar", "/italiano", "/kazakh", "/kyrgyz", "/pashto", "/portuguese",
+                  "/romana", "/espanol", "/tatarca", "/tatarca", "/turkmen", "/turkmence", "/urdu", "/uyghur", "/uzbek"]
+            }
+        })
+    }
+}
