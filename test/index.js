@@ -1581,5 +1581,10 @@ yarn dev && yarn start fardmag -u https://fardmag.ir/لوئیز-بونه-نما�
 yarn dev && yarn start wikishahid
 yarn dev && yarn start wikishahid -u https://wikishahid.com/شهرستان_اهواز
 
+yarn dev && yarn start euronews 
+yarn dev && yarn start euronews -u https://parsi.euronews.com/business/2024/03/31/hourly-wages-in-the-eu-from-the-lowest-in-bulgaria-to-the-highest-in-luxembourg
+yarn dev && yarn start euronews -u https://parsi.euronews.com/culture/2024/03/28/austria-artists-spray-paint-portraits-of-alexei-navalny-behind-a-soviet-monument-in-vienna
+
+
 https://motamem.org/
 /**/

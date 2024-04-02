@@ -129,6 +129,7 @@ export enum enuDomains {
     eporsesh = "eporsesh",
     ettelaat = "ettelaat",
     etemadonline = "etemadonline",
+    euronews = "euronews",
     exbito = "exbito",
     eximnews = "eximnews",
     extern = "extern",

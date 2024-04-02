@@ -2166,3 +2166,41 @@ export class pgnews extends clsScrapper {
         })
     }
 }
+
+export class euronews extends clsScrapper {
+    constructor() {
+        super(enuDomains.euronews, "parsi.euronews.com", {
+            selectors: {
+                article: "article.o-article-newsy",
+                title: "h1",
+                summary: "p.c-article-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".c-article-content",
+                    ignoreNodeClasses: ["widget--type-related", "c-ad", "c-article-you-might-also-like"],
+                    ignoreTexts: [/.*به کانال تلگرام یورونیوز.*/]
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
+                    author: ".author span",
+                    datetime: ".date",
+                    text: ".comment-content p"
+                },
+                category: {
+                    selector: "#adb-article-breadcrumb a",
+                },
+                tags: "#adb-article-tags div a"           
+            },
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if (url.pathname.includes("parsi.euronews.com")) {
+            return url.toString().replace("/parsi.euronews.com", "")
+        } else
+            return url.toString()
+    }
+}
