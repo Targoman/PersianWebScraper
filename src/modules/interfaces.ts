@@ -3,6 +3,7 @@ import { HTMLElement } from "node-html-parser"
 import { IntfRequestParams } from "./request"
 
 export enum enuDomains {
+    aa = "aa",
     abantether = "abantether",
     achareh = "achareh",
     activeidea = "activeidea",
