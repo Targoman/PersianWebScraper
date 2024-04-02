@@ -1585,6 +1585,8 @@ yarn dev && yarn start euronews
 yarn dev && yarn start euronews -u https://parsi.euronews.com/business/2024/03/31/hourly-wages-in-the-eu-from-the-lowest-in-bulgaria-to-the-highest-in-luxembourg
 yarn dev && yarn start euronews -u https://parsi.euronews.com/culture/2024/03/28/austria-artists-spray-paint-portraits-of-alexei-navalny-behind-a-soviet-monument-in-vienna
 
+yarn dev && yarn start peivast
+yarn dev && yarn start peivast -u https://peivast.com/p/194423
 
 https://motamem.org/
 /**/

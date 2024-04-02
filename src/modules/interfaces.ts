@@ -332,6 +332,7 @@ export enum enuDomains {
     paziresh24 = "paziresh24",
     pdf = "pdf",
     pedal = "pedal",
+    peivast = "peivast",
     persiantools = "persiantools",
     pgnews = "pgnews",
     pishgamfanavari = "pishgamfanavari",

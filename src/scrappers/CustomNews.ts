@@ -2204,3 +2204,34 @@ export class euronews extends clsScrapper {
             return url.toString()
     }
 }
+
+export class peivast extends clsScrapper {
+    constructor() {
+        super(enuDomains.peivast, "peivast.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".grayboxe",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-blog-content",
+                    ignoreNodeClasses: ["grayboxe"],
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li article"),
+                    author: "footer .comment-author b",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}
