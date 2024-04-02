@@ -2254,3 +2254,31 @@ export class trt extends clsScrapper {
         })
     }
 }
+
+export class aa extends clsScrapper {
+    constructor() {
+        super(enuDomains.aa, "aa.com.tr", {
+            basePath: "/fa",
+            selectors: {
+                article: ".print",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: ".tarih",
+                    splitter: (el: HTMLElement) => el.textContent?.substring(0,10).split(".").reverse().join("/") || "NO_DATE"
+                },
+                content: {
+                    main: ".detay-icerik >  div:nth-child(2)",
+                    ignoreNodeClasses: ["detay-foto-editor", "sticky-top", "detay-paylas"],
+                },               
+                category: {
+                    selector: ".detay-news-category a",
+                },
+                tags: ".detay-paylas > div:nth-child(2) > a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/ba", "/kk", "/ks", "/sq", "/mk", "id"]
+            }
+        })
+    }
+}
