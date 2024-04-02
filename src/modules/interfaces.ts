@@ -471,6 +471,7 @@ export enum enuDomains {
     wikigardi = "wikigardi",
     wikihoghoogh = "wikihoghoogh",
     wikiravan = "wikiravan",
+    wikishahid = "wikishahid",
     wikishia = "wikishia",
     wikisource = "wikisource",
     wikivoyage = "wikivoyage",

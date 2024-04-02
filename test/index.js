@@ -1578,5 +1578,8 @@ yarn dev && yarn start asemooni -u https://asemooni.com/mag/robot-in-life
 yarn dev && yarn start fardmag 
 yarn dev && yarn start fardmag -u https://fardmag.ir/لوئیز-بونه-نمایش-فیگورهای-بدریختِ-اغر/
 
+yarn dev && yarn start wikishahid
+yarn dev && yarn start wikishahid -u https://wikishahid.com/شهرستان_اهواز
+
 https://motamem.org/
 /**/
