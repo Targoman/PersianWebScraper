@@ -1597,5 +1597,9 @@ yarn dev && yarn start aa -u https://www.aa.com.tr/fa/جهان/ادامه-آتش
 yarn dev && yarn start armradio
 yarn dev && yarn start armradio -u https://fa.armradio.am/2024/04/02/من-آینده-ارمنستان-را-در-اروپا-می-بینم-م/
 
+yarn dev && yarn ucan 
+yarn dev && yarn ucan -u https://www.ucan.ir/video/6846/عظمت-والت-دیزنی-قسمت-اول
+yarn dev && yarn ucan -u https://www.ucan.ir/news/4703/پانزده-شغل-کوچک-ولی-پردرامد
+
 https://motamem.org/
 /**/
