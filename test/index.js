@@ -1604,5 +1604,9 @@ yarn dev && yarn ucan -u https://www.ucan.ir/news/4703/پانزده-شغل-کو�
 yarn dev && yarn start arannews
 yarn dev && yarn start arannews -u http://fa.arannews.com/News/71742/انتخابات-در-ترکیه-به-اعتراضات-داخلی-انجامید.html
 
+yarn dev && yarn start oloompezeshki
+yarn dev && yarn start oloompezeshki -u https://forum.oloompezeshki.com/threads/چه-کار-هایی-میتوانم-انجام-دهم-تا-درامدی-کسب-کنم؟؟؟.7759/
+yarn dev && yarn start oloompezeshki -u https://forum.oloompezeshki.com/threads/چه-کار-هایی-میتوانم-انجام-دهم-تا-درامدی-کسب-کنم؟؟؟.7759/page-2
+
 https://motamem.org/
 /**/

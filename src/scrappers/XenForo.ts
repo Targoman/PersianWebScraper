@@ -85,3 +85,19 @@ export class bazicenter extends clsXenForoBased {
     return {textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }
+
+export class oloompezeshki extends clsXenForoBased {
+  constructor() {
+    super(enuDomains.oloompezeshki, "forum.oloompezeshki.com", {
+      selectors: {
+        category: {
+          startIndex: 2,
+          lastIndex: 4
+        }
+      },
+      url: {
+        ignoreContentOnPath: ["/memebers"]
+      }
+    })
+  }
+}
