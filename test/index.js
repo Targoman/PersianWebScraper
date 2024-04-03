@@ -1594,5 +1594,8 @@ yarn dev && yarn start trt -u https://www.trt.net.tr/persian/qtsd/2024/04/02/nrk
 yarn dev && yarn start aa
 yarn dev && yarn start aa -u https://www.aa.com.tr/fa/جهان/ادامه-آتش-سوزی-های-جنگلی-در-یونان-/3180651
 
+yarn dev && yarn start armradio
+yarn dev && yarn start armradio -u https://fa.armradio.am/2024/04/02/من-آینده-ارمنستان-را-در-اروپا-می-بینم-م/
+
 https://motamem.org/
 /**/
