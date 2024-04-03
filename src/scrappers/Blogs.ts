@@ -5740,3 +5740,31 @@ export class fardmag extends clsScrapper {
         })
     }
 }
+
+export class ucan extends clsScrapper {
+    constructor() {
+        super(enuDomains.ucan, "ucan.ir", {
+            selectors: {
+                article: "article.single-layout",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    conatiner: "meta[itemprop='datePublished']",
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content_body",
+                },               
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#CommentBox .clearfix .commentBox"),
+                    author: ".otherInfo div strong",
+                    text: ".otherInfo p"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[typeof='BreadcrumbList'] li a span"),
+                    startIndex: 1
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tag-links h3 a")
+            },
+        })
+    }
+}
