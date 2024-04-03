@@ -2306,3 +2306,26 @@ export class armradio extends clsScrapper {
         })
     }
 }
+
+export class arannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.arannews, "fa.arannews.com", {
+            selectors: {
+                article: ".moduletable.MP.PrintContentPage",
+                title: "#ctl01_lblhead",
+                summary: "#ctl01_divIntroText",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#ctl01_lblCreatedDate"),
+                },
+                content: {
+                    main: ".opinion-div-fulltext-news",
+                },
+                tags: ".tag-Keywords li a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

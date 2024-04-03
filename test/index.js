@@ -1601,5 +1601,8 @@ yarn dev && yarn ucan
 yarn dev && yarn ucan -u https://www.ucan.ir/video/6846/عظمت-والت-دیزنی-قسمت-اول
 yarn dev && yarn ucan -u https://www.ucan.ir/news/4703/پانزده-شغل-کوچک-ولی-پردرامد
 
+yarn dev && yarn start arannews
+yarn dev && yarn start arannews -u http://fa.arannews.com/News/71742/انتخابات-در-ترکیه-به-اعتراضات-داخلی-انجامید.html
+
 https://motamem.org/
 /**/
