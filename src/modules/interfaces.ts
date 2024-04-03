@@ -454,6 +454,7 @@ export enum enuDomains {
     tejaratonline = "tejaratonline",
     telescope = "telescope",
     tik = "tik",
+    tinn = "tinn",
     titre20 = "titre20",
     titrekootah = "titrekootah",
     tlyn = "tlyn",

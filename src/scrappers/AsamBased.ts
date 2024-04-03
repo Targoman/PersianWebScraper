@@ -1517,3 +1517,26 @@ export class pishgamfanavari extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class tinn extends clsAsamBased {
+    constructor() {
+        super(enuDomains.tinn, "tinn.ir", {
+            selectors: {
+                content: {
+                    main: "#content-text"
+                },
+                tags: ".keyword a",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".bread_crumbs li a"),
+                    lastIndex: 2
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("section.comment_list ul li"),
+                    author: ".comment_info .name",
+                    text: "p"
+                },
+            }
+        })
+    }
+}
