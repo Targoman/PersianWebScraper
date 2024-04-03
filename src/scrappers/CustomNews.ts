@@ -2282,3 +2282,27 @@ export class aa extends clsScrapper {
         })
     }
 }
+
+export class armradio extends clsScrapper {
+    constructor() {
+        super(enuDomains.armradio, "fa.armradio.am", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "a.post-cat"
+                }
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
