@@ -2306,3 +2306,51 @@ export class armradio extends clsScrapper {
         })
     }
 }
+
+export class arannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.arannews, "fa.arannews.com", {
+            selectors: {
+                article: ".moduletable.MP.PrintContentPage",
+                title: "#ctl01_lblhead",
+                summary: "#ctl01_divIntroText",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#ctl01_lblCreatedDate"),
+                },
+                content: {
+                    main: ".opinion-div-fulltext-news",
+                },
+                tags: ".tag-Keywords li a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class ariananews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ariananews, "ariananews.af", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa-IR'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#mvp-content-main",
+                    ignoreNodeClasses: ["sharethis-inline-share-buttons"],
+                    ignoreTexts: [/.*Updated.*/]
+                },               
+                category: {
+                    selector: "#mvp-post-head span.mvp-post-cat",
+                },
+                tags: ".mvp-post-tags span a"           
+            },
+        })
+    }
+}
