@@ -1601,5 +1601,16 @@ yarn dev && yarn ucan
 yarn dev && yarn ucan -u https://www.ucan.ir/video/6846/عظمت-والت-دیزنی-قسمت-اول
 yarn dev && yarn ucan -u https://www.ucan.ir/news/4703/پانزده-شغل-کوچک-ولی-پردرامد
 
+yarn dev && yarn start arannews
+yarn dev && yarn start arannews -u http://fa.arannews.com/News/71742/انتخابات-در-ترکیه-به-اعتراضات-داخلی-انجامید.html
+
+yarn dev && yarn start oloompezeshki
+yarn dev && yarn start oloompezeshki -u https://forum.oloompezeshki.com/threads/چه-کار-هایی-میتوانم-انجام-دهم-تا-درامدی-کسب-کنم؟؟؟.7759/
+yarn dev && yarn start oloompezeshki -u https://forum.oloompezeshki.com/threads/چه-کار-هایی-میتوانم-انجام-دهم-تا-درامدی-کسب-کنم؟؟؟.7759/page-2
+
+yarn dev && yarn start tinn 
+yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-ریلی-29/7856-آشنایی-با-اصطلاحات-تخصصی-در-بخش-حمل-نقل-ریلی-همراه-با-تعاریف
+yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-شرکت-حمل-نقل-ریلی-رجا-32/270359-خصولتی-ها-در-صنعت-ریلی-جولان-می-دهند
+
 https://motamem.org/
 /**/
