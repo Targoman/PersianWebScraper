@@ -1621,5 +1621,8 @@ yarn dev && yarn start tarikhirani -u https://tarikhirani.ir/fa/news/8678/شهر
 yarn dev && yarn start iichs
 yarn dev && yarn start iichs -u https://www.iichs.ir/fa/article/25272/ژرمن-ها-هدفی-وارد-رینگ-بوکسرهای-چینی-شدند
 
+yarn dev && yarn start wikifeqh 
+yarn dev && yarn start wikifeqh -u "https://fa.wikifeqh.ir/اسلام_(کلام_اسلامی)"
+
 https://motamem.org/
 /**/

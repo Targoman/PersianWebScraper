@@ -481,6 +481,7 @@ export enum enuDomains {
     webpouya = "webpouya",
     wikibooks = "wikibooks",
     wikifa = "wikifa",
+    wikifeqh = "wikifeqh",
     wikigardi = "wikigardi",
     wikihoghoogh = "wikihoghoogh",
     wikiravan = "wikiravan",
