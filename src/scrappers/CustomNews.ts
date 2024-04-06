@@ -2357,3 +2357,22 @@ export class ariananews extends clsScrapper {
         })
     }
 }
+
+export class saatesalamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.saatesalamat, "saatesalamat.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.elementor-post-info__item--type-date"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreTexts: [/.*(کلیک کنید).*/]
+                },
+                tags: ".elementor-post-info__terms-list a",
+            },
+        })
+    }
+}
