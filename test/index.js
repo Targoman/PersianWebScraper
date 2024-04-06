@@ -1612,5 +1612,11 @@ yarn dev && yarn start tinn
 yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-ریلی-29/7856-آشنایی-با-اصطلاحات-تخصصی-در-بخش-حمل-نقل-ریلی-همراه-با-تعاریف
 yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-شرکت-حمل-نقل-ریلی-رجا-32/270359-خصولتی-ها-در-صنعت-ریلی-جولان-می-دهند
 
+yarn dev && yarn start saatesalamat
+yarn dev && yarn start saatesalamat -u https://saatesalamat.ir/موج-سرماخوردگی-زمستانی-در-بهار-ایران-ب/
+
+yarn dev && yarn start tarikhirani
+yarn dev && yarn start tarikhirani -u https://tarikhirani.ir/fa/news/8678/شهریور-۲۰-به-روایت-فرزند-فروغی-مردم-ایران-امشب-به-من-احتیاج-دارند
+
 https://motamem.org/
 /**/
