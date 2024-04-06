@@ -1615,5 +1615,8 @@ yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-شرکت-حمل-نقل
 yarn dev && yarn start saatesalamat
 yarn dev && yarn start saatesalamat -u https://saatesalamat.ir/موج-سرماخوردگی-زمستانی-در-بهار-ایران-ب/
 
+yarn dev && yarn start tarikhirani
+yarn dev && yarn start tarikhirani -u https://tarikhirani.ir/fa/news/8678/شهریور-۲۰-به-روایت-فرزند-فروغی-مردم-ایران-امشب-به-من-احتیاج-دارند
+
 https://motamem.org/
 /**/

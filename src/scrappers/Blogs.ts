@@ -5768,3 +5768,30 @@ export class ucan extends clsScrapper {
         })
     }
 }
+
+export class tarikhirani extends clsScrapper {
+    constructor() {
+        super(enuDomains.tarikhirani, "tarikhirani.ir", {
+            selectors: {
+                article: ".article-view",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "span.date-info",
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb li a"),
+                    startIndex: 1
+                },
+                tags: "p.tags a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
