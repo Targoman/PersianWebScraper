@@ -1618,5 +1618,8 @@ yarn dev && yarn start saatesalamat -u https://saatesalamat.ir/موج-سرماخ
 yarn dev && yarn start tarikhirani
 yarn dev && yarn start tarikhirani -u https://tarikhirani.ir/fa/news/8678/شهریور-۲۰-به-روایت-فرزند-فروغی-مردم-ایران-امشب-به-من-احتیاج-دارند
 
+yarn dev && yarn start iichs
+yarn dev && yarn start iichs -u https://www.iichs.ir/fa/article/25272/ژرمن-ها-هدفی-وارد-رینگ-بوکسرهای-چینی-شدند
+
 https://motamem.org/
 /**/
