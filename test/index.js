@@ -1624,5 +1624,9 @@ yarn dev && yarn start iichs -u https://www.iichs.ir/fa/article/25272/ژرمن-�
 yarn dev && yarn start wikifeqh 
 yarn dev && yarn start wikifeqh -u "https://fa.wikifeqh.ir/اسلام_(کلام_اسلامی)"
 
+yarn dev && yarn start hadith
+yarn dev && yarn start hadith -u https://hadith.net/post/31578/با-فضیلت-ترین-عمل-در-ماه-رمضان/?n=3646
+yarn dev && yarn start hadith -u https://hadith.net/post/42417/نگاهی-به-کتاب-شناخت-نامه-قرآن/
+
 https://motamem.org/
 /**/

@@ -1054,3 +1054,41 @@ export class haal extends clsScrapper {
             return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
     }
 }
+
+export class hadith extends clsScrapper {
+    constructor() {
+        super(enuDomains.hadith, "hadith.net", {
+            selectors: {
+                article: "#rs_TextInPage",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0,10).split("/").reverse().join("/") || "NO_DATE",
+                },
+                content: {
+                    main: "#divTextSourceP2",
+                    qa: {
+                        containers: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#boxq"),
+                        q: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#boxq"),
+                            text: "h2",
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#divTextSourceP2"),
+                            text: "#boxa",
+                        },
+                    },
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".DivKeyWords a"),
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".WebUserNavigation a"),
+                    lastIndex: 3
+                }
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ar", "/en"]
+            }
+        })
+    }
+}

@@ -169,6 +169,7 @@ export enum enuDomains {
     gooyait = "gooyait",
     gostaresh = "gostaresh",
     haal = "haal",
+    hadith = "hadith",
     hamgardi = "hamgardi",
     hamrah = "hamrah",
     hamrahmoshaver = "hamrahmoshaver",
