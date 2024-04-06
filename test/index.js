@@ -1612,5 +1612,8 @@ yarn dev && yarn start tinn
 yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-ریلی-29/7856-آشنایی-با-اصطلاحات-تخصصی-در-بخش-حمل-نقل-ریلی-همراه-با-تعاریف
 yarn dev && yarn start tinn -u https://www.tinn.ir/بخش-شرکت-حمل-نقل-ریلی-رجا-32/270359-خصولتی-ها-در-صنعت-ریلی-جولان-می-دهند
 
+yarn dev && yarn start saatesalamat
+yarn dev && yarn start saatesalamat -u https://saatesalamat.ir/موج-سرماخوردگی-زمستانی-در-بهار-ایران-ب/
+
 https://motamem.org/
 /**/

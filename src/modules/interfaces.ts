@@ -373,6 +373,7 @@ export enum enuDomains {
     rozblog = "rozblog",
     saafi = "saafi",
     saat24 = "saat24",
+    saatesalamat = "saatesalamat",
     sabakhabar = "sabakhabar",
     sadohejdahsafar = "sadohejdahsafar",
     sahebkhabar = "sahebkhabar",
