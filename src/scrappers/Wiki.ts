@@ -5,29 +5,29 @@ import { HTMLElement } from "node-html-parser"
 
 class clsWiki extends clsScrapper {
     constructor(domain: enuDomains, baseURL: string, conf?: IntfProcessorConfigs) {
-      const baseConfig: IntfProcessorConfigs = {
-        selectors: {
-            article: "main, .mw-body",
-            title: "h1",
-            content: {
-                main: "#mw-content-text p, img",
+        const baseConfig: IntfProcessorConfigs = {
+            selectors: {
+                article: "main, .mw-body",
+                title: "h1",
+                content: {
+                    main: "#mw-content-text p, img",
+                },
+                datetime: {
+                    acceptNoDate: true
+                },
+                tags: "#mw-normal-catlinks ul li a",
+                category: {
+                    selector: ".subpages a",
+                }
             },
-            datetime: { 
-                acceptNoDate: true
-            },
-            tags: "#mw-normal-catlinks ul li a",
-            category: {
-                selector: ".subpages a",
+            url: {
+                removeWWW: true
             }
-        },
-        url: {
-          removeWWW: true
         }
-      }
-  
-      super(domain, baseURL, deepmerge(baseConfig, conf || {}))
+
+        super(domain, baseURL, deepmerge(baseConfig, conf || {}))
     }
-  }
+}
 
 export class wikifa extends clsWiki {
     constructor() {
@@ -79,7 +79,7 @@ export class wikisource extends clsWiki {
 
 export class wikishia extends clsWiki {
     constructor() {
-        super(enuDomains.wikishia, "fa.wikishia.net", { 
+        super(enuDomains.wikishia, "fa.wikishia.net", {
             basePath: "/view/صفحهٔ_اصلی",
             url: {
                 removeWWW: true,
@@ -91,7 +91,7 @@ export class wikishia extends clsWiki {
 
 export class wikishahid extends clsWiki {
     constructor() {
-        super(enuDomains.wikishahid, "wikishahid.com", { 
+        super(enuDomains.wikishahid, "wikishahid.com", {
             selectors: {
                 article: ".rade",
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
@@ -99,12 +99,13 @@ export class wikishahid extends clsWiki {
                     main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("div[style='margin:2px 2px 2px 2px;']"),
                     ignoreNodeClasses: ["black", "Tools-pdf", "titlemenu", "edit_tpc", "rade"]
                 },
-                datetime: { 
+                datetime: {
                     acceptNoDate: true
                 },
             },
             url: {
                 removeWWW: true,
+                extraInvalidStartPaths: ["/talk/edit", "/eidt"]
             }
         })
     }

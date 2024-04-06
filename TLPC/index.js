@@ -83,6 +83,23 @@ app.get("/captcha", (req, res) => {
     res.end(image);
 });
 
+function shuffleArray(array) {
+    let currentIndex = array.length;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    return array
+}
+
 app.get('/', (req, res) => {
     let totalWC = 0
     let totalDocs = 0
@@ -90,7 +107,7 @@ app.get('/', (req, res) => {
     let latestDoc = undefined
     let files = []
     const rows = []
-    const approved = {commercial:[], nonCommercial:[]}
+    const approved = { commercial: [], nonCommercial: [] }
     const overallStats = {
         majorCatsWC: {
             News: 0,
@@ -164,8 +181,9 @@ app.get('/', (req, res) => {
         const commercialFiles = fs.readdirSync(approvedCommercial).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
         commercialFiles.forEach(logo => approved.commercial.push(`<div class="approved-logo"><img src="/TLPC/approved/commercial/${logo}" alt="${logo.split("-")[1].split(".")[0]}"></div>`))
         const nonComFiles = fs.readdirSync(approvedNonCommercial).sort((a, b) => parseInt(a.split("-").at(0)) - parseInt(a.split("-").at(0)))
-        nonComFiles.forEach(logo => approved.nonCommercial.push(`<div class="approved-logo"><a target="_blank" href="https://huggingface.co/${logo.split(".")[0]}"><img class="avatar" src="/TLPC/approved/non-commercial/${logo}" alt="${logo.split(".")[0]}"></a></div>`))
-        const failed = fs.readFileSync(approval + "/failed.csv",  { encoding: 'utf8', flag: 'r' }).trim().split("\n")
+        shuffleArray(nonComFiles).forEach(logo => approved.nonCommercial.push(`<div class="approved-logo"><a target="_blank" href="https://huggingface.co/${logo.split(".")[0]}"><img class="avatar" src="/TLPC/approved/non-commercial/${logo}" alt="${logo.split(".")[0]}"></a></div>`))
+        const failed = fs.readFileSync(approval + "/failed.csv", { encoding: 'utf8', flag: 'r' }).trim().split("\n")
+
 
         const rsaKey = new NodeRSA({ b: 512 });
         fs.writeFileSync(cachePath, JSON.stringify({
@@ -182,7 +200,7 @@ app.get('/', (req, res) => {
                 domainCount: files.length
             },
             rows: rows.join("\n"),
-            approval: {commercial: approved.commercial.join("\n"), nonCommercial: approved.nonCommercial.join("\n"), failed: failed.join(", ") },
+            approval: { commercial: approved.commercial.join("\n"), nonCommercial: approved.nonCommercial.join("\n"), failed: failed.join(", ") },
             overallStats
         }))
 

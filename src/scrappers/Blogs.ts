@@ -3306,7 +3306,7 @@ export class zhaket extends clsScrapper {
         })
     }
     protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
-        void category,first,second
+        void category, first, second
         const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.IT }
         if (first.startsWith("اخبار")) return { ...mappedCat, major: enuMajorCategory.News }
         if (first.startsWith("کسب")) return { ...mappedCat, minor: enuMinorCategory.Economics }
@@ -5570,7 +5570,7 @@ export class rooziato extends clsScrapper {
                 content: {
                     main: "#main_content > div > div:nth-child(4)",
                     ignoreNodeClasses: ["post_tags"]
-                },               
+                },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comment-list .comment"),
                     author: "header .name",
@@ -5601,7 +5601,7 @@ export class hidoctor extends clsScrapper {
                 },
                 content: {
                     main: ".post-content",
-                },               
+                },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list .comment .comment-body"),
                     author: "span.author span",
@@ -5629,7 +5629,7 @@ export class shabakehmag extends clsScrapper {
                 },
                 content: {
                     main: ".field-name-body",
-                },               
+                },
                 category: {
                     selector: ".field-name-field-topic a",
                 },
@@ -5651,7 +5651,7 @@ export class iliadmag extends clsScrapper {
                 },
                 content: {
                     main: "div",
-                },               
+                },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#content_nav a"),
                     startIndex: 1
@@ -5677,7 +5677,7 @@ export class par30games extends clsScrapper {
                     main: ".content > .post-content",
                     ignoreNodeClasses: ["modality-outer"],
                     ignoreTexts: [/.*<img.*/]
-                },               
+                },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comments .comment"),
                     author: ".title h3",
@@ -5702,7 +5702,7 @@ export class asemooni extends clsScrapper {
                 },
                 content: {
                     main: ".entry-content",
-                },               
+                },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li.comment .comment-body"),
                     author: ".comment-author a",
@@ -5732,7 +5732,7 @@ export class fardmag extends clsScrapper {
                 },
                 content: {
                     main: ".entry-content",
-                },               
+                },
                 category: {
                     selector: ".post-cat-wrap a",
                 },
@@ -5753,7 +5753,7 @@ export class ucan extends clsScrapper {
                 },
                 content: {
                     main: ".content_body",
-                },               
+                },
                 comments: {
                     container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#CommentBox .clearfix .commentBox"),
                     author: ".otherInfo div strong",
@@ -5765,6 +5765,9 @@ export class ucan extends clsScrapper {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tag-links h3 a")
             },
+            url: {
+                extraInvalidStartPaths: ["/checkpoint"]
+            }
         })
     }
 }

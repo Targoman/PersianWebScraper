@@ -47,6 +47,9 @@
     .mobileView {
         display: none !important;
     }
+    .charts {
+        white-space: nowrap;
+    }
     .chart {
         width: 50%;
     }
@@ -332,7 +335,6 @@ form [type="submit"] {
 
 .charts {
     margin-top: 1em;
-    white-space: nowrap;
 }
 .chart, .chart3 {
     padding: .5em;

@@ -2188,6 +2188,9 @@ export class euronews extends clsScrapper {
                 },
                 tags: "#adb-article-tags div a"           
             },
+            url: {
+                extraInvalidStartPaths: ["/weather"]
+            }
         })
     }
 
