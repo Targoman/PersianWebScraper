@@ -5798,3 +5798,28 @@ export class tarikhirani extends clsScrapper {
         })
     }
 }
+
+export class iichs extends clsScrapper {
+    constructor() {
+        super(enuDomains.iichs, "iichs.ir", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                summary: "#docDivLead1",
+                content: {
+                    main: ".docContentdiv article",
+                    ignoreTexts: [/.*iichs.ir.*/]
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll('.tags a'),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
