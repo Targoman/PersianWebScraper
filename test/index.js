@@ -1628,5 +1628,8 @@ yarn dev && yarn start hadith
 yarn dev && yarn start hadith -u https://hadith.net/post/31578/با-فضیلت-ترین-عمل-در-ماه-رمضان/?n=3646
 yarn dev && yarn start hadith -u https://hadith.net/post/42417/نگاهی-به-کتاب-شناخت-نامه-قرآن/
 
+yarn dev && yarn start inn
+yarn dev && yarn start inn -u https://inn.ir/news/article/60305/انحصارزدایی-در-بازار-مسکن-با-فعال-شدن-سامانه-خودنویس
+
 https://motamem.org/
 /**/

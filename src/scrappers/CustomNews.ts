@@ -2373,3 +2373,28 @@ export class saatesalamat extends clsScrapper {
         })
     }
 }
+
+export class inn extends clsScrapper {
+    constructor() {
+        super(enuDomains.inn, "inn.ir", {
+            selectors: {
+                article: "article.article",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: ".content",
+                },               
+                category: {
+                    selector: "h4.service a",
+                },
+                tags: "nav.keywords ul li h3 a"           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
