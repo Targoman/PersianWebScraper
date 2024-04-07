@@ -1637,5 +1637,9 @@ yarn dev && yarn start intitr -u https://intitr.net/جدیدترین-جدول-ا
 yarn dev && yarn start ictpress
 yarn dev && yarn start ictpress -u https://www.ictpress.ir/news/54855/ابر_آروان_از_لیست_تحریم_های_اتحادیه_اروپا_خارج_شد
 
+yarn dev && yarn start techfars
+yarn dev && yarn start techfars -u https://techfars.com/280879/spacex-starship-mission/
+yarn dev && yarn start techfars -u https://techfars.com/278578/xiaomi-redmi-13c-review/
+
 https://motamem.org/
 /**/

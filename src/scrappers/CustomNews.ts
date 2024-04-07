@@ -2462,3 +2462,31 @@ export class ictpress extends clsScrapper {
         })
     }
 }
+
+export class techfars extends clsScrapper {
+    constructor() {
+        super(enuDomains.techfars, "techfars.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },      
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("div.comment ul li.comment"),
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },         
+                category: {
+                    selector: ".aioseo-breadcrumbs span a",   
+                    startIndex: 1                 
+                },
+                tags: ".meta.py-2 span.pl-3.d-sm-inline-block a"           
+            },
+        })
+    }
+}
