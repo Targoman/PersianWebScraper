@@ -2421,3 +2421,26 @@ export class nabzefanavari extends clsScrapper {
         })
     }
 }
+
+export class intitr extends clsScrapper {
+    constructor() {
+        super(enuDomains.intitr, "intitr.net", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content.single-post-content",
+                    ignoreNodeClasses: ["better-social-counter-2"],
+                },               
+                category: {
+                    selector: ".bf-breadcrumb-items li a span",                    
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}

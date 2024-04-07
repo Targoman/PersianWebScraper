@@ -1631,5 +1631,8 @@ yarn dev && yarn start hadith -u https://hadith.net/post/42417/نگاهی-به-�
 yarn dev && yarn start inn
 yarn dev && yarn start inn -u https://inn.ir/news/article/60305/انحصارزدایی-در-بازار-مسکن-با-فعال-شدن-سامانه-خودنویس
 
+yarn dev && yarn start intitr
+yarn dev && yarn start intitr -u https://intitr.net/جدیدترین-جدول-افزایش-حقوق-بازنشستگان-5/
+
 https://motamem.org/
 /**/
