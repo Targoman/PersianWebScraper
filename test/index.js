@@ -1634,5 +1634,8 @@ yarn dev && yarn start inn -u https://inn.ir/news/article/60305/انحصارزد
 yarn dev && yarn start intitr
 yarn dev && yarn start intitr -u https://intitr.net/جدیدترین-جدول-افزایش-حقوق-بازنشستگان-5/
 
+yarn dev && yarn start ictpress
+yarn dev && yarn start ictpress -u https://www.ictpress.ir/news/54855/ابر_آروان_از_لیست_تحریم_های_اتحادیه_اروپا_خارج_شد
+
 https://motamem.org/
 /**/

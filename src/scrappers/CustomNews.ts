@@ -2444,3 +2444,21 @@ export class intitr extends clsScrapper {
         })
     }
 }
+
+export class ictpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.ictpress, "ictpress.ir", {
+            selectors: {
+                article: ".single-post",
+                title: "h2.post-title",
+                datetime: {
+                    conatiner: ".post-date"
+                },
+                content: {
+                    main: ".entry-content",
+                },               
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}
