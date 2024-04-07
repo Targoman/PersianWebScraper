@@ -296,6 +296,7 @@ export enum enuDomains {
     mostaghelonline = "mostaghelonline",
     motamem = "motamem",
     myket = "myket",
+    nabzefanavari = "nabzefanavari",
     nabzemarketing = "nabzemarketing",
     nabznaft = "nabznaft",
     naghdfarsi = "naghdfarsi",

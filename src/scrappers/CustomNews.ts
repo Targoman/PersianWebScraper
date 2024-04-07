@@ -2398,3 +2398,26 @@ export class inn extends clsScrapper {
         })
     }
 }
+
+export class nabzefanavari extends clsScrapper {
+    constructor() {
+        super(enuDomains.nabzefanavari, "nabzefanavari.ir", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".news_path a",
+                },  
+                tags: ".tags_title a"             
+            },
+        })
+    }
+}
