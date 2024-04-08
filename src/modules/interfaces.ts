@@ -52,6 +52,7 @@ export enum enuDomains {
     azki = "azki",
     b88 = "b88",
     baeghtesad = "baeghtesad",
+    baghestannews = "baghestannews",
     baharnews = "baharnews",
     bahjat = "bahjat",
     bamdad24 = "bamdad24",

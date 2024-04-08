@@ -2555,3 +2555,27 @@ export class dailytelegraph extends clsScrapper {
         })
     }
 }
+
+export class baghestannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.baghestannews, "baghestannews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"],
+                    ignoreTexts: [/.*لینک کوتاه این.*/, /.*برای کپی کردن.*/]
+                 },               
+                 category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: ".tagcloud a"           
+            },
+        })
+    }
+}
