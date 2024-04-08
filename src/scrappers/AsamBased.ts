@@ -1540,3 +1540,21 @@ export class tinn extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class safheeghtesad extends clsAsamBased {
+    constructor() {
+        super(enuDomains.safheeghtesad, "safheeghtesad.ir", {
+            selectors: {
+                content: {
+                    ignoreNodeClasses: ["related_news"],
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        return url.toString();
+    }
+}

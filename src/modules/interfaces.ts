@@ -382,6 +382,7 @@ export enum enuDomains {
     saatesalamat = "saatesalamat",
     sabakhabar = "sabakhabar",
     sadohejdahsafar = "sadohejdahsafar",
+    safheeghtesad = "safheeghtesad",
     sahebkhabar = "sahebkhabar",
     sakhtafzarmag = "sakhtafzarmag",
     sakkook = "sakkook",
