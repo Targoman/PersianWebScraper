@@ -1647,5 +1647,8 @@ yarn dev && yarn start safheeghtesad -u https://safheeghtesad.ir/بخش-بیمه
 yarn dev && yarn start andishemoaser
 yarn dev && yarn start andishemoaser -u https://andishemoaser.ir/صدور-هشدار-زرد-برای-۱۶-استان-سامانه-با/
 
+yarn dev && yarn start filmcinemanews
+yarn dev && yarn start filmcinemanews -u https://filmcinemanews.ir/1119/اکران-مردمی-«اتاق-فرار»-در-سینما-فرهنگ
+
 https://motamem.org/
 /**/

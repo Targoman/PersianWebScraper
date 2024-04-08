@@ -2514,3 +2514,24 @@ export class andishemoaser extends clsScrapper {
         })
     }
 }
+
+export class filmcinemanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.filmcinemanews, "filmcinemanews.ir", {
+            selectors: {
+                article: ".single_post_area",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("a.post_date")
+                },
+                content: {
+                    main: ".single_post_content",
+                },
+                tags: ".taglinks a"           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
