@@ -2535,3 +2535,23 @@ export class filmcinemanews extends clsScrapper {
         })
     }
 }
+
+export class dailytelegraph extends clsScrapper {
+    constructor() {
+        super(enuDomains.dailytelegraph, "dailytelegraph.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.date"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                }
+            },
+        })
+    }
+}

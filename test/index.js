@@ -1650,5 +1650,8 @@ yarn dev && yarn start andishemoaser -u https://andishemoaser.ir/صدور-هشد
 yarn dev && yarn start filmcinemanews
 yarn dev && yarn start filmcinemanews -u https://filmcinemanews.ir/1119/اکران-مردمی-«اتاق-فرار»-در-سینما-فرهنگ
 
+yarn dev && yarn start dailytelegraph
+yarn dev && yarn start dailytelegraph -u https://www.dailytelegraph.ir/10743/فوری؛-خورشیدگرفتگی-امروز-دوشنبه-در-ای/
+
 https://motamem.org/
 /**/
