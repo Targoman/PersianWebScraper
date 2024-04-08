@@ -2490,3 +2490,27 @@ export class techfars extends clsScrapper {
         })
     }
 }
+
+export class andishemoaser extends clsScrapper {
+    constructor() {
+        super(enuDomains.andishemoaser, "andishemoaser.ir", {
+            selectors: {
+                article: ".article",
+                title: "h1",
+                summary: ".f15",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content-entry"),
+                    ignoreTexts: [/.*در ایتا.*/]
+                },             
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[aria-label='breadcrumb'] a"),   
+                },
+                tags: ".tags a"           
+            },
+        })
+    }
+}

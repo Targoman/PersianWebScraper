@@ -1644,5 +1644,8 @@ yarn dev && yarn start techfars -u https://techfars.com/278578/xiaomi-redmi-13c-
 yarn dev && yarn start safheeghtesad
 yarn dev && yarn start safheeghtesad -u https://safheeghtesad.ir/بخش-بیمه-تامین-اجتماعی-7/216244-تغییرات-جدید-دستمزد-مبنای-کسر-حق-بیمه-در-سال-جزئیات
 
+yarn dev && yarn start andishemoaser
+yarn dev && yarn start andishemoaser -u https://andishemoaser.ir/صدور-هشدار-زرد-برای-۱۶-استان-سامانه-با/
+
 https://motamem.org/
 /**/
