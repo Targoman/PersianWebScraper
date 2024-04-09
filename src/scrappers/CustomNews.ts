@@ -2631,3 +2631,32 @@ export class jomhornews extends clsScrapper {
         })
     }
 }
+
+
+export class bakhtarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bakhtarnews, "bakhtarnews.af", {
+            basePath: "/dr",
+            selectors: {
+                article: "[lang='fa-IR'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-shortlink", "post-bottom-meta"],
+                 },               
+                 category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".post-bottom-meta .tagcloud a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/ur", "/uz"]
+            }
+        })
+    }
+}

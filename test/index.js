@@ -1660,5 +1660,8 @@ yarn dev && yarn start jomhornews
 yarn dev && yarn start jomhornews -u https://www.jomhornews.com/fa/news/170933/
 yarn dev && yarn start jomhornews -u https://www.jomhornews.com/fa/note/170811/
 
+yarn dev && yarn start bakhtarnews
+yarn dev && yarn start bakhtarnews -u https://www.bakhtarnews.af/dr/کمک-سازمان-صحی-جهان-با-یک-شفاخانه-در-کند/
+
 https://motamem.org/
 /**/
