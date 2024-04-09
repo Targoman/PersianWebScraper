@@ -236,6 +236,7 @@ export enum enuDomains {
     jamejamonline = "jamejamonline",
     javanonline = "javanonline",
     jobinja = "jobinja",
+    jomhornews = "jomhornews",
     jomhouriat = "jomhouriat",
     joomlafarsi = "joomlafarsi",
     kalleh = "kalleh",

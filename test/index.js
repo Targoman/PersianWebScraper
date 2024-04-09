@@ -1656,5 +1656,9 @@ yarn dev && yarn start dailytelegraph -u https://www.dailytelegraph.ir/10743/ف�
 yarn dev && yarn start banifilmonline
 yarn dev && yarn start banifilmonline -u https://banifilmonline.ir/انتخاب-وسترن-افق-کوین-کاستنر-در-جشنو/
 
+yarn dev && yarn start jomhornews
+yarn dev && yarn start jomhornews -u https://www.jomhornews.com/fa/news/170933/
+yarn dev && yarn start jomhornews -u https://www.jomhornews.com/fa/note/170811/
+
 https://motamem.org/
 /**/
