@@ -1621,5 +1621,37 @@ yarn dev && yarn start tarikhirani -u https://tarikhirani.ir/fa/news/8678/شهر
 yarn dev && yarn start iichs
 yarn dev && yarn start iichs -u https://www.iichs.ir/fa/article/25272/ژرمن-ها-هدفی-وارد-رینگ-بوکسرهای-چینی-شدند
 
+yarn dev && yarn start wikifeqh 
+yarn dev && yarn start wikifeqh -u "https://fa.wikifeqh.ir/اسلام_(کلام_اسلامی)"
+
+yarn dev && yarn start hadith
+yarn dev && yarn start hadith -u https://hadith.net/post/31578/با-فضیلت-ترین-عمل-در-ماه-رمضان/?n=3646
+yarn dev && yarn start hadith -u https://hadith.net/post/42417/نگاهی-به-کتاب-شناخت-نامه-قرآن/
+
+yarn dev && yarn start inn
+yarn dev && yarn start inn -u https://inn.ir/news/article/60305/انحصارزدایی-در-بازار-مسکن-با-فعال-شدن-سامانه-خودنویس
+
+yarn dev && yarn start intitr
+yarn dev && yarn start intitr -u https://intitr.net/جدیدترین-جدول-افزایش-حقوق-بازنشستگان-5/
+
+yarn dev && yarn start ictpress
+yarn dev && yarn start ictpress -u https://www.ictpress.ir/news/54855/ابر_آروان_از_لیست_تحریم_های_اتحادیه_اروپا_خارج_شد
+
+yarn dev && yarn start techfars
+yarn dev && yarn start techfars -u https://techfars.com/280879/spacex-starship-mission/
+yarn dev && yarn start techfars -u https://techfars.com/278578/xiaomi-redmi-13c-review/
+
+yarn dev && yarn start safheeghtesad
+yarn dev && yarn start safheeghtesad -u https://safheeghtesad.ir/بخش-بیمه-تامین-اجتماعی-7/216244-تغییرات-جدید-دستمزد-مبنای-کسر-حق-بیمه-در-سال-جزئیات
+
+yarn dev && yarn start andishemoaser
+yarn dev && yarn start andishemoaser -u https://andishemoaser.ir/صدور-هشدار-زرد-برای-۱۶-استان-سامانه-با/
+
+yarn dev && yarn start filmcinemanews
+yarn dev && yarn start filmcinemanews -u https://filmcinemanews.ir/1119/اکران-مردمی-«اتاق-فرار»-در-سینما-فرهنگ
+
+yarn dev && yarn start dailytelegraph
+yarn dev && yarn start dailytelegraph -u https://www.dailytelegraph.ir/10743/فوری؛-خورشیدگرفتگی-امروز-دوشنبه-در-ای/
+
 https://motamem.org/
 /**/
