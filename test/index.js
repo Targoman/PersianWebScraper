@@ -1653,5 +1653,8 @@ yarn dev && yarn start filmcinemanews -u https://filmcinemanews.ir/1119/اکرا
 yarn dev && yarn start dailytelegraph
 yarn dev && yarn start dailytelegraph -u https://www.dailytelegraph.ir/10743/فوری؛-خورشیدگرفتگی-امروز-دوشنبه-در-ای/
 
+yarn dev && yarn start banifilmonline
+yarn dev && yarn start banifilmonline -u https://banifilmonline.ir/انتخاب-وسترن-افق-کوین-کاستنر-در-جشنو/
+
 https://motamem.org/
 /**/

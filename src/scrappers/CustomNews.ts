@@ -2579,3 +2579,28 @@ export class baghestannews extends clsScrapper {
         })
     }
 }
+
+export class banifilmonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.banifilmonline, "banifilmonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".cz_post_content",
+                    ignoreNodeClasses: ["custom-date"],
+                 },               
+                 category: {
+                    selector: ".breadcrumbs b a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tagcloud a"           
+            },
+        })
+    }
+}
