@@ -154,6 +154,7 @@ export enum enuDomains {
     fardmag = "fardmag",
     farhangemrooz = "farhangemrooz",
     farhangesadid = "farhangesadid",
+    farhikhtegandaily = "farhikhtegandaily",
     farsnews = "farsnews",
     fartaknews = "fartaknews",
     fhnews = "fhnews",

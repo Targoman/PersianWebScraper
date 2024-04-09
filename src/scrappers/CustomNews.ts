@@ -2660,3 +2660,27 @@ export class bakhtarnews extends clsScrapper {
         })
     }
 }
+
+export class farhikhtegandaily extends clsScrapper {
+    constructor() {
+        super(enuDomains.farhikhtegandaily, "farhikhtegandaily.com", {
+            selectors: {
+                article: ".news-box",
+                title: "h1",
+                subtitle: ".news-lead h2",
+                datetime: {
+                    conatiner: "li.list-inline-item.bef",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "#content",
+                 },               
+                 category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.breadcrumb-item"),
+                    startIndex: 1
+                },
+                tags: ".tags a"           
+            },
+        })
+    }
+}

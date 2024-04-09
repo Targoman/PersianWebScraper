@@ -1663,5 +1663,8 @@ yarn dev && yarn start jomhornews -u https://www.jomhornews.com/fa/note/170811/
 yarn dev && yarn start bakhtarnews
 yarn dev && yarn start bakhtarnews -u https://www.bakhtarnews.af/dr/کمک-سازمان-صحی-جهان-با-یک-شفاخانه-در-کند/
 
+yarn dev && yarn start farhikhtegandaily
+yarn dev && yarn start farhikhtegandaily -u https://farhikhtegandaily.com/news/93081/کریم-مجتهدی؛-فیلسوفی-وقف-فلسفه/
+
 https://motamem.org/
 /**/
