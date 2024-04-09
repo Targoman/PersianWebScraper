@@ -1666,5 +1666,9 @@ yarn dev && yarn start bakhtarnews -u https://www.bakhtarnews.af/dr/کمک-سا�
 yarn dev && yarn start farhikhtegandaily
 yarn dev && yarn start farhikhtegandaily -u https://farhikhtegandaily.com/news/93081/کریم-مجتهدی؛-فیلسوفی-وقف-فلسفه/
 
+yarn dev && yarn start dbazi
+yarn dev && yarn start dbazi -u https://www.dbazi.com/gaming-events/351672-best-games-of-the-year-1402
+yarn dev && yarn start dbazi -u https://www.dbazi.com/game-story-timeline/323940-alan-wake-series
+
 https://motamem.org/
 /**/

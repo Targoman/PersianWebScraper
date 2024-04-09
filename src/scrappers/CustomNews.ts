@@ -2684,3 +2684,32 @@ export class farhikhtegandaily extends clsScrapper {
         })
     }
 }
+
+export class dbazi extends clsScrapper {
+    constructor() {
+        super(enuDomains.dbazi, "dbazi.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the-content",
+                    ignoreNodeClasses: ["wp-block-rank-math-toc-block", "h2", "has-black-background-color"],
+                    ignoreTexts: [/.*در دنیای بازی بخوانید:.*/, /.*<img.*/]
+                },               
+                category: {
+                    selector: "nav.rank-math-breadcrumb a"
+                },
+                comments: {
+                    container: "ol.comment-list li.comment",
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },
+                tags: "ul.tags li a"           
+            },
+        })
+    }
+}
