@@ -167,6 +167,7 @@ export enum enuDomains {
     foodpress = "foodpress",
     gadgetnews = "gadgetnews",
     gamefa = "gamefa",
+    gamene = "gamene",
     gardeshban = "gardeshban",
     getzoop = "getzoop",
     gashtaninews = "gashtaninews",

@@ -2713,3 +2713,32 @@ export class dbazi extends clsScrapper {
         })
     }
 }
+
+export class gamene extends clsScrapper {
+    constructor() {
+        super(enuDomains.gamene, "gamene.ws", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp", "social-list"],
+                },               
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a"
+                },
+                comments: {
+                    container: "ol.comment-list li.comment",
+                    author: "cite.comment-author a",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}

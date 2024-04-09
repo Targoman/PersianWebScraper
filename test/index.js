@@ -1670,5 +1670,9 @@ yarn dev && yarn start dbazi
 yarn dev && yarn start dbazi -u https://www.dbazi.com/gaming-events/351672-best-games-of-the-year-1402
 yarn dev && yarn start dbazi -u https://www.dbazi.com/game-story-timeline/323940-alan-wake-series
 
+yarn dev && yarn start gamene
+yarn dev && yarn start gamene -u https://gamene.ws/1403/01/77715/things-you-should-know-before-watching-fallout-tv-show/
+yarn dev && yarn start gamene -u https://gamene.ws/1393/08/387/cod-advanced-warfare-all-four-map-packs-named/
+
 https://motamem.org/
 /**/
