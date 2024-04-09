@@ -110,3 +110,18 @@ export class wikishahid extends clsWiki {
         })
     }
 }
+
+export class wikifeqh extends clsWiki {
+    constructor() {
+        super(enuDomains.wikifeqh, "fa.wikifeqh.ir", {
+            selectors: {
+                article: ".rade",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("div[style='margin:2px 2px 2px 2px;']"),
+                    ignoreNodeClasses: ["black", "Tools-pdf", "titlemenu", "edit_tpc", "rade"]
+                },
+            },
+        })
+    }
+}
