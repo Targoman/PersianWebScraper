@@ -2579,3 +2579,166 @@ export class baghestannews extends clsScrapper {
         })
     }
 }
+
+export class banifilmonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.banifilmonline, "banifilmonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".cz_post_content",
+                    ignoreNodeClasses: ["custom-date"],
+                 },               
+                 category: {
+                    selector: ".breadcrumbs b a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tagcloud a"           
+            },
+        })
+    }
+}
+
+export class jomhornews extends clsScrapper {
+    constructor() {
+        super(enuDomains.jomhornews, "jomhornews.com", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead-left"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#feedback-body .user-comment-area"),
+                    text: ".user-comment-content"
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+
+export class bakhtarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bakhtarnews, "bakhtarnews.af", {
+            basePath: "/dr",
+            selectors: {
+                article: "[lang='fa-IR'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-shortlink", "post-bottom-meta"],
+                 },               
+                 category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".post-bottom-meta .tagcloud a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/ur", "/uz"]
+            }
+        })
+    }
+}
+
+export class farhikhtegandaily extends clsScrapper {
+    constructor() {
+        super(enuDomains.farhikhtegandaily, "farhikhtegandaily.com", {
+            selectors: {
+                article: ".news-box",
+                title: "h1",
+                subtitle: ".news-lead h2",
+                datetime: {
+                    conatiner: "li.list-inline-item.bef",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "#content",
+                 },               
+                 category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.breadcrumb-item"),
+                    startIndex: 1
+                },
+                tags: ".tags a"           
+            },
+        })
+    }
+}
+
+export class dbazi extends clsScrapper {
+    constructor() {
+        super(enuDomains.dbazi, "dbazi.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the-content",
+                    ignoreNodeClasses: ["wp-block-rank-math-toc-block", "h2", "has-black-background-color"],
+                    ignoreTexts: [/.*در دنیای بازی بخوانید:.*/, /.*<img.*/]
+                },               
+                category: {
+                    selector: "nav.rank-math-breadcrumb a"
+                },
+                comments: {
+                    container: "ol.comment-list li.comment",
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },
+                tags: "ul.tags li a"           
+            },
+        })
+    }
+}
+
+export class gamene extends clsScrapper {
+    constructor() {
+        super(enuDomains.gamene, "gamene.ws", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp", "social-list"],
+                },               
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a"
+                },
+                comments: {
+                    container: "ol.comment-list li.comment",
+                    author: "cite.comment-author a",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: ".post-tags a"           
+            },
+        })
+    }
+}
