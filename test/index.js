@@ -1674,5 +1674,9 @@ yarn dev && yarn start gamene
 yarn dev && yarn start gamene -u https://gamene.ws/1403/01/77715/things-you-should-know-before-watching-fallout-tv-show/
 yarn dev && yarn start gamene -u https://gamene.ws/1393/08/387/cod-advanced-warfare-all-four-map-packs-named/
 
+yarn dev && yarn start rouydad24
+yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366598/بهرام-بیضایی-به-سرطان-مبتلا-شد
+yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366361/سلطان-بی%E2%80%8Cجایگزین-قلب%E2%80%8Cها-%7C-چگونه-فردین-به-نماد-فرهنگ-عامه-ایرانیان-تبدیل-شد
+
 https://motamem.org/
 /**/
