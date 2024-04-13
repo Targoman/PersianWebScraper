@@ -2816,3 +2816,25 @@ export class cinemaeinews extends clsScrapper {
         })
     }
 }
+
+export class pspro extends clsScrapper {
+    constructor() {
+        super(enuDomains.pspro, "pspro.ir", {
+            basePath: "/mag",
+            selectors: {
+                article: "body.blog-blog",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".description",
+                },                
+                tags: ".col-12 a.link-info"           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

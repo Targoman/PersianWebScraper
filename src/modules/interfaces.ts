@@ -364,6 +364,7 @@ export enum enuDomains {
     poonehmedia = "poonehmedia",
     porsan = "porsan",
     portal = "portal",
+    pspro = "pspro",
     qavanin = "qavanin",
     qudsonline = "qudsonline",
     quera = "quera",

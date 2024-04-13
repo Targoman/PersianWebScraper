@@ -1681,5 +1681,8 @@ yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366361/سل
 yarn dev && yarn start cinemaeinews
 yarn dev && yarn start cinemaeinews -u https://cinemaeinews.ir/تالار-هنر،-دفتر-دائمی-جشنواره-تئاتر-کو/
 
+yarn dev && yarn start pspro
+yarn dev && yarn start pspro -u https://pspro.ir/mag/baldurs-gate-3-larian-new-game-early-access
+
 https://motamem.org/
 /**/
