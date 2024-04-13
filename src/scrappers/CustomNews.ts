@@ -2793,3 +2793,26 @@ export class nohsobh extends clsScrapper {
         })
     }
 }
+
+export class cinemaeinews extends clsScrapper {
+    constructor() {
+        super(enuDomains.cinemaeinews, "cinemaeinews.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry",
+                },             
+                category: {
+                    selector: "[rel='category tag']",
+                    lastIndex: 2
+                },    
+                tags: ".post-tag a"           
+            },
+        })
+    }
+}

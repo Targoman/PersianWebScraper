@@ -96,6 +96,7 @@ export enum enuDomains {
     chemibazar = "chemibazar",
     chetor = "chetor",
     chtn = "chtn",
+    cinemaeinews = "cinemaeinews",
     cinemaema = "cinemaema",
     cinemapress = "cinemapress",
     citna = "citna",

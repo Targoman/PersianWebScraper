@@ -1678,5 +1678,8 @@ yarn dev && yarn start rouydad24
 yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366598/بهرام-بیضایی-به-سرطان-مبتلا-شد
 yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366361/سلطان-بی%E2%80%8Cجایگزین-قلب%E2%80%8Cها-%7C-چگونه-فردین-به-نماد-فرهنگ-عامه-ایرانیان-تبدیل-شد
 
+yarn dev && yarn start cinemaeinews
+yarn dev && yarn start cinemaeinews -u https://cinemaeinews.ir/تالار-هنر،-دفتر-دائمی-جشنواره-تئاتر-کو/
+
 https://motamem.org/
 /**/
