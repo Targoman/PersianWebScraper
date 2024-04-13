@@ -1684,5 +1684,9 @@ yarn dev && yarn start cinemaeinews -u https://cinemaeinews.ir/تالار-هنر
 yarn dev && yarn start pspro
 yarn dev && yarn start pspro -u https://pspro.ir/mag/baldurs-gate-3-larian-new-game-early-access
 
+yarn dev && yarn start plaza
+yarn dev && yarn start plaza -u https://www.plaza.ir/140301/582265/oppo-f25-pro-specs-and-features/
+yarn dev && yarn start plaza -u https://www.plaza.ir/140301/511780/upcoming-movies-2024/
+
 https://motamem.org/
 /**/

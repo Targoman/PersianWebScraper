@@ -5820,3 +5820,34 @@ export class iichs extends clsScrapper {
         })
     }
 }
+
+export class plaza extends clsScrapper {
+    constructor() {
+        super(enuDomains.plaza, "plaza.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#post-content",
+                    ignoreNodeClasses: ["rPref", "tPac"],
+                    ignoreTexts: ["فهرست مطالب"]
+                },               
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: ".comments .comments__item",
+                    author: ".comments__user-title",
+                    datetime: ".comments__user-date",
+                    text: ".comments__content"
+                },
+                tags: "ul.single__post-badge li a"           
+            },
+        })
+    }
+}

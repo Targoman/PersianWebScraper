@@ -359,6 +359,7 @@ export enum enuDomains {
     persiantools = "persiantools",
     pgnews = "pgnews",
     pishgamfanavari = "pishgamfanavari",
+    plaza = "plaza",
     podium = "podium",
     ponisha = "ponisha",
     poonehmedia = "poonehmedia",
