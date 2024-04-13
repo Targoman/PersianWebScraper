@@ -326,6 +326,7 @@ export enum enuDomains {
     niniweblog = "niniweblog",
     noandish = "noandish",
     nobitex = "nobitex",
+    nohsobh = "nohsobh",
     noozdahkala = "noozdahkala",
     novin = "novin",
     ofoghetazenews = "ofoghetazenews",

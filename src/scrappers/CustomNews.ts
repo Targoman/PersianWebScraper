@@ -2770,3 +2770,26 @@ export class rouydad24 extends clsScrapper {
         })
     }
 }
+
+export class nohsobh extends clsScrapper {
+    constructor() {
+        super(enuDomains.nohsobh, "9sobh.ir", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#echo_detail",
+                },      
+                tags: ".article_tags a span",
+                category: {
+                    selector: "ul.breadcrumb_list li a",
+                },               
+            },
+        })
+    }
+}
