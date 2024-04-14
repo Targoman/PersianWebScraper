@@ -2863,3 +2863,27 @@ export class gametor extends clsScrapper {
         })
     }
 }
+
+export class hayat extends clsScrapper {
+    constructor() {
+        super(enuDomains.hayat, "hayat.ir", {
+            selectors: {
+                article: "body.pt-news.nt-news",
+                title: "h1",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-text",
+                },               
+                category: {
+                    selector: ".page-header nav ol.breadcrumb li a",
+                    startIndex: 1
+                },
+                tags: ".tags div ul li a"           
+            },
+        })
+    }
+}

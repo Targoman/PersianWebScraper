@@ -1691,5 +1691,8 @@ yarn dev && yarn start plaza -u https://www.plaza.ir/140301/511780/upcoming-movi
 yarn dev && yarn start gametor 
 yarn dev && yarn start gametor -u https://gametor.ir/بازی-crash-bandicoot-4-پنج-میلیون-نسخه-فروخته-است/
 
+yarn dev && yarn hayat
+yarn dev && yarn hayat -u https://www.hayat.ir/news/247182/گلوری-پدیده-ای-شگفت-انگیز-در-آسمان-فضای-جهنمی
+
 https://motamem.org/
 /**/
