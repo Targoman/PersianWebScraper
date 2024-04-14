@@ -2838,3 +2838,28 @@ export class pspro extends clsScrapper {
         })
     }
 }
+
+export class gametor extends clsScrapper {
+    constructor() {
+        super(enuDomains.gametor, "gametor.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreTexts: [/.*padding.*/]
+                },
+                category:{
+                    selector: ".elementor-post-info__terms-list a"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

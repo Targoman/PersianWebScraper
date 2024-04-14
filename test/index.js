@@ -1688,5 +1688,8 @@ yarn dev && yarn start plaza
 yarn dev && yarn start plaza -u https://www.plaza.ir/140301/582265/oppo-f25-pro-specs-and-features/
 yarn dev && yarn start plaza -u https://www.plaza.ir/140301/511780/upcoming-movies-2024/
 
+yarn dev && yarn start gametor 
+yarn dev && yarn start gametor -u https://gametor.ir/بازی-crash-bandicoot-4-پنج-میلیون-نسخه-فروخته-است/
+
 https://motamem.org/
 /**/
