@@ -2887,3 +2887,36 @@ export class hayat extends clsScrapper {
         })
     }
 }
+
+export class controlmgt extends clsScrapper {
+    constructor() {
+        super(enuDomains.controlmgt, "controlmgt.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-text-editor > .elementor-widget-container",
+                    ignoreNodeClasses: ["rd-title"],
+                    ignoreTexts: [/.*اینستاگرام.*/, /.*لینک کوتاه.*/]
+                },
+                comments: {
+                    container: "ol.commentlist li.comment",
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },
+                category:{
+                    selector: "#digibe-breadcrumb li a",
+                    startIndex: 1
+                },
+                tags: ".tagbox a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -1694,5 +1694,9 @@ yarn dev && yarn start gametor -u https://gametor.ir/بازی-crash-bandicoot-4-
 yarn dev && yarn hayat
 yarn dev && yarn hayat -u https://www.hayat.ir/news/247182/گلوری-پدیده-ای-شگفت-انگیز-در-آسمان-فضای-جهنمی
 
+yarn dev && yarn start controlmgt
+yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/76793
+yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/5041
+
 https://motamem.org/
 /**/

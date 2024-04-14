@@ -102,6 +102,7 @@ export enum enuDomains {
     citna = "citna",
     click = "click",
     clickaval = "clickaval",
+    controlmgt = "controlmgt",
     dadrah = "dadrah",
     danakhabar = "danakhabar",
     daadyab = "daadyab",
