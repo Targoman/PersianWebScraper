@@ -1698,5 +1698,9 @@ yarn dev && yarn start controlmgt
 yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/76793
 yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/5041
 
+yarn dev && yarn start irancook
+yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-ash-ghalor/
+yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-khoreshte-fesenjon-morgh/
+
 https://motamem.org/
 /**/

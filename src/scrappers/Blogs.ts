@@ -5851,3 +5851,28 @@ export class plaza extends clsScrapper {
         })
     }
 }
+
+export class irancook extends clsScrapper {
+    constructor() {
+        super(enuDomains.irancook, "irancook.com", {
+            selectors: {
+                article: ".post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".recipe-box-properties__infos, .recipe-ingredients, .post-content"),
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li.comment .comment-body"),
+                    author: ".comment-author cite",
+                    text: "p"
+                },
+            },
+        })
+    }
+}
