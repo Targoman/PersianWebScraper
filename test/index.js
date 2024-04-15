@@ -1712,5 +1712,9 @@ yarn dev && yarn start cookpad -u https://cookpad.com/ir/tips/51162-گرفتن-�
 yarn dev && yarn start sanapress 
 yarn dev && yarn start sanapress -u https://sanapress.ir/369069/فوری-کرمان-موتور-آتش-به-مالش-زد-آغاز-فر/
 
+yarn dev && yarn start bazimag
+yarn dev && yarn start bazimag -u https://bazimag.com/news/14852-alan-wake-2-is-remedys-fastest-selling-game-with-1-3-million-units-sold
+yarn dev && yarn start bazimag -u https://bazimag.com/review/14559-starfield-review
+
 https://motamem.org/
 /**/
