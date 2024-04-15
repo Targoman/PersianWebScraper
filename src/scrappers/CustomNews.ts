@@ -2973,3 +2973,29 @@ export class jahansanatnews extends clsScrapper {
         })
     }
 }
+
+export class asianews extends clsScrapper {
+    constructor() {
+        super(enuDomains.asianews, "asianews.ir", {
+            selectors: {
+                article: "article > .col-xs-12",
+                aboveTitle: "h5",
+                title: "h1",
+                subtitle: ".naNewsLeadWrapper span",
+                datetime: {
+                    conatiner: ".naNewsDetail2DataTimeWrapper span"
+                },
+                content: {
+                    main: ".naNewsDetail2BodyWrapper",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".remarkWrapper .remark"),
+                    author: ".user span.name",
+                    datetime: "span.date",
+                    text: ".comment"
+                },
+                tags: "ul.ulTagList li a",            
+            },
+        })
+    }
+}

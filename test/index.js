@@ -1719,5 +1719,9 @@ yarn dev && yarn start bazimag -u https://bazimag.com/review/14559-starfield-rev
 yarn dev && yarn start jahansanatnews
 yarn dev && yarn start jahansanatnews -u https://jahansanatnews.ir/418712-کسری-بودجه-بنزین-بیپنفروردین/
 
+yarn dev && yarn start asianews
+yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/21078/دایره-المعارف-ایرانشناسی
+yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/13890/تغییر-ساعت-رسمی-۱۴۰۲
+
 https://motamem.org/
 /**/
