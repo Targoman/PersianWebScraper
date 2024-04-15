@@ -2920,3 +2920,29 @@ export class controlmgt extends clsScrapper {
         })
     }
 }
+
+export class sanapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.sanapress, "sanapress.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post_content",
+                },
+                category:{
+                    selector: "div.vc_column-inner > div:nth-child(10) > div > a.w-btn > span",
+                    startIndex: 1
+                },
+                tags: "div.vc_column-inner > div:nth-child(11) > div a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
