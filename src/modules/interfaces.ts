@@ -103,6 +103,7 @@ export enum enuDomains {
     click = "click",
     clickaval = "clickaval",
     controlmgt = "controlmgt",
+    cookpad = "cookpad",
     dadrah = "dadrah",
     danakhabar = "danakhabar",
     daadyab = "daadyab",

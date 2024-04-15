@@ -1702,5 +1702,12 @@ yarn dev && yarn start irancook
 yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-ash-ghalor/
 yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-khoreshte-fesenjon-morgh/
 
+yarn dev && yarn start cookpad
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/دستور%20غذا/22544488-تارت-با-کرم-هویج
+
+yarn dev && yarn start cookpad
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/دستور%20غذا/22544488-تارت-با-کرم-هویج
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/tips/51162-گرفتن-نفخ-حبوبات-با-خیار?via=tips
+
 https://motamem.org/
 /**/

@@ -5876,3 +5876,28 @@ export class irancook extends clsScrapper {
         })
     }
 }
+
+
+export class cookpad extends clsScrapper {
+    constructor() {
+        super(enuDomains.cookpad, "cookpad.com", {
+            basePath: "/ir",
+            selectors: {
+                article: "html[lang='fa'] body[data-source-tracking-screen-value='recipe'], html[lang='fa'] body[data-source-tracking-screen-value='tip_page']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#ingredients, #steps, .divide-y.space-y-md.p-sm",
+                },               
+                tags: ".break-words div:nth-child(1) p:nth-child(1) a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/ir/regions", "/uy", "/mx", "/sa", "/id", "/vn", "/cl", "/th", "/in", "/my",
+                 "/gr", "/ng", "/hu", "/ua", "/pt", "/ir/japanese_site"]
+            }
+        })
+    }
+}
