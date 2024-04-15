@@ -5823,3 +5823,84 @@ export class iichs extends clsScrapper {
         })
     }
 }
+
+export class plaza extends clsScrapper {
+    constructor() {
+        super(enuDomains.plaza, "plaza.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#post-content",
+                    ignoreNodeClasses: ["rPref", "tPac"],
+                    ignoreTexts: ["فهرست مطالب"]
+                },               
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                },
+                comments: {
+                    container: ".comments .comments__item",
+                    author: ".comments__user-title",
+                    datetime: ".comments__user-date",
+                    text: ".comments__content"
+                },
+                tags: "ul.single__post-badge li a"           
+            },
+        })
+    }
+}
+
+export class irancook extends clsScrapper {
+    constructor() {
+        super(enuDomains.irancook, "irancook.com", {
+            selectors: {
+                article: ".post-content",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".recipe-box-properties__infos, .recipe-ingredients, .post-content"),
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li.comment .comment-body"),
+                    author: ".comment-author cite",
+                    text: "p"
+                },
+            },
+        })
+    }
+}
+
+
+export class cookpad extends clsScrapper {
+    constructor() {
+        super(enuDomains.cookpad, "cookpad.com", {
+            basePath: "/ir",
+            selectors: {
+                article: "html[lang='fa'] body[data-source-tracking-screen-value='recipe'], html[lang='fa'] body[data-source-tracking-screen-value='tip_page']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#ingredients, #steps, .divide-y.space-y-md.p-sm",
+                },               
+                tags: ".break-words div:nth-child(1) p:nth-child(1) a"           
+            },
+            url: {
+                extraInvalidStartPaths: ["/ir/regions", "/uy", "/mx", "/sa", "/id", "/vn", "/cl", "/th", "/in", "/my",
+                 "/gr", "/ng", "/hu", "/ua", "/pt", "/ir/japanese_site"]
+            }
+        })
+    }
+}

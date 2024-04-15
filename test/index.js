@@ -1674,5 +1674,40 @@ yarn dev && yarn start gamene
 yarn dev && yarn start gamene -u https://gamene.ws/1403/01/77715/things-you-should-know-before-watching-fallout-tv-show/
 yarn dev && yarn start gamene -u https://gamene.ws/1393/08/387/cod-advanced-warfare-all-four-map-packs-named/
 
+yarn dev && yarn start rouydad24
+yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366598/بهرام-بیضایی-به-سرطان-مبتلا-شد
+yarn dev && yarn start rouydad24 -u https://www.rouydad24.ir/fa/news/366361/سلطان-بی%E2%80%8Cجایگزین-قلب%E2%80%8Cها-%7C-چگونه-فردین-به-نماد-فرهنگ-عامه-ایرانیان-تبدیل-شد
+
+yarn dev && yarn start cinemaeinews
+yarn dev && yarn start cinemaeinews -u https://cinemaeinews.ir/تالار-هنر،-دفتر-دائمی-جشنواره-تئاتر-کو/
+
+yarn dev && yarn start pspro
+yarn dev && yarn start pspro -u https://pspro.ir/mag/baldurs-gate-3-larian-new-game-early-access
+
+yarn dev && yarn start plaza
+yarn dev && yarn start plaza -u https://www.plaza.ir/140301/582265/oppo-f25-pro-specs-and-features/
+yarn dev && yarn start plaza -u https://www.plaza.ir/140301/511780/upcoming-movies-2024/
+
+yarn dev && yarn start gametor 
+yarn dev && yarn start gametor -u https://gametor.ir/بازی-crash-bandicoot-4-پنج-میلیون-نسخه-فروخته-است/
+
+yarn dev && yarn hayat
+yarn dev && yarn hayat -u https://www.hayat.ir/news/247182/گلوری-پدیده-ای-شگفت-انگیز-در-آسمان-فضای-جهنمی
+
+yarn dev && yarn start controlmgt
+yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/76793
+yarn dev && yarn start controlmgt -u https://controlmgt.ir/بایگانی/5041
+
+yarn dev && yarn start irancook
+yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-ash-ghalor/
+yarn dev && yarn start irancook -u https://irancook.com/recipes/tarze-tahaye-khoreshte-fesenjon-morgh/
+
+yarn dev && yarn start cookpad
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/دستور%20غذا/22544488-تارت-با-کرم-هویج
+
+yarn dev && yarn start cookpad
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/دستور%20غذا/22544488-تارت-با-کرم-هویج
+yarn dev && yarn start cookpad -u https://cookpad.com/ir/tips/51162-گرفتن-نفخ-حبوبات-با-خیار?via=tips
+
 https://motamem.org/
 /**/
