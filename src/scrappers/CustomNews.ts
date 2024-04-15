@@ -2946,3 +2946,30 @@ export class sanapress extends clsScrapper {
         })
     }
 }
+
+export class jahansanatnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.jahansanatnews, "jahansanatnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["foots", "post-bottom-meta", "post-cat-wrap"],
+                },
+                tags: ".post-bottom-meta .tagcloud a",
+                category: {
+                    selector: "#breadcrumb a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

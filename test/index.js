@@ -1716,5 +1716,8 @@ yarn dev && yarn start bazimag
 yarn dev && yarn start bazimag -u https://bazimag.com/news/14852-alan-wake-2-is-remedys-fastest-selling-game-with-1-3-million-units-sold
 yarn dev && yarn start bazimag -u https://bazimag.com/review/14559-starfield-review
 
+yarn dev && yarn start jahansanatnews
+yarn dev && yarn start jahansanatnews -u https://jahansanatnews.ir/418712-کسری-بودجه-بنزین-بیپنفروردین/
+
 https://motamem.org/
 /**/
