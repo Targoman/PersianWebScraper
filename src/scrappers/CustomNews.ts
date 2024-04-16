@@ -3048,3 +3048,29 @@ export class mdeast extends clsScrapper {
         })
     }
 }
+
+export class boursepress extends clsScrapper {
+    constructor() {
+        super(enuDomains.boursepress, "boursepress.ir", {
+            selectors: {
+                article: "#divNewsPage",
+                aboveTitle: ".short-title",
+                title: "h1",
+                summary: ".news-lead",
+                datetime: {
+                    conatiner: ".news-map > div:nth-child(3)"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: ".news-map div a",
+                },
+                tags: ".tags-content a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -1726,5 +1726,8 @@ yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/13890/�
 yarn dev && yarn start kurdpress
 yarn dev && yarn start kurdpress -u https://www.kurdpress.com/news/2769364/هێمن-موکریانی-شاعر-عشق-و-آزادی
 
+yarn dev && yarn start boursepress
+yarn dev && yarn start boursepress -u https://boursepress.ir/news/222464/اجرای-برنامه-هفتم،-آمار-دولت-در-یارانه%E2%80%8C-و-سرمایه-گذاری-۶۷۰-هزار-میلیاردی-شرکت%E2%80%8Cها
+
 https://motamem.org/
 /**/

@@ -87,6 +87,7 @@ export enum enuDomains {
     bookland = "bookland",
     borna = "borna",
     boursenews = "boursenews",
+    boursepress = "boursepress",
     boursy = "boursy",
     bultannews = "bultannews",
     cafeamoozeshgah = "cafeamoozeshgah",
