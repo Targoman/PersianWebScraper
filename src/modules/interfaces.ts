@@ -277,6 +277,7 @@ export enum enuDomains {
     kidzy = "kidzy",
     kojaro = "kojaro",
     ksymg = "ksymg",
+    kurdpress = "kurdpress",
     labourlaw = "labourlaw",
     lastsecond = "lastsecond",
     liangroup = "liangroup",

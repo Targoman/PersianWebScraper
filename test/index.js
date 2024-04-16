@@ -1723,5 +1723,8 @@ yarn dev && yarn start asianews
 yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/21078/دایره-المعارف-ایرانشناسی
 yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/13890/تغییر-ساعت-رسمی-۱۴۰۲
 
+yarn dev && yarn start kurdpress
+yarn dev && yarn start kurdpress -u https://www.kurdpress.com/news/2769364/هێمن-موکریانی-شاعر-عشق-و-آزادی
+
 https://motamem.org/
 /**/

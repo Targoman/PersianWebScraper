@@ -2999,3 +2999,26 @@ export class asianews extends clsScrapper {
         })
     }
 }
+
+export class kurdpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.kurdpress, "kurdpress.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-text",
+                },
+                tags: ".tags div ul li a",
+                category: {
+                    selector: "ol.breadcrumb li a",
+                },               
+            },
+        })
+    }
+}
