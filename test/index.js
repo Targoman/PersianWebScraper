@@ -1729,5 +1729,9 @@ yarn dev && yarn start kurdpress -u https://www.kurdpress.com/news/2769364/هێ�
 yarn dev && yarn start boursepress
 yarn dev && yarn start boursepress -u https://boursepress.ir/news/222464/اجرای-برنامه-هفتم،-آمار-دولت-در-یارانه%E2%80%8C-و-سرمایه-گذاری-۶۷۰-هزار-میلیاردی-شرکت%E2%80%8Cها
 
+yarn dev && yarn start migna 
+yarn dev && yarn start migna -u https://www.migna.ir/news/64194/تاثیر-افزایش-تعرفه-های-خدمات-روان-شناسی-سلامت-روان-جامعه
+yarn dev && yarn start migna -u https://www.migna.ir/news/64105/تقاضا-سلب-اختیار-تشخیص-اختلال-اسکیزوفرنی-توسط-روانشناسان-بالینی
+
 https://motamem.org/
 /**/
