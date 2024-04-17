@@ -3145,3 +3145,31 @@ export class sobhtazeh extends clsScrapper {
         })
     }
 }
+
+export class banker extends clsScrapper {
+    constructor() {
+        super(enuDomains.banker, "banker.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["jnews_inline_related_post_wrapper", "jeg_post_tags"],
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li"),
+                    author: ".comment-author cite",
+                    text: ".comment-content"
+                },
+                tags: ".jeg_post_tags a",           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

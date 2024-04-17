@@ -1739,5 +1739,9 @@ yarn dev && yarn start tehranbehesht -u https://tehranbehesht.news/fa/news/72080
 yarn dev && yarn start sobhtazeh
 yarn dev && yarn start sobhtazeh -u https://sobhtazeh.news/اعلام-جدیدترین-قیمت-کوییک،-دنا-و-شاهین/
 
+yarn dev && yarn start banker
+yarn dev && yarn start banker -u https://banker.ir/شاخص-فلاكت-ركورد-10-ساله-را-شكست/
+yarn dev && yarn start banker -u https://banker.ir/راه-های-پولدار-شدن-با-سرمایه-کم-در-ایران/
+
 https://motamem.org/
 /**/
