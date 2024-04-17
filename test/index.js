@@ -1709,5 +1709,35 @@ yarn dev && yarn start cookpad
 yarn dev && yarn start cookpad -u https://cookpad.com/ir/دستور%20غذا/22544488-تارت-با-کرم-هویج
 yarn dev && yarn start cookpad -u https://cookpad.com/ir/tips/51162-گرفتن-نفخ-حبوبات-با-خیار?via=tips
 
+yarn dev && yarn start sanapress 
+yarn dev && yarn start sanapress -u https://sanapress.ir/369069/فوری-کرمان-موتور-آتش-به-مالش-زد-آغاز-فر/
+
+yarn dev && yarn start bazimag
+yarn dev && yarn start bazimag -u https://bazimag.com/news/14852-alan-wake-2-is-remedys-fastest-selling-game-with-1-3-million-units-sold
+yarn dev && yarn start bazimag -u https://bazimag.com/review/14559-starfield-review
+
+yarn dev && yarn start jahansanatnews
+yarn dev && yarn start jahansanatnews -u https://jahansanatnews.ir/418712-کسری-بودجه-بنزین-بیپنفروردین/
+
+yarn dev && yarn start asianews
+yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/21078/دایره-المعارف-ایرانشناسی
+yarn dev && yarn start asianews -u https://www.asianews.ir/fa/newsagency/13890/تغییر-ساعت-رسمی-۱۴۰۲
+
+yarn dev && yarn start kurdpress
+yarn dev && yarn start kurdpress -u https://www.kurdpress.com/news/2769364/هێمن-موکریانی-شاعر-عشق-و-آزادی
+
+yarn dev && yarn start boursepress
+yarn dev && yarn start boursepress -u https://boursepress.ir/news/222464/اجرای-برنامه-هفتم،-آمار-دولت-در-یارانه%E2%80%8C-و-سرمایه-گذاری-۶۷۰-هزار-میلیاردی-شرکت%E2%80%8Cها
+
+yarn dev && yarn start migna 
+yarn dev && yarn start migna -u https://www.migna.ir/news/64194/تاثیر-افزایش-تعرفه-های-خدمات-روان-شناسی-سلامت-روان-جامعه
+yarn dev && yarn start migna -u https://www.migna.ir/news/64105/تقاضا-سلب-اختیار-تشخیص-اختلال-اسکیزوفرنی-توسط-روانشناسان-بالینی
+
+yarn dev && yarn start tehranbehesht 
+yarn dev && yarn start tehranbehesht -u https://tehranbehesht.news/fa/news/72080/مالیات-بر-ارزش-افزوده-کاهش-می-یابد
+
+yarn dev && yarn start sobhtazeh
+yarn dev && yarn start sobhtazeh -u https://sobhtazeh.news/اعلام-جدیدترین-قیمت-کوییک،-دنا-و-شاهین/
+
 https://motamem.org/
 /**/
