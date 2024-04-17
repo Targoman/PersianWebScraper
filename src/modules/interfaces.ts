@@ -486,6 +486,7 @@ export enum enuDomains {
     technolife = "technolife",
     techranco = "techranco",
     techrato = "techrato",
+    tehranbehesht = "tehranbehesht",
     tehrannews = "tehrannews",
     tehranserver = "tehranserver",
     tejaratefarda = "tejaratefarda",

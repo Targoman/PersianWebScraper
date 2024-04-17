@@ -1733,5 +1733,8 @@ yarn dev && yarn start migna
 yarn dev && yarn start migna -u https://www.migna.ir/news/64194/تاثیر-افزایش-تعرفه-های-خدمات-روان-شناسی-سلامت-روان-جامعه
 yarn dev && yarn start migna -u https://www.migna.ir/news/64105/تقاضا-سلب-اختیار-تشخیص-اختلال-اسکیزوفرنی-توسط-روانشناسان-بالینی
 
+yarn dev && yarn start tehranbehesht 
+yarn dev && yarn start tehranbehesht -u https://tehranbehesht.news/fa/news/72080/مالیات-بر-ارزش-افزوده-کاهش-می-یابد
+
 https://motamem.org/
 /**/
