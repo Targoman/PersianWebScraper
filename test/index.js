@@ -1736,5 +1736,8 @@ yarn dev && yarn start migna -u https://www.migna.ir/news/64105/تقاضا-سل�
 yarn dev && yarn start tehranbehesht 
 yarn dev && yarn start tehranbehesht -u https://tehranbehesht.news/fa/news/72080/مالیات-بر-ارزش-افزوده-کاهش-می-یابد
 
+yarn dev && yarn start sobhtazeh
+yarn dev && yarn start sobhtazeh -u https://sobhtazeh.news/اعلام-جدیدترین-قیمت-کوییک،-دنا-و-شاهین/
+
 https://motamem.org/
 /**/
