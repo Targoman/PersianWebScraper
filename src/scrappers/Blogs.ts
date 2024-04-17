@@ -5904,3 +5904,31 @@ export class cookpad extends clsScrapper {
         })
     }
 }
+
+export class bazimag extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazimag, "bazimag.com", {
+            selectors: {
+                article: ".itemView",
+                title: "h1",
+                datetime: {
+                    conatiner: ".itemDateCreated"
+                },
+                content: {
+                    main: ".itemFullText",
+                    ignoreNodeClasses: ["some-more-info"],
+                },               
+                category: {
+                    selector: ".itemFullText > div > span:nth-child(2)",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".kmt-list li"),
+                    author: ".kmt-author span",
+                    datetime: "time",
+                    text: ".commentText"
+                },    
+                tags: "ul.itemTags li a"           
+            },
+        })
+    }
+}
