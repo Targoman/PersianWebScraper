@@ -3197,3 +3197,27 @@ export class rouzeeghtesad extends clsScrapper {
         })
     }
 }
+
+export class namehnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.namehnews, "namehnews.com", {
+            selectors: {
+                article: "#news-page-article",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo_detail > div:nth-child(1)",
+                    ignoreNodeClasses: ["others-known"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb-list li a")
+                },
+                tags: ".article-tag a",           
+            },
+        })
+    }
+}

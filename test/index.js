@@ -1747,5 +1747,8 @@ yarn dev && yarn start rouzeeghtesad
 yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/9926--.html
 yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/10179-پرداخت-دستمزد-کارگران-طبق-مصوبه-شورای-عالی-کار.html
 
+yarn dev && yarn start namehnews
+yarn dev && yarn start namehnews -u https://www.namehnews.com/بخش-بین-الملل-11/707675-از-نسل-کشی-آلمان-در-آفریقا-چه-می-دانیم
+
 https://motamem.org/
 /**/
