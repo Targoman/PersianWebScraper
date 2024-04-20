@@ -405,6 +405,7 @@ export enum enuDomains {
     roozplus = "roozplus",
     roshadent = "roshadent",
     rouydad24 = "rouydad24",
+    rouzeeghtesad = "rouzeeghtesad",
     rozblog = "rozblog",
     saafi = "saafi",
     saat24 = "saat24",

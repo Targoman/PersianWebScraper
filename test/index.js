@@ -1743,5 +1743,9 @@ yarn dev && yarn start banker
 yarn dev && yarn start banker -u https://banker.ir/شاخص-فلاكت-ركورد-10-ساله-را-شكست/
 yarn dev && yarn start banker -u https://banker.ir/راه-های-پولدار-شدن-با-سرمایه-کم-در-ایران/
 
+yarn dev && yarn start rouzeeghtesad 
+yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/9926--.html
+yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/10179-پرداخت-دستمزد-کارگران-طبق-مصوبه-شورای-عالی-کار.html
+
 https://motamem.org/
 /**/

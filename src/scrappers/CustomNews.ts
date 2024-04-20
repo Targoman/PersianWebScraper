@@ -3173,3 +3173,27 @@ export class banker extends clsScrapper {
         })
     }
 }
+
+export class rouzeeghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.rouzeeghtesad, "rouzeeghtesad.com", {
+            selectors: {
+                article: "#vo--postbody",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: ".postxt",
+                },
+                category: {
+                    selector: "ul.post-categories a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
