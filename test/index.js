@@ -1750,5 +1750,8 @@ yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/10179-پردا
 yarn dev && yarn start namehnews
 yarn dev && yarn start namehnews -u https://www.namehnews.com/بخش-بین-الملل-11/707675-از-نسل-کشی-آلمان-در-آفریقا-چه-می-دانیم
 
+yarn dev && yarn start ecc 
+yarn dev && yarn start ecc -u https://www.ecc.news/fa/news/225500/bazdhy-3-5-drsdy-shakhs-bwrs-thran-dr-abtday-hfth
+
 https://motamem.org/
 /**/

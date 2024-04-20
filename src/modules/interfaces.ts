@@ -135,6 +135,7 @@ export enum enuDomains {
     drhast = "drhast",
     drsaina = "drsaina",
     dsport = "dsport",
+    ecc = "ecc",
     ecoiran = "ecoiran",
     ecoview = "ecoview",
     econegar = "econegar",

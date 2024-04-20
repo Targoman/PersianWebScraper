@@ -3221,3 +3221,26 @@ export class namehnews extends clsScrapper {
         })
     }
 }
+
+export class ecc extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecc, "ecc.news", {
+            selectors: {
+                article: "article.m_al",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.b_mb li a")
+                },
+                tags: ".c-stg ul li a",           
+            },
+        })
+    }
+}
