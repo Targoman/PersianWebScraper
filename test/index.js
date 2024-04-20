@@ -1756,5 +1756,9 @@ yarn dev && yarn start ecc -u https://www.ecc.news/fa/news/225500/bazdhy-3-5-drs
 yarn dev && yarn eghtesad100
 yarn dev && yarn eghtesad100 -u https://www.eghtesad100.ir/بخش-کسب-کار-3/112725-گران-ترین-پسماند-را-بشناسید-شهرداری-زباله-ها-را-چند-می-خرد
 
+yarn dev && yarn start akharinkhodro 
+yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/foreign-car/اتفاقی-عجیب-برای-محصول-جدید-آلفارومئو/
+yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/domestic-car/ماموت-خودرو-کراس-اوور-جدید-فولکس-واگن-ر/
+
 https://motamem.org/
 /**/

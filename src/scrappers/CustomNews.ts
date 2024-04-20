@@ -3244,3 +3244,33 @@ export class ecc extends clsScrapper {
         })
     }
 }
+
+export class akharinkhodro extends clsScrapper {
+    constructor() {
+        super(enuDomains.akharinkhodro, "akharinkhodro.ir", {
+            selectors: {
+                article: ".singleBody",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#singlePost",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body "),
+                    author: ".comment-author cite",
+                    text: "p"
+                },
+                category: {
+                    selector: "#singlePostCats a"
+                },
+                tags: "#singularTags a",           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
