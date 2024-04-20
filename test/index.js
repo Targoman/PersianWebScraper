@@ -1753,5 +1753,8 @@ yarn dev && yarn start namehnews -u https://www.namehnews.com/بخش-بین-ال
 yarn dev && yarn start ecc 
 yarn dev && yarn start ecc -u https://www.ecc.news/fa/news/225500/bazdhy-3-5-drsdy-shakhs-bwrs-thran-dr-abtday-hfth
 
+yarn dev && yarn eghtesad100
+yarn dev && yarn eghtesad100 -u https://www.eghtesad100.ir/بخش-کسب-کار-3/112725-گران-ترین-پسماند-را-بشناسید-شهرداری-زباله-ها-را-چند-می-خرد
+
 https://motamem.org/
 /**/

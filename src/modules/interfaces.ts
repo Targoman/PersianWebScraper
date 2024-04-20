@@ -139,6 +139,7 @@ export enum enuDomains {
     ecoiran = "ecoiran",
     ecoview = "ecoview",
     econegar = "econegar",
+    eghtesad100 = "eghtesad100",
     eghtesadnews = "eghtesadnews",
     eghtesadonline = "eghtesadonline",
     ekhtebar = "ekhtebar",

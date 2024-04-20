@@ -1558,3 +1558,16 @@ export class safheeghtesad extends clsAsamBased {
         return url.toString();
     }
 }
+
+/***********************************************************/
+export class eghtesad100 extends clsAsamBased {
+    constructor() {
+        super(enuDomains.eghtesad100, "eghtesad100.ir", {
+            selectors: {
+                content: {
+                    main: "#ckeditor"
+                },
+            },
+        })
+    }
+}
