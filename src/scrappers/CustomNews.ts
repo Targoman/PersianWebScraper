@@ -3145,3 +3145,132 @@ export class sobhtazeh extends clsScrapper {
         })
     }
 }
+
+export class banker extends clsScrapper {
+    constructor() {
+        super(enuDomains.banker, "banker.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["jnews_inline_related_post_wrapper", "jeg_post_tags"],
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li"),
+                    author: ".comment-author cite",
+                    text: ".comment-content"
+                },
+                tags: ".jeg_post_tags a",           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class rouzeeghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.rouzeeghtesad, "rouzeeghtesad.com", {
+            selectors: {
+                article: "#vo--postbody",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time",
+                },
+                content: {
+                    main: ".postxt",
+                },
+                category: {
+                    selector: "ul.post-categories a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class namehnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.namehnews, "namehnews.com", {
+            selectors: {
+                article: "#news-page-article",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo_detail > div:nth-child(1)",
+                    ignoreNodeClasses: ["others-known"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb-list li a")
+                },
+                tags: ".article-tag a",           
+            },
+        })
+    }
+}
+
+export class ecc extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecc, "ecc.news", {
+            selectors: {
+                article: "article.m_al",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.b_mb li a")
+                },
+                tags: ".c-stg ul li a",           
+            },
+        })
+    }
+}
+
+export class akharinkhodro extends clsScrapper {
+    constructor() {
+        super(enuDomains.akharinkhodro, "akharinkhodro.ir", {
+            selectors: {
+                article: ".singleBody",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#singlePost",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li .comment-body "),
+                    author: ".comment-author cite",
+                    text: "p"
+                },
+                category: {
+                    selector: "#singlePostCats a"
+                },
+                tags: "#singularTags a",           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
