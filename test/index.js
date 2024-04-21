@@ -1766,5 +1766,8 @@ yarn dev && yarn start persiankhodro -u https://www.persiankhodro.com/news/14497
 yarn dev && yarn start khodronevis
 yarn dev && yarn start khodronevis -u https://khodronevis.com/news/پنج-دهه-تلاش،-14-هزار-نفر-اشتغال-و-تولید-س/
 
+yarn dev && yarn start mokhatab24
+yarn dev && yarn start mokhatab24 -u https://mokhatab24.ir/fa/news/39663/پایان-تلخ-۳-اسطوره-کشتی-آمریکا-در-انتخابی-المپیک
+
 https://motamem.org/
 /**/

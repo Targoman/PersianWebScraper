@@ -317,6 +317,7 @@ export enum enuDomains {
     moaser = "moaser",
     modireweb = "modireweb",
     mojnews = "mojnews",
+    mokhatab24 = "mokhatab24",
     moniban = "moniban",
     monoblog = "monoblog",
     mopon = "mopon",

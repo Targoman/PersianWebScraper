@@ -2920,3 +2920,24 @@ export class tehranbehesht extends clsIransamaneh {
         })
     }
 }
+
+export class mokhatab24 extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mokhatab24, "mokhatab24.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1.title a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
