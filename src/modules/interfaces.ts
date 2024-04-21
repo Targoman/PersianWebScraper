@@ -278,6 +278,7 @@ export enum enuDomains {
     khanoumi = "khanoumi",
     khatebazar = "khatebazar",
     khodrokaar = "khodrokaar",
+    khodronevis = "khodronevis",
     khodrotak = "khodrotak",
     khordad = "khordad",
     kidzy = "kidzy",

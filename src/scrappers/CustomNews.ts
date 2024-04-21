@@ -3274,3 +3274,28 @@ export class akharinkhodro extends clsScrapper {
         })
     }
 }
+
+export class khodronevis extends clsScrapper {
+    constructor() {
+        super(enuDomains.khodronevis, "khodronevis.com", {
+            selectors: {
+                article: "body.single-news",
+                title: "h1",
+                subtitle: ".kn-single-lead",
+                datetime: {
+                    conatiner: ".post-time"
+                },
+                content: {
+                    main: ".kn-content",
+                    ignoreNodeClasses: ["kn-relation-posts", "kn-star-rating"]
+                },
+                category: {
+                    selector: ".kn-s-categorys a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

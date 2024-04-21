@@ -1760,5 +1760,11 @@ yarn dev && yarn start akharinkhodro
 yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/foreign-car/اتفاقی-عجیب-برای-محصول-جدید-آلفارومئو/
 yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/domestic-car/ماموت-خودرو-کراس-اوور-جدید-فولکس-واگن-ر/
 
+yarn dev && yarn start persiankhodro
+yarn dev && yarn start persiankhodro -u https://www.persiankhodro.com/news/144977/تسهیلات-کم-بهره-صندوق-توسعه-و-تحقیقات-وزارت-صمت-به-خودروهای-فرسوده
+
+yarn dev && yarn start khodronevis
+yarn dev && yarn start khodronevis -u https://khodronevis.com/news/پنج-دهه-تلاش،-14-هزار-نفر-اشتغال-و-تولید-س/
+
 https://motamem.org/
 /**/
