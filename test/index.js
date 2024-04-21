@@ -1739,5 +1739,26 @@ yarn dev && yarn start tehranbehesht -u https://tehranbehesht.news/fa/news/72080
 yarn dev && yarn start sobhtazeh
 yarn dev && yarn start sobhtazeh -u https://sobhtazeh.news/اعلام-جدیدترین-قیمت-کوییک،-دنا-و-شاهین/
 
+yarn dev && yarn start banker
+yarn dev && yarn start banker -u https://banker.ir/شاخص-فلاكت-ركورد-10-ساله-را-شكست/
+yarn dev && yarn start banker -u https://banker.ir/راه-های-پولدار-شدن-با-سرمایه-کم-در-ایران/
+
+yarn dev && yarn start rouzeeghtesad 
+yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/9926--.html
+yarn dev && yarn start rouzeeghtesad -u https://rouzeeghtesad.com/10179-پرداخت-دستمزد-کارگران-طبق-مصوبه-شورای-عالی-کار.html
+
+yarn dev && yarn start namehnews
+yarn dev && yarn start namehnews -u https://www.namehnews.com/بخش-بین-الملل-11/707675-از-نسل-کشی-آلمان-در-آفریقا-چه-می-دانیم
+
+yarn dev && yarn start ecc 
+yarn dev && yarn start ecc -u https://www.ecc.news/fa/news/225500/bazdhy-3-5-drsdy-shakhs-bwrs-thran-dr-abtday-hfth
+
+yarn dev && yarn eghtesad100
+yarn dev && yarn eghtesad100 -u https://www.eghtesad100.ir/بخش-کسب-کار-3/112725-گران-ترین-پسماند-را-بشناسید-شهرداری-زباله-ها-را-چند-می-خرد
+
+yarn dev && yarn start akharinkhodro 
+yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/foreign-car/اتفاقی-عجیب-برای-محصول-جدید-آلفارومئو/
+yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/domestic-car/ماموت-خودرو-کراس-اوور-جدید-فولکس-واگن-ر/
+
 https://motamem.org/
 /**/
