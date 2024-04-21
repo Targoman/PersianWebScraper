@@ -1161,3 +1161,9 @@ export class karajemrouz extends clsNastoohBased {
         return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.Local }
     }
 }
+
+export class persiankhodro extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.persiankhodro, "persiankhodro.com")
+    }
+}
