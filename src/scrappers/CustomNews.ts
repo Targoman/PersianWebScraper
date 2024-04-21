@@ -3325,3 +3325,26 @@ export class khodropluss extends clsScrapper {
         })
     }
 }
+
+export class tazenews extends clsScrapper {
+    constructor() {
+        super(enuDomains.tazenews, "tazenews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                tags: ".post-tags span a",
+                category: {
+                    selector: ".term-badges span a",
+                },               
+            },
+        })
+    }
+}
