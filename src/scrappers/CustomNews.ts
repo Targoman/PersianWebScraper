@@ -3299,3 +3299,29 @@ export class khodronevis extends clsScrapper {
         })
     }
 }
+
+export class khodropluss extends clsScrapper {
+    constructor() {
+        super(enuDomains.khodropluss, "khodropluss.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta", "post-shortlink"],
+                },
+                tags: ".post-bottom-meta .tagcloud a",
+                category: {
+                    selector: "#breadcrumb a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
