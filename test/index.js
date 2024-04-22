@@ -1772,5 +1772,8 @@ yarn dev && yarn start mokhatab24 -u https://mokhatab24.ir/fa/news/39663/پای�
 yarn dev && yarn start eghtesadazad
 yarn dev && yarn start eghtesadazad -u https://eghtesadazad.com/نفت-گران-شد/
 
+yarn dev && yarn start felezatkhavarmianeh
+yarn dev && yarn start felezatkhavarmianeh -u https://felezatkhavarmianeh.ir/fa/news/338301/گواهینامه-ce-marking-ذوب-آهن-اصفهان-تمدید-شد
+
 https://motamem.org/
 /**/

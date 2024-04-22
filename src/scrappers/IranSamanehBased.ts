@@ -2963,3 +2963,25 @@ export class zisaan extends clsIransamaneh {
         })
     }
 }
+
+export class felezatkhavarmianeh extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.felezatkhavarmianeh, "felezatkhavarmianeh.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
