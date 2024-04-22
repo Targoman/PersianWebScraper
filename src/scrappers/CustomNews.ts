@@ -3372,3 +3372,31 @@ export class eghtesadazad extends clsScrapper {
         })
     }
 }
+
+export class purson extends clsScrapper {
+    constructor() {
+        super(enuDomains.purson, "purson.ir", {
+            selectors: {
+                article: ".col-xl-7.col-md-8.bgColor-white",
+                title: "h1",
+                subtitle: ".content-lid",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-body",
+                    ignoreNodeClasses: ["moreRelatedContents-container"],
+                },
+                category: {
+                    selector: ".border-bottom > li >a",
+                },   
+                tags: "ul.keyword li a"            
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

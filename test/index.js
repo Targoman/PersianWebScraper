@@ -1775,5 +1775,8 @@ yarn dev && yarn start eghtesadazad -u https://eghtesadazad.com/نفت-گران-
 yarn dev && yarn start felezatkhavarmianeh
 yarn dev && yarn start felezatkhavarmianeh -u https://felezatkhavarmianeh.ir/fa/news/338301/گواهینامه-ce-marking-ذوب-آهن-اصفهان-تمدید-شد
 
+yarn dev && yarn start purson
+yarn dev && yarn start purson -u https://purson.ir/fa/content/636727/انتخاب-رشته-۲۷-هزار-داوطلب-آزمون-دکتری-سال
+
 https://motamem.org/
 /**/

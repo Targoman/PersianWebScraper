@@ -390,6 +390,7 @@ export enum enuDomains {
     porsan = "porsan",
     portal = "portal",
     pspro = "pspro",
+    purson = "purson",
     qavanin = "qavanin",
     qudsonline = "qudsonline",
     quera = "quera",
