@@ -3348,3 +3348,27 @@ export class tazenews extends clsScrapper {
         })
     }
 }
+
+export class eghtesadazad extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadazad, "eghtesadazad.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single--middle",
+                    ignoreNodeClasses: ["related-news"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "nav.breadcrumbs a",
+                    startIndex: 1
+                },               
+            },
+        })
+    }
+}

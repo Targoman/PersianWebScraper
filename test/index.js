@@ -1769,5 +1769,8 @@ yarn dev && yarn start khodronevis -u https://khodronevis.com/news/پنج-دهه
 yarn dev && yarn start mokhatab24
 yarn dev && yarn start mokhatab24 -u https://mokhatab24.ir/fa/news/39663/پایان-تلخ-۳-اسطوره-کشتی-آمریکا-در-انتخابی-المپیک
 
+yarn dev && yarn start eghtesadazad
+yarn dev && yarn start eghtesadazad -u https://eghtesadazad.com/نفت-گران-شد/
+
 https://motamem.org/
 /**/
