@@ -3400,3 +3400,26 @@ export class purson extends clsScrapper {
         })
     }
 }
+
+export class iranirooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranirooz, "iranirooz.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                tags: ".post-tags span a",
+                category: {
+                    selector: ".post-cat-wrap a",
+                },               
+            },
+        })
+    }
+}

@@ -1778,5 +1778,8 @@ yarn dev && yarn start felezatkhavarmianeh -u https://felezatkhavarmianeh.ir/fa/
 yarn dev && yarn start purson
 yarn dev && yarn start purson -u https://purson.ir/fa/content/636727/انتخاب-رشته-۲۷-هزار-داوطلب-آزمون-دکتری-سال
 
+yarn dev && yarn start iranirooz
+yarn dev && yarn start iranirooz -u https://iranirooz.ir/news/29075/معامله-انجام-شد؛-استقلال-و-پرسپولیس-رس/
+
 https://motamem.org/
 /**/
