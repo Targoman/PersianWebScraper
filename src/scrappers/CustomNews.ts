@@ -3423,3 +3423,31 @@ export class iranirooz extends clsScrapper {
         })
     }
 }
+
+export class aftabno extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftabno, "aftabno.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".excerpt-news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the_content_body",
+                    ignoreTexts: [/.*آخرین اخبار ورزشی.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li .comments"),
+                    author: ".name_author span",
+                    text: ".comment_text"
+                },
+                category: {
+                    selector: ".cat_name a"
+                }
+            },
+        })
+    }
+}
