@@ -1781,8 +1781,12 @@ yarn dev && yarn start purson -u https://purson.ir/fa/content/636727/انتخا�
 yarn dev && yarn start iranirooz
 yarn dev && yarn start iranirooz -u https://iranirooz.ir/news/29075/معامله-انجام-شد؛-استقلال-و-پرسپولیس-رس/
 
-
+yarn dev && yarn start aftabno
+yarn dev && yarn start aftabno -u https://www.aftabno.ir/sportnews/162676/جریمه-نقدی-و-محرومیت-برای-مجتبی-حسینی.html
 yarn dev && yarn start aftabno -u https://www.aftabno.ir/sportnews/159060/کامبک-خوزستانی-ها-مقابل-گل-گهر-در-وقت-اض.html#
+
+yarn dev && yarn start armanekerman 
+yarn dev && yarn start armanekerman -u https://www.armanekerman.ir/news/140599/بررسی-مطالبات-۶۰-نماینده-کارگری-استان-کرمان
 
 https://motamem.org/
 /**/
