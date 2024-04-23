@@ -3475,3 +3475,29 @@ export class armanekerman extends clsScrapper {
         })
     }
 }
+
+export class ivnanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ivnanews, "ivnanews.ir", {
+            selectors: {
+                article: ".news-box",
+                title: "h1",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news-desc",
+                },
+                category: {
+                    selector: ".bread-crumb ul li a",
+                    lastIndex: 2
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

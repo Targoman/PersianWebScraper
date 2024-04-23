@@ -1788,5 +1788,8 @@ yarn dev && yarn start aftabno -u https://www.aftabno.ir/sportnews/159060/کام
 yarn dev && yarn start armanekerman 
 yarn dev && yarn start armanekerman -u https://www.armanekerman.ir/news/140599/بررسی-مطالبات-۶۰-نماینده-کارگری-استان-کرمان
 
+yarn dev && yarn ivnanews
+yarn dev && yarn ivnanews -u https://ivnanews.ir/تشدید-بارش-باران-در-این-6-استان
+
 https://motamem.org/
 /**/
