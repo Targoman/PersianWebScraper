@@ -1167,3 +1167,9 @@ export class persiankhodro extends clsNastoohBased {
         super(enuDomains.persiankhodro, "persiankhodro.com")
     }
 }
+
+export class ahannews extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ahannews, "ahan-news.com")
+    }
+}

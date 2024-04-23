@@ -1791,5 +1791,8 @@ yarn dev && yarn start armanekerman -u https://www.armanekerman.ir/news/140599/�
 yarn dev && yarn ivnanews
 yarn dev && yarn ivnanews -u https://ivnanews.ir/تشدید-بارش-باران-در-این-6-استان
 
+yarn dev && yarn ahannews
+yarn dev && yarn ahannews -u https://www.ahan-news.com/news/10630/آیا-فولاد-هرمزگان-آمار-غلط-روی-کدال-قرار-داده-است
+
 https://motamem.org/
 /**/
