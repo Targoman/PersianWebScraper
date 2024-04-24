@@ -1800,5 +1800,8 @@ yarn dev && yarn start eslahatnews -u https://eslahatnews.com/پلی-اکریل-
 yarn dev && yarn start jeebnews
 yarn dev && yarn start jeebnews -u https://jeebnews.com/fa/news/85267/چای-از-فهرست-کالاهای-مشمول-افزایش-مالی/
 
+yarn dev && yarn start anthropologyandculture
+yarn dev && yarn start anthropologyandculture -u https://anthropologyandculture.com/امر-مبتذل-دموکراتیک/
+
 https://motamem.org/
 /**/
