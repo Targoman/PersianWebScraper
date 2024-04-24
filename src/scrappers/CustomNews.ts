@@ -3527,3 +3527,27 @@ export class eslahatnews extends clsScrapper {
         })
     }
 }
+
+export class jeebnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.jeebnews, "jeebnews.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"],
+
+                },
+                tags: ".post-bottom-tags span a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

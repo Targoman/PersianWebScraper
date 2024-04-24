@@ -1797,5 +1797,8 @@ yarn dev && yarn ahannews -u https://www.ahan-news.com/news/10630/آیا-فول�
 yarn dev && yarn start eslahatnews
 yarn dev && yarn start eslahatnews -u https://eslahatnews.com/پلی-اکریل-ایران-در-آستانه-تعطیلی-کارگر/
 
+yarn dev && yarn start jeebnews
+yarn dev && yarn start jeebnews -u https://jeebnews.com/fa/news/85267/چای-از-فهرست-کالاهای-مشمول-افزایش-مالی/
+
 https://motamem.org/
 /**/
