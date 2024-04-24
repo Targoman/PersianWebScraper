@@ -151,6 +151,7 @@ export enum enuDomains {
     emalls = "emalls",
     ensafnews = "ensafnews",
     eporsesh = "eporsesh",
+    eslahatnews = "eslahatnews",
     etehadnews = "etehadnews",
     etemadonline = "etemadonline",
     ettelaat = "ettelaat",

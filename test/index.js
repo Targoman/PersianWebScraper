@@ -1794,5 +1794,8 @@ yarn dev && yarn ivnanews -u https://ivnanews.ir/تشدید-بارش-باران-
 yarn dev && yarn ahannews
 yarn dev && yarn ahannews -u https://www.ahan-news.com/news/10630/آیا-فولاد-هرمزگان-آمار-غلط-روی-کدال-قرار-داده-است
 
+yarn dev && yarn start eslahatnews
+yarn dev && yarn start eslahatnews -u https://eslahatnews.com/پلی-اکریل-ایران-در-آستانه-تعطیلی-کارگر/
+
 https://motamem.org/
 /**/

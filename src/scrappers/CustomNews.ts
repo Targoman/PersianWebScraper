@@ -3501,3 +3501,29 @@ export class ivnanews extends clsScrapper {
         })
     }
 }
+
+export class eslahatnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.eslahatnews, "eslahatnews.com", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                summary: ".post-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-text",
+                },
+                tags: "ul.tag-list li a",
+                category: {
+                    selector: "span.category-label",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
