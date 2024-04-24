@@ -1803,5 +1803,8 @@ yarn dev && yarn start jeebnews -u https://jeebnews.com/fa/news/85267/چای-ا�
 yarn dev && yarn start anthropologyandculture
 yarn dev && yarn start anthropologyandculture -u https://anthropologyandculture.com/امر-مبتذل-دموکراتیک/
 
+yarn dev && yarn start armanshargh
+yarn dev && yarn start armanshargh -u https://armanshargh.ir/تولید-کنسانتره-فولاد-سنگان-از-مرز-9-میلی/
+
 https://motamem.org/
 /**/

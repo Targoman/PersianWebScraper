@@ -3551,3 +3551,25 @@ export class jeebnews extends clsScrapper {
         })
     }
 }
+
+export class armanshargh extends clsScrapper {
+    constructor() {
+        super(enuDomains.armanshargh, "armanshargh.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: ".the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
