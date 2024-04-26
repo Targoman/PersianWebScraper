@@ -5932,3 +5932,27 @@ export class bazimag extends clsScrapper {
         })
     }
 }
+
+export class anthropologyandculture extends clsScrapper {
+    constructor() {
+        super(enuDomains.anthropologyandculture, "anthropologyandculture.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp", "social-list"],
+
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
