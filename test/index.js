@@ -1760,5 +1760,51 @@ yarn dev && yarn start akharinkhodro
 yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/foreign-car/اتفاقی-عجیب-برای-محصول-جدید-آلفارومئو/
 yarn dev && yarn start akharinkhodro -u https://akharinkhodro.ir/car-news/domestic-car/ماموت-خودرو-کراس-اوور-جدید-فولکس-واگن-ر/
 
+yarn dev && yarn start persiankhodro
+yarn dev && yarn start persiankhodro -u https://www.persiankhodro.com/news/144977/تسهیلات-کم-بهره-صندوق-توسعه-و-تحقیقات-وزارت-صمت-به-خودروهای-فرسوده
+
+yarn dev && yarn start khodronevis
+yarn dev && yarn start khodronevis -u https://khodronevis.com/news/پنج-دهه-تلاش،-14-هزار-نفر-اشتغال-و-تولید-س/
+
+yarn dev && yarn start mokhatab24
+yarn dev && yarn start mokhatab24 -u https://mokhatab24.ir/fa/news/39663/پایان-تلخ-۳-اسطوره-کشتی-آمریکا-در-انتخابی-المپیک
+
+yarn dev && yarn start eghtesadazad
+yarn dev && yarn start eghtesadazad -u https://eghtesadazad.com/نفت-گران-شد/
+
+yarn dev && yarn start felezatkhavarmianeh
+yarn dev && yarn start felezatkhavarmianeh -u https://felezatkhavarmianeh.ir/fa/news/338301/گواهینامه-ce-marking-ذوب-آهن-اصفهان-تمدید-شد
+
+yarn dev && yarn start purson
+yarn dev && yarn start purson -u https://purson.ir/fa/content/636727/انتخاب-رشته-۲۷-هزار-داوطلب-آزمون-دکتری-سال
+
+yarn dev && yarn start iranirooz
+yarn dev && yarn start iranirooz -u https://iranirooz.ir/news/29075/معامله-انجام-شد؛-استقلال-و-پرسپولیس-رس/
+
+yarn dev && yarn start aftabno
+yarn dev && yarn start aftabno -u https://www.aftabno.ir/sportnews/162676/جریمه-نقدی-و-محرومیت-برای-مجتبی-حسینی.html
+yarn dev && yarn start aftabno -u https://www.aftabno.ir/sportnews/159060/کامبک-خوزستانی-ها-مقابل-گل-گهر-در-وقت-اض.html#
+
+yarn dev && yarn start armanekerman 
+yarn dev && yarn start armanekerman -u https://www.armanekerman.ir/news/140599/بررسی-مطالبات-۶۰-نماینده-کارگری-استان-کرمان
+
+yarn dev && yarn ivnanews
+yarn dev && yarn ivnanews -u https://ivnanews.ir/تشدید-بارش-باران-در-این-6-استان
+
+yarn dev && yarn ahannews
+yarn dev && yarn ahannews -u https://www.ahan-news.com/news/10630/آیا-فولاد-هرمزگان-آمار-غلط-روی-کدال-قرار-داده-است
+
+yarn dev && yarn start eslahatnews
+yarn dev && yarn start eslahatnews -u https://eslahatnews.com/پلی-اکریل-ایران-در-آستانه-تعطیلی-کارگر/
+
+yarn dev && yarn start jeebnews
+yarn dev && yarn start jeebnews -u https://jeebnews.com/fa/news/85267/چای-از-فهرست-کالاهای-مشمول-افزایش-مالی/
+
+yarn dev && yarn start anthropologyandculture
+yarn dev && yarn start anthropologyandculture -u https://anthropologyandculture.com/امر-مبتذل-دموکراتیک/
+
+yarn dev && yarn start armanshargh
+yarn dev && yarn start armanshargh -u https://armanshargh.ir/تولید-کنسانتره-فولاد-سنگان-از-مرز-9-میلی/
+
 https://motamem.org/
 /**/
