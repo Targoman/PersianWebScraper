@@ -3651,3 +3651,32 @@ export class ecofars extends clsScrapper {
         })
     }
 }
+
+export class energypress extends clsScrapper {
+    constructor() {
+        super(enuDomains.energypress, "energypress.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-text",
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
