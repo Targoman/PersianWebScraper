@@ -3573,3 +3573,110 @@ export class armanshargh extends clsScrapper {
         })
     }
 }
+
+export class eghtesaad24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesaad24, "eghtesaad24.ir", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".news_path a",
+                },  
+                comments: {
+                    container: ".comments_container .comments_item",
+                    author: ".comm_info_name",
+                    text: ".comments"
+                },
+                tags: ".tags_title a"             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class econews extends clsScrapper {
+    constructor() {
+        super(enuDomains.econews, "econews.ir", {
+            selectors: {
+                article: ".content-original article",
+                title: "h1",
+                summary: "p.content-summary",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".full-body",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class ecofars extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecofars, "ecofars.com", {
+            selectors: {
+                article: ".article-details",
+                title: "h1",
+                subtitle: ".single-tagline",
+                datetime: {
+                    conatiner: "header div div span",
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.ul-breadcrumb li span"),
+                },  
+                tags: "ul.tags li a"             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class energypress extends clsScrapper {
+    constructor() {
+        super(enuDomains.energypress, "energypress.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-text",
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
