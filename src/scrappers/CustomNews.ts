@@ -3573,3 +3573,34 @@ export class armanshargh extends clsScrapper {
         })
     }
 }
+
+export class eghtesaad24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesaad24, "eghtesaad24.ir", {
+            selectors: {
+                article: "#news",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".news_path a",
+                },  
+                comments: {
+                    container: ".comments_container .comments_item",
+                    author: ".comm_info_name",
+                    text: ".comments"
+                },
+                tags: ".tags_title a"             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
