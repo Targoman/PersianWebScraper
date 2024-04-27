@@ -3680,3 +3680,25 @@ export class energypress extends clsScrapper {
         })
     }
 }
+
+export class atlaspress extends clsScrapper {
+    constructor() {
+        super(enuDomains.atlaspress, "atlaspress.news", {
+            selectors: {
+                article: "#singleArticle",
+                title: "h1",
+                subtitle: ".excerpt-news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#thecontent",
+                },
+                category: {
+                    selector: "#singleMeta > ul > li:nth-child(2)"
+                }
+            },
+        })
+    }
+}

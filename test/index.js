@@ -1819,5 +1819,8 @@ yarn dev && yarn start ecofars -u https://ecofars.com/news/73766/واریز-31-�
 yarn dev && yarn start energypress
 yarn dev && yarn start energypress -u https://energypress.ir/12719-2/
 
+yarn dev && yarn atlaspress
+yarn dev && yarn atlaspress -u https://atlaspress.news/بابا-طاهر-عریان؛-زندگینامه-و-اشعار/
+
 https://motamem.org/
 /**/
