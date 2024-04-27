@@ -3604,3 +3604,25 @@ export class eghtesaad24 extends clsScrapper {
         })
     }
 }
+
+export class econews extends clsScrapper {
+    constructor() {
+        super(enuDomains.econews, "econews.ir", {
+            selectors: {
+                article: ".content-original article",
+                title: "h1",
+                summary: "p.content-summary",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".full-body",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

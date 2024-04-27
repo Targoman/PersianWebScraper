@@ -1810,5 +1810,8 @@ yarn dev && yarn start eghtesaad24
 yarn dev && yarn start eghtesaad24 -u https://eghtesaad24.ir/fa/news/237423/هشدار-درباره-نفت-۱۰۰-دلاری-و-تورم-جهانی
 yarn dev && yarn start eghtesaad24 -u https://eghtesaad24.ir/fa/news/237450/احتمال-بازگشت-دلار-به-دامنه-۵۰-هزار-تومانی
 
+yarn dev && yarn start econews
+yarn dev && yarn start econews -u https://econews.ir/fa/content/3656479
+
 https://motamem.org/
 /**/
