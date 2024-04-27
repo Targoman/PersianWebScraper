@@ -1806,5 +1806,18 @@ yarn dev && yarn start anthropologyandculture -u https://anthropologyandculture.
 yarn dev && yarn start armanshargh
 yarn dev && yarn start armanshargh -u https://armanshargh.ir/تولید-کنسانتره-فولاد-سنگان-از-مرز-9-میلی/
 
+yarn dev && yarn start eghtesaad24 
+yarn dev && yarn start eghtesaad24 -u https://eghtesaad24.ir/fa/news/237423/هشدار-درباره-نفت-۱۰۰-دلاری-و-تورم-جهانی
+yarn dev && yarn start eghtesaad24 -u https://eghtesaad24.ir/fa/news/237450/احتمال-بازگشت-دلار-به-دامنه-۵۰-هزار-تومانی
+
+yarn dev && yarn start econews
+yarn dev && yarn start econews -u https://econews.ir/fa/content/3656479
+
+yarn dev && yarn start ecofars
+yarn dev && yarn start ecofars -u https://ecofars.com/news/73766/واریز-31-هزار-میلیارد-ریال-به-حساب-فرهنگیان-بازنشسته
+
+yarn dev && yarn start energypress
+yarn dev && yarn start energypress -u https://energypress.ir/12719-2/
+
 https://motamem.org/
 /**/
