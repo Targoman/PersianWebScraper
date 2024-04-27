@@ -3626,3 +3626,28 @@ export class econews extends clsScrapper {
         })
     }
 }
+
+export class ecofars extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecofars, "ecofars.com", {
+            selectors: {
+                article: ".article-details",
+                title: "h1",
+                subtitle: ".single-tagline",
+                datetime: {
+                    conatiner: "header div div span",
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.ul-breadcrumb li span"),
+                },  
+                tags: "ul.tags li a"             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

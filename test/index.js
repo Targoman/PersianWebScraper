@@ -1813,5 +1813,8 @@ yarn dev && yarn start eghtesaad24 -u https://eghtesaad24.ir/fa/news/237450/اح
 yarn dev && yarn start econews
 yarn dev && yarn start econews -u https://econews.ir/fa/content/3656479
 
+yarn dev && yarn start ecofars
+yarn dev && yarn start ecofars -u https://ecofars.com/news/73766/واریز-31-هزار-میلیارد-ریال-به-حساب-فرهنگیان-بازنشسته
+
 https://motamem.org/
 /**/
