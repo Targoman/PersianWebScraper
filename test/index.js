@@ -1822,5 +1822,8 @@ yarn dev && yarn start energypress -u https://energypress.ir/12719-2/
 yarn dev && yarn atlaspress
 yarn dev && yarn atlaspress -u https://atlaspress.news/بابا-طاهر-عریان؛-زندگینامه-و-اشعار/
 
+yarn dev && yarn start khabarmachine
+yarn dev && yarn start khabarmachine -u https://www.khabarmachine.ir/news/24248/پنج-دهه-تلاش-14-هزار-نفر-اشتغال-و-تولید-سالانه-58-میلیون-قطعه-خودرو-در-کروز/
+
 https://motamem.org/
 /**/

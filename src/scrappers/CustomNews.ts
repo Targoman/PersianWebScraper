@@ -3702,3 +3702,25 @@ export class atlaspress extends clsScrapper {
         })
     }
 }
+
+export class khabarmachine extends clsScrapper {
+    constructor() {
+        super(enuDomains.khabarmachine, "khabarmachine.ir", {
+            selectors: {
+                article: ".maincontnt",
+                title: "h1",
+                subtitle: "h3.lead",
+                datetime: {
+                    conatiner: ".head-w >span:nth-child(2)"
+                },
+                content: {
+                    main: ".ntextlink",
+                },
+                category: {
+                    selector: ".head-w > span:nth-child(3)"
+                },
+                tags: "a.tags-detail"
+            },
+        })
+    }
+}
