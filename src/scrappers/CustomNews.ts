@@ -3771,3 +3771,27 @@ export class bloghnews extends clsScrapper {
         })
     }
 }
+
+export class behdasht extends clsScrapper {
+    constructor() {
+        super(enuDomains.behdasht, "behdasht.news", {
+            selectors: {
+                article: ".section-page-content",
+                title: "h1",
+                subtitle: ".text-short",
+                datetime: {
+                    conatiner: ".post-date"
+                },
+                content: {
+                    main: ".desc-news",
+                },
+                category: {
+                    selector: "#breadcrumbs a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

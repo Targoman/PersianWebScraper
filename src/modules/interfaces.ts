@@ -80,6 +80,7 @@ export enum enuDomains {
     bazimag = "bazimag",
     bazkhabar = "bazkhabar",
     bazmineh = "bazmineh",
+    behdasht = "behdasht",
     behtarinideh = "behtarinideh",
     behzisti = "behzisti",
     bestfarsi = "bestfarsi",
