@@ -1831,5 +1831,9 @@ yarn dev && yarn start bazkhabar -u https://bazkhabar.ir/125994/آشنایی-ب�
 yarn dev && yarn start bloghnews
 yarn dev && yarn start bloghnews -u https://www.bloghnews.com/doc/interview/397398/نابودی-120-هزار-تن-داروی-دامی-تولید-داخل-اختصاص-ارز-دولتی-واردات
 
+yarn dev && yarn start asbebokhar
+yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/car-news-therapy/
+yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/iranian-6-cylinder-engine/
+
 https://motamem.org/
 /**/

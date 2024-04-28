@@ -41,6 +41,7 @@ export enum enuDomains {
     aryanews = "aryanews",
     arzdigital = "arzdigital",
     arzfi = "arzfi",
+    asbebokhar = "asbebokhar",
     asblog = "asblog",
     asemooni = "asemooni",
     asianews = "asianews",

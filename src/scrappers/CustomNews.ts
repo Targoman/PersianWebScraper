@@ -3795,3 +3795,34 @@ export class behdasht extends clsScrapper {
         })
     }
 }
+
+export class asbebokhar extends clsScrapper {
+    constructor() {
+        super(enuDomains.asbebokhar, "asbe-bokhar.com", {
+            selectors: {
+                article: ".single-post",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "p",
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li.comment"),
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".single-post-meta span:nth-child(3)"),
+                },   
+                tags: '.single-post-tag a'            
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
