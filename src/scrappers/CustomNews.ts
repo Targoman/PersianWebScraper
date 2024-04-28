@@ -3724,3 +3724,27 @@ export class khabarmachine extends clsScrapper {
         })
     }
 }
+
+export class bazkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazkhabar, "bazkhabar.ir", {
+            selectors: {
+                article: "#single",
+                title: "h1",
+                summary: ".news-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["clearfix"]
+                },
+                tags: ".tags a",          
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

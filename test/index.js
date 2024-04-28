@@ -1825,5 +1825,8 @@ yarn dev && yarn atlaspress -u https://atlaspress.news/بابا-طاهر-عری�
 yarn dev && yarn start khabarmachine
 yarn dev && yarn start khabarmachine -u https://www.khabarmachine.ir/news/24248/پنج-دهه-تلاش-14-هزار-نفر-اشتغال-و-تولید-سالانه-58-میلیون-قطعه-خودرو-در-کروز/
 
+yarn dev && yarn start bazkhabar
+yarn dev && yarn start bazkhabar -u https://bazkhabar.ir/125994/آشنایی-با-بهترین-شهر-بازی-های-استانبول/
+
 https://motamem.org/
 /**/
