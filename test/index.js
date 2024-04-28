@@ -1828,5 +1828,8 @@ yarn dev && yarn start khabarmachine -u https://www.khabarmachine.ir/news/24248/
 yarn dev && yarn start bazkhabar
 yarn dev && yarn start bazkhabar -u https://bazkhabar.ir/125994/آشنایی-با-بهترین-شهر-بازی-های-استانبول/
 
+yarn dev && yarn start bloghnews
+yarn dev && yarn start bloghnews -u https://www.bloghnews.com/doc/interview/397398/نابودی-120-هزار-تن-داروی-دامی-تولید-داخل-اختصاص-ارز-دولتی-واردات
+
 https://motamem.org/
 /**/

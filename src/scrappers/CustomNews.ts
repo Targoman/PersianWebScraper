@@ -3748,3 +3748,26 @@ export class bazkhabar extends clsScrapper {
         })
     }
 }
+
+export class bloghnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bloghnews, "bloghnews.com", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead-left"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
