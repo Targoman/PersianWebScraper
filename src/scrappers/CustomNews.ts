@@ -3724,3 +3724,105 @@ export class khabarmachine extends clsScrapper {
         })
     }
 }
+
+export class bazkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazkhabar, "bazkhabar.ir", {
+            selectors: {
+                article: "#single",
+                title: "h1",
+                summary: ".news-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["clearfix"]
+                },
+                tags: ".tags a",          
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class bloghnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bloghnews, "bloghnews.com", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead-left"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class behdasht extends clsScrapper {
+    constructor() {
+        super(enuDomains.behdasht, "behdasht.news", {
+            selectors: {
+                article: ".section-page-content",
+                title: "h1",
+                subtitle: ".text-short",
+                datetime: {
+                    conatiner: ".post-date"
+                },
+                content: {
+                    main: ".desc-news",
+                },
+                category: {
+                    selector: "#breadcrumbs a",
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class asbebokhar extends clsScrapper {
+    constructor() {
+        super(enuDomains.asbebokhar, "asbe-bokhar.com", {
+            selectors: {
+                article: ".single-post",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "p",
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.commentlist li.comment"),
+                    author: ".comment-author cite",
+                    text: ".comment-body p"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".single-post-meta span:nth-child(3)"),
+                },   
+                tags: '.single-post-tag a'            
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
