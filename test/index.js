@@ -1842,5 +1842,8 @@ yarn dev && yarn start kamapress -u https://kamapress.com/بهترین-رستو�
 yarn dev && yarn start parsfootball
 yarn dev && yarn start parsfootball -u https://parsfootball.com/na/1098794/آرسنال-؛-میکل-آرتتا-سرمربی-آرسنال-مقاب/
 
+yarn dev && yarn start pooyeonline
+yarn dev && yarn start pooyeonline -u https://pooyeonline.ir/طرح-ترافیک-جدید-امسال-اجرا-نمی-شود/
+
 https://motamem.org/
 /**/

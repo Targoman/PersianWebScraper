@@ -408,6 +408,7 @@ export enum enuDomains {
     podium = "podium",
     ponisha = "ponisha",
     poonehmedia = "poonehmedia",
+    pooyeonline = "pooyeonline",
     porsan = "porsan",
     portal = "portal",
     pspro = "pspro",

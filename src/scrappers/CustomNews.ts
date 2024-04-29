@@ -3884,3 +3884,25 @@ export class parsfootball extends clsScrapper {
         })
     }
 }
+
+export class pooyeonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.pooyeonline, "pooyeonline.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
