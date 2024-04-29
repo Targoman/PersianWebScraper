@@ -1835,5 +1835,9 @@ yarn dev && yarn start asbebokhar
 yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/car-news-therapy/
 yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/iranian-6-cylinder-engine/
 
+yarn dev && yarn start kamapress
+yarn dev && yarn start kamapress -u https://kamapress.com/هزاران-نفر-در-فلوریدا-از-شغل-خود-استعفا/
+yarn dev && yarn start kamapress -u https://kamapress.com/بهترین-رستوران-های-ارومیه-برای-گردشگ/
+
 https://motamem.org/
 /**/

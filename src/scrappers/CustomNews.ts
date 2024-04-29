@@ -3826,3 +3826,33 @@ export class asbebokhar extends clsScrapper {
         })
     }
 }
+
+export class kamapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.kamapress, "kamapress.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["addtoany_share_save_container", "row-small", "single-page-company-label"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                comments: {
+                    container: "ol.comment-list li article",
+                    author: "cite.strong",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: "footer.entry-meta a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
