@@ -393,6 +393,7 @@ export enum enuDomains {
     parsine = "parsine",
     parspack = "parspack",
     pasokhgoo = "pasokhgoo",
+    payamefori = "payamefori",
     payamekhanevadeh = "payamekhanevadeh",
     payamgostar = "payamgostar",
     paydarymelli = "paydarymelli",

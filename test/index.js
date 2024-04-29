@@ -1845,5 +1845,8 @@ yarn dev && yarn start parsfootball -u https://parsfootball.com/na/1098794/آر�
 yarn dev && yarn start pooyeonline
 yarn dev && yarn start pooyeonline -u https://pooyeonline.ir/طرح-ترافیک-جدید-امسال-اجرا-نمی-شود/
 
+yarn dev && yarn start payamefori 
+yarn dev && yarn start payamefori -u https://payamefori.ir/206368/مذاکره-برای-تامین-مالی-۳-پروژه-جدید-ایر/
+
 https://motamem.org/
 /**/

@@ -3906,3 +3906,27 @@ export class pooyeonline extends clsScrapper {
         })
     }
 }
+
+export class payamefori extends clsScrapper {
+    constructor() {
+        super(enuDomains.payamefori, "payamefori.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
