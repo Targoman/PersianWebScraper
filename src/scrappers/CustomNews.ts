@@ -3856,3 +3856,31 @@ export class kamapress extends clsScrapper {
         })
     }
 }
+
+export class parsfootball extends clsScrapper {
+    constructor() {
+        super(enuDomains.parsfootball, "parsfootball.com", {
+            selectors: {
+                article: "#single",
+                title: "h1",
+                subtitle: ".h11",
+                summary: ".chekide",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb span span a"),
+                    startIndex: 1
+                },
+                tags: ".tag a",          
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

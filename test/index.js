@@ -1839,5 +1839,8 @@ yarn dev && yarn start kamapress
 yarn dev && yarn start kamapress -u https://kamapress.com/هزاران-نفر-در-فلوریدا-از-شغل-خود-استعفا/
 yarn dev && yarn start kamapress -u https://kamapress.com/بهترین-رستوران-های-ارومیه-برای-گردشگ/
 
+yarn dev && yarn start parsfootball
+yarn dev && yarn start parsfootball -u https://parsfootball.com/na/1098794/آرسنال-؛-میکل-آرتتا-سرمربی-آرسنال-مقاب/
+
 https://motamem.org/
 /**/
