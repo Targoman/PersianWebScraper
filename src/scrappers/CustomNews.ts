@@ -3829,3 +3829,83 @@ export class asbebokhar extends clsScrapper {
         })
     }
 }
+
+export class kamapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.kamapress, "kamapress.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["addtoany_share_save_container", "row-small", "single-page-company-label"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                comments: {
+                    container: "ol.comment-list li article",
+                    author: "cite.strong",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                tags: "footer.entry-meta a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class parsfootball extends clsScrapper {
+    constructor() {
+        super(enuDomains.parsfootball, "parsfootball.com", {
+            selectors: {
+                article: "#single",
+                title: "h1",
+                subtitle: ".h11",
+                summary: ".chekide",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb span span a"),
+                    startIndex: 1
+                },
+                tags: ".tag a",          
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class pooyeonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.pooyeonline, "pooyeonline.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
