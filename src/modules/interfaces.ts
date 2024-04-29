@@ -69,6 +69,7 @@ export enum enuDomains {
     banifilmonline = "banifilmonline",
     bankdariirani = "bankdariirani",
     banker = "banker",
+    barghab = "barghab",
     barghnews = "barghnews",
     barnamenevis = "barnamenevis",
     bartarinha = "bartarinha",

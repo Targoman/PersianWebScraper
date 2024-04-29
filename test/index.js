@@ -1848,5 +1848,9 @@ yarn dev && yarn start pooyeonline -u https://pooyeonline.ir/طرح-ترافیک
 yarn dev && yarn start payamefori 
 yarn dev && yarn start payamefori -u https://payamefori.ir/206368/مذاکره-برای-تامین-مالی-۳-پروژه-جدید-ایر/
 
+yarn dev && yarn start barghab
+yarn dev && yarn start barghab -u https://barghab.ir/برگزاری-مانور-مدیریت-و-کنترل-مصارف-برق/
+yarn dev && yarn start barghab -u https://barghab.ir/تامین-برق-پایدار-کنکور-سراسری/
+
 https://motamem.org/
 /**/

@@ -3930,3 +3930,31 @@ export class payamefori extends clsScrapper {
         })
     }
 }
+
+export class barghab extends clsScrapper {
+    constructor() {
+        super(enuDomains.barghab, "barghab.ir", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                aboveTitle: ".roti",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: ".im-tag-items a",
+                category: {
+                    selector: ".nhi a",
+                    startIndex: 1
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
