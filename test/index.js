@@ -1835,5 +1835,15 @@ yarn dev && yarn start asbebokhar
 yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/car-news-therapy/
 yarn dev && yarn start asbebokhar -u https://asbe-bokhar.com/article/news/iranian-6-cylinder-engine/
 
+yarn dev && yarn start kamapress
+yarn dev && yarn start kamapress -u https://kamapress.com/هزاران-نفر-در-فلوریدا-از-شغل-خود-استعفا/
+yarn dev && yarn start kamapress -u https://kamapress.com/بهترین-رستوران-های-ارومیه-برای-گردشگ/
+
+yarn dev && yarn start parsfootball
+yarn dev && yarn start parsfootball -u https://parsfootball.com/na/1098794/آرسنال-؛-میکل-آرتتا-سرمربی-آرسنال-مقاب/
+
+yarn dev && yarn start pooyeonline
+yarn dev && yarn start pooyeonline -u https://pooyeonline.ir/طرح-ترافیک-جدید-امسال-اجرا-نمی-شود/
+
 https://motamem.org/
 /**/
