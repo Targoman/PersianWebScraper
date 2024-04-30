@@ -309,6 +309,7 @@ export enum enuDomains {
     khordad = "khordad",
     kidzy = "kidzy",
     kojaro = "kojaro",
+    kordtoday = "kordtoday",
     ksymg = "ksymg",
     kurdpress = "kurdpress",
     labourlaw = "labourlaw",

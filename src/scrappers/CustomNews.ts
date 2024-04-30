@@ -3990,3 +3990,30 @@ export class aftokhabar extends clsScrapper {
         })
     }
 }
+
+export class kordtoday extends clsScrapper {
+    constructor() {
+        super(enuDomains.kordtoday, "kordtoday.com", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".crumbs a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
