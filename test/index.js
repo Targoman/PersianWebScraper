@@ -1852,5 +1852,8 @@ yarn dev && yarn start barghab
 yarn dev && yarn start barghab -u https://barghab.ir/برگزاری-مانور-مدیریت-و-کنترل-مصارف-برق/
 yarn dev && yarn start barghab -u https://barghab.ir/تامین-برق-پایدار-کنکور-سراسری/
 
+yarn dev && yarn start bayanfarda
+yarn dev && yarn start bayanfarda -u https://www.bayanfarda.ir/بخش-رفاه-5/16999-سقف-تراکنش-های-بانکی-تغییر-کرد-بانک-مرکزی-برای-انتقال-وجه-بالاتر-از-این-رقم-باید-سند-ارائه-دهید
+
 https://motamem.org/
 /**/
