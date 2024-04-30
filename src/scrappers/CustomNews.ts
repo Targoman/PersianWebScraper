@@ -3958,3 +3958,35 @@ export class barghab extends clsScrapper {
         })
     }
 }
+
+export class aftokhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftokhabar, "aftokhabar.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                aboveTitle: ".dtitle span",
+                subtitle: ".h2",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: "#Descript",
+                },
+                comments: {
+                    container: ".commentres ul li",
+                    author: ".sender",
+                    datetime: ".date",
+                    text: "p"
+                },  
+                tags: ".tags ul li a",
+                category: {
+                    selector: ".headernews span.cat",
+                },             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -1855,5 +1855,9 @@ yarn dev && yarn start barghab -u https://barghab.ir/تامین-برق-پاید�
 yarn dev && yarn start bayanfarda
 yarn dev && yarn start bayanfarda -u https://www.bayanfarda.ir/بخش-رفاه-5/16999-سقف-تراکنش-های-بانکی-تغییر-کرد-بانک-مرکزی-برای-انتقال-وجه-بالاتر-از-این-رقم-باید-سند-ارائه-دهید
 
+yarn dev && yarn start aftokhabar
+yarn dev && yarn start aftokhabar -u https://aftokhabar.ir/News/89066/۱۰۰۰دانش%E2%80%8Cآموز-ترک%E2%80%8C-تحصیل-کرده-به-چرخه-آموزش-برگشتند-.html
+yarn dev && yarn start aftokhabar -u https://aftokhabar.ir/News/89078/فاجعه-بودجه-ای-دیگر-در-کهگیلویه-و-بویراحمد--۱۵-میلیارد-تومان-از-اعتبارات-آبفا-برگشت-خورد.html
+
 https://motamem.org/
 /**/
