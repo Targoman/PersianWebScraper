@@ -3906,3 +3906,55 @@ export class pooyeonline extends clsScrapper {
         })
     }
 }
+
+export class payamefori extends clsScrapper {
+    constructor() {
+        super(enuDomains.payamefori, "payamefori.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class barghab extends clsScrapper {
+    constructor() {
+        super(enuDomains.barghab, "barghab.ir", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                aboveTitle: ".roti",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: ".im-tag-items a",
+                category: {
+                    selector: ".nhi a",
+                    startIndex: 1
+                },               
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
