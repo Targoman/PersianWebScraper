@@ -1862,5 +1862,9 @@ yarn dev && yarn start aftokhabar -u https://aftokhabar.ir/News/89078/فاجعه
 yarn dev && yarn start kordtoday
 yarn dev && yarn start kordtoday -u https://kordtoday.com/بلوط،-عروس-جنگلهای-مریوان/
 
+yarn dev && yarn start jar 
+yarn dev && yarn start jar -u https://jar.news/149048/فوری-خبر-خوش-اول-صبح-واریز-مبلغ-میلیونی/
+yarn dev && yarn start jar -u https://jar.news/152081/پخش-زنده-فوتبال-الاتحاد-الهلال-۱۱-اردی/
+
 https://motamem.org/
 /**/

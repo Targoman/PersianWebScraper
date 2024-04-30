@@ -4017,3 +4017,29 @@ export class kordtoday extends clsScrapper {
         })
     }
 }
+
+export class jar extends clsScrapper {
+    constructor() {
+        super(enuDomains.jar, "jar.news", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["mini-posts-box", "tagcloud"],
+                    ignoreTexts: ["برچسب ها"]
+                },
+                category: {
+                    selector: ".entry-header span.post-cat-wrap a",
+                },
+                tags: ".tagcloud a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
