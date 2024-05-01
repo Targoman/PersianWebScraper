@@ -4116,3 +4116,24 @@ export class sobhesahel extends clsScrapper {
         })
     }
 }
+
+export class haje extends clsScrapper {
+    constructor() {
+        super(enuDomains.haje, "haje.ir", {
+            selectors: {
+                article: ".col-lg-12.col-md-12",
+                title: "h1",
+                datetime: {
+                    conatiner: "#ctl00_lblDate"
+                },
+                content: {
+                    main: ".full_story",
+                },        
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

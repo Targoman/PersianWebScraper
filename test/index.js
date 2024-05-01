@@ -1873,5 +1873,8 @@ yarn dev && yarn start sobhesahel
 yarn dev && yarn start sobhesahel -u https://www.sobhesahel.com/news/111328/ماسه-گران-شد
 yarn dev && yarn start sobhesahel -u https://www.sobhesahel.com/news/111354/پرداخت-معوقات-حق%E2%80%8Cالتدریس%E2%80%8Cها-تا-۲-هفته-دیگر
 
+yarn dev && yarn start haje
+yarn dev && yarn start haje -u http://haje.ir/newsdetails.aspx?itemid=21869
+
 https://motamem.org/
 /**/
