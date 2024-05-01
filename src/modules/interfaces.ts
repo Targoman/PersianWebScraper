@@ -312,6 +312,7 @@ export enum enuDomains {
     kojaro = "kojaro",
     kordtoday = "kordtoday",
     ksymg = "ksymg",
+    kurdistantv = "kurdistantv",
     kurdpress = "kurdpress",
     labourlaw = "labourlaw",
     lastsecond = "lastsecond",

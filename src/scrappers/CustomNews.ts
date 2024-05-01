@@ -4043,3 +4043,30 @@ export class jar extends clsScrapper {
         })
     }
 }
+
+export class kurdistantv extends clsScrapper {
+    constructor() {
+        super(enuDomains.kurdistantv, "kurdistantv.net", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa'] .py-5 .my-5",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".fs-4"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.btn-outline-secondary"),
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ku", "/kt"]
+            }
+        })
+    }
+}
