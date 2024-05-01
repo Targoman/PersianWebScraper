@@ -321,6 +321,7 @@ export enum enuDomains {
     liangroup = "liangroup",
     lioncomputer = "lioncomputer",
     madarsho = "madarsho",
+    magiran = "magiran",
     majidonline = "majidonline",
     maktabkhooneh = "maktabkhooneh",
     malltina = "malltina",

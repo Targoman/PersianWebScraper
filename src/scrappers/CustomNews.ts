@@ -4137,3 +4137,24 @@ export class haje extends clsScrapper {
         })
     }
 }
+
+export class magiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.magiran, "magiran.com", {
+            selectors: {
+                article: ".mi-article",
+                title: "h2.mi-title",
+                subtitle: ".mi-subtitle",
+                datetime: {
+                    conatiner: ".px-0.py-2 > span:nth-child(2)"
+                },
+                content: {
+                    main: ".mi-body",
+                },
+                category: {
+                    selector: "[itemprop='printColumn']",
+                },
+            },
+        })
+    }
+}

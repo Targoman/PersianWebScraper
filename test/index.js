@@ -1876,5 +1876,9 @@ yarn dev && yarn start sobhesahel -u https://www.sobhesahel.com/news/111354/پر
 yarn dev && yarn start haje
 yarn dev && yarn start haje -u http://haje.ir/newsdetails.aspx?itemid=21869
 
+yarn dev && yarn start magiran
+yarn dev && yarn start magiran -u https://www.magiran.com/article/4509139
+yarn dev && yarn start magiran -u https://www.magiran.com/article/4500848
+
 https://motamem.org/
 /**/
