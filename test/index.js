@@ -1852,5 +1852,19 @@ yarn dev && yarn start barghab
 yarn dev && yarn start barghab -u https://barghab.ir/برگزاری-مانور-مدیریت-و-کنترل-مصارف-برق/
 yarn dev && yarn start barghab -u https://barghab.ir/تامین-برق-پایدار-کنکور-سراسری/
 
+yarn dev && yarn start bayanfarda
+yarn dev && yarn start bayanfarda -u https://www.bayanfarda.ir/بخش-رفاه-5/16999-سقف-تراکنش-های-بانکی-تغییر-کرد-بانک-مرکزی-برای-انتقال-وجه-بالاتر-از-این-رقم-باید-سند-ارائه-دهید
+
+yarn dev && yarn start aftokhabar
+yarn dev && yarn start aftokhabar -u https://aftokhabar.ir/News/89066/۱۰۰۰دانش%E2%80%8Cآموز-ترک%E2%80%8C-تحصیل-کرده-به-چرخه-آموزش-برگشتند-.html
+yarn dev && yarn start aftokhabar -u https://aftokhabar.ir/News/89078/فاجعه-بودجه-ای-دیگر-در-کهگیلویه-و-بویراحمد--۱۵-میلیارد-تومان-از-اعتبارات-آبفا-برگشت-خورد.html
+
+yarn dev && yarn start kordtoday
+yarn dev && yarn start kordtoday -u https://kordtoday.com/بلوط،-عروس-جنگلهای-مریوان/
+
+yarn dev && yarn start jar 
+yarn dev && yarn start jar -u https://jar.news/149048/فوری-خبر-خوش-اول-صبح-واریز-مبلغ-میلیونی/
+yarn dev && yarn start jar -u https://jar.news/152081/پخش-زنده-فوتبال-الاتحاد-الهلال-۱۱-اردی/
+
 https://motamem.org/
 /**/
