@@ -4094,3 +4094,25 @@ export class asrehamoon extends clsScrapper {
         })
     }
 }
+
+export class sobhesahel extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobhesahel, "sobhesahel.com", {
+            selectors: {
+                article: ".news-content",
+                aboveTitle: "h5",
+                title: "h3",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: "a.cat-archive"
+                },
+            },
+        })
+    }
+}
