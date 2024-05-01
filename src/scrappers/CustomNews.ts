@@ -3958,3 +3958,88 @@ export class barghab extends clsScrapper {
         })
     }
 }
+
+export class aftokhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftokhabar, "aftokhabar.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                aboveTitle: ".dtitle span",
+                subtitle: ".h2",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: "#Descript",
+                },
+                comments: {
+                    container: ".commentres ul li",
+                    author: ".sender",
+                    datetime: ".date",
+                    text: "p"
+                },  
+                tags: ".tags ul li a",
+                category: {
+                    selector: ".headernews span.cat",
+                },             
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class kordtoday extends clsScrapper {
+    constructor() {
+        super(enuDomains.kordtoday, "kordtoday.com", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".crumbs a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class jar extends clsScrapper {
+    constructor() {
+        super(enuDomains.jar, "jar.news", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["mini-posts-box", "tagcloud"],
+                    ignoreTexts: ["برچسب ها"]
+                },
+                category: {
+                    selector: ".entry-header span.post-cat-wrap a",
+                },
+                tags: ".tagcloud a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

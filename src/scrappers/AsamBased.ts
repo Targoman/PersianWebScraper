@@ -1571,3 +1571,13 @@ export class eghtesad100 extends clsAsamBased {
         })
     }
 }
+
+export class bayanfarda extends clsAsamBased {
+    constructor() {
+        super(enuDomains.bayanfarda, "bayanfarda.ir", {
+            selectors: {
+                article: ".main_part .article_box"
+            },
+        })
+    }
+}
