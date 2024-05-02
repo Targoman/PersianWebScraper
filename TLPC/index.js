@@ -200,7 +200,13 @@ app.get('/', (req, res) => {
                 domainCount: files.length
             },
             rows: rows.join("\n"),
-            approval: { commercial: approved.commercial.join("\n"), nonCommercial: approved.nonCommercial.join("\n"), failed: failed.join(", ") },
+            approval: { 
+                comCount: approved.commercial.length,
+                commercial: approved.commercial.join("\n"), 
+                ncCount:approved.nonCommercial.length, 
+                nonCommercial: approved.nonCommercial.join("\n"), 
+                failed: failed.join(", ") 
+            },
             overallStats
         }))
 
@@ -216,7 +222,9 @@ app.get('/', (req, res) => {
         totalWC: Math.floor(cached.info.totalWC / 1e9),
         totalURLs: Math.floor(cached.info.totalURLs / 1e6),
         domainCount: cached.info.domainCount,
-        overallStats: JSON.stringify(cached.overallStats)
+        overallStats: JSON.stringify(cached.overallStats), 
+        totalDomainCount: 500,
+        totalDomainCountType: "بیش از"
     });
 });
 
