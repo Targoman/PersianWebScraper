@@ -1866,5 +1866,19 @@ yarn dev && yarn start jar
 yarn dev && yarn start jar -u https://jar.news/149048/فوری-خبر-خوش-اول-صبح-واریز-مبلغ-میلیونی/
 yarn dev && yarn start jar -u https://jar.news/152081/پخش-زنده-فوتبال-الاتحاد-الهلال-۱۱-اردی/
 
+yarn dev && yarn start kurdistantv 
+yarn dev && yarn start kurdistantv -u https://kurdistantv.net/fa/news/215455
+
+yarn dev && yarn start sobhesahel
+yarn dev && yarn start sobhesahel -u https://www.sobhesahel.com/news/111328/ماسه-گران-شد
+yarn dev && yarn start sobhesahel -u https://www.sobhesahel.com/news/111354/پرداخت-معوقات-حق%E2%80%8Cالتدریس%E2%80%8Cها-تا-۲-هفته-دیگر
+
+yarn dev && yarn start haje
+yarn dev && yarn start haje -u http://haje.ir/newsdetails.aspx?itemid=21869
+
+yarn dev && yarn start magiran
+yarn dev && yarn start magiran -u https://www.magiran.com/article/4509139
+yarn dev && yarn start magiran -u https://www.magiran.com/article/4500848
+
 https://motamem.org/
 /**/

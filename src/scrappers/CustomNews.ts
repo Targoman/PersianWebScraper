@@ -4046,3 +4046,118 @@ export class jar extends clsScrapper {
         })
     }
 }
+
+export class kurdistantv extends clsScrapper {
+    constructor() {
+        super(enuDomains.kurdistantv, "kurdistantv.net", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa'] .py-5 .my-5",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".fs-4"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.btn-outline-secondary"),
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ku", "/kt"]
+            }
+        })
+    }
+}
+
+export class asrehamoon extends clsScrapper {
+    constructor() {
+        super(enuDomains.asrehamoon, "asrehamoon.ir", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead-left"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                    ignoreTexts: [/.*asrehamoon.ir.*/]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class sobhesahel extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobhesahel, "sobhesahel.com", {
+            selectors: {
+                article: ".news-content",
+                aboveTitle: "h5",
+                title: "h3",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: "a.cat-archive"
+                },
+            },
+        })
+    }
+}
+
+export class haje extends clsScrapper {
+    constructor() {
+        super(enuDomains.haje, "haje.ir", {
+            selectors: {
+                article: ".col-lg-12.col-md-12",
+                title: "h1",
+                datetime: {
+                    conatiner: "#ctl00_lblDate"
+                },
+                content: {
+                    main: ".full_story",
+                },        
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class magiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.magiran, "magiran.com", {
+            selectors: {
+                article: ".mi-article",
+                title: "h2.mi-title",
+                subtitle: ".mi-subtitle",
+                datetime: {
+                    conatiner: ".px-0.py-2 > span:nth-child(2)"
+                },
+                content: {
+                    main: ".mi-body",
+                },
+                category: {
+                    selector: "[itemprop='printColumn']",
+                },
+            },
+        })
+    }
+}
