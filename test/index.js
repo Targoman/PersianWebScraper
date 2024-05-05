@@ -1888,5 +1888,8 @@ yarn dev && yarn start hadese24
 yarn dev && yarn start hadese24 -u https://hadese24.ir/news/116413
 yarn dev && yarn start hadese24 -u https://hadese24.ir/news/117379
 
+yarn dev && yarn start lkiran
+yarn dev && yarn start lkiran -u https://lkiran.com/2024/05/01/blanton-products-5-spring-discount/
+
 https://motamem.org/
 /**/

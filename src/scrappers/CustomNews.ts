@@ -4216,3 +4216,31 @@ export class hadese24 extends clsScrapper {
         })
     }
 }
+
+export class lkiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.lkiran, "lkiran.com", {
+            selectors: {
+                article: ".site-main",
+                title: "h1",
+                summary: "p.rowCard__description",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".articlePost",
+                    ignoreNodeClasses: ["lk-star-rating"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "a.dailyNewsPageHead__description--category"
+                },
+                tags: ".postTools__keywords a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
