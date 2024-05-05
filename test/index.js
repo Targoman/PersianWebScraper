@@ -1884,5 +1884,9 @@ yarn dev && yarn start hashtam
 yarn dev && yarn start hashtam -u https://8am.media/fa/pakistan-sent-a-probe-to-the-moon-for-the-first-time-with-the-help-of-china/
 yarn dev && yarn start hashtam -u start hashtam -u https://8am.media/fa/l-r-276-2/
 
+yarn dev && yarn start hadese24
+yarn dev && yarn start hadese24 -u https://hadese24.ir/news/116413
+yarn dev && yarn start hadese24 -u https://hadese24.ir/news/117379
+
 https://motamem.org/
 /**/

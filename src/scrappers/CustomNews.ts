@@ -4183,3 +4183,36 @@ export class hashtam extends clsScrapper {
         })
     }
 }
+
+export class hadese24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.hadese24, "hadese24.ir", {
+            selectors: {
+                article: ".single-entry",
+                title: ".single-entry-title h1",
+                subtitle: "div:nth-child(1) > div.left > div.single-entry-text",
+                datetime: {
+                    conatiner: ".single-entry-detail > div:nth-child(1)"
+                },
+                content: {
+                    main: ".single-entry-text",
+                    ignoreTexts: [/.*حادثه 24 بخوانید.*/, /.*اینجا دنبال کنید.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list ul.comment li"),
+                    author: ".comment-author",
+                    datetime: ".comment-date",
+                    text: ".comment-left"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_BreadCrumb div a"),
+                    startIndex: 1
+                },
+                tags: ".news-single-category-items a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
