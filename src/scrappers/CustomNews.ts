@@ -4244,3 +4244,27 @@ export class lkiran extends clsScrapper {
         })
     }
 }
+
+
+export class football360 extends clsScrapper {
+    constructor() {
+        super(enuDomains.football360, "football360.ir", {
+            selectors: {
+                article: "main#container > div > article",
+                title: "h1",
+                subtitle: ".style_subTitle__mhoyP",
+                datetime: {
+                    conatiner: ".style_date__mK7oL"
+                },
+                content: {
+                    main: ".style_content__eIj8G",
+                },
+                tags: "a[rel='tag']",         
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/matches", "/player", "/team", "/league", "/predictions", "/videos"]
+            }
+        })
+    }
+}

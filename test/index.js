@@ -1891,5 +1891,8 @@ yarn dev && yarn start hadese24 -u https://hadese24.ir/news/117379
 yarn dev && yarn start lkiran
 yarn dev && yarn start lkiran -u https://lkiran.com/2024/05/01/blanton-products-5-spring-discount/
 
+yarn dev && yarn start football360 
+yarn dev && yarn start football360 -u https://football360.ir/post/2024050543/بیرمنگام-سیتی-و-مجموعه-تصمیماتی-که-باعث-سقوط-شد-همه-چیز-از-رونی-شروع-میشود
+
 https://motamem.org/
 /**/
