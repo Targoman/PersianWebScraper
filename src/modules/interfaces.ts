@@ -219,6 +219,7 @@ export enum enuDomains {
     hamshahrionline = "hamshahrionline",
     hamyarwp = "hamyarwp",
     hakimemehr = "hakimemehr",
+    hashtam = "hashtam",
     hashtsobh = "hashtsobh",
     hawzahnews = "hawzahnews",
     hayat = "hayat",

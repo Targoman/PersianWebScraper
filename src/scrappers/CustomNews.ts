@@ -4158,3 +4158,28 @@ export class magiran extends clsScrapper {
         })
     }
 }
+
+export class hashtam extends clsScrapper {
+    constructor() {
+        super(enuDomains.hashtam, "8am.media", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa-AF'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_title"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/uz", "/ps", "/eng"]
+            }
+        })
+    }
+}

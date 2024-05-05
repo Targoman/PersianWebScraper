@@ -1880,5 +1880,9 @@ yarn dev && yarn start magiran
 yarn dev && yarn start magiran -u https://www.magiran.com/article/4509139
 yarn dev && yarn start magiran -u https://www.magiran.com/article/4500848
 
+yarn dev && yarn start hashtam
+yarn dev && yarn start hashtam -u https://8am.media/fa/pakistan-sent-a-probe-to-the-moon-for-the-first-time-with-the-help-of-china/
+yarn dev && yarn start hashtam -u start hashtam -u https://8am.media/fa/l-r-276-2/
+
 https://motamem.org/
 /**/
