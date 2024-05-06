@@ -560,6 +560,7 @@ export enum enuDomains {
     vakiltik = "vakiltik",
     vananews = "vananews",
     varzesh3 = "varzesh3",
+    varzesh360 = "varzesh360",
     vido = "vido",
     vigiato = "vigiato",
     virgool = "virgool",
