@@ -406,6 +406,7 @@ export enum enuDomains {
     parsine = "parsine",
     parspack = "parspack",
     pasokhgoo = "pasokhgoo",
+    passgoal = "passgoal",
     payamefori = "payamefori",
     payamekhanevadeh = "payamekhanevadeh",
     payamgostar = "payamgostar",

@@ -4268,3 +4268,24 @@ export class football360 extends clsScrapper {
         })
     }
 }
+
+export class passgoal extends clsScrapper {
+    constructor() {
+        super(enuDomains.passgoal, "passgoal.news", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".newsId_time time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#echo_detail",
+                    ignoreNodeClasses: ["short_link_share", "article_tag"]
+                },      
+                tags: ".article_tag a",       
+            },
+        })
+    }
+}

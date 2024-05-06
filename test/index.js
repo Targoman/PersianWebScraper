@@ -1897,5 +1897,8 @@ yarn dev && yarn start football360 -u https://football360.ir/post/2024050543/ب�
 yarn dev && yarn start varzesh360
 yarn dev && yarn start varzesh360 -u https://www.varzesh360.com/بخش-فوتبال-جهان-4/10144-درگذشت-بزرگ-مرد-فوتبال-آرژانتین
 
+yarn dev && yarn start passgoal 
+yarn dev && yarn start passgoal -u https://www.passgoal.news/بخش-فوتبال-ایران-3/82-واکنش-عبدالله-ویسی-به-جریمه-سنگین-کمیته-انضباطی-گواردیولا-مورینیو-هم-این-را-می-گویند
+
 https://motamem.org/
 /**/
