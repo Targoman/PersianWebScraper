@@ -1880,5 +1880,31 @@ yarn dev && yarn start magiran
 yarn dev && yarn start magiran -u https://www.magiran.com/article/4509139
 yarn dev && yarn start magiran -u https://www.magiran.com/article/4500848
 
+yarn dev && yarn start hashtam
+yarn dev && yarn start hashtam -u https://8am.media/fa/pakistan-sent-a-probe-to-the-moon-for-the-first-time-with-the-help-of-china/
+yarn dev && yarn start hashtam -u start hashtam -u https://8am.media/fa/l-r-276-2/
+
+yarn dev && yarn start hadese24
+yarn dev && yarn start hadese24 -u https://hadese24.ir/news/116413
+yarn dev && yarn start hadese24 -u https://hadese24.ir/news/117379
+
+yarn dev && yarn start lkiran
+yarn dev && yarn start lkiran -u https://lkiran.com/2024/05/01/blanton-products-5-spring-discount/
+
+yarn dev && yarn start football360 
+yarn dev && yarn start football360 -u https://football360.ir/post/2024050543/بیرمنگام-سیتی-و-مجموعه-تصمیماتی-که-باعث-سقوط-شد-همه-چیز-از-رونی-شروع-میشود
+
+yarn dev && yarn start varzesh360
+yarn dev && yarn start varzesh360 -u https://www.varzesh360.com/بخش-فوتبال-جهان-4/10144-درگذشت-بزرگ-مرد-فوتبال-آرژانتین
+
+yarn dev && yarn start passgoal 
+yarn dev && yarn start passgoal -u https://www.passgoal.news/بخش-فوتبال-ایران-3/82-واکنش-عبدالله-ویسی-به-جریمه-سنگین-کمیته-انضباطی-گواردیولا-مورینیو-هم-این-را-می-گویند
+
+yarn dev && yarn start pezeshket
+yarn dev && yarn start pezeshket -u https://pezeshket.com/آزمایش/آزمایش-های-خون/difference-hemoglobin-and-hematocrit/
+
+yarn dev && yarn start wikijoo
+yarn dev && yarn start wikijoo -u https://wikijoo.ir/index.php/نوروز
+
 https://motamem.org/
 /**/
