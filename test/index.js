@@ -1903,5 +1903,8 @@ yarn dev && yarn start passgoal -u https://www.passgoal.news/بخش-فوتبال
 yarn dev && yarn start pezeshket
 yarn dev && yarn start pezeshket -u https://pezeshket.com/آزمایش/آزمایش-های-خون/difference-hemoglobin-and-hematocrit/
 
+yarn dev && yarn start wikijoo
+yarn dev && yarn start wikijoo -u https://wikijoo.ir/index.php/نوروز
+
 https://motamem.org/
 /**/

@@ -576,6 +576,7 @@ export enum enuDomains {
     wikifeqh = "wikifeqh",
     wikigardi = "wikigardi",
     wikihoghoogh = "wikihoghoogh",
+    wikijoo = "wikijoo",
     wikiravan = "wikiravan",
     wikishahid = "wikishahid",
     wikishia = "wikishia",
