@@ -4158,3 +4158,162 @@ export class magiran extends clsScrapper {
         })
     }
 }
+
+export class hashtam extends clsScrapper {
+    constructor() {
+        super(enuDomains.hashtam, "8am.media", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa-AF'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_title"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/uz", "/ps", "/eng"]
+            }
+        })
+    }
+}
+
+export class hadese24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.hadese24, "hadese24.ir", {
+            selectors: {
+                article: ".single-entry",
+                title: ".single-entry-title h1",
+                subtitle: "div:nth-child(1) > div.left > div.single-entry-text",
+                datetime: {
+                    conatiner: ".single-entry-detail > div:nth-child(1)"
+                },
+                content: {
+                    main: ".single-entry-text",
+                    ignoreTexts: [/.*حادثه 24 بخوانید.*/, /.*اینجا دنبال کنید.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".comment-list ul.comment li"),
+                    author: ".comment-author",
+                    datetime: ".comment-date",
+                    text: ".comment-left"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#ContentPlaceHolder1_BreadCrumb div a"),
+                    startIndex: 1
+                },
+                tags: ".news-single-category-items a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class lkiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.lkiran, "lkiran.com", {
+            selectors: {
+                article: ".site-main",
+                title: "h1",
+                summary: "p.rowCard__description",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".articlePost",
+                    ignoreNodeClasses: ["lk-star-rating"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "a.dailyNewsPageHead__description--category"
+                },
+                tags: ".postTools__keywords a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+
+export class football360 extends clsScrapper {
+    constructor() {
+        super(enuDomains.football360, "football360.ir", {
+            selectors: {
+                article: "main#container > div > article",
+                title: "h1",
+                subtitle: ".style_subTitle__mhoyP",
+                datetime: {
+                    conatiner: ".style_date__mK7oL"
+                },
+                content: {
+                    main: ".style_content__eIj8G",
+                },
+                tags: "a[rel='tag']",         
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/matches", "/player", "/team", "/league", "/predictions", "/videos"]
+            }
+        })
+    }
+}
+
+export class passgoal extends clsScrapper {
+    constructor() {
+        super(enuDomains.passgoal, "passgoal.news", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".newsId_time time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#echo_detail",
+                    ignoreNodeClasses: ["short_link_share", "article_tag"]
+                },      
+                tags: ".article_tag a",       
+            },
+        })
+    }
+}
+
+export class pezeshket extends clsScrapper {
+    constructor() {
+        super(enuDomains.pezeshket, "pezeshket.com", {
+            basePath: "/?s",
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["elementor-toc--minimized-on-tablet"],
+                    ignoreTexts: [/.*مطالعه بیشتر:.*/, /.*در پزشکت.*/, /.*توسط پزشک آنلاین.*/, /.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

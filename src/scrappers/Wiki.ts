@@ -124,3 +124,13 @@ export class wikifeqh extends clsWiki {
         })
     }
 }
+
+export class wikijoo extends clsWiki {
+    constructor() {
+        super(enuDomains.wikijoo, "wikijoo.ir", { 
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

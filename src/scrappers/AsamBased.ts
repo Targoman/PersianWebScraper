@@ -1572,11 +1572,25 @@ export class eghtesad100 extends clsAsamBased {
     }
 }
 
+/***********************************************************/
 export class bayanfarda extends clsAsamBased {
     constructor() {
         super(enuDomains.bayanfarda, "bayanfarda.ir", {
             selectors: {
                 article: ".main_part .article_box"
+            },
+        })
+    }
+}
+
+/***********************************************************/
+export class varzesh360 extends clsAsamBased {
+    constructor() {
+        super(enuDomains.varzesh360, "varzesh360.com", {
+            selectors: {
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.bread_crumbs li a")
+                }
             },
         })
     }
