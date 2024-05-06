@@ -4289,3 +4289,31 @@ export class passgoal extends clsScrapper {
         })
     }
 }
+
+export class pezeshket extends clsScrapper {
+    constructor() {
+        super(enuDomains.pezeshket, "pezeshket.com", {
+            basePath: "/?s",
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["elementor-toc--minimized-on-tablet"],
+                    ignoreTexts: [/.*مطالعه بیشتر:.*/, /.*در پزشکت.*/, /.*توسط پزشک آنلاین.*/, /.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumbs span span a",
+                    startIndex: 1
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

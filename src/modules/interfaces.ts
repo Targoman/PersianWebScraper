@@ -417,6 +417,7 @@ export enum enuDomains {
     peivast = "peivast",
     persiankhodro = "persiankhodro",
     persiantools = "persiantools",
+    pezeshket = "pezeshket",
     pgnews = "pgnews",
     pishgamfanavari = "pishgamfanavari",
     plaza = "plaza",

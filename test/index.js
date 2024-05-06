@@ -1900,5 +1900,8 @@ yarn dev && yarn start varzesh360 -u https://www.varzesh360.com/بخش-فوتب�
 yarn dev && yarn start passgoal 
 yarn dev && yarn start passgoal -u https://www.passgoal.news/بخش-فوتبال-ایران-3/82-واکنش-عبدالله-ویسی-به-جریمه-سنگین-کمیته-انضباطی-گواردیولا-مورینیو-هم-این-را-می-گویند
 
+yarn dev && yarn start pezeshket
+yarn dev && yarn start pezeshket -u https://pezeshket.com/آزمایش/آزمایش-های-خون/difference-hemoglobin-and-hematocrit/
+
 https://motamem.org/
 /**/
