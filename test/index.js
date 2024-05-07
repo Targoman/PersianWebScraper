@@ -1909,5 +1909,8 @@ yarn dev && yarn start wikijoo -u https://wikijoo.ir/index.php/نوروز
 yarn dev && yarn start daryanews
 yarn dev && yarn start daryanews -u https://www.daryanews.ir/کمبود-نیروی-انسانی-ماندگار-؛-چالش-اصلی/
 
+yarn dev && yarn start hormozgantoday
+yarn dev && yarn start hormozgantoday -u https://www.hormozgantoday.ir/تلاش-برای-ارتقای-خدمات-به-جامعه-صیادی/
+
 https://motamem.org/
 /**/

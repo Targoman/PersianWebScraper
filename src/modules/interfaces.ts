@@ -233,6 +233,7 @@ export enum enuDomains {
     honareseda = "honareseda",
     honarmrooz = "honarmrooz",
     honaronline = "honaronline",
+    hormozgantoday = "hormozgantoday",
     hourgan = "hourgan",
     iana = "iana",
     ibna = "ibna",
