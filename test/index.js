@@ -1912,5 +1912,9 @@ yarn dev && yarn start daryanews -u https://www.daryanews.ir/کمبود-نیرو
 yarn dev && yarn start hormozgantoday
 yarn dev && yarn start hormozgantoday -u https://www.hormozgantoday.ir/تلاش-برای-ارتقای-خدمات-به-جامعه-صیادی/
 
+yarn dev && yarn start khoorna 
+yarn dev && yarn start khoorna -u https://khoorna.com/181620/تَشکوه،-اژدهایی-که-قرن-هاست-دامان-زاگر/
+yarn dev && yarn start khoorna -u https://khoorna.com/181582/شگفتی-دانشمندان-از-مشاهده-یک-اورانگوت/
+
 https://motamem.org/
 /**/

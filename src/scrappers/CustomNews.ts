@@ -4367,3 +4367,29 @@ export class hormozgantoday extends clsScrapper {
         })
     }
 }
+
+export class khoorna extends clsScrapper {
+    constructor() {
+        super(enuDomains.khoorna, "khoorna.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".entry-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: ".cat-links a"
+                },
+                tags: ".tag-links a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

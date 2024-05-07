@@ -314,6 +314,7 @@ export enum enuDomains {
     khodronevis = "khodronevis",
     khodropluss = "khodropluss",
     khodrotak = "khodrotak",
+    khoorna = "khoorna",
     khordad = "khordad",
     kidzy = "kidzy",
     kojaro = "kojaro",
