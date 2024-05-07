@@ -4393,3 +4393,37 @@ export class khoorna extends clsScrapper {
         })
     }
 }
+
+export class psarena extends clsScrapper {
+    constructor() {
+        super(enuDomains.psarena, "psarena.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".jeg_post_subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["jeg_post_tags", "row-small", "jeg_share_bottom_container"],
+                    ignoreTexts: [/.*IRPP.*/, /.*مطلب مرتبط:.*/]
+                },
+                comments: {
+                    container: "ol.commentlist li.comment .comment-body",
+                    author: ".comment-author cite",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: ".jeg_meta_category span a",
+                    lastIndex: 1
+                },
+                tags: ".jeg_post_tags a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
