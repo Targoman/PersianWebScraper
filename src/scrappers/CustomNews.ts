@@ -4317,3 +4317,27 @@ export class pezeshket extends clsScrapper {
         })
     }
 }
+
+export class daryanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.daryanews, "daryanews.ir", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".catpo",
+                title: "h1",
+                subtitle: ".excerpt .tttl",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".breadpo a"
+                },
+                tags: "footer.entry-meta a",         
+            },
+        })
+    }
+}

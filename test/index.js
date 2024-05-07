@@ -1906,5 +1906,8 @@ yarn dev && yarn start pezeshket -u https://pezeshket.com/آزمایش/آزما�
 yarn dev && yarn start wikijoo
 yarn dev && yarn start wikijoo -u https://wikijoo.ir/index.php/نوروز
 
+yarn dev && yarn start daryanews
+yarn dev && yarn start daryanews -u https://www.daryanews.ir/کمبود-نیروی-انسانی-ماندگار-؛-چالش-اصلی/
+
 https://motamem.org/
 /**/
