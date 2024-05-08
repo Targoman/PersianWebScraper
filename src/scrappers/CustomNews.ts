@@ -4452,3 +4452,30 @@ export class kheiriran extends clsScrapper {
         })
     }
 }
+
+export class theater extends clsScrapper {
+    constructor() {
+        super(enuDomains.theater, "theater.ir", {
+            selectors: {
+                article: "#content",
+                aboveTitle: "h6",
+                title: "h1",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("footer > div > time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article > div:nth-child(3), article > div:nth-child(4)",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a")
+                },
+                tags: ".tags a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

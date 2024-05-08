@@ -1926,9 +1926,13 @@ yarn dev && yarn start varune -u https://varune.com/blue-eye-samurai-review/
 yarn dev && yarn start kheiriran
 yarn dev && yarn start kheiriran -u https://kheiriran.ir/post-1017
 
-yarn dev ; yarn start arda 
-yarn dev ; yarn start arda -u https://arda.ir/silmarillion/
-yarn dev ; yarn start arda -u https://arda.ir/forum/index.php?/topic/753-منظومه-لیتیان-داستان-برن-و-لوتین/
+yarn dev && yarn start arda 
+yarn dev && yarn start arda -u https://arda.ir/silmarillion/
+yarn dev && yarn start arda -u https://arda.ir/forum/index.php?/topic/753-منظومه-لیتیان-داستان-برن-و-لوتین/
+
+yarn dev && yarn start theater
+yarn dev && yarn start theater -u https://theater.ir/fa/176817/نظری-به-نمایش-سیاه-خال-نوشته-و-کار-محسن-اردشیر-یک-افسانه-واقعی
+yarn dev && yarn start theater -u https://theater.ir/fa/174101
 
 https://motamem.org/
 /**/
