@@ -1934,5 +1934,8 @@ yarn dev && yarn start theater
 yarn dev && yarn start theater -u https://theater.ir/fa/176817/نظری-به-نمایش-سیاه-خال-نوشته-و-کار-محسن-اردشیر-یک-افسانه-واقعی
 yarn dev && yarn start theater -u https://theater.ir/fa/174101
 
+yarn dev && yarn start ketabnews
+yarn dev && yarn start ketabnews -u https://ketabnews.com/fa/news/22007/درباره-ماهالماس-احمد-آفتابی
+
 https://motamem.org/
 /**/

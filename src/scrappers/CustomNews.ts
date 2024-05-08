@@ -4479,3 +4479,25 @@ export class theater extends clsScrapper {
         })
     }
 }
+
+export class ketabnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ketabnews, "ketabnews.com", {
+            selectors: {
+                article: ".sliderInformations",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".sliderTitle"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='DC.Date.Created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("/").reverse().join("/") || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".sliderInformations"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".customNewsList > div.inner > div > a"),         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
