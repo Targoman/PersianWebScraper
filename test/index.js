@@ -1923,5 +1923,8 @@ yarn dev && yarn start psarena -u https://psarena.ir/every-thing-you-should-know
 yarn dev && yarn start varune
 yarn dev && yarn start varune -u https://varune.com/blue-eye-samurai-review/
 
+yarn dev && yarn start kheiriran
+yarn dev && yarn start kheiriran -u https://kheiriran.ir/post-1017
+
 https://motamem.org/
 /**/

@@ -4427,3 +4427,28 @@ export class psarena extends clsScrapper {
         })
     }
 }
+
+export class kheiriran extends clsScrapper {
+    constructor() {
+        super(enuDomains.kheiriran, "kheiriran.ir", {
+            selectors: {
+                article: "main.article",
+                title: ".article-title",
+                summary: ".article-description",
+                datetime: {
+                    conatiner: ".p-2.mb-4 > span.dark-gray.font-normal"
+                },
+                content: {
+                    main: ".article-content",
+                },
+                category: {
+                    selector: ".article-categories a"
+                },
+                tags: ".post-tags a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
