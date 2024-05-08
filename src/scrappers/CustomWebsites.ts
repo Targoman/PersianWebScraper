@@ -1,7 +1,6 @@
 import { clsScrapper } from "../modules/clsScrapper";
-import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory, IntfPageContent } from "../modules/interfaces";
+import { enuDomains, enuMajorCategory, enuMinorCategory, enuSubMinorCategory, enuTextType, IntfMappedCategory } from "../modules/interfaces";
 import { HTMLElement, parse } from "node-html-parser"
-import { IntfRequestParams } from "../modules/request";
 //import { normalizeText } from "../modules/common";
 
 export class divar extends clsScrapper {
@@ -388,39 +387,35 @@ export class noozdahkala extends clsScrapper {
   }
 }
 
-export class digikaproducts extends clsScrapper {
+export class arda extends clsScrapper {
   constructor() {
-    super(enuDomains.digikaproducts, "digikala.com", {
-      api: async (url: URL, reParams: IntfRequestParams, data?: any) => {
-        const pageContent: IntfPageContent = { url: url.toString(), links: [] }
-        reParams
-        pageContent.links.push("https://api.digikala.com/v1/brands/");
-
-        if (data.data && data.data.brands) {
-          const brand_codes: string[] = [];
-          Object.values(data.data.brands).forEach((brand: any) => {
-            brand.forEach((code) => {
-              brand_codes.push(code.url.uri.substring(7, code.url.uri.length - 1))
-            });
-          });
-          await Promise.all(brand_codes.map(async (brand_code) => {
-            let pageExists = true;
-            let page = 1;
-            while (pageExists) {
-              const productsResponse = await fetch(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`, { method: "GET" });
-              pageContent.links.push(`https://api.digikala.com/v1/brands/${brand_code}/?seo_url=&page=${page}`)
-              const brand = await productsResponse.json();
-              if (page < brand.data.pager.total_pages) {
-                page++;
-              } else {
-                pageExists = false;
-              }
-            }
-          }))
-        }
-        return pageContent
-      },
-      url: { removeWWW: true }
-    })
+      super(enuDomains.arda, "arda.ir", {
+          selectors: {
+              article: "body.single-post, [data-pagecontroller='topic']",
+              title: "h1",
+              datetime: {
+                  conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time'], time"),
+                  splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+              },
+              content: {
+                  main: ".entry",
+                  ignoreTexts: [/.*<img.*/]
+              },
+              comments: {
+                  container: "ol.commentlist li .comment, #elPostFeed article",
+                  author: ".author-comment cite, .cAuthorPane_author strong",
+                  datetime: "time",
+                  text: ".comment-content, [data-role='commentContent']"
+              },
+              category: {
+                selector: "#crumbs a, nav.ipsBreadcrumb_top [data-role='breadcrumbList'] li a",
+                startIndex: 1
+              },    
+              tags: ".ipsTags a"     
+          },
+          url: {
+              removeWWW: true
+          }
+      })
   }
 }
