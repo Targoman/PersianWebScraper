@@ -5953,3 +5953,27 @@ export class anthropologyandculture extends clsScrapper {
         })
     }
 }
+
+export class varune extends clsScrapper {
+    constructor() {
+        super(enuDomains.varune, "varune.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content .post-item-single-container",
+                    ignoreNodeClasses: ["caption-align-center", "post-tags"],
+                    ignoreTexts: [/.*در ادامه بخوانید.*/]
+                },
+                category: {
+                    selector: ".blog-slider-content .post-categories a"
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}

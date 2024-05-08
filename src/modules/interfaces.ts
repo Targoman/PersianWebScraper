@@ -565,6 +565,7 @@ export enum enuDomains {
     uptvs = "uptvs",
     vakiltik = "vakiltik",
     vananews = "vananews",
+    varune = "varune",
     varzesh3 = "varzesh3",
     varzesh360 = "varzesh360",
     vido = "vido",

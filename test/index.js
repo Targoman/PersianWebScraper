@@ -1920,5 +1920,8 @@ yarn dev && yarn start psarena
 yarn dev && yarn start psarena -u https://psarena.ir/the-boy-and-the-heron-has-sold-over-300-million-dollar/
 yarn dev && yarn start psarena -u https://psarena.ir/every-thing-you-should-know-about-anime-and-manga/
 
+yarn dev && yarn start varune
+yarn dev && yarn start varune -u https://varune.com/blue-eye-samurai-review/
+
 https://motamem.org/
 /**/
