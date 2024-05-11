@@ -4531,3 +4531,24 @@ export class faramedia extends clsScrapper {
         })
     }
 }
+
+export class honarguilan extends clsScrapper {
+    constructor() {
+        super(enuDomains.honarguilan, "honarguilan.ir", {
+            selectors: {
+                article: "article.full-story",
+                title: "h1",
+                datetime: {
+                    conatiner: ".full-date"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#speed-bar a")
+                },
+                tags: ".fulltags span a",         
+            },
+        })
+    }
+}

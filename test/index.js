@@ -1941,5 +1941,8 @@ yarn dev && yarn start faramedia
 yarn dev && yarn start faramedia -u https://www.faramedia.co/کمرین-منهایم-بعد-از-فصل-23-از-سریال-نظم-و-ق/
 yarn dev && yarn start faramedia -u https://www.faramedia.co/معرفی-سریال-ne-gemiler-yaktim/
 
+yarn dev && yarn start honarguilan
+yarn dev && yarn start honarguilan -u https://honarguilan.ir/13631-نقد-جالب-پرسی-شلی-بر-رمان-معروف-همسرش/--فرانکنشتاین--قلب%E2%80%8Cتان-را-به-درد-می%E2%80%8Cآورد.html
+
 https://motamem.org/
 /**/
