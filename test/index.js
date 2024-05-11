@@ -1937,5 +1937,9 @@ yarn dev && yarn start theater -u https://theater.ir/fa/174101
 yarn dev && yarn start ketabnews
 yarn dev && yarn start ketabnews -u https://ketabnews.com/fa/news/22007/درباره-ماهالماس-احمد-آفتابی
 
+yarn dev && yarn start faramedia 
+yarn dev && yarn start faramedia -u https://www.faramedia.co/کمرین-منهایم-بعد-از-فصل-23-از-سریال-نظم-و-ق/
+yarn dev && yarn start faramedia -u https://www.faramedia.co/معرفی-سریال-ne-gemiler-yaktim/
+
 https://motamem.org/
 /**/

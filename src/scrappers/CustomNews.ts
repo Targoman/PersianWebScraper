@@ -4501,3 +4501,33 @@ export class ketabnews extends clsScrapper {
         })
     }
 }
+
+export class faramedia extends clsScrapper {
+    constructor() {
+        super(enuDomains.faramedia, "faramedia.co", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1, .entry-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article.rd-post-content",
+                    ignoreNodeClasses: ["su-tabs"]
+                },
+                comments: {
+                    container: "ol.comment-list li .comment",
+                    author: ".author-link cite",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: "ul.rd-breadcrumbs li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: "ul.rd-tags li a",         
+            },
+        })
+    }
+}

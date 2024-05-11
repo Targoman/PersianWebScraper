@@ -178,6 +178,7 @@ export enum enuDomains {
     faab = "faab",
     faradars = "faradars",
     faradeed = "faradeed",
+    faramedia = "faramedia",
     fararu = "fararu",
     farazdaily = "farazdaily",
     farazsms = "farazsms",
