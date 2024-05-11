@@ -279,6 +279,7 @@ export enum enuDomains {
     iwna = "iwna",
     jabama = "jabama",
     jadidpress = "jadidpress",
+    jadoogaran = "jadoogaran",
     jadvalyab = "jadvalyab",
     jahanemana = "jahanemana",
     jahannews = "jahannews",

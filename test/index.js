@@ -1944,5 +1944,10 @@ yarn dev && yarn start faramedia -u https://www.faramedia.co/معرفی-سریا
 yarn dev && yarn start honarguilan
 yarn dev && yarn start honarguilan -u https://honarguilan.ir/13631-نقد-جالب-پرسی-شلی-بر-رمان-معروف-همسرش/--فرانکنشتاین--قلب%E2%80%8Cتان-را-به-درد-می%E2%80%8Cآورد.html
 
+yarn dev && yarn start jadoogaran 
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newsroom/item.php?itemid=2013
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newbb/viewtopic.php?post_id=369974
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/article/view.article.php/c25/2495
+
 https://motamem.org/
 /**/

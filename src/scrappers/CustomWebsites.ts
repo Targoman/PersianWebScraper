@@ -419,3 +419,37 @@ export class arda extends clsScrapper {
       })
   }
 }
+
+export class jadoogaran extends clsScrapper {
+  constructor() {
+      super(enuDomains.jadoogaran, "jadoogaran.org", {
+          selectors: {
+              article: ".mohtava",
+              title: "h4, .thread_title_bar .col-md-6, h2.article-title",
+              summary: ".article-summary span.article-content",
+              datetime: {
+                  conatiner: ".itemInfo > div > small, .thread_title_bar div.col-md-7, div.article-meta span:nth-child(4)",
+                  splitter: "|",
+                  acceptNoDate: true
+              },
+              content: {
+                  main: ".itemText, .article-text",
+                  ignoreNodeClasses: ["ppy-imglist"]
+              },
+              comments: {
+                  container: ".thread_body",
+                  author: ".comUserName",
+                  text: ".thread_text"
+              },
+              category: {
+                selector: ".forum_header > .forum_title > a, .newsroom_headertable span a, .article-breadcrumbs a",
+                lastIndex: 2
+              },    
+              tags: ".xoops-tag-bar ul li a, .article-content a"     
+          },
+          url: {
+            extraInvalidStartPaths: ["/extgallery", "/thumbnails"]
+          }
+      })
+  }
+}
