@@ -4552,3 +4552,24 @@ export class honarguilan extends clsScrapper {
         })
     }
 }
+
+export class honarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.honarnews, "honarnews.com", {
+            selectors: {
+                article: "#doc_content",
+                title: "#docDiv3TitrMain",
+                subtitle: "#docDivLeadTitle",
+                datetime: {
+                    conatiner: "#docDiv3Date"
+                },
+                content: {
+                    main: "#doc_div33",
+                },
+                category: {
+                    selector: "#docDiv1Menu1 span a"
+                },
+            },
+        })
+    }
+}

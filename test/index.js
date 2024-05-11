@@ -1949,5 +1949,8 @@ yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newsroom
 yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newbb/viewtopic.php?post_id=369974
 yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/article/view.article.php/c25/2495
 
+yarn dev && yarn start honarnews
+yarn dev && yarn start honarnews -u https://www.honarnews.com/vdcgnt9y.ak9yz4prra.html
+
 https://motamem.org/
 /**/
