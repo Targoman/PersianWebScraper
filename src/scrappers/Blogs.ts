@@ -5977,3 +5977,31 @@ export class varune extends clsScrapper {
         })
     }
 }
+
+export class cafebazaar extends clsScrapper {
+    constructor() {
+        super(enuDomains.cafebazaar, "mag.cafebazaar.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".main-content",
+                    ignoreNodeClasses: ["maxbutton-3-container", "tags_post", "owl-carousel", "wp-block-kadence-advancedbtn"],
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author ",
+                    text: ".wpd-comment-text"
+                },
+                category: {
+                    selector: ".category-post a"
+                },
+                tags: ".tags_post a"
+            },
+        })
+    }
+}

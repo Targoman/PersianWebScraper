@@ -1961,5 +1961,9 @@ yarn dev && yarn start vaghteshomal -u https://www.vaghteshomal.ir/2024/04/با�
 yarn dev && yarn start harfonline
 yarn dev && yarn start harfonline -u https://harfonline.ir/عملیات-غافلگیرانه-علیه-قاچاقچیان-چوب/
 
+yarn dev && yarn start cafebazaar 
+yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/the-last-of-us-season-2-goes-iconic-game-place/
+yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/inshot-review/
+
 https://motamem.org/
 /**/
