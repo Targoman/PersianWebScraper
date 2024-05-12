@@ -4596,3 +4596,25 @@ export class voiceart extends clsScrapper {
         })
     }
 }
+
+export class vaghteshomal extends clsScrapper {
+    constructor() {
+        super(enuDomains.vaghteshomal, "vaghteshomal.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                category: {
+                    selector: ".the_category a"
+                },
+                tags: ".tag h3 a"
+            },
+        })
+    }
+}

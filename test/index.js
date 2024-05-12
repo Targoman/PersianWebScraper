@@ -1955,5 +1955,8 @@ yarn dev && yarn start honarnews -u https://www.honarnews.com/vdcgnt9y.ak9yz4prr
 yarn dev && yarn start voiceart
 yarn dev && yarn start voiceart -u https://voiceart.ir/fa/دوبله-چیست-؟/
 
+yarn dev && yarn start vaghteshomal
+yarn dev && yarn start vaghteshomal -u https://www.vaghteshomal.ir/2024/04/بالاخره-حقوق-وزارت-کار-چقدر-خواهد-بود؟/
+
 https://motamem.org/
 /**/
