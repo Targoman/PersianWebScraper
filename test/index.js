@@ -1906,5 +1906,60 @@ yarn dev && yarn start pezeshket -u https://pezeshket.com/آزمایش/آزما�
 yarn dev && yarn start wikijoo
 yarn dev && yarn start wikijoo -u https://wikijoo.ir/index.php/نوروز
 
+yarn dev && yarn start daryanews
+yarn dev && yarn start daryanews -u https://www.daryanews.ir/کمبود-نیروی-انسانی-ماندگار-؛-چالش-اصلی/
+
+yarn dev && yarn start hormozgantoday
+yarn dev && yarn start hormozgantoday -u https://www.hormozgantoday.ir/تلاش-برای-ارتقای-خدمات-به-جامعه-صیادی/
+
+yarn dev && yarn start khoorna 
+yarn dev && yarn start khoorna -u https://khoorna.com/181620/تَشکوه،-اژدهایی-که-قرن-هاست-دامان-زاگر/
+yarn dev && yarn start khoorna -u https://khoorna.com/181582/شگفتی-دانشمندان-از-مشاهده-یک-اورانگوت/
+
+yarn dev && yarn start psarena
+yarn dev && yarn start psarena -u https://psarena.ir/the-boy-and-the-heron-has-sold-over-300-million-dollar/
+yarn dev && yarn start psarena -u https://psarena.ir/every-thing-you-should-know-about-anime-and-manga/
+
+yarn dev && yarn start varune
+yarn dev && yarn start varune -u https://varune.com/blue-eye-samurai-review/
+
+yarn dev && yarn start kheiriran
+yarn dev && yarn start kheiriran -u https://kheiriran.ir/post-1017
+
+yarn dev && yarn start arda 
+yarn dev && yarn start arda -u https://arda.ir/silmarillion/
+yarn dev && yarn start arda -u https://arda.ir/forum/index.php?/topic/753-منظومه-لیتیان-داستان-برن-و-لوتین/
+
+yarn dev && yarn start theater
+yarn dev && yarn start theater -u https://theater.ir/fa/176817/نظری-به-نمایش-سیاه-خال-نوشته-و-کار-محسن-اردشیر-یک-افسانه-واقعی
+yarn dev && yarn start theater -u https://theater.ir/fa/174101
+
+yarn dev && yarn start ketabnews
+yarn dev && yarn start ketabnews -u https://ketabnews.com/fa/news/22007/درباره-ماهالماس-احمد-آفتابی
+
+yarn dev && yarn start faramedia 
+yarn dev && yarn start faramedia -u https://www.faramedia.co/کمرین-منهایم-بعد-از-فصل-23-از-سریال-نظم-و-ق/
+yarn dev && yarn start faramedia -u https://www.faramedia.co/معرفی-سریال-ne-gemiler-yaktim/
+
+yarn dev && yarn start honarguilan
+yarn dev && yarn start honarguilan -u https://honarguilan.ir/13631-نقد-جالب-پرسی-شلی-بر-رمان-معروف-همسرش/--فرانکنشتاین--قلب%E2%80%8Cتان-را-به-درد-می%E2%80%8Cآورد.html
+
+yarn dev && yarn start jadoogaran 
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newsroom/item.php?itemid=2013
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/newbb/viewtopic.php?post_id=369974
+yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/article/view.article.php/c25/2495
+
+yarn dev && yarn start honarnews
+yarn dev && yarn start honarnews -u https://www.honarnews.com/vdcgnt9y.ak9yz4prra.html
+
+yarn dev && yarn start voiceart
+yarn dev && yarn start voiceart -u https://voiceart.ir/fa/دوبله-چیست-؟/
+
+yarn dev && yarn start vaghteshomal
+yarn dev && yarn start vaghteshomal -u https://www.vaghteshomal.ir/2024/04/بالاخره-حقوق-وزارت-کار-چقدر-خواهد-بود؟/
+
+yarn dev && yarn start harfonline
+yarn dev && yarn start harfonline -u https://harfonline.ir/عملیات-غافلگیرانه-علیه-قاچاقچیان-چوب/
+
 https://motamem.org/
 /**/
