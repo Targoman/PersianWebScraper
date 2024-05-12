@@ -1952,5 +1952,8 @@ yarn dev && yarn start jadoogaran -u https://www.jadoogaran.org/modules/article/
 yarn dev && yarn start honarnews
 yarn dev && yarn start honarnews -u https://www.honarnews.com/vdcgnt9y.ak9yz4prra.html
 
+yarn dev && yarn start voiceart
+yarn dev && yarn start voiceart -u https://voiceart.ir/fa/دوبله-چیست-؟/
+
 https://motamem.org/
 /**/

@@ -4573,3 +4573,26 @@ export class honarnews extends clsScrapper {
         })
     }
 }
+
+export class voiceart extends clsScrapper {
+    constructor() {
+        super(enuDomains.voiceart, "voiceart.ir", {
+            selectors: {
+                article: ".conte",
+                title: "h2.title",
+                datetime: {
+                    conatiner: "span:nth-child(5)",
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

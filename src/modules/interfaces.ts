@@ -579,6 +579,7 @@ export enum enuDomains {
     vigiato = "vigiato",
     virgool = "virgool",
     vindad = "vindad",
+    voiceart = "voiceart",
     watereng = "watereng",
     webhostingtalk = "webhostingtalk",
     webkima = "webkima",
