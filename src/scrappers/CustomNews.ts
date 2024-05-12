@@ -4618,3 +4618,26 @@ export class vaghteshomal extends clsScrapper {
         })
     }
 }
+
+export class harfonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.harfonline, "harfonline.ir", {
+            selectors: {
+                article: ".ap-single",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: "footer.entry-meta a",         
+            },
+        })
+    }
+}

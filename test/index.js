@@ -1958,5 +1958,8 @@ yarn dev && yarn start voiceart -u https://voiceart.ir/fa/دوبله-چیست-؟
 yarn dev && yarn start vaghteshomal
 yarn dev && yarn start vaghteshomal -u https://www.vaghteshomal.ir/2024/04/بالاخره-حقوق-وزارت-کار-چقدر-خواهد-بود؟/
 
+yarn dev && yarn start harfonline
+yarn dev && yarn start harfonline -u https://harfonline.ir/عملیات-غافلگیرانه-علیه-قاچاقچیان-چوب/
+
 https://motamem.org/
 /**/
