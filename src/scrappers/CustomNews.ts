@@ -4664,3 +4664,24 @@ export class mojerasa extends clsScrapper {
         })
     }
 }
+
+export class ofoghjonoub extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghjonoub, "ofoghjonoub.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='tag']"),         
+            },
+        })
+    }
+}

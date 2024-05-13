@@ -1968,5 +1968,8 @@ yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/inshot-review/
 yarn dev && yarn start mojerasa 
 yarn dev && yarn start mojerasa -u https://mojerasa.ir/khabar/37560/رقابت%e2%80%8cها-به-رفاقت-تبدیل-شود/
 
+yarn dev && yarn start ofoghjonoub
+yarn dev && yarn start ofoghjonoub -u https://ofoghjonoub.ir/تمدید-قرارداد-۶ماهه-متقاضیان-برای-گرف/
+
 https://motamem.org/
 /**/
