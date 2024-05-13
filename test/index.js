@@ -1971,5 +1971,8 @@ yarn dev && yarn start mojerasa -u https://mojerasa.ir/khabar/37560/رقابت%e
 yarn dev && yarn start ofoghjonoub
 yarn dev && yarn start ofoghjonoub -u https://ofoghjonoub.ir/تمدید-قرارداد-۶ماهه-متقاضیان-برای-گرف/
 
+yarn dev && yarn start avadiplomatic
+yarn dev && yarn start avadiplomatic -u https://avadiplomatic.com/دکتر-سعد-سکندر-خان-موسسه-فرهنگی-اکو/
+
 https://motamem.org/
 /**/

@@ -4685,3 +4685,25 @@ export class ofoghjonoub extends clsScrapper {
         })
     }
 }
+
+export class avadiplomatic extends clsScrapper {
+    constructor() {
+        super(enuDomains.avadiplomatic, "avadiplomatic.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".rd-date",
+                },
+                content: {
+                    main: ".rd-post-content",
+                },
+                category: {
+                    selector: "ul.rd-breadcrumbs li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+        })
+    }
+}
