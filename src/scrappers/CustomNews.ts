@@ -4641,3 +4641,26 @@ export class harfonline extends clsScrapper {
         })
     }
 }
+
+export class mojerasa extends clsScrapper {
+    constructor() {
+        super(enuDomains.mojerasa, "mojerasa.ir", {
+            selectors: {
+                article: "article.article-content",
+                aboveTitle: ".entry-titr__header",
+                title: "h1",
+                subtitle: ".lidenews",
+                datetime: {
+                    conatiner: ".entry__meta_date_special"
+                },
+                content: {
+                    main: "#content_news p",
+                    ignoreTexts: [/.*doctype.*/]
+                },
+                category: {
+                    selector: "a.post-cat"
+                },
+            },
+        })
+    }
+}

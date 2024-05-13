@@ -1965,5 +1965,8 @@ yarn dev && yarn start cafebazaar
 yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/the-last-of-us-season-2-goes-iconic-game-place/
 yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/inshot-review/
 
+yarn dev && yarn start mojerasa 
+yarn dev && yarn start mojerasa -u https://mojerasa.ir/khabar/37560/رقابت%e2%80%8cها-به-رفاقت-تبدیل-شود/
+
 https://motamem.org/
 /**/
