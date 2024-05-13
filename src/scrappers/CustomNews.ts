@@ -4644,3 +4644,95 @@ export class harfonline extends clsScrapper {
         })
     }
 }
+
+export class mojerasa extends clsScrapper {
+    constructor() {
+        super(enuDomains.mojerasa, "mojerasa.ir", {
+            selectors: {
+                article: "article.article-content",
+                aboveTitle: ".entry-titr__header",
+                title: "h1",
+                subtitle: ".lidenews",
+                datetime: {
+                    conatiner: ".entry__meta_date_special"
+                },
+                content: {
+                    main: "#content_news p",
+                    ignoreTexts: [/.*doctype.*/]
+                },
+                category: {
+                    selector: "a.post-cat"
+                },
+            },
+        })
+    }
+}
+
+export class ofoghjonoub extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghjonoub, "ofoghjonoub.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a[rel='tag']"),         
+            },
+        })
+    }
+}
+
+export class avadiplomatic extends clsScrapper {
+    constructor() {
+        super(enuDomains.avadiplomatic, "avadiplomatic.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".rd-date",
+                },
+                content: {
+                    main: ".rd-post-content",
+                },
+                category: {
+                    selector: "ul.rd-breadcrumbs li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+        })
+    }
+}
+
+export class irdiplomacy extends clsScrapper {
+    constructor() {
+        super(enuDomains.irdiplomacy, "irdiplomacy.ir", {
+            selectors: {
+                article: ".article-view",
+                aboveTitle: "h3",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date-info",
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: ".meta-info span.label a",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
