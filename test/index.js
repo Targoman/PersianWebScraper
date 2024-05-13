@@ -1961,5 +1961,21 @@ yarn dev && yarn start vaghteshomal -u https://www.vaghteshomal.ir/2024/04/با�
 yarn dev && yarn start harfonline
 yarn dev && yarn start harfonline -u https://harfonline.ir/عملیات-غافلگیرانه-علیه-قاچاقچیان-چوب/
 
+yarn dev && yarn start cafebazaar 
+yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/the-last-of-us-season-2-goes-iconic-game-place/
+yarn dev && yarn start cafebazaar -u https://mag.cafebazaar.ir/inshot-review/
+
+yarn dev && yarn start mojerasa 
+yarn dev && yarn start mojerasa -u https://mojerasa.ir/khabar/37560/رقابت%e2%80%8cها-به-رفاقت-تبدیل-شود/
+
+yarn dev && yarn start ofoghjonoub
+yarn dev && yarn start ofoghjonoub -u https://ofoghjonoub.ir/تمدید-قرارداد-۶ماهه-متقاضیان-برای-گرف/
+
+yarn dev && yarn start avadiplomatic
+yarn dev && yarn start avadiplomatic -u https://avadiplomatic.com/دکتر-سعد-سکندر-خان-موسسه-فرهنگی-اکو/
+
+yarn dev && yarn start irdiplomacy
+yarn dev && yarn start irdiplomacy -u http://www.irdiplomacy.ir/fa/news/2026055/اگر-چین-به-تایوان-حمله-کند
+
 https://motamem.org/
 /**/
