@@ -4707,3 +4707,29 @@ export class avadiplomatic extends clsScrapper {
         })
     }
 }
+
+export class irdiplomacy extends clsScrapper {
+    constructor() {
+        super(enuDomains.irdiplomacy, "irdiplomacy.ir", {
+            selectors: {
+                article: ".article-view",
+                aboveTitle: "h3",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date-info",
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: ".meta-info span.label a",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

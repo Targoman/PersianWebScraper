@@ -1974,5 +1974,8 @@ yarn dev && yarn start ofoghjonoub -u https://ofoghjonoub.ir/تمدید-قرار
 yarn dev && yarn start avadiplomatic
 yarn dev && yarn start avadiplomatic -u https://avadiplomatic.com/دکتر-سعد-سکندر-خان-موسسه-فرهنگی-اکو/
 
+yarn dev && yarn start irdiplomacy
+yarn dev && yarn start irdiplomacy -u http://www.irdiplomacy.ir/fa/news/2026055/اگر-چین-به-تایوان-حمله-کند
+
 https://motamem.org/
 /**/
