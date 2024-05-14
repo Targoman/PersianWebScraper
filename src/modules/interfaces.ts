@@ -461,6 +461,7 @@ export enum enuDomains {
     rayamarketing = "rayamarketing",
     raygansms = "raygansms",
     rcmajlis = "rcmajlis",
+    rcs = "rcs",
     revayatnameh = "revayatnameh",
     rokna = "rokna",
     romanman = "romanman",

@@ -4733,3 +4733,26 @@ export class irdiplomacy extends clsScrapper {
         })
     }
 }
+
+export class rcs extends clsScrapper {
+    constructor() {
+        super(enuDomains.rcs, "rcs.ir", {
+            selectors: {
+                article: ".news-view",
+                aboveTitle: "h6",
+                title: "h4",
+                subtitle: ".lead-t",
+                datetime: {
+                    conatiner: ".NewsDate",
+                },
+                content: {
+                    main: ".bc-news > .col-md-12",
+                },
+                tags: "ul.tag-container li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

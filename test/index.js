@@ -1977,5 +1977,8 @@ yarn dev && yarn start avadiplomatic -u https://avadiplomatic.com/دکتر-سع�
 yarn dev && yarn start irdiplomacy
 yarn dev && yarn start irdiplomacy -u http://www.irdiplomacy.ir/fa/news/2026055/اگر-چین-به-تایوان-حمله-کند
 
+yarn dev && yarn start rcs
+yarn dev && yarn start rcs -u https://rcs.ir/portal/newsview/215206
+
 https://motamem.org/
 /**/
