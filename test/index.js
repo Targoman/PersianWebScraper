@@ -1980,5 +1980,8 @@ yarn dev && yarn start irdiplomacy -u http://www.irdiplomacy.ir/fa/news/2026055/
 yarn dev && yarn start rcs
 yarn dev && yarn start rcs -u https://rcs.ir/portal/newsview/215206
 
+yarn dev && yarn start khuzpress
+yarn dev && yarn start khuzpress -u https://khuzpress.ir/news/25328/لزوم-ثبت-قرارداد-اجاره-مسکن-در-ساما
+
 https://motamem.org/
 /**/
