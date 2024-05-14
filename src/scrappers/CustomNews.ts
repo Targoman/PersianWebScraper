@@ -4770,15 +4770,7 @@ export class khuzpress extends clsScrapper {
                 },
                 content: {
                     main: ".Post-Content",
-                    // ignoreNodeClasses: ["addtoany_share_save_container", "row-small", "single-page-company-label"],
-                    // ignoreTexts: [/.*بیشتر بخوانید:.*/]
                 },
-                // comments: {
-                //     container: "ol.comment-list li article",
-                //     author: "cite.strong",
-                //     datetime: "time",
-                //     text: ".comment-content"
-                // },
                 category: {
                     selector: "ul.post-categories li a",
                     lastIndex: 2
@@ -4788,6 +4780,28 @@ export class khuzpress extends clsScrapper {
             url: {
                 removeWWW: true
             }
+        })
+    }
+}
+
+export class alnajm extends clsScrapper {
+    constructor() {
+        super(enuDomains.alnajm, "alnajm.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "a.post-cat",
+                    lastIndex: 2
+                },
+            },
         })
     }
 }

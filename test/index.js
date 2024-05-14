@@ -1983,5 +1983,8 @@ yarn dev && yarn start rcs -u https://rcs.ir/portal/newsview/215206
 yarn dev && yarn start khuzpress
 yarn dev && yarn start khuzpress -u https://khuzpress.ir/news/25328/لزوم-ثبت-قرارداد-اجاره-مسکن-در-ساما
 
+yarn dev && yarn start alnajm
+yarn dev && yarn start alnajm -u https://alnajm.ir/openai-اولین-شرکتی-است-که-دو-سال-متوالی-در-صد/
+
 https://motamem.org/
 /**/
