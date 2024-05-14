@@ -1986,5 +1986,8 @@ yarn dev && yarn start khuzpress -u https://khuzpress.ir/news/25328/لزوم-ث�
 yarn dev && yarn start alnajm
 yarn dev && yarn start alnajm -u https://alnajm.ir/openai-اولین-شرکتی-است-که-دو-سال-متوالی-در-صد/
 
+yarn dev && yarn start karotech 
+yarn dev && yarn start karotech -u https://karo.tech/nasa-capstone-satellite-heads-toward-moon/
+
 https://motamem.org/
 /**/

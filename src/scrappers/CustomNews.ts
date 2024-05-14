@@ -4805,3 +4805,27 @@ export class alnajm extends clsScrapper {
         })
     }
 }
+
+export class karotech extends clsScrapper {
+    constructor() {
+        super(enuDomains.karotech, "karo.tech", {
+            selectors: {
+                article: "#single-page",
+                title: "h1",
+                datetime: {
+                    conatiner: "#single-post-meta > div > span:nth-child(2)"
+                },
+                content: {
+                    main: "#single-post-content",
+                },
+                category: {
+                    selector: "#single-post-meta > div > a",
+                },
+                tags: ".single-tags a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
