@@ -2001,5 +2001,8 @@ yarn dev && yarn start evjaj -u https://www.evjaj.com/93070/uses-manisman-pipe-g
 yarn dev && yarn start sarpoosh
 yarn dev && yarn start sarpoosh -u https://www.sarpoosh.com/science/scientific-articles/types-nightingales-10.html
 
+yarn dev && yarn start ariamoons
+yarn dev && yarn start ariamoons -u https://ariamoons.com/tech-news/46502/meta-will-provide-some-of-its-data-to-third-party-researchers-through-an-open-science-center-partnership
+
 https://motamem.org/
 /**/

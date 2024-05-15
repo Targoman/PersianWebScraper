@@ -33,6 +33,7 @@ export enum enuDomains {
     arannews = "arannews",
     arazcloud = "arazcloud",
     arda = "arda",
+    ariamoons = "ariamoons",
     ariananews = "ariananews",
     armanekerman = "armanekerman",
     armanmeli = "armanmeli",

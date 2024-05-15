@@ -4895,3 +4895,24 @@ export class sarpoosh extends clsScrapper {
         })
     }
 }
+
+export class ariamoons extends clsScrapper {
+    constructor() {
+        super(enuDomains.ariamoons, "ariamoons.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post_content",
+                },
+                category: {
+                    selector: ".single_meta_category a",
+                },
+            },
+        })
+    }
+}
