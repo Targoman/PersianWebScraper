@@ -1989,5 +1989,8 @@ yarn dev && yarn start alnajm -u https://alnajm.ir/openai-اولین-شرکتی-
 yarn dev && yarn start karotech 
 yarn dev && yarn start karotech -u https://karo.tech/nasa-capstone-satellite-heads-toward-moon/
 
+yarn dev && yarn start ghalamnews
+yarn dev && yarn start ghalamnews -u https://ghalamnews.ir/fa/news/45034/ژن%E2%80%8Cهای-افسردگی-و-بیماری-قلبی-کشف-شد
+
 https://motamem.org/
 /**/
