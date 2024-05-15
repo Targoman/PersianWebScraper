@@ -4874,3 +4874,24 @@ export class evjaj extends clsScrapper {
         })
     }
 }
+
+export class sarpoosh extends clsScrapper {
+    constructor() {
+        super(enuDomains.sarpoosh, "sarpoosh.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody'] > div:nth-child(1)",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".brdcrm a"),
+                },
+            },
+        })
+    }
+}

@@ -1998,5 +1998,8 @@ yarn dev && yarn start sokannews -u https://sokannews.ir/صادرات-لوازم
 yarn dev && yarn start evjaj
 yarn dev && yarn start evjaj -u https://www.evjaj.com/93070/uses-manisman-pipe-gas-pipe-plica-in-the-industry/
 
+yarn dev && yarn start sarpoosh
+yarn dev && yarn start sarpoosh -u https://www.sarpoosh.com/science/scientific-articles/types-nightingales-10.html
+
 https://motamem.org/
 /**/
