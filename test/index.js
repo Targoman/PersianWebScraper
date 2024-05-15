@@ -1995,5 +1995,8 @@ yarn dev && yarn start ghalamnews -u https://ghalamnews.ir/fa/news/45034/ژن%E2
 yarn dev && yarn start sokannews
 yarn dev && yarn start sokannews -u https://sokannews.ir/صادرات-لوازم-خانگی-به-تانزانیا-استقبا/
 
+yarn dev && yarn start evjaj
+yarn dev && yarn start evjaj -u https://www.evjaj.com/93070/uses-manisman-pipe-gas-pipe-plica-in-the-industry/
+
 https://motamem.org/
 /**/

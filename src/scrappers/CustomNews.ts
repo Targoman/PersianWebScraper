@@ -4852,3 +4852,25 @@ export class sokannews extends clsScrapper {
         })
     }
 }
+
+export class evjaj extends clsScrapper {
+    constructor() {
+        super(enuDomains.evjaj, "evjaj.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lwptoc", "crp_related"]
+                },
+                category: {
+                    selector: "a.category",
+                },
+            },
+        })
+    }
+}

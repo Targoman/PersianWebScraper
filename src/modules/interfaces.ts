@@ -175,6 +175,7 @@ export enum enuDomains {
     etemadonline = "etemadonline",
     ettelaat = "ettelaat",
     euronews = "euronews",
+    evjaj = "evjaj",
     exbito = "exbito",
     eximnews = "eximnews",
     extern = "extern",
