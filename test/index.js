@@ -1992,5 +1992,8 @@ yarn dev && yarn start karotech -u https://karo.tech/nasa-capstone-satellite-hea
 yarn dev && yarn start ghalamnews
 yarn dev && yarn start ghalamnews -u https://ghalamnews.ir/fa/news/45034/ژن%E2%80%8Cهای-افسردگی-و-بیماری-قلبی-کشف-شد
 
+yarn dev && yarn start sokannews
+yarn dev && yarn start sokannews -u https://sokannews.ir/صادرات-لوازم-خانگی-به-تانزانیا-استقبا/
+
 https://motamem.org/
 /**/

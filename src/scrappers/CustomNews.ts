@@ -4829,3 +4829,26 @@ export class karotech extends clsScrapper {
         })
     }
 }
+
+export class sokannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sokannews, "sokannews.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2.single-post-title",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content .con",
+                },
+                category: {
+                    selector: ".meta-cat a",
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
