@@ -4942,3 +4942,29 @@ export class haftgard extends clsScrapper {
         })
     }
 }
+
+export class chekad extends clsScrapper {
+    constructor() {
+        super(enuDomains.chekad, "chekad.tv", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content p",
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/]
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a span"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

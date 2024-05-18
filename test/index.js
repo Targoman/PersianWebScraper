@@ -2007,5 +2007,8 @@ yarn dev && yarn start ariamoons -u https://ariamoons.com/tech-news/46502/meta-w
 yarn dev && yarn start haftgard 
 yarn dev && yarn start haftgard -u https://haftgard.ir/31072/
 
+yarn dev && yarn start chekad
+yarn dev && yarn start chekad -u https://chekad.tv/47102
+
 https://motamem.org/
 /**/
