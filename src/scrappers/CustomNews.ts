@@ -4916,3 +4916,29 @@ export class ariamoons extends clsScrapper {
         })
     }
 }
+
+export class haftgard extends clsScrapper {
+    constructor() {
+        super(enuDomains.haftgard, "haftgard.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: "p.summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-text",
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: ".tagcloud a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -222,6 +222,7 @@ export enum enuDomains {
     haal = "haal",
     hadese24 = "hadese24",
     hadith = "hadith",
+    haftgard = "haftgard",
     haje = "haje",
     hamgardi = "hamgardi",
     hamrah = "hamrah",
