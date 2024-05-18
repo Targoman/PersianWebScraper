@@ -1977,5 +1977,41 @@ yarn dev && yarn start avadiplomatic -u https://avadiplomatic.com/دکتر-سع�
 yarn dev && yarn start irdiplomacy
 yarn dev && yarn start irdiplomacy -u http://www.irdiplomacy.ir/fa/news/2026055/اگر-چین-به-تایوان-حمله-کند
 
+yarn dev && yarn start rcs
+yarn dev && yarn start rcs -u https://rcs.ir/portal/newsview/215206
+
+yarn dev && yarn start khuzpress
+yarn dev && yarn start khuzpress -u https://khuzpress.ir/news/25328/لزوم-ثبت-قرارداد-اجاره-مسکن-در-ساما
+
+yarn dev && yarn start alnajm
+yarn dev && yarn start alnajm -u https://alnajm.ir/openai-اولین-شرکتی-است-که-دو-سال-متوالی-در-صد/
+
+yarn dev && yarn start karotech 
+yarn dev && yarn start karotech -u https://karo.tech/nasa-capstone-satellite-heads-toward-moon/
+
+yarn dev && yarn start ghalamnews
+yarn dev && yarn start ghalamnews -u https://ghalamnews.ir/fa/news/45034/ژن%E2%80%8Cهای-افسردگی-و-بیماری-قلبی-کشف-شد
+
+yarn dev && yarn start sokannews
+yarn dev && yarn start sokannews -u https://sokannews.ir/صادرات-لوازم-خانگی-به-تانزانیا-استقبا/
+
+yarn dev && yarn start evjaj
+yarn dev && yarn start evjaj -u https://www.evjaj.com/93070/uses-manisman-pipe-gas-pipe-plica-in-the-industry/
+
+yarn dev && yarn start sarpoosh
+yarn dev && yarn start sarpoosh -u https://www.sarpoosh.com/science/scientific-articles/types-nightingales-10.html
+
+yarn dev && yarn start ariamoons
+yarn dev && yarn start ariamoons -u https://ariamoons.com/tech-news/46502/meta-will-provide-some-of-its-data-to-third-party-researchers-through-an-open-science-center-partnership
+
+yarn dev && yarn start haftgard 
+yarn dev && yarn start haftgard -u https://haftgard.ir/31072/
+
+yarn dev && yarn start chekad
+yarn dev && yarn start chekad -u https://chekad.tv/47102
+
+yarn dev && yarn start tccim
+yarn dev && yarn start tccim -u "https://news.tccim.ir/story?nid=77845&title=اتاق-بازرگانی-تهران-عهده-دار-حکمرانی-سازمانی-در-تراز-ملی-شد"
+
 https://motamem.org/
 /**/
