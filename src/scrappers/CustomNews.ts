@@ -4991,3 +4991,25 @@ export class naftonline extends clsScrapper {
         })
     }
 }
+
+export class tccim extends clsScrapper {
+    constructor() {
+        super(enuDomains.tccim, "news.tccim.ir", {
+            selectors: {
+                article: ".col-md-8.mb-5",
+                title: "h7",
+                subtitle: "h3",
+                summary: ".pb-2.pt-4",
+                datetime: {
+                    conatiner: ".share-link-box ol.breadcrumb li:nth-child(1)"
+                },
+                content: {
+                    main: ".col-md-12.wow.fadeInUp.text-justify",
+                }, 
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

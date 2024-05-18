@@ -561,6 +561,7 @@ export enum enuDomains {
     tarjomic = "tarjomic",
     tasnim = "tasnim",
     tazenews = "tazenews",
+    tccim = "tccim",
     tebna = "tebna",
     tebyan = "tebyan",
     techfars = "techfars",

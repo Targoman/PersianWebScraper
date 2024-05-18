@@ -2010,5 +2010,8 @@ yarn dev && yarn start haftgard -u https://haftgard.ir/31072/
 yarn dev && yarn start chekad
 yarn dev && yarn start chekad -u https://chekad.tv/47102
 
+yarn dev && yarn start tccim
+yarn dev && yarn start tccim -u "https://news.tccim.ir/story?nid=77845&title=اتاق-بازرگانی-تهران-عهده-دار-حکمرانی-سازمانی-در-تراز-ملی-شد"
+
 https://motamem.org/
 /**/
