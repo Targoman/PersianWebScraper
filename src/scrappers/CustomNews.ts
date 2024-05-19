@@ -5043,3 +5043,23 @@ export class golvani extends clsScrapper {
         })
     }
 }
+
+export class filcin extends clsScrapper {
+    constructor() {
+        super(enuDomains.filcin, "filcin.com", {
+            selectors: {
+                article: ".col-md-8  .news-main-contt-tpl-nyn05",
+                title: "h1",
+                subtitle: "h2",
+                datetime: {
+                    conatiner: ".details-nyn05 ul li span"
+                },
+                content: {
+                    main: ".contex-nyn05",
+                    ignoreNodeClasses: ["tags-tpl-nyn05"]
+                },
+                tags: ".tags-tpl-nyn05 a"
+            },
+        })
+    }
+}

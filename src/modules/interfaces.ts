@@ -199,6 +199,7 @@ export enum enuDomains {
     fartaknews = "fartaknews",
     felezatkhavarmianeh = "felezatkhavarmianeh",
     fhnews = "fhnews",
+    filcin = "filcin",
     filmcinemanews = "filmcinemanews",
     filimoshot = "filimoshot",
     filmmagazine = "filmmagazine",

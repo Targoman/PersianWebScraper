@@ -2017,5 +2017,8 @@ yarn dev && yarn start golvani
 yarn dev && yarn start golvani -u https://golvani.ir/1402/09/از-بلوط-تا-کهور/
 yarn dev && yarn start golvani -u https://golvani.ir/1400/05/جنگل-های-زاگرسی/
 
+yarn dev && yarn start filcin
+yarn dev && yarn start filcin -u https://filcin.com/news/7495
+
 https://motamem.org/
 /**/
