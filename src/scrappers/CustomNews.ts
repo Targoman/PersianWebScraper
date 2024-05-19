@@ -5085,3 +5085,25 @@ export class ilamrouydad extends clsScrapper {
         })
     }
 }
+
+export class ilamebidar extends clsScrapper {
+    constructor() {
+        super(enuDomains.ilamebidar, "ilamebidar.ir", {
+            selectors: {
+                article: ".post-body",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h6"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".w-full.p-3.mt-3"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".p-3 .mr-3"),
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-body"),
+                },
+                category: { 
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".ml-3.date") 
+                }
+            },
+        })
+    }
+}
