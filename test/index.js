@@ -2020,5 +2020,8 @@ yarn dev && yarn start golvani -u https://golvani.ir/1400/05/جنگل-های-ز�
 yarn dev && yarn start filcin
 yarn dev && yarn start filcin -u https://filcin.com/news/7495
 
+yarn dev && yarn start ilamrouydad 
+yarn dev && yarn start ilamrouydad -u https://ilamrouydad.ir/news/i/4850/انبار-سیلوی-ذخیره-گندم-در-دره-شهر-احداث-می-شود
+
 https://motamem.org/
 /**/

@@ -5063,3 +5063,25 @@ export class filcin extends clsScrapper {
         })
     }
 }
+
+export class ilamrouydad extends clsScrapper {
+    constructor() {
+        super(enuDomains.ilamrouydad, "ilamrouydad.ir", {
+            selectors: {
+                article: ".txtMain",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".h30"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".rel.pull-left.ltr"),
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".txtMain"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.tags")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
