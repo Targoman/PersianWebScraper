@@ -5013,3 +5013,33 @@ export class tccim extends clsScrapper {
         })
     }
 }
+
+export class golvani extends clsScrapper {
+    constructor() {
+        super(enuDomains.golvani, "golvani.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .comment"),
+                    author: ".wpd-comment-author",
+                    text: ".wpd-comment-text"
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a span"
+                },
+                tags: ".post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

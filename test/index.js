@@ -2013,5 +2013,9 @@ yarn dev && yarn start chekad -u https://chekad.tv/47102
 yarn dev && yarn start tccim
 yarn dev && yarn start tccim -u "https://news.tccim.ir/story?nid=77845&title=اتاق-بازرگانی-تهران-عهده-دار-حکمرانی-سازمانی-در-تراز-ملی-شد"
 
+yarn dev && yarn start golvani
+yarn dev && yarn start golvani -u https://golvani.ir/1402/09/از-بلوط-تا-کهور/
+yarn dev && yarn start golvani -u https://golvani.ir/1400/05/جنگل-های-زاگرسی/
+
 https://motamem.org/
 /**/
