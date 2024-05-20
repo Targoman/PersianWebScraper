@@ -456,6 +456,7 @@ export enum enuDomains {
     pooyeonline = "pooyeonline",
     porsan = "porsan",
     portal = "portal",
+    prisons = "prisons",
     psarena = "psarena",
     pspro = "pspro",
     purson = "purson",

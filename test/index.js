@@ -2029,5 +2029,8 @@ yarn dev && yarn start ilamebidar -u https://www.ilamebidar.ir/news/65446/هوا
 yarn dev && yarn start ilamrasaneh
 yarn dev && yarn start ilamrasaneh -u https://ilamrasaneh.ir/تعویض-همزمان-الکتروموتور-و-پمپ-شناور-چ/
 
+yarn dev && yarn start prisons 
+yarn dev && yarn start prisons -u https://www.prisons.ir/news/19168/آزادی-۴۵-زندانی-در-قزوین
+
 https://motamem.org/
 /**/

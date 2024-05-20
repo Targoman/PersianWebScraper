@@ -1173,3 +1173,16 @@ export class ahannews extends clsNastoohBased {
         super(enuDomains.ahannews, "ahan-news.com")
     }
 }
+
+export class prisons extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.ahannews, "prisons.ir", {
+            selectors: {
+                aboveTitle: "h4",
+                content: {
+                    main: ".item-body",
+                },               
+            },
+        })    
+    }
+}
