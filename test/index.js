@@ -2026,5 +2026,8 @@ yarn dev && yarn start ilamrouydad -u https://ilamrouydad.ir/news/i/4850/انب�
 yarn dev && yarn start ilamebidar
 yarn dev && yarn start ilamebidar -u https://www.ilamebidar.ir/news/65446/هوای-ایلام-گرم-میشود
 
+yarn dev && yarn start ilamrasaneh
+yarn dev && yarn start ilamrasaneh -u https://ilamrasaneh.ir/تعویض-همزمان-الکتروموتور-و-پمپ-شناور-چ/
+
 https://motamem.org/
 /**/

@@ -258,6 +258,7 @@ export enum enuDomains {
     ifsm = "ifsm",
     iichs = "iichs",
     ilamebidar = "ilamebidar",
+    ilamrasaneh = "ilamrasaneh",
     ilamrouydad = "ilamrouydad",
     iliadmag = "iliadmag",
     ilna = "ilna",

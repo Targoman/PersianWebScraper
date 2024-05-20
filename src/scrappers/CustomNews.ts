@@ -5107,3 +5107,28 @@ export class ilamebidar extends clsScrapper {
         })
     }
 }
+
+export class ilamrasaneh extends clsScrapper {
+    constructor() {
+        super(enuDomains.ilamrasaneh, "ilamrasaneh.ir", {
+            selectors: {
+                article: ".conte",
+                aboveTitle: ".rotitle",
+                title: "h2.title",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "span:nth-child(5)",
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
