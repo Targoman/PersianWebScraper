@@ -5157,3 +5157,25 @@ export class hadeseilam extends clsScrapper {
         })
     }
 }
+
+export class ofoghilam extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghilam, "ofoghilam.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

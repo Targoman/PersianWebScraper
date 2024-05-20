@@ -416,6 +416,7 @@ export enum enuDomains {
     noozdahkala = "noozdahkala",
     novin = "novin",
     ofoghetazenews = "ofoghetazenews",
+    ofoghilam = "ofoghilam",
     ofoghjonoub = "ofoghjonoub",
     ofoghnews = "ofoghnews",
     oghyanos = "oghyanos",

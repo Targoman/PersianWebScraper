@@ -2035,5 +2035,8 @@ yarn dev && yarn start prisons -u https://www.prisons.ir/news/19168/آزادی-�
 yarn dev && yarn start hadeseilam
 yarn dev && yarn start hadeseilam -u https://hadeseilam.ir/1403/02/26/بیش-از-۱۳-هزار-میلیاردریال-از-مطالبات-گ/
 
+yarn dev && yarn start ofoghilam
+yarn dev && yarn start ofoghilam -u https://ofoghilam.ir/رئیس-سازمان-مدیریت-بحران-کشور-نقش-مؤثر/
+
 https://motamem.org/
 /**/
