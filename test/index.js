@@ -2032,5 +2032,8 @@ yarn dev && yarn start ilamrasaneh -u https://ilamrasaneh.ir/تعویض-همزم
 yarn dev && yarn start prisons 
 yarn dev && yarn start prisons -u https://www.prisons.ir/news/19168/آزادی-۴۵-زندانی-در-قزوین
 
+yarn dev && yarn start hadeseilam
+yarn dev && yarn start hadeseilam -u https://hadeseilam.ir/1403/02/26/بیش-از-۱۳-هزار-میلیاردریال-از-مطالبات-گ/
+
 https://motamem.org/
 /**/

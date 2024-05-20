@@ -5132,3 +5132,28 @@ export class ilamrasaneh extends clsScrapper {
         })
     }
 }
+
+export class hadeseilam extends clsScrapper {
+    constructor() {
+        super(enuDomains.hadeseilam, "hadeseilam.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".crumbs a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+        })
+    }
+}
