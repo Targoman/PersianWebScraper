@@ -5211,3 +5211,29 @@ export class yaftenews extends clsScrapper {
         })
     }
 }
+
+export class varknews extends clsScrapper {
+    constructor() {
+        super(enuDomains.varknews, "varknews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".short-content",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: ".full-content",
+                },
+                category: {
+                    selector: ".the-cat a",
+                    lastIndex: 2
+                },
+                tags: ".post-tags .footer ul li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

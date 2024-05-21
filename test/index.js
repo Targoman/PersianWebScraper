@@ -2042,5 +2042,9 @@ yarn dev && yarn start yaftenews
 yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/other/45880-presidential-election.html
 yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/social/30865-coronary-artery-disease-statistics13.html
 
+yarn dev && yarn start varknews
+yarn dev && yarn start varknews -u https://varknews.ir/37369/شناسایی-۱۵۰-نقطه-بحرانی-در-لرستان.html
+yarn dev && yarn start varknews -u https://varknews.ir/78/گلایه-مندی-استاندار-از-وزارت-راه-و-شهرس.html
+
 https://motamem.org/
 /**/
