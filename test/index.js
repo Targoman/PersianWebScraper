@@ -2046,5 +2046,8 @@ yarn dev && yarn start varknews
 yarn dev && yarn start varknews -u https://varknews.ir/37369/شناسایی-۱۵۰-نقطه-بحرانی-در-لرستان.html
 yarn dev && yarn start varknews -u https://varknews.ir/78/گلایه-مندی-استاندار-از-وزارت-راه-و-شهرس.html
 
+yarn dev && yarn start safirelorestan
+yarn dev && yarn start safirelorestan -u https://safirelorestan.ir/social/9429-2024-05-20-20-41-23
+
 https://motamem.org/
 /**/
