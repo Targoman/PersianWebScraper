@@ -624,6 +624,7 @@ export enum enuDomains {
     wikisource = "wikisource",
     wikivoyage = "wikivoyage",
     wppersian = "wppersian",
+    yaftenews = "yaftenews",
     yekpezeshk = "yekpezeshk",
     yektanet = "yektanet",
     yjc = "yjc",

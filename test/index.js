@@ -2038,5 +2038,9 @@ yarn dev && yarn start hadeseilam -u https://hadeseilam.ir/1403/02/26/بیش-ا�
 yarn dev && yarn start ofoghilam
 yarn dev && yarn start ofoghilam -u https://ofoghilam.ir/رئیس-سازمان-مدیریت-بحران-کشور-نقش-مؤثر/
 
+yarn dev && yarn start yaftenews
+yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/other/45880-presidential-election.html
+yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/social/30865-coronary-artery-disease-statistics13.html
+
 https://motamem.org/
 /**/

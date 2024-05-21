@@ -5179,3 +5179,35 @@ export class ofoghilam extends clsScrapper {
         })
     }
 }
+
+export class yaftenews extends clsScrapper {
+    constructor() {
+        super(enuDomains.yaftenews, "yaftenews.ir", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: "[itemprop='rotitr']",
+                title: "h2",
+                subtitle: "[itemprop='zirtitr']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || el.textContent?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                comments: {
+                    container: ".comments-list div",
+                    author: ".comment-author",
+                    datetime: ".comment-date",
+                    text: ".comment-body"
+                },
+                category: {
+                    selector: "[itemprop='genre']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
