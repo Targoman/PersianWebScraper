@@ -4,6 +4,7 @@ import { IntfRequestParams } from "./request"
 
 export enum enuDomains {
     aa = "aa",
+    abadannews = "abadannews",
     abantether = "abantether",
     achareh = "achareh",
     activeidea = "activeidea",

@@ -5285,3 +5285,31 @@ export class khoramabadfarda extends clsScrapper {
         })
     }
 }
+
+export class abadannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.abadannews, "abadannews.com", {
+            selectors: {
+                article: "#PrintArea",
+                title: "h1",
+                summary: ".item-summary",
+                datetime: {
+                    conatiner: ".item-date > ul > li > span"
+                },
+                content: {
+                    main: "[align='center'] > div > #printarea2 > .item-body > .item-text",
+                    ignoreNodeClasses: ["news-text"],
+                    ignoreTexts: [/.*گفتمانی آبادان نیوز.*/]
+
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb font"),
+                    startIndex: 1
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
