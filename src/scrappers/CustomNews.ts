@@ -5246,10 +5246,34 @@ export class safirelorestan extends clsScrapper {
                 title: "h2",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
-                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || el.textContent?.substring(0, 10) || "NO_DATE"
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
                 },
                 content: {
                     main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: "[itemprop='genre']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class khoramabadfarda extends clsScrapper {
+    constructor() {
+        super(enuDomains.khoramabadfarda, "khoramabadfarda.ir", {
+            selectors: {
+                article: ".item-page",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10)|| "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody'] .entry",
                 },
                 category: {
                     selector: "[itemprop='genre']",
