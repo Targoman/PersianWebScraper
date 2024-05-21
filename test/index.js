@@ -2013,5 +2013,44 @@ yarn dev && yarn start chekad -u https://chekad.tv/47102
 yarn dev && yarn start tccim
 yarn dev && yarn start tccim -u "https://news.tccim.ir/story?nid=77845&title=اتاق-بازرگانی-تهران-عهده-دار-حکمرانی-سازمانی-در-تراز-ملی-شد"
 
+yarn dev && yarn start golvani
+yarn dev && yarn start golvani -u https://golvani.ir/1402/09/از-بلوط-تا-کهور/
+yarn dev && yarn start golvani -u https://golvani.ir/1400/05/جنگل-های-زاگرسی/
+
+yarn dev && yarn start filcin
+yarn dev && yarn start filcin -u https://filcin.com/news/7495
+
+yarn dev && yarn start ilamrouydad 
+yarn dev && yarn start ilamrouydad -u https://ilamrouydad.ir/news/i/4850/انبار-سیلوی-ذخیره-گندم-در-دره-شهر-احداث-می-شود
+
+yarn dev && yarn start ilamebidar
+yarn dev && yarn start ilamebidar -u https://www.ilamebidar.ir/news/65446/هوای-ایلام-گرم-میشود
+
+yarn dev && yarn start ilamrasaneh
+yarn dev && yarn start ilamrasaneh -u https://ilamrasaneh.ir/تعویض-همزمان-الکتروموتور-و-پمپ-شناور-چ/
+
+yarn dev && yarn start prisons 
+yarn dev && yarn start prisons -u https://www.prisons.ir/news/19168/آزادی-۴۵-زندانی-در-قزوین
+
+yarn dev && yarn start hadeseilam
+yarn dev && yarn start hadeseilam -u https://hadeseilam.ir/1403/02/26/بیش-از-۱۳-هزار-میلیاردریال-از-مطالبات-گ/
+
+yarn dev && yarn start ofoghilam
+yarn dev && yarn start ofoghilam -u https://ofoghilam.ir/رئیس-سازمان-مدیریت-بحران-کشور-نقش-مؤثر/
+
+yarn dev && yarn start yaftenews
+yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/other/45880-presidential-election.html
+yarn dev && yarn start yaftenews -u https://yaftenews.ir/news/social/30865-coronary-artery-disease-statistics13.html
+
+yarn dev && yarn start varknews
+yarn dev && yarn start varknews -u https://varknews.ir/37369/شناسایی-۱۵۰-نقطه-بحرانی-در-لرستان.html
+yarn dev && yarn start varknews -u https://varknews.ir/78/گلایه-مندی-استاندار-از-وزارت-راه-و-شهرس.html
+
+yarn dev && yarn start safirelorestan
+yarn dev && yarn start safirelorestan -u https://safirelorestan.ir/social/9429-2024-05-20-20-41-23
+
+yarn dev && yarn start abadannews
+yarn dev && yarn start abadannews -u "http://www.abadannews.com/index.aspx?fkeyid=&siteid=1&pageid=162&newsview=31215"
+
 https://motamem.org/
 /**/
