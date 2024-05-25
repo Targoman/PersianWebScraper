@@ -20,6 +20,7 @@ export enum enuDomains {
     akharinkhabar = "akharinkhabar",
     akharinkhodro = "akharinkhodro",
     akhbarelmi = "akhbarelmi",
+    alborzvarzeshi = "alborzvarzeshi",
     alef = "alef",
     alnajm = "alnajm",
     alodoctor = "alodoctor",

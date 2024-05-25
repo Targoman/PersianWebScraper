@@ -5335,3 +5335,26 @@ export class avaalborznews extends clsScrapper {
         })
     }
 }
+
+export class alborzvarzeshi extends clsScrapper {
+    constructor() {
+        super(enuDomains.alborzvarzeshi, "alborzvarzeshi.com", {
+            selectors: {
+                article: ".single-post",
+                aboveTitle: ".post-title-area > a",
+                title: "h2.post-title",
+                subtitle: ".pull-left",
+                datetime: {
+                    conatiner: ".post-meta ul li:nth-child(2) span",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["pull-left"]
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

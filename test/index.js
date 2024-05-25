@@ -2055,5 +2055,8 @@ yarn dev && yarn start abadannews -u "http://www.abadannews.com/index.aspx?fkeyi
 yarn dev && yarn start avaalborznews
 yarn dev && yarn start avaalborznews -u https://avaalborznews.ir/هوش-مصنوعی-به-نرمافزارهای-حقوقی-اضاف/
 
+yarn dev && yarn start alborzvarzeshi
+yarn dev && yarn start alborzvarzeshi -u "https://alborzvarzeshi.com/News/d?id=34421&ts=14030305120719416"
+
 https://motamem.org/
 /**/
