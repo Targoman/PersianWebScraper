@@ -2052,5 +2052,8 @@ yarn dev && yarn start safirelorestan -u https://safirelorestan.ir/social/9429-2
 yarn dev && yarn start abadannews
 yarn dev && yarn start abadannews -u "http://www.abadannews.com/index.aspx?fkeyid=&siteid=1&pageid=162&newsview=31215"
 
+yarn dev && yarn start avaalborznews
+yarn dev && yarn start avaalborznews -u https://avaalborznews.ir/هوش-مصنوعی-به-نرمافزارهای-حقوقی-اضاف/
+
 https://motamem.org/
 /**/

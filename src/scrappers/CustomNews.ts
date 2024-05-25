@@ -5313,3 +5313,25 @@ export class abadannews extends clsScrapper {
         })
     }
 }
+
+export class avaalborznews extends clsScrapper {
+    constructor() {
+        super(enuDomains.avaalborznews, "avaalborznews.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle h5, .contentsingle p",
+                    ignoreTexts: [/.*بخوانید....*/]
+                },
+                tags: "a[rel='tag']"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
