@@ -323,6 +323,7 @@ export enum enuDomains {
     karokasb = "karokasb",
     karotech = "karotech",
     kayhan = "kayhan",
+    kebnanews = "kebnanews",
     keshavarzplus = "keshavarzplus",
     ketabnews = "ketabnews",
     khabaredagh = "khabaredagh",
