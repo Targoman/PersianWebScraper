@@ -2052,5 +2052,14 @@ yarn dev && yarn start safirelorestan -u https://safirelorestan.ir/social/9429-2
 yarn dev && yarn start abadannews
 yarn dev && yarn start abadannews -u "http://www.abadannews.com/index.aspx?fkeyid=&siteid=1&pageid=162&newsview=31215"
 
+yarn dev && yarn start avaalborznews
+yarn dev && yarn start avaalborznews -u https://avaalborznews.ir/هوش-مصنوعی-به-نرمافزارهای-حقوقی-اضاف/
+
+yarn dev && yarn start alborzvarzeshi
+yarn dev && yarn start alborzvarzeshi -u "https://alborzvarzeshi.com/News/d?id=34421&ts=14030305120719416"
+
+yarn dev && yarn start boyernews
+yarn dev && yarn start boyernews -u https://boyernews.com/360480/آغاز-و-همه-گیری-یک-فرهنگ-خوب-در-بویراحمد/
+
 https://motamem.org/
 /**/
