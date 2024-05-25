@@ -3007,3 +3007,31 @@ export class ghalamnews extends clsIransamaneh {
         })
     }
 }
+
+export class asrdena extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.asrdena, "asrdena.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                aboveTitle: ".news_rutitr",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || el.textContent?.substring(7) || "NO_DATE",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comm_t div .comments_item"),
+                    author: ".comm_info_name",
+                    text: ".comments"
+                },    
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -2061,5 +2061,8 @@ yarn dev && yarn start alborzvarzeshi -u "https://alborzvarzeshi.com/News/d?id=3
 yarn dev && yarn start boyernews
 yarn dev && yarn start boyernews -u https://boyernews.com/360480/آغاز-و-همه-گیری-یک-فرهنگ-خوب-در-بویراحمد/
 
+yarn dev && yarn start asrdena
+yarn dev && yarn start asrdena -u https://asrdena.ir/fa/news/23396/شهر-یاسوج-و-المان-های-بیگانه-با-فرهنگ-بومی-و-محلی
+
 https://motamem.org/
 /**/
