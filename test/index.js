@@ -2058,5 +2058,8 @@ yarn dev && yarn start avaalborznews -u https://avaalborznews.ir/هوش-مصنو
 yarn dev && yarn start alborzvarzeshi
 yarn dev && yarn start alborzvarzeshi -u "https://alborzvarzeshi.com/News/d?id=34421&ts=14030305120719416"
 
+yarn dev && yarn start boyernews
+yarn dev && yarn start boyernews -u https://boyernews.com/360480/آغاز-و-همه-گیری-یک-فرهنگ-خوب-در-بویراحمد/
+
 https://motamem.org/
 /**/

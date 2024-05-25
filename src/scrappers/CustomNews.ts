@@ -5358,3 +5358,25 @@ export class alborzvarzeshi extends clsScrapper {
         })
     }
 }
+
+export class boyernews extends clsScrapper {
+    constructor() {
+        super(enuDomains.boyernews, "boyernews.com", {
+            selectors: {
+                article: ".panel-default",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
