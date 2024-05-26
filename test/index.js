@@ -2064,5 +2064,8 @@ yarn dev && yarn start boyernews -u https://boyernews.com/360480/آغاز-و-ه�
 yarn dev && yarn start asrdena
 yarn dev && yarn start asrdena -u https://asrdena.ir/fa/news/23396/شهر-یاسوج-و-المان-های-بیگانه-با-فرهنگ-بومی-و-محلی
 
+yarn dev && yarn start mrud
+yarn dev && yarn start mrud -u http://news.mrud.ir/news/167990/نماینده-اداره-کل-راه-و-شهرسازی-استان-سمنان-در-سامد-حضور-یافت
+
 https://motamem.org/
 /**/

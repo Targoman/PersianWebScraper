@@ -399,6 +399,7 @@ export enum enuDomains {
     moshaveranetahsili = "moshaveranetahsili",
     mostaghelonline = "mostaghelonline",
     motamem = "motamem",
+    mrud = "mrud",
     myket = "myket",
     nabzefanavari = "nabzefanavari",
     nabzemarketing = "nabzemarketing",
