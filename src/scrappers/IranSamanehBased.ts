@@ -3035,3 +3035,21 @@ export class asrdena extends clsIransamaneh {
         })
     }
 }
+
+export class defapress extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.defapress, "defapress.ir", {
+            selectors: {
+                article: ".pb-news-body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || el.textContent?.substring(7) || "NO_DATE",
+                },
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ur", "/en", "/ar"]
+            }
+        })
+    }
+}
