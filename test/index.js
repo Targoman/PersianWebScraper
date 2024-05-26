@@ -2067,5 +2067,8 @@ yarn dev && yarn start asrdena -u https://asrdena.ir/fa/news/23396/شهر-یاس
 yarn dev && yarn start mrud
 yarn dev && yarn start mrud -u http://news.mrud.ir/news/167990/نماینده-اداره-کل-راه-و-شهرسازی-استان-سمنان-در-سامد-حضور-یافت
 
+yarn dev && yarn start raaknews
+yarn dev && yarn start raaknews -u http://raaknews.com/53797-خرید-۷-هزار-تن-گندم-از-کشاورزان-شهرستان-های-گرم%E2%80%8Cسیری-کهگیلویه-و-بویراحمد.html
+
 https://motamem.org/
 /**/

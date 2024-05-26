@@ -5405,3 +5405,27 @@ export class kebnanews extends clsScrapper {
         })
     }
 }
+
+export class raaknews extends clsScrapper {
+    constructor() {
+        super(enuDomains.raaknews, "raaknews.com", {
+            selectors: {
+                article: ".text_title",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".text_short"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".text_date")
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".hbox4_cont"),
+                    ignoreNodeClasses: ["text_short"],
+                    ignoreTexts: [/.*اخبار مرتبط:.*/, /.*اشتراک گزاری.*/]
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
