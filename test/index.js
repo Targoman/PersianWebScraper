@@ -2070,5 +2070,8 @@ yarn dev && yarn start mrud -u http://news.mrud.ir/news/167990/نماینده-ا
 yarn dev && yarn start raaknews
 yarn dev && yarn start raaknews -u http://raaknews.com/53797-خرید-۷-هزار-تن-گندم-از-کشاورزان-شهرستان-های-گرم%E2%80%8Cسیری-کهگیلویه-و-بویراحمد.html
 
+yarn dev && yarn start diyareaftab
+yarn dev && yarn start diyareaftab -u https://diyareaftab.ir/story/آیین-رونمایی-از-کتابچه-نخبه%E2%80%8Cپارچین-برگزار-شد
+
 https://motamem.org/
 /**/

@@ -5429,3 +5429,28 @@ export class raaknews extends clsScrapper {
         })
     }
 }
+
+export class diyareaftab extends clsScrapper {
+    constructor() {
+        super(enuDomains.diyareaftab, "diyareaftab.ir", {
+            selectors: {
+                article: ".content.into",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".date-into"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: ".breadcrumb li a",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
