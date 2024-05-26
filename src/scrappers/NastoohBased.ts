@@ -1186,3 +1186,25 @@ export class prisons extends clsNastoohBased {
         })    
     }
 }
+
+export class mrud extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.mrud, "news.mrud.ir", {
+            selectors: {
+                subtitle: ".lead",
+                content: {
+                    main: ".body",
+                },         
+                category: {
+                    selector: ".item-service a"
+                },
+                tags: ".news-tag section ul li a"      
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })    
+    }
+}
+
