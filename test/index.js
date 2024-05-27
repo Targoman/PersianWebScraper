@@ -2077,5 +2077,8 @@ yarn dev && yarn start faslejonoob
 yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/آزادی-32-زندانی-جرائم-غیرعمد-از-زندانه/
 yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/محمد-بهرامی-5/
 
+yarn dev && yarn start msrt
+yarn dev && yarn start msrt -u https://www.msrt.ir/fa/news/85733/امضای-تفاهم-نامه-همکاری-سازمان-پژوهش-های-علمی-و-صنعتی-ایران-و-دانشگاه-علم-و-فرهنگ
+
 https://motamem.org/
 /**/

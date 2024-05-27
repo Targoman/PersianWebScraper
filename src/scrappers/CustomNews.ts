@@ -5479,3 +5479,25 @@ export class faslejonoob extends clsScrapper {
         })
     }
 }
+
+export class msrt extends clsScrapper {
+    constructor() {
+        super(enuDomains.msrt, "msrt.ir", {
+            selectors: {
+                article: ".article-view",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date-info",
+                },
+                content: {
+                    main: ".content",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                extraInvalidStartPaths: ["/en"]
+            }
+        })
+    }
+}
