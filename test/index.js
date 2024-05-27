@@ -2083,5 +2083,9 @@ yarn dev && yarn start msrt -u https://www.msrt.ir/fa/news/85733/امضای-تف
 yarn dev && yarn start hamedanonline
 yarn dev && yarn start hamedanonline -u https://hamedanonline.ir/2024/05/27/نامگذاری-شهرک-های-نهضت-ملی-مسکن-ملایر-ب/
 
+yarn dev && yarn start fardayekerman
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/46052
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/784
+
 https://motamem.org/
 /**/

@@ -5524,3 +5524,31 @@ export class hamedanonline extends clsScrapper {
         })
     }
 }
+
+export class fardayekerman extends clsScrapper {
+    constructor() {
+        super(enuDomains.fardayekerman, "fardayekerman.ir", {
+            selectors: {
+                article: "article.article",
+                aboveTitle: ".kicker",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".article-body",
+                },
+                category: {
+                    selector: ".article-category-link",
+                    lastIndex: 1
+                },
+                tags: ".tag-items .tag a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
