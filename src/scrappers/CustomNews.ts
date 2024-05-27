@@ -5501,3 +5501,26 @@ export class msrt extends clsScrapper {
         })
     }
 }
+
+export class hamedanonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.hamedanonline, "hamedanonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: ".post-cat-wrap a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

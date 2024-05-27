@@ -2080,5 +2080,8 @@ yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/محمد-بهرام
 yarn dev && yarn start msrt
 yarn dev && yarn start msrt -u https://www.msrt.ir/fa/news/85733/امضای-تفاهم-نامه-همکاری-سازمان-پژوهش-های-علمی-و-صنعتی-ایران-و-دانشگاه-علم-و-فرهنگ
 
+yarn dev && yarn start hamedanonline
+yarn dev && yarn start hamedanonline -u https://hamedanonline.ir/2024/05/27/نامگذاری-شهرک-های-نهضت-ملی-مسکن-ملایر-ب/
+
 https://motamem.org/
 /**/
