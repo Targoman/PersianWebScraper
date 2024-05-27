@@ -2073,5 +2073,9 @@ yarn dev && yarn start raaknews -u http://raaknews.com/53797-خرید-۷-هزا�
 yarn dev && yarn start diyareaftab
 yarn dev && yarn start diyareaftab -u https://diyareaftab.ir/story/آیین-رونمایی-از-کتابچه-نخبه%E2%80%8Cپارچین-برگزار-شد
 
+yarn dev && yarn start faslejonoob
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/آزادی-32-زندانی-جرائم-غیرعمد-از-زندانه/
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/محمد-بهرامی-5/
+
 https://motamem.org/
 /**/

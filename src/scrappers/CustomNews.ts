@@ -5454,3 +5454,28 @@ export class diyareaftab extends clsScrapper {
         })
     }
 }
+
+export class faslejonoob extends clsScrapper {
+    constructor() {
+        super(enuDomains.faslejonoob, "faslejonoob.ir", {
+            basePath: "/?s",
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".hed_title",
+                title: "h1",
+                subtitle: ".short_desck_body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news_article_body",
+                },
+                tags: ".footer-single a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
