@@ -2096,5 +2096,8 @@ yarn dev && yarn start kermaneno -u https://kermaneno.ir/society/خانواده-
 yarn dev && yarn start esfahanzibaonline
 yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/چهارباغِ-هزارداستان
 
+yarn dev && yarn start asreesfahannews 
+yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-۷۰۰-سکه-خارج-شده-و4-سال-بعد-فهمیدن/
+
 https://motamem.org/
 /**/

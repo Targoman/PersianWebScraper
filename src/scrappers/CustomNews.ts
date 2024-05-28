@@ -5588,7 +5588,7 @@ export class esfahanzibaonline extends clsScrapper {
                 article: "body.single-post",
                 aboveTitle: "h5",
                 title: "h1",
-                summary: ".excerpt",
+                subtitle: ".excerpt",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
                     splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
@@ -5598,6 +5598,34 @@ export class esfahanzibaonline extends clsScrapper {
                 },
                 category: {
                     selector: ".col-6.col-md-8 span span a"
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class asreesfahannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.asreesfahannews, "asreesfahannews.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".lead_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content_news_entry",
+                    ignoreNodeClasses: ["tags", "content_news_info"]
+                },
+                category: {
+                    selector: ".single_news_cat a"
                 },
                 tags: ".tags a"
             },
