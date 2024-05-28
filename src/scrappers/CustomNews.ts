@@ -5552,3 +5552,31 @@ export class fardayekerman extends clsScrapper {
         })
     }
 }
+
+export class kermaneno extends clsScrapper {
+    constructor() {
+        super(enuDomains.kermaneno, "kermaneno.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h2",
+                title: "h1",
+                summary: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp"]
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a span"
+                },
+                tags: ".post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
