@@ -5580,3 +5580,30 @@ export class kermaneno extends clsScrapper {
         })
     }
 }
+
+export class esfahanzibaonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.esfahanzibaonline, "esfahanzibaonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h5",
+                title: "h1",
+                summary: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: ".col-6.col-md-8 span span a"
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

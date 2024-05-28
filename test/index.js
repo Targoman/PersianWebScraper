@@ -2093,5 +2093,8 @@ yarn dev && yarn start shabestan -u https://www.shabestan.news/news/1765709/تع
 yarn dev && yarn start kermaneno
 yarn dev && yarn start kermaneno -u https://kermaneno.ir/society/خانواده-زندانیان-نیاز-نگاهی-به-مهر/
 
+yarn dev && yarn start esfahanzibaonline
+yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/چهارباغِ-هزارداستان
+
 https://motamem.org/
 /**/
