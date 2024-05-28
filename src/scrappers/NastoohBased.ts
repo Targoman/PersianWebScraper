@@ -1208,3 +1208,15 @@ export class mrud extends clsNastoohBased {
     }
 }
 
+export class shabestan extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shabestan, "shabestan.news", {
+            selectors: {
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },            
+            },
+        })    
+    }
+}

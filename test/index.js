@@ -2087,5 +2087,8 @@ yarn dev && yarn start fardayekerman
 yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/46052
 yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/784
 
+yarn dev && yarn start shabestan
+yarn dev && yarn start shabestan -u https://www.shabestan.news/news/1765709/تعامل-دولت-و-مجلس-بسیاری-از-گره-ها-را-گشود
+
 https://motamem.org/
 /**/
