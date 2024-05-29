@@ -5716,3 +5716,30 @@ export class nedayeesfahan extends clsScrapper {
         })
     }
 }
+
+export class esfahanemrooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.esfahanemrooz, "esfahanemrooz.ir", {
+            selectors: {
+                article: "body.news",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time.news_time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".echo_detail",
+                },
+                category: {
+                    selector: ".li_item a"
+                },
+                tags: ".article_tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
