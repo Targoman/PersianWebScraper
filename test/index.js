@@ -2073,5 +2073,31 @@ yarn dev && yarn start raaknews -u http://raaknews.com/53797-خرید-۷-هزا�
 yarn dev && yarn start diyareaftab
 yarn dev && yarn start diyareaftab -u https://diyareaftab.ir/story/آیین-رونمایی-از-کتابچه-نخبه%E2%80%8Cپارچین-برگزار-شد
 
+yarn dev && yarn start faslejonoob
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/آزادی-32-زندانی-جرائم-غیرعمد-از-زندانه/
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/محمد-بهرامی-5/
+
+yarn dev && yarn start msrt
+yarn dev && yarn start msrt -u https://www.msrt.ir/fa/news/85733/امضای-تفاهم-نامه-همکاری-سازمان-پژوهش-های-علمی-و-صنعتی-ایران-و-دانشگاه-علم-و-فرهنگ
+
+yarn dev && yarn start hamedanonline
+yarn dev && yarn start hamedanonline -u https://hamedanonline.ir/2024/05/27/نامگذاری-شهرک-های-نهضت-ملی-مسکن-ملایر-ب/
+
+yarn dev && yarn start fardayekerman
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/46052
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/784
+
+yarn dev && yarn start shabestan
+yarn dev && yarn start shabestan -u https://www.shabestan.news/news/1765709/تعامل-دولت-و-مجلس-بسیاری-از-گره-ها-را-گشود
+
+yarn dev && yarn start kermaneno
+yarn dev && yarn start kermaneno -u https://kermaneno.ir/society/خانواده-زندانیان-نیاز-نگاهی-به-مهر/
+
+yarn dev && yarn start esfahanzibaonline
+yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/چهارباغِ-هزارداستان
+
+yarn dev && yarn start asreesfahannews 
+yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-۷۰۰-سکه-خارج-شده-و4-سال-بعد-فهمیدن/
+
 https://motamem.org/
 /**/
