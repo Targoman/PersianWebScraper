@@ -5687,3 +5687,32 @@ export class esfahanshargh extends clsScrapper {
         })
     }
 }
+
+export class nedayeesfahan extends clsScrapper {
+    constructor() {
+        super(enuDomains.nedayeesfahan, "nedayeesfahan.ir", {
+            selectors: {
+                article: ".content_news",
+                aboveTitle: ".n-title1",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-excerpt"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content_news"),
+                    ignoreNodeClasses: ["tags", "relatedulbox"],
+                    ignoreTexts: ["مطالب مرتبط"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[typeof='v:Breadcrumb'] a")
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

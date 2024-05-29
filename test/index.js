@@ -2105,5 +2105,8 @@ yarn dev && yarn start sahebnews -u https://sahebnews.ir/1178456/هوای-اصف
 yarn dev && yarn start esfahanshargh
 yarn dev && yarn start esfahanshargh -u https://esfahanshargh.ir/216086/پرینت-ارزان،-نجات-دهنده-دانشجوها
 
+yarn dev && yarn start nedayeesfahan
+yarn dev && yarn start nedayeesfahan -u https://nedayeesfahan.ir/157688/عوامل-موثر-بر-قیمت-پروفیل-علویجه.htm
+
 https://motamem.org/
 /**/
