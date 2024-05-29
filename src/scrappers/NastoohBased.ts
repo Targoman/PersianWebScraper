@@ -1186,3 +1186,37 @@ export class prisons extends clsNastoohBased {
         })    
     }
 }
+
+export class mrud extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.mrud, "news.mrud.ir", {
+            selectors: {
+                subtitle: ".lead",
+                content: {
+                    main: ".body",
+                },         
+                category: {
+                    selector: ".item-service a"
+                },
+                tags: ".news-tag section ul li a"      
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })    
+    }
+}
+
+export class shabestan extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.shabestan, "shabestan.news", {
+            selectors: {
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },            
+            },
+        })    
+    }
+}

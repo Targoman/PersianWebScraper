@@ -2061,5 +2061,43 @@ yarn dev && yarn start alborzvarzeshi -u "https://alborzvarzeshi.com/News/d?id=3
 yarn dev && yarn start boyernews
 yarn dev && yarn start boyernews -u https://boyernews.com/360480/آغاز-و-همه-گیری-یک-فرهنگ-خوب-در-بویراحمد/
 
+yarn dev && yarn start asrdena
+yarn dev && yarn start asrdena -u https://asrdena.ir/fa/news/23396/شهر-یاسوج-و-المان-های-بیگانه-با-فرهنگ-بومی-و-محلی
+
+yarn dev && yarn start mrud
+yarn dev && yarn start mrud -u http://news.mrud.ir/news/167990/نماینده-اداره-کل-راه-و-شهرسازی-استان-سمنان-در-سامد-حضور-یافت
+
+yarn dev && yarn start raaknews
+yarn dev && yarn start raaknews -u http://raaknews.com/53797-خرید-۷-هزار-تن-گندم-از-کشاورزان-شهرستان-های-گرم%E2%80%8Cسیری-کهگیلویه-و-بویراحمد.html
+
+yarn dev && yarn start diyareaftab
+yarn dev && yarn start diyareaftab -u https://diyareaftab.ir/story/آیین-رونمایی-از-کتابچه-نخبه%E2%80%8Cپارچین-برگزار-شد
+
+yarn dev && yarn start faslejonoob
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/آزادی-32-زندانی-جرائم-غیرعمد-از-زندانه/
+yarn dev && yarn start faslejonoob -u https://faslejonoob.ir/محمد-بهرامی-5/
+
+yarn dev && yarn start msrt
+yarn dev && yarn start msrt -u https://www.msrt.ir/fa/news/85733/امضای-تفاهم-نامه-همکاری-سازمان-پژوهش-های-علمی-و-صنعتی-ایران-و-دانشگاه-علم-و-فرهنگ
+
+yarn dev && yarn start hamedanonline
+yarn dev && yarn start hamedanonline -u https://hamedanonline.ir/2024/05/27/نامگذاری-شهرک-های-نهضت-ملی-مسکن-ملایر-ب/
+
+yarn dev && yarn start fardayekerman
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/46052
+yarn dev && yarn start fardayekerman -u https://fardayekerman.ir/news/784
+
+yarn dev && yarn start shabestan
+yarn dev && yarn start shabestan -u https://www.shabestan.news/news/1765709/تعامل-دولت-و-مجلس-بسیاری-از-گره-ها-را-گشود
+
+yarn dev && yarn start kermaneno
+yarn dev && yarn start kermaneno -u https://kermaneno.ir/society/خانواده-زندانیان-نیاز-نگاهی-به-مهر/
+
+yarn dev && yarn start esfahanzibaonline
+yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/چهارباغِ-هزارداستان
+
+yarn dev && yarn start asreesfahannews 
+yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-۷۰۰-سکه-خارج-شده-و4-سال-بعد-فهمیدن/
+
 https://motamem.org/
 /**/
