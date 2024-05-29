@@ -516,6 +516,7 @@ export enum enuDomains {
     safheeghtesad = "safheeghtesad",
     safirelorestan = "safirelorestan",
     sahebkhabar = "sahebkhabar",
+    sahebnews = "sahebnews",
     sakhtafzarmag = "sakhtafzarmag",
     sakkook = "sakkook",
     salamatnews = "salamatnews",

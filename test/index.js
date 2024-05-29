@@ -2099,5 +2099,8 @@ yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/�
 yarn dev && yarn start asreesfahannews 
 yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-۷۰۰-سکه-خارج-شده-و4-سال-بعد-فهمیدن/
 
+yarn dev && yarn start sahebnews
+yarn dev && yarn start sahebnews -u https://sahebnews.ir/1178456/هوای-اصفهان-همچنان-قابلقبول-ماند.htm
+
 https://motamem.org/
 /**/
