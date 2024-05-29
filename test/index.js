@@ -2102,5 +2102,8 @@ yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-
 yarn dev && yarn start sahebnews
 yarn dev && yarn start sahebnews -u https://sahebnews.ir/1178456/هوای-اصفهان-همچنان-قابلقبول-ماند.htm
 
+yarn dev && yarn start esfahanshargh
+yarn dev && yarn start esfahanshargh -u https://esfahanshargh.ir/216086/پرینت-ارزان،-نجات-دهنده-دانشجوها
+
 https://motamem.org/
 /**/

@@ -5661,3 +5661,29 @@ export class sahebnews extends clsScrapper {
         })
     }
 }
+
+export class esfahanshargh extends clsScrapper {
+    constructor() {
+        super(enuDomains.esfahanshargh, "esfahanshargh.ir", {
+            selectors: {
+                article: ".single-news",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-content",
+                },
+                category: {
+                    selector: ".breadcrumb_last"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
