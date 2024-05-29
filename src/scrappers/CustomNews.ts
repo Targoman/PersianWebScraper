@@ -5743,3 +5743,30 @@ export class esfahanemrooz extends clsScrapper {
         })
     }
 }
+
+export class yazdfarda extends clsScrapper {
+    constructor() {
+        super(enuDomains.yazdfarda, "yazdfarda.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".subtitle",
+                title: "h2.single-post-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

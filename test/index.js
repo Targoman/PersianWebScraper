@@ -2108,5 +2108,8 @@ yarn dev && yarn start esfahanshargh -u https://esfahanshargh.ir/216086/پرین
 yarn dev && yarn start nedayeesfahan
 yarn dev && yarn start nedayeesfahan -u https://nedayeesfahan.ir/157688/عوامل-موثر-بر-قیمت-پروفیل-علویجه.htm
 
+yarn dev && yarn start yazdfarda
+yarn dev && yarn start yazdfarda -u http://yazdfarda.ir/news/af/196182/خروج-از-لیست-خاموشی-با-استفاده-از-انرژی%E2%80%8Cهای-تجدیدپذیر
+
 https://motamem.org/
 /**/
