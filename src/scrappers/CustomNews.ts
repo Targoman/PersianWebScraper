@@ -5635,3 +5635,138 @@ export class asreesfahannews extends clsScrapper {
         })
     }
 }
+
+export class sahebnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sahebnews, "sahebnews.ir", {
+            selectors: {
+                article: ".single",
+                aboveTitle: "h5",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "div.box-title.text-right > h4 > span > span > a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class esfahanshargh extends clsScrapper {
+    constructor() {
+        super(enuDomains.esfahanshargh, "esfahanshargh.ir", {
+            selectors: {
+                article: ".single-news",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-content",
+                },
+                category: {
+                    selector: ".breadcrumb_last"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class nedayeesfahan extends clsScrapper {
+    constructor() {
+        super(enuDomains.nedayeesfahan, "nedayeesfahan.ir", {
+            selectors: {
+                article: ".content_news",
+                aboveTitle: ".n-title1",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-excerpt"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content_news"),
+                    ignoreNodeClasses: ["tags", "relatedulbox"],
+                    ignoreTexts: ["مطالب مرتبط"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[typeof='v:Breadcrumb'] a")
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class esfahanemrooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.esfahanemrooz, "esfahanemrooz.ir", {
+            selectors: {
+                article: "body.news",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "time.news_time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".echo_detail",
+                },
+                category: {
+                    selector: ".li_item a"
+                },
+                tags: ".article_tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class yazdfarda extends clsScrapper {
+    constructor() {
+        super(enuDomains.yazdfarda, "yazdfarda.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".subtitle",
+                title: "h2.single-post-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
