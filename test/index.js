@@ -2099,5 +2099,17 @@ yarn dev && yarn start esfahanzibaonline -u https://esfahanzibaonline.ir/48841/�
 yarn dev && yarn start asreesfahannews 
 yarn dev && yarn start asreesfahannews -u https://asreesfahannews.ir/چگونه-۷۰۰-سکه-خارج-شده-و4-سال-بعد-فهمیدن/
 
+yarn dev && yarn start sahebnews
+yarn dev && yarn start sahebnews -u https://sahebnews.ir/1178456/هوای-اصفهان-همچنان-قابلقبول-ماند.htm
+
+yarn dev && yarn start esfahanshargh
+yarn dev && yarn start esfahanshargh -u https://esfahanshargh.ir/216086/پرینت-ارزان،-نجات-دهنده-دانشجوها
+
+yarn dev && yarn start nedayeesfahan
+yarn dev && yarn start nedayeesfahan -u https://nedayeesfahan.ir/157688/عوامل-موثر-بر-قیمت-پروفیل-علویجه.htm
+
+yarn dev && yarn start yazdfarda
+yarn dev && yarn start yazdfarda -u http://yazdfarda.ir/news/af/196182/خروج-از-لیست-خاموشی-با-استفاده-از-انرژی%E2%80%8Cهای-تجدیدپذیر
+
 https://motamem.org/
 /**/
