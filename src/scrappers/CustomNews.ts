@@ -5831,3 +5831,28 @@ export class nournews extends clsScrapper {
             return url.toString()
     }
 }
+
+export class roozgarpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.roozgarpress, "roozgarpress.ir", {
+            selectors: {
+                article: "article.post-box-single",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: "h3",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: ".post-info ul li a",
+                    lastIndex: 2
+                },
+                tags: "ul.post-tags li a"
+            },
+        })
+    }
+}
