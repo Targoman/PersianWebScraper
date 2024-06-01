@@ -5797,3 +5797,37 @@ export class gozareshekhabar extends clsScrapper {
         })
     }
 }
+
+export class nournews extends clsScrapper {
+    constructor() {
+        super(enuDomains.nournews, "nournews.ir", {
+            selectors: {
+                article: "#Body_Body_lblNewsBody",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("._Desc"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[itemprop='datePublished']"),
+                    splitter: (el: HTMLElement) => {
+                        const date = el.getAttribute("content")?.split(/\/| /)
+                        if (!date) return "NO_DATE";
+                        return date[2] + "/" + date[0] + "/" + date[1] || "NO_DATE";
+                    }
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#Body_Body_lblNewsBody"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#Body_Body_news_Tags_lblTag a")
+            },
+            url: {
+                extraInvalidStartPaths: ["/ar", "/en", "/he", "/ru", "/zh"],
+            }
+        })
+    }
+
+    protected normalizePath(url: URL): string {
+        if (url.pathname.includes("/news") && !url.pathname.includes("/fa")) {
+            return url.protocol + "//" + url.hostname + "/fa" + url.pathname 
+        } else
+            return url.toString()
+    }
+}
