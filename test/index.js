@@ -2114,5 +2114,8 @@ yarn dev && yarn start yazdfarda -u http://yazdfarda.ir/news/af/196182/خروج-
 yarn dev && yarn start roozgarpress
 yarn dev && yarn start roozgarpress -u https://roozgarpress.ir/استانها/1403/03/11/ازاحداث-نیروگاه-خورشیدی-با-ظرفیت-۲۰۰-ک/
 
+yarn dev && yarn start perspolisnews
+yarn dev && yarn start perspolisnews -u https://perspolisnews.com/اعلام-اسامی-ناظران-انضباطی-هفته-سیام/
+
 https://motamem.org/
 /**/

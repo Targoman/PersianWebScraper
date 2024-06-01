@@ -5856,3 +5856,33 @@ export class roozgarpress extends clsScrapper {
         })
     }
 }
+
+export class perspolisnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.perspolisnews, "perspolisnews.com", {
+            selectors: {
+                article: "section.single",
+                title: "h2.single-post-title",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content .con",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-author",
+                    text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb ul li a"),
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
