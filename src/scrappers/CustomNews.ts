@@ -5770,3 +5770,30 @@ export class yazdfarda extends clsScrapper {
         })
     }
 }
+
+export class gozareshekhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.gozareshekhabar, "gozareshekhabar.ir", {
+            selectors: {
+                article: ".content-page-container.container-xl.pt-4",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-body",
+                    ignoreNodeClasses: ["moreRelatedContents-container"]
+                },
+                category: {
+                    selector: ".mb-md-0 > div:nth-child(1) > div > a"
+                },
+                tags: ".keyword li a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
