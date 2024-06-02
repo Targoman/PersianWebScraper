@@ -2127,5 +2127,8 @@ yarn dev && yarn start mardomenoonline -u http://mardomenoonline.ir/مدیر-ز�
 yarn dev && yarn start shirintanz
 yarn dev && yarn start shirintanz -u https://shirintanz.ir/منی-که-رد-شدم-از-هفت-خان-استخدام-شعر-طنز/
 
+yarn dev && yarn start mahyanews
+yarn dev && yarn start mahyanews -u https://www.mahyanews.ir/fa/news/32345/به-بهانه-روز-بزرگداشت-شمس-تبریزی
+
 https://motamem.org/
 /**/

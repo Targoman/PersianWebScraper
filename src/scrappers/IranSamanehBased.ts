@@ -3053,3 +3053,25 @@ export class defapress extends clsIransamaneh {
         })
     }
 }
+
+export class mahyanews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mahyanews, "mahyanews.ir", {
+            selectors: {
+                article: "#news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    ignoreNodeClasses: ["report-like"]
+                },
+                category: {
+                    selector: ".news_nav_second > div > a",
+                    startIndex: 1
+                },
+                tags: ".article_tags a.article_tag"
+            },
+        })
+    }
+}
