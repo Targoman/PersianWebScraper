@@ -5889,3 +5889,82 @@ export class perspolisnews extends clsScrapper {
         })
     }
 }
+
+export class sobheqazvin extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobheqazvin, "sobheqazvin.ir", {
+            selectors: {
+                article: ".newsdetails",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".ndlead",
+                datetime: {
+                    conatiner: "h6",
+                    splitter: (el: HTMLElement) => {
+                        const date = el.innerText;
+                        console.log(el.innerText)
+                        if (date) {
+                            const newDate = date.match(/[۰-۹]{4}\/[۰-۹]{1,2}\/[۰-۹]{1,2}/);
+                            console.log(newDate)
+                            if (!newDate) return "DATE NOT FOUND"
+                            return newDate[0];
+                        } else
+                            return "DATE NOT FOUND"
+                    },
+                },
+                content: {
+                    main: ".ndcontent",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class mardomenoonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.mardomenoonline, "mardomenoonline.ir", {
+            selectors: {
+                article: ".cont-s",
+                title: "h2",
+                subtitle: ".le p",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".cone",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class shirintanz extends clsScrapper {
+    constructor() {
+        super(enuDomains.shirintanz, "shirintanz.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                tags: ".tags p a"
+            },
+        })
+    }
+}
