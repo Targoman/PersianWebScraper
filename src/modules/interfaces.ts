@@ -377,6 +377,7 @@ export enum enuDomains {
     mamlekatonline = "mamlekatonline",
     mana = "mana",
     manbaekhabar = "manbaekhabar",
+    mardomenoonline = "mardomenoonline",
     mashreghnews = "mashreghnews",
     mdeast = "mdeast",
     mednews = "mednews",

@@ -5919,3 +5919,31 @@ export class sobheqazvin extends clsScrapper {
         })
     }
 }
+
+export class mardomenoonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.mardomenoonline, "mardomenoonline.ir", {
+            selectors: {
+                article: ".cont-s",
+                //aboveTitle: "h2",
+                title: "h2",
+                subtitle: ".le p",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".cone",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
