@@ -5965,3 +5965,26 @@ export class shirintanz extends clsScrapper {
         })
     }
 }
+
+export class vaghtesobh extends clsScrapper {
+    constructor() {
+        super(enuDomains.vaghtesobh, "vaghtesobh.ir", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".article_header time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo_details",
+                },
+                category: {
+                    selector: "ul.breadcrumb_list li a"
+                },
+                tags: ".article_tag ul li a"
+            },
+        })
+    }
+}
