@@ -299,7 +299,7 @@ public mapCategoryImpl(category: string|undefined, catFirstPart :string, catSeco
 
 
 ## Corpus
-We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which will be soon published on Huggingface
+We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which has been published on [Huggingface](https://huggingface.co/datasets/Targoman/TLPC). More information about this corpus in Persian languyage can be obtained from [Targoman Large Persian Corpus (TLPC) page](https://oss.targoman.ir/TLPC)
 
 ## License
 PersianWebScrapper is published under the terms of [LGPLv3 License](./LICENSE.txt)
