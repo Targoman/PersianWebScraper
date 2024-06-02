@@ -2117,5 +2117,9 @@ yarn dev && yarn start roozgarpress -u https://roozgarpress.ir/استانها/14
 yarn dev && yarn start perspolisnews
 yarn dev && yarn start perspolisnews -u https://perspolisnews.com/اعلام-اسامی-ناظران-انضباطی-هفته-سیام/
 
+yarn dev && yarn start sobheqazvin 
+yarn dev && yarn start sobheqazvin -u https://sobheqazvin.ir/news/368314/سپاهان-از-شمس%E2%80%8Cآذر-انتقام-گرفت
+yarn dev && yarn start sobheqazvin -u https://sobheqazvin.ir/news/63155/روایت-همدلی-رهبرانقلاب-با-مجاهدان-افغان---در-افغانستان-به-جرم-ایرانی-شدن-محکوم-می%E2%80%8Cشویم
+
 https://motamem.org/
 /**/

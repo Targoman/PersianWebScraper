@@ -5886,3 +5886,36 @@ export class perspolisnews extends clsScrapper {
         })
     }
 }
+
+export class sobheqazvin extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobheqazvin, "sobheqazvin.ir", {
+            selectors: {
+                article: ".newsdetails",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".ndlead",
+                datetime: {
+                    conatiner: "h6",
+                    splitter: (el: HTMLElement) => {
+                        const date = el.innerText;
+                        console.log(el.innerText)
+                        if (date) {
+                            const newDate = date.match(/[۰-۹]{4}\/[۰-۹]{1,2}\/[۰-۹]{1,2}/);
+                            console.log(newDate)
+                            if (!newDate) return "DATE NOT FOUND"
+                            return newDate[0];
+                        } else
+                            return "DATE NOT FOUND"
+                    },
+                },
+                content: {
+                    main: ".ndcontent",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
