@@ -2124,5 +2124,8 @@ yarn dev && yarn start sobheqazvin -u https://sobheqazvin.ir/news/63155/روای
 yarn dev && yarn start mardomenoonline 
 yarn dev && yarn start mardomenoonline -u http://mardomenoonline.ir/مدیر-زراعت-سازمان-جهاد-کشاورزی-استان-ز/
 
+yarn dev && yarn start shirintanz
+yarn dev && yarn start shirintanz -u https://shirintanz.ir/منی-که-رد-شدم-از-هفت-خان-استخدام-شعر-طنز/
+
 https://motamem.org/
 /**/

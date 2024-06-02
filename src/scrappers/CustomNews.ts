@@ -5925,7 +5925,6 @@ export class mardomenoonline extends clsScrapper {
         super(enuDomains.mardomenoonline, "mardomenoonline.ir", {
             selectors: {
                 article: ".cont-s",
-                //aboveTitle: "h2",
                 title: "h2",
                 subtitle: ".le p",
                 datetime: {
@@ -5944,6 +5943,25 @@ export class mardomenoonline extends clsScrapper {
                 removeWWW: true,
                 forceHTTP: true
             }
+        })
+    }
+}
+
+export class shirintanz extends clsScrapper {
+    constructor() {
+        super(enuDomains.shirintanz, "shirintanz.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                tags: ".tags p a"
+            },
         })
     }
 }
