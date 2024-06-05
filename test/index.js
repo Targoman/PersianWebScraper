@@ -2130,5 +2130,8 @@ yarn dev && yarn start shirintanz -u https://shirintanz.ir/منی-که-رد-شد
 yarn dev && yarn start mahyanews
 yarn dev && yarn start mahyanews -u https://www.mahyanews.ir/fa/news/32345/به-بهانه-روز-بزرگداشت-شمس-تبریزی
 
+yarn dev && yarn start afghanwomennews
+yarn dev && yarn start afghanwomennews -u https://www.afghanwomennews.com/پیامدهای-حذف-نام-طالبان-از-گروه-تروریس/
+
 https://motamem.org/
 /**/
