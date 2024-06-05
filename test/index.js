@@ -2136,5 +2136,8 @@ yarn dev && yarn start afghanwomennews -u https://www.afghanwomennews.com/پیا
 yarn dev && yarn start shooshan
 yarn dev && yarn start shooshan -u http://shooshan.ir/fa/news/111359/جزییات-ارزشمند
 
+yarn dev && yarn start navajonob 
+yarn dev && yarn start navajonob -u https://www.navajonob.ir/fa/posts/43489
+
 https://motamem.org/
 /**/

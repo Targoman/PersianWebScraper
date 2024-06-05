@@ -6014,3 +6014,25 @@ export class afghanwomennews extends clsScrapper {
         })
     }
 }
+
+export class navajonob extends clsScrapper {
+    constructor() {
+        super(enuDomains.navajonob, "navajonob.ir", {
+            selectors: {
+                article: ".p_item",
+                title: ".title",
+                subtitle:  ".subtitle",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".stext",
+                },
+                category: {
+                    selector: ".cat a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}

@@ -426,6 +426,7 @@ export enum enuDomains {
     nasim = "nasim",
     nasrblog = "nasrblog",
     nateghan = "nateghan",
+    navajonob = "navajonob",
     nazaratshora = "nazaratshora",
     nedayeesfahan = "nedayeesfahan",
     neshanonline = "neshanonline",
