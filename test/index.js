@@ -2139,5 +2139,8 @@ yarn dev && yarn start shooshan -u http://shooshan.ir/fa/news/111359/جزییا�
 yarn dev && yarn start navajonob 
 yarn dev && yarn start navajonob -u https://www.navajonob.ir/fa/posts/43489
 
+yarn dev && yarn start fekrshahr
+yarn dev && yarn start fekrshahr -u https://fekrshahr.ir/fa/news/2007447
+
 https://motamem.org/
 /**/
