@@ -2133,5 +2133,8 @@ yarn dev && yarn start mahyanews -u https://www.mahyanews.ir/fa/news/32345/به-
 yarn dev && yarn start afghanwomennews
 yarn dev && yarn start afghanwomennews -u https://www.afghanwomennews.com/پیامدهای-حذف-نام-طالبان-از-گروه-تروریس/
 
+yarn dev && yarn start shooshan
+yarn dev && yarn start shooshan -u http://shooshan.ir/fa/news/111359/جزییات-ارزشمند
+
 https://motamem.org/
 /**/

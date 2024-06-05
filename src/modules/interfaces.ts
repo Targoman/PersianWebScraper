@@ -565,6 +565,7 @@ export enum enuDomains {
     shomalnews = "shomalnews",
     shomanews = "shomanews",
     shomavaeghtesad = "shomavaeghtesad",
+    shooshan = "shooshan",
     shoragc = "shoragc",
     sid = "sid",
     sinapress = "sinapress",
