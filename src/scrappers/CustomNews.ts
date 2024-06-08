@@ -6036,3 +6036,26 @@ export class navajonob extends clsScrapper {
         })
     }
 }
+
+export class oshida extends clsScrapper {
+    constructor() {
+        super(enuDomains.oshida, "oshida.ir", {
+            selectors: {
+                article: "#doc_content",
+                aboveTitle: "#docDiv3TitrRou",
+                title: "#docDiv3TitrMain",
+                subtitle: "#docDiv4LeadTitle",
+                datetime: {
+                    conatiner: "#docDiv3Date span"
+                },
+                content: {
+                    main: "#doc_div33",
+                },
+                category: {
+                    selector: "#docDiv1Menu span",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}

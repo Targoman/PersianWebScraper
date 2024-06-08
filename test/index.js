@@ -2142,5 +2142,8 @@ yarn dev && yarn start navajonob -u https://www.navajonob.ir/fa/posts/43489
 yarn dev && yarn start fekrshahr
 yarn dev && yarn start fekrshahr -u https://fekrshahr.ir/fa/news/2007447
 
+yarn dev && yarn start oshida
+yarn dev && yarn start oshida -u https://www.oshida.ir/vdchvznq.23n-kdftt2.html
+
 https://motamem.org/
 /**/
