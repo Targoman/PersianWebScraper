@@ -6084,3 +6084,31 @@ export class mirmalas extends clsScrapper {
         })
     }
 }
+
+export class saednews extends clsScrapper {
+    constructor() {
+        super(enuDomains.saednews, "saednews.com", {
+            selectors: {
+                article: ".mx-md--3",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: ".p-3.mb-3.text-warning",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-wrapper",
+                    ignoreNodeClasses: ["r-col-v"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb-item"),
+                    lastIndex: 2
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".px-1.px-md-3 a")
+            },
+            // url: {
+            //     extraInvalidStartPaths: ["/ra.php"]
+            // }
+        })
+    }
+}
