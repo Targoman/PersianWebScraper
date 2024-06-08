@@ -2145,5 +2145,8 @@ yarn dev && yarn start fekrshahr -u https://fekrshahr.ir/fa/news/2007447
 yarn dev && yarn start oshida
 yarn dev && yarn start oshida -u https://www.oshida.ir/vdchvznq.23n-kdftt2.html
 
+yarn dev && yarn start mirmalas
+yarn dev && yarn start mirmalas -u https://www.mirmalas.com/news/118135/استراتژی-بازاریابی-سبز-در-عملکرد-زیست/
+
 https://motamem.org/
 /**/
