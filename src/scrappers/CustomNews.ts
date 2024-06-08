@@ -6106,9 +6106,6 @@ export class saednews extends clsScrapper {
                 },
                 tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".px-1.px-md-3 a")
             },
-            // url: {
-            //     extraInvalidStartPaths: ["/ra.php"]
-            // }
         })
     }
 }

@@ -3118,3 +3118,28 @@ export class fekrshahr extends clsIransamaneh {
         })
     }
 }
+
+export class marinenews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.marinenews, "marinenews.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    ignoreTexts: [/.*به کانال تلگرام.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/fa/mobile/"]
+            }
+        })
+    }
+}
