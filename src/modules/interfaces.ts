@@ -585,6 +585,7 @@ export enum enuDomains {
     snapptrip = "snapptrip",
     snn = "snn",
     sobheqazvin = "sobheqazvin",
+    sobheqtesad = "sobheqtesad",
     sobhesahel = "sobhesahel",
     sobhtazeh = "sobhtazeh",
     sofiamag = "sofiamag",

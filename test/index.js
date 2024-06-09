@@ -2151,5 +2151,8 @@ yarn dev && yarn start mirmalas -u https://www.mirmalas.com/news/118135/استر
 yarn dev && yarn start turkmensnews
 yarn dev && yarn start turkmensnews -u https://turkmensnews.com/قطار-ترانزیتی-ترکیه-وارد-مرز-اینچهبر/
 
+yarn dev && yarn start sobheqtesad
+yarn dev && yarn start sobheqtesad -u https://sobh-eqtesad.ir/بخارا-گوهری-از-تاریخ،-زیبایی-و-ادبیات/فرهنگی/
+
 https://motamem.org/
 /**/
