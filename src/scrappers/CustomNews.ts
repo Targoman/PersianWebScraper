@@ -6109,3 +6109,25 @@ export class saednews extends clsScrapper {
         })
     }
 }
+
+export class itnanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.itnanews, "itnanews.com", {
+            selectors: {
+                article: ".right-news-single",
+                title: "h1",
+                datetime: {
+                    conatiner: ".post-detail > div:nth-child(2) > div.post-detail-txt",
+                },
+                content: {
+                    main: ".single-txt",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
