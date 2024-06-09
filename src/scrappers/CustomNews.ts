@@ -6131,3 +6131,24 @@ export class itnanews extends clsScrapper {
         })
     }
 }
+
+export class turkmensesi extends clsScrapper {
+    constructor() {
+        super(enuDomains.turkmensesi, "turkmensesi.net", {
+            selectors: {
+                article: ".item-page",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                },
+            },
+        })
+    }
+}

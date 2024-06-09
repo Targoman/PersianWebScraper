@@ -637,6 +637,7 @@ export enum enuDomains {
     transis = "transis",
     trip = "trip",
     trt = "trt",
+    turkmensesi = "turkmensesi",
     ucan = "ucan",
     uptvs = "uptvs",
     vaghteshomal = "vaghteshomal",
