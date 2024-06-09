@@ -2148,5 +2148,8 @@ yarn dev && yarn start oshida -u https://www.oshida.ir/vdchvznq.23n-kdftt2.html
 yarn dev && yarn start mirmalas
 yarn dev && yarn start mirmalas -u https://www.mirmalas.com/news/118135/استراتژی-بازاریابی-سبز-در-عملکرد-زیست/
 
+yarn dev && yarn start turkmensnews
+yarn dev && yarn start turkmensnews -u https://turkmensnews.com/قطار-ترانزیتی-ترکیه-وارد-مرز-اینچهبر/
+
 https://motamem.org/
 /**/

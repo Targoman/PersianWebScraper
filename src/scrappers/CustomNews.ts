@@ -6152,3 +6152,30 @@ export class turkmensesi extends clsScrapper {
         })
     }
 }
+
+export class turkmensnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.turkmensnews, "turkmensnews.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-txt",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".post-category a",
+                },
+                tags: ".tags-link a"
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/تورکمنچه", "/turkce", "/turkmeni", "/latin"]
+            }
+        })
+    }
+}
