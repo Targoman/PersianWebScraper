@@ -3053,3 +3053,93 @@ export class defapress extends clsIransamaneh {
         })
     }
 }
+
+export class mahyanews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.mahyanews, "mahyanews.ir", {
+            selectors: {
+                article: "#news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    ignoreNodeClasses: ["report-like"]
+                },
+                category: {
+                    selector: ".news_nav_second > div > a",
+                    startIndex: 1
+                },
+                tags: ".article_tags a.article_tag"
+            },
+        })
+    }
+}
+
+export class shooshan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.shooshan, "shooshan.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class fekrshahr extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.fekrshahr, "fekrshahr.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class marinenews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.marinenews, "marinenews.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    ignoreTexts: [/.*به کانال تلگرام.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/fa/mobile/"]
+            }
+        })
+    }
+}

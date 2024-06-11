@@ -5965,3 +5965,246 @@ export class shirintanz extends clsScrapper {
         })
     }
 }
+
+export class vaghtesobh extends clsScrapper {
+    constructor() {
+        super(enuDomains.vaghtesobh, "vaghtesobh.ir", {
+            selectors: {
+                article: "body.news",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".article_header time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo_details",
+                },
+                category: {
+                    selector: "ul.breadcrumb_list li a"
+                },
+                tags: ".article_tag ul li a"
+            },
+        })
+    }
+}
+
+export class afghanwomennews extends clsScrapper {
+    constructor() {
+        super(enuDomains.afghanwomennews, "afghanwomennews.com", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                    ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
+
+export class navajonob extends clsScrapper {
+    constructor() {
+        super(enuDomains.navajonob, "navajonob.ir", {
+            selectors: {
+                article: ".p_item",
+                title: ".title",
+                subtitle:  ".subtitle",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".stext",
+                },
+                category: {
+                    selector: ".cat a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
+
+export class oshida extends clsScrapper {
+    constructor() {
+        super(enuDomains.oshida, "oshida.ir", {
+            selectors: {
+                article: "#doc_content",
+                aboveTitle: "#docDiv3TitrRou",
+                title: "#docDiv3TitrMain",
+                subtitle: "#docDiv4LeadTitle",
+                datetime: {
+                    conatiner: "#docDiv3Date span"
+                },
+                content: {
+                    main: "#doc_div33",
+                },
+                category: {
+                    selector: "#docDiv1Menu span",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class mirmalas extends clsScrapper {
+    constructor() {
+        super(enuDomains.mirmalas, "mirmalas.com", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".crumbs a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+        })
+    }
+}
+
+export class saednews extends clsScrapper {
+    constructor() {
+        super(enuDomains.saednews, "saednews.com", {
+            selectors: {
+                article: ".mx-md--3",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: ".p-3.mb-3.text-warning",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-wrapper",
+                    ignoreNodeClasses: ["r-col-v"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb-item"),
+                    lastIndex: 2
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".px-1.px-md-3 a")
+            },
+        })
+    }
+}
+
+export class itnanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.itnanews, "itnanews.com", {
+            selectors: {
+                article: ".right-news-single",
+                title: "h1",
+                datetime: {
+                    conatiner: ".post-detail > div:nth-child(2) > div.post-detail-txt",
+                },
+                content: {
+                    main: ".single-txt",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class turkmensesi extends clsScrapper {
+    constructor() {
+        super(enuDomains.turkmensesi, "turkmensesi.net", {
+            selectors: {
+                article: ".item-page",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                },
+            },
+        })
+    }
+}
+
+export class turkmensnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.turkmensnews, "turkmensnews.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-txt",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".post-category a",
+                },
+                tags: ".tags-link a"
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/تورکمنچه", "/turkce", "/turkmeni", "/latin"]
+            }
+        })
+    }
+}
+
+export class sobheqtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobheqtesad, "sobh-eqtesad.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h2.single-post-title",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                    ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -2127,5 +2127,32 @@ yarn dev && yarn start mardomenoonline -u http://mardomenoonline.ir/مدیر-ز�
 yarn dev && yarn start shirintanz
 yarn dev && yarn start shirintanz -u https://shirintanz.ir/منی-که-رد-شدم-از-هفت-خان-استخدام-شعر-طنز/
 
+yarn dev && yarn start mahyanews
+yarn dev && yarn start mahyanews -u https://www.mahyanews.ir/fa/news/32345/به-بهانه-روز-بزرگداشت-شمس-تبریزی
+
+yarn dev && yarn start afghanwomennews
+yarn dev && yarn start afghanwomennews -u https://www.afghanwomennews.com/پیامدهای-حذف-نام-طالبان-از-گروه-تروریس/
+
+yarn dev && yarn start shooshan
+yarn dev && yarn start shooshan -u http://shooshan.ir/fa/news/111359/جزییات-ارزشمند
+
+yarn dev && yarn start navajonob 
+yarn dev && yarn start navajonob -u https://www.navajonob.ir/fa/posts/43489
+
+yarn dev && yarn start fekrshahr
+yarn dev && yarn start fekrshahr -u https://fekrshahr.ir/fa/news/2007447
+
+yarn dev && yarn start oshida
+yarn dev && yarn start oshida -u https://www.oshida.ir/vdchvznq.23n-kdftt2.html
+
+yarn dev && yarn start mirmalas
+yarn dev && yarn start mirmalas -u https://www.mirmalas.com/news/118135/استراتژی-بازاریابی-سبز-در-عملکرد-زیست/
+
+yarn dev && yarn start turkmensnews
+yarn dev && yarn start turkmensnews -u https://turkmensnews.com/قطار-ترانزیتی-ترکیه-وارد-مرز-اینچهبر/
+
+yarn dev && yarn start sobheqtesad
+yarn dev && yarn start sobheqtesad -u https://sobh-eqtesad.ir/بخارا-گوهری-از-تاریخ،-زیبایی-و-ادبیات/فرهنگی/
+
 https://motamem.org/
 /**/
