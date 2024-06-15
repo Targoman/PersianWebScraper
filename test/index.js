@@ -2157,5 +2157,8 @@ yarn dev && yarn start sobheqtesad -u https://sobh-eqtesad.ir/بخارا-گوه�
 yarn dev && yarn start faryadenahavand
 yarn dev && yarn start faryadenahavand -u http://www.faryadenahavand.ir/سرویس-شهرستان/9361-بررسی-مشکلات-حوزه-صنعت،-معدن-و-تجارت-نهاوند-با-حضور-شورای-تأمین.html
 
+yarn dev && yarn start avayseyedjamal
+yarn dev && yarn start avayseyedjamal -u http://avayseyedjamal.ir/news/47944/باز-شدن-پای-دادستانی-به-گود-مطالبات-ورزشی
+
 https://motamem.org/
 /**/
