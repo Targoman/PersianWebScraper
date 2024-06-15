@@ -2160,5 +2160,8 @@ yarn dev && yarn start faryadenahavand -u http://www.faryadenahavand.ir/سروی
 yarn dev && yarn start avayseyedjamal
 yarn dev && yarn start avayseyedjamal -u http://avayseyedjamal.ir/news/47944/باز-شدن-پای-دادستانی-به-گود-مطالبات-ورزشی
 
+yarn dev && yarn start neshateshahr
+yarn dev && yarn start neshateshahr -u https://neshateshahr.ir/Press/ShowNews/14909
+
 https://motamem.org/
 /**/

@@ -6272,3 +6272,26 @@ export class avayseyedjamal extends clsScrapper {
         })
     }
 }
+
+export class neshateshahr extends clsScrapper {
+    constructor() {
+        super(enuDomains.neshateshahr, "neshateshahr.ir", {
+            selectors: {
+                article: "section.news-col-2",
+                aboveTitle: ".rutitr",
+                title: "h2",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: ".news-publishdate"
+                },
+                content: {
+                    main: ".body"
+                },
+                tags: "a.tags_item"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
