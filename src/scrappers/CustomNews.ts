@@ -6227,3 +6227,23 @@ export class eghtesadbazar extends clsScrapper {
         })
     }
 }
+
+export class faryadenahavand extends clsScrapper {
+    constructor() {
+        super(enuDomains.faryadenahavand, "faryadenahavand.ir", {
+            selectors: {
+                article: ".item-page",
+                title: "h2",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

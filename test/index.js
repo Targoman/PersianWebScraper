@@ -2154,5 +2154,8 @@ yarn dev && yarn start turkmensnews -u https://turkmensnews.com/قطار-ترا�
 yarn dev && yarn start sobheqtesad
 yarn dev && yarn start sobheqtesad -u https://sobh-eqtesad.ir/بخارا-گوهری-از-تاریخ،-زیبایی-و-ادبیات/فرهنگی/
 
+yarn dev && yarn start faryadenahavand
+yarn dev && yarn start faryadenahavand -u http://www.faryadenahavand.ir/سرویس-شهرستان/9361-بررسی-مشکلات-حوزه-صنعت،-معدن-و-تجارت-نهاوند-با-حضور-شورای-تأمین.html
+
 https://motamem.org/
 /**/
