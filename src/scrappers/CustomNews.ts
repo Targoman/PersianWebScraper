@@ -6208,3 +6208,22 @@ export class sobheqtesad extends clsScrapper {
         })
     }
 }
+
+export class eghtesadbazar extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadbazar, "eghtesadbazar.ir", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: ".item-supertitle",
+                title: "h1",
+                subtitle: ".articleIntro",
+                datetime: {
+                    conatiner: ".item-info-date .item-info-value"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+            },
+        })
+    }
+}
