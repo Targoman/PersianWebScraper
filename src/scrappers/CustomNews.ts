@@ -6320,3 +6320,22 @@ export class avayefamenin extends clsScrapper {
         })
     }
 }
+
+export class abtaab extends clsScrapper {
+    constructor() {
+        super(enuDomains.abtaab, "abtaab.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[data-widget_type='theme-post-content.default']",
+                },
+
+            },
+        })
+    }
+}

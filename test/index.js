@@ -2166,5 +2166,8 @@ yarn dev && yarn start neshateshahr -u https://neshateshahr.ir/Press/ShowNews/14
 yarn dev && yarn start avayefamenin
 yarn dev && yarn start avayefamenin -u http://avayefamenin.ir/news/28489/هیچکس-در-اروپا-خواهان-درگیری-ناتو-با-روسیه-نیست
 
+yarn dev && yarn start abtaab
+yarn dev && yarn start abtaab -u https://www.abtaab.ir/1403/03/26/قانون-دورکاری-مادران-شاغل-به-کجا-رسید؟/
+
 https://motamem.org/
 /**/
