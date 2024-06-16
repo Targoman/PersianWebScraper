@@ -6295,3 +6295,28 @@ export class neshateshahr extends clsScrapper {
         })
     }
 }
+
+export class avayefamenin extends clsScrapper {
+    constructor() {
+        super(enuDomains.avayefamenin, "avayefamenin.ir", {
+            selectors: {
+                article: ".custom_content_container",
+                aboveTitle: ".field-name-field-rutitr",
+                title: ".nodeHeader a",
+                subtitle: ".node-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[property='dc:date dc:created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".field-name-body .field-item.even",
+                },
+                tags: ".field-name-field-tags .field-items .field-item",
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

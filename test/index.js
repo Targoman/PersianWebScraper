@@ -2163,5 +2163,8 @@ yarn dev && yarn start avayseyedjamal -u http://avayseyedjamal.ir/news/47944/ب�
 yarn dev && yarn start neshateshahr
 yarn dev && yarn start neshateshahr -u https://neshateshahr.ir/Press/ShowNews/14909
 
+yarn dev && yarn start avayefamenin
+yarn dev && yarn start avayefamenin -u http://avayefamenin.ir/news/28489/هیچکس-در-اروپا-خواهان-درگیری-ناتو-با-روسیه-نیست
+
 https://motamem.org/
 /**/

@@ -65,6 +65,7 @@ export enum enuDomains {
     avablog = "avablog",
     avadiplomatic = "avadiplomatic",
     avalpardakht = "avalpardakht",
+    avayefamenin = "avayefamenin",
     avayekhazar = "avayekhazar",
     avayerodkof = "avayerodkof",
     avayseyedjamal = "avayseyedjamal",
