@@ -6339,3 +6339,25 @@ export class abtaab extends clsScrapper {
         })
     }
 }
+
+export class naghsheeghtesadonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.naghsheeghtesadonline, "naghsheeghtesadonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".td-post-date time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".td-post-content",
+                },
+                category: {
+                    selector: "a.entry-crumb",
+                },
+                tags: "ul.td-tags li a"
+            },
+        })
+    }
+}

@@ -2169,5 +2169,8 @@ yarn dev && yarn start avayefamenin -u http://avayefamenin.ir/news/28489/هیچ�
 yarn dev && yarn start abtaab
 yarn dev && yarn start abtaab -u https://www.abtaab.ir/1403/03/26/قانون-دورکاری-مادران-شاغل-به-کجا-رسید؟/
 
+yarn dev && yarn start naghsheeghtesadonline 
+yarn dev && yarn start naghsheeghtesadonline -u https://naghsheeghtesadonline.ir/news/20800
+
 https://motamem.org/
 /**/

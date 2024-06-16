@@ -430,6 +430,7 @@ export enum enuDomains {
     nabznaft = "nabznaft",
     naftonline = "naftonline",
     naghdfarsi = "naghdfarsi",
+    naghsheeghtesadonline = "naghsheeghtesadonline",
     namava = "namava",
     namehnews = "namehnews",
     namnak = "namnak",
