@@ -2172,5 +2172,9 @@ yarn dev && yarn start abtaab -u https://www.abtaab.ir/1403/03/26/قانون-د�
 yarn dev && yarn start naghsheeghtesadonline 
 yarn dev && yarn start naghsheeghtesadonline -u https://naghsheeghtesadonline.ir/news/20800
 
+yarn dev && yarn start shaer
+yarn dev && yarn start shaer -u https://shaer.ir/غزلی-از-استاد-حسین-منزوی-به-همنواز-گلو/
+yarn dev && yarn start shaer -u https://shaer.ir/علیرضا-سلطانی-شاعر-و-روزنامه-نگار-زنجا/
+
 https://motamem.org/
 /**/
