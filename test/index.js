@@ -2176,5 +2176,8 @@ yarn dev && yarn start shaer
 yarn dev && yarn start shaer -u https://shaer.ir/غزلی-از-استاد-حسین-منزوی-به-همنواز-گلو/
 yarn dev && yarn start shaer -u https://shaer.ir/علیرضا-سلطانی-شاعر-و-روزنامه-نگار-زنجا/
 
+yarn dev && yarn start khateshomal
+yarn dev && yarn start khateshomal -u https://khateshomal.ir/۲۴۰۰-پروژه-هفته-کشاورزی-در-کشور-افتتاح/
+
 https://motamem.org/
 /**/
