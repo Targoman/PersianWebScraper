@@ -6441,3 +6441,26 @@ export class yaghoutnews extends clsScrapper {
         })
     }
 }
+
+export class lisna extends clsScrapper {
+    constructor() {
+        super(enuDomains.lisna, "lisna.ir", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".body"),
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path p")
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.tags li a")
+            },
+        })
+    }
+}

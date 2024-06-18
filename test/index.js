@@ -2182,5 +2182,8 @@ yarn dev && yarn start khateshomal -u https://khateshomal.ir/۲۴۰۰-پروژه
 yarn dev && yarn start yaghoutnews
 yarn dev && yarn start yaghoutnews -u https://yaghoutnews.ir/از-توکیو-تا-پاریس؛-سهمیههای-ایران-چق/
 
+yarn dev && yarn start lisna
+yarn dev && yarn start lisna -u https://www.lisna.ir/talk/item/7760-%20پردازش-زبان-طبیعی-چگونه-کار-می-کند؟
+
 https://motamem.org/
 /**/
