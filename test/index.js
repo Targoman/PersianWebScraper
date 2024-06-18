@@ -2188,5 +2188,8 @@ yarn dev && yarn start lisna -u https://www.lisna.ir/talk/item/7760-%20پردا�
 yarn dev && yarn start khabaresabzevaran
 yarn dev && yarn start khabaresabzevaran -u https://www.khabaresabzevaran.ir/news/مشکلات-معادن-راکد-جنوب-کرمان-رفع-می-شود
 
+yarn dev && yarn start goldashtkerman
+yarn dev && yarn start goldashtkerman -u https://goldashtkerman.ir/مولانا-تا-سایه-در-موزه-موسیقی-آلبومی/
+
 https://motamem.org/
 /**/

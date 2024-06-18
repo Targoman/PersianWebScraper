@@ -6487,3 +6487,31 @@ export class khabaresabzevaran extends clsScrapper {
         })
     }
 }
+
+export class goldashtkerman extends clsScrapper {
+    constructor() {
+        super(enuDomains.goldashtkerman, "goldashtkerman.ir", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".catpo",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["tag"]
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: ".tag a",         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -239,6 +239,7 @@ export enum enuDomains {
     gishniz = "gishniz",
     gitionline = "gitionline",
     goftareno = "goftareno",
+    goldashtkerman = "goldashtkerman",
     golvani = "golvani",
     gooyait = "gooyait",
     gostaresh = "gostaresh",
