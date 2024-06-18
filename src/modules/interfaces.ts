@@ -681,6 +681,7 @@ export enum enuDomains {
     wikivoyage = "wikivoyage",
     wppersian = "wppersian",
     yaftenews = "yaftenews",
+    yaghoutnews = "yaghoutnews",
     yazdfarda = "yazdfarda",
     yekpezeshk = "yekpezeshk",
     yektanet = "yektanet",

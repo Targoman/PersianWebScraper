@@ -6413,3 +6413,31 @@ export class khateshomal extends clsScrapper {
         })
     }
 }
+
+export class yaghoutnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.yaghoutnews, "yaghoutnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".lead_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content_news_entry",
+                    ignoreNodeClasses: ["tags", "content_news_info"]
+                },
+                category: {
+                    selector: ".single_news_cat a"
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

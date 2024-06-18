@@ -2179,5 +2179,8 @@ yarn dev && yarn start shaer -u https://shaer.ir/علیرضا-سلطانی-شا�
 yarn dev && yarn start khateshomal
 yarn dev && yarn start khateshomal -u https://khateshomal.ir/۲۴۰۰-پروژه-هفته-کشاورزی-در-کشور-افتتاح/
 
+yarn dev && yarn start yaghoutnews
+yarn dev && yarn start yaghoutnews -u https://yaghoutnews.ir/از-توکیو-تا-پاریس؛-سهمیههای-ایران-چق/
+
 https://motamem.org/
 /**/
