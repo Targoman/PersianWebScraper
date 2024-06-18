@@ -348,6 +348,7 @@ export enum enuDomains {
     keshavarzplus = "keshavarzplus",
     ketabnews = "ketabnews",
     khabaredagh = "khabaredagh",
+    khabaresabzevaran = "khabaresabzevaran",
     khabarfoori = "khabarfoori",
     khabarkhodro = "khabarkhodro",
     khabarmachine = "khabarmachine",

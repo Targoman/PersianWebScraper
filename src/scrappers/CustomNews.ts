@@ -6464,3 +6464,26 @@ export class lisna extends clsScrapper {
         })
     }
 }
+
+export class khabaresabzevaran extends clsScrapper {
+    constructor() {
+        super(enuDomains.khabaresabzevaran, "khabaresabzevaran.ir", {
+            selectors: {
+                article: "#single-main",
+                aboveTitle: "small",
+                title: "h2",
+                subtitle:  ".brief",
+                datetime: {
+                    conatiner: ".date",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".bread-crumb span",
+                },
+                tags: ".news-tags a"
+            },
+        })
+    }
+}

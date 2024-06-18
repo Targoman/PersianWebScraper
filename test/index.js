@@ -2185,5 +2185,8 @@ yarn dev && yarn start yaghoutnews -u https://yaghoutnews.ir/از-توکیو-ت�
 yarn dev && yarn start lisna
 yarn dev && yarn start lisna -u https://www.lisna.ir/talk/item/7760-%20پردازش-زبان-طبیعی-چگونه-کار-می-کند؟
 
+yarn dev && yarn start khabaresabzevaran
+yarn dev && yarn start khabaresabzevaran -u https://www.khabaresabzevaran.ir/news/مشکلات-معادن-راکد-جنوب-کرمان-رفع-می-شود
+
 https://motamem.org/
 /**/
