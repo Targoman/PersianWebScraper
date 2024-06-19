@@ -2200,5 +2200,8 @@ yarn dev && yarn start avayeseymare -u https://avayeseymare.ir/از-افلاطو
 yarn dev && yarn start diyareayyar
 yarn dev && yarn start diyareayyar -u https://www.diyareayyar.ir/متهمان-پرونده-منطقه-آزاد-چابهار-تبرئه/
 
+yarn dev && yarn start poyeshgarangil
+yarn dev && yarn start poyeshgarangil -u https://poyeshgarangil.ir/1402/10/26/ادبیات-وجه-مشترک-همه-ایرانیان-است/
+
 https://motamem.org/
 /**/

@@ -6590,3 +6590,29 @@ export class diyareayyar extends clsScrapper {
         })
     }
 }
+
+export class poyeshgarangil extends clsScrapper {
+    constructor() {
+        super(enuDomains.poyeshgarangil, "poyeshgarangil.ir", {
+            selectors: {
+                article: ".single",
+                aboveTitle: ".rootitr",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                category: {
+                    selector: ".the_category a"
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
