@@ -6564,3 +6564,29 @@ export class avayeseymare extends clsScrapper {
         })
     }
 }
+
+export class diyareayyar extends clsScrapper {
+    constructor() {
+        super(enuDomains.diyareayyar, "diyareayyar.ir", {
+            selectors: {
+                article: ".col-md-10 section.single",
+                aboveTitle: ".text-sin",
+                title: "h1.single-post-title",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("T").at(0) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                    ignoreNodeClasses: ["yarpp"]
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}

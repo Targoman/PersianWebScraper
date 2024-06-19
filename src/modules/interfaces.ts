@@ -161,6 +161,7 @@ export enum enuDomains {
     diibache = "diibache",
     divar = "divar",
     diyareaftab = "diyareaftab",
+    diyareayyar = "diyareayyar",
     doctoreto = "doctoreto",
     doctoryab = "doctoryab",
     donyaeeqtesad = "donyaeeqtesad",

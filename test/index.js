@@ -2197,5 +2197,8 @@ yarn dev && yarn start bazideraz1404 -u https://bazideraz1404.ir/news/214114/د�
 yarn dev && yarn start avayeseymare
 yarn dev && yarn start avayeseymare -u https://avayeseymare.ir/از-افلاطون-تا-پاستور/
 
+yarn dev && yarn start diyareayyar
+yarn dev && yarn start diyareayyar -u https://www.diyareayyar.ir/متهمان-پرونده-منطقه-آزاد-چابهار-تبرئه/
+
 https://motamem.org/
 /**/
