@@ -2191,5 +2191,8 @@ yarn dev && yarn start khabaresabzevaran -u https://www.khabaresabzevaran.ir/new
 yarn dev && yarn start goldashtkerman
 yarn dev && yarn start goldashtkerman -u https://goldashtkerman.ir/مولانا-تا-سایه-در-موزه-موسیقی-آلبومی/
 
+yarn dev && yarn start bazideraz1404
+yarn dev && yarn start bazideraz1404 -u https://bazideraz1404.ir/news/214114/دیدار-معاونت-امداد-و-نجات-استان-کرمانشاه-و-رئیس-جدید-جمعیت-هلال-احمر-سرپل-ذهاب-با-فرماندار-شهرستان
+
 https://motamem.org/
 /**/

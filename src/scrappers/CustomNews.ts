@@ -6515,3 +6515,27 @@ export class goldashtkerman extends clsScrapper {
         })
     }
 }
+
+export class bazideraz1404 extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazideraz1404, "bazideraz1404.ir", {
+            selectors: {
+                article: ".mt-3.mt-md-0 .bg-white.p-3",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".col span:nth-child(3)"
+                },
+                content: {
+                    main: ".post-body",
+                },
+                category: {
+                    selector: ".date.ml-3"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
