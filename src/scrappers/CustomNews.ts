@@ -6539,3 +6539,28 @@ export class bazideraz1404 extends clsScrapper {
         })
     }
 }
+
+export class avayeseymare extends clsScrapper {
+    constructor() {
+        super(enuDomains.avayeseymare, "avayeseymare.ir", {
+            selectors: {
+                article: ".conte",
+                aboveTitle: ".rotitle",
+                title: "h2.title",
+                subtitle: ".leaad",
+                datetime: {
+                    conatiner: "span:nth-child(5)",
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
