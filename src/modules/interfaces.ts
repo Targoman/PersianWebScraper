@@ -91,6 +91,7 @@ export enum enuDomains {
     bartarinha = "bartarinha",
     basalam = "basalam",
     basijnews = "basijnews",
+    basirat = "basirat",
     basna = "basna",
     bayanfarda = "bayanfarda",
     bazarebours = "bazarebours",

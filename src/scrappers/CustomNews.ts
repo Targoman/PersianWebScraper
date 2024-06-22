@@ -6616,3 +6616,30 @@ export class poyeshgarangil extends clsScrapper {
         })
     }
 }
+
+export class basirat extends clsScrapper {
+    constructor() {
+        super(enuDomains.basirat, "basirat.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/en", "/ar"]
+            }
+        })
+    }
+}
