@@ -692,6 +692,7 @@ export enum enuDomains {
     yaftenews = "yaftenews",
     yaghoutnews = "yaghoutnews",
     yazdfarda = "yazdfarda",
+    yazeco = "yazeco",
     yekpezeshk = "yekpezeshk",
     yektanet = "yektanet",
     yjc = "yjc",

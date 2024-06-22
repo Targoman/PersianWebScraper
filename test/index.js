@@ -2209,5 +2209,8 @@ yarn dev && yarn start basirat -u https://basirat.ir/fa/news/360271/جهش-در-
 yarn dev && yarn start sharghnegar
 yarn dev && yarn start sharghnegar -u https://sharghnegar.ir/علاقه-مندی-و-تغذیه-مناسب/
 
+yarn dev && yarn start yazeco
+yarn dev && yarn start yazeco -u https://yazeco.ir/146663/رشد-۴۹-درصدی-اعتبارات-تملک-داراییهای/
+
 https://motamem.org/
 /**/
