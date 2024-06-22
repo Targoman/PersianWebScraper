@@ -2203,5 +2203,11 @@ yarn dev && yarn start diyareayyar -u https://www.diyareayyar.ir/متهمان-پ
 yarn dev && yarn start poyeshgarangil
 yarn dev && yarn start poyeshgarangil -u https://poyeshgarangil.ir/1402/10/26/ادبیات-وجه-مشترک-همه-ایرانیان-است/
 
+yarn dev && yarn start basirat
+yarn dev && yarn start basirat -u https://basirat.ir/fa/news/360271/جهش-در-تولید-نفت-برنامه-ریزی-دولت-برای-تولید-چهار-میلیون-نفت-در-روز
+
+yarn dev && yarn start sharghnegar
+yarn dev && yarn start sharghnegar -u https://sharghnegar.ir/علاقه-مندی-و-تغذیه-مناسب/
+
 https://motamem.org/
 /**/
