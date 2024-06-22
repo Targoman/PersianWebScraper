@@ -6695,3 +6695,31 @@ export class yazeco extends clsScrapper {
         })
     }
 }
+
+export class shahr20 extends clsScrapper {
+    constructor() {
+        super(enuDomains.shahr20, "shahr20.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2.single-post-title",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                    ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

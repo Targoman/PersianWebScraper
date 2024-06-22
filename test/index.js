@@ -2212,5 +2212,8 @@ yarn dev && yarn start sharghnegar -u https://sharghnegar.ir/علاقه-مندی
 yarn dev && yarn start yazeco
 yarn dev && yarn start yazeco -u https://yazeco.ir/146663/رشد-۴۹-درصدی-اعتبارات-تملک-داراییهای/
 
+yarn dev && yarn start shahr20
+yarn dev && yarn start shahr20 -u https://shahr20.ir/86093/انجام-طرح-مطالعاتی-محلات-هدف-بازآفرین/
+
 https://motamem.org/
 /**/
