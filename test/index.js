@@ -2154,5 +2154,75 @@ yarn dev && yarn start turkmensnews -u https://turkmensnews.com/قطار-ترا�
 yarn dev && yarn start sobheqtesad
 yarn dev && yarn start sobheqtesad -u https://sobh-eqtesad.ir/بخارا-گوهری-از-تاریخ،-زیبایی-و-ادبیات/فرهنگی/
 
+yarn dev && yarn start faryadenahavand
+yarn dev && yarn start faryadenahavand -u http://www.faryadenahavand.ir/سرویس-شهرستان/9361-بررسی-مشکلات-حوزه-صنعت،-معدن-و-تجارت-نهاوند-با-حضور-شورای-تأمین.html
+
+yarn dev && yarn start avayseyedjamal
+yarn dev && yarn start avayseyedjamal -u http://avayseyedjamal.ir/news/47944/باز-شدن-پای-دادستانی-به-گود-مطالبات-ورزشی
+
+yarn dev && yarn start neshateshahr
+yarn dev && yarn start neshateshahr -u https://neshateshahr.ir/Press/ShowNews/14909
+
+yarn dev && yarn start avayefamenin
+yarn dev && yarn start avayefamenin -u http://avayefamenin.ir/news/28489/هیچکس-در-اروپا-خواهان-درگیری-ناتو-با-روسیه-نیست
+
+yarn dev && yarn start abtaab
+yarn dev && yarn start abtaab -u https://www.abtaab.ir/1403/03/26/قانون-دورکاری-مادران-شاغل-به-کجا-رسید؟/
+
+yarn dev && yarn start naghsheeghtesadonline 
+yarn dev && yarn start naghsheeghtesadonline -u https://naghsheeghtesadonline.ir/news/20800
+
+yarn dev && yarn start shaer
+yarn dev && yarn start shaer -u https://shaer.ir/غزلی-از-استاد-حسین-منزوی-به-همنواز-گلو/
+yarn dev && yarn start shaer -u https://shaer.ir/علیرضا-سلطانی-شاعر-و-روزنامه-نگار-زنجا/
+
+yarn dev && yarn start khateshomal
+yarn dev && yarn start khateshomal -u https://khateshomal.ir/۲۴۰۰-پروژه-هفته-کشاورزی-در-کشور-افتتاح/
+
+yarn dev && yarn start yaghoutnews
+yarn dev && yarn start yaghoutnews -u https://yaghoutnews.ir/از-توکیو-تا-پاریس؛-سهمیههای-ایران-چق/
+
+yarn dev && yarn start lisna
+yarn dev && yarn start lisna -u https://www.lisna.ir/talk/item/7760-%20پردازش-زبان-طبیعی-چگونه-کار-می-کند؟
+
+yarn dev && yarn start khabaresabzevaran
+yarn dev && yarn start khabaresabzevaran -u https://www.khabaresabzevaran.ir/news/مشکلات-معادن-راکد-جنوب-کرمان-رفع-می-شود
+
+yarn dev && yarn start goldashtkerman
+yarn dev && yarn start goldashtkerman -u https://goldashtkerman.ir/مولانا-تا-سایه-در-موزه-موسیقی-آلبومی/
+
+yarn dev && yarn start bazideraz1404
+yarn dev && yarn start bazideraz1404 -u https://bazideraz1404.ir/news/214114/دیدار-معاونت-امداد-و-نجات-استان-کرمانشاه-و-رئیس-جدید-جمعیت-هلال-احمر-سرپل-ذهاب-با-فرماندار-شهرستان
+
+yarn dev && yarn start avayeseymare
+yarn dev && yarn start avayeseymare -u https://avayeseymare.ir/از-افلاطون-تا-پاستور/
+
+yarn dev && yarn start diyareayyar
+yarn dev && yarn start diyareayyar -u https://www.diyareayyar.ir/متهمان-پرونده-منطقه-آزاد-چابهار-تبرئه/
+
+yarn dev && yarn start poyeshgarangil
+yarn dev && yarn start poyeshgarangil -u https://poyeshgarangil.ir/1402/10/26/ادبیات-وجه-مشترک-همه-ایرانیان-است/
+
+yarn dev && yarn start basirat
+yarn dev && yarn start basirat -u https://basirat.ir/fa/news/360271/جهش-در-تولید-نفت-برنامه-ریزی-دولت-برای-تولید-چهار-میلیون-نفت-در-روز
+
+yarn dev && yarn start sharghnegar
+yarn dev && yarn start sharghnegar -u https://sharghnegar.ir/علاقه-مندی-و-تغذیه-مناسب/
+
+yarn dev && yarn start yazeco
+yarn dev && yarn start yazeco -u https://yazeco.ir/146663/رشد-۴۹-درصدی-اعتبارات-تملک-داراییهای/
+
+yarn dev && yarn start shahr20
+yarn dev && yarn start shahr20 -u https://shahr20.ir/86093/انجام-طرح-مطالعاتی-محلات-هدف-بازآفرین/
+
+yarn dev && yarn start roshanayrah
+yarn dev && yarn start roshanayrah -u https://www.roshanayrah.ir/fa/news/9389/
+
+yarn dev && yarn start quskonline
+yarn dev && yarn start quskonline -u http://quskonline.ir/1403/03/ابتلای-۴۵-درصد-مردم-کشور-به-کبد-چرب-اصلا/
+
+yarn dev && yarn start bamemeybod 
+yarn dev && yarn start bamemeybod -u https://bamemeybod.ir/145349/پیش-بینی-خرید-۵-هزار-تن-گندم-مازاد-بر-مص/
+
 https://motamem.org/
 /**/
