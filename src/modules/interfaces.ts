@@ -514,6 +514,7 @@ export enum enuDomains {
     qavanin = "qavanin",
     qudsonline = "qudsonline",
     quera = "quera",
+    quskonline = "quskonline",
     raaknews = "raaknews",
     radareghtesad = "radareghtesad",
     rahatblog = "rahatblog",

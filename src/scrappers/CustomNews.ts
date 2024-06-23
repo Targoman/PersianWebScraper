@@ -6742,3 +6742,29 @@ export class roshanayrah extends clsScrapper {
         })
     }
 }
+
+export class quskonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.quskonline, "quskonline.ir", {
+            selectors: {
+                article: ".single",
+                aboveTitle: ".rootitr",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle"
+                },
+                category: {
+                    selector: ".the_category a"
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

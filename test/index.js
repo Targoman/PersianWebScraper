@@ -2218,5 +2218,8 @@ yarn dev && yarn start shahr20 -u https://shahr20.ir/86093/انجام-طرح-م�
 yarn dev && yarn start roshanayrah
 yarn dev && yarn start roshanayrah -u https://www.roshanayrah.ir/fa/news/9389/
 
+yarn dev && yarn start quskonline
+yarn dev && yarn start quskonline -u http://quskonline.ir/1403/03/ابتلای-۴۵-درصد-مردم-کشور-به-کبد-چرب-اصلا/
+
 https://motamem.org/
 /**/
