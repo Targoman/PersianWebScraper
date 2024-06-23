@@ -102,4 +102,21 @@ export class oloompezeshki extends clsXenForoBased {
       }
     })
   }
+
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Medical }
+    if (!cat) return mappedCat
+    void cat, first, second
+
+    if (first.startsWith("اخبار")) return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.University }
+    if (first.includes("اخبار")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
+    if (first.startsWith("زبان")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
+    if (first.startsWith("سرگرمی")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun }
+    if (first.startsWith("صفحه")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
+    if (first.startsWith("عملی")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+    if (first.startsWith("مطالب")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+    if (first.startsWith("مقالات")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+
+    return mappedCat
+  }
 }

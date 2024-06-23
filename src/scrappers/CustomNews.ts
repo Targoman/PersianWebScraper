@@ -2138,6 +2138,60 @@ export class akharinkhabar extends clsScrapper {
             },
         })
     }
+
+    protected mapCategoryImpl(category: string | undefined, first: string, second: string): IntfMappedCategory {
+        const mappedCat: IntfMappedCategory = { textType: enuTextType.Formal, major: enuMajorCategory.News }
+        void category, first, second
+        if (first.includes("اقتصاد")
+            || first.includes("بانک")
+            || first.includes("بیمه")
+            || first.includes("بورس")
+            || first.includes("تجارت")
+            || first.includes("تولید")
+            || first.includes("بانک")
+            || first.includes("صنعت")
+            || first.includes("مسکن و راه")
+        ) return { ...mappedCat, minor: enuMinorCategory.Economics }
+        if (first.includes("بین الملل")) return { ...mappedCat, minor: enuMinorCategory.Political, subminor: enuSubMinorCategory.Intl }
+        if (first.includes("شرعی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+        if (first.includes("انتخابات")
+            || first.includes("دولت")
+            || first.includes("سیاست")
+            || first.includes("سیاسی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Political }
+        if (first.includes("بیوگرافی")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Celebrities }
+        if (first.includes("پتروشیمی")) return { ...mappedCat, minor: enuMinorCategory.Economics, subminor: enuSubMinorCategory.Petroleum }
+        if (first.includes("پوشاک")) return { ...mappedCat, minor: enuMinorCategory.LifeStyle }
+        if (first.includes("تعبیر خواب")
+            || first.includes("فال ")
+            || first.includes("بازی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Fun }
+        if (first.includes("توپ و تور")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("جامعه")
+            || first.includes("زناشویی")
+        ) return { ...mappedCat, minor: enuMinorCategory.Social }
+        if (first.includes("حقوقی")) return { ...mappedCat, minor: enuMinorCategory.Law }
+        if (first.includes("حوادث")) return { ...mappedCat, minor: enuMinorCategory.Social, subminor: enuSubMinorCategory.Accident }
+        if (first.includes("خودرو")) return { ...mappedCat, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Car }
+        if (first.includes("رسانه")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
+        if (first.includes("سلامت")) return { ...mappedCat, minor: enuMinorCategory.Health }
+        if (first.includes("سینما")
+            || first.includes("فیلم")
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Cinema }
+        if (first.includes("صنایع دستی")
+            || first.includes("فرهنگ")
+        ) return { ...mappedCat, minor: enuMinorCategory.Culture }
+        if (first.includes("عکس")) return { ...mappedCat, minor: enuMinorCategory.Culture, subminor: enuSubMinorCategory.Photo }
+        if (first.includes("فن آوری")
+            || first.includes("فناوری")
+        ) return { ...mappedCat, minor: enuMinorCategory.ScienceTech }
+        if (first.includes("فوتبال")) return { ...mappedCat, minor: enuMinorCategory.Sport, subminor: enuSubMinorCategory.Football }
+        if (first.includes("گردشگری")) return { ...mappedCat, minor: enuMinorCategory.Tourism }
+        if (first.includes("ورزش")) return { ...mappedCat, minor: enuMinorCategory.Sport }
+        if (first.includes("شرعی")) return { ...mappedCat, minor: enuMinorCategory.Religious }
+
+        return mappedCat
+    }
 }
 
 export class pgnews extends clsScrapper {
