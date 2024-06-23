@@ -6795,3 +6795,28 @@ export class bamemeybod extends clsScrapper {
         })
     }
 }
+
+export class qartalnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.qartalnews, "qartalnews.ir", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".breadcrumb > li:nth-child(6)"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: ".breadcrumb > a",
+                    startIndex: 1
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

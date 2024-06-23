@@ -2224,5 +2224,8 @@ yarn dev && yarn start quskonline -u http://quskonline.ir/1403/03/ابتلای-�
 yarn dev && yarn start bamemeybod 
 yarn dev && yarn start bamemeybod -u https://bamemeybod.ir/145349/پیش-بینی-خرید-۵-هزار-تن-گندم-مازاد-بر-مص/
 
+yarn dev && yarn start qartalnews 
+yarn dev && yarn start qartalnews -u https://qartalnews.ir/غآغاز-حلقه-گذاری-پرندگان-در-زیستگاه-ها/
+
 https://motamem.org/
 /**/
