@@ -2215,5 +2215,8 @@ yarn dev && yarn start yazeco -u https://yazeco.ir/146663/رشد-۴۹-درصدی
 yarn dev && yarn start shahr20
 yarn dev && yarn start shahr20 -u https://shahr20.ir/86093/انجام-طرح-مطالعاتی-محلات-هدف-بازآفرین/
 
+yarn dev && yarn start roshanayrah
+yarn dev && yarn start roshanayrah -u https://www.roshanayrah.ir/fa/news/9389/
+
 https://motamem.org/
 /**/

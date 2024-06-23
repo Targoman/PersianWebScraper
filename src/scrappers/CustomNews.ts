@@ -6723,3 +6723,22 @@ export class shahr20 extends clsScrapper {
         })
     }
 }
+
+export class roshanayrah extends clsScrapper {
+    constructor() {
+        super(enuDomains.roshanayrah, "roshanayrah.ir", {
+            selectors: {
+                article: ".single-news",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-news > i"),
+                title: "h2",
+                subtitle:  ".lid",
+                datetime: {
+                    conatiner: ".meta > span:nth-child(2)"
+                },
+                content: {
+                    main: ".content",
+                },
+            },
+        })
+    }
+}
