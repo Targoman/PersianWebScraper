@@ -6768,3 +6768,30 @@ export class quskonline extends clsScrapper {
         })
     }
 }
+
+export class bamemeybod extends clsScrapper {
+    constructor() {
+        super(enuDomains.bamemeybod, "bamemeybod.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.jeg_post_title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_tags"]
+                },
+                category: {
+                    selector: "#breadcrumbs span a",
+                    startIndex: 1
+                },
+                tags: ".jeg_post_tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -2221,5 +2221,8 @@ yarn dev && yarn start roshanayrah -u https://www.roshanayrah.ir/fa/news/9389/
 yarn dev && yarn start quskonline
 yarn dev && yarn start quskonline -u http://quskonline.ir/1403/03/ابتلای-۴۵-درصد-مردم-کشور-به-کبد-چرب-اصلا/
 
+yarn dev && yarn start bamemeybod 
+yarn dev && yarn start bamemeybod -u https://bamemeybod.ir/145349/پیش-بینی-خرید-۵-هزار-تن-گندم-مازاد-بر-مص/
+
 https://motamem.org/
 /**/
