@@ -6820,3 +6820,32 @@ export class qartalnews extends clsScrapper {
         })
     }
 }
+
+export class qalampress extends clsScrapper {
+    constructor() {
+        super(enuDomains.qalampress, "qalampress.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                    //ignoreNodeClasses: ["page-bottom"]
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

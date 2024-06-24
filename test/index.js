@@ -2227,5 +2227,8 @@ yarn dev && yarn start bamemeybod -u https://bamemeybod.ir/145349/پیش-بین�
 yarn dev && yarn start qartalnews 
 yarn dev && yarn start qartalnews -u https://qartalnews.ir/غآغاز-حلقه-گذاری-پرندگان-در-زیستگاه-ها/
 
+yarn dev && yarn start qalampress
+yarn dev && yarn start qalampress -u https://qalampress.ir/شناسایی-و-جمع-آوری-نزدیك-به-6-هزار-انشع/
+
 https://motamem.org/
 /**/
