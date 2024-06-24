@@ -6848,3 +6848,29 @@ export class qalampress extends clsScrapper {
         })
     }
 }
+
+export class iran361 extends clsScrapper {
+    constructor() {
+        super(enuDomains.iran361, "361iran.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".desc_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news_content",
+                },
+                category: {
+                    selector: "ol.breadcrumb a"
+                },
+                tags: ".tag_wrap a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

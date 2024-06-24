@@ -299,6 +299,7 @@ export enum enuDomains {
     ipemdad = "ipemdad",
     ipresta = "ipresta",
     iqna = "iqna",
+    iran361 = "iran361",
     iranacademy = "iranacademy",
     iranart = "iranart",
     irancell = "irancell",

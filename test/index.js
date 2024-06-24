@@ -2233,5 +2233,8 @@ yarn dev && yarn start qalampress -u https://qalampress.ir/شناسایی-و-ج�
 yarn dev && yarn start ipemdad
 yarn dev && yarn start ipemdad -u https://ipemdad.com/تفاوت-چیلر-جذبی-و-تراکمی/
 
+yarn dev && yarn start iran361
+yarn dev && yarn start iran361 -u https://361iran.ir/سقف-اجاره-مسکن-در-استان%e2%80%8cهای-کشور-تا-پا/
+
 https://motamem.org/
 /**/
