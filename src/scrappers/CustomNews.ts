@@ -6874,3 +6874,28 @@ export class iran361 extends clsScrapper {
         })
     }
 }
+
+export class khabareshahr extends clsScrapper {
+    constructor() {
+        super(enuDomains.khabareshahr, "khabareshahr.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".excerpt-news",
+                datetime: {
+                    conatiner: ".news_date_c"
+                },
+                content: {
+                    main: ".the_content_body",
+                },
+                category: {
+                    selector: ".cat_name a"
+                },
+                tags: ".news-tag-single"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

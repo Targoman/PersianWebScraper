@@ -2236,5 +2236,8 @@ yarn dev && yarn start ipemdad -u https://ipemdad.com/تفاوت-چیلر-جذب
 yarn dev && yarn start iran361
 yarn dev && yarn start iran361 -u https://361iran.ir/سقف-اجاره-مسکن-در-استان%e2%80%8cهای-کشور-تا-پا/
 
+yarn dev && yarn start khabareshahr
+yarn dev && yarn start khabareshahr -u https://khabareshahr.ir/2024/06/13/آغاز-بهرهبرداری-از-بزرگترین-پروژه-مد/
+
 https://motamem.org/
 /**/
