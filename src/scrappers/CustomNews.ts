@@ -6835,7 +6835,6 @@ export class qalampress extends clsScrapper {
                 },
                 content: {
                     main: ".con",
-                    //ignoreNodeClasses: ["page-bottom"]
                 },
                 category: {
                     selector: ".meta-cat a",

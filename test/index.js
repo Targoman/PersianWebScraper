@@ -2230,5 +2230,8 @@ yarn dev && yarn start qartalnews -u https://qartalnews.ir/غآغاز-حلقه-�
 yarn dev && yarn start qalampress
 yarn dev && yarn start qalampress -u https://qalampress.ir/شناسایی-و-جمع-آوری-نزدیك-به-6-هزار-انشع/
 
+yarn dev && yarn start ipemdad
+yarn dev && yarn start ipemdad -u https://ipemdad.com/تفاوت-چیلر-جذبی-و-تراکمی/
+
 https://motamem.org/
 /**/

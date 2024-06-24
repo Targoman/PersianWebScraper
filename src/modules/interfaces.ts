@@ -296,6 +296,7 @@ export enum enuDomains {
     infogramacademy = "infogramacademy",
     inn = "inn",
     intitr = "intitr",
+    ipemdad = "ipemdad",
     ipresta = "ipresta",
     iqna = "iqna",
     iranacademy = "iranacademy",
