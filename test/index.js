@@ -2249,5 +2249,8 @@ yarn dev && yarn start asrtabriz
 yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/169824/با-سهام-عدالت-اینگونه-وام-بگیرید
 yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/440/بازگشایی-مسیر-منتهی-به-کلیسای-سنت-استپانوس
 
+yarn dev && yarn start ashkannews
+yarn dev && yarn start ashkannews -u https://ashkannews.ir/news/12938/دو-پروژه-عمرانی-دیوار-ساسانی-بند-و-ب/
+
 https://motamem.org/
 /**/

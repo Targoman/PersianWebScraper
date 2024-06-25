@@ -6978,3 +6978,27 @@ export class asrtabriz extends clsScrapper {
         })
     }
 }
+
+export class ashkannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ashkannews, "ashkannews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: "h2.entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["mag-box"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
