@@ -6899,3 +6899,30 @@ export class khabareshahr extends clsScrapper {
         })
     }
 }
+
+export class nedaymardom2ostan extends clsScrapper {
+    constructor() {
+        super(enuDomains.nedaymardom2ostan, "nedaymardom2ostan.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+                    ignoreNodeClasses: ["inner-web-content"]
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

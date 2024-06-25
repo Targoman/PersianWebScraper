@@ -2239,5 +2239,8 @@ yarn dev && yarn start iran361 -u https://361iran.ir/سقف-اجاره-مسکن-
 yarn dev && yarn start khabareshahr
 yarn dev && yarn start khabareshahr -u https://khabareshahr.ir/2024/06/13/آغاز-بهرهبرداری-از-بزرگترین-پروژه-مد/
 
+yarn dev && yarn start nedaymardom2ostan
+yarn dev && yarn start nedaymardom2ostan -u https://nedaymardom2ostan.ir/1403/04/03/ابرپروژه-مرکز-جامع-تشخیص-و-درمان-سرطان/
+
 https://motamem.org/
 /**/
