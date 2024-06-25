@@ -2242,5 +2242,8 @@ yarn dev && yarn start khabareshahr -u https://khabareshahr.ir/2024/06/13/آغا
 yarn dev && yarn start nedaymardom2ostan
 yarn dev && yarn start nedaymardom2ostan -u https://nedaymardom2ostan.ir/1403/04/03/ابرپروژه-مرکز-جامع-تشخیص-و-درمان-سرطان/
 
+yarn dev && yarn start kishvandnews
+yarn dev && yarn start kishvandnews -u https://kishvandnews.ir/30856/خروج-یک-واحد-نیروگاهی-از-مدارتولید-ب/
+
 https://motamem.org/
 /**/

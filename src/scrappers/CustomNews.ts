@@ -6926,3 +6926,27 @@ export class nedaymardom2ostan extends clsScrapper {
         })
     }
 }
+
+export class kishvandnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.kishvandnews, "kishvandnews.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
