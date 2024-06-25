@@ -60,6 +60,7 @@ export enum enuDomains {
     asriran = "asriran",
     asrkhabar = "asrkhabar",
     asrpress = "asrpress",
+    asrtabriz = "asrtabriz",
     atiyeonline = "atiyeonline",
     atlaspress = "atlaspress",
     avaalborznews = "avaalborznews",

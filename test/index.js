@@ -2245,5 +2245,9 @@ yarn dev && yarn start nedaymardom2ostan -u https://nedaymardom2ostan.ir/1403/04
 yarn dev && yarn start kishvandnews
 yarn dev && yarn start kishvandnews -u https://kishvandnews.ir/30856/خروج-یک-واحد-نیروگاهی-از-مدارتولید-ب/
 
+yarn dev && yarn start asrtabriz
+yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/169824/با-سهام-عدالت-اینگونه-وام-بگیرید
+yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/440/بازگشایی-مسیر-منتهی-به-کلیسای-سنت-استپانوس
+
 https://motamem.org/
 /**/
