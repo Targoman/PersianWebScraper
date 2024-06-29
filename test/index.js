@@ -2252,5 +2252,8 @@ yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/440/بازگشای
 yarn dev && yarn start ashkannews
 yarn dev && yarn start ashkannews -u https://ashkannews.ir/news/12938/دو-پروژه-عمرانی-دیوار-ساسانی-بند-و-ب/
 
+yarn dev && yarn start kohnaninews
+yarn dev && yarn start kohnaninews -u https://kohnaninews.ir/newskohnani/62310
+
 https://motamem.org/
 /**/

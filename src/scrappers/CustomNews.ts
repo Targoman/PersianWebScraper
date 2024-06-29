@@ -7002,3 +7002,36 @@ export class ashkannews extends clsScrapper {
         })
     }
 }
+
+export class kohnaninews extends clsScrapper {
+    constructor() {
+        super(enuDomains.kohnaninews, "kohnaninews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".excerpt-news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the_content_body",
+                    ignoreNodeClasses: ["padSection"]
+                    //ignoreTexts: [/.*آخرین اخبار ورزشی.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li .comments"),
+                    author: ".name_author span",
+                    text: ".comment_text"
+                },
+                category: {
+                    selector: ".cat_name a"
+                },
+                tags: ".news-tag-single a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
