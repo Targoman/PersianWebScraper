@@ -7017,17 +7017,38 @@ export class kohnaninews extends clsScrapper {
                 content: {
                     main: ".the_content_body",
                     ignoreNodeClasses: ["padSection"]
-                    //ignoreTexts: [/.*آخرین اخبار ورزشی.*/]
-                },
-                comments: {
-                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.comments-list li .comments"),
-                    author: ".name_author span",
-                    text: ".comment_text"
                 },
                 category: {
                     selector: ".cat_name a"
                 },
                 tags: ".news-tag-single a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class kashkan extends clsScrapper {
+    constructor() {
+        super(enuDomains.kashkan, "kashkan.ir", {
+            selectors: {
+                article: ".ap-single",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".breadcrumb > li:nth-child(6)",
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["tag"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                    lastIndex: 2
+                },
+                tags: ".im-tag-items a",         
             },
             url: {
                 removeWWW: true
