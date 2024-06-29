@@ -7078,3 +7078,22 @@ export class ofoghtehran extends clsScrapper {
         })
     }
 }
+
+export class afkarpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.afkarpress, "afkarpress.ir", {
+            selectors: {
+                article: ".single_article",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date_code span",
+                },
+                content: {
+                    main: ".content_p",
+                },
+                tags: ".single_tags h6 a",         
+            },
+        })
+    }
+}

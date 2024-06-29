@@ -2261,5 +2261,8 @@ yarn dev && yarn start kashkan -u https://kashkan.ir/1403/01/31/نجات-دو-ک
 yarn dev && yarn start ofoghtehran
 yarn dev && yarn start ofoghtehran -u https://ofoghtehran.ir/148138/مشتری-جدید-شعب-سپهر/
 
+yarn dev && yarn start afkarpress
+yarn dev && yarn start afkarpress -u https://www.afkarpress.ir/view_news.php?show=11246
+
 https://motamem.org/
 /**/
