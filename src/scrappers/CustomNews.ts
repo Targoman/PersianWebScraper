@@ -7056,3 +7056,25 @@ export class kashkan extends clsScrapper {
         })
     }
 }
+
+export class ofoghtehran extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghtehran, "ofoghtehran.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

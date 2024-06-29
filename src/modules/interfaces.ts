@@ -475,6 +475,7 @@ export enum enuDomains {
     ofoghilam = "ofoghilam",
     ofoghjonoub = "ofoghjonoub",
     ofoghnews = "ofoghnews",
+    ofoghtehran = "ofoghtehran",
     oghyanos = "oghyanos",
     oipf = "oipf",
     okala = "okala",

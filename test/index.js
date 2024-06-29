@@ -2258,5 +2258,8 @@ yarn dev && yarn start kohnaninews -u https://kohnaninews.ir/newskohnani/62310
 yarn dev && yarn start kashkan
 yarn dev && yarn start kashkan -u https://kashkan.ir/1403/01/31/نجات-دو-کوهنورد-گرفتار-در-دره-شیرز-در-عم/
 
+yarn dev && yarn start ofoghtehran
+yarn dev && yarn start ofoghtehran -u https://ofoghtehran.ir/148138/مشتری-جدید-شعب-سپهر/
+
 https://motamem.org/
 /**/
