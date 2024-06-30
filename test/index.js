@@ -2264,5 +2264,8 @@ yarn dev && yarn start ofoghtehran -u https://ofoghtehran.ir/148138/مشتری-�
 yarn dev && yarn start afkarpress
 yarn dev && yarn start afkarpress -u https://www.afkarpress.ir/view_news.php?show=11246
 
+yarn dev && yarn start eghtesaddaryai
+yarn dev && yarn start eghtesaddaryai -u https://eghtesaddaryai.ir/fa/news/6134/آينده-گردشگري-ايران-از-دریا-می-گذرد
+
 https://motamem.org/
 /**/
