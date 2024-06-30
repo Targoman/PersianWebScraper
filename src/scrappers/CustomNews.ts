@@ -7097,3 +7097,28 @@ export class afkarpress extends clsScrapper {
         })
     }
 }
+
+export class eghtesadsaramadonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadsaramadonline, "eghtesadsaramadonline.ir", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: ".rotitr-field",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: ".category-name a",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

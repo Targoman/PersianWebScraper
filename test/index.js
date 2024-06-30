@@ -2267,5 +2267,8 @@ yarn dev && yarn start afkarpress -u https://www.afkarpress.ir/view_news.php?sho
 yarn dev && yarn start eghtesaddaryai
 yarn dev && yarn start eghtesaddaryai -u https://eghtesaddaryai.ir/fa/news/6134/آينده-گردشگري-ايران-از-دریا-می-گذرد
 
+yarn dev && yarn start eghtesadsaramadonline
+yarn dev && yarn start eghtesadsaramadonline -u https://eghtesadsaramadonline.ir/iran/59043-تعریف-۳۵۰۰-میلیارد-ریال-پروژه-زیست-محیطی-در-فولاد-سبا.html
+
 https://motamem.org/
 /**/
