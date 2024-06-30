@@ -2270,5 +2270,9 @@ yarn dev && yarn start eghtesaddaryai -u https://eghtesaddaryai.ir/fa/news/6134/
 yarn dev && yarn start eghtesadsaramadonline
 yarn dev && yarn start eghtesadsaramadonline -u https://eghtesadsaramadonline.ir/iran/59043-تعریف-۳۵۰۰-میلیارد-ریال-پروژه-زیست-محیطی-در-فولاد-سبا.html
 
+yarn dev && yarn start gsm
+yarn dev && yarn start gsm -u https://www.gsm.ir/mag/news/67627/تمامی-شایعات-مهم-در-مورد-حلقه-اپل
+yarn dev && yarn start gsm -u https://www.gsm.ir/mag/reviews/51464/بررسی-تخصصی-samsung-galaxy-note-10-lite
+
 https://motamem.org/
 /**/

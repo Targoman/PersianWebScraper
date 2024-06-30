@@ -7122,3 +7122,34 @@ export class eghtesadsaramadonline extends clsScrapper {
         })
     }
 }
+
+export class gsm extends clsScrapper {
+    constructor() {
+        super(enuDomains.gsm, "gsm.ir", {
+            selectors: {
+                article: ".pt-4.pb-8.px-4, .container > .flex.flex-col.gap-4 ",
+                title: "h1",
+                subtitle: ".mainText.my-0",
+                datetime: {
+                    conatiner: ".items-center > span"
+                },
+                content: {
+                    main: ".w-full.mainText",
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".mb-12 .mb-4"),
+                    author: ".gap-4 > p",
+                    datetime: ".text-s",
+                    text: ".mainText"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[aria-label='bread_crumbs'] a"),
+                },
+                tags: ".w-full.items-start > div > a"
+            },
+            url: {
+                extraInvalidStartPaths: ["/product"]
+            }
+        })
+    }
+}
