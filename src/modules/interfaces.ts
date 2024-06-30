@@ -721,6 +721,7 @@ export enum enuDomains {
     zhaket = "zhaket",
     zibamoon = "zibamoon",
     zisaan = "zisaan",
+    zoomarz = "zoomarz",
     zoomg = "zoomg",
     zoomit = "zoomit",
     zoomtech = "zoomtech",

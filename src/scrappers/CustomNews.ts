@@ -7153,3 +7153,34 @@ export class gsm extends clsScrapper {
         })
     }
 }
+
+export class zoomarz extends clsScrapper {
+    constructor() {
+        super(enuDomains.zoomarz, "zoomarz.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container p, " +
+                        ".elementor-widget-theme-post-content .elementor-widget-container li[style='text-align: justify;']",
+                    ignoreTexts: [/.*بیشتر بخوانید.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".wpd-thread-list .wpd-comment"),
+                    author: ".wpd-comment-wrap .wpd-comment-right .wpd-comment-author",
+                    text: " .wpd-comment-wrap .wpd-comment-right .wpd-comment-text"
+                },
+                category: {
+                    selector: ".elementor-post-info__item--type-custom a",
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

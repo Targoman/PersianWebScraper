@@ -2274,5 +2274,9 @@ yarn dev && yarn start gsm
 yarn dev && yarn start gsm -u https://www.gsm.ir/mag/news/67627/تمامی-شایعات-مهم-در-مورد-حلقه-اپل
 yarn dev && yarn start gsm -u https://www.gsm.ir/mag/reviews/51464/بررسی-تخصصی-samsung-galaxy-note-10-lite
 
+yarn dev && yarn start zoomarz
+yarn dev && yarn start zoomarz -u https://zoomarz.com/is-it-profitable-to-mine-digital-currency/
+yarn dev && yarn start zoomarz -u https://zoomarz.com/bitcoin-analysis/
+
 https://motamem.org/
 /**/
