@@ -7184,3 +7184,28 @@ export class zoomarz extends clsScrapper {
         })
     }
 }
+
+export class akhbarbank extends clsScrapper {
+    constructor() {
+        super(enuDomains.akhbarbank, "akhbarbank.com", {
+            selectors: {
+                article: "#docDataRow",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDiv3TitrRou"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivp3"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tag_p a")
+            },
+        })
+    }
+}

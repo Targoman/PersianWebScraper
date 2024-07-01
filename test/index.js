@@ -2278,5 +2278,8 @@ yarn dev && yarn start zoomarz
 yarn dev && yarn start zoomarz -u https://zoomarz.com/is-it-profitable-to-mine-digital-currency/
 yarn dev && yarn start zoomarz -u https://zoomarz.com/bitcoin-analysis/
 
+yarn dev && yarn start akhbarbank
+yarn dev && yarn start akhbarbank -u https://www.akhbarbank.com/news/95283/بانک-صادرات-فروشنده-بلوک-بترانس
+
 https://motamem.org/
 /**/
