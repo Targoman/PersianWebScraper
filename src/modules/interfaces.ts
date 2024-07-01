@@ -643,6 +643,7 @@ export enum enuDomains {
     tadbir24 = "tadbir24",
     tahlilbazaar = "tahlilbazaar",
     tahririeh = "tahririeh",
+    tajhiznews = "tajhiznews",
     tapesh3 = "tapesh3",
     tarafdari = "tarafdari",
     taraz = "taraz",

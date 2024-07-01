@@ -2287,5 +2287,8 @@ yarn dev && yarn start rahbordbank -u https://rahbordbank.ir/news/33237/فراه
 yarn dev && yarn start istanews
 yarn dev && yarn start istanews -u https://istanews.ir/1403/04/11/آینده-ریال-چه-می-شود-؟/
 
+yarn dev && yarn start tajhiznews 
+yarn dev && yarn start tajhiznews -u https://tajhiznews.ir/1403/04/02/افتخاری-دیگر-در-توسعه-بومی-سازی-تجهیزا/
+
 https://motamem.org/
 /**/

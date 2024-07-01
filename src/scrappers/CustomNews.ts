@@ -7261,3 +7261,26 @@ export class istanews extends clsScrapper {
         })
     }
 }
+
+export class tajhiznews extends clsScrapper {
+    constructor() {
+        super(enuDomains.tajhiznews, "tajhiznews.ir", {
+            selectors: {
+                article: ".head-single",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".botd"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main:  (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".contentt"),
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='tag']")
+            },
+        })
+    }
+}
