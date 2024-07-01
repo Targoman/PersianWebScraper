@@ -328,6 +328,7 @@ export enum enuDomains {
     isovisit = "isovisit",
     islamquest = "islamquest",
     isna = "isna",
+    istanews = "istanews",
     itna = "itna",
     itnanews = "itnanews",
     ivahid = "ivahid",

@@ -2284,5 +2284,8 @@ yarn dev && yarn start akhbarbank -u https://www.akhbarbank.com/news/95283/با�
 yarn dev && yarn start rahbordbank 
 yarn dev && yarn start rahbordbank -u https://rahbordbank.ir/news/33237/فراهم-شدن-امکان-خوداظهاری-شاغلان-فاقد/
 
+yarn dev && yarn start istanews
+yarn dev && yarn start istanews -u https://istanews.ir/1403/04/11/آینده-ریال-چه-می-شود-؟/
+
 https://motamem.org/
 /**/
