@@ -2281,5 +2281,8 @@ yarn dev && yarn start zoomarz -u https://zoomarz.com/bitcoin-analysis/
 yarn dev && yarn start akhbarbank
 yarn dev && yarn start akhbarbank -u https://www.akhbarbank.com/news/95283/بانک-صادرات-فروشنده-بلوک-بترانس
 
+yarn dev && yarn start rahbordbank 
+yarn dev && yarn start rahbordbank -u https://rahbordbank.ir/news/33237/فراهم-شدن-امکان-خوداظهاری-شاغلان-فاقد/
+
 https://motamem.org/
 /**/

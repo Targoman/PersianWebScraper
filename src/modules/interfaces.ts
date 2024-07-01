@@ -536,6 +536,7 @@ export enum enuDomains {
     raaknews = "raaknews",
     radareghtesad = "radareghtesad",
     rahatblog = "rahatblog",
+    rahbordbank = "rahbordbank",
     rahbordemoaser = "rahbordemoaser",
     rajanews = "rajanews",
     ramzarz = "ramzarz",
