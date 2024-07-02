@@ -3143,3 +3143,24 @@ export class marinenews extends clsIransamaneh {
         })
     }
 }
+
+export class eghtesaddaryai extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.eghtesaddaryai, "eghtesaddaryai.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
