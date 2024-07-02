@@ -2293,5 +2293,8 @@ yarn dev && yarn start tajhiznews -u https://tajhiznews.ir/1403/04/02/افتخا
 yarn dev && yarn start tafahomonline 
 yarn dev && yarn start tafahomonline -u https://tafahomonline.ir/راهنمای-جامع-ثبت-چک-صیادی-به-صورت-آنلای/11/
 
+yarn dev && yarn start toseepooya 
+yarn dev && yarn start toseepooya -u https://toseepooya.ir/رونمایی-از-4-خدمت-جدید-در-واسپاری-سپهر-ص/
+
 https://motamem.org/
 /**/

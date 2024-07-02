@@ -7310,3 +7310,29 @@ export class tafahomonline extends clsScrapper {
         })
     }
 }
+
+export class toseepooya extends clsScrapper {
+    constructor() {
+        super(enuDomains.toseepooya, "toseepooya.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*لینک کوتاه:.*/, /.*toseepooya.ir.*/]
+                },
+                category: {
+                    selector: "main [rel='category tag']",
+                },
+                tags: "span.tag-links a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
