@@ -2290,5 +2290,8 @@ yarn dev && yarn start istanews -u https://istanews.ir/1403/04/11/آینده-ر�
 yarn dev && yarn start tajhiznews 
 yarn dev && yarn start tajhiznews -u https://tajhiznews.ir/1403/04/02/افتخاری-دیگر-در-توسعه-بومی-سازی-تجهیزا/
 
+yarn dev && yarn start tafahomonline 
+yarn dev && yarn start tafahomonline -u https://tafahomonline.ir/راهنمای-جامع-ثبت-چک-صیادی-به-صورت-آنلای/11/
+
 https://motamem.org/
 /**/

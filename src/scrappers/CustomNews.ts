@@ -7284,3 +7284,29 @@ export class tajhiznews extends clsScrapper {
         })
     }
 }
+
+export class tafahomonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.tafahomonline, "tafahomonline.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"],
+                    ignoreTexts: [/.*لینک کوتاه خبر.*/]
+                },
+                category: {
+                    selector: "a.post-cat"
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
