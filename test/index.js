@@ -2299,5 +2299,8 @@ yarn dev && yarn start toseepooya -u https://toseepooya.ir/رونمایی-از-4
 yarn dev && yarn start ostanes
 yarn dev && yarn start ostanes -u https://ostan-es.ir/28761/وزیر-کشور-برای-سفری-یکروزه-وارد-اصفهان/
 
+yarn dev && yarn start avapress
+yarn dev && yarn start avapress -u https://www.avapress.com/fa/news/261967/آلمان-10-میلیارد-یورو-جنگنده-f-35-امریکا-می-خرد
+
 https://motamem.org/
 /**/

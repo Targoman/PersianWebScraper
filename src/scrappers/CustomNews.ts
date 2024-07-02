@@ -7362,3 +7362,31 @@ export class ostanes extends clsScrapper {
         })
     }
 }
+
+export class avapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.avapress, "avapress.com", {
+            selectors: {
+                article: "[lang='fa'] #docDataRow",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDiv3TitrRou"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivLead1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a")
+            },
+            url: {
+                extraInvalidStartPaths: ["/en", "/ar", "/ps"]
+            }
+        })
+    }
+}
