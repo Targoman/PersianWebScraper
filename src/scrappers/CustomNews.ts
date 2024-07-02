@@ -7336,3 +7336,29 @@ export class toseepooya extends clsScrapper {
         })
     }
 }
+
+export class ostanes extends clsScrapper {
+    constructor() {
+        super(enuDomains.ostanes, "ostan-es.ir", {
+            selectors: {
+                article: ".singlee2",
+                title: "h1",
+                subtitle: ".the-content-post > div:nth-child(3) > strong",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumbs a"),
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

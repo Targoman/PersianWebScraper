@@ -487,6 +487,7 @@ export enum enuDomains {
     okala = "okala",
     oloompezeshki = "oloompezeshki",
     oshida = "oshida",
+    ostanes = "ostanes",
     p30world = "p30world",
     pana = "pana",
     panamag = "panamag",

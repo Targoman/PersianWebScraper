@@ -2296,5 +2296,8 @@ yarn dev && yarn start tafahomonline -u https://tafahomonline.ir/راهنمای-
 yarn dev && yarn start toseepooya 
 yarn dev && yarn start toseepooya -u https://toseepooya.ir/رونمایی-از-4-خدمت-جدید-در-واسپاری-سپهر-ص/
 
+yarn dev && yarn start ostanes
+yarn dev && yarn start ostanes -u https://ostan-es.ir/28761/وزیر-کشور-برای-سفری-یکروزه-وارد-اصفهان/
+
 https://motamem.org/
 /**/
