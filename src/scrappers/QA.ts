@@ -1092,3 +1092,44 @@ export class hadith extends clsScrapper {
         })
     }
 }
+
+export class chimigan extends clsScrapper {
+    constructor() {
+        super(enuDomains.chimigan, "chimigan.com", {
+            selectors: {
+                article: "[itemprop='mainEntity']",
+                title: "h1",
+                datetime: {
+                    conatiner: "[itemprop='dateCreated']",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0,10) || "NO_DATE",
+                },
+                content: {
+                    //main: ".qa-main",
+                    qa: {
+                        containers: ".qa-main",
+                        q: {
+                            container: ".qa-q-view",
+                            text: ".qa-post-content",
+                            datetime: "[itemprop='dateCreated']",
+                            author: "a.qa-user-link"
+                        },
+                        a: {
+                            container: ".qa-a-list .qa-a-list-item",
+                            text: ".qa-post-content",
+                            datetime: "[itemprop='dateCreated']",
+                            author: "a.qa-user-link"
+                        },
+                    },
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".DivKeyWords a"),
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".WebUserNavigation a"),
+                    lastIndex: 3
+                }
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

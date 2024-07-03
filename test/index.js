@@ -2308,5 +2308,9 @@ yarn dev && yarn start jomhooronline -u https://jomhooronline.ir/۱۱۰-هزار
 yarn dev && yarn start jahanipress 
 yarn dev && yarn start jahanipress -u "http://www.jahanipress.ir/NSite/FullStory/News/?Serv=204&SGr=313&Id=363672"
 
+yarn dev && yarn start chimigan
+yarn dev && yarn start chimigan -u https://chimigan.com/149313/Barring
+yarn dev && yarn start chimigan -u https://chimigan.com/3349/
+
 https://motamem.org/
 /**/
