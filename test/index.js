@@ -2312,5 +2312,8 @@ yarn dev && yarn start chimigan
 yarn dev && yarn start chimigan -u https://chimigan.com/149313/Barring
 yarn dev && yarn start chimigan -u https://chimigan.com/3349/
 
+yarn dev && yarn start danestanyonline
+yarn dev && yarn start danestanyonline -u https://danestanyonline.ir/احسان-حدادی-رئیس-فدراسیون-دوومیدانی-ش/
+
 https://motamem.org/
 /**/
