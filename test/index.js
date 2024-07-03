@@ -2305,5 +2305,8 @@ yarn dev && yarn start avapress -u https://www.avapress.com/fa/news/261967/آل�
 yarn dev && yarn start jomhooronline
 yarn dev && yarn start jomhooronline -u https://jomhooronline.ir/۱۱۰-هزار-میلیارد-تومان-فرار-مالیاتی-از/
 
+yarn dev && yarn start jahanipress 
+yarn dev && yarn start jahanipress -u "http://www.jahanipress.ir/NSite/FullStory/News/?Serv=204&SGr=313&Id=363672"
+
 https://motamem.org/
 /**/

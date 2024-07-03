@@ -7414,3 +7414,24 @@ export class jomhooronline extends clsScrapper {
         })
     }
 }
+
+export class jahanipress extends clsScrapper {
+    constructor() {
+        super(enuDomains.jahanipress, "jahanipress.ir", {
+            selectors: {
+                article: ".MiddleNewsHoder",
+                title: "h3",
+                subtitle: ".NewsTextHolder > p",
+                datetime: {
+                    conatiner: ".DateTimeHolder span"
+                },
+                content: {
+                    main: ".NewsBody",
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
