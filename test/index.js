@@ -2302,5 +2302,8 @@ yarn dev && yarn start ostanes -u https://ostan-es.ir/28761/وزیر-کشور-ب
 yarn dev && yarn start avapress
 yarn dev && yarn start avapress -u https://www.avapress.com/fa/news/261967/آلمان-10-میلیارد-یورو-جنگنده-f-35-امریکا-می-خرد
 
+yarn dev && yarn start jomhooronline
+yarn dev && yarn start jomhooronline -u https://jomhooronline.ir/۱۱۰-هزار-میلیارد-تومان-فرار-مالیاتی-از/
+
 https://motamem.org/
 /**/
