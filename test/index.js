@@ -2224,5 +2224,96 @@ yarn dev && yarn start quskonline -u http://quskonline.ir/1403/03/ابتلای-�
 yarn dev && yarn start bamemeybod 
 yarn dev && yarn start bamemeybod -u https://bamemeybod.ir/145349/پیش-بینی-خرید-۵-هزار-تن-گندم-مازاد-بر-مص/
 
+yarn dev && yarn start qartalnews 
+yarn dev && yarn start qartalnews -u https://qartalnews.ir/غآغاز-حلقه-گذاری-پرندگان-در-زیستگاه-ها/
+
+yarn dev && yarn start qalampress
+yarn dev && yarn start qalampress -u https://qalampress.ir/شناسایی-و-جمع-آوری-نزدیك-به-6-هزار-انشع/
+
+yarn dev && yarn start ipemdad
+yarn dev && yarn start ipemdad -u https://ipemdad.com/تفاوت-چیلر-جذبی-و-تراکمی/
+
+yarn dev && yarn start iran361
+yarn dev && yarn start iran361 -u https://361iran.ir/سقف-اجاره-مسکن-در-استان%e2%80%8cهای-کشور-تا-پا/
+
+yarn dev && yarn start khabareshahr
+yarn dev && yarn start khabareshahr -u https://khabareshahr.ir/2024/06/13/آغاز-بهرهبرداری-از-بزرگترین-پروژه-مد/
+
+yarn dev && yarn start nedaymardom2ostan
+yarn dev && yarn start nedaymardom2ostan -u https://nedaymardom2ostan.ir/1403/04/03/ابرپروژه-مرکز-جامع-تشخیص-و-درمان-سرطان/
+
+yarn dev && yarn start kishvandnews
+yarn dev && yarn start kishvandnews -u https://kishvandnews.ir/30856/خروج-یک-واحد-نیروگاهی-از-مدارتولید-ب/
+
+yarn dev && yarn start asrtabriz
+yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/169824/با-سهام-عدالت-اینگونه-وام-بگیرید
+yarn dev && yarn start asrtabriz -u https://asrtabriz.ir/news/440/بازگشایی-مسیر-منتهی-به-کلیسای-سنت-استپانوس
+
+yarn dev && yarn start ashkannews
+yarn dev && yarn start ashkannews -u https://ashkannews.ir/news/12938/دو-پروژه-عمرانی-دیوار-ساسانی-بند-و-ب/
+
+yarn dev && yarn start kohnaninews
+yarn dev && yarn start kohnaninews -u https://kohnaninews.ir/newskohnani/62310
+
+yarn dev && yarn start kashkan
+yarn dev && yarn start kashkan -u https://kashkan.ir/1403/01/31/نجات-دو-کوهنورد-گرفتار-در-دره-شیرز-در-عم/
+
+yarn dev && yarn start ofoghtehran
+yarn dev && yarn start ofoghtehran -u https://ofoghtehran.ir/148138/مشتری-جدید-شعب-سپهر/
+
+yarn dev && yarn start afkarpress
+yarn dev && yarn start afkarpress -u https://www.afkarpress.ir/view_news.php?show=11246
+
+yarn dev && yarn start eghtesaddaryai
+yarn dev && yarn start eghtesaddaryai -u https://eghtesaddaryai.ir/fa/news/6134/آينده-گردشگري-ايران-از-دریا-می-گذرد
+
+yarn dev && yarn start eghtesadsaramadonline
+yarn dev && yarn start eghtesadsaramadonline -u https://eghtesadsaramadonline.ir/iran/59043-تعریف-۳۵۰۰-میلیارد-ریال-پروژه-زیست-محیطی-در-فولاد-سبا.html
+
+yarn dev && yarn start gsm
+yarn dev && yarn start gsm -u https://www.gsm.ir/mag/news/67627/تمامی-شایعات-مهم-در-مورد-حلقه-اپل
+yarn dev && yarn start gsm -u https://www.gsm.ir/mag/reviews/51464/بررسی-تخصصی-samsung-galaxy-note-10-lite
+
+yarn dev && yarn start zoomarz
+yarn dev && yarn start zoomarz -u https://zoomarz.com/is-it-profitable-to-mine-digital-currency/
+yarn dev && yarn start zoomarz -u https://zoomarz.com/bitcoin-analysis/
+
+yarn dev && yarn start akhbarbank
+yarn dev && yarn start akhbarbank -u https://www.akhbarbank.com/news/95283/بانک-صادرات-فروشنده-بلوک-بترانس
+
+yarn dev && yarn start rahbordbank 
+yarn dev && yarn start rahbordbank -u https://rahbordbank.ir/news/33237/فراهم-شدن-امکان-خوداظهاری-شاغلان-فاقد/
+
+yarn dev && yarn start istanews
+yarn dev && yarn start istanews -u https://istanews.ir/1403/04/11/آینده-ریال-چه-می-شود-؟/
+
+yarn dev && yarn start tajhiznews 
+yarn dev && yarn start tajhiznews -u https://tajhiznews.ir/1403/04/02/افتخاری-دیگر-در-توسعه-بومی-سازی-تجهیزا/
+
+yarn dev && yarn start tafahomonline 
+yarn dev && yarn start tafahomonline -u https://tafahomonline.ir/راهنمای-جامع-ثبت-چک-صیادی-به-صورت-آنلای/11/
+
+yarn dev && yarn start toseepooya 
+yarn dev && yarn start toseepooya -u https://toseepooya.ir/رونمایی-از-4-خدمت-جدید-در-واسپاری-سپهر-ص/
+
+yarn dev && yarn start ostanes
+yarn dev && yarn start ostanes -u https://ostan-es.ir/28761/وزیر-کشور-برای-سفری-یکروزه-وارد-اصفهان/
+
+yarn dev && yarn start avapress
+yarn dev && yarn start avapress -u https://www.avapress.com/fa/news/261967/آلمان-10-میلیارد-یورو-جنگنده-f-35-امریکا-می-خرد
+
+yarn dev && yarn start jomhooronline
+yarn dev && yarn start jomhooronline -u https://jomhooronline.ir/۱۱۰-هزار-میلیارد-تومان-فرار-مالیاتی-از/
+
+yarn dev && yarn start jahanipress 
+yarn dev && yarn start jahanipress -u "http://www.jahanipress.ir/NSite/FullStory/News/?Serv=204&SGr=313&Id=363672"
+
+yarn dev && yarn start chimigan
+yarn dev && yarn start chimigan -u https://chimigan.com/149313/Barring
+yarn dev && yarn start chimigan -u https://chimigan.com/3349/
+
+yarn dev && yarn start danestanyonline
+yarn dev && yarn start danestanyonline -u https://danestanyonline.ir/احسان-حدادی-رئیس-فدراسیون-دوومیدانی-ش/
+
 https://motamem.org/
 /**/

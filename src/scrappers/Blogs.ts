@@ -6005,3 +6005,26 @@ export class cafebazaar extends clsScrapper {
         })
     }
 }
+
+export class ipemdad extends clsScrapper {
+    constructor() {
+        super(enuDomains.ipemdad, "ipemdad.com", {
+            selectors: {
+                article: "main.card-single",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-single",
+                    ignoreNodeClasses: ["accordion", "link_section_box"],
+                },
+                category: {
+                    selector: ".sub-cat a",
+                    lastIndex: 1
+                },
+            },
+        })
+    }
+}
