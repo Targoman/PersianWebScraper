@@ -7462,3 +7462,28 @@ export class danestanyonline extends clsScrapper {
         })
     }
 }
+
+export class otaghiranonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.otaghiranonline, "otaghiranonline.ir", {
+            selectors: {
+                article: ".news-single",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".news-single-first-paragraph",
+                datetime: {
+                    conatiner: ".news-single-detail > div:nth-child(1)"
+                },
+                content: {
+                    main: ".news-single-text",
+                },
+                category: {
+                    selector: ".news-single-category-items a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
