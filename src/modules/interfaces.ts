@@ -397,6 +397,7 @@ export enum enuDomains {
     kishvandnews = "kishvandnews",
     kohnaninews = "kohnaninews",
     kojaro = "kojaro",
+    koodakpress = "koodakpress",
     kordtoday = "kordtoday",
     ksymg = "ksymg",
     kurdistantv = "kurdistantv",

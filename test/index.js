@@ -2321,5 +2321,8 @@ yarn dev && yarn start otaghiranonline -u https://otaghiranonline.ir/news/70310/
 yarn dev && yarn start didbanpress
 yarn dev && yarn start didbanpress -u https://didbanpress.ir/صعود-تیم-کوهنوردی-باشگاه-ماه-فروغ-شهرس/
 
+yarn dev && yarn start koodakpress
+yarn dev && yarn start koodakpress -u https://www.koodakpress.ir/254134/در-پی-آتش-سوزی-در-مرکز-فیلیپین-۳-کودک-کش/
+
 https://motamem.org/
 /**/

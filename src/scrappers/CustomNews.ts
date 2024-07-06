@@ -7513,3 +7513,28 @@ export class didbanpress extends clsScrapper {
         })
     }
 }
+
+export class koodakpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.koodakpress, "koodakpress.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".toptitle-post",
+                title: "h1",
+                subtitle: ".excerpt-single",
+                datetime: {
+                    conatiner: ".spacer-r30"
+                },
+                content: {
+                    main: ".content-single",
+                    ignoreNodeClasses: ["single-tag", "single-share"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                    lastIndex: 2
+                },
+                tags: "a[rel='tag']"
+            },
+        })
+    }
+}
