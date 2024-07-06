@@ -2318,5 +2318,8 @@ yarn dev && yarn start danestanyonline -u https://danestanyonline.ir/احسان-
 yarn dev && yarn start otaghiranonline
 yarn dev && yarn start otaghiranonline -u https://otaghiranonline.ir/news/70310/تورم-پس-از-کرونا-ناشی-از-تقاضا-بود،-نه-عرضه
 
+yarn dev && yarn start didbanpress
+yarn dev && yarn start didbanpress -u https://didbanpress.ir/صعود-تیم-کوهنوردی-باشگاه-ماه-فروغ-شهرس/
+
 https://motamem.org/
 /**/

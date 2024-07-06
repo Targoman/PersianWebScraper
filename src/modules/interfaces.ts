@@ -162,6 +162,7 @@ export enum enuDomains {
     defapress = "defapress",
     deyblog = "deyblog",
     didarnews = "didarnews",
+    didbanpress = "didbanpress",
     didgahemrooz = "didgahemrooz",
     digiato = "digiato",
     digikala = "digikala",
