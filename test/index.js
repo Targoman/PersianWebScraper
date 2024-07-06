@@ -2324,5 +2324,8 @@ yarn dev && yarn start didbanpress -u https://didbanpress.ir/صعود-تیم-ک�
 yarn dev && yarn start koodakpress
 yarn dev && yarn start koodakpress -u https://www.koodakpress.ir/254134/در-پی-آتش-سوزی-در-مرکز-فیلیپین-۳-کودک-کش/
 
+yarn dev && yarn start memar
+yarn dev && yarn start memar -u https://memar.press/دولت-جدید-بریتانیا-طرح-اخراج-پناهجویا/
+
 https://motamem.org/
 /**/

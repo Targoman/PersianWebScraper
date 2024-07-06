@@ -7538,3 +7538,25 @@ export class koodakpress extends clsScrapper {
         })
     }
 }
+
+export class memar extends clsScrapper {
+    constructor() {
+        super(enuDomains.memar, "memar.press", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-widget-theme-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                category: {
+                    selector: "nav.rank-math-breadcrumb p a",
+                }
+            },
+        })
+    }
+}

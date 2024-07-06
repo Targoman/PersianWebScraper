@@ -427,6 +427,7 @@ export enum enuDomains {
     mehrdadcivil = "mehrdadcivil",
     mehrnews = "mehrnews",
     melipayamak = "melipayamak",
+    memar = "memar",
     mendellab = "mendellab",
     miare = "miare",
     mihandownload = "mihandownload",
