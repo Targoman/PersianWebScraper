@@ -599,6 +599,7 @@ export enum enuDomains {
     sedayiran = "sedayiran",
     sellfree = "sellfree",
     sena = "sena",
+    sepidarnews = "sepidarnews",
     seratnews = "seratnews",
     sesotweb = "sesotweb",
     sevenlearn = "sevenlearn",

@@ -2336,5 +2336,8 @@ yarn dev && yarn start anaj -u https://anaj.ir/news/85658/
 yarn dev && yarn start otagh24
 yarn dev && yarn start otagh24 -u https://www.otagh24.ir/13403/پزشکیان-از-چه-روزی-رئیس-جمهور-می-شود-یک-استعفا-در-پیش-است
 
+yarn dev && yarn start sepidarnews
+yarn dev && yarn start sepidarnews -u https://sepidarnews.ir/eghtesadi/307293-زمینه-بهره-مندی-شرکت-های-دانش-بنیان-البرز-از-فرصت-های-سرمایه-گذاری-در-استان-فراهم-است.html
+
 https://motamem.org/
 /**/

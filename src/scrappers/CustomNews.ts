@@ -7634,3 +7634,26 @@ export class otagh24 extends clsScrapper {
         })
     }
 }
+
+export class sepidarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sepidarnews, "sepidarnews.ir", {
+            selectors: {
+                article: "#fullnews",
+                title: "h2",
+                datetime: {
+                    conatiner: ".news-details .left"
+                },
+                content: {
+                    main: ".content-area",
+                },
+                category: {
+                    selector: ".inpage-content > i",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
