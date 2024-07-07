@@ -7560,3 +7560,30 @@ export class memar extends clsScrapper {
         })
     }
 }
+
+export class upna extends clsScrapper {
+    constructor() {
+        super(enuDomains.upna, "upna.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead p",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

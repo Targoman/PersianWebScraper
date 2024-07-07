@@ -2327,5 +2327,8 @@ yarn dev && yarn start koodakpress -u https://www.koodakpress.ir/254134/در-پ�
 yarn dev && yarn start memar
 yarn dev && yarn start memar -u https://memar.press/دولت-جدید-بریتانیا-طرح-اخراج-پناهجویا/
 
+yarn dev && yarn start upna
+yarn dev && yarn start upna -u https://upna.ir/1403/02/30/عرضه-خودروی-برقی-ایرانخودرو-به-سال-آ/
+
 https://motamem.org/
 /**/

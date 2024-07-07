@@ -695,6 +695,7 @@ export enum enuDomains {
     turkmensesi = "turkmensesi",
     turkmensnews = "turkmensnews",
     ucan = "ucan",
+    upna = "upna",
     uptvs = "uptvs",
     vaghteshomal = "vaghteshomal",
     vakiltik = "vakiltik",
