@@ -7613,3 +7613,24 @@ export class anaj extends clsScrapper {
         })
     }
 }
+
+export class otagh24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.otagh24, "otagh24.ir", {
+            selectors: {
+                article: ".m_bcontent ",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: ".d-tm"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: "ol.b_mb li a",
+                },
+            },
+        })
+    }
+}

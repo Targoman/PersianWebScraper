@@ -2333,5 +2333,8 @@ yarn dev && yarn start upna -u https://upna.ir/1403/02/30/عرضه-خودروی-
 yarn dev && yarn start anaj
 yarn dev && yarn start anaj -u https://anaj.ir/news/85658/
 
+yarn dev && yarn start otagh24
+yarn dev && yarn start otagh24 -u https://www.otagh24.ir/13403/پزشکیان-از-چه-روزی-رئیس-جمهور-می-شود-یک-استعفا-در-پیش-است
+
 https://motamem.org/
 /**/
