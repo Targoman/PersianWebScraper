@@ -31,6 +31,7 @@ export enum enuDomains {
     alomohtava = "alomohtava",
     amuzeshtak = "amuzeshtak",
     ana = "ana",
+    anaj = "anaj",
     andishemoaser = "andishemoaser",
     anthropologyandculture = "anthropologyandculture",
     apademy = "apademy",

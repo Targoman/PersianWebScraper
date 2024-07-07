@@ -7587,3 +7587,29 @@ export class upna extends clsScrapper {
         })
     }
 }
+
+export class anaj extends clsScrapper {
+    constructor() {
+        super(enuDomains.anaj, "anaj.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

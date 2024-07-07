@@ -2330,5 +2330,8 @@ yarn dev && yarn start memar -u https://memar.press/دولت-جدید-بریتا
 yarn dev && yarn start upna
 yarn dev && yarn start upna -u https://upna.ir/1403/02/30/عرضه-خودروی-برقی-ایرانخودرو-به-سال-آ/
 
+yarn dev && yarn start anaj
+yarn dev && yarn start anaj -u https://anaj.ir/news/85658/
+
 https://motamem.org/
 /**/
