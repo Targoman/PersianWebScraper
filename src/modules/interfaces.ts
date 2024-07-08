@@ -568,6 +568,7 @@ export enum enuDomains {
     rokna = "rokna",
     romanman = "romanman",
     roocket = "roocket",
+    rooyesheafkar = "rooyesheafkar",
     roozgarpress  = "roozgarpress",
     rooziato = "rooziato",
     roozno = "roozno",

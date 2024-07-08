@@ -7736,3 +7736,25 @@ export class roustapress extends clsScrapper {
         })
     }
 }
+
+export class rooyesheafkar extends clsScrapper {
+    constructor() {
+        super(enuDomains.rooyesheafkar, "rooyesheafkar.ir", {
+            selectors: {
+                article: ".listing",
+                title: ".single-content-anavin",
+                subtitle:  ".single-content-title",
+                datetime: {
+                    conatiner: ".date_code span"
+                },
+                content: {
+                    main: ".story",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "#post-tags > h6 > a"
+            },
+        })
+    }
+}

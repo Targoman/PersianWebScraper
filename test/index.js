@@ -2348,5 +2348,8 @@ yarn dev && yarn start razminews -u https://razminews.ir/کسب-1-مدال-بر�
 yarn dev && yarn start roustapress
 yarn dev && yarn start roustapress -u https://roustapress.com/1403/04/17/رشد-۵۰-درصد-کشت-چغندر-قند-در-اراضی-کشاور/
 
+yarn dev && yarn start rooyesheafkar
+yarn dev && yarn start rooyesheafkar -u https://www.rooyesheafkar.ir/view_news.php?show=4198
+
 https://motamem.org/
 /**/
