@@ -31,7 +31,9 @@ class clsXenForoBased extends clsScrapper {
         }
       },
       url: {
-        removeWWW: true
+        removeWWW: true,
+        ignoreContentOnPath: ["/tags", "/goto", "/forums", "/showpost"],
+        extraInvalidStartPaths: ["/members", "/search", "/misc"]
       }
     }
 
@@ -45,7 +47,7 @@ export class persiantools extends clsXenForoBased {
   }
 
   mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
-    const mappedCat: IntfMappedCategory = {textType:enuTextType.Informal, major: enuMajorCategory.Forum }
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Informal, major: enuMajorCategory.Forum }
     if (!cat) return mappedCat
     void cat, first, second
 
@@ -66,13 +68,13 @@ export class majidonline extends clsXenForoBased {
   constructor() {
     super(enuDomains.majidonline, "forum.majidonline.com", {
       url: {
-        ignoreContentOnPath: ["/memebers"]
+        ignoreContentOnPath: ["/members"]
       }
     })
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return {textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
+    return { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuMinorCategory.IT }
   }
 }
 
@@ -82,7 +84,7 @@ export class bazicenter extends clsXenForoBased {
   }
 
   mapCategoryImpl(): IntfMappedCategory {
-    return {textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
+    return { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Game }
   }
 }
 
@@ -99,5 +101,22 @@ export class oloompezeshki extends clsXenForoBased {
         ignoreContentOnPath: ["/memebers"]
       }
     })
+  }
+
+  mapCategoryImpl(cat: string | undefined, first: string, second: string): IntfMappedCategory {
+    const mappedCat: IntfMappedCategory = { textType: enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.Medical }
+    if (!cat) return mappedCat
+    void cat, first, second
+
+    if (first.startsWith("اخبار")) return { textType: enuTextType.Formal, major: enuMajorCategory.News, minor: enuMinorCategory.University }
+    if (first.includes("اخبار")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
+    if (first.startsWith("زبان")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Education }
+    if (first.startsWith("سرگرمی")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Fun }
+    if (first.startsWith("صفحه")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog }
+    if (first.startsWith("عملی")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+    if (first.startsWith("مطالب")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+    if (first.startsWith("مقالات")) return { textType: enuTextType.Formal, major: enuMajorCategory.Weblog, minor: enuMinorCategory.Medical }
+
+    return mappedCat
   }
 }

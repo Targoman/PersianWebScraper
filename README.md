@@ -118,7 +118,7 @@ PersianWebScrapper scrapes whole contents of the target site in order to find al
                                 //{ text: string, author?: string, date?: string }
     images?: IntfImage[],       //List of image URLs used in the article with their alt-texts.
                                 //{ src: string, alt?: string }
-    qa? : {                     //If the site has Question/Answer structure itmes will be stored in this schema
+    qa? : {                     //If the site has Question/Answer each item will consist of:
         q: IntfComment,         //Question part { text: string, author?: string, date?: string }
         a?: IntfComment[]       //Answers part 
     }[],
@@ -299,7 +299,7 @@ public mapCategoryImpl(category: string|undefined, catFirstPart :string, catSeco
 
 
 ## Corpus
-We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which will be soon published on Huggingface
+We have used this scrapper to scrap some popular Persian websites and created a large Persian corpus which has been published on [Huggingface](https://huggingface.co/datasets/Targoman/TLPC). More information about this corpus in Persian languyage can be obtained from [Targoman Large Persian Corpus (TLPC) page](https://oss.targoman.ir/TLPC)
 
 ## License
 PersianWebScrapper is published under the terms of [LGPLv3 License](./LICENSE.txt)

@@ -635,7 +635,7 @@ export class faradeed extends clsAsamBased {
         if (cat.startsWith("ویدیو")) return { ...mappedCat, minor: enuMinorCategory.Multimedia }
         if (cat.startsWith("یادگیری")) return { ...mappedCat, minor: enuMinorCategory.Education }
 
-        return { textType: enuTextType.Formal, major: enuMajorCategory.Undefined }
+        return { textType: enuTextType.Formal, major: enuMajorCategory.News }
     }
 }
 

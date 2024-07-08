@@ -357,6 +357,12 @@ export class islamquest extends clsScrapper {
             preHTMLParse: (html: string) => { html = html.replace(/>[ \t\n\r]+?</g, "> <"); return html }
         })
     }
+    mapCategoryImpl(cat?: string): IntfMappedCategory {
+        if (cat?.toLowerCase() === "undefined")
+            return { textType: enuTextType.Formal, major: enuMajorCategory.Doc, minor: enuMinorCategory.Religious }
+        else
+            return { textType: enuTextType.Formal, major: enuMajorCategory.QA, minor: enuMinorCategory.Religious }
+    }
 }
 
 export class vindad extends clsScrapper {
