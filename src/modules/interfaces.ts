@@ -561,6 +561,7 @@ export enum enuDomains {
     rawanshenas = "rawanshenas",
     rayamarketing = "rayamarketing",
     raygansms = "raygansms",
+    razminews = "razminews",
     rcmajlis = "rcmajlis",
     rcs = "rcs",
     revayatnameh = "revayatnameh",

@@ -7684,3 +7684,30 @@ export class faryadejonoob extends clsScrapper {
         })
     }
 }
+
+export class razminews extends clsScrapper {
+    constructor() {
+        super(enuDomains.razminews, "razminews.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreTexts: [/.*{.*/]
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

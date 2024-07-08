@@ -2339,5 +2339,11 @@ yarn dev && yarn start otagh24 -u https://www.otagh24.ir/13403/پزشکیان-ا
 yarn dev && yarn start sepidarnews
 yarn dev && yarn start sepidarnews -u https://sepidarnews.ir/eghtesadi/307293-زمینه-بهره-مندی-شرکت-های-دانش-بنیان-البرز-از-فرصت-های-سرمایه-گذاری-در-استان-فراهم-است.html
 
+yarn dev && yarn start faryadejonoob
+yarn dev && yarn start faryadejonoob -u https://faryadejonoob.ir/آخرین-وضعیت-خداداد-افشاریان/
+
+yarn dev && yarn start razminews
+yarn dev && yarn start razminews -u https://razminews.ir/کسب-1-مدال-برنز-و-دو-عنوان-پنجمی-جودوکار/
+
 https://motamem.org/
 /**/
