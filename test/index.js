@@ -2345,5 +2345,8 @@ yarn dev && yarn start faryadejonoob -u https://faryadejonoob.ir/آخرین-وض
 yarn dev && yarn start razminews
 yarn dev && yarn start razminews -u https://razminews.ir/کسب-1-مدال-برنز-و-دو-عنوان-پنجمی-جودوکار/
 
+yarn dev && yarn start roustapress
+yarn dev && yarn start roustapress -u https://roustapress.com/1403/04/17/رشد-۵۰-درصد-کشت-چغندر-قند-در-اراضی-کشاور/
+
 https://motamem.org/
 /**/

@@ -7711,3 +7711,28 @@ export class razminews extends clsScrapper {
         })
     }
 }
+
+export class roustapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.roustapress, "roustapress.com", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".lid_news",
+                title: "h1",
+                subtitle: ".desc_news",
+                datetime: {
+                    conatiner: ".date_news"
+                },
+                content: {
+                    main: ".news_content",
+                },
+                category: {
+                    selector: "ol.breadcrumb a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
