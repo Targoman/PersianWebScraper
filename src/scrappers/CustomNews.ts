@@ -7714,3 +7714,104 @@ export class sepidarnews extends clsScrapper {
         })
     }
 }
+
+export class faryadejonoob extends clsScrapper {
+    constructor() {
+        super(enuDomains.faryadejonoob, "faryadejonoob.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class razminews extends clsScrapper {
+    constructor() {
+        super(enuDomains.razminews, "razminews.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreTexts: [/.*{.*/]
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class roustapress extends clsScrapper {
+    constructor() {
+        super(enuDomains.roustapress, "roustapress.com", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".lid_news",
+                title: "h1",
+                subtitle: ".desc_news",
+                datetime: {
+                    conatiner: ".date_news"
+                },
+                content: {
+                    main: ".news_content",
+                },
+                category: {
+                    selector: "ol.breadcrumb a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class rooyesheafkar extends clsScrapper {
+    constructor() {
+        super(enuDomains.rooyesheafkar, "rooyesheafkar.ir", {
+            selectors: {
+                article: ".listing",
+                title: ".single-content-anavin",
+                subtitle:  ".single-content-title",
+                datetime: {
+                    conatiner: ".date_code span"
+                },
+                content: {
+                    main: ".story",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "#post-tags > h6 > a"
+            },
+        })
+    }
+}
