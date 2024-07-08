@@ -230,6 +230,7 @@ export enum enuDomains {
     farhikhtegandaily = "farhikhtegandaily",
     farsnews = "farsnews",
     fartaknews = "fartaknews",
+    faryadejonoob = "faryadejonoob",
     faryadenahavand = "faryadenahavand",
     faslejonoob = "faslejonoob",
     fekrshahr = "fekrshahr",

@@ -7657,3 +7657,30 @@ export class sepidarnews extends clsScrapper {
         })
     }
 }
+
+export class faryadejonoob extends clsScrapper {
+    constructor() {
+        super(enuDomains.faryadejonoob, "faryadejonoob.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
