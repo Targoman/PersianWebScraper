@@ -2315,5 +2315,29 @@ yarn dev && yarn start chimigan -u https://chimigan.com/3349/
 yarn dev && yarn start danestanyonline
 yarn dev && yarn start danestanyonline -u https://danestanyonline.ir/احسان-حدادی-رئیس-فدراسیون-دوومیدانی-ش/
 
+yarn dev && yarn start otaghiranonline
+yarn dev && yarn start otaghiranonline -u https://otaghiranonline.ir/news/70310/تورم-پس-از-کرونا-ناشی-از-تقاضا-بود،-نه-عرضه
+
+yarn dev && yarn start didbanpress
+yarn dev && yarn start didbanpress -u https://didbanpress.ir/صعود-تیم-کوهنوردی-باشگاه-ماه-فروغ-شهرس/
+
+yarn dev && yarn start koodakpress
+yarn dev && yarn start koodakpress -u https://www.koodakpress.ir/254134/در-پی-آتش-سوزی-در-مرکز-فیلیپین-۳-کودک-کش/
+
+yarn dev && yarn start memar
+yarn dev && yarn start memar -u https://memar.press/دولت-جدید-بریتانیا-طرح-اخراج-پناهجویا/
+
+yarn dev && yarn start upna
+yarn dev && yarn start upna -u https://upna.ir/1403/02/30/عرضه-خودروی-برقی-ایرانخودرو-به-سال-آ/
+
+yarn dev && yarn start anaj
+yarn dev && yarn start anaj -u https://anaj.ir/news/85658/
+
+yarn dev && yarn start otagh24
+yarn dev && yarn start otagh24 -u https://www.otagh24.ir/13403/پزشکیان-از-چه-روزی-رئیس-جمهور-می-شود-یک-استعفا-در-پیش-است
+
+yarn dev && yarn start sepidarnews
+yarn dev && yarn start sepidarnews -u https://sepidarnews.ir/eghtesadi/307293-زمینه-بهره-مندی-شرکت-های-دانش-بنیان-البرز-از-فرصت-های-سرمایه-گذاری-در-استان-فراهم-است.html
+
 https://motamem.org/
 /**/
