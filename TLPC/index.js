@@ -223,7 +223,7 @@ app.get('/', (req, res) => {
         totalURLs: Math.floor(cached.info.totalURLs / 1e6),
         domainCount: cached.info.domainCount,
         overallStats: JSON.stringify(cached.overallStats), 
-        totalDomainCount: 650,
+        totalDomainCount: 700,
         totalDomainCountType: "نزدیک به"
     });
 });
