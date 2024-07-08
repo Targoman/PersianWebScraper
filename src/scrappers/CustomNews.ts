@@ -7519,3 +7519,198 @@ export class danestanyonline extends clsScrapper {
         })
     }
 }
+
+export class otaghiranonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.otaghiranonline, "otaghiranonline.ir", {
+            selectors: {
+                article: ".news-single",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".news-single-first-paragraph",
+                datetime: {
+                    conatiner: ".news-single-detail > div:nth-child(1)"
+                },
+                content: {
+                    main: ".news-single-text",
+                },
+                category: {
+                    selector: ".news-single-category-items a"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class didbanpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.didbanpress, "didbanpress.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class koodakpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.koodakpress, "koodakpress.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".toptitle-post",
+                title: "h1",
+                subtitle: ".excerpt-single",
+                datetime: {
+                    conatiner: ".spacer-r30"
+                },
+                content: {
+                    main: ".content-single",
+                    ignoreNodeClasses: ["single-tag", "single-share"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                    lastIndex: 2
+                },
+                tags: "a[rel='tag']"
+            },
+        })
+    }
+}
+
+export class memar extends clsScrapper {
+    constructor() {
+        super(enuDomains.memar, "memar.press", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-widget-theme-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                category: {
+                    selector: "nav.rank-math-breadcrumb p a",
+                }
+            },
+        })
+    }
+}
+
+export class upna extends clsScrapper {
+    constructor() {
+        super(enuDomains.upna, "upna.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead p",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: ".meta-cat a",
+                    lastIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class anaj extends clsScrapper {
+    constructor() {
+        super(enuDomains.anaj, "anaj.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class otagh24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.otagh24, "otagh24.ir", {
+            selectors: {
+                article: ".m_bcontent ",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: ".d-tm"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: "ol.b_mb li a",
+                },
+            },
+        })
+    }
+}
+
+export class sepidarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sepidarnews, "sepidarnews.ir", {
+            selectors: {
+                article: "#fullnews",
+                title: "h2",
+                datetime: {
+                    conatiner: ".news-details .left"
+                },
+                content: {
+                    main: ".content-area",
+                },
+                category: {
+                    selector: ".inpage-content > i",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
