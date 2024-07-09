@@ -7841,3 +7841,28 @@ export class madanname extends clsScrapper {
         })
     }
 }
+
+export class farnet extends clsScrapper {
+    constructor() {
+        super(enuDomains.farnet, "farnet.io", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".post-header-title span.term-badge a",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

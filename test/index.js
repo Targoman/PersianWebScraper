@@ -2354,5 +2354,8 @@ yarn dev && yarn start rooyesheafkar -u https://www.rooyesheafkar.ir/view_news.p
 yarn dev && yarn start madanname
 yarn dev && yarn start madanname -u https://madanname.ir/چادرملو-تندیس-واحد-نمونه-و-مهرورز-را-در/
 
+yarn dev && yarn start farnet
+yarn dev && yarn start farnet -u https://farnet.io/1403/04/361115/بازی-کرک-شده-چیست؟/
+
 https://motamem.org/
 /**/
