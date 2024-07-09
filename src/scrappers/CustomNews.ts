@@ -7866,3 +7866,27 @@ export class farnet extends clsScrapper {
         })
     }
 }
+
+export class jahaneghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.jahaneghtesad, "jahaneghtesad.com", {
+            selectors: {
+                article: "article.article",
+                title: "h1",
+                datetime: {
+                    conatiner: "span.uk-margin-small-left"
+                },
+                content: {
+                    main: "content",
+                },
+                category: {
+                    selector: ".uk-margin-top a",
+                },
+                tags: "metabox > div > a.uk-label"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

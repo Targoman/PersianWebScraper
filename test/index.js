@@ -2357,5 +2357,9 @@ yarn dev && yarn start madanname -u https://madanname.ir/چادرملو-تندی
 yarn dev && yarn start farnet
 yarn dev && yarn start farnet -u https://farnet.io/1403/04/361115/بازی-کرک-شده-چیست؟/
 
+yarn dev && yarn start jahaneghtesad 
+yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/امروز-و-فردای-خودروهای-فرسوده
+yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/کاهش-نرخ-درآمد-واقعی-در-اسپانیا
+
 https://motamem.org/
 /**/
