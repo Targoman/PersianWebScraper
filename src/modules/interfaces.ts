@@ -317,7 +317,6 @@ export enum enuDomains {
     iranart = "iranart",
     irancell = "irancell",
     irancook = "irancook",
-    irandoc = "irandoc",
     iraneconomist = "iraneconomist",
     iranestekhdam = "iranestekhdam",
     iraneurope = "iraneurope",
@@ -783,7 +782,7 @@ export enum enuTextType {
     blockquote = "blockquote"
 }
 
-export interface IntfKeyVal { [key: string]: any }
+export interface IntfKeyVal { [key: string]: string }
 export interface IntfText { text: string, type: enuTextType, ref?: string }
 export interface IntfComment { text: string, author?: string, date?: string }
 export interface IntfImage { src: string, alt?: string }
@@ -808,7 +807,6 @@ export interface IntfPageContent {
         qa?: IntfQAcontainer[]
         images?: IntfImage[],
         tags?: string[],
-        meta?: IntfKeyVal
     }
     links: string[],
 }
@@ -944,7 +942,7 @@ export enum enuSubMinorCategory {
 }
 
 export interface IntfMappedCategory {
-    textType: enuTextType,
+    textType : enuTextType,
     major: enuMajorCategory,
     minor?: enuMinorCategory,
     subminor?: enuSubMinorCategory | enuMinorCategory,
@@ -984,7 +982,6 @@ export interface IntfURLNormalizationConf {
     extraInvalidStartPaths?: string[],
     ignoreContentOnPath?: string[],
     removeWWW?: boolean,
-    keepHashtag?: boolean
     pathToCheckIndex?: number | null
     validPathsItemsToNormalize?: string[],
     forceHTTP?: boolean
