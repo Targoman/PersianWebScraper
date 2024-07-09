@@ -2361,5 +2361,8 @@ yarn dev && yarn start jahaneghtesad
 yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/امروز-و-فردای-خودروهای-فرسوده
 yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/کاهش-نرخ-درآمد-واقعی-در-اسپانیا
 
+yarn dev && yarn start sedayeanak
+yarn dev && yarn start sedayeanak -u http://sedayeanak.ir/36587/
+
 https://motamem.org/
 /**/

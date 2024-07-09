@@ -7890,3 +7890,29 @@ export class jahaneghtesad extends clsScrapper {
         })
     }
 }
+
+export class sedayeanak extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayeanak, "sedayeanak.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h1",
+                subtitle: ".lead b",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("section > ul > li:nth-child(2)"),
+                },
+                content: {
+                    main: ".post-content .con",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true, 
+                forceHTTP: true
+            }
+        })
+    }
+}

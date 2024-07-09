@@ -603,6 +603,7 @@ export enum enuDomains {
     sariasan = "sariasan",
     sarmadnews = "sarmadnews",
     scorize = "scorize",
+    sedayeanak = "sedayeanak",
     sedayebourse = "sedayebourse",
     sedayiran = "sedayiran",
     sellfree = "sellfree",
