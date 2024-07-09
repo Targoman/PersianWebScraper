@@ -455,6 +455,7 @@ export abstract class clsScrapper {
     private async storePage(page?: IntfPageContent, id?: number) {
         if (page) {
             let wc = 0
+            wc += page.article?.summary?.split(" ").length || 0
             page.article?.content?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.comments?.forEach(c => (wc += c.text.split(" ").length))
             page.article?.images?.forEach(c => (wc += c.alt ? c.alt.split(" ").length : 0))
@@ -875,18 +876,21 @@ export abstract class clsScrapper {
             "/redirect/",
             "/redirect?",
             "/fa/rss/", "/rss/",
-            "/fa/rss?", "/rss?",
+            "/fa/rss?", "/fa/rss?",
             "/fa/ads/", "/ads/",
             "/save", "/fa/save",
             "/ar/", "/en/", "/tr/", "/ru/", "/fr/", "/es/", "/sw/", "/ps/", "/ha/",
             "/ar?", "/en?", "/tr?", "/ru?", "/fr?", "/es?", "/sw?", "/ps?", "/ha?",
             "/hi/", "/bd/", "/zh/", "/az/", "/my/", "/id/", "/ph/", "/de/", "/ur/", "/it/", "/tj/",
             "/hi?", "/bd?", "/zh?", "/az?", "/my?", "/id?", "/ph?", "/de?", "/ur?", "/it?", "/tj?",
+            "/attachment",
+            "/oauth", "/checkpoint", "/signup", "/account", "/search",
             INVALID_URL,
             "/wp-login.php", "/mailto:",
             ...this.pConf.url?.extraInvalidStartPaths || []]
         const invalidEndPaths = [
-            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp"
+            "jpg", "png", "mp4", "mp3", "pdf", "flv", "gif", "jpeg", "xlsx", "zip", "3gp", "swf", "webp",
+            "mov", "docx", "pptx", "xlsx", "xls", "doc", "apt", "m4v", "webm", "rar", "exe"
         ]
 
         for (let i = 0; i < invalidStartPaths?.length; ++i) {
@@ -925,6 +929,7 @@ export abstract class clsScrapper {
             extraValidDomains: conf && conf.extraValidDomains !== undefined ? conf.extraValidDomains : this.pConf.url?.extraValidDomains,
             pathToCheckIndex: conf && conf.pathToCheckIndex !== undefined ? conf.pathToCheckIndex : this.pConf.url?.pathToCheckIndex,
             removeWWW: conf && conf.removeWWW !== undefined ? conf.removeWWW : this.pConf.url?.removeWWW,
+            keepHashtag: conf && conf.keepHashtag !== undefined ? conf.keepHashtag : this.pConf.url?.keepHashtag,
             validPathsItemsToNormalize: conf && conf.validPathsItemsToNormalize !== undefined ? conf.validPathsItemsToNormalize : this.pConf.url?.validPathsItemsToNormalize,
         }
     }
@@ -960,7 +965,10 @@ export abstract class clsScrapper {
         else if (effectiveConf.removeWWW !== true && hostnameParts[0] !== "www" && hostnameParts.length === 2)
             hostname = "www." + hostname
 
-        const normalized = this.normalizePath(this.safeCreateURL(url.protocol + "//" + hostname + url.pathname + url.search), effectiveConf)
+        const normalized = this.normalizePath(this.safeCreateURL(
+            url.protocol + "//" + hostname + url.pathname + url.search
+            + (effectiveConf.keepHashtag ? "#" + url.hash : "")
+        ), effectiveConf)
         if (normalized !== url.toString())
             log.debug("URL updated: ", url.toString(), normalized)
         return normalized

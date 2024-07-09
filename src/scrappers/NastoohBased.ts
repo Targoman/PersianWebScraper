@@ -35,7 +35,7 @@ class clsNastoohBased extends clsScrapper {
                 }
             },
             url: {
-                extraInvalidStartPaths: ["/old/upload", '/d/', '/page/archive.xhtml?d'],
+                extraInvalidStartPaths: ["/old/upload", '/d/', '/page/archive.xhtml'],
                 pathToCheckIndex: 1,
             }
         }

@@ -1,0 +1,362 @@
+@import url(fonts/normal/fontiran.css);
+/* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+@import url(fonts/nonEn/fontiran.css);
+@import url(fonts/farsiNumerals/fontiran.css);
+
+/* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+
+:root {
+    --header-height: 4em;
+    --logo-width: 4em;
+    --json-bgcolor: aliceblue;
+    --link-color: darkblue;
+    --bgColor: white;
+    --TrEvenBG: lightgray;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bgColor: #3c3c3c;
+        --color: white;
+        --json-bgcolor: darkslateblue;
+        --link-color: lightskyblue;
+        --TrEvenBG: #434343
+    }
+
+    .justOn-light {
+        display: none !important
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .justOn-dark {
+        display: none !important
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .desktopView {
+        display: none !important;
+    }
+    .chart, .chart3 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .mobileView {
+        display: none !important;
+    }
+    .charts {
+        white-space: nowrap;
+    }
+    .chart {
+        width: 50%;
+    }
+    .chart3 {
+        width: 33%;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: IRANSansXNoEn;
+    background-color: var(--bgColor);
+    color: var(--color);
+    scroll-behavior: smooth;
+}
+
+.en {
+    direction: ltr;
+    font-family: IRANSansX;
+}
+.faNum {
+    font-family: IRANSansXFaNum;
+}
+
+h2 {
+    font-weight: 900;
+}
+
+ol {
+    list-style-type: arabic-indic;
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.inline-logo {
+    height: 2em;
+    padding: 0 1em;
+    display: inline;
+    vertical-align: middle;
+}
+
+.header {
+    height: var(--header-height);
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--bgColor);
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.header .logo-container {
+    width: calc(var(--logo-width) + 1em);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.menu,
+.menu .item {
+    display: inline-block;
+}
+
+.menu .item {
+    margin: 0;
+    color: var(--color);
+    border: 1px solid var(--bgColor);
+    border-radius: 1em;
+    box-sizing: border-box;
+    padding: .5em 1em;
+    font-weight: bold;
+}
+
+.menu .item:hover {
+    text-decoration: none;
+    border-color: var(--color);
+}
+
+.dropbtn {
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.dropbtn img {
+    height: 100%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bgColor);
+    color: var(--color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.menu.mobileView {
+    position: absolute;
+    left: 0;
+    direction: ltr;
+}
+
+.menu .item a {
+    text-decoration: none;
+}
+
+.logo-container img {
+    width: 100%;
+    display: block;
+}
+
+.main {
+    padding: 1em;
+    margin-top: var(--header-height);
+}
+
+article {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.json {
+    direction: ltr;
+    padding: 1em;
+    background-color: var(--json-bgcolor);
+    border-radius: 1em;
+}
+
+.table,
+td,
+th {
+    direction: ltr;
+    font-family: IRANSansXFaNum;
+    font-size: 90%;
+}
+
+table.dataTable>tbody>tr:nth-child(even) {
+    background-color: var(--TrEvenBG);
+}
+
+th,
+td {
+    text-align: center !important;
+}
+
+.license {
+    width: 100%;
+    border: 2px solid;
+    border-radius: 1em;
+    max-width: 800px;
+    margin: auto;
+    display: inherit;
+}
+
+.filter-hover:hover {
+    filter: drop-shadow(0 0 5px gray);
+}
+
+article.anchor {
+    height: calc(var(--header-height) + 2em);
+}
+
+article.last {
+    height: 20em;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+}
+
+form label {
+    font-size: 80%;
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: .5em;
+    margin-bottom: 1em;
+    font-family: IRANSansXFaNum;
+    box-sizing: border-box;
+}
+
+form [type="submit"] {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.center {
+    text-align: center;
+}
+
+.approved-logo {
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid;
+    display: inline-block ;
+    margin: .5em;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+.approved-logo img {
+    max-width: 60px;
+    max-height: 60px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cooperation strong{
+    font-weight: 900;
+    font-size: 120%;
+    margin-left: 0.5em;
+}
+
+.cooperation li {
+    margin-bottom: 0.5em;
+}
+
+.approved-logo img.avatar{
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.charts {
+    margin-top: 1em;
+}
+.chart, .chart3 {
+    padding: .5em;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+button.dt-paging-button {
+    font-family: 'IRANSansXFaNum';
+}
+
+select#dt-length-0 {
+    font-family: 'IRANSansXFaNum';
+}
+
+.dt-paging.paging_full_numbers {
+    direction: rtl;
+}
+.dt-search {
+    direction: rtl;
+}
+
+option{
+    background-color: var(--bgColor);
+}
