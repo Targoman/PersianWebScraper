@@ -410,6 +410,7 @@ export enum enuDomains {
     lioncomputer = "lioncomputer",
     lisna = "lisna",
     lkiran = "lkiran",
+    madanname = "madanname",
     madarsho = "madarsho",
     magiran = "magiran",
     mahyanews = "mahyanews",

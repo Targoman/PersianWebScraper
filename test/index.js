@@ -2351,5 +2351,8 @@ yarn dev && yarn start roustapress -u https://roustapress.com/1403/04/17/رشد-
 yarn dev && yarn start rooyesheafkar
 yarn dev && yarn start rooyesheafkar -u https://www.rooyesheafkar.ir/view_news.php?show=4198
 
+yarn dev && yarn start madanname
+yarn dev && yarn start madanname -u https://madanname.ir/چادرملو-تندیس-واحد-نمونه-و-مهرورز-را-در/
+
 https://motamem.org/
 /**/
