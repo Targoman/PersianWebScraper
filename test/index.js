@@ -2373,5 +2373,8 @@ yarn dev && yarn start agrofoodnews -u https://agrofoodnews.com/تولید-کل�
 yarn dev && yarn start iswnews
 yarn dev && yarn start iswnews -u https://iswnews.com/119690/واکاوی-اهداف-طرح-اخراج-اتباع-افغانستا/
 
+yarn dev && yarn start dana
+yarn dev && yarn start dana -u https://dana.ir/2064028/ارایه-خدمات-مالیاتی-در-دفاتر-پیشخوان-کلید-خورد#gsc.tab=0
+
 https://motamem.org/
 /**/

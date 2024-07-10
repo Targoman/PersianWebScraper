@@ -7995,3 +7995,30 @@ export class iswnews extends clsScrapper {
         })
     }
 }
+
+export class dana extends clsScrapper {
+    constructor() {
+        super(enuDomains.dana, "dana.ir", {
+            selectors: {
+                article: "#main-content",
+                aboveTitle: "#rotitr",
+                title: "h1",
+                subtitle: "blockquote",
+                datetime: {
+                    conatiner: "ul.post-info-dark > li:nth-child(1) > a"
+                },
+                content: {
+                    main: ".news-details-layout1 p",
+                    ignoreTexts: ["به اشتراک گذاری این مطلب!"]
+                },
+                category: {
+                    selector: "ul.breadcrumb li a"
+                },     
+                tags: "ul.blog-tags li a"
+            },
+            url: {
+                removeWWW: true, 
+            }
+        })
+    }
+}

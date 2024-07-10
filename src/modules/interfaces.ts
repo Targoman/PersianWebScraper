@@ -152,6 +152,7 @@ export enum enuDomains {
     controlmgt = "controlmgt",
     cookpad = "cookpad",
     dadrah = "dadrah",
+    dana = "dana",
     danakhabar = "danakhabar",
     daadyab = "daadyab",
     dadpardaz = "dadpardaz",
