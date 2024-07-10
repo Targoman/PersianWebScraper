@@ -7916,3 +7916,31 @@ export class sedayeanak extends clsScrapper {
         })
     }
 }
+
+export class sedayecheragheomidnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayecheragheomidnews, "sedayecheragheomidnews.ir", {
+            selectors: {
+                article: ".conte",
+                aboveTitle: ".rotitle",
+                title: "h2.title",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: "a[rel='category tag']"
+                },         
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".conte-share h5")
+            },
+            url: {
+                removeWWW: true, 
+                forceHTTP: true
+            }
+        })
+    }
+}

@@ -605,6 +605,7 @@ export enum enuDomains {
     scorize = "scorize",
     sedayeanak = "sedayeanak",
     sedayebourse = "sedayebourse",
+    sedayecheragheomidnews = "sedayecheragheomidnews",
     sedayiran = "sedayiran",
     sellfree = "sellfree",
     sena = "sena",

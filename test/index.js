@@ -2364,5 +2364,8 @@ yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/کاه
 yarn dev && yarn start sedayeanak
 yarn dev && yarn start sedayeanak -u http://sedayeanak.ir/36587/
 
+yarn dev && yarn start sedayecheragheomidnews
+yarn dev && yarn start sedayecheragheomidnews -u http://sedayecheragheomidnews.ir/استفاده-بهینه-از-منابع-آبی-یک-مسئولیت-م/
+
 https://motamem.org/
 /**/
