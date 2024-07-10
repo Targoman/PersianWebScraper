@@ -7969,3 +7969,29 @@ export class agrofoodnews extends clsScrapper {
         })
     }
 }
+
+export class iswnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.iswnews, "iswnews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".dw-content",
+                    ignoreNodeClasses: ["tags", "content-title", "dw-post-url", "dw-date"]
+                },
+                category: {
+                    selector: "nav.rank-math-breadcrumb a"
+                },     
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true, 
+            }
+        })
+    }
+}

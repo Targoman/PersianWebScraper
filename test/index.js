@@ -2370,5 +2370,8 @@ yarn dev && yarn start sedayecheragheomidnews -u http://sedayecheragheomidnews.i
 yarn dev && yarn start agrofoodnews
 yarn dev && yarn start agrofoodnews -u https://agrofoodnews.com/تولید-کلزا-۸۰-درصد-افزایش-یافت/
 
+yarn dev && yarn start iswnews
+yarn dev && yarn start iswnews -u https://iswnews.com/119690/واکاوی-اهداف-طرح-اخراج-اتباع-افغانستا/
+
 https://motamem.org/
 /**/
