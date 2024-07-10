@@ -19,6 +19,7 @@ export enum enuDomains {
     aftokhabar = "aftokhabar",
     aghigh = "aghigh",
     agorgani = "agorgani",
+    agrofoodnews = "agrofoodnews",
     ahannews = "ahannews",
     akharinkhabar = "akharinkhabar",
     akharinkhodro = "akharinkhodro",

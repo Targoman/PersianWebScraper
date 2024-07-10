@@ -7944,3 +7944,28 @@ export class sedayecheragheomidnews extends clsScrapper {
         })
     }
 }
+
+export class agrofoodnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.agrofoodnews, "agrofoodnews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".article-content",
+                },
+                category: {
+                    selector: "span.breadcrumb-item a"
+                },         
+                tags: ".article-tags a"
+            },
+            url: {
+                removeWWW: true, 
+            }
+        })
+    }
+}

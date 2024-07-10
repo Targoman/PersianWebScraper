@@ -2367,5 +2367,8 @@ yarn dev && yarn start sedayeanak -u http://sedayeanak.ir/36587/
 yarn dev && yarn start sedayecheragheomidnews
 yarn dev && yarn start sedayecheragheomidnews -u http://sedayecheragheomidnews.ir/استفاده-بهینه-از-منابع-آبی-یک-مسئولیت-م/
 
+yarn dev && yarn start agrofoodnews
+yarn dev && yarn start agrofoodnews -u https://agrofoodnews.com/تولید-کلزا-۸۰-درصد-افزایش-یافت/
+
 https://motamem.org/
 /**/
