@@ -2351,5 +2351,30 @@ yarn dev && yarn start roustapress -u https://roustapress.com/1403/04/17/رشد-
 yarn dev && yarn start rooyesheafkar
 yarn dev && yarn start rooyesheafkar -u https://www.rooyesheafkar.ir/view_news.php?show=4198
 
+yarn dev && yarn start madanname
+yarn dev && yarn start madanname -u https://madanname.ir/چادرملو-تندیس-واحد-نمونه-و-مهرورز-را-در/
+
+yarn dev && yarn start farnet
+yarn dev && yarn start farnet -u https://farnet.io/1403/04/361115/بازی-کرک-شده-چیست؟/
+
+yarn dev && yarn start jahaneghtesad 
+yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/امروز-و-فردای-خودروهای-فرسوده
+yarn dev && yarn start jahaneghtesad -u https://jahaneghtesad.com/article/کاهش-نرخ-درآمد-واقعی-در-اسپانیا
+
+yarn dev && yarn start sedayeanak
+yarn dev && yarn start sedayeanak -u http://sedayeanak.ir/36587/
+
+yarn dev && yarn start sedayecheragheomidnews
+yarn dev && yarn start sedayecheragheomidnews -u http://sedayecheragheomidnews.ir/استفاده-بهینه-از-منابع-آبی-یک-مسئولیت-م/
+
+yarn dev && yarn start agrofoodnews
+yarn dev && yarn start agrofoodnews -u https://agrofoodnews.com/تولید-کلزا-۸۰-درصد-افزایش-یافت/
+
+yarn dev && yarn start iswnews
+yarn dev && yarn start iswnews -u https://iswnews.com/119690/واکاوی-اهداف-طرح-اخراج-اتباع-افغانستا/
+
+yarn dev && yarn start dana
+yarn dev && yarn start dana -u https://dana.ir/2064028/ارایه-خدمات-مالیاتی-در-دفاتر-پیشخوان-کلید-خورد#gsc.tab=0
+
 https://motamem.org/
 /**/
