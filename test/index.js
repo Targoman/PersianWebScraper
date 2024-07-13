@@ -2385,5 +2385,8 @@ yarn dev && yarn start ihkn -u https://ihkn.ir/بررسی-فقهی-ربا-در-�
 yarn dev && yarn start mamlekatema
 yarn dev && yarn start mamlekatema -u https://mamlekatema.ir/بخش-طلا-10/47356-قیمت-جهانی-طلا-در-اوج-ماند
 
+yarn dev && yarn start smtnews
+yarn dev && yarn start smtnews -u https://smtnews.ir/بخش-یادداشت-85/45997-عباس-آشتیانی-پژوهشگر-حوزه-بلا
+
 https://motamem.org/
 /**/

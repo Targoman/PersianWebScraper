@@ -1613,3 +1613,17 @@ export class mamlekatema extends clsAsamBased {
         return url.toString();
     }
 }
+
+export class smtnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.smtnews, "smtnews.ir", {
+            selectors: {
+                article: ".article_box",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb_list li a span"),
+                    startIndex: 0
+                }
+            },
+        })
+    }
+}

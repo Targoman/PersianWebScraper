@@ -648,6 +648,7 @@ export enum enuDomains {
     sinapress = "sinapress",
     sinapub = "sinapub",
     sistani = "sistani",
+    smtnews = "smtnews",
     snapp = "snapp",
     snappfood = "snappfood",
     snappmarket = "snappmarket",
