@@ -301,6 +301,7 @@ export enum enuDomains {
     ictpress = "ictpress",
     idpay = "idpay",
     ifsm = "ifsm",
+    ihkn = "ihkn",
     iichs = "iichs",
     ilamebidar = "ilamebidar",
     ilamrasaneh = "ilamrasaneh",

@@ -8022,3 +8022,33 @@ export class dana extends clsScrapper {
         })
     }
 }
+
+export class ihkn extends clsScrapper {
+    constructor() {
+        super(enuDomains.ihkn, "ihkn.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".feature-img small",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["short-link-bott"]
+                },
+                category: {
+                    selector: ".single-post-meta span a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

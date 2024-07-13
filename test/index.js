@@ -2376,5 +2376,11 @@ yarn dev && yarn start iswnews -u https://iswnews.com/119690/واکاوی-اهد
 yarn dev && yarn start dana
 yarn dev && yarn start dana -u https://dana.ir/2064028/ارایه-خدمات-مالیاتی-در-دفاتر-پیشخوان-کلید-خورد#gsc.tab=0
 
+yarn dev && yarn start tehranpress
+yarn dev && yarn start tehranpress -u https://tehranpress.com/fa/news/64514/کاهش-برداشت-آب-از-سفره%E2%80%8Cهای-آب-زیرزمینی
+
+yarn dev && yarn start ihkn
+yarn dev && yarn start ihkn -u https://ihkn.ir/بررسی-فقهی-ربا-در-معاملات-بین-اشخاص-حقو/
+
 https://motamem.org/
 /**/
