@@ -2388,5 +2388,8 @@ yarn dev && yarn start mamlekatema -u https://mamlekatema.ir/بخش-طلا-10/47
 yarn dev && yarn start smtnews
 yarn dev && yarn start smtnews -u https://smtnews.ir/بخش-یادداشت-85/45997-عباس-آشتیانی-پژوهشگر-حوزه-بلا
 
+yarn dev && yarn start jahatpress
+yarn dev && yarn start jahatpress -u https://jahatpress.ir/news/ماجرای-کلاهبرداری-یونیک-فاینانس-چیس/
+
 https://motamem.org/
 /**/

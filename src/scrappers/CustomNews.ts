@@ -8052,3 +8052,25 @@ export class ihkn extends clsScrapper {
         })
     }
 }
+
+export class jahatpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.jahatpress, "jahatpress.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                category: {
+                    selector: "[rel='tag']",
+                }
+            },
+        })
+    }
+}
