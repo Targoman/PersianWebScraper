@@ -2382,5 +2382,8 @@ yarn dev && yarn start tehranpress -u https://tehranpress.com/fa/news/64514/کا
 yarn dev && yarn start ihkn
 yarn dev && yarn start ihkn -u https://ihkn.ir/بررسی-فقهی-ربا-در-معاملات-بین-اشخاص-حقو/
 
+yarn dev && yarn start mamlekatema
+yarn dev && yarn start mamlekatema -u https://mamlekatema.ir/بخش-طلا-10/47356-قیمت-جهانی-طلا-در-اوج-ماند
+
 https://motamem.org/
 /**/

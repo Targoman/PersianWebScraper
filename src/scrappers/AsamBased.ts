@@ -1595,3 +1595,21 @@ export class varzesh360 extends clsAsamBased {
         })
     }
 }
+
+export class mamlekatema extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mamlekatema, "mamlekatema.ir", {
+            selectors: {
+                article: ".news_body"
+            },
+            url: {
+               removeWWW: true,
+               forceHTTP: true   
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        return url.toString();
+    }
+}
