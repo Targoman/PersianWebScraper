@@ -2397,5 +2397,8 @@ yarn dev && yarn start qumpress -u https://www.qumpress.ir/fa/news/419339/یک-�
 yarn dev && yarn start cspf
 yarn dev && yarn start cspf -u https://www.cspf.ir/71845/تجلیل-از-۳۳-بازنشسته-نمونه-دستگاه-های-ا/
 
+yarn dev && yarn start sedayostan
+yarn dev && yarn start sedayostan -u https://sedayostan.ir/news/42218/بیش-از-چهارهزار-تن-کالا-از-گمرک-گناوه-صا/
+
 https://motamem.org/
 /**/

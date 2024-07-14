@@ -8142,3 +8142,27 @@ export class cspf extends clsScrapper {
         })
     }
 }
+
+export class sedayostan extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayostan, "sedayostan.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body"
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_title a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
