@@ -2391,5 +2391,8 @@ yarn dev && yarn start smtnews -u https://smtnews.ir/بخش-یادداشت-85/45
 yarn dev && yarn start jahatpress
 yarn dev && yarn start jahatpress -u https://jahatpress.ir/news/ماجرای-کلاهبرداری-یونیک-فاینانس-چیس/
 
+yarn dev && yarn start qumpress
+yarn dev && yarn start qumpress -u https://www.qumpress.ir/fa/news/419339/یک-نانوداروی-ضدسرطان-تزریقی-مجوز-fda
+
 https://motamem.org/
 /**/

@@ -8074,3 +8074,24 @@ export class jahatpress extends clsScrapper {
         })
     }
 }
+
+export class qumpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.qumpress, "qumpress.ir", {
+            selectors: {
+                article: ".item-page",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c"),
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path")
+                },
+                tags: ".content-showtags ul li a"
+            },
+        })
+    }
+}
