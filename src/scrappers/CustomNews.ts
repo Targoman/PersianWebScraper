@@ -8122,3 +8122,23 @@ export class sahabpress extends clsScrapper {
         })
     }
 }
+
+export class cspf extends clsScrapper {
+    constructor() {
+        super(enuDomains.cspf, "cspf.ir", {
+            basePath: "/news",
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".entry-content-header",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+            },
+        })
+    }
+}
