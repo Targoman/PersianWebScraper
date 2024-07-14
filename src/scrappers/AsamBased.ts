@@ -1595,3 +1595,35 @@ export class varzesh360 extends clsAsamBased {
         })
     }
 }
+
+export class mamlekatema extends clsAsamBased {
+    constructor() {
+        super(enuDomains.mamlekatema, "mamlekatema.ir", {
+            selectors: {
+                article: ".news_body"
+            },
+            url: {
+               removeWWW: true,
+               forceHTTP: true   
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        return url.toString();
+    }
+}
+
+export class smtnews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.smtnews, "smtnews.ir", {
+            selectors: {
+                article: ".article_box",
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb_list li a span"),
+                    startIndex: 0
+                }
+            },
+        })
+    }
+}

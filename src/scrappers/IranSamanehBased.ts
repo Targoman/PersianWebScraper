@@ -3164,3 +3164,24 @@ export class eghtesaddaryai extends clsIransamaneh {
         })
     }
 }
+
+export class tehranpress extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.tehranpress, "tehranpress.com", {
+            selectors: {
+                article: ".border-parent-main",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".service-name"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".khabar-tag")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -2376,5 +2376,20 @@ yarn dev && yarn start iswnews -u https://iswnews.com/119690/واکاوی-اهد
 yarn dev && yarn start dana
 yarn dev && yarn start dana -u https://dana.ir/2064028/ارایه-خدمات-مالیاتی-در-دفاتر-پیشخوان-کلید-خورد#gsc.tab=0
 
+yarn dev && yarn start tehranpress
+yarn dev && yarn start tehranpress -u https://tehranpress.com/fa/news/64514/کاهش-برداشت-آب-از-سفره%E2%80%8Cهای-آب-زیرزمینی
+
+yarn dev && yarn start ihkn
+yarn dev && yarn start ihkn -u https://ihkn.ir/بررسی-فقهی-ربا-در-معاملات-بین-اشخاص-حقو/
+
+yarn dev && yarn start mamlekatema
+yarn dev && yarn start mamlekatema -u https://mamlekatema.ir/بخش-طلا-10/47356-قیمت-جهانی-طلا-در-اوج-ماند
+
+yarn dev && yarn start smtnews
+yarn dev && yarn start smtnews -u https://smtnews.ir/بخش-یادداشت-85/45997-عباس-آشتیانی-پژوهشگر-حوزه-بلا
+
+yarn dev && yarn start jahatpress
+yarn dev && yarn start jahatpress -u https://jahatpress.ir/news/ماجرای-کلاهبرداری-یونیک-فاینانس-چیس/
+
 https://motamem.org/
 /**/
