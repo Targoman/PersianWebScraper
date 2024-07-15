@@ -2403,5 +2403,9 @@ yarn dev && yarn start sedayostan -u https://sedayostan.ir/news/42218/بیش-ا�
 yarn dev && yarn start dinonline
 yarn dev && yarn start dinonline -u https://www.dinonline.com/43151/پاپ-واتیکان-تبادل-اسرا-روسیه-اوکراین/
 
+yarn dev && yarn start adyannet
+yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/43419
+yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/31912
+
 https://motamem.org/
 /**/

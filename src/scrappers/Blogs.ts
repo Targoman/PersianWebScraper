@@ -6031,3 +6031,29 @@ export class ipemdad extends clsScrapper {
         })
     }
 }
+
+export class adyannet extends clsScrapper {
+    constructor() {
+        super(enuDomains.adyannet, "adyannet.com", {
+            selectors: {
+                article: "body.page-node-",
+                title: "h1.page-title",
+                summary: ".chek",
+                datetime: {
+                    conatiner: "[property='dc:date dc:created']",
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".field-name-body [property='content:encoded']",
+                },
+                comments: {
+                    container: "#comments .comment",
+                    author: ".username",
+                    datetime: "[property='dc:date dc:created']",
+                    text: "[property='content:encoded']"
+                },
+                tags: "[rel='dc:subject']",
+            },
+        })
+    }
+}
