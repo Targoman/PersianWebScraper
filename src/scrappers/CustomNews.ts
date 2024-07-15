@@ -8166,3 +8166,29 @@ export class sedayostan extends clsScrapper {
         })
     }
 }
+
+export class dinonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.dinonline, "dinonline.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*دراین باره این مطلب را.*/]
+
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                    startIndex: 1,
+                },
+                tags: ".post-tags a"
+            },
+        })
+    }
+}

@@ -2400,5 +2400,8 @@ yarn dev && yarn start cspf -u https://www.cspf.ir/71845/تجلیل-از-۳۳-ب
 yarn dev && yarn start sedayostan
 yarn dev && yarn start sedayostan -u https://sedayostan.ir/news/42218/بیش-از-چهارهزار-تن-کالا-از-گمرک-گناوه-صا/
 
+yarn dev && yarn start dinonline
+yarn dev && yarn start dinonline -u https://www.dinonline.com/43151/پاپ-واتیکان-تبادل-اسرا-روسیه-اوکراین/
+
 https://motamem.org/
 /**/
