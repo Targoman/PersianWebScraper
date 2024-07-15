@@ -362,6 +362,7 @@ export enum enuDomains {
     jar = "jar",
     javanonline = "javanonline",
     jeebnews = "jeebnews",
+    jezman = "jezman",
     jobinja = "jobinja",
     jomhooronline = "jomhooronline",
     jomhornews = "jomhornews",

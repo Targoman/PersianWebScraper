@@ -2410,5 +2410,8 @@ yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/31912
 yarn dev && yarn start kashanefarda
 yarn dev && yarn start kashanefarda -u https://kashanefarda.ir/2024/07/15/افزایش-مصرف-آب-شرب-در-کاشان/
 
+yarn dev && yarn start jezman
+yarn dev && yarn start jezman -u https://www.jezman.ir/یک-میلیون-و-۴۳۴-هزار-زائر-از-مرز-مهران-ت/
+
 https://motamem.org/
 /**/
