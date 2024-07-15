@@ -8192,3 +8192,27 @@ export class dinonline extends clsScrapper {
         })
     }
 }
+
+export class kashanefarda extends clsScrapper {
+    constructor() {
+        super(enuDomains.kashanefarda, "kashanefarda.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".post-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*شبکه‌های اجتماعی دنبال کنید.*/, /.*اینستاگرام تلگرام.*/]
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

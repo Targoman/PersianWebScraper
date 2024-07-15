@@ -2407,5 +2407,8 @@ yarn dev && yarn start adyannet
 yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/43419
 yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/31912
 
+yarn dev && yarn start kashanefarda
+yarn dev && yarn start kashanefarda -u https://kashanefarda.ir/2024/07/15/افزایش-مصرف-آب-شرب-در-کاشان/
+
 https://motamem.org/
 /**/
