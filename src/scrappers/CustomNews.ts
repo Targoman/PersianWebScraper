@@ -8262,3 +8262,26 @@ export class darsiahkal extends clsScrapper {
         })
     }
 }
+
+export class varzeshi91 extends clsScrapper {
+    constructor() {
+        super(enuDomains.varzeshi91, "91varzeshi.ir", {
+            selectors: {
+                article: ".ap-single",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".hhi.breadcrumb li"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category']",
+                    lastIndex: 2
+                },
+                tags: ".im-tag-items a"
+            },
+        })
+    }
+}

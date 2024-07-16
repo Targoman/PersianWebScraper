@@ -2416,5 +2416,9 @@ yarn dev && yarn start jezman -u https://www.jezman.ir/یک-میلیون-و-۴۳
 yarn dev && yarn start darsiahkal 
 yarn dev && yarn start darsiahkal -u https://www.darsiahkal.ir/121960/elam-jorm-dadsetan-alayhe-shahrdar-foman-be-dalil-adam-jamavari-saghaye-velgard/
 
+yarn dev && yarn start varzeshi91
+yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=628187
+yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=697107
+
 https://motamem.org/
 /**/
