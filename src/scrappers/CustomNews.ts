@@ -8311,3 +8311,28 @@ export class eskanunion extends clsScrapper {
         })
     }
 }
+
+export class adyannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.adyannews, "adyannews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp", "social-list", "continue-reading-container"]
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                    startIndex: 1
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

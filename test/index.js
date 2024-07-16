@@ -2423,5 +2423,8 @@ yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=697107
 yarn dev && yarn start eskanunion
 yarn dev && yarn start eskanunion -u https://eskanunion.com/۱۲-دستورکار-متولی-جدید-مسکن/
 
+yarn dev && yarn start adyannews
+yarn dev && yarn start adyannews -u https://adyannews.com/173609/جمعیت-بی-دین-در/
+
 https://motamem.org/
 /**/
