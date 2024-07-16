@@ -8241,3 +8241,24 @@ export class jezman extends clsScrapper {
         })
     }
 }
+
+export class darsiahkal extends clsScrapper {
+    constructor() {
+        super(enuDomains.darsiahkal, "darsiahkal.ir", {
+            selectors: {
+                article: ".single-figure",
+                aboveTitle: ".single-rutitr",
+                title: "h1",
+                subtitle:  ".single-lid",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-text",
+                    ignoreTexts: [/.*عضویت کانال تلگرام.*/, /.*انتهای پیام\/.*/, /.*انتهای خبر\/.*/]
+                },
+            },
+        })
+    }
+}

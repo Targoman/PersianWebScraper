@@ -161,6 +161,7 @@ export enum enuDomains {
     dailytelegraph = "dailytelegraph",
     danestanyonline = "danestanyonline",
     dargi = "dargi",
+    darsiahkal = "darsiahkal",
     daryanews = "daryanews",
     dbazi = "dbazi",
     defapress = "defapress",

@@ -2413,5 +2413,8 @@ yarn dev && yarn start kashanefarda -u https://kashanefarda.ir/2024/07/15/افز
 yarn dev && yarn start jezman
 yarn dev && yarn start jezman -u https://www.jezman.ir/یک-میلیون-و-۴۳۴-هزار-زائر-از-مرز-مهران-ت/
 
+yarn dev && yarn start darsiahkal 
+yarn dev && yarn start darsiahkal -u https://www.darsiahkal.ir/121960/elam-jorm-dadsetan-alayhe-shahrdar-foman-be-dalil-adam-jamavari-saghaye-velgard/
+
 https://motamem.org/
 /**/
