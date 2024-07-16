@@ -8285,3 +8285,29 @@ export class varzeshi91 extends clsScrapper {
         })
     }
 }
+
+export class eskanunion extends clsScrapper {
+    constructor() {
+        super(enuDomains.eskanunion, "eskanunion.com", {
+            selectors: {
+                article: ".single",
+                aboveTitle: ".rootitr",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

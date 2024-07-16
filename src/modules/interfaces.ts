@@ -209,6 +209,7 @@ export enum enuDomains {
     esfahanemrooz = "esfahanemrooz",
     esfahanshargh = "esfahanshargh",
     esfahanzibaonline = "esfahanzibaonline",
+    eskanunion = "eskanunion",
     eslahatnews = "eslahatnews",
     etehadnews = "etehadnews",
     etemadonline = "etemadonline",

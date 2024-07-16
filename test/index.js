@@ -2420,5 +2420,8 @@ yarn dev && yarn start varzeshi91
 yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=628187
 yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=697107
 
+yarn dev && yarn start eskanunion
+yarn dev && yarn start eskanunion -u https://eskanunion.com/۱۲-دستورکار-متولی-جدید-مسکن/
+
 https://motamem.org/
 /**/
