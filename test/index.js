@@ -2426,5 +2426,8 @@ yarn dev && yarn start eskanunion -u https://eskanunion.com/۱۲-دستورکا�
 yarn dev && yarn start adyannews
 yarn dev && yarn start adyannews -u https://adyannews.com/173609/جمعیت-بی-دین-در/
 
+yarn dev && yarn start shahidyaran
+yarn dev && yarn start shahidyaran -u https://shahidyaran.ir/تشریح-مبنای-قانونی-اعطای-تسهیلات-به-کا/
+
 https://motamem.org/
 /**/

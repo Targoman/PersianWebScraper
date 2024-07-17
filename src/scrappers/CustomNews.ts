@@ -8336,3 +8336,26 @@ export class adyannews extends clsScrapper {
         })
     }
 }
+
+export class shahidyaran extends clsScrapper {
+    constructor() {
+        super(enuDomains.shahidyaran, "shahidyaran.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
