@@ -2435,5 +2435,8 @@ yarn dev && yarn start avangpress -u https://avangpress.ir/8082/قانون-تا�
 yarn dev && yarn start bourse24
 yarn dev && yarn start bourse24 -u https://www.bourse24.ir/news/295212/«غدام»-از-معاملات-خود-گفت
 
+yarn dev && yarn start salampaveh
+yarn dev && yarn start salampaveh -u http://www.salampaveh.ir/107423/توصیه-به-شهروندان-در-خصوص-افزایش-جر/
+
 https://motamem.org/
 /**/

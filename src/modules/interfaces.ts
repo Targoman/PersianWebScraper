@@ -615,6 +615,7 @@ export enum enuDomains {
     sakkook = "sakkook",
     salamatnews = "salamatnews",
     salameno = "salameno",
+    salampaveh = "salampaveh",
     samanehha = "samanehha",
     sanapress = "sanapress",
     sarpoosh = "sarpoosh",

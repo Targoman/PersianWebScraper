@@ -8411,3 +8411,28 @@ export class bourse24 extends clsScrapper {
         })
     }
 }
+
+export class salampaveh extends clsScrapper {
+    constructor() {
+        super(enuDomains.salampaveh, "salampaveh.ir", {
+            selectors: {
+                article: ".single-content",
+                aboveTitle: "small",
+                title: "h2",
+                subtitle:  ".bg-light.w-100",
+                datetime: {
+                    conatiner: ".postinfo > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".resize",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
