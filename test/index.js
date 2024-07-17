@@ -2429,5 +2429,8 @@ yarn dev && yarn start adyannews -u https://adyannews.com/173609/جمعیت-بی
 yarn dev && yarn start shahidyaran
 yarn dev && yarn start shahidyaran -u https://shahidyaran.ir/تشریح-مبنای-قانونی-اعطای-تسهیلات-به-کا/
 
+yarn dev && yarn start avangpress
+yarn dev && yarn start avangpress -u https://avangpress.ir/8082/قانون-تامین-مالی-تولید-و-زیرساخت-ها-راه/
+
 https://motamem.org/
 /**/
