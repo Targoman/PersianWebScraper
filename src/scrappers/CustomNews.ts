@@ -8386,3 +8386,28 @@ export class avangpress extends clsScrapper {
         })
     }
 }
+
+export class bourse24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.bourse24, "bourse24.ir", {
+            selectors: {
+                article: ".single-post",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle:  "blockquote",
+                datetime: {
+                    conatiner: ".post-content.ml-0 > .post-meta > span:nth-child(1)"
+                },
+                content: {
+                    main: ".post-text",
+                },
+                category: {
+                    selector: ".post-content.ml-0 > .post-meta > span:nth-child(2) > a",
+                },
+                tags: ".post-tags a"
+            },
+            url: {
+                extraInvalidStartPaths: ["/articles", "/questions"]
+            }
+        })
+    }
+}

@@ -2432,5 +2432,8 @@ yarn dev && yarn start shahidyaran -u https://shahidyaran.ir/تشریح-مبنا
 yarn dev && yarn start avangpress
 yarn dev && yarn start avangpress -u https://avangpress.ir/8082/قانون-تامین-مالی-تولید-و-زیرساخت-ها-راه/
 
+yarn dev && yarn start bourse24
+yarn dev && yarn start bourse24 -u https://www.bourse24.ir/news/295212/«غدام»-از-معاملات-خود-گفت
+
 https://motamem.org/
 /**/
