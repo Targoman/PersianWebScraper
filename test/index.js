@@ -2438,5 +2438,8 @@ yarn dev && yarn start bourse24 -u https://www.bourse24.ir/news/295212/«غدا�
 yarn dev && yarn start salampaveh
 yarn dev && yarn start salampaveh -u http://www.salampaveh.ir/107423/توصیه-به-شهروندان-در-خصوص-افزایش-جر/
 
+yarn dev && yarn start tolosiyasat 
+yarn dev && yarn start tolosiyasat -u https://tolosiyasat.ir/معیارها-و-روند-انتخاب-اعضای-کابینه-چها/
+
 https://motamem.org/
 /**/

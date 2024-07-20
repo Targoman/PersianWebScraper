@@ -722,6 +722,7 @@ export enum enuDomains {
     titre20 = "titre20",
     titrekootah = "titrekootah",
     tlyn = "tlyn",
+    tolosiyasat = "tolosiyasat",
     toonblog = "toonblog",
     toseeirani = "toseeirani",
     toseepooya = "toseepooya",

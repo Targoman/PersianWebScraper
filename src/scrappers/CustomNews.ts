@@ -8436,3 +8436,31 @@ export class salampaveh extends clsScrapper {
         })
     }
 }
+
+export class tolosiyasat extends clsScrapper {
+    constructor() {
+        super(enuDomains.tolosiyasat, "tolosiyasat.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) "
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
