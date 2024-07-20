@@ -8487,3 +8487,27 @@ export class gerdab extends clsScrapper {
         })
     }
 }
+
+export class sedanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedanews, "3danews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".td-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".td-post-content",
+                    ignoreNodeClasses: ["td-excerpt", "copyrights"]
+                },
+                category: {
+                    selector: "ul.td-category li a",
+                },
+                tags: ".td-tags li a"
+            },
+        })
+    }
+}

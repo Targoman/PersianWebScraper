@@ -2444,5 +2444,8 @@ yarn dev && yarn start tolosiyasat -u https://tolosiyasat.ir/معیارها-و-�
 yarn dev && yarn start gerdab
 yarn dev && yarn start gerdab -u https://gerdab.ir/fa/news/38252/توهمات-چت%E2%80%8Cجی%E2%80%8Cپی%E2%80%8Cتی-کار-دست-سازندگانش-داد-شکایت-از-openai-به-خاطر-تاریخ-تولد-اشتباه
 
+yarn dev && yarn start sedanews
+yarn dev && yarn start sedanews -u https://www.3danews.ir/political/281389/چرا-غولهای-فناوری-به-سمت-ترامپ-میچرخند؟
+
 https://motamem.org/
 /**/
