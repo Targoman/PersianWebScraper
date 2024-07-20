@@ -259,6 +259,7 @@ export enum enuDomains {
     gamene = "gamene",
     gametor = "gametor",
     gardeshban = "gardeshban",
+    gerdab = "gerdab",
     getzoop = "getzoop",
     gashtaninews = "gashtaninews",
     ghafaridiet = "ghafaridiet",

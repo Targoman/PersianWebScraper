@@ -8464,3 +8464,26 @@ export class tolosiyasat extends clsScrapper {
         })
     }
 }
+
+export class gerdab extends clsScrapper {
+    constructor() {
+        super(enuDomains.gerdab, "gerdab.ir", {
+            selectors: {
+                article: "#news",
+                title: "h2",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".body",
+                },
+                tags: ".tags_title a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

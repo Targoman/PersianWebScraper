@@ -2441,5 +2441,8 @@ yarn dev && yarn start salampaveh -u http://www.salampaveh.ir/107423/توصیه-
 yarn dev && yarn start tolosiyasat 
 yarn dev && yarn start tolosiyasat -u https://tolosiyasat.ir/معیارها-و-روند-انتخاب-اعضای-کابینه-چها/
 
+yarn dev && yarn start gerdab
+yarn dev && yarn start gerdab -u https://gerdab.ir/fa/news/38252/توهمات-چت%E2%80%8Cجی%E2%80%8Cپی%E2%80%8Cتی-کار-دست-سازندگانش-داد-شکایت-از-openai-به-خاطر-تاریخ-تولد-اشتباه
+
 https://motamem.org/
 /**/
