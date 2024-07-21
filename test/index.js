@@ -2450,5 +2450,8 @@ yarn dev && yarn start sedanews -u https://www.3danews.ir/political/281389/چر�
 yarn dev && yarn start alwaght
 yarn dev && yarn start alwaght -u https://alwaght.net/fa/News/254134/کرملین-پوتین-برنامه%E2%80%8Cای-برای-تماس-با-ترامپ-ندارد
 
+yarn dev && yarn start petrotahlil
+yarn dev && yarn start petrotahlil -u http://www.petrotahlil.com/بخش-اخبار-2/47230-بازار-سوخته-پتروشیمی-مهر-ایلام-پایپ-شازند-جم-در-ترکیه
+
 https://motamem.org/
 /**/
