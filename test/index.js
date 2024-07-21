@@ -2447,5 +2447,8 @@ yarn dev && yarn start gerdab -u https://gerdab.ir/fa/news/38252/توهمات-چ
 yarn dev && yarn start sedanews
 yarn dev && yarn start sedanews -u https://www.3danews.ir/political/281389/چرا-غولهای-فناوری-به-سمت-ترامپ-میچرخند؟
 
+yarn dev && yarn start alwaght
+yarn dev && yarn start alwaght -u https://alwaght.net/fa/News/254134/کرملین-پوتین-برنامه%E2%80%8Cای-برای-تماس-با-ترامپ-ندارد
+
 https://motamem.org/
 /**/

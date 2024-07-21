@@ -8511,3 +8511,30 @@ export class sedanews extends clsScrapper {
         })
     }
 }
+
+export class alwaght extends clsScrapper {
+    constructor() {
+        super(enuDomains.alwaght, "alwaght.net", {
+            basePath: "/fa",
+            selectors: {
+                article: "[lang='fa'] .ViewNews",
+                title: "h2",
+                datetime: {
+                    conatiner: "header > div > div.DateNews > span"
+                },
+                content: {
+                    main: ".DetailsTextNews",
+                    ignoreNodeClasses: ["Tags", "CommentBox"]
+                },
+                category: {
+                    selector: ".RotitrNews a span",
+                },
+                tags: ".Tags h3 a"
+            },
+            url: {
+                removeWWW: true,
+                extraInvalidStartPaths: ["/ar", "/en", "/es", "/ur"]
+            }
+        })
+    }
+}
