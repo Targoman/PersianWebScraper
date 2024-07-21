@@ -2453,5 +2453,8 @@ yarn dev && yarn start alwaght -u https://alwaght.net/fa/News/254134/کرملی�
 yarn dev && yarn start petrotahlil
 yarn dev && yarn start petrotahlil -u http://www.petrotahlil.com/بخش-اخبار-2/47230-بازار-سوخته-پتروشیمی-مهر-ایلام-پایپ-شازند-جم-در-ترکیه
 
+yarn dev && yarn start akhbaremadan
+yarn dev && yarn start akhbaremadan -u https://www.akhbaremadan.ir/news/73173/کمبود-نیروی-انسانی-متخصص-روند-توسعه-اکتشافات-معدنی-متوقف-می-کند
+
 https://motamem.org/
 /**/
