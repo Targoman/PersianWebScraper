@@ -2462,5 +2462,8 @@ yarn dev && yarn start nuranews -u https://nuranews.ir/13912/
 yarn dev && yarn start bmn
 yarn dev && yarn start bmn -u https://bmn.ir/اخبار/نگه%E2%80%8Cداشت-نخبگان-و-فارغ%E2%80%8Cالتحصیلان-دانشگاهی-در-بستر-دانش%E2%80%8Cبنیان-محقق-می%E2%80%8Cشود⁄-نیاز-به-سرمایه%E2%80%8Cگذاری-جدی-داریم
 
+yarn dev && yarn start tehraneconomy
+yarn dev && yarn start tehraneconomy -u https://tehraneconomy.ir/دستورالعمل-سامانه-نظارت-بر-پروژههای/
+
 https://motamem.org/
 /**/
