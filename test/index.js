@@ -2456,5 +2456,8 @@ yarn dev && yarn start petrotahlil -u http://www.petrotahlil.com/بخش-اخبا
 yarn dev && yarn start akhbaremadan
 yarn dev && yarn start akhbaremadan -u https://www.akhbaremadan.ir/news/73173/کمبود-نیروی-انسانی-متخصص-روند-توسعه-اکتشافات-معدنی-متوقف-می-کند
 
+yarn dev && yarn start nuranews
+yarn dev && yarn start nuranews -u https://nuranews.ir/13912/
+
 https://motamem.org/
 /**/
