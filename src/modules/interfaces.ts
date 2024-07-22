@@ -345,6 +345,7 @@ export enum enuDomains {
     irdiplomacy = "irdiplomacy",
     iribnews = "iribnews",
     irna = "irna",
+    irsteel = "irsteel",
     isblog = "isblog",
     iscanews = "iscanews",
     isovisit = "isovisit",

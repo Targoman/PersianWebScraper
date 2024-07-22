@@ -8640,3 +8640,22 @@ export class tehraneconomy extends clsScrapper {
         })
     }
 }
+
+export class irsteel extends clsScrapper {
+    constructor() {
+        super(enuDomains.irsteel, "irsteel.com", {
+            selectors: {
+                article: ".newsDetailInner",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='DC.Date.Created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("/").reverse().join("-") || "NO_DATE",
+                    isGregorian: true
+                },
+                content: {
+                    main: ".newsDetailBody",
+                },
+            },
+        })
+    }
+}

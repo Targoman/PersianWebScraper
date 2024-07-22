@@ -2465,5 +2465,8 @@ yarn dev && yarn start bmn -u https://bmn.ir/اخبار/نگه%E2%80%8Cداشت-
 yarn dev && yarn start tehraneconomy
 yarn dev && yarn start tehraneconomy -u https://tehraneconomy.ir/دستورالعمل-سامانه-نظارت-بر-پروژههای/
 
+yarn dev && yarn start irsteel
+yarn dev && yarn start irsteel -u https://www.irsteel.com/fa/news/70249/چرا-واردات-کالاهای-چین-در-بحبوحه-مشکلات-اقتصادی-افزایش-می-یابد
+
 https://motamem.org/
 /**/
