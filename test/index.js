@@ -2459,5 +2459,8 @@ yarn dev && yarn start akhbaremadan -u https://www.akhbaremadan.ir/news/73173/ک
 yarn dev && yarn start nuranews
 yarn dev && yarn start nuranews -u https://nuranews.ir/13912/
 
+yarn dev && yarn start bmn
+yarn dev && yarn start bmn -u https://bmn.ir/اخبار/نگه%E2%80%8Cداشت-نخبگان-و-فارغ%E2%80%8Cالتحصیلان-دانشگاهی-در-بستر-دانش%E2%80%8Cبنیان-محقق-می%E2%80%8Cشود⁄-نیاز-به-سرمایه%E2%80%8Cگذاری-جدی-داریم
+
 https://motamem.org/
 /**/

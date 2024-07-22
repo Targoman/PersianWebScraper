@@ -8587,3 +8587,32 @@ export class nuranews extends clsScrapper {
         })
     }
 }
+
+export class bmn extends clsScrapper {
+    constructor() {
+        super(enuDomains.bmn, "bmn.ir", {
+            basePath: "/اخبار",
+            selectors: {
+                article: ".single-post-wrap",
+                aboveTitle: "h6",
+                title: "h2",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-info > ul > li:nth-child(1) > span"
+                },
+                content: {
+                    main: ".news-content",
+                    ignoreTexts: [/.*bmnirann@.*/, /.*برای اطلاع از طرح‌های.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                    lastIndex: 2
+                },
+                tags: ".es-news-tags ul li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
