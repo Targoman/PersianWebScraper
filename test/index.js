@@ -2474,5 +2474,8 @@ yarn dev && yarn start tala -u https://www.tala.ir/news/detail/175365/انتظا
 yarn dev && yarn start aftabejonoob
 yarn dev && yarn start aftabejonoob -u https://www.aftabejonoob.ir/node/79335
 
+yarn dev && yarn start menhayefootballonline 
+yarn dev && yarn start menhayefootballonline -u http://menhayefootballonline.ir/fa/news/732/74/71/سرمربی-تیم-ملی-دارت-هدف-ما-در-مسابقات-انگلیس-تکرار-قهرمانی-دوره-قبل-است
+
 https://motamem.org/
 /**/

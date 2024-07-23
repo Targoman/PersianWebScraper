@@ -8703,3 +8703,31 @@ export class aftabejonoob extends clsScrapper {
         })
     }
 }
+
+export class menhayefootballonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.menhayefootballonline, "menhayefootballonline.ir", {
+            selectors: {
+                article: "body.home-news",
+                aboveTitle: "h4",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".publish-datetime"
+                },
+                content: {
+                    main: ".news > .text",
+                    //ignoreTexts: [/.*bmnirann@.*/, /.*برای اطلاع از طرح‌های.*/]
+                },
+                category: {
+                    selector: ".services a",
+                },
+                tags: ".es-news-tags ul li a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
