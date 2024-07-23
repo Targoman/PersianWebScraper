@@ -2471,5 +2471,8 @@ yarn dev && yarn start irsteel -u https://www.irsteel.com/fa/news/70249/چرا-�
 yarn dev && yarn start tala
 yarn dev && yarn start tala -u https://www.tala.ir/news/detail/175365/انتظارات-سرمایه-گذاران-طلا-در-هفته-پیش-رو
 
+yarn dev && yarn start aftabejonoob
+yarn dev && yarn start aftabejonoob -u https://www.aftabejonoob.ir/node/79335
+
 https://motamem.org/
 /**/

@@ -8683,3 +8683,23 @@ export class tala extends clsScrapper {
         })
     }
 }
+
+export class aftabejonoob extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftabejonoob, "aftabejonoob.ir", {
+            selectors: {
+                article: ".custom_content_container",
+                title: ".nodeHeader a",
+                subtitle: ".node-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[property='dc:date dc:created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".field-name-body .field-item.even",
+                },
+                tags: ".field-name-field-tags .field-items .field-item",
+            },
+        })
+    }
+}
