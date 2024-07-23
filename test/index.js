@@ -2468,5 +2468,8 @@ yarn dev && yarn start tehraneconomy -u https://tehraneconomy.ir/دستورال�
 yarn dev && yarn start irsteel
 yarn dev && yarn start irsteel -u https://www.irsteel.com/fa/news/70249/چرا-واردات-کالاهای-چین-در-بحبوحه-مشکلات-اقتصادی-افزایش-می-یابد
 
+yarn dev && yarn start tala
+yarn dev && yarn start tala -u https://www.tala.ir/news/detail/175365/انتظارات-سرمایه-گذاران-طلا-در-هفته-پیش-رو
+
 https://motamem.org/
 /**/

@@ -8659,3 +8659,27 @@ export class irsteel extends clsScrapper {
         })
     }
 }
+
+export class tala extends clsScrapper {
+    constructor() {
+        super(enuDomains.tala, "tala.ir", {
+            selectors: {
+                article: ".newsContent",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2.desc"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".newsContent"),
+                    ignoreNodeClasses: ["alert"],
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.breadcrumb li a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='tag']")
+            },
+        })
+    }
+}
