@@ -2483,5 +2483,8 @@ yarn dev && yarn start khabarnews -u https://khabarnews.com/ساخت-بتن-سب
 yarn dev && yarn start irafnews
 yarn dev && yarn start irafnews -u https://irafnews.com/economy/بندر-چابهار،-مرکز-استراتژیک-تجارت-و-سر/
 
+yarn dev && yarn start namayande
+yarn dev && yarn start namayande -u https://namayande.com/news/183409/دولت-تصدی-گری-در-خودروسازی-را-رها-کند
+
 https://motamem.org/
 /**/

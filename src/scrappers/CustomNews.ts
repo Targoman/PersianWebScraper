@@ -8780,3 +8780,29 @@ export class irafnews extends clsScrapper {
         })
     }
 }
+
+export class namayande extends clsScrapper {
+    constructor() {
+        super(enuDomains.namayande, "namayande.com", {
+            selectors: {
+                article: "article",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: ".item-service",
+                },               
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news-tag ul li a"),
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
