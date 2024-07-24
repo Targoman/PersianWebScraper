@@ -8717,7 +8717,6 @@ export class menhayefootballonline extends clsScrapper {
                 },
                 content: {
                     main: ".news > .text",
-                    //ignoreTexts: [/.*bmnirann@.*/, /.*برای اطلاع از طرح‌های.*/]
                 },
                 category: {
                     selector: ".services a",
@@ -8727,6 +8726,32 @@ export class menhayefootballonline extends clsScrapper {
             url: {
                 removeWWW: true,
                 forceHTTP: true
+            }
+        })
+    }
+}
+
+export class khabarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.khabarnews, "khabarnews.com", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                summary: ".post-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-text",
+                },
+                category: {
+                    selector: ".category-label",
+                },               
+                tags: "ul.tag-list li a",
+            },
+            url: {
+                removeWWW: true,
             }
         })
     }

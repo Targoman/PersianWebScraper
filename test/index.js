@@ -2477,5 +2477,8 @@ yarn dev && yarn start aftabejonoob -u https://www.aftabejonoob.ir/node/79335
 yarn dev && yarn start menhayefootballonline 
 yarn dev && yarn start menhayefootballonline -u http://menhayefootballonline.ir/fa/news/732/74/71/سرمربی-تیم-ملی-دارت-هدف-ما-در-مسابقات-انگلیس-تکرار-قهرمانی-دوره-قبل-است
 
+yarn dev && yarn start khabarnews
+yarn dev && yarn start khabarnews -u https://khabarnews.com/ساخت-بتن-سبُک-سازه%E2%80%8Cای-و-مقاومت%E2%80%8Cبالا-در-برابر-زلزله-توسط-محققان-دانش%E2%80%8Cبنیان
+
 https://motamem.org/
 /**/
