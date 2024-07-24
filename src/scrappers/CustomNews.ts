@@ -8756,3 +8756,27 @@ export class khabarnews extends clsScrapper {
         })
     }
 }
+
+export class irafnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.irafnews, "irafnews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-post-info__item--type-custom",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a",
+                },
+                tags: "a.elementor-post-info__terms-list"
+            },
+        })
+    }
+}

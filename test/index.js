@@ -2480,5 +2480,8 @@ yarn dev && yarn start menhayefootballonline -u http://menhayefootballonline.ir/
 yarn dev && yarn start khabarnews
 yarn dev && yarn start khabarnews -u https://khabarnews.com/ساخت-بتن-سبُک-سازه%E2%80%8Cای-و-مقاومت%E2%80%8Cبالا-در-برابر-زلزله-توسط-محققان-دانش%E2%80%8Cبنیان
 
+yarn dev && yarn start irafnews
+yarn dev && yarn start irafnews -u https://irafnews.com/economy/بندر-چابهار،-مرکز-استراتژیک-تجارت-و-سر/
+
 https://motamem.org/
 /**/
