@@ -8806,3 +8806,21 @@ export class namayande extends clsScrapper {
         })
     }
 }
+
+export class namayebank extends clsScrapper {
+    constructor() {
+        super(enuDomains.namayebank, "namayebank.ir", {
+            selectors: {
+                article: ".col-md-9",
+                title: "h1",
+                datetime: {
+                    conatiner: " ul.blog-grid-info > li"
+                },
+                content: {
+                    main: ".content",
+                },          
+                tags: ".fa-tags a",
+            },
+        })
+    }
+}

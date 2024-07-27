@@ -2486,5 +2486,8 @@ yarn dev && yarn start irafnews -u https://irafnews.com/economy/بندر-چاب�
 yarn dev && yarn start namayande
 yarn dev && yarn start namayande -u https://namayande.com/news/183409/دولت-تصدی-گری-در-خودروسازی-را-رها-کند
 
+yarn dev && yarn start namayebank
+yarn dev && yarn start namayebank -u https://www.namayebank.ir/news//اخبار-بانک/تولد-بانک-محلات-ایران-زمین-با-اغاز-به-کار-نیوبانک-باما-
+
 https://motamem.org/
 /**/
