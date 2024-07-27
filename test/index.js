@@ -2495,5 +2495,8 @@ yarn dev && yarn start omideghtesadonline -u https://omideghtesadonline.ir/2024/
 yarn dev && yarn start baztab
 yarn dev && yarn start baztab -u https://baztab.ir/گوشی-قاتل-پرچمدار-جدید-شیائومی-14t-پرو-در/
 
+yarn dev && yarn start segosh
+yarn dev && yarn start segosh -u https://3gosh.ir/فاصله-دو-امتیازی-ترامپ-و-هریس-در-نظرسنج/
+
 https://motamem.org/
 /**/

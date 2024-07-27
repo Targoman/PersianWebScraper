@@ -8877,3 +8877,27 @@ export class baztab extends clsScrapper {
         })
     }
 }
+
+export class segosh extends clsScrapper {
+    constructor() {
+        super(enuDomains.segosh, "3gosh.ir", {
+            selectors: {
+                article: ".mg-blog-post-box",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article",
+                    ignoreNodeClasses: ["navigation post-navigation", "nav-links"]
+                },
+                category: {
+                    selector: ".mg-blog-category a",
+                    lastIndex: 2
+                },
+                tags: "a[rel='tag']"
+            },
+        })
+    }
+}
