@@ -8824,3 +8824,30 @@ export class namayebank extends clsScrapper {
         })
     }
 }
+
+export class omideghtesadonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.omideghtesadonline, "omideghtesadonline.ir", {
+            selectors: {
+                article: ".single-content-txte-post",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-anavin"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-lid"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".resize",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='tag']")
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

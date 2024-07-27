@@ -2489,5 +2489,8 @@ yarn dev && yarn start namayande -u https://namayande.com/news/183409/دولت-�
 yarn dev && yarn start namayebank
 yarn dev && yarn start namayebank -u https://www.namayebank.ir/news//اخبار-بانک/تولد-بانک-محلات-ایران-زمین-با-اغاز-به-کار-نیوبانک-باما-
 
+yarn dev && yarn start omideghtesadonline
+yarn dev && yarn start omideghtesadonline -u https://omideghtesadonline.ir/2024/07/بانک-شهر-در-رتبه-دوم-بانک-های-بورسی-از-ل/
+
 https://motamem.org/
 /**/
