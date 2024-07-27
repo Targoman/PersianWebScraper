@@ -2492,5 +2492,8 @@ yarn dev && yarn start namayebank -u https://www.namayebank.ir/news//اخبار-
 yarn dev && yarn start omideghtesadonline
 yarn dev && yarn start omideghtesadonline -u https://omideghtesadonline.ir/2024/07/بانک-شهر-در-رتبه-دوم-بانک-های-بورسی-از-ل/
 
+yarn dev && yarn start baztab
+yarn dev && yarn start baztab -u https://baztab.ir/گوشی-قاتل-پرچمدار-جدید-شیائومی-14t-پرو-در/
+
 https://motamem.org/
 /**/

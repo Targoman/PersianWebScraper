@@ -8851,3 +8851,29 @@ export class omideghtesadonline extends clsScrapper {
         })
     }
 }
+
+export class baztab extends clsScrapper {
+    constructor() {
+        super(enuDomains.baztab, "baztab.ir", {
+            selectors: {
+                article: ".af-single-content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article",
+                    ignoreNodeClasses: ["af-single-meta"]
+                },
+                category: {
+                    selector: ".af-single-cat a span",
+                },               
+                tags: ".af-single-tag a",
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
