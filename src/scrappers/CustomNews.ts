@@ -8946,3 +8946,28 @@ export class watan24 extends clsScrapper {
         })
     }
 }
+
+export class nipoto extends clsScrapper {
+    constructor() {
+        super(enuDomains.nipoto, "nipoto.com", {
+            basePath: "/mag",
+            selectors: {
+                article: ".nipo_single_r",
+                title: "h1",
+                subtitle: ".single_info",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single_content",
+                    ignoreTexts: [/.*در این رابطه بخوانید‌.*/]
+                },
+                category: {
+                    selector: ".single_tax a span",
+                },
+                tags: ".hashtag_item span a"
+            },
+        })
+    }
+}

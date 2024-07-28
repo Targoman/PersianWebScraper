@@ -2504,5 +2504,8 @@ yarn dev && yarn start baten -u https://baten.ir/2022/02/18/جاذبه-های-ز
 yarn dev && yarn start watan24
 yarn dev && yarn start watan24 -u https://watan24.com/شکردخت-جعفری-مخترع-سال-وبرتانیا-شد/
 
+yarn dev && yarn start nipoto
+yarn dev && yarn start nipoto -u https://nipoto.com/mag/federal-reserve-ends-enforcement-action-against-crypto-friendly-bank-silvergate-after-levying-43000000-fine/
+
 https://motamem.org/
 /**/
