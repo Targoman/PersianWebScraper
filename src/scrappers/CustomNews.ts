@@ -8914,12 +8914,34 @@ export class baten extends clsScrapper {
                 },
                 content: {
                     main: ".entry-content",
-                    //ignoreNodeClasses: ["bs-irp", "social-list", "continue-reading-container"]
                 },
                 category: {
                     selector: ".term-badges span a",
                     lastIndex: 2
                 },
+            },
+        })
+    }
+}
+
+export class watan24 extends clsScrapper {
+    constructor() {
+        super(enuDomains.watan24, "watan24.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time.post-published"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: ".term-badges span a",
+                    lastIndex: 2
+                },
+                tags: "a[rel='tag']"
             },
         })
     }

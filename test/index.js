@@ -2501,5 +2501,8 @@ yarn dev && yarn start segosh -u https://3gosh.ir/فاصله-دو-امتیازی
 yarn dev && yarn start baten
 yarn dev && yarn start baten -u https://baten.ir/2022/02/18/جاذبه-های-زندگی-در-واقعیت-مجازی/
 
+yarn dev && yarn start watan24
+yarn dev && yarn start watan24 -u https://watan24.com/شکردخت-جعفری-مخترع-سال-وبرتانیا-شد/
+
 https://motamem.org/
 /**/
