@@ -2498,5 +2498,8 @@ yarn dev && yarn start baztab -u https://baztab.ir/گوشی-قاتل-پرچمد�
 yarn dev && yarn start segosh
 yarn dev && yarn start segosh -u https://3gosh.ir/فاصله-دو-امتیازی-ترامپ-و-هریس-در-نظرسنج/
 
+yarn dev && yarn start baten
+yarn dev && yarn start baten -u https://baten.ir/2022/02/18/جاذبه-های-زندگی-در-واقعیت-مجازی/
+
 https://motamem.org/
 /**/

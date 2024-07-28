@@ -8901,3 +8901,26 @@ export class segosh extends clsScrapper {
         })
     }
 }
+
+export class baten extends clsScrapper {
+    constructor() {
+        super(enuDomains.baten, "baten.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time.post-published"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    //ignoreNodeClasses: ["bs-irp", "social-list", "continue-reading-container"]
+                },
+                category: {
+                    selector: ".term-badges span a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
