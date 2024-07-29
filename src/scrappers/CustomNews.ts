@@ -8992,3 +8992,23 @@ export class estenadnews extends clsScrapper {
         })
     }
 }
+
+export class etelanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.etelanews, "etelanews.com", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".lead_article",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                tags: ".content-showtags ul li a"
+            },
+        })
+    }
+}

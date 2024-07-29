@@ -223,6 +223,7 @@ export enum enuDomains {
     eslahatnews = "eslahatnews",
     estenadnews = "estenadnews",
     etehadnews = "etehadnews",
+    etelanews = "etelanews",
     etemadonline = "etemadonline",
     ettelaat = "ettelaat",
     euronews = "euronews",
