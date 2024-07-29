@@ -2507,5 +2507,8 @@ yarn dev && yarn start watan24 -u https://watan24.com/شکردخت-جعفری-م
 yarn dev && yarn start nipoto
 yarn dev && yarn start nipoto -u https://nipoto.com/mag/federal-reserve-ends-enforcement-action-against-crypto-friendly-bank-silvergate-after-levying-43000000-fine/
 
+yarn dev && yarn start estenadnews
+yarn dev && yarn start estenadnews -u https://estenadnews.ir/fa/news/11104399-ردیابی-مگس-مدیترانه-در-سطح-۱۲۰۰-هکتار-از-باغات-جویبار
+
 https://motamem.org/
 /**/

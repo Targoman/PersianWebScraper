@@ -8971,3 +8971,24 @@ export class nipoto extends clsScrapper {
         })
     }
 }
+
+export class estenadnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.estenadnews, "estenadnews.ir", {
+            selectors: {
+                article: ".itemView",
+                title: "h1",
+                subtitle: ".itemIntroText",
+                datetime: {
+                    conatiner: ".itemDateCreated"
+                },
+                content: {
+                    main: ".itemFullText",
+                },               
+                category: {
+                    selector: ".itemCategory h2",
+                },   
+            },
+        })
+    }
+}
