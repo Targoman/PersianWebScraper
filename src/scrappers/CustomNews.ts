@@ -9012,3 +9012,23 @@ export class etelanews extends clsScrapper {
         })
     }
 }
+
+export class gildeylam extends clsScrapper {
+    constructor() {
+        super(enuDomains.gildeylam, "gildeylam.ir", {
+            selectors: {
+                article: ".post",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".rott"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h1 a"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".lead"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".head-right > div.daat > li:nth-child(2)"),
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='tag']")
+            },
+        })
+    }
+}

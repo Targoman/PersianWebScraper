@@ -2510,8 +2510,11 @@ yarn dev && yarn start nipoto -u https://nipoto.com/mag/federal-reserve-ends-enf
 yarn dev && yarn start estenadnews
 yarn dev && yarn start estenadnews -u https://estenadnews.ir/fa/news/11104399-ردیابی-مگس-مدیترانه-در-سطح-۱۲۰۰-هکتار-از-باغات-جویبار
 
-yarn dev &&  yarn start etelanews
-yarn dev &&  yarn start etelanews -u https://www.etelanews.com/fa/news/340333/حکم-سنگین-برای-خانم-نایب-رئیس-در-فدراسیون-فوتبال
+yarn dev && yarn start etelanews
+yarn dev && yarn start etelanews -u https://www.etelanews.com/fa/news/340333/حکم-سنگین-برای-خانم-نایب-رئیس-در-فدراسیون-فوتبال
+
+yarn dev && yarn start gildeylam
+yarn dev && yarn start gildeylam -u https://gildeylam.ir/مجمع-مشورتی-دولت-چهاردهم-در-شهرستان-ل/
 
 https://motamem.org/
 /**/
