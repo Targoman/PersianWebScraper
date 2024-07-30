@@ -9103,3 +9103,31 @@ export class rourasti extends clsScrapper {
         })
     }
 }
+
+export class iranbroker extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranbroker, "iranbroker.net", {
+            basePath: "/?s=",
+            selectors: {
+                article: "#single-news-wrapper",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article#singlenewcontent",
+                    ignoreNodeClasses: ["container", "widget", "mobile-single-news-related-title", "posts", "modal"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("nav.breadcrumbs a")
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
