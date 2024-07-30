@@ -9056,3 +9056,25 @@ export class gozaresheonline extends clsScrapper {
         })
     }
 }
+
+export class etebarenovin extends clsScrapper {
+    constructor() {
+        super(enuDomains.etebarenovin, "etebarenovin.ir", {
+            selectors: {
+                article: ".single-main",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-contant",
+                },
+                category: {
+                    selector: "a.breadcrumbs__link span",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

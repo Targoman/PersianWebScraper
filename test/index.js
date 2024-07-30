@@ -2519,5 +2519,8 @@ yarn dev && yarn start gildeylam -u https://gildeylam.ir/مجمع-مشورتی-�
 yarn dev && yarn start gozaresheonline
 yarn dev && yarn start gozaresheonline -u https://gozaresheonline.ir/2024/07/27/پرچمدار-ایران-به-فینال-پرش-خرک-المپیک-ر/
 
+yarn dev && yarn start etebarenovin
+yarn dev && yarn start etebarenovin -u https://etebarenovin.ir/212216/ماجراجویی-در-چابهار-با-تورهای-مشهد،-شی
+
 https://motamem.org/
 /**/
