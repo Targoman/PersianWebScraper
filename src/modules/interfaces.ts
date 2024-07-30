@@ -618,6 +618,7 @@ export enum enuDomains {
     roozplus = "roozplus",
     roshadent = "roshadent",
     roshanayrah = "roshanayrah",
+    rourasti = "rourasti",
     roustapress = "roustapress",
     rouydad24 = "rouydad24",
     rouzeeghtesad = "rouzeeghtesad",

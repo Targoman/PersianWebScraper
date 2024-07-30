@@ -9078,3 +9078,28 @@ export class etebarenovin extends clsScrapper {
         })
     }
 }
+
+export class rourasti extends clsScrapper {
+    constructor() {
+        super(enuDomains.rourasti, "rourasti.ir", {
+            selectors: {
+                article: "#post",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".story",
+                    ignoreNodeClasses: ["btn"],
+                    ignoreTexts: [/.*برچسب ها:.*/]
+                },
+                tags: "a.btn"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

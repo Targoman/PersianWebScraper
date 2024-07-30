@@ -2522,5 +2522,8 @@ yarn dev && yarn start gozaresheonline -u https://gozaresheonline.ir/2024/07/27/
 yarn dev && yarn start etebarenovin
 yarn dev && yarn start etebarenovin -u https://etebarenovin.ir/212216/ماجراجویی-در-چابهار-با-تورهای-مشهد،-شی
 
+yarn dev && yarn start rourasti
+yarn dev && yarn start rourasti -u https://rourasti.ir/73887/توضیحات-کهنوجی-شهردار-رفسنجان-در-خصوص/
+
 https://motamem.org/
 /**/
