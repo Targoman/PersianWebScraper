@@ -2516,5 +2516,8 @@ yarn dev && yarn start etelanews -u https://www.etelanews.com/fa/news/340333/ح�
 yarn dev && yarn start gildeylam
 yarn dev && yarn start gildeylam -u https://gildeylam.ir/مجمع-مشورتی-دولت-چهاردهم-در-شهرستان-ل/
 
+yarn dev && yarn start gozaresheonline
+yarn dev && yarn start gozaresheonline -u https://gozaresheonline.ir/2024/07/27/پرچمدار-ایران-به-فینال-پرش-خرک-المپیک-ر/
+
 https://motamem.org/
 /**/

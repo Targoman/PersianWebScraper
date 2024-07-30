@@ -9032,3 +9032,27 @@ export class gildeylam extends clsScrapper {
         })
     }
 }
+
+export class gozaresheonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.gozaresheonline, "gozaresheonline.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.entry-title",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".rd-post-content .item-text",
+                },
+                category: {
+                    selector: "ul.rd-breadcrumbs li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+        })
+    }
+}

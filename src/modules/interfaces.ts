@@ -282,6 +282,7 @@ export enum enuDomains {
     gooyait = "gooyait",
     gostaresh = "gostaresh",
     gozareshekhabar = "gozareshekhabar",
+    gozaresheonline = "gozaresheonline",
     gsm = "gsm",
     haal = "haal",
     hadese24 = "hadese24",
