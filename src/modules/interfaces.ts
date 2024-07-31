@@ -120,6 +120,7 @@ export enum enuDomains {
     behdasht = "behdasht",
     behtarinideh = "behtarinideh",
     behzisti = "behzisti",
+    berouztarinha = "berouztarinha",
     bestfarsi = "bestfarsi",
     beytoote = "beytoote",
     bidarbourse = "bidarbourse",

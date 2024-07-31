@@ -9151,3 +9151,26 @@ export class gilanestan extends clsScrapper {
         })
     }
 }
+
+export class berouztarinha extends clsScrapper {
+    constructor() {
+        super(enuDomains.berouztarinha, "berouztarinha.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta", "post-shortlink"]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

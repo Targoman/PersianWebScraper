@@ -2531,5 +2531,8 @@ yarn dev && yarn start iranbroker -u https://iranbroker.net/news/elon-musk-says-
 yarn dev && yarn start gilanestan
 yarn dev && yarn start gilanestan -u https://www.gilanestan.ir/مبلغین-یکه-تاز-کار-فرهنگی-در-سواحل-گیلا/
 
+yarn dev && yarn start berouztarinha
+yarn dev && yarn start berouztarinha -u https://berouztarinha.ir/462217/دولت-پول-نقد-میگیرد،-دارو-نسیه-میده.html
+
 https://motamem.org/
 /**/
