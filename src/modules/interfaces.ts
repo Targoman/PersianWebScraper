@@ -277,6 +277,7 @@ export enum enuDomains {
     ghalamnews = "ghalamnews",
     gilanestan = "gilanestan",
     gildeylam = "gildeylam",
+    gilnovin = "gilnovin",
     gishniz = "gishniz",
     gitionline = "gitionline",
     goftareno = "goftareno",

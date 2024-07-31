@@ -2534,5 +2534,8 @@ yarn dev && yarn start gilanestan -u https://www.gilanestan.ir/مبلغین-یک
 yarn dev && yarn start berouztarinha
 yarn dev && yarn start berouztarinha -u https://berouztarinha.ir/462217/دولت-پول-نقد-میگیرد،-دارو-نسیه-میده.html
 
+yarn dev && yarn start gilnovin
+yarn dev && yarn start gilnovin -u https://gilnovin.ir/در-آینده-سه-قطعه-ریلی-داخل-مجتمع-بندری-ک/
+
 https://motamem.org/
 /**/
