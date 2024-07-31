@@ -9131,3 +9131,23 @@ export class iranbroker extends clsScrapper {
         })
     }
 }
+
+export class gilanestan extends clsScrapper {
+    constructor() {
+        super(enuDomains.gilanestan, "gilanestan.ir", {
+            selectors: {
+                article: ".single",
+                aboveTitle: ".rootitr",
+                title: "h1 a",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+            },
+        })
+    }
+}
