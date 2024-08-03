@@ -2540,5 +2540,8 @@ yarn dev && yarn start gilnovin -u https://gilnovin.ir/در-آینده-سه-قط
 yarn dev && yarn start masiretaze
 yarn dev && yarn start masiretaze -u https://masiretaze.ir/حضور-کابوس-سرخ-هادر-تراکتور-منتفی-شد؟/
 
+yarn dev && yarn start avastarco
+yarn dev && yarn start avastarco -u https://forum.avastarco.com/forum/thread1356.html
+
 https://motamem.org/
 /**/

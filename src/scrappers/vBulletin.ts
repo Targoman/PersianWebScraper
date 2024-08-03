@@ -273,3 +273,24 @@ export class oghyanos extends clsVBulletinBased {
     return mappedCat
   }
 }
+
+export class avastarco extends clsVBulletinBased {
+  constructor() {
+    super(enuDomains.avastarco, "forum.avastarco.com", {
+      selectors: {
+        category: {
+          selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb ul li a"),
+          startIndex: 2,
+          lastIndex: 4
+        },
+        comments: {
+          author: "a.username strong b",
+        }
+      },
+      url: {
+        removeWWW: true,
+        extraInvalidStartPaths: ["/forum/members"]
+      }
+    })
+  }
+}
