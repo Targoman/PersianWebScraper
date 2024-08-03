@@ -29,6 +29,7 @@ export enum enuDomains {
     akhbarbank = "akhbarbank",
     akhbarelmi = "akhbarelmi",
     akhbaremadan = "akhbaremadan",
+    akkasee = "akkasee",
     alborzvarzeshi = "alborzvarzeshi",
     alef = "alef",
     alnajm = "alnajm",

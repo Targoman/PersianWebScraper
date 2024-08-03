@@ -294,3 +294,20 @@ export class avastarco extends clsVBulletinBased {
     })
   }
 }
+
+export class akkasee extends clsVBulletinBased {
+  constructor() {
+    super(enuDomains.akkasee, "forum.akkasee.com", {
+      selectors: {
+        category: {
+          startIndex: 1,
+          lastIndex: 3
+        }
+      },
+      url: {
+        removeWWW: true,
+        forceHTTP: true
+      }
+    })
+  }
+}
