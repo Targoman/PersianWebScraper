@@ -2537,5 +2537,8 @@ yarn dev && yarn start berouztarinha -u https://berouztarinha.ir/462217/دولت
 yarn dev && yarn start gilnovin
 yarn dev && yarn start gilnovin -u https://gilnovin.ir/در-آینده-سه-قطعه-ریلی-داخل-مجتمع-بندری-ک/
 
+yarn dev && yarn start masiretaze
+yarn dev && yarn start masiretaze -u https://masiretaze.ir/حضور-کابوس-سرخ-هادر-تراکتور-منتفی-شد؟/
+
 https://motamem.org/
 /**/

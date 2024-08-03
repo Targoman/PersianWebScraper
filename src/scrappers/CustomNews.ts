@@ -9195,3 +9195,28 @@ export class gilnovin extends clsScrapper {
         })
     }
 }
+
+export class masiretaze extends clsScrapper {
+    constructor() {
+        super(enuDomains.masiretaze, "masiretaze.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["rmp-rating-widget", "post-shortlink"],
+                },
+                category: {
+                    selector: "a.post-cat"
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
