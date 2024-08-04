@@ -273,3 +273,41 @@ export class oghyanos extends clsVBulletinBased {
     return mappedCat
   }
 }
+
+export class avastarco extends clsVBulletinBased {
+  constructor() {
+    super(enuDomains.avastarco, "forum.avastarco.com", {
+      selectors: {
+        category: {
+          selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb ul li a"),
+          startIndex: 2,
+          lastIndex: 4
+        },
+        comments: {
+          author: "a.username strong b",
+        }
+      },
+      url: {
+        removeWWW: true,
+        extraInvalidStartPaths: ["/forum/members"]
+      }
+    })
+  }
+}
+
+export class akkasee extends clsVBulletinBased {
+  constructor() {
+    super(enuDomains.akkasee, "forum.akkasee.com", {
+      selectors: {
+        category: {
+          startIndex: 1,
+          lastIndex: 3
+        }
+      },
+      url: {
+        removeWWW: true,
+        forceHTTP: true
+      }
+    })
+  }
+}

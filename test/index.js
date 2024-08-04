@@ -2391,5 +2391,157 @@ yarn dev && yarn start smtnews -u https://smtnews.ir/بخش-یادداشت-85/45
 yarn dev && yarn start jahatpress
 yarn dev && yarn start jahatpress -u https://jahatpress.ir/news/ماجرای-کلاهبرداری-یونیک-فاینانس-چیس/
 
+yarn dev && yarn start qumpress
+yarn dev && yarn start qumpress -u https://www.qumpress.ir/fa/news/419339/یک-نانوداروی-ضدسرطان-تزریقی-مجوز-fda
+
+yarn dev && yarn start cspf
+yarn dev && yarn start cspf -u https://www.cspf.ir/71845/تجلیل-از-۳۳-بازنشسته-نمونه-دستگاه-های-ا/
+
+yarn dev && yarn start sedayostan
+yarn dev && yarn start sedayostan -u https://sedayostan.ir/news/42218/بیش-از-چهارهزار-تن-کالا-از-گمرک-گناوه-صا/
+
+yarn dev && yarn start dinonline
+yarn dev && yarn start dinonline -u https://www.dinonline.com/43151/پاپ-واتیکان-تبادل-اسرا-روسیه-اوکراین/
+
+yarn dev && yarn start adyannet
+yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/43419
+yarn dev && yarn start adyannet -u https://www.adyannet.com/fa/news/31912
+
+yarn dev && yarn start kashanefarda
+yarn dev && yarn start kashanefarda -u https://kashanefarda.ir/2024/07/15/افزایش-مصرف-آب-شرب-در-کاشان/
+
+yarn dev && yarn start jezman
+yarn dev && yarn start jezman -u https://www.jezman.ir/یک-میلیون-و-۴۳۴-هزار-زائر-از-مرز-مهران-ت/
+
+yarn dev && yarn start darsiahkal 
+yarn dev && yarn start darsiahkal -u https://www.darsiahkal.ir/121960/elam-jorm-dadsetan-alayhe-shahrdar-foman-be-dalil-adam-jamavari-saghaye-velgard/
+
+yarn dev && yarn start varzeshi91
+yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=628187
+yarn dev && yarn start varzeshi91 -u https://www.91varzeshi.ir/portal/?p=697107
+
+yarn dev && yarn start eskanunion
+yarn dev && yarn start eskanunion -u https://eskanunion.com/۱۲-دستورکار-متولی-جدید-مسکن/
+
+yarn dev && yarn start adyannews
+yarn dev && yarn start adyannews -u https://adyannews.com/173609/جمعیت-بی-دین-در/
+
+yarn dev && yarn start shahidyaran
+yarn dev && yarn start shahidyaran -u https://shahidyaran.ir/تشریح-مبنای-قانونی-اعطای-تسهیلات-به-کا/
+
+yarn dev && yarn start avangpress
+yarn dev && yarn start avangpress -u https://avangpress.ir/8082/قانون-تامین-مالی-تولید-و-زیرساخت-ها-راه/
+
+yarn dev && yarn start bourse24
+yarn dev && yarn start bourse24 -u https://www.bourse24.ir/news/295212/«غدام»-از-معاملات-خود-گفت
+
+yarn dev && yarn start salampaveh
+yarn dev && yarn start salampaveh -u http://www.salampaveh.ir/107423/توصیه-به-شهروندان-در-خصوص-افزایش-جر/
+
+yarn dev && yarn start tolosiyasat 
+yarn dev && yarn start tolosiyasat -u https://tolosiyasat.ir/معیارها-و-روند-انتخاب-اعضای-کابینه-چها/
+
+yarn dev && yarn start gerdab
+yarn dev && yarn start gerdab -u https://gerdab.ir/fa/news/38252/توهمات-چت%E2%80%8Cجی%E2%80%8Cپی%E2%80%8Cتی-کار-دست-سازندگانش-داد-شکایت-از-openai-به-خاطر-تاریخ-تولد-اشتباه
+
+yarn dev && yarn start sedanews
+yarn dev && yarn start sedanews -u https://www.3danews.ir/political/281389/چرا-غولهای-فناوری-به-سمت-ترامپ-میچرخند؟
+
+yarn dev && yarn start alwaght
+yarn dev && yarn start alwaght -u https://alwaght.net/fa/News/254134/کرملین-پوتین-برنامه%E2%80%8Cای-برای-تماس-با-ترامپ-ندارد
+
+yarn dev && yarn start petrotahlil
+yarn dev && yarn start petrotahlil -u http://www.petrotahlil.com/بخش-اخبار-2/47230-بازار-سوخته-پتروشیمی-مهر-ایلام-پایپ-شازند-جم-در-ترکیه
+
+yarn dev && yarn start akhbaremadan
+yarn dev && yarn start akhbaremadan -u https://www.akhbaremadan.ir/news/73173/کمبود-نیروی-انسانی-متخصص-روند-توسعه-اکتشافات-معدنی-متوقف-می-کند
+
+yarn dev && yarn start nuranews
+yarn dev && yarn start nuranews -u https://nuranews.ir/13912/
+
+yarn dev && yarn start bmn
+yarn dev && yarn start bmn -u https://bmn.ir/اخبار/نگه%E2%80%8Cداشت-نخبگان-و-فارغ%E2%80%8Cالتحصیلان-دانشگاهی-در-بستر-دانش%E2%80%8Cبنیان-محقق-می%E2%80%8Cشود⁄-نیاز-به-سرمایه%E2%80%8Cگذاری-جدی-داریم
+
+yarn dev && yarn start tehraneconomy
+yarn dev && yarn start tehraneconomy -u https://tehraneconomy.ir/دستورالعمل-سامانه-نظارت-بر-پروژههای/
+
+yarn dev && yarn start irsteel
+yarn dev && yarn start irsteel -u https://www.irsteel.com/fa/news/70249/چرا-واردات-کالاهای-چین-در-بحبوحه-مشکلات-اقتصادی-افزایش-می-یابد
+
+yarn dev && yarn start tala
+yarn dev && yarn start tala -u https://www.tala.ir/news/detail/175365/انتظارات-سرمایه-گذاران-طلا-در-هفته-پیش-رو
+
+yarn dev && yarn start aftabejonoob
+yarn dev && yarn start aftabejonoob -u https://www.aftabejonoob.ir/node/79335
+
+yarn dev && yarn start menhayefootballonline 
+yarn dev && yarn start menhayefootballonline -u http://menhayefootballonline.ir/fa/news/732/74/71/سرمربی-تیم-ملی-دارت-هدف-ما-در-مسابقات-انگلیس-تکرار-قهرمانی-دوره-قبل-است
+
+yarn dev && yarn start khabarnews
+yarn dev && yarn start khabarnews -u https://khabarnews.com/ساخت-بتن-سبُک-سازه%E2%80%8Cای-و-مقاومت%E2%80%8Cبالا-در-برابر-زلزله-توسط-محققان-دانش%E2%80%8Cبنیان
+
+yarn dev && yarn start irafnews
+yarn dev && yarn start irafnews -u https://irafnews.com/economy/بندر-چابهار،-مرکز-استراتژیک-تجارت-و-سر/
+
+yarn dev && yarn start namayande
+yarn dev && yarn start namayande -u https://namayande.com/news/183409/دولت-تصدی-گری-در-خودروسازی-را-رها-کند
+
+yarn dev && yarn start namayebank
+yarn dev && yarn start namayebank -u https://www.namayebank.ir/news//اخبار-بانک/تولد-بانک-محلات-ایران-زمین-با-اغاز-به-کار-نیوبانک-باما-
+
+yarn dev && yarn start omideghtesadonline
+yarn dev && yarn start omideghtesadonline -u https://omideghtesadonline.ir/2024/07/بانک-شهر-در-رتبه-دوم-بانک-های-بورسی-از-ل/
+
+yarn dev && yarn start baztab
+yarn dev && yarn start baztab -u https://baztab.ir/گوشی-قاتل-پرچمدار-جدید-شیائومی-14t-پرو-در/
+
+yarn dev && yarn start segosh
+yarn dev && yarn start segosh -u https://3gosh.ir/فاصله-دو-امتیازی-ترامپ-و-هریس-در-نظرسنج/
+
+yarn dev && yarn start baten
+yarn dev && yarn start baten -u https://baten.ir/2022/02/18/جاذبه-های-زندگی-در-واقعیت-مجازی/
+
+yarn dev && yarn start watan24
+yarn dev && yarn start watan24 -u https://watan24.com/شکردخت-جعفری-مخترع-سال-وبرتانیا-شد/
+
+yarn dev && yarn start nipoto
+yarn dev && yarn start nipoto -u https://nipoto.com/mag/federal-reserve-ends-enforcement-action-against-crypto-friendly-bank-silvergate-after-levying-43000000-fine/
+
+yarn dev && yarn start estenadnews
+yarn dev && yarn start estenadnews -u https://estenadnews.ir/fa/news/11104399-ردیابی-مگس-مدیترانه-در-سطح-۱۲۰۰-هکتار-از-باغات-جویبار
+
+yarn dev && yarn start etelanews
+yarn dev && yarn start etelanews -u https://www.etelanews.com/fa/news/340333/حکم-سنگین-برای-خانم-نایب-رئیس-در-فدراسیون-فوتبال
+
+yarn dev && yarn start gildeylam
+yarn dev && yarn start gildeylam -u https://gildeylam.ir/مجمع-مشورتی-دولت-چهاردهم-در-شهرستان-ل/
+
+yarn dev && yarn start gozaresheonline
+yarn dev && yarn start gozaresheonline -u https://gozaresheonline.ir/2024/07/27/پرچمدار-ایران-به-فینال-پرش-خرک-المپیک-ر/
+
+yarn dev && yarn start etebarenovin
+yarn dev && yarn start etebarenovin -u https://etebarenovin.ir/212216/ماجراجویی-در-چابهار-با-تورهای-مشهد،-شی
+
+yarn dev && yarn start rourasti
+yarn dev && yarn start rourasti -u https://rourasti.ir/73887/توضیحات-کهنوجی-شهردار-رفسنجان-در-خصوص/
+
+yarn dev && yarn start iranbroker
+yarn dev && yarn start iranbroker -u https://iranbroker.net/news/elon-musk-says-im-not-going-to-be-promoting-crypto/
+
+yarn dev && yarn start gilanestan
+yarn dev && yarn start gilanestan -u https://www.gilanestan.ir/مبلغین-یکه-تاز-کار-فرهنگی-در-سواحل-گیلا/
+
+yarn dev && yarn start berouztarinha
+yarn dev && yarn start berouztarinha -u https://berouztarinha.ir/462217/دولت-پول-نقد-میگیرد،-دارو-نسیه-میده.html
+
+yarn dev && yarn start gilnovin
+yarn dev && yarn start gilnovin -u https://gilnovin.ir/در-آینده-سه-قطعه-ریلی-داخل-مجتمع-بندری-ک/
+
+yarn dev && yarn start masiretaze
+yarn dev && yarn start masiretaze -u https://masiretaze.ir/حضور-کابوس-سرخ-هادر-تراکتور-منتفی-شد؟/
+
+yarn dev && yarn start avastarco
+yarn dev && yarn start avastarco -u https://forum.avastarco.com/forum/thread1356.html
+
 https://motamem.org/
 /**/

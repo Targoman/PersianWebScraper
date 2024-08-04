@@ -1627,3 +1627,26 @@ export class smtnews extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class petrotahlil extends clsAsamBased {
+    constructor() {
+        super(enuDomains.petrotahlil, "petrotahlil.com", {
+            selectors: {
+                aboveTitle: "h2",
+                subtitle: "[itemprop='description']",
+                content: {
+                    main: "#news-content",
+                },
+                category: {
+                    selector: "ul.thebread li a",
+                    startIndex: 1
+                },
+                tags: ".tags li a"
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
