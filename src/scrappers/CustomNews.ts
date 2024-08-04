@@ -9220,3 +9220,27 @@ export class masiretaze extends clsScrapper {
         })
     }
 }
+
+export class faslnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.faslnews, "faslnews.com", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

@@ -2543,5 +2543,8 @@ yarn dev && yarn start masiretaze -u https://masiretaze.ir/حضور-کابوس-�
 yarn dev && yarn start avastarco
 yarn dev && yarn start avastarco -u https://forum.avastarco.com/forum/thread1356.html
 
+yarn dev && yarn start faslnews
+yarn dev && yarn start faslnews -u https://faslnews.com/14144/بازتاب-گفتوگوی-پزشکیان-و-ماکرون-در-ا/
+
 https://motamem.org/
 /**/
