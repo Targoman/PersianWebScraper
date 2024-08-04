@@ -2549,5 +2549,11 @@ yarn dev && yarn start faslnews -u https://faslnews.com/14144/بازتاب-گف�
 yarn dev && yarn start avayetabarestan
 yarn dev && yarn start avayetabarestan -u https://avayetabarestan.ir/هشدار-جدی-وزارت-بهداشت؛-شیوع-سرخک-در-عر/
 
+yarn dev && yarn start onlypet
+yarn dev && yarn start onlypet -u https://www.onlypet.ir/forum/aquarium-forum-nine/تکثیر-میگوی-رد-چری-red-cherry-shrimp/
+
+yarn dev && yarn start vakawi
+yarn dev && yarn start vakawi -u https://vakawi.ir/23812-2/
+
 https://motamem.org/
 /**/

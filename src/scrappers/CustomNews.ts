@@ -9266,3 +9266,28 @@ export class avayetabarestan extends clsScrapper {
         })
     }
 }
+
+export class vakawi extends clsScrapper {
+    constructor() {
+        super(enuDomains.vakawi, "vakawi.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
