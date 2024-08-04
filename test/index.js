@@ -2546,5 +2546,8 @@ yarn dev && yarn start avastarco -u https://forum.avastarco.com/forum/thread1356
 yarn dev && yarn start faslnews
 yarn dev && yarn start faslnews -u https://faslnews.com/14144/بازتاب-گفتوگوی-پزشکیان-و-ماکرون-در-ا/
 
+yarn dev && yarn start avayetabarestan
+yarn dev && yarn start avayetabarestan -u https://avayetabarestan.ir/هشدار-جدی-وزارت-بهداشت؛-شیوع-سرخک-در-عر/
+
 https://motamem.org/
 /**/
