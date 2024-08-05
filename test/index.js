@@ -2558,5 +2558,8 @@ yarn dev && yarn start vakawi -u https://vakawi.ir/23812-2/
 yarn dev && yarn start sedayekhavaran
 yarn dev && yarn start sedayekhavaran -u https://sedayekhavaran.ir/نقش-نیروگاههای-حرارتی-در-بی/
 
+yarn dev && yarn start feraghnews
+yarn dev && yarn start feraghnews -u https://feraghnews.ir/news/47674/وقتی-4000-نفر-میخواستند-به-تهران-برسند؟/
+
 https://motamem.org/
 /**/

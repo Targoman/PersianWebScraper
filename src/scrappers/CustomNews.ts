@@ -9311,3 +9311,29 @@ export class sedayekhavaran extends clsScrapper {
         })
     }
 }
+
+export class feraghnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.feraghnews, "feraghnews.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
