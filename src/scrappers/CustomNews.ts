@@ -9291,3 +9291,23 @@ export class vakawi extends clsScrapper {
         })
     }
 }
+
+export class sedayekhavaran extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayekhavaran, "sedayekhavaran.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: ".post-tag a"
+            },
+        })
+    }
+}

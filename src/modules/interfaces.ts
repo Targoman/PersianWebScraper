@@ -659,6 +659,7 @@ export enum enuDomains {
     sedayeanak = "sedayeanak",
     sedayebourse = "sedayebourse",
     sedayecheragheomidnews = "sedayecheragheomidnews",
+    sedayekhavaran = "sedayekhavaran",
     sedayiran = "sedayiran",
     sedayostan = "sedayostan",
     segosh = "segosh",

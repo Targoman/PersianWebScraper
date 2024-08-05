@@ -2555,5 +2555,8 @@ yarn dev && yarn start onlypet -u https://www.onlypet.ir/forum/aquarium-forum-ni
 yarn dev && yarn start vakawi
 yarn dev && yarn start vakawi -u https://vakawi.ir/23812-2/
 
+yarn dev && yarn start sedayekhavaran
+yarn dev && yarn start sedayekhavaran -u https://sedayekhavaran.ir/نقش-نیروگاههای-حرارتی-در-بی/
+
 https://motamem.org/
 /**/
