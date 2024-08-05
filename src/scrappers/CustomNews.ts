@@ -9337,3 +9337,25 @@ export class feraghnews extends clsScrapper {
         })
     }
 }
+
+export class azariha extends clsScrapper {
+    constructor() {
+        super(enuDomains.azariha, "azariha.org", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "ul.postcatlist li a",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

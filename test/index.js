@@ -2561,5 +2561,8 @@ yarn dev && yarn start sedayekhavaran -u https://sedayekhavaran.ir/نقش-نیر
 yarn dev && yarn start feraghnews
 yarn dev && yarn start feraghnews -u https://feraghnews.ir/news/47674/وقتی-4000-نفر-میخواستند-به-تهران-برسند؟/
 
+yarn dev && yarn start azariha
+yarn dev && yarn start azariha -u https://azariha.org/11646/یک-دولت-معتبر،-چگونه-به-کثرتهای-درو/
+
 https://motamem.org/
 /**/
