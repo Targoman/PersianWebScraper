@@ -9359,3 +9359,31 @@ export class azariha extends clsScrapper {
         })
     }
 }
+
+export class balviz extends clsScrapper {
+    constructor() {
+        super(enuDomains.balviz, "balviz.ir", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["abh_box", "post-info"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                },
+                tags: ".im-tag-items a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

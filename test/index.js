@@ -2564,5 +2564,8 @@ yarn dev && yarn start feraghnews -u https://feraghnews.ir/news/47674/وقتی-4
 yarn dev && yarn start azariha
 yarn dev && yarn start azariha -u https://azariha.org/11646/یک-دولت-معتبر،-چگونه-به-کثرتهای-درو/
 
+yarn dev && yarn start balviz 
+yarn dev && yarn start balviz -u https://balviz.ir/20953/2024/08/04/طول-شبکه-فیبرنوری-مهاباد-به-۲۰-کیلومتر/
+
 https://motamem.org/
 /**/
