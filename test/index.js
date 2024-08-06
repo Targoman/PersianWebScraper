@@ -2570,5 +2570,8 @@ yarn dev && yarn start balviz -u https://balviz.ir/20953/2024/08/04/طول-شب�
 yarn dev && yarn start asrkar
 yarn dev && yarn start asrkar -u http://asrkar.ir/2024/08/06/اصلاح-و-احیای-20-میلیون-هکتار-از-مراتع-کش/
 
+yarn dev && yarn start fut5al
+yarn dev && yarn start fut5al -u https://fut5al.ir/fa/1403/05/16/طیبیقطعا-در-ادامه-راه-به-شرایط-آرمانی-ب/
+
 https://motamem.org/
 /**/

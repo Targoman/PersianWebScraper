@@ -273,6 +273,7 @@ export enum enuDomains {
     flightio = "flightio",
     foodpress = "foodpress",
     football360 = "football360",
+    fut5al = "fut5al",
     gadgetnews = "gadgetnews",
     gamefa = "gamefa",
     gamene = "gamene",
