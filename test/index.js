@@ -2567,5 +2567,8 @@ yarn dev && yarn start azariha -u https://azariha.org/11646/یک-دولت-معت
 yarn dev && yarn start balviz 
 yarn dev && yarn start balviz -u https://balviz.ir/20953/2024/08/04/طول-شبکه-فیبرنوری-مهاباد-به-۲۰-کیلومتر/
 
+yarn dev && yarn start asrkar
+yarn dev && yarn start asrkar -u http://asrkar.ir/2024/08/06/اصلاح-و-احیای-20-میلیون-هکتار-از-مراتع-کش/
+
 https://motamem.org/
 /**/
