@@ -9442,3 +9442,22 @@ export class fut5al extends clsScrapper {
         })
     }
 }
+
+export class donyayebourse extends clsScrapper {
+    constructor() {
+        super(enuDomains.donyayebourse, "donyayebourse.com", {
+            selectors: {
+                article: "body.node-type-article",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".field-name-body .field-item.even",
+                },
+                tags: ".item-list ul li a",
+            },
+        })
+    }
+}

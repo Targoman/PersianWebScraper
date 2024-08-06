@@ -2573,5 +2573,8 @@ yarn dev && yarn start asrkar -u http://asrkar.ir/2024/08/06/اصلاح-و-اح�
 yarn dev && yarn start fut5al
 yarn dev && yarn start fut5al -u https://fut5al.ir/fa/1403/05/16/طیبیقطعا-در-ادامه-راه-به-شرایط-آرمانی-ب/
 
+yarn dev && yarn start donyayebourse
+yarn dev && yarn start donyayebourse -u https://donyayebourse.com/news/70617-بازار-سرمایه-در-انتظار-انتقام-ریزش-عمیق-در-بورس%E2%80%8Cهای-جهان
+
 https://motamem.org/
 /**/
