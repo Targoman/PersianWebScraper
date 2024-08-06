@@ -9461,3 +9461,27 @@ export class donyayebourse extends clsScrapper {
         })
     }
 }
+
+export class nasrnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.nasrnews, "nasrnews.ir", {
+            selectors: {
+                article: ".ModArticleDetailsC",
+                aboveTitle: ".news-details-sm",
+                title: "h1",
+                summary: "h2.news-details-h2",
+                datetime: {
+                    conatiner: ".LoadingContent > div > div:nth-child(3)",
+                    splitter: (el: HTMLElement) => el.textContent?.substring(0, 11).split("/").join("-") || "NO_DATE",
+                },
+                content: {
+                    main: ".news-details-p",
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -2576,5 +2576,8 @@ yarn dev && yarn start fut5al -u https://fut5al.ir/fa/1403/05/16/طیبیقطع�
 yarn dev && yarn start donyayebourse
 yarn dev && yarn start donyayebourse -u https://donyayebourse.com/news/70617-بازار-سرمایه-در-انتظار-انتقام-ریزش-عمیق-در-بورس%E2%80%8Cهای-جهان
 
+yarn dev && yarn start nasrnews
+yarn dev && yarn start nasrnews -u https://nasrnews.ir/detail/118232/73-پروژه-ملی-آذربایجان-شرقی-با-انتخاب-مودیان-مالیاتی-در-استان،-تامین-اعتبار-شد
+
 https://motamem.org/
 /**/
