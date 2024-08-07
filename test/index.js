@@ -2582,5 +2582,9 @@ yarn dev && yarn start nasrnews -u https://nasrnews.ir/detail/118232/73-پروژ
 yarn dev && yarn start sedayemoallem
 yarn dev && yarn start sedayemoallem -u https://sedayemoallem.ir/یادداشت/item/24518-خروجی-های-نظام-آموزشی-ما-به-کدام-درد-می-خورند-؟
 
+yarn dev && yarn start delgarm
+yarn dev && yarn start delgarm -u https://www.delgarm.com/questions/show/1321
+yarn dev && yarn start delgarm -u https://www.delgarm.com/pqd0q.a320279
+
 https://motamem.org/
 /**/
