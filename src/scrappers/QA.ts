@@ -1110,7 +1110,6 @@ export class chimigan extends clsScrapper {
                     splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0,10) || "NO_DATE",
                 },
                 content: {
-                    //main: ".qa-main",
                     qa: {
                         containers: ".qa-main",
                         q: {
@@ -1132,6 +1131,46 @@ export class chimigan extends clsScrapper {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".WebUserNavigation a"),
                     lastIndex: 3
                 }
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class ooma extends clsScrapper {
+    constructor() {
+        super(enuDomains.ooma, "ooma.org", {
+            basePath: "/ask",
+            selectors: {
+                article: "[itemtype='http://schema.org/Question'], [itemtype='http://schema.org/Article']",
+                title: "h1, .h1",
+                datetime: {
+                    conatiner: "[itemprop='dateCreated'], [itemprop='datePublished']",
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0,10) || "NO_DATE",
+                    acceptNoDate: true
+                },
+                content: {
+                    main : (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("article.post"),
+                    qa: {
+                        containers: ".post",
+                        q: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post"),
+                            text: "[itemprop='text']",
+                            datetime: "[itemprop='dateCreated']",
+                            author: "[itemprop='name']"
+                        },
+                        a: {
+                            container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='suggestedAnswer']"),
+                            text: "[itemprop='text']",
+                            datetime: "[itemprop='dateCreated']",
+                            author: "[itemprop='name']"
+                        },
+                    },
+                    ignoreNodeClasses: ["footer-widget", "widget_latestpost"],
+                    ignoreTexts: [/.*انتخاب نام دختر و پسر جستجو.*/]
+                },
             },
             url: {
                 removeWWW: true,

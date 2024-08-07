@@ -2543,5 +2543,54 @@ yarn dev && yarn start masiretaze -u https://masiretaze.ir/حضور-کابوس-�
 yarn dev && yarn start avastarco
 yarn dev && yarn start avastarco -u https://forum.avastarco.com/forum/thread1356.html
 
+yarn dev && yarn start faslnews
+yarn dev && yarn start faslnews -u https://faslnews.com/14144/بازتاب-گفتوگوی-پزشکیان-و-ماکرون-در-ا/
+
+yarn dev && yarn start avayetabarestan
+yarn dev && yarn start avayetabarestan -u https://avayetabarestan.ir/هشدار-جدی-وزارت-بهداشت؛-شیوع-سرخک-در-عر/
+
+yarn dev && yarn start onlypet
+yarn dev && yarn start onlypet -u https://www.onlypet.ir/forum/aquarium-forum-nine/تکثیر-میگوی-رد-چری-red-cherry-shrimp/
+
+yarn dev && yarn start vakawi
+yarn dev && yarn start vakawi -u https://vakawi.ir/23812-2/
+
+yarn dev && yarn start sedayekhavaran
+yarn dev && yarn start sedayekhavaran -u https://sedayekhavaran.ir/نقش-نیروگاههای-حرارتی-در-بی/
+
+yarn dev && yarn start feraghnews
+yarn dev && yarn start feraghnews -u https://feraghnews.ir/news/47674/وقتی-4000-نفر-میخواستند-به-تهران-برسند؟/
+
+yarn dev && yarn start azariha
+yarn dev && yarn start azariha -u https://azariha.org/11646/یک-دولت-معتبر،-چگونه-به-کثرتهای-درو/
+
+yarn dev && yarn start balviz 
+yarn dev && yarn start balviz -u https://balviz.ir/20953/2024/08/04/طول-شبکه-فیبرنوری-مهاباد-به-۲۰-کیلومتر/
+
+yarn dev && yarn start asrkar
+yarn dev && yarn start asrkar -u http://asrkar.ir/2024/08/06/اصلاح-و-احیای-20-میلیون-هکتار-از-مراتع-کش/
+
+yarn dev && yarn start fut5al
+yarn dev && yarn start fut5al -u https://fut5al.ir/fa/1403/05/16/طیبیقطعا-در-ادامه-راه-به-شرایط-آرمانی-ب/
+
+yarn dev && yarn start donyayebourse
+yarn dev && yarn start donyayebourse -u https://donyayebourse.com/news/70617-بازار-سرمایه-در-انتظار-انتقام-ریزش-عمیق-در-بورس%E2%80%8Cهای-جهان
+
+yarn dev && yarn start nasrnews
+yarn dev && yarn start nasrnews -u https://nasrnews.ir/detail/118232/73-پروژه-ملی-آذربایجان-شرقی-با-انتخاب-مودیان-مالیاتی-در-استان،-تامین-اعتبار-شد
+
+yarn dev && yarn start sedayemoallem
+yarn dev && yarn start sedayemoallem -u https://sedayemoallem.ir/یادداشت/item/24518-خروجی-های-نظام-آموزشی-ما-به-کدام-درد-می-خورند-؟
+
+yarn dev && yarn start delgarm
+yarn dev && yarn start delgarm -u https://www.delgarm.com/questions/show/1321
+yarn dev && yarn start delgarm -u https://www.delgarm.com/pqd0q.a320279
+
+yarn dev && yarn start ooma
+yarn dev && yarn start ooma -u https://ooma.org/ask/367946/تفسیر-آزمایشات-هفته-25-بارداری
+yarn dev && yarn start ooma -u https://ooma.org/names/boys/رادین
+yarn dev && yarn start ooma -u https://ooma.org/Foodstuffs/Details/آب-نبات-شکلات-شیری
+yarn dev && yarn start ooma -u https://ooma.org/خوردن-چه-غذاهایی-در-بارداری-خطر-سقط-جنین-را-افزایش-می%E2%80%8Cدهد/
+
 https://motamem.org/
 /**/

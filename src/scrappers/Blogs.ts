@@ -6057,3 +6057,41 @@ export class adyannet extends clsScrapper {
         })
     }
 }
+
+export class delgarm extends clsScrapper {
+    constructor() {
+        super(enuDomains.delgarm, "delgarm.com", {
+            selectors: {
+                article: "article, .questions",
+                title: ".titr, h1",
+                subtitle: ".col-c",
+                datetime: {
+                    conatiner: "time.news-time, .date-jh",
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".mainentry",
+                    qa: {
+                        containers: ".item-page",
+                        q: {
+                            container: ".i-quesn",
+                            author: ".ques_ff",
+                            datetime: ".date-jh",
+                            text: ".mh1"
+                        },
+                        a: {
+                            container: ".i-answer",
+                            author: ".ques_dd",
+                            text: '.mh1'
+                        }
+                    }
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#breadcrumb ol li a, .bm_s ol li a"),
+                    startIndex: 1
+                },
+                tags: ".c-stg ul li a"
+            },
+        })
+    }
+}
