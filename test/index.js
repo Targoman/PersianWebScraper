@@ -2586,5 +2586,11 @@ yarn dev && yarn start delgarm
 yarn dev && yarn start delgarm -u https://www.delgarm.com/questions/show/1321
 yarn dev && yarn start delgarm -u https://www.delgarm.com/pqd0q.a320279
 
+yarn dev && yarn start ooma
+yarn dev && yarn start ooma -u https://ooma.org/ask/367946/تفسیر-آزمایشات-هفته-25-بارداری
+yarn dev && yarn start ooma -u https://ooma.org/names/boys/رادین
+yarn dev && yarn start ooma -u https://ooma.org/Foodstuffs/Details/آب-نبات-شکلات-شیری
+yarn dev && yarn start ooma -u https://ooma.org/خوردن-چه-غذاهایی-در-بارداری-خطر-سقط-جنین-را-افزایش-می%E2%80%8Cدهد/
+
 https://motamem.org/
 /**/

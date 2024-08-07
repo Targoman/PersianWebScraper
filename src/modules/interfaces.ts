@@ -555,6 +555,7 @@ export enum enuDomains {
     oloompezeshki = "oloompezeshki",
     omideghtesadonline = "omideghtesadonline",
     onlypet = "onlypet",
+    ooma = "ooma",
     oshida = "oshida",
     ostanes = "ostanes",
     otagh24 = "otagh24",
