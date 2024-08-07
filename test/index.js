@@ -2579,5 +2579,8 @@ yarn dev && yarn start donyayebourse -u https://donyayebourse.com/news/70617-ب�
 yarn dev && yarn start nasrnews
 yarn dev && yarn start nasrnews -u https://nasrnews.ir/detail/118232/73-پروژه-ملی-آذربایجان-شرقی-با-انتخاب-مودیان-مالیاتی-در-استان،-تامین-اعتبار-شد
 
+yarn dev && yarn start sedayemoallem
+yarn dev && yarn start sedayemoallem -u https://sedayemoallem.ir/یادداشت/item/24518-خروجی-های-نظام-آموزشی-ما-به-کدام-درد-می-خورند-؟
+
 https://motamem.org/
 /**/

@@ -9485,3 +9485,34 @@ export class nasrnews extends clsScrapper {
         })
     }
 }
+
+export class sedayemoallem extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayemoallem, "sedayemoallem.ir", {
+            selectors: {
+                article: ".itemView",
+                aboveTitle: ".rootitr",
+                title: "h1",
+                datetime: {
+                    conatiner: ".itemDateCreated"
+                },
+                content: {
+                    main: ".itemBody",
+                    ignoreTexts: [/.*ارسال مطلب برای صدای معلم.*/, /.*spambots.*/]
+                },               
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumbs a"),
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#comments > .comments-list > div"),
+                    author: ".comment-author",
+                    datetime: ".comment-date",
+                    text: ".comment-body"
+                },    
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
