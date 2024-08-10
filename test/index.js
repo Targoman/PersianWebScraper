@@ -2598,5 +2598,9 @@ yarn dev && yarn start mejalehhafteh -u https://mejalehhafteh.com/2024/08/06/ا�
 yarn dev && yarn start nojavanha
 yarn dev && yarn start nojavanha -u https://www.nojavanha.com/افراد-موفق-چطور-از-شکست-خوردن-درس-میگ/
 
+yarn dev && yarn start goaldaily
+yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103253/کرمانی%E2%80%8Cمقدم:-از-تیم-گاریدو-یک-تیکی%E2%80%8Cتاکای-اسپانیایی-خواهیم-دید!
+yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103275/زارع-رسماً-سرمربی-ملوان-شد
+
 https://motamem.org/
 /**/

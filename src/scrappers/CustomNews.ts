@@ -9516,3 +9516,28 @@ export class sedayemoallem extends clsScrapper {
         })
     }
 }
+
+export class goaldaily extends clsScrapper {
+    constructor() {
+        super(enuDomains.goaldaily, "goaldaily.ir", {
+            selectors: {
+                article: ".newsBBox",
+                aboveTitle: ".news-box > div:nth-child(1)",
+                title: "h6",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-time"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".newsBBox p"),
+                    ignoreNodeClasses: ["news-box", "side-box", "content-news"],
+                    ignoreTexts: [/.*دیدگاه:.*/]
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".newsBBox a")          
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
