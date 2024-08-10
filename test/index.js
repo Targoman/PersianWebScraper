@@ -2592,5 +2592,8 @@ yarn dev && yarn start ooma -u https://ooma.org/names/boys/رادین
 yarn dev && yarn start ooma -u https://ooma.org/Foodstuffs/Details/آب-نبات-شکلات-شیری
 yarn dev && yarn start ooma -u https://ooma.org/خوردن-چه-غذاهایی-در-بارداری-خطر-سقط-جنین-را-افزایش-می%E2%80%8Cدهد/
 
+yarn dev && yarn start mejalehhafteh
+yarn dev && yarn start mejalehhafteh -u https://mejalehhafteh.com/2024/08/06/اوکراین-در-جستجوی-سناریوهای-خروج/
+
 https://motamem.org/
 /**/

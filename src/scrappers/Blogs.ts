@@ -6095,3 +6095,28 @@ export class delgarm extends clsScrapper {
         })
     }
 }
+
+export class mejalehhafteh extends clsScrapper {
+    constructor() {
+        super(enuDomains.mejalehhafteh, "mejalehhafteh.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["sharedaddy"]
+                },
+                comments: {
+                    container: "ol.wp-block-comment-template li",
+                    author: ".wp-block-comment-author-name",
+                    datetime: "time",
+                    text: ".wp-block-comment-content"
+                }
+            },
+        })
+    }
+}

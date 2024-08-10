@@ -462,6 +462,7 @@ export enum enuDomains {
     madarsho = "madarsho",
     magiran = "magiran",
     mahyanews = "mahyanews",
+    mejalehhafteh = "mejalehhafteh",
     majidonline = "majidonline",
     maktabkhooneh = "maktabkhooneh",
     malltina = "malltina",
