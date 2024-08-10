@@ -6120,3 +6120,26 @@ export class mejalehhafteh extends clsScrapper {
         })
     }
 }
+
+export class nojavanha extends clsScrapper {
+    constructor() {
+        super(enuDomains.nojavanha, "nojavanha.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["no_bullets", "TeuxBhlt", "centered-text-area", "kk-star-ratings", "entry-title", "yn-borderbox"],
+                    ignoreTexts: [/.*IRPP.*/, /.*پیشنهاد مطالعه.*/]
+                },
+                category: {
+                    selector: ".entry-category a[rel='category tag']",
+                },
+            },
+        })
+    }
+}

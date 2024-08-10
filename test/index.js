@@ -2595,5 +2595,8 @@ yarn dev && yarn start ooma -u https://ooma.org/خوردن-چه-غذاهایی-�
 yarn dev && yarn start mejalehhafteh
 yarn dev && yarn start mejalehhafteh -u https://mejalehhafteh.com/2024/08/06/اوکراین-در-جستجوی-سناریوهای-خروج/
 
+yarn dev && yarn start nojavanha
+yarn dev && yarn start nojavanha -u https://www.nojavanha.com/افراد-موفق-چطور-از-شکست-خوردن-درس-میگ/
+
 https://motamem.org/
 /**/
