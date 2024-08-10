@@ -116,3 +116,29 @@ export class wppersian extends clsScrapper {
     return { textType:enuTextType.Informal, major: enuMajorCategory.Forum, minor: enuMinorCategory.ScienceTech, subminor: enuSubMinorCategory.Software }
   }
 }
+
+export class onlypet extends clsScrapper {
+  constructor() {
+    super(enuDomains.onlypet, "onlypet.ir", {
+      basePath: "/forum",
+      selectors: {
+        article: ".spPostContent",
+        title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("#spTopicHeaderName"),
+        datetime: {
+          conatiner: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector(".spPostUserDate")
+        },
+        category: {
+          selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#spBreadCrumbs a.spLink"),
+          startIndex: 2,
+          lastIndex: 3
+        },
+        comments: {
+          container: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".spTopicViewSection .spTopicPostContainer .spTopicPostSection"),
+          author: ".spPostUserName",
+          datetime: ".spPostUserDate",
+          text: ".spPostContent"
+        }
+      },
+    })
+  }
+}
