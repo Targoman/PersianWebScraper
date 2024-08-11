@@ -2608,5 +2608,8 @@ yarn dev && yarn start haftesobh -u https://7sobh.com/بخش-ورزشی-39/56440
 yarn dev && yarn start birjandtoday
 yarn dev && yarn start birjandtoday -u https://www.birjandtoday.ir/1403/05/کابینه-پیشنهادی-پزشکیان-رونمایی-شد/
 
+yarn dev && yarn start siasatrooz
+yarn dev && yarn start siasatrooz -u https://www.siasatrooz.ir/fa/news/130335/افزایش-قیمت-نسخه-ای-تکراری-بدون-دستاورد
+
 https://motamem.org/
 /**/
