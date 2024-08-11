@@ -2605,5 +2605,8 @@ yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103275/زار
 yarn dev && yarn start haftesobh
 yarn dev && yarn start haftesobh -u https://7sobh.com/بخش-ورزشی-39/564400-یک-خواهر-یک-برادر-درباره-عکسی-که-این-روزها-دست-به-دست-می-شود
 
+yarn dev && yarn start birjandtoday
+yarn dev && yarn start birjandtoday -u https://www.birjandtoday.ir/1403/05/کابینه-پیشنهادی-پزشکیان-رونمایی-شد/
+
 https://motamem.org/
 /**/

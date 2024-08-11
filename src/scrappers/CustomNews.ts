@@ -9541,3 +9541,20 @@ export class goaldaily extends clsScrapper {
         })
     }
 }
+
+export class birjandtoday extends clsScrapper {
+    constructor() {
+        super(enuDomains.birjandtoday, "birjandtoday.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".updated"
+                },
+                content: {
+                    main: ".item-text",
+                },        
+            },
+        })
+    }
+}
