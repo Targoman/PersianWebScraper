@@ -2602,5 +2602,8 @@ yarn dev && yarn start goaldaily
 yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103253/کرمانی%E2%80%8Cمقدم:-از-تیم-گاریدو-یک-تیکی%E2%80%8Cتاکای-اسپانیایی-خواهیم-دید!
 yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103275/زارع-رسماً-سرمربی-ملوان-شد
 
+yarn dev && yarn start haftesobh
+yarn dev && yarn start haftesobh -u https://7sobh.com/بخش-ورزشی-39/564400-یک-خواهر-یک-برادر-درباره-عکسی-که-این-روزها-دست-به-دست-می-شود
+
 https://motamem.org/
 /**/

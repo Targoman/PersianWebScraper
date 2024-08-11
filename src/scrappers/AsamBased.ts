@@ -1650,3 +1650,18 @@ export class petrotahlil extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class haftesobh extends clsAsamBased {
+    constructor() {
+        super(enuDomains.haftesobh, "7sobh.com", {
+            selectors: {
+                article: "#news_page_article",
+            },
+        })
+    }
+
+    normalizePath(url: URL): string {
+        return url.toString();
+    }
+}

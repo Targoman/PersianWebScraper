@@ -304,6 +304,7 @@ export enum enuDomains {
     hadese24 = "hadese24",
     hadeseilam = "hadeseilam",
     hadith = "hadith",
+    haftesobh = "haftesobh",
     haftgard = "haftgard",
     haje = "haje",
     hamedanonline = "hamedanonline",
