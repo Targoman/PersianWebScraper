@@ -2614,5 +2614,8 @@ yarn dev && yarn start siasatrooz -u https://www.siasatrooz.ir/fa/news/130335/ا
 yarn dev && yarn start afarineshdaily
 yarn dev && yarn start afarineshdaily -u http://www.afarineshdaily.ir/news/79841
 
+yarn dev && yarn start keshwarnews 
+yarn dev && yarn start keshwarnews -u https://keshwarnews.com/بین-الملل/خطرناکترین-و-امنترین-شهرهای-جهان-م/keshwarnews/
+
 https://motamem.org/
 /**/

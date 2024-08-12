@@ -9609,3 +9609,25 @@ export class afarineshdaily extends clsScrapper {
         })
     }
 }
+
+export class keshwarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.keshwarnews, "keshwarnews.com", {
+            selectors: {
+                article: ".a2a_button_facebook_messenger",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".fl-node-content > h3"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".fl-module-fl-post-content"),
+                },
+            },
+            url: {
+                forceHTTP: true,
+                extraInvalidStartPaths: ["/pashto", "/en"]
+            }
+        })
+    }
+}
