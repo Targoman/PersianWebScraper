@@ -2620,5 +2620,8 @@ yarn dev && yarn start keshwarnews -u https://keshwarnews.com/بین-الملل/
 yarn dev && yarn start donyayebimeh
 yarn dev && yarn start donyayebimeh -u https://www.donyayebimeh.ir/قوانین-و-احکام-بیاعتبار-بیمه-حذف-می/
 
+yarn dev && yarn start mouood
+yarn dev && yarn start mouood -u https://fa.mouood.com/94390/multimedia/moive/meeting-mouood/mahdavi-meeting/نشست-164-لغزشهای-اعتقادی-در-عصر-غیبت/
+
 https://motamem.org/
 /**/

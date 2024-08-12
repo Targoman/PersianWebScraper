@@ -514,6 +514,7 @@ export enum enuDomains {
     moshaveranetahsili = "moshaveranetahsili",
     mostaghelonline = "mostaghelonline",
     motamem = "motamem",
+    mouood = "mouood",
     mrud = "mrud",
     msrt = "msrt",
     myket = "myket",

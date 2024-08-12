@@ -6143,3 +6143,30 @@ export class nojavanha extends clsScrapper {
         })
     }
 }
+
+
+export class mouood extends clsScrapper {
+    constructor() {
+        super(enuDomains.mouood, "fa.mouood.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#crumbs a"),
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
