@@ -2611,5 +2611,8 @@ yarn dev && yarn start birjandtoday -u https://www.birjandtoday.ir/1403/05/کا�
 yarn dev && yarn start siasatrooz
 yarn dev && yarn start siasatrooz -u https://www.siasatrooz.ir/fa/news/130335/افزایش-قیمت-نسخه-ای-تکراری-بدون-دستاورد
 
+yarn dev && yarn start afarineshdaily
+yarn dev && yarn start afarineshdaily -u http://www.afarineshdaily.ir/news/79841
+
 https://motamem.org/
 /**/

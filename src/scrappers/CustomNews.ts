@@ -9583,3 +9583,29 @@ export class siasatrooz extends clsScrapper {
         })
     }
 }
+
+export class afarineshdaily extends clsScrapper {
+    constructor() {
+        super(enuDomains.afarineshdaily, "afarineshdaily.ir", {
+            selectors: {
+                article: ".article-body",
+                aboveTitle: ".subtitle",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector(".datetime"),
+                },
+                content: {
+                    main: ".article-inner",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrump span"),
+                    startIndex: 1
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
