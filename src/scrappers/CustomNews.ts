@@ -9631,3 +9631,27 @@ export class keshwarnews extends clsScrapper {
         })
     }
 }
+
+export class donyayebimeh extends clsScrapper {
+    constructor() {
+        super(enuDomains.donyayebimeh, "donyayebimeh.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: ".entry-header .date"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"],
+                    ignoreTexts: [/.*لینک کوتاه :.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}

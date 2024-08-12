@@ -2617,5 +2617,8 @@ yarn dev && yarn start afarineshdaily -u http://www.afarineshdaily.ir/news/79841
 yarn dev && yarn start keshwarnews 
 yarn dev && yarn start keshwarnews -u https://keshwarnews.com/بین-الملل/خطرناکترین-و-امنترین-شهرهای-جهان-م/keshwarnews/
 
+yarn dev && yarn start donyayebimeh
+yarn dev && yarn start donyayebimeh -u https://www.donyayebimeh.ir/قوانین-و-احکام-بیاعتبار-بیمه-حذف-می/
+
 https://motamem.org/
 /**/
