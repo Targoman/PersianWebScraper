@@ -9663,7 +9663,6 @@ export class hormozban extends clsScrapper {
                 article: ".single-content-txte-post",
                 aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-anavin"),
                 title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
-                subtitle:  ".bg-light.w-100",
                 datetime: {
                     conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
                     splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
@@ -9674,6 +9673,29 @@ export class hormozban extends clsScrapper {
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
                 },
+            },
+        })
+    }
+}
+
+export class eghtesadobimeh extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadobimeh, "eghtesadobimeh.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2) > b"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
             },
         })
     }

@@ -2626,5 +2626,8 @@ yarn dev && yarn start mouood -u https://fa.mouood.com/94390/multimedia/moive/me
 yarn dev && yarn start hormozban 
 yarn dev && yarn start hormozban -u https://www.hormozban.ir/details/124475/۱۷۵-جواز-تاسیس-صنعتی-در-هرمزگان-صادر-شد.html
 
+yarn dev && yarn start eghtesadobimeh
+yarn dev && yarn start eghtesadobimeh -u https://www.eghtesadobimeh.ir/اعطای-گواهینامه-تایید-صلاحیت-آموزش-ه/
+
 https://motamem.org/
 /**/
