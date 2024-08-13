@@ -2629,5 +2629,8 @@ yarn dev && yarn start hormozban -u https://www.hormozban.ir/details/124475/۱۷
 yarn dev && yarn start eghtesadobimeh
 yarn dev && yarn start eghtesadobimeh -u https://www.eghtesadobimeh.ir/اعطای-گواهینامه-تایید-صلاحیت-آموزش-ه/
 
+yarn dev && yarn start shahrebours
+yarn dev && yarn start shahrebours -u https://shahrebours.com/افزایش-سرمایه-ثنظام-به-مجمع-رفت/
+
 https://motamem.org/
 /**/

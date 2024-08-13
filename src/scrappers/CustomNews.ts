@@ -9700,3 +9700,30 @@ export class eghtesadobimeh extends clsScrapper {
         })
     }
 }
+
+export class shahrebours extends clsScrapper {
+    constructor() {
+        super(enuDomains.shahrebours, "shahrebours.com", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".contentsingle",
+                    ignoreTexts: [/.*<img.*/, /.*بیشتر بخوانید:.*/]
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a",
+                },
+                tags: ".tag h3 a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
