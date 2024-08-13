@@ -2623,5 +2623,8 @@ yarn dev && yarn start donyayebimeh -u https://www.donyayebimeh.ir/قوانین-
 yarn dev && yarn start mouood
 yarn dev && yarn start mouood -u https://fa.mouood.com/94390/multimedia/moive/meeting-mouood/mahdavi-meeting/نشست-164-لغزشهای-اعتقادی-در-عصر-غیبت/
 
+yarn dev && yarn start hormozban 
+yarn dev && yarn start hormozban -u https://www.hormozban.ir/details/124475/۱۷۵-جواز-تاسیس-صنعتی-در-هرمزگان-صادر-شد.html
+
 https://motamem.org/
 /**/
