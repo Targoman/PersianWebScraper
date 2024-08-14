@@ -2635,5 +2635,8 @@ yarn dev && yarn start shahrebours -u https://shahrebours.com/افزایش-سر�
 yarn dev && yarn start modara
 yarn dev && yarn start modara -u https://www.modara.ir/fa/news/184195/جزییات-نحوه-پرداخت-سود-سهام-عدالت-از-شنبه/
 
+yarn dev && yarn start aiinbimeh
+yarn dev && yarn start aiinbimeh -u http://aiinbimeh.ir/content/16392
+
 https://motamem.org/
 /**/

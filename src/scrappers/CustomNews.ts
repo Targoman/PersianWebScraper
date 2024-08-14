@@ -9749,3 +9749,30 @@ export class modara extends clsScrapper {
         })
     }
 }
+
+export class aiinbimeh extends clsScrapper {
+    constructor() {
+        super(enuDomains.aiinbimeh, "aiinbimeh.ir", {
+            selectors: {
+                article: ".blog-page",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date",
+                    splitter: (el: HTMLElement) => el.textContent?.substring(0, 10).split("-").reverse().join("-") || "NO_DATE",
+                    isGregorian: true
+                },
+                content: {
+                    main: ".blog-content",
+                    ignoreNodeClasses: ["info", "tag-container"],
+                },
+                category: {
+                    selector: "a.tag",
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true,
+            }
+        })
+    }
+}
