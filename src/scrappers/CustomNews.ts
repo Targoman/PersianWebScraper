@@ -9727,3 +9727,25 @@ export class shahrebours extends clsScrapper {
         })
     }
 }
+
+export class modara extends clsScrapper {
+    constructor() {
+        super(enuDomains.modara, "modara.ir", {
+            selectors: {
+                article: ".col-12.col-lg-11",
+                title: "h1",
+                subtitle: ".texttittlesmalldakheli",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content-single-hk",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+        })
+    }
+}

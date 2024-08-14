@@ -502,6 +502,7 @@ export enum enuDomains {
     mizanonline = "mizanonline",
     mizbanfa = "mizbanfa",
     moaser = "moaser",
+    modara = "modara",
     modireweb = "modireweb",
     mojerasa = "mojerasa",
     mojnews = "mojnews",

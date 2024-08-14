@@ -2632,5 +2632,8 @@ yarn dev && yarn start eghtesadobimeh -u https://www.eghtesadobimeh.ir/اعطا�
 yarn dev && yarn start shahrebours
 yarn dev && yarn start shahrebours -u https://shahrebours.com/افزایش-سرمایه-ثنظام-به-مجمع-رفت/
 
+yarn dev && yarn start modara
+yarn dev && yarn start modara -u https://www.modara.ir/fa/news/184195/جزییات-نحوه-پرداخت-سود-سهام-عدالت-از-شنبه/
+
 https://motamem.org/
 /**/
