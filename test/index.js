@@ -2638,5 +2638,8 @@ yarn dev && yarn start modara -u https://www.modara.ir/fa/news/184195/جزییا
 yarn dev && yarn start aiinbimeh
 yarn dev && yarn start aiinbimeh -u http://aiinbimeh.ir/content/16392
 
+yarn dev && yarn start saramadeakhbar
+yarn dev && yarn start saramadeakhbar -u https://saramadeakhbar.ir/2024/08/14/صادرات-ماهانه-تخم-مرغ-به-۱۴-هزار-تن-رسید/
+
 https://motamem.org/
 /**/
