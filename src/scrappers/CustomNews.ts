@@ -9799,3 +9799,30 @@ export class saramadeakhbar extends clsScrapper {
         })
     }
 }
+
+export class eghtesadgooya extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadgooya, "eghtesadgooya.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".post-subtitle",
+                summary: ".single-post-excerpt",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["continue-reading-btn"]
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                },
+                tags: ".post-meta-wrap .term-badges  span a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

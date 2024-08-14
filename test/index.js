@@ -2641,5 +2641,8 @@ yarn dev && yarn start aiinbimeh -u http://aiinbimeh.ir/content/16392
 yarn dev && yarn start saramadeakhbar
 yarn dev && yarn start saramadeakhbar -u https://saramadeakhbar.ir/2024/08/14/صادرات-ماهانه-تخم-مرغ-به-۱۴-هزار-تن-رسید/
 
+yarn dev && yarn start eghtesadgooya 
+yarn dev && yarn start eghtesadgooya -u https://eghtesadgooya.ir/۴۰-هزار-فقره-تسهیلات-۳۰-میلیون-تومانی-ب/
+
 https://motamem.org/
 /**/
