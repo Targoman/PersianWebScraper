@@ -2650,5 +2650,8 @@ yarn dev && yarn start icana -u https://icana.ir/اقتصادی/مهمترین-�
 yarn dev && yarn start eghtesadema
 yarn dev && yarn start eghtesadema -u https://www.eghtesadema.ir/news/1403052716890/کاهش-آتش-سوزی-با-هوش-مصنوعی
 
+yarn dev && yarn start talayedarankhabar 
+yarn dev && yarn start talayedarankhabar -u https://talayedarankhabar.ir/25315/پالایشگاه-پارسیان؛-به-وقت-اقماری-ها/
+
 https://motamem.org/
 /**/
