@@ -9849,3 +9849,27 @@ export class icana extends clsScrapper {
         })
     }
 }
+
+export class eghtesadema extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadema, "eghtesadema.ir", {
+            selectors: {
+                article: ".article__detail ",
+                title: ".article__header-title--down",
+                subtitle: ".artice__header-note",
+                datetime: {
+                    conatiner: ".article__header-info--time span"
+                },
+                content: {
+                    main: ".article__body-desc",
+                },
+                category: {
+                    selector: ".breadcrumb__info ol li a",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

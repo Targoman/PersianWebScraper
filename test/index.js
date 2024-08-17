@@ -2647,5 +2647,8 @@ yarn dev && yarn start eghtesadgooya -u https://eghtesadgooya.ir/۴۰-هزار-�
 yarn dev && yarn start icana 
 yarn dev && yarn start icana -u https://icana.ir/اقتصادی/مهمترین-کار-اجرای-قوانین-برنامه-هفتم-و-جهش-تولید-مسکن-است⁄-بانوان-متخصص-می%E2%80%8Cتوانند-حوزه%E2%80%8Cهای-راهبردی-را-مدیریت-کنند
 
+yarn dev && yarn start eghtesadema
+yarn dev && yarn start eghtesadema -u https://www.eghtesadema.ir/news/1403052716890/کاهش-آتش-سوزی-با-هوش-مصنوعی
+
 https://motamem.org/
 /**/
