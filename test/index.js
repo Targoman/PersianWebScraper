@@ -2644,5 +2644,8 @@ yarn dev && yarn start saramadeakhbar -u https://saramadeakhbar.ir/2024/08/14/ص
 yarn dev && yarn start eghtesadgooya 
 yarn dev && yarn start eghtesadgooya -u https://eghtesadgooya.ir/۴۰-هزار-فقره-تسهیلات-۳۰-میلیون-تومانی-ب/
 
+yarn dev && yarn start icana 
+yarn dev && yarn start icana -u https://icana.ir/اقتصادی/مهمترین-کار-اجرای-قوانین-برنامه-هفتم-و-جهش-تولید-مسکن-است⁄-بانوان-متخصص-می%E2%80%8Cتوانند-حوزه%E2%80%8Cهای-راهبردی-را-مدیریت-کنند
+
 https://motamem.org/
 /**/

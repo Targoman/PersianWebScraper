@@ -9826,3 +9826,26 @@ export class eghtesadgooya extends clsScrapper {
         })
     }
 }
+
+export class icana extends clsScrapper {
+    constructor() {
+        super(enuDomains.icana, "icana.ir", {
+            selectors: {
+                article: ".single-post-wrap",
+                aboveTitle: "h6",
+                title: "h2",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-info > ul > li:nth-child(1) > span"
+                },
+                content: {
+                    main: ".news-content",
+                },
+                tags: ".es-news-tags ul li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

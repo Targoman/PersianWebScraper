@@ -339,6 +339,7 @@ export enum enuDomains {
     hourgan = "hourgan",
     iana = "iana",
     ibna = "ibna",
+    icana = "icana",
     ictnews = "ictnews",
     ictnn = "ictnn",
     ictpress = "ictpress",
