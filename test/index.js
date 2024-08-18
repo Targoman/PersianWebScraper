@@ -2656,5 +2656,9 @@ yarn dev && yarn start talayedarankhabar -u https://talayedarankhabar.ir/25315/�
 yarn dev && yarn start ghaznawyantv
 yarn dev && yarn start ghaznawyantv -u https://ghaznawyantv.com/احتمال-بارش-شدید-باران-و-سرازیرشدن-سیل/
 
+yarn dev && yarn start isignal
+yarn dev && yarn start isignal -u https://isignal.ir/analyse/اقتصاد-بزرگتر،-مِدال-بیشتر/
+yarn dev && yarn start isignal -u https://isignal.ir/بورس-دلار-خودرو/
+
 https://motamem.org/
 /**/

@@ -9918,3 +9918,33 @@ export class ghaznawyantv extends clsScrapper {
         })
     }
 }
+
+export class isignal extends clsScrapper {
+    constructor() {
+        super(enuDomains.isignal, "isignal.ir", {
+            selectors: {
+                article: "body.single",
+                title: "h1",
+                subtitle: ".post-subtitle",
+                summary: ".single-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:modified_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#toc-plugin-main-content",
+                    ignoreNodeClasses: ["gb-cta-wrapper"],
+                    ignoreTexts: [/.*فهرست عناوین.*/]
+                },
+                category: {
+                    selector: ".breadcrumb ul li a",
+                    lastIndex: 2
+                },
+                tags: "ul.list-inline li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
