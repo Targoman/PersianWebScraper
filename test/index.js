@@ -2653,5 +2653,8 @@ yarn dev && yarn start eghtesadema -u https://www.eghtesadema.ir/news/1403052716
 yarn dev && yarn start talayedarankhabar 
 yarn dev && yarn start talayedarankhabar -u https://talayedarankhabar.ir/25315/پالایشگاه-پارسیان؛-به-وقت-اقماری-ها/
 
+yarn dev && yarn start ghaznawyantv
+yarn dev && yarn start ghaznawyantv -u https://ghaznawyantv.com/احتمال-بارش-شدید-باران-و-سرازیرشدن-سیل/
+
 https://motamem.org/
 /**/

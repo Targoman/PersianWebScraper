@@ -9897,3 +9897,24 @@ export class talayedarankhabar extends clsScrapper {
         })
     }
 }
+
+export class ghaznawyantv extends clsScrapper {
+    constructor() {
+        super(enuDomains.ghaznawyantv, "ghaznawyantv.com", {
+            selectors: {
+                article: "article.article-large",
+                title: "h2.pgtitle",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["sfsiaftrpstwpr"]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
