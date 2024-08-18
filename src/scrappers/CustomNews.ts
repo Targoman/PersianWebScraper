@@ -9948,3 +9948,28 @@ export class isignal extends clsScrapper {
         })
     }
 }
+
+export class tanishnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.tanishnews, "tanishnews.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -2660,5 +2660,8 @@ yarn dev && yarn start isignal
 yarn dev && yarn start isignal -u https://isignal.ir/analyse/اقتصاد-بزرگتر،-مِدال-بیشتر/
 yarn dev && yarn start isignal -u https://isignal.ir/بورس-دلار-خودرو/
 
+yarn dev && yarn start tanishnews 
+yarn dev && yarn start tanishnews -u https://tanishnews.ir/۸-بسته%e2%80%8c-فرهنگی-در-طرح-ثامن-توزیع-می-ش/
+
 https://motamem.org/
 /**/
