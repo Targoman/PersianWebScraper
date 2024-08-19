@@ -2663,5 +2663,8 @@ yarn dev && yarn start isignal -u https://isignal.ir/بورس-دلار-خودر�
 yarn dev && yarn start tanishnews 
 yarn dev && yarn start tanishnews -u https://tanishnews.ir/۸-بسته%e2%80%8c-فرهنگی-در-طرح-ثامن-توزیع-می-ش/
 
+yarn dev && yarn start sedayerey
+yarn dev && yarn start sedayerey -u https://sedayerey.ir/بهره-برداری-از-پل-دسترسی-شهید-آوینی-به-ح/
+
 https://motamem.org/
 /**/

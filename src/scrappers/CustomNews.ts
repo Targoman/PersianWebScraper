@@ -9973,3 +9973,26 @@ export class tanishnews extends clsScrapper {
         })
     }
 }
+
+export class sedayerey extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayerey, "sedayerey.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
