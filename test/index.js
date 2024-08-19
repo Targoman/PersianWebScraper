@@ -2669,5 +2669,8 @@ yarn dev && yarn start sedayerey -u https://sedayerey.ir/بهره-برداری-�
 yarn dev && yarn start eghtesadbazargani
 yarn dev && yarn start eghtesadbazargani -u https://eghtesadbazargani.ir/Archive/عقبماندگی-بورس-ایران-از-بازارهای-سهام-کشورهای-منطقه
 
+yarn dev && yarn start sarmayefarda
+yarn dev && yarn start sarmayefarda -u https://sarmayefarda.ir/جریان-پول-متمایل-به-بازارهای-پربازده/
+
 https://motamem.org/
 /**/

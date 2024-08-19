@@ -680,6 +680,7 @@ export enum enuDomains {
     samanehha = "samanehha",
     sanapress = "sanapress",
     saramadeakhbar = "saramadeakhbar",
+    sarmayefarda = "sarmayefarda",
     sarpoosh = "sarpoosh",
     sariasan = "sariasan",
     sarmadnews = "sarmadnews",
