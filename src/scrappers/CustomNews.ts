@@ -9996,3 +9996,27 @@ export class sedayerey extends clsScrapper {
         })
     }
 }
+
+export class eghtesadbazargani extends clsScrapper {
+    constructor() {
+        super(enuDomains.eghtesadbazargani, "eghtesadbazargani.ir", {
+            basePath: "/Archive",
+            selectors: {
+                article: ".ArticleView_bg",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='DC.date.issued']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".description",
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

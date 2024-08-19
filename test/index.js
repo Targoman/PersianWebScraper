@@ -2666,5 +2666,8 @@ yarn dev && yarn start tanishnews -u https://tanishnews.ir/۸-بسته%e2%80%8c-
 yarn dev && yarn start sedayerey
 yarn dev && yarn start sedayerey -u https://sedayerey.ir/بهره-برداری-از-پل-دسترسی-شهید-آوینی-به-ح/
 
+yarn dev && yarn start eghtesadbazargani
+yarn dev && yarn start eghtesadbazargani -u https://eghtesadbazargani.ir/Archive/عقبماندگی-بورس-ایران-از-بازارهای-سهام-کشورهای-منطقه
+
 https://motamem.org/
 /**/
