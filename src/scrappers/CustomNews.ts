@@ -10049,3 +10049,29 @@ export class sarmayefarda extends clsScrapper {
         })
     }
 }
+
+export class ecobannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecobannews, "ecobannews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-widget__width-inherit.elementor-widget.elementor-widget-text-editor > div",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["shorten_url"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#catttgory .elementor-post-info__item--type-terms span a",
+                    lastIndex: 2
+                },
+                tags: "#tagggs .elementor-post-info__item.elementor-post-info__item--type-terms span  a"
+            },
+        })
+    }
+}

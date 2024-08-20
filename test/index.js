@@ -2672,5 +2672,8 @@ yarn dev && yarn start eghtesadbazargani -u https://eghtesadbazargani.ir/Archive
 yarn dev && yarn start sarmayefarda
 yarn dev && yarn start sarmayefarda -u https://sarmayefarda.ir/جریان-پول-متمایل-به-بازارهای-پربازده/
 
+yarn dev && yarn start ecobannews
+yarn dev && yarn start ecobannews -u https://ecobannews.com/پروژه-یکسان-سازی-نرخهای-دلار/
+
 https://motamem.org/
 /**/
