@@ -2675,5 +2675,8 @@ yarn dev && yarn start sarmayefarda -u https://sarmayefarda.ir/جریان-پول
 yarn dev && yarn start ecobannews
 yarn dev && yarn start ecobannews -u https://ecobannews.com/پروژه-یکسان-سازی-نرخهای-دلار/
 
+yarn dev && yarn start hammihanonline
+yarn dev && yarn start hammihanonline -u https://hammihanonline.ir/بخش-فرهنگ-27/19698-کمدین-کاربلد-کارگردان-نابلد
+
 https://motamem.org/
 /**/
