@@ -10075,3 +10075,29 @@ export class ecobannews extends clsScrapper {
         })
     }
 }
+
+export class ibena extends clsScrapper {
+    constructor() {
+        super(enuDomains.ibena, "ibena.ir", {
+            selectors: {
+                article: "#news",
+                aboveTitle: ".news-rutitr",
+                title: "h1",
+                subtitle: ".news-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".news_path a",
+                },  
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

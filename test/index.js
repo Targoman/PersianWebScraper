@@ -2678,5 +2678,8 @@ yarn dev && yarn start ecobannews -u https://ecobannews.com/پروژه-یکسا�
 yarn dev && yarn start hammihanonline
 yarn dev && yarn start hammihanonline -u https://hammihanonline.ir/بخش-فرهنگ-27/19698-کمدین-کاربلد-کارگردان-نابلد
 
+yarn dev && yarn start ibena
+yarn dev && yarn start ibena -u https://www.ibena.ir/fa/news/165952/تالار-ارز-توافقی-به-مدیریت-بازار-ارز-کمک-می%E2%80%8Cکند
+
 https://motamem.org/
 /**/
