@@ -6095,3 +6095,78 @@ export class delgarm extends clsScrapper {
         })
     }
 }
+
+export class mejalehhafteh extends clsScrapper {
+    constructor() {
+        super(enuDomains.mejalehhafteh, "mejalehhafteh.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["sharedaddy"]
+                },
+                comments: {
+                    container: "ol.wp-block-comment-template li",
+                    author: ".wp-block-comment-author-name",
+                    datetime: "time",
+                    text: ".wp-block-comment-content"
+                }
+            },
+        })
+    }
+}
+
+export class nojavanha extends clsScrapper {
+    constructor() {
+        super(enuDomains.nojavanha, "nojavanha.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["no_bullets", "TeuxBhlt", "centered-text-area", "kk-star-ratings", "entry-title", "yn-borderbox"],
+                    ignoreTexts: [/.*IRPP.*/, /.*پیشنهاد مطالعه.*/]
+                },
+                category: {
+                    selector: ".entry-category a[rel='category tag']",
+                },
+            },
+        })
+    }
+}
+
+
+export class mouood extends clsScrapper {
+    constructor() {
+        super(enuDomains.mouood, "fa.mouood.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#crumbs a"),
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

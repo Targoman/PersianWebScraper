@@ -2592,5 +2592,85 @@ yarn dev && yarn start ooma -u https://ooma.org/names/boys/رادین
 yarn dev && yarn start ooma -u https://ooma.org/Foodstuffs/Details/آب-نبات-شکلات-شیری
 yarn dev && yarn start ooma -u https://ooma.org/خوردن-چه-غذاهایی-در-بارداری-خطر-سقط-جنین-را-افزایش-می%E2%80%8Cدهد/
 
+yarn dev && yarn start mejalehhafteh
+yarn dev && yarn start mejalehhafteh -u https://mejalehhafteh.com/2024/08/06/اوکراین-در-جستجوی-سناریوهای-خروج/
+
+yarn dev && yarn start nojavanha
+yarn dev && yarn start nojavanha -u https://www.nojavanha.com/افراد-موفق-چطور-از-شکست-خوردن-درس-میگ/
+
+yarn dev && yarn start goaldaily
+yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103253/کرمانی%E2%80%8Cمقدم:-از-تیم-گاریدو-یک-تیکی%E2%80%8Cتاکای-اسپانیایی-خواهیم-دید!
+yarn dev && yarn start goaldaily -u https://goaldaily.ir/page/view/103275/زارع-رسماً-سرمربی-ملوان-شد
+
+yarn dev && yarn start haftesobh
+yarn dev && yarn start haftesobh -u https://7sobh.com/بخش-ورزشی-39/564400-یک-خواهر-یک-برادر-درباره-عکسی-که-این-روزها-دست-به-دست-می-شود
+
+yarn dev && yarn start birjandtoday
+yarn dev && yarn start birjandtoday -u https://www.birjandtoday.ir/1403/05/کابینه-پیشنهادی-پزشکیان-رونمایی-شد/
+
+yarn dev && yarn start siasatrooz
+yarn dev && yarn start siasatrooz -u https://www.siasatrooz.ir/fa/news/130335/افزایش-قیمت-نسخه-ای-تکراری-بدون-دستاورد
+
+yarn dev && yarn start afarineshdaily
+yarn dev && yarn start afarineshdaily -u http://www.afarineshdaily.ir/news/79841
+
+yarn dev && yarn start keshwarnews 
+yarn dev && yarn start keshwarnews -u https://keshwarnews.com/بین-الملل/خطرناکترین-و-امنترین-شهرهای-جهان-م/keshwarnews/
+
+yarn dev && yarn start donyayebimeh
+yarn dev && yarn start donyayebimeh -u https://www.donyayebimeh.ir/قوانین-و-احکام-بیاعتبار-بیمه-حذف-می/
+
+yarn dev && yarn start mouood
+yarn dev && yarn start mouood -u https://fa.mouood.com/94390/multimedia/moive/meeting-mouood/mahdavi-meeting/نشست-164-لغزشهای-اعتقادی-در-عصر-غیبت/
+
+yarn dev && yarn start hormozban 
+yarn dev && yarn start hormozban -u https://www.hormozban.ir/details/124475/۱۷۵-جواز-تاسیس-صنعتی-در-هرمزگان-صادر-شد.html
+
+yarn dev && yarn start eghtesadobimeh
+yarn dev && yarn start eghtesadobimeh -u https://www.eghtesadobimeh.ir/اعطای-گواهینامه-تایید-صلاحیت-آموزش-ه/
+
+yarn dev && yarn start shahrebours
+yarn dev && yarn start shahrebours -u https://shahrebours.com/افزایش-سرمایه-ثنظام-به-مجمع-رفت/
+
+yarn dev && yarn start modara
+yarn dev && yarn start modara -u https://www.modara.ir/fa/news/184195/جزییات-نحوه-پرداخت-سود-سهام-عدالت-از-شنبه/
+
+yarn dev && yarn start aiinbimeh
+yarn dev && yarn start aiinbimeh -u http://aiinbimeh.ir/content/16392
+
+yarn dev && yarn start saramadeakhbar
+yarn dev && yarn start saramadeakhbar -u https://saramadeakhbar.ir/2024/08/14/صادرات-ماهانه-تخم-مرغ-به-۱۴-هزار-تن-رسید/
+
+yarn dev && yarn start eghtesadgooya 
+yarn dev && yarn start eghtesadgooya -u https://eghtesadgooya.ir/۴۰-هزار-فقره-تسهیلات-۳۰-میلیون-تومانی-ب/
+
+yarn dev && yarn start icana 
+yarn dev && yarn start icana -u https://icana.ir/اقتصادی/مهمترین-کار-اجرای-قوانین-برنامه-هفتم-و-جهش-تولید-مسکن-است⁄-بانوان-متخصص-می%E2%80%8Cتوانند-حوزه%E2%80%8Cهای-راهبردی-را-مدیریت-کنند
+
+yarn dev && yarn start eghtesadema
+yarn dev && yarn start eghtesadema -u https://www.eghtesadema.ir/news/1403052716890/کاهش-آتش-سوزی-با-هوش-مصنوعی
+
+yarn dev && yarn start talayedarankhabar 
+yarn dev && yarn start talayedarankhabar -u https://talayedarankhabar.ir/25315/پالایشگاه-پارسیان؛-به-وقت-اقماری-ها/
+
+yarn dev && yarn start ghaznawyantv
+yarn dev && yarn start ghaznawyantv -u https://ghaznawyantv.com/احتمال-بارش-شدید-باران-و-سرازیرشدن-سیل/
+
+yarn dev && yarn start isignal
+yarn dev && yarn start isignal -u https://isignal.ir/analyse/اقتصاد-بزرگتر،-مِدال-بیشتر/
+yarn dev && yarn start isignal -u https://isignal.ir/بورس-دلار-خودرو/
+
+yarn dev && yarn start tanishnews 
+yarn dev && yarn start tanishnews -u https://tanishnews.ir/۸-بسته%e2%80%8c-فرهنگی-در-طرح-ثامن-توزیع-می-ش/
+
+yarn dev && yarn start sedayerey
+yarn dev && yarn start sedayerey -u https://sedayerey.ir/بهره-برداری-از-پل-دسترسی-شهید-آوینی-به-ح/
+
+yarn dev && yarn start eghtesadbazargani
+yarn dev && yarn start eghtesadbazargani -u https://eghtesadbazargani.ir/Archive/عقبماندگی-بورس-ایران-از-بازارهای-سهام-کشورهای-منطقه
+
+yarn dev && yarn start sarmayefarda
+yarn dev && yarn start sarmayefarda -u https://sarmayefarda.ir/جریان-پول-متمایل-به-بازارهای-پربازده/
+
 https://motamem.org/
 /**/
