@@ -10120,3 +10120,26 @@ export class alefbakhabar extends clsScrapper {
         })
     }
 }
+
+export class hibna extends clsScrapper {
+    constructor() {
+        super(enuDomains.hibna, "hibna.ir", {
+            selectors: {
+                article: "#PageContent",
+                aboveTitle: "#ContentPlaceHolder1_litUpTitle",
+                title: "h1",
+                subtitle: ".News_Lead",
+                datetime: {
+                    conatiner: ".DateTime"
+                },
+                content: {
+                    main: "#BodyContent",
+                },
+                category: {
+                    selector: "#ContentPlaceHolder1_lblService"
+                },
+                tags: ".TagBox a"
+            },
+        })
+    }
+}

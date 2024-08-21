@@ -2684,5 +2684,8 @@ yarn dev && yarn start ibena -u https://www.ibena.ir/fa/news/165952/تالار-�
 yarn dev && yarn start alefbakhabar 
 yarn dev && yarn start alefbakhabar -u https://alefbakhabar.com/صادرات-از-گمرکات-خراسان-جنوبی-۶۵-درصد-ا/
 
+yarn dev && yarn start hibna
+yarn dev && yarn start hibna -u https://www.hibna.ir/Fa/News/84357/تأسیس-مرکز-نوآوری-در-هلدینگ-ثمسکن-رعایت-کامل-حقوق-و-منافع-سهامداران-جزء-در-تمام-شرکت-های-تابعه
+
 https://motamem.org/
 /**/
