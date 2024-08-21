@@ -10101,3 +10101,22 @@ export class ibena extends clsScrapper {
         })
     }
 }
+
+export class alefbakhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.alefbakhabar, "alefbakhabar.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                tags: "a.elementor-post-info__terms-list-item"
+            },
+        })
+    }
+}

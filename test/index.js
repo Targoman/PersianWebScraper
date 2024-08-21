@@ -2681,5 +2681,8 @@ yarn dev && yarn start hammihanonline -u https://hammihanonline.ir/بخش-فره
 yarn dev && yarn start ibena
 yarn dev && yarn start ibena -u https://www.ibena.ir/fa/news/165952/تالار-ارز-توافقی-به-مدیریت-بازار-ارز-کمک-می%E2%80%8Cکند
 
+yarn dev && yarn start alefbakhabar 
+yarn dev && yarn start alefbakhabar -u https://alefbakhabar.com/صادرات-از-گمرکات-خراسان-جنوبی-۶۵-درصد-ا/
+
 https://motamem.org/
 /**/
