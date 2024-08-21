@@ -2687,5 +2687,8 @@ yarn dev && yarn start alefbakhabar -u https://alefbakhabar.com/صادرات-ا�
 yarn dev && yarn start hibna
 yarn dev && yarn start hibna -u https://www.hibna.ir/Fa/News/84357/تأسیس-مرکز-نوآوری-در-هلدینگ-ثمسکن-رعایت-کامل-حقوق-و-منافع-سهامداران-جزء-در-تمام-شرکت-های-تابعه
 
+yarn dev && yarn start masireqtesad
+yarn dev && yarn start masireqtesad -u https://masireqtesad.ir/189912/رفاه،-رشد-و-توسعه-پایدار،-مبتنی-بر-مالی/
+
 https://motamem.org/
 /**/

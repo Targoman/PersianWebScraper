@@ -10143,3 +10143,29 @@ export class hibna extends clsScrapper {
         })
     }
 }
+
+export class masireqtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.masireqtesad, "masireqtesad.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".top_title",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
