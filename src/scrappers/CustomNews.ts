@@ -10049,3 +10049,123 @@ export class sarmayefarda extends clsScrapper {
         })
     }
 }
+
+export class ecobannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ecobannews, "ecobannews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-widget__width-inherit.elementor-widget.elementor-widget-text-editor > div",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["shorten_url"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#catttgory .elementor-post-info__item--type-terms span a",
+                    lastIndex: 2
+                },
+                tags: "#tagggs .elementor-post-info__item.elementor-post-info__item--type-terms span  a"
+            },
+        })
+    }
+}
+
+export class ibena extends clsScrapper {
+    constructor() {
+        super(enuDomains.ibena, "ibena.ir", {
+            selectors: {
+                article: "#news",
+                aboveTitle: ".news-rutitr",
+                title: "h1",
+                subtitle: ".news-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".news_path a",
+                },  
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class alefbakhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.alefbakhabar, "alefbakhabar.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                tags: "a.elementor-post-info__terms-list-item"
+            },
+        })
+    }
+}
+
+export class hibna extends clsScrapper {
+    constructor() {
+        super(enuDomains.hibna, "hibna.ir", {
+            selectors: {
+                article: "#PageContent",
+                aboveTitle: "#ContentPlaceHolder1_litUpTitle",
+                title: "h1",
+                subtitle: ".News_Lead",
+                datetime: {
+                    conatiner: ".DateTime"
+                },
+                content: {
+                    main: "#BodyContent",
+                },
+                category: {
+                    selector: "#ContentPlaceHolder1_lblService"
+                },
+                tags: ".TagBox a"
+            },
+        })
+    }
+}
+
+export class masireqtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.masireqtesad, "masireqtesad.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".top_title",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

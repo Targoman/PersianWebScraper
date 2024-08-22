@@ -1665,3 +1665,10 @@ export class haftesobh extends clsAsamBased {
         return url.toString();
     }
 }
+
+/***********************************************************/
+export class hammihanonline extends clsAsamBased {
+    constructor() {
+        super(enuDomains.hammihanonline, "hammihanonline.ir")
+    }
+}
