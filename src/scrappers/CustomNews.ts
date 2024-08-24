@@ -10169,3 +10169,31 @@ export class masireqtesad extends clsScrapper {
         })
     }
 }
+
+export class iccnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.iccnews, "iccnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["short-link-bott"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comments_list li"),
+                    author: ".comment-author",
+                    datetime: "time",
+                    text: ".comment-text"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

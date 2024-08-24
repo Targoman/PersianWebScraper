@@ -2690,5 +2690,8 @@ yarn dev && yarn start hibna -u https://www.hibna.ir/Fa/News/84357/تأسیس-م
 yarn dev && yarn start masireqtesad
 yarn dev && yarn start masireqtesad -u https://masireqtesad.ir/189912/رفاه،-رشد-و-توسعه-پایدار،-مبتنی-بر-مالی/
 
+yarn dev && yarn start iccnews
+yarn dev && yarn start iccnews -u https://iccnews.ir/نشست-مشترک-اتاق-تعاون-ایران-با-وزرای-پی/
+
 https://motamem.org/
 /**/

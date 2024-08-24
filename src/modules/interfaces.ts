@@ -348,6 +348,7 @@ export enum enuDomains {
     ibena = "ibena",
     ibna = "ibna",
     icana = "icana",
+    iccnews = "iccnews",
     ictnews = "ictnews",
     ictnn = "ictnn",
     ictpress = "ictpress",
