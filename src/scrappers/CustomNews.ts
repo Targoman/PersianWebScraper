@@ -10197,3 +10197,26 @@ export class iccnews extends clsScrapper {
         })
     }
 }
+
+export class asrekhadamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.asrekhadamat, "asrekhadamat.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*برای خواندن اخبار خودرو.*/]
+                },
+                category: {
+                    selector: "a.post-cat",
+                },
+            },
+        })
+    }
+}

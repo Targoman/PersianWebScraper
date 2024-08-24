@@ -2693,5 +2693,8 @@ yarn dev && yarn start masireqtesad -u https://masireqtesad.ir/189912/رفاه،
 yarn dev && yarn start iccnews
 yarn dev && yarn start iccnews -u https://iccnews.ir/نشست-مشترک-اتاق-تعاون-ایران-با-وزرای-پی/
 
+yarn dev && yarn start asrekhadamat 
+yarn dev && yarn start asrekhadamat -u https://www.asrekhadamat.ir/the-power-outage-in-makar-disrupted-car-production84466-2/
+
 https://motamem.org/
 /**/
