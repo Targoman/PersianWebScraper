@@ -121,6 +121,7 @@ export enum enuDomains {
     baten = "baten",
     bayanfarda = "bayanfarda",
     bazarebours = "bazarebours",
+    bazarganannews = "bazarganannews",
     bazarnews = "bazarnews",
     bazicenter = "bazicenter",
     bazideraz1404 = "bazideraz1404",

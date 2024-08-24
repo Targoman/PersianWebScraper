@@ -2699,5 +2699,8 @@ yarn dev && yarn start asrekhadamat -u https://www.asrekhadamat.ir/the-power-out
 yarn dev && yarn start barishnews
 yarn dev && yarn start barishnews -u https://barishnews.ir/News/18844/باراندوز-چای-ارومیه-قربانی-گرفت.html
 
+yarn dev && yarn start bazarganannews
+yarn dev && yarn start bazarganannews -u https://bazarganannews.ir/معامله-۷۹-کیلوگرم-شمش-طلای-استاندارد-د/
+
 https://motamem.org/
 /**/

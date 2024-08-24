@@ -10247,3 +10247,28 @@ export class barishnews extends clsScrapper {
         })
     }
 }
+
+export class bazarganannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazarganannews, "bazarganannews.ir", {
+            selectors: {
+                article: "article.l9",
+                title: ".single-mine-title-2",
+                subtitle: ".single-mine-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".text-news-single",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tick-contents a"),
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
