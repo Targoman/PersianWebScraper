@@ -10220,3 +10220,30 @@ export class asrekhadamat extends clsScrapper {
         })
     }
 }
+
+export class barishnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.barishnews, "barishnews.ir", {
+            selectors: {
+                article: "article.news-box",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".in",
+                    ignoreNodeClasses: ["summary"],
+                    ignoreTexts: [/.*barishnews.ir.*/]
+
+                },
+                category: {
+                    selector: ".address a",
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

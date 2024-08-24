@@ -2696,5 +2696,8 @@ yarn dev && yarn start iccnews -u https://iccnews.ir/نشست-مشترک-اتا�
 yarn dev && yarn start asrekhadamat 
 yarn dev && yarn start asrekhadamat -u https://www.asrekhadamat.ir/the-power-outage-in-makar-disrupted-car-production84466-2/
 
+yarn dev && yarn start barishnews
+yarn dev && yarn start barishnews -u https://barishnews.ir/News/18844/باراندوز-چای-ارومیه-قربانی-گرفت.html
+
 https://motamem.org/
 /**/

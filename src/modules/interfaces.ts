@@ -111,6 +111,7 @@ export enum enuDomains {
     banker = "banker",
     barghab = "barghab",
     barghnews = "barghnews",
+    barishnews = "barishnews",
     barnamenevis = "barnamenevis",
     bartarinha = "bartarinha",
     basalam = "basalam",
