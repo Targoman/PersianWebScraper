@@ -10272,3 +10272,24 @@ export class bazarganannews extends clsScrapper {
         })
     }
 }
+
+export class sanatsenf extends clsScrapper {
+    constructor() {
+        super(enuDomains.sanatsenf, "sanatsenf.ir", {
+            selectors: {
+                article: ".single-post-wrapper",
+                title: "h2",
+                datetime: {
+                    conatiner: ".entry-header > ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}

@@ -2702,5 +2702,8 @@ yarn dev && yarn start barishnews -u https://barishnews.ir/News/18844/باران
 yarn dev && yarn start bazarganannews
 yarn dev && yarn start bazarganannews -u https://bazarganannews.ir/معامله-۷۹-کیلوگرم-شمش-طلای-استاندارد-د/
 
+yarn dev && yarn start sanatsenf
+yarn dev && yarn start sanatsenf -u https://sanatsenf.ir/Post/37381/گاز-و-پتروشیمی/پالایشگاه-ششم-پارس-جنوبی-شعار-ما-می%E2%80%8Cتوانیم-را-هجی-کرد
+
 https://motamem.org/
 /**/
