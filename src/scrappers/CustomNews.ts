@@ -10293,3 +10293,27 @@ export class sanatsenf extends clsScrapper {
         })
     }
 }
+
+export class khordokalan extends clsScrapper {
+    constructor() {
+        super(enuDomains.khordokalan, "khordokalan.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry",
+                },               
+                category: {
+                    selector: "#crumbs a"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

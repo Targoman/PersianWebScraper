@@ -2708,5 +2708,8 @@ yarn dev && yarn start sanatsenf -u https://sanatsenf.ir/Post/37381/گاز-و-پ
 yarn dev && yarn start nesfejahan
 yarn dev && yarn start nesfejahan -u https://nesfejahan.net/fa/news/268552/تنها-راه-محافظت-از-داده%E2%80%8Cها-در-اینترنت
 
+yarn dev && yarn start khordokalan
+yarn dev && yarn start khordokalan -u https://khordokalan.ir/1403/06/05/نگاهی-به-رتبههای-برتر-بیمه-پاسارگاد؛/
+
 https://motamem.org/
 /**/
