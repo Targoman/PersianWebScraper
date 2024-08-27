@@ -10341,3 +10341,26 @@ export class rasaderooz extends clsScrapper {
         })
     }
 }
+
+export class raby extends clsScrapper {
+    constructor() {
+        super(enuDomains.raby, "raby.ir", {
+            selectors: {
+                article: ".post-box-single",
+                aboveTitle: ".post-sub-title",
+                title: "h1",
+                subtitle: "h3",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },        
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
