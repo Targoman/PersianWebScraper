@@ -10317,3 +10317,27 @@ export class khordokalan extends clsScrapper {
         })
     }
 }
+
+export class rasaderooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.rasaderooz, "rasaderooz.com", {
+            selectors: {
+                article: ".article",
+                title: "h1",
+                subtitle: ".f15",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content-entry"),
+                    ignoreTexts: [/.*کانال رصد روز.*/]
+                },             
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[aria-label='breadcrumb'] a"),   
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a")           
+            },
+        })
+    }
+}

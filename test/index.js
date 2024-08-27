@@ -2711,5 +2711,8 @@ yarn dev && yarn start nesfejahan -u https://nesfejahan.net/fa/news/268552/تن�
 yarn dev && yarn start khordokalan
 yarn dev && yarn start khordokalan -u https://khordokalan.ir/1403/06/05/نگاهی-به-رتبههای-برتر-بیمه-پاسارگاد؛/
 
+yarn dev && yarn start rasaderooz
+yarn dev && yarn start rasaderooz -u https://rasaderooz.com/رمزگشایی-از-موضوعی-که-آینده-سرمایه-خار/
+
 https://motamem.org/
 /**/
