@@ -2717,5 +2717,8 @@ yarn dev && yarn start rasaderooz -u https://rasaderooz.com/رمزگشایی-ا�
 yarn dev && yarn start raby
 yarn dev && yarn start raby -u https://raby.ir/از-۱۲-۵-میلیون-تنوع-کالایی-تا-افزایش-فر/
 
+yarn dev && yarn start nikru
+yarn dev && yarn start nikru -u https://www.nikru.ir/news/97506/وزیر-تعاون-آینده-کار-باید-«یارانه-کالایی»-را-جایگزین-نقدی-کند
+
 https://motamem.org/
 /**/

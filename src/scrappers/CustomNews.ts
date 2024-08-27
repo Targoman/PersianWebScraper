@@ -10364,3 +10364,24 @@ export class raby extends clsScrapper {
         })
     }
 }
+
+export class nikru extends clsScrapper {
+    constructor() {
+        super(enuDomains.nikru, "nikru.ir", {
+            selectors: {
+                article: "#news",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: "#lead",
+                datetime: {
+                    conatiner: "#shenase span:nth-child(2)",
+                    splitter: "-"
+                },
+                content: {
+                    main: "#body",
+                },
+                tags: "#tags ul li a"             
+            },
+        })
+    }
+}
