@@ -2726,5 +2726,8 @@ yarn dev && yarn start fasletejarat -u https://www.fasletejarat.ir/Fa/News/74958
 yarn dev && yarn start railnews
 yarn dev && yarn start railnews -u https://railnews.ir/31485
 
+yarn dev && yarn start tabyincenter
+yarn dev && yarn start tabyincenter -u https://tabyincenter.ir/48055/slider/
+
 https://motamem.org/
 /**/

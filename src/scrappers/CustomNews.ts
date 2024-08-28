@@ -10432,3 +10432,27 @@ export class railnews extends clsScrapper {
         })
     }
 }
+
+export class tabyincenter extends clsScrapper {
+    constructor() {
+        super(enuDomains.tabyincenter, "tabyincenter.ir", {
+            basePath: "/?s=",
+            selectors: {
+                article: "body.single-post",
+                title: "h2",
+                subtitle: "h5",
+                datetime: {
+                    conatiner: ".entry-meta > ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*] –.*/, /.*پی‌نوشت‌ها:.*/, /.*https:.*/]
+                },
+                tags: "ul.tags li a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
