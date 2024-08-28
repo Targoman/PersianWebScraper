@@ -275,6 +275,7 @@ export enum enuDomains {
     faryadejonoob = "faryadejonoob",
     faryadenahavand = "faryadenahavand",
     faslejonoob = "faslejonoob",
+    fasletejarat = "fasletejarat",
     faslnews = "faslnews",
     fekrshahr = "fekrshahr",
     felezatkhavarmianeh = "felezatkhavarmianeh",

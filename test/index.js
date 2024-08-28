@@ -2720,5 +2720,8 @@ yarn dev && yarn start raby -u https://raby.ir/از-۱۲-۵-میلیون-تنو�
 yarn dev && yarn start nikru
 yarn dev && yarn start nikru -u https://www.nikru.ir/news/97506/وزیر-تعاون-آینده-کار-باید-«یارانه-کالایی»-را-جایگزین-نقدی-کند
 
+yarn dev && yarn start fasletejarat
+yarn dev && yarn start fasletejarat -u https://www.fasletejarat.ir/Fa/News/749580/پارادایم-رشد-اقتصادی-در-دولت-چهاردهم
+
 https://motamem.org/
 /**/

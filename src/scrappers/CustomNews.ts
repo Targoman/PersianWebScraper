@@ -10385,3 +10385,25 @@ export class nikru extends clsScrapper {
         })
     }
 }
+
+export class fasletejarat extends clsScrapper {
+    constructor() {
+        super(enuDomains.fasletejarat, "fasletejarat.ir", {
+            selectors: {
+                article: "article.status-publish",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2 .the_title"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".entry-meta ul li:nth-child(1)"),
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content"),
+                    ignoreTexts: [/.*لینک کوتاه:.*/, /.*بزرگنمایی:.*/]
+                },             
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-cat a"),   
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-meta ul li a")           
+            },
+        })
+    }
+}
