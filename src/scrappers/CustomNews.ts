@@ -10407,3 +10407,28 @@ export class fasletejarat extends clsScrapper {
         })
     }
 }
+
+export class railnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.railnews, "railnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: "a.category"
+                },
+                tags: ".the-post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

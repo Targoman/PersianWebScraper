@@ -2723,5 +2723,8 @@ yarn dev && yarn start nikru -u https://www.nikru.ir/news/97506/وزیر-تعا�
 yarn dev && yarn start fasletejarat
 yarn dev && yarn start fasletejarat -u https://www.fasletejarat.ir/Fa/News/749580/پارادایم-رشد-اقتصادی-در-دولت-چهاردهم
 
+yarn dev && yarn start railnews
+yarn dev && yarn start railnews -u https://railnews.ir/31485
+
 https://motamem.org/
 /**/
