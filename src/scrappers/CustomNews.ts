@@ -10479,3 +10479,28 @@ export class armantabriz extends clsScrapper {
         })
     }
 }
+
+export class adlnameh extends clsScrapper {
+    constructor() {
+        super(enuDomains.adlnameh, "adlnameh.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    startIndex: 1
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}

@@ -2732,5 +2732,8 @@ yarn dev && yarn start tabyincenter -u https://tabyincenter.ir/48055/slider/
 yarn dev && yarn start armantabriz
 yarn dev && yarn start armantabriz -u https://www.armantabriz.ir/برگزاری-کنگرههای-علمی-تاثیر-زیادی-در/
 
+yarn dev && yarn start adlnameh
+yarn dev && yarn start adlnameh -u https://adlnameh.ir/معاون-حقوق-بشر-و-امور-بینالملل-وزارت/
+
 https://motamem.org/
 /**/
