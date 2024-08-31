@@ -55,6 +55,7 @@ export enum enuDomains {
     armanekerman = "armanekerman",
     armanmeli = "armanmeli",
     armanshargh = "armanshargh",
+    armantabriz = "armantabriz",
     armradio = "armradio",
     arongroups = "arongroups",
     arshehonline = "arshehonline",

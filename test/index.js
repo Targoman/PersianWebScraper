@@ -2729,5 +2729,8 @@ yarn dev && yarn start railnews -u https://railnews.ir/31485
 yarn dev && yarn start tabyincenter
 yarn dev && yarn start tabyincenter -u https://tabyincenter.ir/48055/slider/
 
+yarn dev && yarn start armantabriz
+yarn dev && yarn start armantabriz -u https://www.armantabriz.ir/برگزاری-کنگرههای-علمی-تاثیر-زیادی-در/
+
 https://motamem.org/
 /**/
