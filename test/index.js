@@ -2735,5 +2735,8 @@ yarn dev && yarn start armantabriz -u https://www.armantabriz.ir/برگزاری-
 yarn dev && yarn start adlnameh
 yarn dev && yarn start adlnameh -u https://adlnameh.ir/معاون-حقوق-بشر-و-امور-بینالملل-وزارت/
 
+yarn dev && yarn start khootoot 
+yarn dev && yarn start khootoot -u https://khootoot.ir/fa/news/36744/مناطق-آزاد-قرار-بود-پل-پیوستن-ایران-به-سازمان-تجارت-جهانی-باشد-ولی-به-جای-سکوی-صادرات-مرکز-واردات-شدند
+
 https://motamem.org/
 /**/

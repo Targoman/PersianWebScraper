@@ -3210,3 +3210,23 @@ export class nesfejahan extends clsIransamaneh {
         return url.toString();
     }
 }
+
+export class khootoot extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.khootoot, "khootoot.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".row-tags a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
