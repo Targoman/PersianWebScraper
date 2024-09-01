@@ -162,6 +162,7 @@ export enum enuDomains {
     cann = "cann",
     car = "car",
     chabokonline = "chabokonline",
+    chaharfasl = "chaharfasl",
     chamedanmag = "chamedanmag",
     charkhan = "charkhan",
     chekad = "chekad",

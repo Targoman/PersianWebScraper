@@ -2741,5 +2741,8 @@ yarn dev && yarn start khootoot -u https://khootoot.ir/fa/news/36744/مناطق-
 yarn dev && yarn start sangneveshte
 yarn dev && yarn start sangneveshte -u https://sangneveshte.ir/به-ثبت-جهانی-دره-خرم%e2%80%8c%e2%80%8cآباد-خوش%e2%80%8cبین-ه/
 
+yarn dev && yarn start chaharfasl
+yarn dev && yarn start chaharfasl -u http://chaharfasl.ir/news/136367/تلخ%E2%80%8Cوشیرین-اسارت-به-روایت-آزادگان-کهگیلویه%E2%80%8Cوبویراحمد-تصاویر
+
 https://motamem.org/
 /**/
