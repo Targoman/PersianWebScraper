@@ -2738,5 +2738,8 @@ yarn dev && yarn start adlnameh -u https://adlnameh.ir/معاون-حقوق-بش�
 yarn dev && yarn start khootoot 
 yarn dev && yarn start khootoot -u https://khootoot.ir/fa/news/36744/مناطق-آزاد-قرار-بود-پل-پیوستن-ایران-به-سازمان-تجارت-جهانی-باشد-ولی-به-جای-سکوی-صادرات-مرکز-واردات-شدند
 
+yarn dev && yarn start sangneveshte
+yarn dev && yarn start sangneveshte -u https://sangneveshte.ir/به-ثبت-جهانی-دره-خرم%e2%80%8c%e2%80%8cآباد-خوش%e2%80%8cبین-ه/
+
 https://motamem.org/
 /**/

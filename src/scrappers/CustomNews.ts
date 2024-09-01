@@ -10504,3 +10504,30 @@ export class adlnameh extends clsScrapper {
         })
     }
 }
+
+export class sangneveshte extends clsScrapper {
+    constructor() {
+        super(enuDomains.sangneveshte, "sangneveshte.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".onliner_rutitr_akhv",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".lead1",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

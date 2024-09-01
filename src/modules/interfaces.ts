@@ -700,6 +700,7 @@ export enum enuDomains {
     samanehha = "samanehha",
     sanapress = "sanapress",
     sanatsenf = "sanatsenf",
+    sangneveshte = "sangneveshte",
     saramadeakhbar = "saramadeakhbar",
     sarmayefarda = "sarmayefarda",
     sarpoosh = "sarpoosh",
