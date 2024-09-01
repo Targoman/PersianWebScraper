@@ -2744,5 +2744,8 @@ yarn dev && yarn start sangneveshte -u https://sangneveshte.ir/به-ثبت-جه�
 yarn dev && yarn start chaharfasl
 yarn dev && yarn start chaharfasl -u http://chaharfasl.ir/news/136367/تلخ%E2%80%8Cوشیرین-اسارت-به-روایت-آزادگان-کهگیلویه%E2%80%8Cوبویراحمد-تصاویر
 
+yarn dev && yarn start shamsnews 
+yarn dev && yarn start shamsnews -u https://shamsnews.ir/ساختار-بی%e2%80%8cنظیر-حمایت-از-سرمایه%e2%80%8cگذار/
+
 https://motamem.org/
 /**/

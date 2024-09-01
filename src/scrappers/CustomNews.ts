@@ -10555,3 +10555,27 @@ export class chaharfasl extends clsScrapper {
         })
     }
 }
+
+export class shamsnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.shamsnews, "shamsnews.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
