@@ -2750,5 +2750,8 @@ yarn dev && yarn start shamsnews -u https://shamsnews.ir/ساختار-بی%e2%80
 yarn dev && yarn start cafehdanesh
 yarn dev && yarn start cafehdanesh -u https://cafehdanesh.ir/انقلاب-در-گیمینگ-ویندوز-11-از-همه-جلو-زد/
 
+yarn dev && yarn start myindustry 
+yarn dev && yarn start myindustry -u https://myindustry.ir/14030613-01/
+
 https://motamem.org/
 /**/
