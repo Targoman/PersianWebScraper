@@ -10601,3 +10601,26 @@ export class cafehdanesh extends clsScrapper {
         })
     }
 }
+
+export class navadeghtesadi extends clsScrapper {
+    constructor() {
+        super(enuDomains.navadeghtesadi, "90eghtesadi.com", {
+            selectors: {
+                article: ".box-detail",
+                aboveTitle: "h5",
+                title: "h3",
+                subtitle:  ".post-lead",
+                datetime: {
+                    conatiner: ".box-header > div > .mt-sm-0 > span"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: ".breadcrum span a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".keywords a")
+            },
+        })
+    }
+}

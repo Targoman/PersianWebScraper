@@ -6183,7 +6183,6 @@ export class myindustry extends clsScrapper {
                 },
                 content: {
                     main: ".entry-content",
-                    //ignoreNodeClasses: ["lwptoc_i", "kk-star-ratings"],
                     ignoreTexts: [/.*<img.*/]
 
                 },
