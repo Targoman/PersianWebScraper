@@ -2747,5 +2747,8 @@ yarn dev && yarn start chaharfasl -u http://chaharfasl.ir/news/136367/تلخ%E2%
 yarn dev && yarn start shamsnews 
 yarn dev && yarn start shamsnews -u https://shamsnews.ir/ساختار-بی%e2%80%8cنظیر-حمایت-از-سرمایه%e2%80%8cگذار/
 
+yarn dev && yarn start cafehdanesh
+yarn dev && yarn start cafehdanesh -u https://cafehdanesh.ir/انقلاب-در-گیمینگ-ویندوز-11-از-همه-جلو-زد/
+
 https://motamem.org/
 /**/
