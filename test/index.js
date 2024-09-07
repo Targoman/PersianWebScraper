@@ -2756,5 +2756,8 @@ yarn dev && yarn start myindustry -u https://myindustry.ir/14030613-01/
 yarn dev && yarn start navadeghtesadi
 yarn dev && yarn start navadeghtesadi -u https://www.90eghtesadi.com/Content/Detail/2155582/100-میلیارد-دلار-سرمایه-خارجی-نیازمند-تولید-10-هزار-مگاوات-برق-بیشتر-است
 
+yarn dev && yarn start ofoghoeghtesad
+yarn dev && yarn start ofoghoeghtesad -u https://ofoghoeghtesad.ir/1403/04/12/پایان-وعدههای-ناکام/
+
 https://motamem.org/
 /**/

@@ -10624,3 +10624,25 @@ export class navadeghtesadi extends clsScrapper {
         })
     }
 }
+
+export class ofoghoeghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghoeghtesad, "ofoghoeghtesad.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}

@@ -588,6 +588,7 @@ export enum enuDomains {
     ofoghilam = "ofoghilam",
     ofoghjonoub = "ofoghjonoub",
     ofoghnews = "ofoghnews",
+    ofoghoeghtesad = "ofoghoeghtesad",
     ofoghtehran = "ofoghtehran",
     oghyanos = "oghyanos",
     oipf = "oipf",
