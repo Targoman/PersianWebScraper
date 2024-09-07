@@ -2762,5 +2762,8 @@ yarn dev && yarn start ofoghoeghtesad -u https://ofoghoeghtesad.ir/1403/04/12/پ
 yarn dev && yarn start hadana 
 yarn dev && yarn start hadana -u https://hadana.ir/سند-حديث-خروج-ماه-صفر-و-بشارت-بهشت/
 
+yarn dev && yarn start charkheghtesadnews
+yarn dev && yarn start charkheghtesadnews -u https://charkheghtesadnews.ir/فروش-کارت-سوخت-با-۶۰۰۰-لیتر-بنزین-۱۵۰۰-ت/
+
 https://motamem.org/
 /**/

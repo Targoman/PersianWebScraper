@@ -166,6 +166,7 @@ export enum enuDomains {
     chaharfasl = "chaharfasl",
     chamedanmag = "chamedanmag",
     charkhan = "charkhan",
+    charkheghtesadnews = "charkheghtesadnews",
     chekad = "chekad",
     chemibazar = "chemibazar",
     chetor = "chetor",
