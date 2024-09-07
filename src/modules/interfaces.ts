@@ -320,6 +320,7 @@ export enum enuDomains {
     gozaresheonline = "gozaresheonline",
     gsm = "gsm",
     haal = "haal",
+    hadana = "hadana",
     hadese24 = "hadese24",
     hadeseilam = "hadeseilam",
     hadith = "hadith",

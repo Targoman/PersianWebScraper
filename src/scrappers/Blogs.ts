@@ -6194,3 +6194,37 @@ export class myindustry extends clsScrapper {
         })
     }
 }
+
+
+export class hadana extends clsScrapper {
+    constructor() {
+        super(enuDomains.hadana, "hadana.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article .entry-content ",
+                    ignoreNodeClasses: ["entry-title", "post-related", "bs-irp"],
+                    ignoreTexts: [/.*لینك كوتاه مطلب.*/, /.*جدید ترین مطالب را دریافت كنید.*/]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comment-list li"),
+                    author: "cite.comment-author",
+                    datetime: "time",
+                    text: ".comment-content"
+                },
+                category: {
+                    selector: "ul.bf-breadcrumb-items li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".post-tags a"
+            }
+        })
+    }
+}

@@ -2759,5 +2759,8 @@ yarn dev && yarn start navadeghtesadi -u https://www.90eghtesadi.com/Content/Det
 yarn dev && yarn start ofoghoeghtesad
 yarn dev && yarn start ofoghoeghtesad -u https://ofoghoeghtesad.ir/1403/04/12/پایان-وعدههای-ناکام/
 
+yarn dev && yarn start hadana 
+yarn dev && yarn start hadana -u https://hadana.ir/سند-حديث-خروج-ماه-صفر-و-بشارت-بهشت/
+
 https://motamem.org/
 /**/
