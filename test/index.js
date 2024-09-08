@@ -2768,5 +2768,8 @@ yarn dev && yarn start charkheghtesadnews -u https://charkheghtesadnews.ir/فر�
 yarn dev && yarn start hashtdeynews
 yarn dev && yarn start hashtdeynews -u https://www.8deynews.com/789054/افزایش-تدریجی-دمای-هوا-در-گیلان-8/
 
+yarn dev && yarn start nedayetajan
+yarn dev && yarn start nedayetajan -u https://nedayetajan.ir/2024/08/01/صادرات-113-میلیون-دلاری-کالا-از-مازندران/
+
 https://motamem.org/
 /**/

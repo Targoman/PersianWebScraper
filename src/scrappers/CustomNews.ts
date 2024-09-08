@@ -10689,3 +10689,29 @@ export class hashtdeynews extends clsScrapper {
         })
     }
 }
+
+export class nedayetajan extends clsScrapper {
+    constructor() {
+        super(enuDomains.nedayetajan, "nedayetajan.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle: ".lead b",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2) > b"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
