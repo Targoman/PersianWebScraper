@@ -10666,3 +10666,26 @@ export class charkheghtesadnews extends clsScrapper {
         })
     }
 }
+
+export class hashtdeynews extends clsScrapper {
+    constructor() {
+        super(enuDomains.hashtdeynews, "8deynews.com", {
+            selectors: {
+                article: "article.single-post-content",
+                aboveTitle: "h5",
+                title: "h1",
+                subtitle:  ".single-post-lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post-context",
+                },
+                category: {
+                    selector: "ul.single-post-content-info > li:nth-child(1)",
+                },
+            },
+        })
+    }
+}

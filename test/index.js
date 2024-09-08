@@ -2765,5 +2765,8 @@ yarn dev && yarn start hadana -u https://hadana.ir/سند-حديث-خروج-ما
 yarn dev && yarn start charkheghtesadnews
 yarn dev && yarn start charkheghtesadnews -u https://charkheghtesadnews.ir/فروش-کارت-سوخت-با-۶۰۰۰-لیتر-بنزین-۱۵۰۰-ت/
 
+yarn dev && yarn start hashtdeynews
+yarn dev && yarn start hashtdeynews -u https://www.8deynews.com/789054/افزایش-تدریجی-دمای-هوا-در-گیلان-8/
+
 https://motamem.org/
 /**/
