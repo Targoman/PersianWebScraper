@@ -188,6 +188,7 @@ export enum enuDomains {
     dadpardaz = "dadpardaz",
     dadvarzyar = "dadvarzyar",
     dailytelegraph = "dailytelegraph",
+    daneshjooazad = "daneshjooazad",
     danestanyonline = "danestanyonline",
     dargi = "dargi",
     darsiahkal = "darsiahkal",

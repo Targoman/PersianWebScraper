@@ -2774,5 +2774,8 @@ yarn dev && yarn start nedayetajan -u https://nedayetajan.ir/2024/08/01/صادر
 yarn dev && yarn start icro
 yarn dev && yarn start icro -u https://www.icro.ir/اخبار-سازمان/تبلور-دیپلماسی-فرهنگی-ایران-در-ترکیه-
 
+yarn dev && yarn start daneshjooazad 
+yarn dev && yarn start daneshjooazad -u https://daneshjooazad.ir/تا-کنون-۶۰-هزار-نفر-از-دانشگاه-پیام-نور/
+
 https://motamem.org/
 /**/

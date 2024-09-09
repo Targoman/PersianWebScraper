@@ -10739,3 +10739,23 @@ export class icro extends clsScrapper {
         })
     }
 }
+
+export class daneshjooazad extends clsScrapper {
+    constructor() {
+        super(enuDomains.daneshjooazad, "daneshjooazad.ir", {
+            selectors: {
+                article: ".singlepost",
+                title: "center a.title",
+                subtitle: ".centerbox > div > div:nth-child(8)",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}
