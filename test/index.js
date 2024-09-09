@@ -2771,5 +2771,8 @@ yarn dev && yarn start hashtdeynews -u https://www.8deynews.com/789054/افزا�
 yarn dev && yarn start nedayetajan
 yarn dev && yarn start nedayetajan -u https://nedayetajan.ir/2024/08/01/صادرات-113-میلیون-دلاری-کالا-از-مازندران/
 
+yarn dev && yarn start icro
+yarn dev && yarn start icro -u https://www.icro.ir/اخبار-سازمان/تبلور-دیپلماسی-فرهنگی-ایران-در-ترکیه-
+
 https://motamem.org/
 /**/
