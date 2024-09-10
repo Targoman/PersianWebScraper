@@ -10759,3 +10759,26 @@ export class daneshjooazad extends clsScrapper {
         })
     }
 }
+
+export class asemaninews extends clsScrapper {
+    constructor() {
+        super(enuDomains.asemaninews, "asemaninews.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[typeof='v:Breadcrumb'] a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}

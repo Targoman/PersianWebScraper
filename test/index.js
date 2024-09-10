@@ -2777,5 +2777,8 @@ yarn dev && yarn start icro -u https://www.icro.ir/اخبار-سازمان/تب�
 yarn dev && yarn start daneshjooazad 
 yarn dev && yarn start daneshjooazad -u https://daneshjooazad.ir/تا-کنون-۶۰-هزار-نفر-از-دانشگاه-پیام-نور/
 
+yarn dev && yarn start asemaninews
+yarn dev && yarn start asemaninews -u https://www.asemaninews.ir/آشنایی-با-محله-های-پیر-شمس-الدین-و-عبدال/
+
 https://motamem.org/
 /**/
