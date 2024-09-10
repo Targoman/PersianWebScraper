@@ -10782,3 +10782,30 @@ export class asemaninews extends clsScrapper {
         })
     }
 }
+
+export class yazdaneh extends clsScrapper {
+    constructor() {
+        super(enuDomains.yazdaneh, "yazdaneh.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".bp-content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                    lastIndex: 2
+                },
+                tags: ".bp-tags a",
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

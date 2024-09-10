@@ -2780,5 +2780,8 @@ yarn dev && yarn start daneshjooazad -u https://daneshjooazad.ir/تا-کنون-�
 yarn dev && yarn start asemaninews
 yarn dev && yarn start asemaninews -u https://www.asemaninews.ir/آشنایی-با-محله-های-پیر-شمس-الدین-و-عبدال/
 
+yarn dev && yarn start yazdaneh
+yarn dev && yarn start yazdaneh -u https://yazdaneh.ir/کارنامه-مهـران-فاطمی-در-اسـتانداری-صد/
+
 https://motamem.org/
 /**/
