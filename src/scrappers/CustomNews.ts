@@ -10809,3 +10809,30 @@ export class yazdaneh extends clsScrapper {
         })
     }
 }
+
+export class mazandmajles extends clsScrapper {
+    constructor() {
+        super(enuDomains.mazandmajles, "mazandmajles.ir", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h4",
+                title: "h3",
+                subtitle: "blockquote.blockquote",
+                datetime: {
+                    conatiner: ".post__date"
+                },
+                content: {
+                    main: ".article-content",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1
+                },         
+                tags: ".tags a"
+            },
+            url: {
+                forceHTTP: true, 
+            }
+        })
+    }
+}
