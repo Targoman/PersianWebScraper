@@ -2786,5 +2786,8 @@ yarn dev && yarn start yazdaneh -u https://yazdaneh.ir/کارنامه-مهـرا
 yarn dev && yarn start mazandmajles 
 yarn dev && yarn start mazandmajles -u http://www.mazandmajles.ir/post/read/241652/استاندار-باید-قدرت-اجماع%E2%80%8Cسازی-داشته-باشد--مهمترین-ناترازی-برای-یک-دولت،-ناترازی-در-حمایت%E2%80%8Cهای-مردمی-و-سرمایه%E2%80%8Cهای-اجتماعی-است--استاندار-باید-فرزند-زمان-خود-بوده-و-با-جامعه%E2%80%8Cی-زمان-خود،-هم-سرنوشت-باشد.html
 
+yarn dev && yarn start shapourkhast
+yarn dev && yarn start shapourkhast -u https://shapourkhast.ir/بایگانی/8805
+
 https://motamem.org/
 /**/

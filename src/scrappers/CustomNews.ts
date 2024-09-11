@@ -10836,3 +10836,31 @@ export class mazandmajles extends clsScrapper {
         })
     }
 }
+
+export class shapourkhast extends clsScrapper {
+    constructor() {
+        super(enuDomains.shapourkhast, "shapourkhast.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".onliner_rutitr_akhv",
+                title: "h1",
+                subtitle: ".lead2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".lead1",
+                    ignoreNodeClasses: ["Htags"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
