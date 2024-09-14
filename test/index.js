@@ -2792,5 +2792,8 @@ yarn dev && yarn start shapourkhast -u https://shapourkhast.ir/بایگانی/88
 yarn dev && yarn start rotbehonline
 yarn dev && yarn start rotbehonline -u https://rotbehonline.com/دمای-متوسط-کشور-های-آسیایی/
 
+yarn dev && yarn start navidtorbat 
+yarn dev && yarn start navidtorbat -u http://www.navidtorbat.ir/fa/News/27584/کشف-گوردخمه%E2%80%8Cهای-زرتشتی-در-آفریقا؛-هزاران-کیلومتر-دورتر-از-ایران-در-اعماق-جزیره-ماداگاسکار
+
 https://motamem.org/
 /**/

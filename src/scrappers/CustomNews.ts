@@ -10890,3 +10890,29 @@ export class rotbehonline extends clsScrapper {
         })
     }
 }
+
+export class navidtorbat extends clsScrapper {
+    constructor() {
+        super(enuDomains.navidtorbat, "navidtorbat.ir", {
+            selectors: {
+                article: "article.boxcolor",
+                title: ".the_title",
+                datetime: {
+                    conatiner: "div:nth-child(5) > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*بزرگنمایی:.*/, /.*پایگاه خبری نوید تربت:.*/]                
+                },
+                category: {
+                    selector: ".entry-cat",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                forceHTTP: true,
+                extraInvalidStartPaths: ["/Feed"]
+            }
+        })
+    }
+}
