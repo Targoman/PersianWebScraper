@@ -2789,5 +2789,8 @@ yarn dev && yarn start mazandmajles -u http://www.mazandmajles.ir/post/read/2416
 yarn dev && yarn start shapourkhast
 yarn dev && yarn start shapourkhast -u https://shapourkhast.ir/بایگانی/8805
 
+yarn dev && yarn start rotbehonline
+yarn dev && yarn start rotbehonline -u https://rotbehonline.com/دمای-متوسط-کشور-های-آسیایی/
+
 https://motamem.org/
 /**/
