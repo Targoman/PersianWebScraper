@@ -10940,3 +10940,28 @@ export class razavi extends clsScrapper {
         })
     }
 }
+
+export class ourpresident extends clsScrapper {
+    constructor() {
+        super(enuDomains.ourpresident, "ourpresident.ir", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".article-bold",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                    ignoreNodeClasses: ["article-bold"]
+                },
+                category: {
+                    selector: "[itemprop='genre']",
+                },
+                tags: ".tags span a"
+            },
+        })
+    }
+}

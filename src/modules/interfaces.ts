@@ -610,6 +610,7 @@ export enum enuDomains {
     ostanes = "ostanes",
     otagh24 = "otagh24",
     otaghiranonline = "otaghiranonline",
+    ourpresident = "ourpresident",
     p30world = "p30world",
     pana = "pana",
     panamag = "panamag",

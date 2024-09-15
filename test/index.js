@@ -2798,5 +2798,8 @@ yarn dev && yarn start navidtorbat -u http://www.navidtorbat.ir/fa/News/27584/ک
 yarn dev && yarn start razavi
 yarn dev && yarn start razavi -u https://www.razavi.news/fa/news/121091/اهمیت-آیین-زیارت-فرهنگ-ایران-مسیحیت
 
+yarn dev && yarn start ourpresident
+yarn dev && yarn start ourpresident -u https://www.ourpresident.ir/analysis/article/یوفو-در-تهران
+
 https://motamem.org/
 /**/
