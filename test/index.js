@@ -2801,5 +2801,8 @@ yarn dev && yarn start razavi -u https://www.razavi.news/fa/news/121091/اهمی
 yarn dev && yarn start ourpresident
 yarn dev && yarn start ourpresident -u https://www.ourpresident.ir/analysis/article/یوفو-در-تهران
 
+yarn dev && yarn start dailyafghanistan
+yarn dev && yarn start dailyafghanistan -u http://www.dailyafghanistan.com/entertainment_detail.php?post_id=157371
+
 https://motamem.org/
 /**/

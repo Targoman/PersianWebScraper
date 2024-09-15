@@ -10965,3 +10965,26 @@ export class ourpresident extends clsScrapper {
         })
     }
 }
+
+export class dailyafghanistan extends clsScrapper {
+    constructor() {
+        super(enuDomains.dailyafghanistan, "dailyafghanistan.com", {
+            selectors: {
+                article: ".articleContainer",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb a"),
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
