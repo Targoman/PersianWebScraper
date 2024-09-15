@@ -2795,5 +2795,8 @@ yarn dev && yarn start rotbehonline -u https://rotbehonline.com/دمای-متو�
 yarn dev && yarn start navidtorbat 
 yarn dev && yarn start navidtorbat -u http://www.navidtorbat.ir/fa/News/27584/کشف-گوردخمه%E2%80%8Cهای-زرتشتی-در-آفریقا؛-هزاران-کیلومتر-دورتر-از-ایران-در-اعماق-جزیره-ماداگاسکار
 
+yarn dev && yarn start razavi
+yarn dev && yarn start razavi -u https://www.razavi.news/fa/news/121091/اهمیت-آیین-زیارت-فرهنگ-ایران-مسیحیت
+
 https://motamem.org/
 /**/
