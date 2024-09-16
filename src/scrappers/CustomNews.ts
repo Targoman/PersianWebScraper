@@ -10988,3 +10988,28 @@ export class dailyafghanistan extends clsScrapper {
         })
     }
 }
+
+export class pezhvakkurdestan extends clsScrapper {
+    constructor() {
+        super(enuDomains.pezhvakkurdestan, "pezhvakkurdestan.ir", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivLead1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                    ignoreNodeClasses: ["share-buttons", "url-clipboard-btn"]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a"),
+            },
+        })
+    }
+}

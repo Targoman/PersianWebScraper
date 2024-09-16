@@ -2804,5 +2804,8 @@ yarn dev && yarn start ourpresident -u https://www.ourpresident.ir/analysis/arti
 yarn dev && yarn start dailyafghanistan
 yarn dev && yarn start dailyafghanistan -u http://www.dailyafghanistan.com/entertainment_detail.php?post_id=157371
 
+yarn dev && yarn start pezhvakkurdestan
+yarn dev && yarn start pezhvakkurdestan -u https://www.pezhvakkurdestan.ir/report/730/آبلومویسم-منصوبان-دولت-سیزدهم-کردستان
+
 https://motamem.org/
 /**/
