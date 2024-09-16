@@ -11013,3 +11013,27 @@ export class pezhvakkurdestan extends clsScrapper {
         })
     }
 }
+
+export class madannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.madannews, "madannews.ir", {
+            selectors: {
+                article: "#ctl00_ContentPlaceHolder1_divNews",
+                aboveTitle: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h2"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: ".newslid",
+                datetime: {
+                    conatiner: ".article-info > dd:nth-child(2)"
+                },
+                content: {
+                    main: " div:nth-child(4)",
+                    ignoreTexts: [/.*بزرگنمایی:.*/]                
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.btn-custom"),
+                },
+                tags: "[rel='tag']",
+            },
+        })
+    }
+}

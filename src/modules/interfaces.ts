@@ -497,6 +497,7 @@ export enum enuDomains {
     lisna = "lisna",
     lkiran = "lkiran",
     madanname = "madanname",
+    madannews = "madannews",
     madarsho = "madarsho",
     magiran = "magiran",
     mahyanews = "mahyanews",

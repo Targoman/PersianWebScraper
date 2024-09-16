@@ -2807,5 +2807,8 @@ yarn dev && yarn start dailyafghanistan -u http://www.dailyafghanistan.com/enter
 yarn dev && yarn start pezhvakkurdestan
 yarn dev && yarn start pezhvakkurdestan -u https://www.pezhvakkurdestan.ir/report/730/آبلومویسم-منصوبان-دولت-سیزدهم-کردستان
 
+yarn dev && yarn start madannews
+yarn dev && yarn start madannews -u https://www.madannews.ir/Fa/News/644286/سهم-انرژی-در-انتشار-دی-اکسید-کربن-افزایش-یافت
+
 https://motamem.org/
 /**/
