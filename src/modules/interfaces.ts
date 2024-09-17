@@ -899,6 +899,7 @@ export enum enuDomains {
     zenhar = "zenhar",
     zhaket = "zhaket",
     zibamoon = "zibamoon",
+    ziryanmukryan = "ziryanmukryan",
     zisaan = "zisaan",
     zoomarz = "zoomarz",
     zoomg = "zoomg",

@@ -2813,5 +2813,8 @@ yarn dev && yarn start madannews -u https://www.madannews.ir/Fa/News/644286/سه
 yarn dev && yarn start swn
 yarn dev && yarn start swn -u https://swn.af/bringing-girls-to-online-education-online-lessons-cannot-replace-face-to-face-lessons/
 
+yarn dev && yarn start ziryanmukryan
+yarn dev && yarn start ziryanmukryan -u "https://www.ziryanmukryan.ir/news.php?id=32CE41AF&news=کشف%20اشیاء%20تاریخی%20مربوط%20به%20هزاره%20اول%20قبل%20از%20میلاد%20در%20کردستان"
+
 https://motamem.org/
 /**/

@@ -11060,3 +11060,25 @@ export class swn extends clsScrapper {
         })
     }
 }
+
+export class ziryanmukryan extends clsScrapper {
+    constructor() {
+        super(enuDomains.ziryanmukryan, "ziryanmukryan.ir", {
+            selectors: {
+                article: "article.post-box-single",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "[style].post-info > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: ".post-info ul li a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
