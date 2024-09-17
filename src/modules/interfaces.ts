@@ -796,6 +796,7 @@ export enum enuDomains {
     sornakhabar = "sornakhabar",
     spnfa = "spnfa",
     sputnikaf = "sputnikaf",
+    swn = "swn",
     taaghche = "taaghche",
     tabnak = "tabnak",
     tabnakbato = "tabnakbato",

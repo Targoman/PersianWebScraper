@@ -2810,5 +2810,8 @@ yarn dev && yarn start pezhvakkurdestan -u https://www.pezhvakkurdestan.ir/repor
 yarn dev && yarn start madannews
 yarn dev && yarn start madannews -u https://www.madannews.ir/Fa/News/644286/سهم-انرژی-در-انتشار-دی-اکسید-کربن-افزایش-یافت
 
+yarn dev && yarn start swn
+yarn dev && yarn start swn -u https://swn.af/bringing-girls-to-online-education-online-lessons-cannot-replace-face-to-face-lessons/
+
 https://motamem.org/
 /**/
