@@ -11082,3 +11082,30 @@ export class ziryanmukryan extends clsScrapper {
         })
     }
 }
+
+export class amfm extends clsScrapper {
+    constructor() {
+        super(enuDomains.amfm, "news.amfm.ir", {
+            basePath: "/archive",
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".above-title",
+                title: "h1",
+                subtitle: ".post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },            
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

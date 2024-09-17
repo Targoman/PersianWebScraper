@@ -2816,5 +2816,8 @@ yarn dev && yarn start swn -u https://swn.af/bringing-girls-to-online-education-
 yarn dev && yarn start ziryanmukryan
 yarn dev && yarn start ziryanmukryan -u "https://www.ziryanmukryan.ir/news.php?id=32CE41AF&news=کشف%20اشیاء%20تاریخی%20مربوط%20به%20هزاره%20اول%20قبل%20از%20میلاد%20در%20کردستان"
 
+yarn dev && yarn start amfm
+yarn dev && yarn start amfm -u https://news.amfm.ir/2024/09/15/قم-به-عنوان-جهان-شهر-معنویت-جایگاهی-ویژ/
+
 https://motamem.org/
 /**/
