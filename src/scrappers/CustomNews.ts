@@ -11109,3 +11109,28 @@ export class amfm extends clsScrapper {
         })
     }
 }
+
+export class jenayi extends clsScrapper {
+    constructor() {
+        super(enuDomains.jenayi, "jenayi.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["mini-posts-box", "kk-star-ratings", "stream-item", "post-bottom-meta", "post-shortlink"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}

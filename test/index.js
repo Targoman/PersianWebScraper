@@ -2822,5 +2822,8 @@ yarn dev && yarn start amfm -u https://news.amfm.ir/2024/09/15/قم-به-عنو�
 yarn dev && yarn start razebaghaa
 yarn dev && yarn start razebaghaa -u https://razebaghaa.ir/fa/news/1827/جابیرو-یا-لک-لک-گردن-کلفت-هیولایی-که-اگر-گرسنه-شود-همنوع-خودش-را-می%E2%80%8Cخورد
 
+yarn dev && yarn start jenayi
+yarn dev && yarn start jenayi -u https://jenayi.com/کلاهبرداری-۴۰-میلیاردی-از-شهروندان-در/
+
 https://motamem.org/
 /**/
