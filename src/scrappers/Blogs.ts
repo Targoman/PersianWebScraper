@@ -6228,3 +6228,27 @@ export class hadana extends clsScrapper {
         })
     }
 }
+
+export class razebaghaa extends clsScrapper {
+    constructor() {
+        super(enuDomains.razebaghaa, "razebaghaa.ir", {
+            selectors: {
+                article: ".news_body",
+                title: "h1",
+                subtitle: ".subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".main_news_body",
+
+                },
+                category: {
+                    selector: ".news_path div a",
+                },
+                tags: "a.tags_item"
+            }
+        })
+    }
+}

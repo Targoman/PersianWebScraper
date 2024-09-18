@@ -2819,5 +2819,8 @@ yarn dev && yarn start ziryanmukryan -u "https://www.ziryanmukryan.ir/news.php?i
 yarn dev && yarn start amfm
 yarn dev && yarn start amfm -u https://news.amfm.ir/2024/09/15/قم-به-عنوان-جهان-شهر-معنویت-جایگاهی-ویژ/
 
+yarn dev && yarn start razebaghaa
+yarn dev && yarn start razebaghaa -u https://razebaghaa.ir/fa/news/1827/جابیرو-یا-لک-لک-گردن-کلفت-هیولایی-که-اگر-گرسنه-شود-همنوع-خودش-را-می%E2%80%8Cخورد
+
 https://motamem.org/
 /**/
