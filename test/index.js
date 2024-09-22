@@ -2828,5 +2828,8 @@ yarn dev && yarn start jenayi -u https://jenayi.com/کلاهبرداری-۴۰-م
 yarn dev && yarn start farhangpress
 yarn dev && yarn start farhangpress -u https://www.farhangpress.af/آشنایی-با-واخان،-دومین-پارک-ملی-افغانس/
 
+yarn dev && yarn start amu
+yarn dev && yarn start amu -u https://amu.tv/fa/122845/
+
 https://motamem.org/
 /**/

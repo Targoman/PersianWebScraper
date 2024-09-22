@@ -11156,3 +11156,27 @@ export class farhangpress extends clsScrapper {
         })
     }
 }
+
+export class amu extends clsScrapper {
+    constructor() {
+        super(enuDomains.amu, "amu.tv", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".main-wrap > .entry-content",
+                },
+                category: {
+                    selector: ".category-style",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
