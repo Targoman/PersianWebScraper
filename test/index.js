@@ -2825,5 +2825,8 @@ yarn dev && yarn start razebaghaa -u https://razebaghaa.ir/fa/news/1827/جابی
 yarn dev && yarn start jenayi
 yarn dev && yarn start jenayi -u https://jenayi.com/کلاهبرداری-۴۰-میلیاردی-از-شهروندان-در/
 
+yarn dev && yarn start farhangpress
+yarn dev && yarn start farhangpress -u https://www.farhangpress.af/آشنایی-با-واخان،-دومین-پارک-ملی-افغانس/
+
 https://motamem.org/
 /**/

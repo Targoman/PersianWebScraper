@@ -11134,3 +11134,25 @@ export class jenayi extends clsScrapper {
         })
     }
 }
+
+export class farhangpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.farhangpress, "farhangpress.af", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a"
+                },
+                tags: "a.elementor-post-info__terms-list-item"
+            },
+        })
+    }
+}
