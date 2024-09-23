@@ -2834,5 +2834,8 @@ yarn dev && yarn start amu -u https://amu.tv/fa/122845/
 yarn dev && yarn start marznews
 yarn dev && yarn start marznews -u https://marznews.com/مفهوم-قلمرو-و-اهمیت-مرز-و-مرزداری-در-دور/
 
+yarn dev && yarn start foodna
+yarn dev && yarn start foodna -u http://www.foodna.com/fa/newsagency/122828/بررسی-سلامت-محصولات-غذایی-مشکوک-به-تقلب-در-بازار
+
 https://motamem.org/
 /**/

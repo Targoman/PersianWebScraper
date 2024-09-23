@@ -11207,3 +11207,30 @@ export class marznews extends clsScrapper {
         })
     }
 }
+
+export class foodna extends clsScrapper {
+    constructor() {
+        super(enuDomains.foodna, "foodna.com", {
+            selectors: {
+                article: "#ctl00_cphMiddle_Container221",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='DC.Date.Created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("/").reverse().join("-") || "NO_DATE",
+                    isGregorian: true
+                },
+                content: {
+                    main: ".naNewsBody",
+                },
+                category: {
+                    selector: ".naNewsService",
+                },
+                tags: ".newsagencyTagLink a"
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

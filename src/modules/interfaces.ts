@@ -298,6 +298,7 @@ export enum enuDomains {
     filmmagazine = "filmmagazine",
     fitamin = "fitamin",
     flightio = "flightio",
+    foodna = "foodna",
     foodpress = "foodpress",
     football360 = "football360",
     fut5al = "fut5al",
