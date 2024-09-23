@@ -11180,3 +11180,30 @@ export class amu extends clsScrapper {
         })
     }
 }
+
+export class marznews extends clsScrapper {
+    constructor() {
+        super(enuDomains.marznews, "marznews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".p-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-tags", "mom-social-share", "p-summary"],
+                },
+                category: {
+                    selector: ".breadcrumbs-plus span a",
+                },
+                tags: ".post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

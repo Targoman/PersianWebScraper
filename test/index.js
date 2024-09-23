@@ -2831,5 +2831,8 @@ yarn dev && yarn start farhangpress -u https://www.farhangpress.af/آشنایی-
 yarn dev && yarn start amu
 yarn dev && yarn start amu -u https://amu.tv/fa/122845/
 
+yarn dev && yarn start marznews
+yarn dev && yarn start marznews -u https://marznews.com/مفهوم-قلمرو-و-اهمیت-مرز-و-مرزداری-در-دور/
+
 https://motamem.org/
 /**/
