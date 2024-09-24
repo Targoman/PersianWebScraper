@@ -2840,5 +2840,8 @@ yarn dev && yarn start foodna -u http://www.foodna.com/fa/newsagency/122828/بر
 yarn dev && yarn start figar
 yarn dev && yarn start figar -u https://figar.ir/cinema-and-tv/news-of-cinema-and-series/243894-director-new-resident-evil-film-3meh/
 
+yarn dev && yarn start mihansignal
+yarn dev && yarn start mihansignal -u https://mihansignal.com/ton-longterm-price-prediction-until-2030/
+
 https://motamem.org/
 /**/

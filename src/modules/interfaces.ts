@@ -535,6 +535,7 @@ export enum enuDomains {
     miare = "miare",
     mihandownload = "mihandownload",
     mihanpezeshk = "mihanpezeshk",
+    mihansignal = "mihansignal",
     mihanwebhost = "mihanwebhost",
     mihanwp = "mihanwp",
     migna = "migna",

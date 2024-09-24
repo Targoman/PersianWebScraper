@@ -6252,3 +6252,25 @@ export class razebaghaa extends clsScrapper {
         })
     }
 }
+
+export class mihansignal extends clsScrapper {
+    constructor() {
+        super(enuDomains.mihansignal, "mihansignal.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "article.post-entry",
+                    ignoreNodeClasses: ["after-thumbnail-box", "post-meta", "ez-toc-counter", "cprice-two-cols-container", "tags_and_source_box"],
+                },
+                category: {
+                    selector: ".breadcrumb a",
+                },
+            }
+        })
+    }
+}
