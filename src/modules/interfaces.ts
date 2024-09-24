@@ -292,6 +292,7 @@ export enum enuDomains {
     felezatkhavarmianeh = "felezatkhavarmianeh",
     feraghnews = "feraghnews",
     fhnews = "fhnews",
+    figar = "figar",
     filcin = "filcin",
     filmcinemanews = "filmcinemanews",
     filimoshot = "filimoshot",

@@ -11234,3 +11234,32 @@ export class foodna extends clsScrapper {
         })
     }
 }
+
+export class figar extends clsScrapper {
+    constructor() {
+        super(enuDomains.figar, "figar.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post > .entry-content",
+                    ignoreNodeClasses: ["yn-content"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/, /.*نظر شما درباره‌ی.*/]
+                },
+                category: {
+                    selector: "ul.trail-items li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tag-links a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

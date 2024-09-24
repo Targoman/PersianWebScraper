@@ -2837,5 +2837,8 @@ yarn dev && yarn start marznews -u https://marznews.com/مفهوم-قلمرو-و
 yarn dev && yarn start foodna
 yarn dev && yarn start foodna -u http://www.foodna.com/fa/newsagency/122828/بررسی-سلامت-محصولات-غذایی-مشکوک-به-تقلب-در-بازار
 
+yarn dev && yarn start figar
+yarn dev && yarn start figar -u https://figar.ir/cinema-and-tv/news-of-cinema-and-series/243894-director-new-resident-evil-film-3meh/
+
 https://motamem.org/
 /**/
