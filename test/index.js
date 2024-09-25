@@ -2843,5 +2843,8 @@ yarn dev && yarn start figar -u https://figar.ir/cinema-and-tv/news-of-cinema-an
 yarn dev && yarn start mihansignal
 yarn dev && yarn start mihansignal -u https://mihansignal.com/ton-longterm-price-prediction-until-2030/
 
+yarn dev && yarn start polymervapooshesh
+yarn dev && yarn start polymervapooshesh -u https://polymervapooshesh.ir/اختصاصی-بسپار-axalta-پوشش-های-پایه-آب-جدید-ج/
+
 https://motamem.org/
 /**/

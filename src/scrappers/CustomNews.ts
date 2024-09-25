@@ -11263,3 +11263,29 @@ export class figar extends clsScrapper {
         })
     }
 }
+
+export class polymervapooshesh extends clsScrapper {
+    constructor() {
+        super(enuDomains.polymervapooshesh, "polymervapooshesh.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "header .date "
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["zaya-short-link", "post-bottom-meta"],
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".tagcloud a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
