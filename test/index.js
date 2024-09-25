@@ -2846,5 +2846,8 @@ yarn dev && yarn start mihansignal -u https://mihansignal.com/ton-longterm-price
 yarn dev && yarn start polymervapooshesh
 yarn dev && yarn start polymervapooshesh -u https://polymervapooshesh.ir/اختصاصی-بسپار-axalta-پوشش-های-پایه-آب-جدید-ج/
 
+yarn dev && yarn start techna
+yarn dev && yarn start techna -u https://techna.news/scientists-have-discovered-amazing-atmospheric-phenomena-on-an-exoplanet.html
+
 https://motamem.org/
 /**/

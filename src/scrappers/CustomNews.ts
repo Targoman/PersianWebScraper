@@ -11289,3 +11289,30 @@ export class polymervapooshesh extends clsScrapper {
         })
     }
 }
+
+export class techna extends clsScrapper {
+    constructor() {
+        super(enuDomains.techna, "techna.news", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["techn-after-content_3"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
