@@ -2849,5 +2849,8 @@ yarn dev && yarn start polymervapooshesh -u https://polymervapooshesh.ir/اخت�
 yarn dev && yarn start techna
 yarn dev && yarn start techna -u https://techna.news/scientists-have-discovered-amazing-atmospheric-phenomena-on-an-exoplanet.html
 
+yarn dev && yarn start technotice
+yarn dev && yarn start technotice -u https://technotice.ir/iqoo-13-key-specs-price-and-india-launch-timeframe-tipped/
+
 https://motamem.org/
 /**/

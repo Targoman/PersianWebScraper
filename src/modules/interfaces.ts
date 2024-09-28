@@ -838,6 +838,7 @@ export enum enuDomains {
     techna = "techna",
     technoc = "technoc",
     technolife = "technolife",
+    technotice = "technotice",
     techranco = "techranco",
     techrato = "techrato",
     tehranbehesht = "tehranbehesht",
