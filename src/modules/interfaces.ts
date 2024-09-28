@@ -230,6 +230,7 @@ export enum enuDomains {
     ecoview = "ecoview",
     econegar = "econegar",
     ecofars = "ecofars",
+    econapress = "econapress",
     econews = "econews",
     eghtesaad24 = "eghtesaad24",
     eghtesad100 = "eghtesad100",

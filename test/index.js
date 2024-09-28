@@ -2852,5 +2852,8 @@ yarn dev && yarn start techna -u https://techna.news/scientists-have-discovered-
 yarn dev && yarn start technotice
 yarn dev && yarn start technotice -u https://technotice.ir/iqoo-13-key-specs-price-and-india-launch-timeframe-tipped/
 
+yarn dev && yarn start econapress
+yarn dev && yarn start econapress -u https://www.econapress.com/بخش-اقتصادی-3/113492-ظرفیت-بالای-شرکت-های-ایرانی-برای-همکاری-در-حوزه-انرژی-تاجیکستان
+
 https://motamem.org/
 /**/

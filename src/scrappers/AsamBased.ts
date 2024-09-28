@@ -1672,3 +1672,19 @@ export class hammihanonline extends clsAsamBased {
         super(enuDomains.hammihanonline, "hammihanonline.ir")
     }
 }
+
+/***********************************************************/
+export class econapress extends clsAsamBased {
+    constructor() {
+        super(enuDomains.econapress, "econapress.com", {
+            selectors: {
+                content: {
+                    main: ".echo-content"
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb li a")
+                }
+            },
+        })
+    }
+}
