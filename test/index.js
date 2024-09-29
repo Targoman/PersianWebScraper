@@ -2858,5 +2858,8 @@ yarn dev && yarn start econapress -u https://www.econapress.com/بخش-اقتص�
 yarn dev && yarn start mashhadomran
 yarn dev && yarn start mashhadomran -u https://mashhadomran.ir/86835/
 
+yarn dev && yarn start haftrah
+yarn dev && yarn start haftrah -u https://haftrah.ir/1403/07/07/مگی-اسمیت-مادربزرگ-دانتون-ابی-از-دنی/
+
 https://motamem.org/
 /**/

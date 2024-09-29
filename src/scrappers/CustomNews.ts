@@ -11364,3 +11364,24 @@ export class mashhadomran extends clsScrapper {
         })
     }
 }
+
+export class haftrah extends clsScrapper {
+    constructor() {
+        super(enuDomains.haftrah, "haftrah.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                subtitle: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-shortlink"],
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}
