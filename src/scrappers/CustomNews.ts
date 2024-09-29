@@ -11341,3 +11341,26 @@ export class technotice extends clsScrapper {
         })
     }
 }
+
+export class mashhadomran extends clsScrapper {
+    constructor() {
+        super(enuDomains.mashhadomran, "mashhadomran.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.jeg_post_title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_tags"]
+                },
+                tags: ".jeg_post_tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

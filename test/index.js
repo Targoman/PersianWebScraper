@@ -2855,5 +2855,8 @@ yarn dev && yarn start technotice -u https://technotice.ir/iqoo-13-key-specs-pri
 yarn dev && yarn start econapress
 yarn dev && yarn start econapress -u https://www.econapress.com/بخش-اقتصادی-3/113492-ظرفیت-بالای-شرکت-های-ایرانی-برای-همکاری-در-حوزه-انرژی-تاجیکستان
 
+yarn dev && yarn start mashhadomran
+yarn dev && yarn start mashhadomran -u https://mashhadomran.ir/86835/
+
 https://motamem.org/
 /**/
