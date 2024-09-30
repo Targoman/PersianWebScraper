@@ -3185,3 +3185,48 @@ export class tehranpress extends clsIransamaneh {
         })
     }
 }
+
+export class nesfejahan extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.nesfejahan, "nesfejahan.net", {
+            selectors: {
+                article: "div[style='direction: right;']",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a")
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+
+    normalizePath(url: URL): string {
+        return url.toString();
+    }
+}
+
+export class khootoot extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.khootoot, "khootoot.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".news_pdate_c")
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".row-tags a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

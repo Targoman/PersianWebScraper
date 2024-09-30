@@ -2690,5 +2690,176 @@ yarn dev && yarn start hibna -u https://www.hibna.ir/Fa/News/84357/تأسیس-م
 yarn dev && yarn start masireqtesad
 yarn dev && yarn start masireqtesad -u https://masireqtesad.ir/189912/رفاه،-رشد-و-توسعه-پایدار،-مبتنی-بر-مالی/
 
+yarn dev && yarn start iccnews
+yarn dev && yarn start iccnews -u https://iccnews.ir/نشست-مشترک-اتاق-تعاون-ایران-با-وزرای-پی/
+
+yarn dev && yarn start asrekhadamat 
+yarn dev && yarn start asrekhadamat -u https://www.asrekhadamat.ir/the-power-outage-in-makar-disrupted-car-production84466-2/
+
+yarn dev && yarn start barishnews
+yarn dev && yarn start barishnews -u https://barishnews.ir/News/18844/باراندوز-چای-ارومیه-قربانی-گرفت.html
+
+yarn dev && yarn start bazarganannews
+yarn dev && yarn start bazarganannews -u https://bazarganannews.ir/معامله-۷۹-کیلوگرم-شمش-طلای-استاندارد-د/
+
+yarn dev && yarn start sanatsenf
+yarn dev && yarn start sanatsenf -u https://sanatsenf.ir/Post/37381/گاز-و-پتروشیمی/پالایشگاه-ششم-پارس-جنوبی-شعار-ما-می%E2%80%8Cتوانیم-را-هجی-کرد
+
+yarn dev && yarn start nesfejahan
+yarn dev && yarn start nesfejahan -u https://nesfejahan.net/fa/news/268552/تنها-راه-محافظت-از-داده%E2%80%8Cها-در-اینترنت
+
+yarn dev && yarn start khordokalan
+yarn dev && yarn start khordokalan -u https://khordokalan.ir/1403/06/05/نگاهی-به-رتبههای-برتر-بیمه-پاسارگاد؛/
+
+yarn dev && yarn start rasaderooz
+yarn dev && yarn start rasaderooz -u https://rasaderooz.com/رمزگشایی-از-موضوعی-که-آینده-سرمایه-خار/
+
+yarn dev && yarn start raby
+yarn dev && yarn start raby -u https://raby.ir/از-۱۲-۵-میلیون-تنوع-کالایی-تا-افزایش-فر/
+
+yarn dev && yarn start nikru
+yarn dev && yarn start nikru -u https://www.nikru.ir/news/97506/وزیر-تعاون-آینده-کار-باید-«یارانه-کالایی»-را-جایگزین-نقدی-کند
+
+yarn dev && yarn start fasletejarat
+yarn dev && yarn start fasletejarat -u https://www.fasletejarat.ir/Fa/News/749580/پارادایم-رشد-اقتصادی-در-دولت-چهاردهم
+
+yarn dev && yarn start railnews
+yarn dev && yarn start railnews -u https://railnews.ir/31485
+
+yarn dev && yarn start tabyincenter
+yarn dev && yarn start tabyincenter -u https://tabyincenter.ir/48055/slider/
+
+yarn dev && yarn start armantabriz
+yarn dev && yarn start armantabriz -u https://www.armantabriz.ir/برگزاری-کنگرههای-علمی-تاثیر-زیادی-در/
+
+yarn dev && yarn start adlnameh
+yarn dev && yarn start adlnameh -u https://adlnameh.ir/معاون-حقوق-بشر-و-امور-بینالملل-وزارت/
+
+yarn dev && yarn start khootoot 
+yarn dev && yarn start khootoot -u https://khootoot.ir/fa/news/36744/مناطق-آزاد-قرار-بود-پل-پیوستن-ایران-به-سازمان-تجارت-جهانی-باشد-ولی-به-جای-سکوی-صادرات-مرکز-واردات-شدند
+
+yarn dev && yarn start sangneveshte
+yarn dev && yarn start sangneveshte -u https://sangneveshte.ir/به-ثبت-جهانی-دره-خرم%e2%80%8c%e2%80%8cآباد-خوش%e2%80%8cبین-ه/
+
+yarn dev && yarn start chaharfasl
+yarn dev && yarn start chaharfasl -u http://chaharfasl.ir/news/136367/تلخ%E2%80%8Cوشیرین-اسارت-به-روایت-آزادگان-کهگیلویه%E2%80%8Cوبویراحمد-تصاویر
+
+yarn dev && yarn start shamsnews 
+yarn dev && yarn start shamsnews -u https://shamsnews.ir/ساختار-بی%e2%80%8cنظیر-حمایت-از-سرمایه%e2%80%8cگذار/
+
+yarn dev && yarn start cafehdanesh
+yarn dev && yarn start cafehdanesh -u https://cafehdanesh.ir/انقلاب-در-گیمینگ-ویندوز-11-از-همه-جلو-زد/
+
+yarn dev && yarn start myindustry 
+yarn dev && yarn start myindustry -u https://myindustry.ir/14030613-01/
+
+yarn dev && yarn start navadeghtesadi
+yarn dev && yarn start navadeghtesadi -u https://www.90eghtesadi.com/Content/Detail/2155582/100-میلیارد-دلار-سرمایه-خارجی-نیازمند-تولید-10-هزار-مگاوات-برق-بیشتر-است
+
+yarn dev && yarn start ofoghoeghtesad
+yarn dev && yarn start ofoghoeghtesad -u https://ofoghoeghtesad.ir/1403/04/12/پایان-وعدههای-ناکام/
+
+yarn dev && yarn start hadana 
+yarn dev && yarn start hadana -u https://hadana.ir/سند-حديث-خروج-ماه-صفر-و-بشارت-بهشت/
+
+yarn dev && yarn start charkheghtesadnews
+yarn dev && yarn start charkheghtesadnews -u https://charkheghtesadnews.ir/فروش-کارت-سوخت-با-۶۰۰۰-لیتر-بنزین-۱۵۰۰-ت/
+
+yarn dev && yarn start hashtdeynews
+yarn dev && yarn start hashtdeynews -u https://www.8deynews.com/789054/افزایش-تدریجی-دمای-هوا-در-گیلان-8/
+
+yarn dev && yarn start nedayetajan
+yarn dev && yarn start nedayetajan -u https://nedayetajan.ir/2024/08/01/صادرات-113-میلیون-دلاری-کالا-از-مازندران/
+
+yarn dev && yarn start icro
+yarn dev && yarn start icro -u https://www.icro.ir/اخبار-سازمان/تبلور-دیپلماسی-فرهنگی-ایران-در-ترکیه-
+
+yarn dev && yarn start daneshjooazad 
+yarn dev && yarn start daneshjooazad -u https://daneshjooazad.ir/تا-کنون-۶۰-هزار-نفر-از-دانشگاه-پیام-نور/
+
+yarn dev && yarn start asemaninews
+yarn dev && yarn start asemaninews -u https://www.asemaninews.ir/آشنایی-با-محله-های-پیر-شمس-الدین-و-عبدال/
+
+yarn dev && yarn start yazdaneh
+yarn dev && yarn start yazdaneh -u https://yazdaneh.ir/کارنامه-مهـران-فاطمی-در-اسـتانداری-صد/
+
+yarn dev && yarn start mazandmajles 
+yarn dev && yarn start mazandmajles -u http://www.mazandmajles.ir/post/read/241652/استاندار-باید-قدرت-اجماع%E2%80%8Cسازی-داشته-باشد--مهمترین-ناترازی-برای-یک-دولت،-ناترازی-در-حمایت%E2%80%8Cهای-مردمی-و-سرمایه%E2%80%8Cهای-اجتماعی-است--استاندار-باید-فرزند-زمان-خود-بوده-و-با-جامعه%E2%80%8Cی-زمان-خود،-هم-سرنوشت-باشد.html
+
+yarn dev && yarn start shapourkhast
+yarn dev && yarn start shapourkhast -u https://shapourkhast.ir/بایگانی/8805
+
+yarn dev && yarn start rotbehonline
+yarn dev && yarn start rotbehonline -u https://rotbehonline.com/دمای-متوسط-کشور-های-آسیایی/
+
+yarn dev && yarn start navidtorbat 
+yarn dev && yarn start navidtorbat -u http://www.navidtorbat.ir/fa/News/27584/کشف-گوردخمه%E2%80%8Cهای-زرتشتی-در-آفریقا؛-هزاران-کیلومتر-دورتر-از-ایران-در-اعماق-جزیره-ماداگاسکار
+
+yarn dev && yarn start razavi
+yarn dev && yarn start razavi -u https://www.razavi.news/fa/news/121091/اهمیت-آیین-زیارت-فرهنگ-ایران-مسیحیت
+
+yarn dev && yarn start ourpresident
+yarn dev && yarn start ourpresident -u https://www.ourpresident.ir/analysis/article/یوفو-در-تهران
+
+yarn dev && yarn start dailyafghanistan
+yarn dev && yarn start dailyafghanistan -u http://www.dailyafghanistan.com/entertainment_detail.php?post_id=157371
+
+yarn dev && yarn start pezhvakkurdestan
+yarn dev && yarn start pezhvakkurdestan -u https://www.pezhvakkurdestan.ir/report/730/آبلومویسم-منصوبان-دولت-سیزدهم-کردستان
+
+yarn dev && yarn start madannews
+yarn dev && yarn start madannews -u https://www.madannews.ir/Fa/News/644286/سهم-انرژی-در-انتشار-دی-اکسید-کربن-افزایش-یافت
+
+yarn dev && yarn start swn
+yarn dev && yarn start swn -u https://swn.af/bringing-girls-to-online-education-online-lessons-cannot-replace-face-to-face-lessons/
+
+yarn dev && yarn start ziryanmukryan
+yarn dev && yarn start ziryanmukryan -u "https://www.ziryanmukryan.ir/news.php?id=32CE41AF&news=کشف%20اشیاء%20تاریخی%20مربوط%20به%20هزاره%20اول%20قبل%20از%20میلاد%20در%20کردستان"
+
+yarn dev && yarn start amfm
+yarn dev && yarn start amfm -u https://news.amfm.ir/2024/09/15/قم-به-عنوان-جهان-شهر-معنویت-جایگاهی-ویژ/
+
+yarn dev && yarn start razebaghaa
+yarn dev && yarn start razebaghaa -u https://razebaghaa.ir/fa/news/1827/جابیرو-یا-لک-لک-گردن-کلفت-هیولایی-که-اگر-گرسنه-شود-همنوع-خودش-را-می%E2%80%8Cخورد
+
+yarn dev && yarn start jenayi
+yarn dev && yarn start jenayi -u https://jenayi.com/کلاهبرداری-۴۰-میلیاردی-از-شهروندان-در/
+
+yarn dev && yarn start farhangpress
+yarn dev && yarn start farhangpress -u https://www.farhangpress.af/آشنایی-با-واخان،-دومین-پارک-ملی-افغانس/
+
+yarn dev && yarn start amu
+yarn dev && yarn start amu -u https://amu.tv/fa/122845/
+
+yarn dev && yarn start marznews
+yarn dev && yarn start marznews -u https://marznews.com/مفهوم-قلمرو-و-اهمیت-مرز-و-مرزداری-در-دور/
+
+yarn dev && yarn start foodna
+yarn dev && yarn start foodna -u http://www.foodna.com/fa/newsagency/122828/بررسی-سلامت-محصولات-غذایی-مشکوک-به-تقلب-در-بازار
+
+yarn dev && yarn start figar
+yarn dev && yarn start figar -u https://figar.ir/cinema-and-tv/news-of-cinema-and-series/243894-director-new-resident-evil-film-3meh/
+
+yarn dev && yarn start mihansignal
+yarn dev && yarn start mihansignal -u https://mihansignal.com/ton-longterm-price-prediction-until-2030/
+
+yarn dev && yarn start polymervapooshesh
+yarn dev && yarn start polymervapooshesh -u https://polymervapooshesh.ir/اختصاصی-بسپار-axalta-پوشش-های-پایه-آب-جدید-ج/
+
+yarn dev && yarn start techna
+yarn dev && yarn start techna -u https://techna.news/scientists-have-discovered-amazing-atmospheric-phenomena-on-an-exoplanet.html
+
+yarn dev && yarn start technotice
+yarn dev && yarn start technotice -u https://technotice.ir/iqoo-13-key-specs-price-and-india-launch-timeframe-tipped/
+
+yarn dev && yarn start econapress
+yarn dev && yarn start econapress -u https://www.econapress.com/بخش-اقتصادی-3/113492-ظرفیت-بالای-شرکت-های-ایرانی-برای-همکاری-در-حوزه-انرژی-تاجیکستان
+
+yarn dev && yarn start mashhadomran
+yarn dev && yarn start mashhadomran -u https://mashhadomran.ir/86835/
+
+yarn dev && yarn start haftrah
+yarn dev && yarn start haftrah -u https://haftrah.ir/1403/07/07/مگی-اسمیت-مادربزرگ-دانتون-ابی-از-دنی/
+
 https://motamem.org/
 /**/

@@ -10169,3 +10169,1219 @@ export class masireqtesad extends clsScrapper {
         })
     }
 }
+
+export class iccnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.iccnews, "iccnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["short-link-bott"]
+                },
+                comments: {
+                    container: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ol.comments_list li"),
+                    author: ".comment-author",
+                    datetime: "time",
+                    text: ".comment-text"
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class asrekhadamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.asrekhadamat, "asrekhadamat.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*برای خواندن اخبار خودرو.*/]
+                },
+                category: {
+                    selector: "a.post-cat",
+                },
+            },
+        })
+    }
+}
+
+export class barishnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.barishnews, "barishnews.ir", {
+            selectors: {
+                article: "article.news-box",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".in",
+                    ignoreNodeClasses: ["summary"],
+                    ignoreTexts: [/.*barishnews.ir.*/]
+
+                },
+                category: {
+                    selector: ".address a",
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class bazarganannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazarganannews, "bazarganannews.ir", {
+            selectors: {
+                article: "article.l9",
+                title: ".single-mine-title-2",
+                subtitle: ".single-mine-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".text-news-single",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tick-contents a"),
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class sanatsenf extends clsScrapper {
+    constructor() {
+        super(enuDomains.sanatsenf, "sanatsenf.ir", {
+            selectors: {
+                article: ".single-post-wrapper",
+                title: "h2",
+                datetime: {
+                    conatiner: ".entry-header > ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class khordokalan extends clsScrapper {
+    constructor() {
+        super(enuDomains.khordokalan, "khordokalan.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry",
+                },               
+                category: {
+                    selector: "#crumbs a"
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class rasaderooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.rasaderooz, "rasaderooz.com", {
+            selectors: {
+                article: ".article",
+                title: "h1",
+                subtitle: ".f15",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".content-entry"),
+                    ignoreTexts: [/.*کانال رصد روز.*/]
+                },             
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[aria-label='breadcrumb'] a"),   
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a")           
+            },
+        })
+    }
+}
+
+export class raby extends clsScrapper {
+    constructor() {
+        super(enuDomains.raby, "raby.ir", {
+            selectors: {
+                article: ".post-box-single",
+                aboveTitle: ".post-sub-title",
+                title: "h1",
+                subtitle: "h3",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },        
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class nikru extends clsScrapper {
+    constructor() {
+        super(enuDomains.nikru, "nikru.ir", {
+            selectors: {
+                article: "#news",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: "#lead",
+                datetime: {
+                    conatiner: "#shenase span:nth-child(2)",
+                    splitter: "-"
+                },
+                content: {
+                    main: "#body",
+                },
+                tags: "#tags ul li a"             
+            },
+        })
+    }
+}
+
+export class fasletejarat extends clsScrapper {
+    constructor() {
+        super(enuDomains.fasletejarat, "fasletejarat.ir", {
+            selectors: {
+                article: "article.status-publish",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h2 .the_title"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".entry-meta ul li:nth-child(1)"),
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-content"),
+                    ignoreTexts: [/.*لینک کوتاه:.*/, /.*بزرگنمایی:.*/]
+                },             
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-cat a"),   
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".entry-meta ul li a")           
+            },
+        })
+    }
+}
+
+export class railnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.railnews, "railnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: "a.category"
+                },
+                tags: ".the-post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class tabyincenter extends clsScrapper {
+    constructor() {
+        super(enuDomains.tabyincenter, "tabyincenter.ir", {
+            basePath: "/?s=",
+            selectors: {
+                article: "body.single-post",
+                title: "h2",
+                subtitle: "h5",
+                datetime: {
+                    conatiner: ".entry-meta > ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*] –.*/, /.*پی‌نوشت‌ها:.*/, /.*https:.*/]
+                },
+                tags: "ul.tags li a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class armantabriz extends clsScrapper {
+    constructor() {
+        super(enuDomains.armantabriz, "armantabriz.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+            },
+        })
+    }
+}
+
+export class adlnameh extends clsScrapper {
+    constructor() {
+        super(enuDomains.adlnameh, "adlnameh.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    startIndex: 1
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
+
+export class sangneveshte extends clsScrapper {
+    constructor() {
+        super(enuDomains.sangneveshte, "sangneveshte.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".onliner_rutitr_akhv",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".lead1",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class chaharfasl extends clsScrapper {
+    constructor() {
+        super(enuDomains.chaharfasl, "chaharfasl.ir", {
+            selectors: {
+                article: ".custom_content_container",
+                aboveTitle: ".field-name-field-rutitr",
+                title: ".nodeHeader a",
+                subtitle: ".node-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("[property='dc:date dc:created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".field-name-body .field-item.even",
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class shamsnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.shamsnews, "shamsnews.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle:  ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2)"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}
+
+export class cafehdanesh extends clsScrapper {
+    constructor() {
+        super(enuDomains.cafehdanesh, "cafehdanesh.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class navadeghtesadi extends clsScrapper {
+    constructor() {
+        super(enuDomains.navadeghtesadi, "90eghtesadi.com", {
+            selectors: {
+                article: ".box-detail",
+                aboveTitle: "h5",
+                title: "h3",
+                subtitle:  ".post-lead",
+                datetime: {
+                    conatiner: ".box-header > div > .mt-sm-0 > span"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: ".breadcrum span a",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".keywords a")
+            },
+        })
+    }
+}
+
+export class ofoghoeghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.ofoghoeghtesad, "ofoghoeghtesad.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class charkheghtesadnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.charkheghtesadnews, "charkheghtesadnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".entry-sub-title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                tags: ".elementor-post-info__terms-list a",
+            },
+        })
+    }
+}
+
+export class hashtdeynews extends clsScrapper {
+    constructor() {
+        super(enuDomains.hashtdeynews, "8deynews.com", {
+            selectors: {
+                article: "article.single-post-content",
+                aboveTitle: "h5",
+                title: "h1",
+                subtitle:  ".single-post-lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post-context",
+                },
+                category: {
+                    selector: "ul.single-post-content-info > li:nth-child(1)",
+                },
+            },
+        })
+    }
+}
+
+export class nedayetajan extends clsScrapper {
+    constructor() {
+        super(enuDomains.nedayetajan, "nedayetajan.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle: ".lead b",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2) > b"
+                },
+                content: {
+                    main: ".con",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class icro extends clsScrapper {
+    constructor() {
+        super(enuDomains.icro, "icro.ir", {
+            selectors: {
+                article: ".single-post-wrap",
+                aboveTitle: "h6",
+                title: "h2",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-info > ul > li:nth-child(1) > span"
+                },
+                content: {
+                    main: ".news-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                    lastIndex: 2
+                },
+                tags: ".es-news-tags ul li a"
+            },
+        })
+    }
+}
+
+export class daneshjooazad extends clsScrapper {
+    constructor() {
+        super(enuDomains.daneshjooazad, "daneshjooazad.ir", {
+            selectors: {
+                article: ".singlepost",
+                title: "center a.title",
+                subtitle: ".centerbox > div > div:nth-child(8)",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}
+
+export class asemaninews extends clsScrapper {
+    constructor() {
+        super(enuDomains.asemaninews, "asemaninews.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[typeof='v:Breadcrumb'] a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class yazdaneh extends clsScrapper {
+    constructor() {
+        super(enuDomains.yazdaneh, "yazdaneh.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".bp-content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                    lastIndex: 2
+                },
+                tags: ".bp-tags a",
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class mazandmajles extends clsScrapper {
+    constructor() {
+        super(enuDomains.mazandmajles, "mazandmajles.ir", {
+            selectors: {
+                article: "article",
+                aboveTitle: "h4",
+                title: "h3",
+                subtitle: "blockquote.blockquote",
+                datetime: {
+                    conatiner: ".post__date"
+                },
+                content: {
+                    main: ".article-content",
+                },
+                category: {
+                    selector: "ol.breadcrumb li a",
+                    startIndex: 1
+                },         
+                tags: ".tags a"
+            },
+            url: {
+                forceHTTP: true, 
+            }
+        })
+    }
+}
+
+export class shapourkhast extends clsScrapper {
+    constructor() {
+        super(enuDomains.shapourkhast, "shapourkhast.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".onliner_rutitr_akhv",
+                title: "h1",
+                subtitle: ".lead2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".lead1",
+                    ignoreNodeClasses: ["Htags"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class rotbehonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.rotbehonline, "rotbehonline.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".tdb_single_content",
+                    ignoreTexts: [/.*همچنین بخوانید.*/]
+                },
+                category: {
+                    selector: "a.tdb-entry-crumb",
+                },
+                tags: "ul.tdb-tags li a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class navidtorbat extends clsScrapper {
+    constructor() {
+        super(enuDomains.navidtorbat, "navidtorbat.ir", {
+            selectors: {
+                article: "article.boxcolor",
+                title: ".the_title",
+                datetime: {
+                    conatiner: "div:nth-child(5) > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*بزرگنمایی:.*/, /.*پایگاه خبری نوید تربت:.*/]                
+                },
+                category: {
+                    selector: ".entry-cat",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                forceHTTP: true,
+                extraInvalidStartPaths: ["/Feed"]
+            }
+        })
+    }
+}
+
+export class razavi extends clsScrapper {
+    constructor() {
+        super(enuDomains.razavi, "razavi.news", {
+            selectors: {
+                article: "#docDataRow",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDiv3TitrRou"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivp3"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+            },
+        })
+    }
+}
+
+export class ourpresident extends clsScrapper {
+    constructor() {
+        super(enuDomains.ourpresident, "ourpresident.ir", {
+            selectors: {
+                article: ".item-page",
+                aboveTitle: ".rutitr",
+                title: "h1",
+                subtitle: ".article-bold",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                    ignoreNodeClasses: ["article-bold"]
+                },
+                category: {
+                    selector: "[itemprop='genre']",
+                },
+                tags: ".tags span a"
+            },
+        })
+    }
+}
+
+export class dailyafghanistan extends clsScrapper {
+    constructor() {
+        super(enuDomains.dailyafghanistan, "dailyafghanistan.com", {
+            selectors: {
+                article: ".articleContainer",
+                title: "h1",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb a"),
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class pezhvakkurdestan extends clsScrapper {
+    constructor() {
+        super(enuDomains.pezhvakkurdestan, "pezhvakkurdestan.ir", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivLead1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea",
+                    ignoreNodeClasses: ["share-buttons", "url-clipboard-btn"]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info a"),
+                    startIndex: 1
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a"),
+            },
+        })
+    }
+}
+
+export class madannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.madannews, "madannews.ir", {
+            selectors: {
+                article: "#ctl00_ContentPlaceHolder1_divNews",
+                aboveTitle: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h2"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: ".newslid",
+                datetime: {
+                    conatiner: ".article-info > dd:nth-child(2)"
+                },
+                content: {
+                    main: " div:nth-child(4)",
+                    ignoreTexts: [/.*بزرگنمایی:.*/]                
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll("a.btn-custom"),
+                },
+                tags: "[rel='tag']",
+            },
+        })
+    }
+}
+
+export class swn extends clsScrapper {
+    constructor() {
+        super(enuDomains.swn, "swn.af", {
+            selectors: {
+                article: "[lang='fa-IR'] body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreTexts: [/.*سلام‌وطندار را در.*/]                
+                },
+                tags: "[rel='tag']",
+            },
+            url: {
+                extraInvalidStartPaths: ["/en", "/uz", "/ps"]
+            }
+        })
+    }
+}
+
+export class ziryanmukryan extends clsScrapper {
+    constructor() {
+        super(enuDomains.ziryanmukryan, "ziryanmukryan.ir", {
+            selectors: {
+                article: "article.post-box-single",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: "[style].post-info > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: ".post-info ul li a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
+
+export class amfm extends clsScrapper {
+    constructor() {
+        super(enuDomains.amfm, "news.amfm.ir", {
+            basePath: "/archive",
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".above-title",
+                title: "h1",
+                subtitle: ".post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },            
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class jenayi extends clsScrapper {
+    constructor() {
+        super(enuDomains.jenayi, "jenayi.com", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["mini-posts-box", "kk-star-ratings", "stream-item", "post-bottom-meta", "post-shortlink"],
+                    ignoreTexts: [/.*<img.*/]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}
+
+export class farhangpress extends clsScrapper {
+    constructor() {
+        super(enuDomains.farhangpress, "farhangpress.af", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+                category: {
+                    selector: ".rank-math-breadcrumb p a"
+                },
+                tags: "a.elementor-post-info__terms-list-item"
+            },
+        })
+    }
+}
+
+export class amu extends clsScrapper {
+    constructor() {
+        super(enuDomains.amu, "amu.tv", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".main-wrap > .entry-content",
+                },
+                category: {
+                    selector: ".category-style",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
+
+export class marznews extends clsScrapper {
+    constructor() {
+        super(enuDomains.marznews, "marznews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                summary: ".p-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-tags", "mom-social-share", "p-summary"],
+                },
+                category: {
+                    selector: ".breadcrumbs-plus span a",
+                },
+                tags: ".post-tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class foodna extends clsScrapper {
+    constructor() {
+        super(enuDomains.foodna, "foodna.com", {
+            selectors: {
+                article: "#ctl00_cphMiddle_Container221",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='DC.Date.Created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("/").reverse().join("-") || "NO_DATE",
+                    isGregorian: true
+                },
+                content: {
+                    main: ".naNewsBody",
+                },
+                category: {
+                    selector: ".naNewsService",
+                },
+                tags: ".newsagencyTagLink a"
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}
+
+export class figar extends clsScrapper {
+    constructor() {
+        super(enuDomains.figar, "figar.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post > .entry-content",
+                    ignoreNodeClasses: ["yn-content"],
+                    ignoreTexts: [/.*بیشتر بخوانید:.*/, /.*نظر شما درباره‌ی.*/]
+                },
+                category: {
+                    selector: "ul.trail-items li a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".tag-links a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class polymervapooshesh extends clsScrapper {
+    constructor() {
+        super(enuDomains.polymervapooshesh, "polymervapooshesh.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "header .date "
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["zaya-short-link", "post-bottom-meta"],
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".tagcloud a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class techna extends clsScrapper {
+    constructor() {
+        super(enuDomains.techna, "techna.news", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["techn-after-content_3"]
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class technotice extends clsScrapper {
+    constructor() {
+        super(enuDomains.technotice, "technotice.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".td-post-content",
+                },
+                category: {
+                    selector: ".td-category li a",
+                },
+                tags: ".td-tags li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class mashhadomran extends clsScrapper {
+    constructor() {
+        super(enuDomains.mashhadomran, "mashhadomran.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.jeg_post_title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_tags"]
+                },
+                tags: ".jeg_post_tags a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
+
+export class haftrah extends clsScrapper {
+    constructor() {
+        super(enuDomains.haftrah, "haftrah.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                subtitle: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-shortlink"],
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}
