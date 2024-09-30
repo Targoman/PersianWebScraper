@@ -2864,5 +2864,8 @@ yarn dev && yarn start haftrah -u https://haftrah.ir/1403/07/07/مگی-اسمی�
 yarn dev && yarn start panahemardomnews
 yarn dev && yarn start panahemardomnews -u https://panahemardomnews.ir/کافه-نادری،-پاتوق-ادبی-و-هنری/
 
+yarn dev && yarn start aftana
+yarn dev && yarn start aftana -u https://www.aftana.ir/news/22473/اینستاگرام-شبکه-اجتماعی-محبوب-ایرانی-ها
+
 https://motamem.org/
 /**/

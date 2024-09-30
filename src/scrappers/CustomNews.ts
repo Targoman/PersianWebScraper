@@ -11410,3 +11410,29 @@ export class panahemardomnews extends clsScrapper {
         })
     }
 }
+
+export class aftana extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftana, "aftana.ir", {
+            selectors: {
+                article: "#docDataRow",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("docDiv3TitrRou"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docDivLead1"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea article",
+                    ignoreNodeClasses: ["share-buttons", "url-clipboard-btn", "mb10", "sharelink", "tabs-docs"],
+                    ignoreTexts: [/.*کد مطلب :.*/, /.*نام شما آدرس.*/, /.*ارسال نظر.*/]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".doc-section-info.col-xs-36  a"),
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags a"),
+            },
+        })
+    }
+}
