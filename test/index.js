@@ -2861,5 +2861,8 @@ yarn dev && yarn start mashhadomran -u https://mashhadomran.ir/86835/
 yarn dev && yarn start haftrah
 yarn dev && yarn start haftrah -u https://haftrah.ir/1403/07/07/مگی-اسمیت-مادربزرگ-دانتون-ابی-از-دنی/
 
+yarn dev && yarn start panahemardomnews
+yarn dev && yarn start panahemardomnews -u https://panahemardomnews.ir/کافه-نادری،-پاتوق-ادبی-و-هنری/
+
 https://motamem.org/
 /**/

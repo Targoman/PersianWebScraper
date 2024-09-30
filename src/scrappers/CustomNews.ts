@@ -11385,3 +11385,28 @@ export class haftrah extends clsScrapper {
         })
     }
 }
+
+export class panahemardomnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.panahemardomnews, "panahemardomnews.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    startIndex: 1
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}

@@ -626,6 +626,7 @@ export enum enuDomains {
     ourpresident = "ourpresident",
     p30world = "p30world",
     pana = "pana",
+    panahemardomnews = "panahemardomnews",
     panamag = "panamag",
     panjahopanjonline = "panjahopanjonline",
     panjere = "panjere",
