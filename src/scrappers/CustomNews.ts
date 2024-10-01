@@ -11436,3 +11436,30 @@ export class aftana extends clsScrapper {
         })
     }
 }
+
+export class kafebook extends clsScrapper {
+    constructor() {
+        super(enuDomains.kafebook, "kafebook.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".im-entry-content p",
+                    ignoreTexts: [/.*معرفی و نقد کتاب:.*/, /.*همراه ما باشید در:.*/]
+                },
+                category: {
+                    selector: ".cat-links a",
+                    lastIndex: 1
+                },
+                tags: ".im-tag-items a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

@@ -2867,5 +2867,8 @@ yarn dev && yarn start panahemardomnews -u https://panahemardomnews.ir/کافه-
 yarn dev && yarn start aftana
 yarn dev && yarn start aftana -u https://www.aftana.ir/news/22473/اینستاگرام-شبکه-اجتماعی-محبوب-ایرانی-ها
 
+yarn dev && yarn start kafebook 
+yarn dev && yarn start kafebook -u https://kafebook.ir/کتاب-مرگ-ایوان-ایلیچ/
+
 https://motamem.org/
 /**/
