@@ -11463,3 +11463,23 @@ export class kafebook extends clsScrapper {
         })
     }
 }
+
+export class epe extends clsScrapper {
+    constructor() {
+        super(enuDomains.epe, "epe.ir", {
+            selectors: {
+                article: "#blog-detail",
+                title: "h1",
+                subtitle: "h2",
+                datetime: {
+                    conatiner: ".blog-detail-meta .date"
+                },
+                content: {
+                    main: "article",
+                    ignoreNodeClasses: ["blog-detail-header"],
+                    ignoreTexts: [/.*لینک کوتاه:.*/, /.*اشتراک گذاری:.*/]
+                },
+            },
+        })
+    }
+}

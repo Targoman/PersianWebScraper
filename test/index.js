@@ -2870,5 +2870,8 @@ yarn dev && yarn start aftana -u https://www.aftana.ir/news/22473/اینستاگ
 yarn dev && yarn start kafebook 
 yarn dev && yarn start kafebook -u https://kafebook.ir/کتاب-مرگ-ایوان-ایلیچ/
 
+yarn dev && yarn start epe
+yarn dev && yarn start epe -u https://www.epe.ir/News/25406/مقابله-با-قاچاق-کالاهای-سلامت-محور-در-دستور-کار-ستاد-مبارزه-با-قاچاق
+
 https://motamem.org/
 /**/
