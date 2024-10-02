@@ -11506,3 +11506,28 @@ export class varzeshebanovan extends clsScrapper {
         })
     }
 }
+
+export class hozehonari extends clsScrapper {
+    constructor() {
+        super(enuDomains.hozehonari, "news.hozehonari.ir", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#top [itemprop='articleSection']")
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

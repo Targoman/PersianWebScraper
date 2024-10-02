@@ -2876,5 +2876,8 @@ yarn dev && yarn start epe -u https://www.epe.ir/News/25406/مقابله-با-ق
 yarn dev && yarn start varzeshebanovan 
 yarn dev && yarn start varzeshebanovan -u https://varzeshebanovan.com/60385
 
+yarn dev && yarn start hozehonari 
+yarn dev && yarn start hozehonari -u https://news.hozehonari.ir/news/48930/فقط-خودم-دارای-دو-لایه-مفهومی-است
+
 https://motamem.org/
 /**/
