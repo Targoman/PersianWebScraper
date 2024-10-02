@@ -11483,3 +11483,26 @@ export class epe extends clsScrapper {
         })
     }
 }
+
+export class varzeshebanovan extends clsScrapper {
+    constructor() {
+        super(enuDomains.varzeshebanovan, "varzeshebanovan.com", {
+            selectors: {
+                article: ".news-content",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".lead-content",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".text-content",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

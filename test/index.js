@@ -2873,5 +2873,8 @@ yarn dev && yarn start kafebook -u https://kafebook.ir/کتاب-مرگ-ایوا�
 yarn dev && yarn start epe
 yarn dev && yarn start epe -u https://www.epe.ir/News/25406/مقابله-با-قاچاق-کالاهای-سلامت-محور-در-دستور-کار-ستاد-مبارزه-با-قاچاق
 
+yarn dev && yarn start varzeshebanovan 
+yarn dev && yarn start varzeshebanovan -u https://varzeshebanovan.com/60385
+
 https://motamem.org/
 /**/
