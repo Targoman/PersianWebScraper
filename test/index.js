@@ -2882,5 +2882,8 @@ yarn dev && yarn start hozehonari -u https://news.hozehonari.ir/news/48930/فق�
 yarn dev && yarn start ferghe
 yarn dev && yarn start ferghe -u https://ferghe.ir/fa/news/18116/خلیفه-کل-ارامنه-آذربایجان-این-حملات-بر-قدرت-و-صلابت-محور-مقاومت-می%E2%80%8Cافزاید
 
+yarn dev && yarn start iusnews
+yarn dev && yarn start iusnews -u https://iusnews.ir/fa/news-details/515665/جلال-مردی-که-قلمش-فراتر-از-زمان-بود-/
+
 https://motamem.org/
 /**/

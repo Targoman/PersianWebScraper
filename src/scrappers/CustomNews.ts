@@ -11531,3 +11531,30 @@ export class hozehonari extends clsScrapper {
         })
     }
 }
+
+export class iusnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.iusnews, "iusnews.ir", {
+            selectors: {
+                article: ".post-text",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("h6"),
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("p.col-md-12.m-auto"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-text"),
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrump a"),
+                },
+                tags: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags li a"),
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
