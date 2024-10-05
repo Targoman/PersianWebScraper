@@ -2879,5 +2879,8 @@ yarn dev && yarn start varzeshebanovan -u https://varzeshebanovan.com/60385
 yarn dev && yarn start hozehonari 
 yarn dev && yarn start hozehonari -u https://news.hozehonari.ir/news/48930/فقط-خودم-دارای-دو-لایه-مفهومی-است
 
+yarn dev && yarn start ferghe
+yarn dev && yarn start ferghe -u https://ferghe.ir/fa/news/18116/خلیفه-کل-ارامنه-آذربایجان-این-حملات-بر-قدرت-و-صلابت-محور-مقاومت-می%E2%80%8Cافزاید
+
 https://motamem.org/
 /**/

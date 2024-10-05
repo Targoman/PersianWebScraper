@@ -294,6 +294,7 @@ export enum enuDomains {
     fekrshahr = "fekrshahr",
     felezatkhavarmianeh = "felezatkhavarmianeh",
     feraghnews = "feraghnews",
+    ferghe = "ferghe",
     fhnews = "fhnews",
     figar = "figar",
     filcin = "filcin",
