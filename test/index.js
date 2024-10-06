@@ -2885,5 +2885,8 @@ yarn dev && yarn start ferghe -u https://ferghe.ir/fa/news/18116/خلیفه-کل
 yarn dev && yarn start iusnews
 yarn dev && yarn start iusnews -u https://iusnews.ir/fa/news-details/515665/جلال-مردی-که-قلمش-فراتر-از-زمان-بود-/
 
+yarn dev && yarn start shabaveiz
+yarn dev && yarn start shabaveiz -u http://shabaveiz.ir/تماشای-غروب-آفتاب-در-پارک-جنگلی-شهر-یاس/
+
 https://motamem.org/
 /**/
