@@ -2888,5 +2888,8 @@ yarn dev && yarn start iusnews -u https://iusnews.ir/fa/news-details/515665/جل
 yarn dev && yarn start shabaveiz
 yarn dev && yarn start shabaveiz -u http://shabaveiz.ir/تماشای-غروب-آفتاب-در-پارک-جنگلی-شهر-یاس/
 
+yarn dev && yarn start parsnews
+yarn dev && yarn start parsnews -u https://www.parsnews.com/بخش-اخبار-2/694091-خطبه-های-اقتدار
+
 https://motamem.org/
 /**/

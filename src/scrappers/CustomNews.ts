@@ -11585,3 +11585,25 @@ export class shabaveiz extends clsScrapper {
         })
     }
 }
+
+export class parsnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.parsnews, "parsnews.com", {
+            selectors: {
+                article: "#news-page-article",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".view-lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#echo-detail",
+                    ignoreNodeClasses: ["inline-news-box", "related-news-cnt", "others_known"]
+                },
+                tags: ".article-tag a"
+            },
+        })
+    }
+}

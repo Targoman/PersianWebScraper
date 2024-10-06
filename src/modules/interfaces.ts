@@ -643,6 +643,7 @@ export enum enuDomains {
     parshistory = "parshistory",
     parsiblog = "parsiblog",
     parsine = "parsine",
+    parsnews = "parsnews",
     parspack = "parspack",
     pasokhgoo = "pasokhgoo",
     passgoal = "passgoal",
