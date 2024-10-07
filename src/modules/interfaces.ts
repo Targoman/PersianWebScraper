@@ -193,6 +193,7 @@ export enum enuDomains {
     dadvarzyar = "dadvarzyar",
     dailyafghanistan = "dailyafghanistan",
     dailytelegraph = "dailytelegraph",
+    daneshjoin = "daneshjoin",
     daneshjooazad = "daneshjooazad",
     danestanyonline = "danestanyonline",
     dargi = "dargi",
