@@ -11607,3 +11607,26 @@ export class parsnews extends clsScrapper {
         })
     }
 }
+
+export class tabrizeman extends clsScrapper {
+    constructor() {
+        super(enuDomains.tabrizeman, "tabrizeman.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

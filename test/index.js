@@ -2891,5 +2891,8 @@ yarn dev && yarn start shabaveiz -u http://shabaveiz.ir/تماشای-غروب-آ
 yarn dev && yarn start parsnews
 yarn dev && yarn start parsnews -u https://www.parsnews.com/بخش-اخبار-2/694091-خطبه-های-اقتدار
 
+yarn dev && yarn start tabrizeman
+yarn dev && yarn start tabrizeman -u https://tabrizeman.ir/1403/07/15/کشف-یکهزار-و-۷۷۰-میلیارد-ریال-تخلف-صنفی/
+
 https://motamem.org/
 /**/
