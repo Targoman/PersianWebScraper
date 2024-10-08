@@ -2900,5 +2900,8 @@ yarn dev && yarn start daneshjoin -u https://daneshjoin.ir/gc-detectors-and-colu
 yarn dev && yarn start factcoins
 yarn dev && yarn start factcoins -u https://factcoins.com/bitcoin-sentiment-can-be-an-omen/
 
+yarn dev && yarn start rahyafteha 
+yarn dev && yarn start rahyafteha -u https://rahyafteha.ir/131790/تاریخچه-حضور-اسلام-و-مسلمانان-در-بلغار/
+
 https://motamem.org/
 /**/

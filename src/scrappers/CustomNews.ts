@@ -11652,3 +11652,26 @@ export class factcoins extends clsScrapper {
         })
     }
 }
+
+export class rahyafteha extends clsScrapper {
+    constructor() {
+        super(enuDomains.rahyafteha, "rahyafteha.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: ".content-title",
+                subtitle: ".content-lid",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-item",
+                },
+                tags: ".tags-content a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
