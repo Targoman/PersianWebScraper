@@ -11630,3 +11630,25 @@ export class tabrizeman extends clsScrapper {
         })
     }
 }
+
+export class factcoins extends clsScrapper {
+    constructor() {
+        super(enuDomains.factcoins, "factcoins.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".tdb_single_content > .tdb-block-inner",
+                    ignoreNodeClasses: ["td-a-ad"]
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

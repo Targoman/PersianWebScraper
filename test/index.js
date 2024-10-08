@@ -2897,5 +2897,8 @@ yarn dev && yarn start tabrizeman -u https://tabrizeman.ir/1403/07/15/کشف-ی�
 yarn dev && yarn start daneshjoin 
 yarn dev && yarn start daneshjoin -u https://daneshjoin.ir/gc-detectors-and-columns/
 
+yarn dev && yarn start factcoins
+yarn dev && yarn start factcoins -u https://factcoins.com/bitcoin-sentiment-can-be-an-omen/
+
 https://motamem.org/
 /**/
