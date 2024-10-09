@@ -3230,3 +3230,23 @@ export class khootoot extends clsIransamaneh {
         })
     }
 }
+
+export class ferghe extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.ferghe, "ferghe.ir", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

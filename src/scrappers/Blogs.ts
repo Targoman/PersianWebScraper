@@ -6274,3 +6274,28 @@ export class mihansignal extends clsScrapper {
         })
     }
 }
+
+export class daneshjoin extends clsScrapper {
+    constructor() {
+        super(enuDomains.daneshjoin, "daneshjoin.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1.jeg_post_title",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content-inner",
+                    ignoreNodeClasses: ["jeg_post_tags", "jnews_inline_related_post_wrapper"]
+                },
+                category: {
+                    selector: "#breadcrumbs span a",
+                }
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
