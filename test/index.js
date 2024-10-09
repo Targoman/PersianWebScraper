@@ -2906,5 +2906,8 @@ yarn dev && yarn start rahyafteha -u https://rahyafteha.ir/131790/تاریخچه
 yarn dev && yarn start ghalamrokhabar
 yarn dev && yarn start ghalamrokhabar -u https://ghalamrokhabar.ir/آموزش-زبان-فارسی-در-قطر-رونق-میگیرد/
 
+yarn dev && yarn start sobaatnews
+yarn dev && yarn start sobaatnews -u https://sobaatnews.ir/35752/نقد-یک-کتاب-با-حضور-لیلی-رشیدی/
+
 https://motamem.org/
 /**/

@@ -11699,3 +11699,30 @@ export class ghalamrokhabar extends clsScrapper {
         })
     }
 }
+
+export class sobaatnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobaatnews, "sobaatnews.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta", "mini-posts-box"],
+                },  
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },              
+                tags: ".tagcloud a",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
