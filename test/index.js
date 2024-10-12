@@ -2912,5 +2912,8 @@ yarn dev && yarn start sobaatnews -u https://sobaatnews.ir/35752/نقد-یک-ک�
 yarn dev && yarn start javanankohgiluyehboyerahmad
 yarn dev && yarn start javanankohgiluyehboyerahmad -u https://javanankohgiluyehboyerahmad.ir/۲۰۰-درخت-انار-در-عرصه-های-ملی-شهرستان-بو/
 
+yarn dev && yarn start tehranpardis
+yarn dev && yarn start tehranpardis -u https://tehranpardis.ir/بررسی-مشکلات-ساکنان-فاز-۵-شهر-پردیس/
+
 https://motamem.org/
 /**/

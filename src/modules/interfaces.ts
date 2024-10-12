@@ -863,6 +863,7 @@ export enum enuDomains {
     tehranbehesht = "tehranbehesht",
     tehraneconomy = "tehraneconomy",
     tehrannews = "tehrannews",
+    tehranpardis = "tehranpardis",
     tehranpress = "tehranpress",
     tehranserver = "tehranserver",
     tejaratefarda = "tejaratefarda",
