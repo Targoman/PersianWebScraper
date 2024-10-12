@@ -11726,3 +11726,28 @@ export class sobaatnews extends clsScrapper {
         })
     }
 }
+
+export class javanankohgiluyehboyerahmad extends clsScrapper {
+    constructor() {
+        super(enuDomains.javanankohgiluyehboyerahmad, "javanankohgiluyehboyerahmad.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -2909,5 +2909,8 @@ yarn dev && yarn start ghalamrokhabar -u https://ghalamrokhabar.ir/آموزش-ز
 yarn dev && yarn start sobaatnews
 yarn dev && yarn start sobaatnews -u https://sobaatnews.ir/35752/نقد-یک-کتاب-با-حضور-لیلی-رشیدی/
 
+yarn dev && yarn start javanankohgiluyehboyerahmad
+yarn dev && yarn start javanankohgiluyehboyerahmad -u https://javanankohgiluyehboyerahmad.ir/۲۰۰-درخت-انار-در-عرصه-های-ملی-شهرستان-بو/
+
 https://motamem.org/
 /**/
