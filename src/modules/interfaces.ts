@@ -888,6 +888,7 @@ export enum enuDomains {
     ucan = "ucan",
     upna = "upna",
     uptvs = "uptvs",
+    vaghayerooz = "vaghayerooz",
     vaghteshomal = "vaghteshomal",
     vakawi = "vakawi",
     vakiltik = "vakiltik",

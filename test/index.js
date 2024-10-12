@@ -2915,5 +2915,8 @@ yarn dev && yarn start javanankohgiluyehboyerahmad -u https://javanankohgiluyehb
 yarn dev && yarn start tehranpardis
 yarn dev && yarn start tehranpardis -u https://tehranpardis.ir/بررسی-مشکلات-ساکنان-فاز-۵-شهر-پردیس/
 
+yarn dev && yarn start vaghayerooz
+yarn dev && yarn start vaghayerooz -u https://vaghayerooz.com/fa/news/17821/امپراتور-هم-به-استقلال-پیشنهاد-شد
+
 https://motamem.org/
 /**/

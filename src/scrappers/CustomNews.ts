@@ -11777,3 +11777,29 @@ export class tehranpardis extends clsScrapper {
         })
     }
 }
+
+
+export class vaghayerooz extends clsScrapper {
+    constructor() {
+        super(enuDomains.vaghayerooz, "vaghayerooz.com", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".brxe-post-content",
+                },  
+                category: {
+                    selector: ".mr-category-ariana__category a",
+                },              
+                tags: "ul.brxe-post-taxonomy li a",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
