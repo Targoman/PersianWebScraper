@@ -701,6 +701,7 @@ export enum enuDomains {
     ramzarz = "ramzarz",
     rasadeghtesadi = "rasadeghtesadi",
     rasaderooz = "rasaderooz",
+    rasanashr = "rasanashr",
     rasanews = "rasanews",
     rasekhoon = "rasekhoon",
     rastineh = "rastineh",

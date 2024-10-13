@@ -2921,5 +2921,8 @@ yarn dev && yarn start vaghayerooz -u https://vaghayerooz.com/fa/news/17821/ام
 yarn dev && yarn start hematkhabar
 yarn dev && yarn start hematkhabar -u https://hematkhabar.ir/content/90745/
 
+yarn dev && yarn start rasanashr
+yarn dev && yarn start rasanashr -u https://rasanashr.ir/938147/قالیباف-سردار-قاآنی-در-سلامت-کامل-است-و/
+
 https://motamem.org/
 /**/

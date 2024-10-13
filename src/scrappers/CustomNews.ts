@@ -11831,3 +11831,30 @@ export class hematkhabar extends clsScrapper {
         })
     }
 }
+
+export class rasanashr extends clsScrapper {
+    constructor() {
+        super(enuDomains.rasanashr, "rasanashr.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["bs-irp"],
+                },  
+                category: {
+                    selector: ".term-badges span a",
+                    lastIndex: 2
+                },              
+                tags: ".post-tags a",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
