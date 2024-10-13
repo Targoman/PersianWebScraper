@@ -2918,5 +2918,8 @@ yarn dev && yarn start tehranpardis -u https://tehranpardis.ir/بررسی-مشک
 yarn dev && yarn start vaghayerooz
 yarn dev && yarn start vaghayerooz -u https://vaghayerooz.com/fa/news/17821/امپراتور-هم-به-استقلال-پیشنهاد-شد
 
+yarn dev && yarn start hematkhabar
+yarn dev && yarn start hematkhabar -u https://hematkhabar.ir/content/90745/
+
 https://motamem.org/
 /**/
