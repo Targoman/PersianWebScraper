@@ -11883,3 +11883,27 @@ export class payamekhabar extends clsScrapper {
         })
     }
 }
+
+export class poolvatejarat extends clsScrapper {
+    constructor() {
+        super(enuDomains.poolvatejarat, "poolvatejarat.ir", {
+            selectors: {
+                article: ".singlePost-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".content",
+                },  
+                category: {
+                    selector: "[rel='category tag']",
+                },         
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

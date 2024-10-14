@@ -2927,5 +2927,8 @@ yarn dev && yarn start rasanashr -u https://rasanashr.ir/938147/قالیباف-�
 yarn dev && yarn start payamekhabar
 yarn dev && yarn start payamekhabar -u https://payamekhabar.ir/240234/برپایی-هفتمین-نمایشگاه-اقوام-و-عشایر-ایرانی-در-اراک
 
+yarn dev && yarn start poolvatejarat 
+yarn dev && yarn start poolvatejarat -u https://poolvatejarat.ir/نقد-و-بررسی-خودروهای-داخلی/
+
 https://motamem.org/
 /**/

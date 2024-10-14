@@ -673,6 +673,7 @@ export enum enuDomains {
     podium = "podium",
     polymervapooshesh = "polymervapooshesh",
     ponisha = "ponisha",
+    poolvatejarat = "poolvatejarat",
     poonehmedia = "poonehmedia",
     pooyeonline = "pooyeonline",
     porsan = "porsan",
