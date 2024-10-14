@@ -11858,3 +11858,28 @@ export class rasanashr extends clsScrapper {
         })
     }
 }
+
+export class payamekhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.payamekhabar, "payamekhabar.ir", {
+            selectors: {
+                article: "article.m_al",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: ".d-tm"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: "ol.b_mb li a",
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
