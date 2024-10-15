@@ -249,6 +249,7 @@ export enum enuDomains {
     ekhtebar = "ekhtebar",
     emalls = "emalls",
     energypress = "energypress",
+    engare = "engare",
     ensafnews = "ensafnews",
     epe = "epe",
     eporsesh = "eporsesh",
