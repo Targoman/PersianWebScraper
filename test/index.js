@@ -2930,5 +2930,8 @@ yarn dev && yarn start payamekhabar -u https://payamekhabar.ir/240234/برپای
 yarn dev && yarn start poolvatejarat 
 yarn dev && yarn start poolvatejarat -u https://poolvatejarat.ir/نقد-و-بررسی-خودروهای-داخلی/
 
+yarn dev && yarn start harikakhabar 
+yarn dev && yarn start harikakhabar -u https://harikakhabar.ir/بررسی-پایداری-مطلق-محیط-زیستی-تولید-کو/
+
 https://motamem.org/
 /**/

@@ -11907,3 +11907,26 @@ export class poolvatejarat extends clsScrapper {
         })
     }
 }
+
+export class harikakhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.harikakhabar, "harikakhabar.ir", {
+            selectors: {
+                article: "section.single",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+            },
+        })
+    }
+}
