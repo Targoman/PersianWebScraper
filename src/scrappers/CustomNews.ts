@@ -11955,3 +11955,27 @@ export class khabarbinonline extends clsScrapper {
         })
     }
 }
+
+export class sarzaminemana extends clsScrapper {
+    constructor() {
+        super(enuDomains.sarzaminemana, "sarzaminemana.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: "time.entry-date",
+                },
+                content: {
+                    main: ".single-entry-summary-post-content",
+                },  
+                category: {
+                    selector: ".removearrow a",
+                },              
+                tags: ".post-tags a",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

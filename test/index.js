@@ -2939,5 +2939,8 @@ yarn dev && yarn start engare -u https://engare.net/historicism-and-lacanian-the
 yarn dev && yarn start khabarbinonline
 yarn dev && yarn start khabarbinonline -u https://khabarbinonline.ir/مجلس-طرح-انسداد-مرزی-را-از-وزارت-کشور-پی/
 
+yarn dev && yarn start sarzaminemana 
+yarn dev && yarn start sarzaminemana -u https://sarzaminemana.ir/مدالآوران-المپیادهای-علمی-سال-1403-نیز-ت/
+
 https://motamem.org/
 /**/
