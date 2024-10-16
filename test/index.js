@@ -2936,5 +2936,8 @@ yarn dev && yarn start harikakhabar -u https://harikakhabar.ir/بررسی-پای
 yarn dev && yarn start engare
 yarn dev && yarn start engare -u https://engare.net/historicism-and-lacanian-theory/
 
+yarn dev && yarn start khabarbinonline
+yarn dev && yarn start khabarbinonline -u https://khabarbinonline.ir/مجلس-طرح-انسداد-مرزی-را-از-وزارت-کشور-پی/
+
 https://motamem.org/
 /**/
