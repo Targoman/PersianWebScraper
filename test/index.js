@@ -2945,5 +2945,8 @@ yarn dev && yarn start sarzaminemana -u https://sarzaminemana.ir/مدالآور�
 yarn dev && yarn start toranji
 yarn dev && yarn start toranji -u https://toranji.ir/2024/10/18/طراحی-دوربین-گلکسی-a36-سامسونگ-مشابه-گلک/
 
+yarn dev && yarn start namaname
+yarn dev && yarn start namaname -u https://namaname.ir/بیستمین-دوره-جشنواره-بینالمللی-فیلم/
+
 https://motamem.org/
 /**/
