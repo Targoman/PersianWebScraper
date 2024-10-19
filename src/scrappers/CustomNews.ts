@@ -11979,3 +11979,30 @@ export class sarzaminemana extends clsScrapper {
         })
     }
 }
+
+export class toranji extends clsScrapper {
+    constructor() {
+        super(enuDomains.toranji, "toranji.ir", {
+            selectors: {
+                article: "body.single-page-body",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#content-wrapper",
+                    ignoreNodeClasses: ["share", "share-link"]
+                },  
+                category: {
+                    selector: "#single-categories [rel='category tag']",
+                    startIndex: 1
+                },             
+                tags: "[rel='tag']",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

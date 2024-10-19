@@ -2942,5 +2942,8 @@ yarn dev && yarn start khabarbinonline -u https://khabarbinonline.ir/مجلس-ط
 yarn dev && yarn start sarzaminemana 
 yarn dev && yarn start sarzaminemana -u https://sarzaminemana.ir/مدالآوران-المپیادهای-علمی-سال-1403-نیز-ت/
 
+yarn dev && yarn start toranji
+yarn dev && yarn start toranji -u https://toranji.ir/2024/10/18/طراحی-دوربین-گلکسی-a36-سامسونگ-مشابه-گلک/
+
 https://motamem.org/
 /**/

@@ -886,6 +886,7 @@ export enum enuDomains {
     tlyn = "tlyn",
     tolosiyasat = "tolosiyasat",
     toonblog = "toonblog",
+    toranji = "toranji",
     toseeirani = "toseeirani",
     toseepooya = "toseepooya",
     transis = "transis",
