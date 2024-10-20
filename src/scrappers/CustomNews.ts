@@ -12058,3 +12058,27 @@ export class sooknews extends clsScrapper {
         })
     }
 }
+
+export class talienovin extends clsScrapper {
+    constructor() {
+        super(enuDomains.talienovin, "talienovin.ir", {
+            selectors: {
+                article: ".single-wrapper",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".text",
+                datetime: {
+                    conatiner: ".single-detail > div:nth-child(2) > span"
+                },
+                content: {
+                    main: ".single-text",
+                },
+                tags: ".post_cat a"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

@@ -2951,5 +2951,8 @@ yarn dev && yarn start namaname -u https://namaname.ir/بیستمین-دوره-�
 yarn dev && yarn start sooknews
 yarn dev && yarn start sooknews -u https://sooknews.ir/آیا-مدیر-حاشیه-دار-در-شرکت-پایانه-های-نف/
 
+yarn dev && yarn start talienovin 
+yarn dev && yarn start talienovin -u http://talienovin.ir/معماری-اسلامی-با-اصول-و-باورها-معنا-پید/
+
 https://motamem.org/
 /**/
