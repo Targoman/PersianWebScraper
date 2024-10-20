@@ -2948,5 +2948,8 @@ yarn dev && yarn start toranji -u https://toranji.ir/2024/10/18/طراحی-دو�
 yarn dev && yarn start namaname
 yarn dev && yarn start namaname -u https://namaname.ir/بیستمین-دوره-جشنواره-بینالمللی-فیلم/
 
+yarn dev && yarn start sooknews
+yarn dev && yarn start sooknews -u https://sooknews.ir/آیا-مدیر-حاشیه-دار-در-شرکت-پایانه-های-نف/
+
 https://motamem.org/
 /**/

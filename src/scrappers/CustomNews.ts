@@ -12032,3 +12032,29 @@ export class namaname extends clsScrapper {
         })
     }
 }
+
+export class sooknews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sooknews, "sooknews.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                    lastIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

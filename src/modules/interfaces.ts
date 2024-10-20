@@ -831,6 +831,7 @@ export enum enuDomains {
     soft98 = "soft98",
     soja = "soja",
     sokannews = "sokannews",
+    sooknews = "sooknews",
     sornakhabar = "sornakhabar",
     spnfa = "spnfa",
     sputnikaf = "sputnikaf",
