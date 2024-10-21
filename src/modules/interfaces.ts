@@ -112,6 +112,7 @@ export enum enuDomains {
     balviz = "balviz",
     bamdad24 = "bamdad24",
     bamemeybod = "bamemeybod",
+    bamna = "bamna",
     banifilmonline = "banifilmonline",
     bankdariirani = "bankdariirani",
     banker = "banker",

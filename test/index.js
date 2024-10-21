@@ -2954,5 +2954,8 @@ yarn dev && yarn start sooknews -u https://sooknews.ir/آیا-مدیر-حاشی�
 yarn dev && yarn start talienovin 
 yarn dev && yarn start talienovin -u http://talienovin.ir/معماری-اسلامی-با-اصول-و-باورها-معنا-پید/
 
+yarn dev && yarn start bamna
+yarn dev && yarn start bamna -u https://www.bamna.ir/قتل-و-آتشسوزی-مرموز-در-شهربازی/
+
 https://motamem.org/
 /**/

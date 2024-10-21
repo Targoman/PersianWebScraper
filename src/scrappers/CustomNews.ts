@@ -12082,3 +12082,24 @@ export class talienovin extends clsScrapper {
         })
     }
 }
+
+export class bamna extends clsScrapper {
+    constructor() {
+        super(enuDomains.bamna, "bamna.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".hed_title",
+                title: "h1",
+                subtitle: ".short_desck_body",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".news_article_body",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}
