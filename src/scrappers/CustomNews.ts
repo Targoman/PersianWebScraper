@@ -12103,3 +12103,30 @@ export class bamna extends clsScrapper {
         })
     }
 }
+
+export class borazjansalam extends clsScrapper {
+    constructor() {
+        super(enuDomains.borazjansalam, "borazjansalam.ir", {
+            selectors: {
+                article: ".single-content-txte-post",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-lid"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".resize",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#tags a"),
+
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

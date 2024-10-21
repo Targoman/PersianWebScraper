@@ -2957,5 +2957,8 @@ yarn dev && yarn start talienovin -u http://talienovin.ir/معماری-اسلا�
 yarn dev && yarn start bamna
 yarn dev && yarn start bamna -u https://www.bamna.ir/قتل-و-آتشسوزی-مرموز-در-شهربازی/
 
+yarn dev && yarn start borazjansalam 
+yarn dev && yarn start borazjansalam -u https://borazjansalam.ir/90393/تجهیز-پارکهای-برازجان-با-مجموعه-بازی
+
 https://motamem.org/
 /**/

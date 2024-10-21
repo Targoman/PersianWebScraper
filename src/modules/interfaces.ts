@@ -155,6 +155,7 @@ export enum enuDomains {
     bmn = "bmn",
     bonyadvokala = "bonyadvokala",
     bookland = "bookland",
+    borazjansalam = "borazjansalam",
     borna = "borna",
     bourse24 = "bourse24",
     boursenews = "boursenews",
