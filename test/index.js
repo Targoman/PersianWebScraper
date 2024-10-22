@@ -2963,5 +2963,8 @@ yarn dev && yarn start borazjansalam -u https://borazjansalam.ir/90393/تجهی�
 yarn dev && yarn start peykeghalam
 yarn dev && yarn start peykeghalam -u https://peykeghalam.ir/وزیر-علوم-در-حکمی-سرپرست-جدید-پارک-علم-و/
 
+yarn dev && yarn start payameiran 
+yarn dev && yarn start payameiran -u https://www.payameiran.ir/news/15341/۵۵۰-فروند-هواپیما-نیاز-داریم
+
 https://motamem.org/
 /**/

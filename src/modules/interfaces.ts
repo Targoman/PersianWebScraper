@@ -659,6 +659,7 @@ export enum enuDomains {
     pasokhgoo = "pasokhgoo",
     passgoal = "passgoal",
     payamefori = "payamefori",
+    payameiran = "payameiran",
     payamekhabar = "payamekhabar",
     payamekhanevadeh = "payamekhanevadeh",
     payamgostar = "payamgostar",

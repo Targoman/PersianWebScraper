@@ -12155,3 +12155,22 @@ export class peykeghalam extends clsScrapper {
         })
     }
 }
+
+export class payameiran extends clsScrapper {
+    constructor() {
+        super(enuDomains.payameiran, "payameiran.ir", {
+            selectors: {
+                article: "body.node-type-article",
+                title: "#block-views-retrieve-block > div > div > div > div > div.views-field.views-field-title > span > a",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "#block-views-retrieve-block > div > div > div > div > div.views-field.views-field-body",
+                },
+                tags: ".views-field-field-tags > div > div > ol > li > a"
+            },
+        })
+    }
+}
