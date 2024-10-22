@@ -12130,3 +12130,28 @@ export class borazjansalam extends clsScrapper {
         })
     }
 }
+
+export class peykeghalam extends clsScrapper {
+    constructor() {
+        super(enuDomains.peykeghalam, "peykeghalam.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h4",
+                title: "h1",
+                subtitle: "h5",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".the_content_body",
+                    ignoreNodeClasses: ["hover_img"]
+                },
+                category: {
+                    selector: ".cat_name a"
+                },
+                tags: ".content-show-tags div"
+            },
+        })
+    }
+}

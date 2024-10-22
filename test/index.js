@@ -2960,5 +2960,8 @@ yarn dev && yarn start bamna -u https://www.bamna.ir/قتل-و-آتشسوزی-م
 yarn dev && yarn start borazjansalam 
 yarn dev && yarn start borazjansalam -u https://borazjansalam.ir/90393/تجهیز-پارکهای-برازجان-با-مجموعه-بازی
 
+yarn dev && yarn start peykeghalam
+yarn dev && yarn start peykeghalam -u https://peykeghalam.ir/وزیر-علوم-در-حکمی-سرپرست-جدید-پارک-علم-و/
+
 https://motamem.org/
 /**/
