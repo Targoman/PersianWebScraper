@@ -12211,10 +12211,6 @@ export class aftabbafgh extends clsScrapper {
                 content: {
                     main: ".post-text-p",
                 },
-                category: {
-                    selector: ".cat_name a"
-                },
-                tags: ".content-show-tags div"
             },
             url: {
                 removeWWW: true,
