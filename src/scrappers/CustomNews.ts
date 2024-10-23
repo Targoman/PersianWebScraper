@@ -12196,3 +12196,30 @@ export class raheshalamche extends clsScrapper {
         })
     }
 }
+
+export class aftabbafgh extends clsScrapper {
+    constructor() {
+        super(enuDomains.aftabbafgh, "aftabbafgh.ir", {
+            selectors: {
+                article: ".single-post-panel",
+                aboveTitle: "small",
+                title: "h2",
+                subtitle: ".post-expert",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".left-panel > div:nth-child(2) > div > ul > li:nth-child(1)"),
+                },
+                content: {
+                    main: ".post-text-p",
+                },
+                category: {
+                    selector: ".cat_name a"
+                },
+                tags: ".content-show-tags div"
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

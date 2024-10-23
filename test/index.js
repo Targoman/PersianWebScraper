@@ -2969,5 +2969,8 @@ yarn dev && yarn start payameiran -u https://www.payameiran.ir/news/15341/۵۵۰
 yarn dev && yarn start raheshalamche 
 yarn dev && yarn start raheshalamche -u http://www.raheshalamche.com/post/طرح-ها-و-تمرین-های-اسرائیل-برای-حمله-به-ایران-چه-بود--
 
+yarn dev && yarn start aftabbafgh
+yarn dev && yarn start aftabbafgh -u http://aftabbafgh.ir/134073/تقدیر-تیم-والیبال-بانوان-مجتمع-معادن-س/
+
 https://motamem.org/
 /**/
