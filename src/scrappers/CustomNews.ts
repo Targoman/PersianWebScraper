@@ -12174,3 +12174,25 @@ export class payameiran extends clsScrapper {
         })
     }
 }
+
+export class raheshalamche extends clsScrapper {
+    constructor() {
+        super(enuDomains.raheshalamche, "raheshalamche.com", {
+            selectors: {
+                article: "#post",
+                title: "h1",
+                subtitle: "[itemprop='description']",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+            },
+            url: {
+                forceHTTP: true
+            }
+        })
+    }
+}

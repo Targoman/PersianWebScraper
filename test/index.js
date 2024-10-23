@@ -2966,5 +2966,8 @@ yarn dev && yarn start peykeghalam -u https://peykeghalam.ir/وزیر-علوم-�
 yarn dev && yarn start payameiran 
 yarn dev && yarn start payameiran -u https://www.payameiran.ir/news/15341/۵۵۰-فروند-هواپیما-نیاز-داریم
 
+yarn dev && yarn start raheshalamche 
+yarn dev && yarn start raheshalamche -u http://www.raheshalamche.com/post/طرح-ها-و-تمرین-های-اسرائیل-برای-حمله-به-ایران-چه-بود--
+
 https://motamem.org/
 /**/
