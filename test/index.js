@@ -2861,5 +2861,116 @@ yarn dev && yarn start mashhadomran -u https://mashhadomran.ir/86835/
 yarn dev && yarn start haftrah
 yarn dev && yarn start haftrah -u https://haftrah.ir/1403/07/07/مگی-اسمیت-مادربزرگ-دانتون-ابی-از-دنی/
 
+yarn dev && yarn start panahemardomnews
+yarn dev && yarn start panahemardomnews -u https://panahemardomnews.ir/کافه-نادری،-پاتوق-ادبی-و-هنری/
+
+yarn dev && yarn start aftana
+yarn dev && yarn start aftana -u https://www.aftana.ir/news/22473/اینستاگرام-شبکه-اجتماعی-محبوب-ایرانی-ها
+
+yarn dev && yarn start kafebook 
+yarn dev && yarn start kafebook -u https://kafebook.ir/کتاب-مرگ-ایوان-ایلیچ/
+
+yarn dev && yarn start epe
+yarn dev && yarn start epe -u https://www.epe.ir/News/25406/مقابله-با-قاچاق-کالاهای-سلامت-محور-در-دستور-کار-ستاد-مبارزه-با-قاچاق
+
+yarn dev && yarn start varzeshebanovan 
+yarn dev && yarn start varzeshebanovan -u https://varzeshebanovan.com/60385
+
+yarn dev && yarn start hozehonari 
+yarn dev && yarn start hozehonari -u https://news.hozehonari.ir/news/48930/فقط-خودم-دارای-دو-لایه-مفهومی-است
+
+yarn dev && yarn start ferghe
+yarn dev && yarn start ferghe -u https://ferghe.ir/fa/news/18116/خلیفه-کل-ارامنه-آذربایجان-این-حملات-بر-قدرت-و-صلابت-محور-مقاومت-می%E2%80%8Cافزاید
+
+yarn dev && yarn start iusnews
+yarn dev && yarn start iusnews -u https://iusnews.ir/fa/news-details/515665/جلال-مردی-که-قلمش-فراتر-از-زمان-بود-/
+
+yarn dev && yarn start shabaveiz
+yarn dev && yarn start shabaveiz -u http://shabaveiz.ir/تماشای-غروب-آفتاب-در-پارک-جنگلی-شهر-یاس/
+
+yarn dev && yarn start parsnews
+yarn dev && yarn start parsnews -u https://www.parsnews.com/بخش-اخبار-2/694091-خطبه-های-اقتدار
+
+yarn dev && yarn start tabrizeman
+yarn dev && yarn start tabrizeman -u https://tabrizeman.ir/1403/07/15/کشف-یکهزار-و-۷۷۰-میلیارد-ریال-تخلف-صنفی/
+
+yarn dev && yarn start daneshjoin 
+yarn dev && yarn start daneshjoin -u https://daneshjoin.ir/gc-detectors-and-columns/
+
+yarn dev && yarn start factcoins
+yarn dev && yarn start factcoins -u https://factcoins.com/bitcoin-sentiment-can-be-an-omen/
+
+yarn dev && yarn start rahyafteha 
+yarn dev && yarn start rahyafteha -u https://rahyafteha.ir/131790/تاریخچه-حضور-اسلام-و-مسلمانان-در-بلغار/
+
+yarn dev && yarn start ghalamrokhabar
+yarn dev && yarn start ghalamrokhabar -u https://ghalamrokhabar.ir/آموزش-زبان-فارسی-در-قطر-رونق-میگیرد/
+
+yarn dev && yarn start sobaatnews
+yarn dev && yarn start sobaatnews -u https://sobaatnews.ir/35752/نقد-یک-کتاب-با-حضور-لیلی-رشیدی/
+
+yarn dev && yarn start javanankohgiluyehboyerahmad
+yarn dev && yarn start javanankohgiluyehboyerahmad -u https://javanankohgiluyehboyerahmad.ir/۲۰۰-درخت-انار-در-عرصه-های-ملی-شهرستان-بو/
+
+yarn dev && yarn start tehranpardis
+yarn dev && yarn start tehranpardis -u https://tehranpardis.ir/بررسی-مشکلات-ساکنان-فاز-۵-شهر-پردیس/
+
+yarn dev && yarn start vaghayerooz
+yarn dev && yarn start vaghayerooz -u https://vaghayerooz.com/fa/news/17821/امپراتور-هم-به-استقلال-پیشنهاد-شد
+
+yarn dev && yarn start hematkhabar
+yarn dev && yarn start hematkhabar -u https://hematkhabar.ir/content/90745/
+
+yarn dev && yarn start rasanashr
+yarn dev && yarn start rasanashr -u https://rasanashr.ir/938147/قالیباف-سردار-قاآنی-در-سلامت-کامل-است-و/
+
+yarn dev && yarn start payamekhabar
+yarn dev && yarn start payamekhabar -u https://payamekhabar.ir/240234/برپایی-هفتمین-نمایشگاه-اقوام-و-عشایر-ایرانی-در-اراک
+
+yarn dev && yarn start poolvatejarat 
+yarn dev && yarn start poolvatejarat -u https://poolvatejarat.ir/نقد-و-بررسی-خودروهای-داخلی/
+
+yarn dev && yarn start harikakhabar 
+yarn dev && yarn start harikakhabar -u https://harikakhabar.ir/بررسی-پایداری-مطلق-محیط-زیستی-تولید-کو/
+
+yarn dev && yarn start engare
+yarn dev && yarn start engare -u https://engare.net/historicism-and-lacanian-theory/
+
+yarn dev && yarn start khabarbinonline
+yarn dev && yarn start khabarbinonline -u https://khabarbinonline.ir/مجلس-طرح-انسداد-مرزی-را-از-وزارت-کشور-پی/
+
+yarn dev && yarn start sarzaminemana 
+yarn dev && yarn start sarzaminemana -u https://sarzaminemana.ir/مدالآوران-المپیادهای-علمی-سال-1403-نیز-ت/
+
+yarn dev && yarn start toranji
+yarn dev && yarn start toranji -u https://toranji.ir/2024/10/18/طراحی-دوربین-گلکسی-a36-سامسونگ-مشابه-گلک/
+
+yarn dev && yarn start namaname
+yarn dev && yarn start namaname -u https://namaname.ir/بیستمین-دوره-جشنواره-بینالمللی-فیلم/
+
+yarn dev && yarn start sooknews
+yarn dev && yarn start sooknews -u https://sooknews.ir/آیا-مدیر-حاشیه-دار-در-شرکت-پایانه-های-نف/
+
+yarn dev && yarn start talienovin 
+yarn dev && yarn start talienovin -u http://talienovin.ir/معماری-اسلامی-با-اصول-و-باورها-معنا-پید/
+
+yarn dev && yarn start bamna
+yarn dev && yarn start bamna -u https://www.bamna.ir/قتل-و-آتشسوزی-مرموز-در-شهربازی/
+
+yarn dev && yarn start borazjansalam 
+yarn dev && yarn start borazjansalam -u https://borazjansalam.ir/90393/تجهیز-پارکهای-برازجان-با-مجموعه-بازی
+
+yarn dev && yarn start peykeghalam
+yarn dev && yarn start peykeghalam -u https://peykeghalam.ir/وزیر-علوم-در-حکمی-سرپرست-جدید-پارک-علم-و/
+
+yarn dev && yarn start payameiran 
+yarn dev && yarn start payameiran -u https://www.payameiran.ir/news/15341/۵۵۰-فروند-هواپیما-نیاز-داریم
+
+yarn dev && yarn start raheshalamche 
+yarn dev && yarn start raheshalamche -u http://www.raheshalamche.com/post/طرح-ها-و-تمرین-های-اسرائیل-برای-حمله-به-ایران-چه-بود--
+
+yarn dev && yarn start aftabbafgh
+yarn dev && yarn start aftabbafgh -u http://aftabbafgh.ir/134073/تقدیر-تیم-والیبال-بانوان-مجتمع-معادن-س/
+
 https://motamem.org/
 /**/
