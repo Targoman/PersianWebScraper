@@ -12219,3 +12219,27 @@ export class aftabbafgh extends clsScrapper {
         })
     }
 }
+
+export class tehransarboland extends clsScrapper {
+    constructor() {
+        super(enuDomains.tehransarboland, "tehransarboland.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".custom_excerpt_val",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["custom_excerpt_val"]
+                },
+                category: {
+                    selector: ".harika-categories-widget a"
+                },
+                tags: ".tag-links a"
+            },
+        })
+    }
+}
