@@ -601,6 +601,7 @@ export enum enuDomains {
     nateghan = "nateghan",
     navadeghtesadi = "navadeghtesadi",
     navajonob = "navajonob",
+    navidetehran  = "navidetehran",
     navidtorbat = "navidtorbat",
     nazaratshora = "nazaratshora",
     nedayeesfahan = "nedayeesfahan",

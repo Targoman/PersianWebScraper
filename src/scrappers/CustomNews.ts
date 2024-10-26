@@ -12243,3 +12243,26 @@ export class tehransarboland extends clsScrapper {
         })
     }
 }
+
+export class navidetehran extends clsScrapper {
+    constructor() {
+        super(enuDomains.navidetehran, "navidetehran.ir", {
+            selectors: {
+                article: ".single-page",
+                aboveTitle: ".rootite-single",
+                title: "h1",
+                datetime: {
+                    conatiner: ".meta-date"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["rootite-single", "box-title"]
+                },
+                category: {
+                    selector: ".cat_name a"
+                },
+                tags: ".content-show-tags div"
+            },
+        })
+    }
+}
