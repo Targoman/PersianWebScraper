@@ -841,6 +841,7 @@ export enum enuDomains {
     sokannews = "sokannews",
     sooknews = "sooknews",
     sornakhabar = "sornakhabar",
+    sorooshnews = "sorooshnews",
     spnfa = "spnfa",
     sputnikaf = "sputnikaf",
     swn = "swn",

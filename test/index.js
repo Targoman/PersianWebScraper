@@ -2975,5 +2975,8 @@ yarn dev && yarn start aftabbafgh -u http://aftabbafgh.ir/134073/تقدیر-تی
 yarn dev && yarn start haftroozkhabar
 yarn dev && yarn start haftroozkhabar -u http://7roozkhabar.ir/رئیس-گروه-مالی-گردشگری-در-جمع-مدیران-ار/
 
+yarn dev && yarn start sorooshnews 
+yarn dev && yarn start sorooshnews -u https://sorooshnews.com/تولید-برق-نانویی-با-بدن-انسان/
+
 https://motamem.org/
 /**/

@@ -12294,3 +12294,30 @@ export class haftroozkhabar extends clsScrapper {
         })
     }
 }
+
+export class sorooshnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sorooshnews, "sorooshnews.com", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: ".lid_news",
+                title: "h1",
+                subtitle: ".desc_news",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "article.is-single",
+                },  
+                category: {
+                    selector: "ol.breadcrumb a",
+                    startIndex: 1
+                },              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
