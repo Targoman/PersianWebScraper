@@ -2972,5 +2972,8 @@ yarn dev && yarn start raheshalamche -u http://www.raheshalamche.com/post/طرح
 yarn dev && yarn start aftabbafgh
 yarn dev && yarn start aftabbafgh -u http://aftabbafgh.ir/134073/تقدیر-تیم-والیبال-بانوان-مجتمع-معادن-س/
 
+yarn dev && yarn start haftroozkhabar
+yarn dev && yarn start haftroozkhabar -u http://7roozkhabar.ir/رئیس-گروه-مالی-گردشگری-در-جمع-مدیران-ار/
+
 https://motamem.org/
 /**/

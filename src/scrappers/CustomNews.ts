@@ -12266,3 +12266,31 @@ export class navidetehran extends clsScrapper {
         })
     }
 }
+
+export class haftroozkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.haftroozkhabar, "7roozkhabar.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "ul > li:nth-child(2) > b"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    startIndex: 2
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
