@@ -620,6 +620,7 @@ export enum enuDomains {
     nipoto = "nipoto",
     noandish = "noandish",
     nobitex = "nobitex",
+    nofeh = "nofeh",
     nohsobh = "nohsobh",
     nojavanha = "nojavanha",
     noozdahkala = "noozdahkala",

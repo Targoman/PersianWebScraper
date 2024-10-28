@@ -12347,3 +12347,26 @@ export class shahrdaran extends clsScrapper {
         })
     }
 }
+
+export class nofeh extends clsScrapper {
+    constructor() {
+        super(enuDomains.nofeh, "nofeh.ir", {
+            selectors: {
+                article: ".content",
+                aboveTitle: ".rotitr",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "header > ul > li:nth-child(2) > span"
+                },
+                content: {
+                    main: ".entry",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

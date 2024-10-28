@@ -2981,5 +2981,8 @@ yarn dev && yarn start sorooshnews -u https://sorooshnews.com/تولید-برق-
 yarn dev && yarn start shahrdaran
 yarn dev && yarn start shahrdaran -u https://shahrdaran.ir/تسریع-در-تعیین-تکلیف-محور-رنجبر-،-کمیل-و/
 
+yarn dev && yarn start nofeh 
+yarn dev && yarn start nofeh -u https://nofeh.ir/registration-of-more-than-3500-works-in-the-cultural-heritage-multimedia-festival/
+
 https://motamem.org/
 /**/
