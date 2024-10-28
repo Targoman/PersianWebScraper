@@ -797,6 +797,7 @@ export enum enuDomains {
     shahr = "shahr",
     shahr20 = "shahr20",
     shahraranews = "shahraranews",
+    shahrdaran = "shahrdaran",
     shahrebours = "shahrebours",
     shahrsakhtafzar = "shahrsakhtafzar",
     shahryarnews = "shahryarnews",

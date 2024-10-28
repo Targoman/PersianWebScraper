@@ -2978,5 +2978,8 @@ yarn dev && yarn start haftroozkhabar -u http://7roozkhabar.ir/رئیس-گروه
 yarn dev && yarn start sorooshnews 
 yarn dev && yarn start sorooshnews -u https://sorooshnews.com/تولید-برق-نانویی-با-بدن-انسان/
 
+yarn dev && yarn start shahrdaran
+yarn dev && yarn start shahrdaran -u https://shahrdaran.ir/تسریع-در-تعیین-تکلیف-محور-رنجبر-،-کمیل-و/
+
 https://motamem.org/
 /**/
