@@ -12370,3 +12370,30 @@ export class nofeh extends clsScrapper {
         })
     }
 }
+
+export class mehresaba extends clsScrapper {
+    constructor() {
+        super(enuDomains.mehresaba, "mehre-saba.ir", {
+            selectors: {
+                article: ".single-content-txte-post",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-anavin"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".resize",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#tags a"),
+
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

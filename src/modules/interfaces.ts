@@ -548,6 +548,7 @@ export enum enuDomains {
     mefda = "mefda",
     meghdadit = "meghdadit",
     mehrdadcivil = "mehrdadcivil",
+    mehresaba = "mehresaba",
     mehrnews = "mehrnews",
     melipayamak = "melipayamak",
     memar = "memar",
