@@ -2987,5 +2987,8 @@ yarn dev && yarn start nofeh -u https://nofeh.ir/registration-of-more-than-3500-
 yarn dev && yarn start mehresaba
 yarn dev && yarn start mehresaba -u https://mehre-saba.ir/miayneh/145066/
 
+yarn dev && yarn start eshomer
+yarn dev && yarn start eshomer -u https://mag.eshomer.com/vicks-benefits/
+
 https://motamem.org/
 /**/
