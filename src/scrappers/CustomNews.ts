@@ -12422,3 +12422,24 @@ export class jamehkhabar extends clsScrapper {
         })
     }
 }
+
+export class nipna extends clsScrapper {
+    constructor() {
+        super(enuDomains.nipna, "nipna.ir", {
+            selectors: {
+                article: ".naNewsDetail",
+                aboveTitle: "h5",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='DC.Date.Created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.split("/").reverse().join("-") || "NO_DATE",
+                    isGregorian: true
+                },
+                content: {
+                    main: ".naNewsBody",
+                },
+            },
+        })
+    }
+}

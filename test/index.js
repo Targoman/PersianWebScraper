@@ -2990,5 +2990,11 @@ yarn dev && yarn start mehresaba -u https://mehre-saba.ir/miayneh/145066/
 yarn dev && yarn start eshomer
 yarn dev && yarn start eshomer -u https://mag.eshomer.com/vicks-benefits/
 
+yarn dev && yarn start jamehkhabar
+yarn dev && yarn start jamehkhabar -u https://www.jamehkhabar.ir/اقدام-عجیب-پیمان-پاک-یا-سناریو-سازی-رسا/
+
+yarn dev && yarn start nipna
+yarn dev && yarn start nipna -u https://www.nipna.ir/fa/newsagency/26963/تمرکز-NPC-بر-توسعه-کیفی-و-کمی-صنعت-پتروشیمی-است
+
 https://motamem.org/
 /**/
