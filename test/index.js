@@ -2996,5 +2996,8 @@ yarn dev && yarn start jamehkhabar -u https://www.jamehkhabar.ir/اقدام-عج
 yarn dev && yarn start nipna
 yarn dev && yarn start nipna -u https://www.nipna.ir/fa/newsagency/26963/تمرکز-NPC-بر-توسعه-کیفی-و-کمی-صنعت-پتروشیمی-است
 
+yarn dev && yarn start nano
+yarn dev && yarn start nano -u https://news.nano.ir/114968/هم-افزایی-صنعتی-برای-بهبود-مدیریت-گرما-در-ادوات-الکترونیکی/
+
 https://motamem.org/
 /**/

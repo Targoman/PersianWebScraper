@@ -12443,3 +12443,29 @@ export class nipna extends clsScrapper {
         })
     }
 }
+
+export class nano extends clsScrapper {
+    constructor() {
+        super(enuDomains.nano, "news.nano.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".im-entry-content",
+                },
+                category: {
+                    selector: ".cat-links a",
+                    lastIndex: 1
+                },
+                tags: ".im-tag-items a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

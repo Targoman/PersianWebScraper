@@ -599,6 +599,7 @@ export enum enuDomains {
     namayebank = "namayebank",
     namehnews = "namehnews",
     namnak = "namnak",
+    nano = "nano",
     nasim = "nasim",
     nasrblog = "nasrblog",
     nasrnews = "nasrnews",
