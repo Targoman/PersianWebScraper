@@ -2999,5 +2999,8 @@ yarn dev && yarn start nipna -u https://www.nipna.ir/fa/newsagency/26963/تمر�
 yarn dev && yarn start nano
 yarn dev && yarn start nano -u https://news.nano.ir/114968/هم-افزایی-صنعتی-برای-بهبود-مدیریت-گرما-در-ادوات-الکترونیکی/
 
+yarn dev && yarn start ivo 
+yarn dev && yarn start ivo -u https://ivo.ir/اخبار-اسلایدر/تشکیل-کمیته-ملی-تخصصی-بیماری-طاعون-نشخوارکنندگان-کوچک-
+
 https://motamem.org/
 /**/

@@ -440,6 +440,7 @@ export enum enuDomains {
     iusnews = "iusnews",
     ivahid = "ivahid",
     ivnanews = "ivnanews",
+    ivo = "ivo",
     iwna = "iwna",
     jabama = "jabama",
     jadidpress = "jadidpress",
