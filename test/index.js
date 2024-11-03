@@ -3002,5 +3002,8 @@ yarn dev && yarn start nano -u https://news.nano.ir/114968/هم-افزایی-ص�
 yarn dev && yarn start ivo 
 yarn dev && yarn start ivo -u https://ivo.ir/اخبار-اسلایدر/تشکیل-کمیته-ملی-تخصصی-بیماری-طاعون-نشخوارکنندگان-کوچک-
 
+yarn dev && yarn start faryad 
+yarn dev && yarn start faryad -u https://www.faryad.ir/news/?ihwfhwkuq-تمام-مخالفان-FATF-کاسبان-تحریم-هستند
+
 https://motamem.org/
 /**/

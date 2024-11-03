@@ -12493,3 +12493,22 @@ export class ivo extends clsScrapper {
         })
     }
 }
+
+export class faryad extends clsScrapper {
+    constructor() {
+        super(enuDomains.faryad, "faryad.ir", {
+            selectors: {
+                article: "article.in-article",
+                aboveTitle: "h5",
+                title: "h3",
+                summary: ".news-kholase",
+                datetime: {
+                    conatiner: ".ndate-in"
+                },
+                content: {
+                    main: ".matn",
+                },
+            },
+        })
+    }
+}
