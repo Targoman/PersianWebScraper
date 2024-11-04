@@ -3005,5 +3005,8 @@ yarn dev && yarn start ivo -u https://ivo.ir/اخبار-اسلایدر/تشکی�
 yarn dev && yarn start faryad 
 yarn dev && yarn start faryad -u https://www.faryad.ir/news/?ihwfhwkuq-تمام-مخالفان-FATF-کاسبان-تحریم-هستند
 
+yarn dev && yarn start meydannews
+yarn dev && yarn start meydannews -u https://meydannews.com/fa/news/8172/گواردیولا-به-دلیل-آزارها-بارسا-را-ترک-کردم-بدترین-ضربه%E2%80%8Cها-را-از-درون-باشگاه-می%E2%80%8Cخورید
+
 https://motamem.org/
 /**/
