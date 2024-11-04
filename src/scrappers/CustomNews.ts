@@ -12512,3 +12512,31 @@ export class faryad extends clsScrapper {
         })
     }
 }
+
+export class zarebinvarzesh extends clsScrapper {
+    constructor() {
+        super(enuDomains.zarebinvarzesh, "zarebinvarzesh.ir", {
+            selectors: {
+                article: "article.full-story",
+                aboveTitle: "h4",
+                title: "h1",
+                datetime: {
+                    conatiner: "time",
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: ".cats a",
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}

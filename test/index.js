@@ -3008,5 +3008,8 @@ yarn dev && yarn start faryad -u https://www.faryad.ir/news/?ihwfhwkuq-تمام-
 yarn dev && yarn start meydannews
 yarn dev && yarn start meydannews -u https://meydannews.com/fa/news/8172/گواردیولا-به-دلیل-آزارها-بارسا-را-ترک-کردم-بدترین-ضربه%E2%80%8Cها-را-از-درون-باشگاه-می%E2%80%8Cخورید
 
+yarn dev && yarn start zarebinvarzesh
+yarn dev && yarn start zarebinvarzesh -u http://zarebinvarzesh.ir/index.php?newsid=2325
+
 https://motamem.org/
 /**/

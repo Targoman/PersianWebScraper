@@ -963,6 +963,7 @@ export enum enuDomains {
     yektanet = "yektanet",
     yjc = "yjc",
     zanjani = "zanjani",
+    zarebinvarzesh = "zarebinvarzesh",
     zenhar = "zenhar",
     zhaket = "zhaket",
     zibamoon = "zibamoon",
