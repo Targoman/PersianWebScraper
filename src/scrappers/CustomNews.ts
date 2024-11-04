@@ -12540,3 +12540,26 @@ export class zarebinvarzesh extends clsScrapper {
         })
     }
 }
+
+export class ipna extends clsScrapper {
+    constructor() {
+        super(enuDomains.ipna, "ipna.ir", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".hhi.breadcrumb > li"
+                },
+                content: {
+                    main: ".entry",
+                },
+                category: {
+                    selector: "a[rel='category tag']",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}

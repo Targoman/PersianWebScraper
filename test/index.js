@@ -3011,5 +3011,8 @@ yarn dev && yarn start meydannews -u https://meydannews.com/fa/news/8172/گوا�
 yarn dev && yarn start zarebinvarzesh
 yarn dev && yarn start zarebinvarzesh -u http://zarebinvarzesh.ir/index.php?newsid=2325
 
+yarn dev && yarn start ipna
+yarn dev && yarn start ipna -u https://www.ipna.ir/ژسوس-استقلال-را-به-خوبی-میشناسیم؛-نی
+
 https://motamem.org/
 /**/

@@ -405,6 +405,7 @@ export enum enuDomains {
     inn = "inn",
     intitr = "intitr",
     ipemdad = "ipemdad",
+    ipna = "ipna",
     ipresta = "ipresta",
     iqna = "iqna",
     irafnews = "irafnews",
