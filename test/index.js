@@ -3017,5 +3017,8 @@ yarn dev && yarn start ipna -u https://www.ipna.ir/ژسوس-استقلال-را-
 yarn dev && yarn start varzeshsasi
 yarn dev && yarn start varzeshsasi -u https://varzeshsasi.ir/برد-تراکتور-مدیون-هافبکها/
 
+yarn dev && yarn start fabanews
+yarn dev && yarn start fabanews -u https://fabanews.com/fa/چالشهای-بانکهای-سنتی-در-جها/
+
 https://motamem.org/
 /**/

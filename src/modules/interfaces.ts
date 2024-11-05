@@ -274,6 +274,7 @@ export enum enuDomains {
     eximnews = "eximnews",
     extern = "extern",
     faab = "faab",
+    fabanews = "fabanews",
     factcoins = "factcoins",
     faradars = "faradars",
     faradeed = "faradeed",

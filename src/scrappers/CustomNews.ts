@@ -12589,3 +12589,22 @@ export class varzeshsasi extends clsScrapper {
         })
     }
 }
+
+export class fabanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.fabanews, "fabanews.com", {
+            selectors: {
+                article: "body.single-post",
+                title: ".elementor-page-title .elementor-heading-title",
+                subtitle: ".hentry > div > section > div > div > div > div.elementor-element.elementor-widget.elementor-widget-text-editor p",
+                datetime: {
+                    conatiner: ".elementor-post-info__item--type-date"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                    ignoreNodeClasses: ["custom_excerpt_val"]
+                },
+            },
+        })
+    }
+}
