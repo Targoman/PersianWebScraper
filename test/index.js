@@ -3014,5 +3014,8 @@ yarn dev && yarn start zarebinvarzesh -u http://zarebinvarzesh.ir/index.php?news
 yarn dev && yarn start ipna
 yarn dev && yarn start ipna -u https://www.ipna.ir/ژسوس-استقلال-را-به-خوبی-میشناسیم؛-نی
 
+yarn dev && yarn start varzeshsasi
+yarn dev && yarn start varzeshsasi -u https://varzeshsasi.ir/برد-تراکتور-مدیون-هافبکها/
+
 https://motamem.org/
 /**/
