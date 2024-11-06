@@ -12608,3 +12608,24 @@ export class fabanews extends clsScrapper {
         })
     }
 }
+
+export class opc extends clsScrapper {
+    constructor() {
+        super(enuDomains.opc, "opc.ir", {
+            selectors: {
+                article: "[itemprop='articleBody']",
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".container_news > div > div:nth-child(1) > div > div:nth-child(3)"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".container_news > div > div:nth-child(1) > div > div:nth-child(1)"),
+                    splitter: "،"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='articleBody']"),
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".container_news > div > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)"),
+                },            
+            },
+        })
+    }
+}

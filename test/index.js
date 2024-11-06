@@ -3020,5 +3020,8 @@ yarn dev && yarn start varzeshsasi -u https://varzeshsasi.ir/برد-تراکتو
 yarn dev && yarn start fabanews
 yarn dev && yarn start fabanews -u https://fabanews.com/fa/چالشهای-بانکهای-سنتی-در-جها/
 
+yarn dev && yarn start opc
+yarn dev && yarn start opc -u https://opc.ir/index.php/read_more/news/6444/افزایش%20استفاده%20از%20پوشش%E2%80%8Cهای%20نانویی%20در%20کشتی%E2%80%8Cهای%20تجاری
+
 https://motamem.org/
 /**/
