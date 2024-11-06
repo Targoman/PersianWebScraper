@@ -3023,5 +3023,8 @@ yarn dev && yarn start fabanews -u https://fabanews.com/fa/چالشهای-بان
 yarn dev && yarn start opc
 yarn dev && yarn start opc -u https://opc.ir/index.php/read_more/news/6444/افزایش%20استفاده%20از%20پوشش%E2%80%8Cهای%20نانویی%20در%20کشتی%E2%80%8Cهای%20تجاری
 
+yarn dev && yarn start saghieazarbaijan
+yarn dev && yarn start saghieazarbaijan -u https://saghieazarbaijan.ir/زلزله-در-کمین-تبریز-است/
+
 https://motamem.org/
 /**/

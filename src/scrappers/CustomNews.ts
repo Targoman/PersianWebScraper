@@ -12629,3 +12629,29 @@ export class opc extends clsScrapper {
         })
     }
 }
+
+export class saghieazarbaijan extends clsScrapper {
+    constructor() {
+        super(enuDomains.saghieazarbaijan, "saghieazarbaijan.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-views", "awpa-title", "wp-post-author-shortcode", "entry-meta"],
+                },  
+                category: {
+                    selector: ".newsever-entry-header-details-wrap div div.read-categories ul li a",
+                },              
+                tags: ".tags-links a",              
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
