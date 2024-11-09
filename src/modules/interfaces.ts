@@ -404,6 +404,7 @@ export enum enuDomains {
     imna = "imna",
     infogramacademy = "infogramacademy",
     inn = "inn",
+    intamedia = "intamedia",
     intitr = "intitr",
     ipemdad = "ipemdad",
     ipna = "ipna",

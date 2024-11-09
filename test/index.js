@@ -3026,5 +3026,8 @@ yarn dev && yarn start opc -u https://opc.ir/index.php/read_more/news/6444/اف�
 yarn dev && yarn start saghieazarbaijan
 yarn dev && yarn start saghieazarbaijan -u https://saghieazarbaijan.ir/زلزله-در-کمین-تبریز-است/
 
+yarn dev && yarn start intamedia
+yarn dev && yarn start intamedia -u https://intamedia.ir/notes/مشاغل-یونانی-بدون-پایانههای-فروش-دیجیتال-جریمه-میشوند
+
 https://motamem.org/
 /**/

@@ -12655,3 +12655,20 @@ export class saghieazarbaijan extends clsScrapper {
         })
     }
 }
+
+export class intamedia extends clsScrapper {
+    constructor() {
+        super(enuDomains.intamedia, "intamedia.ir", {
+            selectors: {
+                article: ".ArticleView",
+                title: "h1",
+                datetime: {
+                    conatiner: ".datepane"
+                },
+                content: {
+                    main: ".description",
+                },
+            },
+        })
+    }
+}
