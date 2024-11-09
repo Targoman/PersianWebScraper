@@ -3029,5 +3029,8 @@ yarn dev && yarn start saghieazarbaijan -u https://saghieazarbaijan.ir/زلزل�
 yarn dev && yarn start intamedia
 yarn dev && yarn start intamedia -u https://intamedia.ir/notes/مشاغل-یونانی-بدون-پایانههای-فروش-دیجیتال-جریمه-میشوند
 
+yarn dev && yarn start bazresi
+yarn dev && yarn start bazresi -u https://bazresi.ir/عناوین-کل-اخبار/بازرس-کل-قضایی-استان-ایلام-از-مشکلات-به-وجود-آمده-در-بخش-باولی-شهرستان-چوار-بازدید-کرد/8916
+
 https://motamem.org/
 /**/

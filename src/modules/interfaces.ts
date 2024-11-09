@@ -136,6 +136,7 @@ export enum enuDomains {
     bazimag = "bazimag",
     bazkhabar = "bazkhabar",
     bazmineh = "bazmineh",
+    bazresi = "bazresi",
     baztab = "baztab",
     behdasht = "behdasht",
     behtarinideh = "behtarinideh",

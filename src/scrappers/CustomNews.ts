@@ -12672,3 +12672,29 @@ export class intamedia extends clsScrapper {
         })
     }
 }
+
+export class bazresi extends clsScrapper {
+    constructor() {
+        super(enuDomains.bazresi, "bazresi.ir", {
+            basePath: "/news",
+            selectors: {
+                article: ".single-post-wrap",
+                aboveTitle: "h6",
+                title: "h2",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-info > ul > li:nth-child(1) > span"
+                },
+                content: {
+                    main: ".news-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.breadcrumb li a"),
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+                tags: ".es-news-tags ul li a"
+            },
+        })
+    }
+}
