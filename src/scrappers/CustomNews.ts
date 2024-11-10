@@ -12698,3 +12698,21 @@ export class bazresi extends clsScrapper {
         })
     }
 }
+
+export class rai extends clsScrapper {
+    constructor() {
+        super(enuDomains.rai, "rai.ir", {
+            selectors: {
+                article: ".content5",
+                title: ".shownews5titr",
+                summary: ".shownews5summery",
+                datetime: {
+                    conatiner: ".shownews5date1"
+                },
+                content: {
+                    main: ".shownews5comment div",
+                },
+            },
+        })
+    }
+}

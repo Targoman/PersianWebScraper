@@ -724,6 +724,7 @@ export enum enuDomains {
     rahbordemoaser = "rahbordemoaser",
     raheshalamche = "raheshalamche",
     rahyafteha = "rahyafteha",
+    rai = "rai",
     railnews = "railnews",
     rajanews = "rajanews",
     ramzarz = "ramzarz",
