@@ -12716,3 +12716,28 @@ export class rai extends clsScrapper {
         })
     }
 }
+
+
+export class goalrasaneh extends clsScrapper {
+    constructor() {
+        super(enuDomains.goalrasaneh, "goalrasaneh.ir", {
+            selectors: {
+                article: ".newsBBox",
+                title: "h6.news-title",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".news-time"
+                },
+                content: {
+                    main: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".newsBBox"),
+                    ignoreNodeClasses: ["news-box", "content-news", "side-box"],
+                    ignoreTexts: [/.*#.*/]
+                },
+                tags: "a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

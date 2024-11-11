@@ -3035,5 +3035,8 @@ yarn dev && yarn start bazresi -u https://bazresi.ir/عناوین-کل-اخبا�
 yarn dev && yarn start rai
 yarn dev && yarn start rai -u  https://www.rai.ir/page-default/fa/0/dorsaetoolsnewsrai/35254-G0/کارگاه-توانمندسازی-کارشناسان-روابط-عمومی-ستاد-و-من
 
+yarn dev && yarn start goalrasaneh
+yarn dev && yarn start goalrasaneh -u https://goalrasaneh.ir/page/view/105335/شاهین:-شرایط-بسیار-ناامیدکننده-است
+
 https://motamem.org/
 /**/

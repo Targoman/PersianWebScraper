@@ -335,6 +335,7 @@ export enum enuDomains {
     gishniz = "gishniz",
     gitionline = "gitionline",
     goaldaily = "goaldaily",
+    goalrasaneh = "goalrasaneh",
     goftareno = "goftareno",
     goldashtkerman = "goldashtkerman",
     golvani = "golvani",
