@@ -3038,5 +3038,8 @@ yarn dev && yarn start rai -u  https://www.rai.ir/page-default/fa/0/dorsaetoolsn
 yarn dev && yarn start goalrasaneh
 yarn dev && yarn start goalrasaneh -u https://goalrasaneh.ir/page/view/105335/شاهین:-شرایط-بسیار-ناامیدکننده-است
 
+yarn dev && yarn start aflakvarzeshi
+yarn dev && yarn start aflakvarzeshi -u https://aflakvarzeshi.ir/ورزش-لرستان/19933-2024-10-20-09-48-32
+
 https://motamem.org/
 /**/

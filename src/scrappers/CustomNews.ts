@@ -12741,3 +12741,28 @@ export class goalrasaneh extends clsScrapper {
         })
     }
 }
+
+export class aflakvarzeshi extends clsScrapper {
+    constructor() {
+        super(enuDomains.aflakvarzeshi, "aflakvarzeshi.ir", {
+            selectors: {
+                article: ".item-page",
+                title: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                    ignoreNodeClasses: ["author_infobox_description", "author_infobox_name"]
+                },
+                category: {
+                    selector: "[itemprop='genre']",
+                },
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
