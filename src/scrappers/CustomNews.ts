@@ -12766,3 +12766,29 @@ export class aflakvarzeshi extends clsScrapper {
         })
     }
 }
+
+export class tavanir extends clsScrapper {
+    constructor() {
+        super(enuDomains.tavanir, "news.tavanir.org.ir", {
+            selectors: {
+                article: "article.item",
+                aboveTitle: "h4",
+                title: "h1",
+                subtitle: ".introtext",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".item-body",
+                },
+                category: {
+                    selector: "[itemprop='articleSection']",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

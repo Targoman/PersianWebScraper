@@ -3041,5 +3041,8 @@ yarn dev && yarn start goalrasaneh -u https://goalrasaneh.ir/page/view/105335/ش
 yarn dev && yarn start aflakvarzeshi
 yarn dev && yarn start aflakvarzeshi -u https://aflakvarzeshi.ir/ورزش-لرستان/19933-2024-10-20-09-48-32
 
+yarn dev && yarn start tavanir
+yarn dev && yarn start tavanir -u https://news.tavanir.org.ir/news/130447/بهره-برداری-از-۳۸۰۰-میلیارد-تومان-طرح-برق-منطقه-ای-خوزستان
+
 https://motamem.org/
 /**/
