@@ -3044,5 +3044,8 @@ yarn dev && yarn start aflakvarzeshi -u https://aflakvarzeshi.ir/ورزش-لرس
 yarn dev && yarn start tavanir
 yarn dev && yarn start tavanir -u https://news.tavanir.org.ir/news/130447/بهره-برداری-از-۳۸۰۰-میلیارد-تومان-طرح-برق-منطقه-ای-خوزستان
 
+yarn dev && yarn start tpph
+yarn dev && yarn start tpph -u https://news.tpph.ir/fa/News/9713
+
 https://motamem.org/
 /**/

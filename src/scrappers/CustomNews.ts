@@ -12792,3 +12792,29 @@ export class tavanir extends clsScrapper {
         })
     }
 }
+
+export class tpph extends clsScrapper {
+    constructor() {
+        super(enuDomains.tpph, "news.tpph.ir", {
+            selectors: {
+                article: ".news-detail-page",
+                aboveTitle: ".news-rutitr",
+                title: "h1",
+                subtitle: ".news-lead",
+                datetime: {
+                    conatiner: ".news-date"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: ".Services-title",
+                },
+                tags: ".TagCloud span a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
