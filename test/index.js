@@ -3047,5 +3047,8 @@ yarn dev && yarn start tavanir -u https://news.tavanir.org.ir/news/130447/بهر
 yarn dev && yarn start tpph
 yarn dev && yarn start tpph -u https://news.tpph.ir/fa/News/9713
 
+yarn dev && yarn start fbtv3
+yarn dev && yarn start fbtv3 -u https://fbtv3.ir/news/17507
+
 https://motamem.org/
 /**/

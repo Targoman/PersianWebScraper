@@ -12818,3 +12818,25 @@ export class tpph extends clsScrapper {
         })
     }
 }
+
+export class fbtv3 extends clsScrapper {
+    constructor() {
+        super(enuDomains.fbtv3, "fbtv3.ir", {
+            selectors: {
+                article: "#onePost",
+                title: "h1",
+                subtitle: ".h5",
+                datetime: {
+                    conatiner: ".date-comments"
+                },
+                content: {
+                    main: ".content-body",
+                },  
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".Post-Lables a")            
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
