@@ -12840,3 +12840,27 @@ export class fbtv3 extends clsScrapper {
         })
     }
 }
+
+export class msfi extends clsScrapper {
+    constructor() {
+        super(enuDomains.msfi, "msfi.ir", {
+            selectors: {
+                article: ".root-Mainsingle",
+                title: ".Titr-Data-Viewer",
+                subtitle: ".discript-Data-Viewer-Original-Title",
+                datetime: {
+                    conatiner: ".Data-Viewer > div.Data > span.data"
+                },
+                content: {
+                    main: "#contentArea",
+                },
+                category: {
+                    selector: ".category",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

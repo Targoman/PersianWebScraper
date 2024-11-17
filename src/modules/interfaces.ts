@@ -594,6 +594,7 @@ export enum enuDomains {
     motamem = "motamem",
     mouood = "mouood",
     mrud = "mrud",
+    msfi = "msfi",
     msrt = "msrt",
     myindustry = "myindustry",
     myket = "myket",

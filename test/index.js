@@ -3050,5 +3050,8 @@ yarn dev && yarn start tpph -u https://news.tpph.ir/fa/News/9713
 yarn dev && yarn start fbtv3
 yarn dev && yarn start fbtv3 -u https://fbtv3.ir/news/17507
 
+yarn dev && yarn start msfi
+yarn dev && yarn start msfi -u https://msfi.ir/ArticleView/Index/44602
+
 https://motamem.org/
 /**/
