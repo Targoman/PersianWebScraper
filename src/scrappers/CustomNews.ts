@@ -12864,3 +12864,24 @@ export class msfi extends clsScrapper {
         })
     }
 }
+
+export class seemtiyaz extends clsScrapper {
+    constructor() {
+        super(enuDomains.seemtiyaz, "3emtiyaz.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: "span.the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -800,6 +800,7 @@ export enum enuDomains {
     sedayerey = "sedayerey",
     sedayiran = "sedayiran",
     sedayostan = "sedayostan",
+    seemtiyaz = "seemtiyaz",
     segosh = "segosh",
     sellfree = "sellfree",
     sena = "sena",

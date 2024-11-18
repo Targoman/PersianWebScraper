@@ -3053,5 +3053,8 @@ yarn dev && yarn start fbtv3 -u https://fbtv3.ir/news/17507
 yarn dev && yarn start msfi
 yarn dev && yarn start msfi -u https://msfi.ir/ArticleView/Index/44602
 
+yarn dev && yarn start seemtiyaz
+yarn dev && yarn start seemtiyaz -u https://3emtiyaz.ir/1403/08/27/موافقت-سمیعی-با-درخواست-سرمربی-استقلا/
+
 https://motamem.org/
 /**/
