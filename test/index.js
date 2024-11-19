@@ -3056,5 +3056,8 @@ yarn dev && yarn start msfi -u https://msfi.ir/ArticleView/Index/44602
 yarn dev && yarn start seemtiyaz
 yarn dev && yarn start seemtiyaz -u https://3emtiyaz.ir/1403/08/27/موافقت-سمیعی-با-درخواست-سرمربی-استقلا/
 
+yarn dev && yarn start sobheabhar
+yarn dev && yarn start sobheabhar -u https://sobheabhar.ir/به-دنبال-رقم-خوردن-اتفاقات-خوب-در-بافت/
+
 https://motamem.org/
 /**/

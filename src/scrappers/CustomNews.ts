@@ -12885,3 +12885,21 @@ export class seemtiyaz extends clsScrapper {
         })
     }
 }
+
+export class sobheabhar extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobheabhar, "sobheabhar.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+            },
+        })
+    }
+}
