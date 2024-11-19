@@ -12903,3 +12903,25 @@ export class sobheabhar extends clsScrapper {
         })
     }
 }
+
+export class varzeshq extends clsScrapper {
+    constructor() {
+        super(enuDomains.varzeshq, "varzeshq.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                subtitle: ".elementor-widget-theme-post-excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".elementor-widget-theme-post-content .elementor-widget-container",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

@@ -947,6 +947,7 @@ export enum enuDomains {
     varzesh360 = "varzesh360",
     varzeshebanovan = "varzeshebanovan",
     varzeshi91 = "varzeshi91",
+    varzeshq = "varzeshq",
     varzeshsasi = "varzeshsasi",
     vido = "vido",
     vigiato = "vigiato",

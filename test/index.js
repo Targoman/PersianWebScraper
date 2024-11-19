@@ -3059,5 +3059,8 @@ yarn dev && yarn start seemtiyaz -u https://3emtiyaz.ir/1403/08/27/موافقت-
 yarn dev && yarn start sobheabhar
 yarn dev && yarn start sobheabhar -u https://sobheabhar.ir/به-دنبال-رقم-خوردن-اتفاقات-خوب-در-بافت/
 
+yarn dev && yarn start varzeshq
+yarn dev && yarn start varzeshq -u https://varzeshq.ir/شکست-تایسون-در-بازگشت-به-رینگ-بعد-از-۱۹/
+
 https://motamem.org/
 /**/
