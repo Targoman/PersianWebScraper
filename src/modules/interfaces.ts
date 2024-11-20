@@ -854,6 +854,7 @@ export enum enuDomains {
     snn = "snn",
     sobaatnews = "sobaatnews",
     sobheabhar = "sobheabhar",
+    sobhepardis = "sobhepardis",
     sobheqazvin = "sobheqazvin",
     sobheqtesad = "sobheqtesad",
     sobhesahel = "sobhesahel",

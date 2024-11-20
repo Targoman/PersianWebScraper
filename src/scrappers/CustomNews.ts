@@ -12925,3 +12925,24 @@ export class varzeshq extends clsScrapper {
         })
     }
 }
+
+export class sobhepardis extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobhepardis, "sobhepardis.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

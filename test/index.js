@@ -3062,5 +3062,8 @@ yarn dev && yarn start sobheabhar -u https://sobheabhar.ir/به-دنبال-رق�
 yarn dev && yarn start varzeshq
 yarn dev && yarn start varzeshq -u https://varzeshq.ir/شکست-تایسون-در-بازگشت-به-رینگ-بعد-از-۱۹/
 
+yarn dev && yarn start sobhepardis
+yarn dev && yarn start sobhepardis -u https://sobhepardis.ir/31-کنتور-هوشمند-بر-روی-چاه-های-مجاز-توسط-ا/
+
 https://motamem.org/
 /**/
