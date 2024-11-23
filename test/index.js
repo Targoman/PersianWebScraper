@@ -3065,5 +3065,8 @@ yarn dev && yarn start varzeshq -u https://varzeshq.ir/شکست-تایسون-د�
 yarn dev && yarn start sobhepardis
 yarn dev && yarn start sobhepardis -u https://sobhepardis.ir/31-کنتور-هوشمند-بر-روی-چاه-های-مجاز-توسط-ا/
 
+yarn dev && yarn start taranews
+yarn dev && yarn start taranews -u https://taranews.ir/23643/پروژه-متروی-کرج-به-عمر-شورای-ششم-میرس/
+
 https://motamem.org/
 /**/
