@@ -12968,3 +12968,28 @@ export class taranews extends clsScrapper {
         })
     }
 }
+
+export class huzhkhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.huzhkhabar, "huzhkhabar.ir", {
+            selectors: {
+                article: ".single",
+                aboveTitle: ".rootitr",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+                tags: ".tag h3 a"
+            },
+        })
+    }
+}

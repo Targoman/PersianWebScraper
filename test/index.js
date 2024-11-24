@@ -3068,5 +3068,8 @@ yarn dev && yarn start sobhepardis -u https://sobhepardis.ir/31-کنتور-هو�
 yarn dev && yarn start taranews
 yarn dev && yarn start taranews -u https://taranews.ir/23643/پروژه-متروی-کرج-به-عمر-شورای-ششم-میرس/
 
+yarn dev && yarn start huzhkhabar
+yarn dev && yarn start huzhkhabar -u https://www.huzhkhabar.ir/1403/08/تولد-۸۸-سالگی-پل-سفید-اهواز-در-کنار-کارو/
+
 https://motamem.org/
 /**/
