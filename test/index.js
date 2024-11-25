@@ -3071,5 +3071,8 @@ yarn dev && yarn start taranews -u https://taranews.ir/23643/پروژه-مترو
 yarn dev && yarn start huzhkhabar
 yarn dev && yarn start huzhkhabar -u https://www.huzhkhabar.ir/1403/08/تولد-۸۸-سالگی-پل-سفید-اهواز-در-کنار-کارو/
 
+yarn dev && yarn start dekhalat
+yarn dev && yarn start dekhalat -u https://dekhalat.com/56508/کشف-جسد-پیرمرد-رامسری/
+
 https://motamem.org/
 /**/

@@ -12993,3 +12993,29 @@ export class huzhkhabar extends clsScrapper {
         })
     }
 }
+
+export class dekhalat extends clsScrapper {
+    constructor() {
+        super(enuDomains.dekhalat, "dekhalat.com", {
+            selectors: {
+                article: ".content",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry",
+                    ignoreNodeClasses: ["crp_related", "vc_message_box-standard"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".post-tag a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

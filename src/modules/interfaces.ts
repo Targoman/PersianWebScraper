@@ -206,6 +206,7 @@ export enum enuDomains {
     daryanews = "daryanews",
     dbazi = "dbazi",
     defapress = "defapress",
+    dekhalat = "dekhalat",
     delgarm = "delgarm",
     deyblog = "deyblog",
     didarnews = "didarnews",
