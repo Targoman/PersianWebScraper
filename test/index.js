@@ -2972,5 +2972,104 @@ yarn dev && yarn start raheshalamche -u http://www.raheshalamche.com/post/طرح
 yarn dev && yarn start aftabbafgh
 yarn dev && yarn start aftabbafgh -u http://aftabbafgh.ir/134073/تقدیر-تیم-والیبال-بانوان-مجتمع-معادن-س/
 
+yarn dev && yarn start haftroozkhabar
+yarn dev && yarn start haftroozkhabar -u http://7roozkhabar.ir/رئیس-گروه-مالی-گردشگری-در-جمع-مدیران-ار/
+
+yarn dev && yarn start sorooshnews 
+yarn dev && yarn start sorooshnews -u https://sorooshnews.com/تولید-برق-نانویی-با-بدن-انسان/
+
+yarn dev && yarn start shahrdaran
+yarn dev && yarn start shahrdaran -u https://shahrdaran.ir/تسریع-در-تعیین-تکلیف-محور-رنجبر-،-کمیل-و/
+
+yarn dev && yarn start nofeh 
+yarn dev && yarn start nofeh -u https://nofeh.ir/registration-of-more-than-3500-works-in-the-cultural-heritage-multimedia-festival/
+
+yarn dev && yarn start mehresaba
+yarn dev && yarn start mehresaba -u https://mehre-saba.ir/miayneh/145066/
+
+yarn dev && yarn start eshomer
+yarn dev && yarn start eshomer -u https://mag.eshomer.com/vicks-benefits/
+
+yarn dev && yarn start jamehkhabar
+yarn dev && yarn start jamehkhabar -u https://www.jamehkhabar.ir/اقدام-عجیب-پیمان-پاک-یا-سناریو-سازی-رسا/
+
+yarn dev && yarn start nipna
+yarn dev && yarn start nipna -u https://www.nipna.ir/fa/newsagency/26963/تمرکز-NPC-بر-توسعه-کیفی-و-کمی-صنعت-پتروشیمی-است
+
+yarn dev && yarn start nano
+yarn dev && yarn start nano -u https://news.nano.ir/114968/هم-افزایی-صنعتی-برای-بهبود-مدیریت-گرما-در-ادوات-الکترونیکی/
+
+yarn dev && yarn start ivo 
+yarn dev && yarn start ivo -u https://ivo.ir/اخبار-اسلایدر/تشکیل-کمیته-ملی-تخصصی-بیماری-طاعون-نشخوارکنندگان-کوچک-
+
+yarn dev && yarn start faryad 
+yarn dev && yarn start faryad -u https://www.faryad.ir/news/?ihwfhwkuq-تمام-مخالفان-FATF-کاسبان-تحریم-هستند
+
+yarn dev && yarn start meydannews
+yarn dev && yarn start meydannews -u https://meydannews.com/fa/news/8172/گواردیولا-به-دلیل-آزارها-بارسا-را-ترک-کردم-بدترین-ضربه%E2%80%8Cها-را-از-درون-باشگاه-می%E2%80%8Cخورید
+
+yarn dev && yarn start zarebinvarzesh
+yarn dev && yarn start zarebinvarzesh -u http://zarebinvarzesh.ir/index.php?newsid=2325
+
+yarn dev && yarn start ipna
+yarn dev && yarn start ipna -u https://www.ipna.ir/ژسوس-استقلال-را-به-خوبی-میشناسیم؛-نی
+
+yarn dev && yarn start varzeshsasi
+yarn dev && yarn start varzeshsasi -u https://varzeshsasi.ir/برد-تراکتور-مدیون-هافبکها/
+
+yarn dev && yarn start fabanews
+yarn dev && yarn start fabanews -u https://fabanews.com/fa/چالشهای-بانکهای-سنتی-در-جها/
+
+yarn dev && yarn start opc
+yarn dev && yarn start opc -u https://opc.ir/index.php/read_more/news/6444/افزایش%20استفاده%20از%20پوشش%E2%80%8Cهای%20نانویی%20در%20کشتی%E2%80%8Cهای%20تجاری
+
+yarn dev && yarn start saghieazarbaijan
+yarn dev && yarn start saghieazarbaijan -u https://saghieazarbaijan.ir/زلزله-در-کمین-تبریز-است/
+
+yarn dev && yarn start intamedia
+yarn dev && yarn start intamedia -u https://intamedia.ir/notes/مشاغل-یونانی-بدون-پایانههای-فروش-دیجیتال-جریمه-میشوند
+
+yarn dev && yarn start bazresi
+yarn dev && yarn start bazresi -u https://bazresi.ir/عناوین-کل-اخبار/بازرس-کل-قضایی-استان-ایلام-از-مشکلات-به-وجود-آمده-در-بخش-باولی-شهرستان-چوار-بازدید-کرد/8916
+
+yarn dev && yarn start rai
+yarn dev && yarn start rai -u  https://www.rai.ir/page-default/fa/0/dorsaetoolsnewsrai/35254-G0/کارگاه-توانمندسازی-کارشناسان-روابط-عمومی-ستاد-و-من
+
+yarn dev && yarn start goalrasaneh
+yarn dev && yarn start goalrasaneh -u https://goalrasaneh.ir/page/view/105335/شاهین:-شرایط-بسیار-ناامیدکننده-است
+
+yarn dev && yarn start aflakvarzeshi
+yarn dev && yarn start aflakvarzeshi -u https://aflakvarzeshi.ir/ورزش-لرستان/19933-2024-10-20-09-48-32
+
+yarn dev && yarn start tavanir
+yarn dev && yarn start tavanir -u https://news.tavanir.org.ir/news/130447/بهره-برداری-از-۳۸۰۰-میلیارد-تومان-طرح-برق-منطقه-ای-خوزستان
+
+yarn dev && yarn start tpph
+yarn dev && yarn start tpph -u https://news.tpph.ir/fa/News/9713
+
+yarn dev && yarn start fbtv3
+yarn dev && yarn start fbtv3 -u https://fbtv3.ir/news/17507
+
+yarn dev && yarn start msfi
+yarn dev && yarn start msfi -u https://msfi.ir/ArticleView/Index/44602
+
+yarn dev && yarn start seemtiyaz
+yarn dev && yarn start seemtiyaz -u https://3emtiyaz.ir/1403/08/27/موافقت-سمیعی-با-درخواست-سرمربی-استقلا/
+
+yarn dev && yarn start sobheabhar
+yarn dev && yarn start sobheabhar -u https://sobheabhar.ir/به-دنبال-رقم-خوردن-اتفاقات-خوب-در-بافت/
+
+yarn dev && yarn start varzeshq
+yarn dev && yarn start varzeshq -u https://varzeshq.ir/شکست-تایسون-در-بازگشت-به-رینگ-بعد-از-۱۹/
+
+yarn dev && yarn start sobhepardis
+yarn dev && yarn start sobhepardis -u https://sobhepardis.ir/31-کنتور-هوشمند-بر-روی-چاه-های-مجاز-توسط-ا/
+
+yarn dev && yarn start taranews
+yarn dev && yarn start taranews -u https://taranews.ir/23643/پروژه-متروی-کرج-به-عمر-شورای-ششم-میرس/
+
+yarn dev && yarn start huzhkhabar
+yarn dev && yarn start huzhkhabar -u https://www.huzhkhabar.ir/1403/08/تولد-۸۸-سالگی-پل-سفید-اهواز-در-کنار-کارو/
+
 https://motamem.org/
 /**/

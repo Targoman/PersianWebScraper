@@ -3250,3 +3250,28 @@ export class ferghe extends clsIransamaneh {
         })
     }
 }
+
+export class meydannews extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.meydannews, "meydannews.com", {
+            selectors: {
+                article: "div[style='direction: rtl;']",
+                aboveTitle: ".newspage-rutitr",
+                title: "h1",
+                subtitle: ".newspage-subtitle",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".news_path a"),
+                    startIndex: 1
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container div a")
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
