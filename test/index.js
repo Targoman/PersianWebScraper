@@ -3074,5 +3074,8 @@ yarn dev && yarn start huzhkhabar -u https://www.huzhkhabar.ir/1403/08/تولد-
 yarn dev && yarn start dekhalat
 yarn dev && yarn start dekhalat -u https://dekhalat.com/56508/کشف-جسد-پیرمرد-رامسری/
 
+yarn dev && yarn start khafnews
+yarn dev && yarn start khafnews -u https://khafnews.ir/2024/11/17/تالاب-سیرخون-خواف-گنجینه%e2%80%8cای-در-دل-کوی/
+
 https://motamem.org/
 /**/

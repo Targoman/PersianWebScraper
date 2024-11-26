@@ -13019,3 +13019,25 @@ export class dekhalat extends clsScrapper {
         })
     }
 }
+
+export class khafnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.khafnews, "khafnews.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: ".the_time"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+                category: {
+                    selector: ".the_category a",
+                    lastIndex: 2
+                },
+            },
+        })
+    }
+}
