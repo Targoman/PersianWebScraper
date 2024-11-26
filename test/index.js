@@ -3077,5 +3077,8 @@ yarn dev && yarn start dekhalat -u https://dekhalat.com/56508/کشف-جسد-پی
 yarn dev && yarn start khafnews
 yarn dev && yarn start khafnews -u https://khafnews.ir/2024/11/17/تالاب-سیرخون-خواف-گنجینه%e2%80%8cای-در-دل-کوی/
 
+yarn dev && yarn start rooberunews
+yarn dev && yarn start rooberunews -u https://rooberunews.ir/بخش-فرهنگی-7/31664-تهیه-کننده-نامزد-اسکار-به-سال-نیم-حبس-محکوم-شد
+
 https://motamem.org/
 /**/

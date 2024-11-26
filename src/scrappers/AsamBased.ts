@@ -1688,3 +1688,10 @@ export class econapress extends clsAsamBased {
         })
     }
 }
+
+/***********************************************************/
+export class rooberunews extends clsAsamBased {
+    constructor() {
+        super(enuDomains.rooberunews, "rooberunews.ir")
+    }
+}
