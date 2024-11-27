@@ -13060,3 +13060,27 @@ export class shahrekarimeh extends clsScrapper {
         })
     }
 }
+
+export class medu extends clsScrapper {
+    constructor() {
+        super(enuDomains.medu, "medu.ir", {
+            selectors: {
+                article: ".page-node-type-article",
+                aboveTitle: ".title-top",
+                title: "h1",
+                datetime: {
+                    conatiner: ".created"
+                },
+                content: {
+                    main: ".body",
+                },
+                category: {
+                    selector: ".breadcrumb ol li a",
+                },
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

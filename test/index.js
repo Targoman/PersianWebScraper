@@ -3083,5 +3083,8 @@ yarn dev && yarn start rooberunews -u https://rooberunews.ir/بخش-فرهنگی
 yarn dev && yarn start shahrekarimeh
 yarn dev && yarn start shahrekarimeh -u https://shahrekarimeh.ir/لزوم-برون-رفت-پردیسان-از-ترافیک؛-بازگش/
 
+yarn dev && yarn start medu
+yarn dev && yarn start medu -u https://medu.ir/fa/news/بسیاری-از%C2%A0-مشکلات-کشور-به-دلیل-کم%E2%80%8Cتوجهی-به-نظام-تعلیم-و-تربیت-است-جایگاه-حاکمیتی-نظام-تعلیم%C2%A0-و
+
 https://motamem.org/
 /**/

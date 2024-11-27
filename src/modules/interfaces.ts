@@ -559,6 +559,7 @@ export enum enuDomains {
     mazandmajles = "mazandmajles",
     mdeast = "mdeast",
     mednews = "mednews",
+    medu = "medu",
     mefda = "mefda",
     meghdadit = "meghdadit",
     mehrdadcivil = "mehrdadcivil",
