@@ -13041,3 +13041,22 @@ export class khafnews extends clsScrapper {
         })
     }
 }
+
+export class shahrekarimeh extends clsScrapper {
+    constructor() {
+        super(enuDomains.shahrekarimeh, "shahrekarimeh.ir", {
+            selectors: {
+                article: ".ap-single",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: ".entry",
+                },
+            },
+        })
+    }
+}

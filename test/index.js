@@ -3080,5 +3080,8 @@ yarn dev && yarn start khafnews -u https://khafnews.ir/2024/11/17/تالاب-س�
 yarn dev && yarn start rooberunews
 yarn dev && yarn start rooberunews -u https://rooberunews.ir/بخش-فرهنگی-7/31664-تهیه-کننده-نامزد-اسکار-به-سال-نیم-حبس-محکوم-شد
 
+yarn dev && yarn start shahrekarimeh
+yarn dev && yarn start shahrekarimeh -u https://shahrekarimeh.ir/لزوم-برون-رفت-پردیسان-از-ترافیک؛-بازگش/
+
 https://motamem.org/
 /**/
