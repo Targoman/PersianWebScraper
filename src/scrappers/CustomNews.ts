@@ -13084,3 +13084,23 @@ export class medu extends clsScrapper {
         })
     }
 }
+
+export class farhangnegar extends clsScrapper {
+    constructor() {
+        super(enuDomains.farhangnegar, "farhangnegar.ir", {
+            selectors: {
+                article: ".single",
+                title: "h1",
+                subtitle: ".excerpt",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".contentsingle",
+                },
+                tags: ".tag h3 a"
+            },
+        })
+    }
+}

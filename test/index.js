@@ -3086,5 +3086,8 @@ yarn dev && yarn start shahrekarimeh -u https://shahrekarimeh.ir/لزوم-برو
 yarn dev && yarn start medu
 yarn dev && yarn start medu -u https://medu.ir/fa/news/بسیاری-از%C2%A0-مشکلات-کشور-به-دلیل-کم%E2%80%8Cتوجهی-به-نظام-تعلیم-و-تربیت-است-جایگاه-حاکمیتی-نظام-تعلیم%C2%A0-و
 
+yarn dev && yarn start farhangnegar
+yarn dev && yarn start farhangnegar -u https://farhangnegar.ir/پلمب-یک-واحد-استخر-به-دلیل-آلودگی-میکرو/
+
 https://motamem.org/
 /**/
