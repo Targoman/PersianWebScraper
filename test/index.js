@@ -3071,5 +3071,23 @@ yarn dev && yarn start taranews -u https://taranews.ir/23643/پروژه-مترو
 yarn dev && yarn start huzhkhabar
 yarn dev && yarn start huzhkhabar -u https://www.huzhkhabar.ir/1403/08/تولد-۸۸-سالگی-پل-سفید-اهواز-در-کنار-کارو/
 
+yarn dev && yarn start dekhalat
+yarn dev && yarn start dekhalat -u https://dekhalat.com/56508/کشف-جسد-پیرمرد-رامسری/
+
+yarn dev && yarn start khafnews
+yarn dev && yarn start khafnews -u https://khafnews.ir/2024/11/17/تالاب-سیرخون-خواف-گنجینه%e2%80%8cای-در-دل-کوی/
+
+yarn dev && yarn start rooberunews
+yarn dev && yarn start rooberunews -u https://rooberunews.ir/بخش-فرهنگی-7/31664-تهیه-کننده-نامزد-اسکار-به-سال-نیم-حبس-محکوم-شد
+
+yarn dev && yarn start shahrekarimeh
+yarn dev && yarn start shahrekarimeh -u https://shahrekarimeh.ir/لزوم-برون-رفت-پردیسان-از-ترافیک؛-بازگش/
+
+yarn dev && yarn start medu
+yarn dev && yarn start medu -u https://medu.ir/fa/news/بسیاری-از%C2%A0-مشکلات-کشور-به-دلیل-کم%E2%80%8Cتوجهی-به-نظام-تعلیم-و-تربیت-است-جایگاه-حاکمیتی-نظام-تعلیم%C2%A0-و
+
+yarn dev && yarn start farhangnegar
+yarn dev && yarn start farhangnegar -u https://farhangnegar.ir/پلمب-یک-واحد-استخر-به-دلیل-آلودگی-میکرو/
+
 https://motamem.org/
 /**/
