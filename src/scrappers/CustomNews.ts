@@ -13104,3 +13104,28 @@ export class farhangnegar extends clsScrapper {
         })
     }
 }
+
+export class peydagarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.peydagarnews, "peydagarnews.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".subtitle",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}

@@ -3089,5 +3089,8 @@ yarn dev && yarn start medu -u https://medu.ir/fa/news/بسیاری-از%C2%A0-�
 yarn dev && yarn start farhangnegar
 yarn dev && yarn start farhangnegar -u https://farhangnegar.ir/پلمب-یک-واحد-استخر-به-دلیل-آلودگی-میکرو/
 
+yarn dev && yarn start peydagarnews
+yarn dev && yarn start peydagarnews -u https://peydagarnews.ir/اعمال-قانون-۷۰-هزار-خودرو-با-چراغ-های-غی/
+
 https://motamem.org/
 /**/
