@@ -3095,5 +3095,8 @@ yarn dev && yarn start peydagarnews -u https://peydagarnews.ir/اعمال-قان
 yarn dev && yarn start naghshnews
 yarn dev && yarn start naghshnews -u https://naghshnews.ir/وزیر-علوم-مطرح-کرد-اصلاح-روند-جذب-اعضا/
 
+yarn dev && yarn start tavannegar
+yarn dev && yarn start tavannegar -u https://tavannegar.ir/15307/اصفهان؛-در-آینده-نزدیک-صاحب-درگاه-ارتب/
+
 https://motamem.org/
 /**/

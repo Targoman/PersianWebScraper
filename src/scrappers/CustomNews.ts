@@ -13153,3 +13153,29 @@ export class naghshnews extends clsScrapper {
         })
     }
 }
+
+export class tavannegar extends clsScrapper {
+    constructor() {
+        super(enuDomains.tavannegar, "tavannegar.ir", {
+            selectors: {
+                article: ".singlePost .post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".content",
+                    ignoreNodeClasses: ["tags"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                },
+                tags: ".tags a",           
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
