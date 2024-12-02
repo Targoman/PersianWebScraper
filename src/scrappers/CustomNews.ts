@@ -13129,3 +13129,27 @@ export class peydagarnews extends clsScrapper {
         })
     }
 }
+
+export class naghshnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.naghshnews, "naghshnews.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                summary: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["tagcloud", "summary", "mag-box", "post-shortlink", "post-bottom-meta"],
+                },
+                category: {
+                    selector: ".post-cat-wrap a.post-cat"
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}

@@ -3092,5 +3092,8 @@ yarn dev && yarn start farhangnegar -u https://farhangnegar.ir/پلمب-یک-و�
 yarn dev && yarn start peydagarnews
 yarn dev && yarn start peydagarnews -u https://peydagarnews.ir/اعمال-قانون-۷۰-هزار-خودرو-با-چراغ-های-غی/
 
+yarn dev && yarn start naghshnews
+yarn dev && yarn start naghshnews -u https://naghshnews.ir/وزیر-علوم-مطرح-کرد-اصلاح-روند-جذب-اعضا/
+
 https://motamem.org/
 /**/
