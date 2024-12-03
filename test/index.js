@@ -3098,5 +3098,8 @@ yarn dev && yarn start naghshnews -u https://naghshnews.ir/وزیر-علوم-م�
 yarn dev && yarn start tavannegar
 yarn dev && yarn start tavannegar -u https://tavannegar.ir/15307/اصفهان؛-در-آینده-نزدیک-صاحب-درگاه-ارتب/
 
+yarn dev && yarn start feidararia
+yarn dev && yarn start feidararia -u https://feidararia.ir/eghtesadi/6145-نخستین-جلسه-توجیهی-بانوان-متقاضی-همکاری-با-برند-zen-در-مهنورا-برگزار-شد
+
 https://motamem.org/
 /**/

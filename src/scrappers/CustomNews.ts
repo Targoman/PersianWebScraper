@@ -13179,3 +13179,25 @@ export class tavannegar extends clsScrapper {
         })
     }
 }
+
+export class feidararia extends clsScrapper {
+    constructor() {
+        super(enuDomains.feidararia, "feidararia.ir", {
+            selectors: {
+                article: ".com-content-article",
+                aboveTitle: ".rotitr-value",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("time"),
+                    splitter: (el: HTMLElement) => el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".com-content-article__body",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".breadcrumb-item a"),
+                },
+            },
+        })
+    }
+}
