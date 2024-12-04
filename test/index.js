@@ -3104,5 +3104,8 @@ yarn dev && yarn start feidararia -u https://feidararia.ir/eghtesadi/6145-نخس
 yarn dev && yarn start pegahekhabar
 yarn dev && yarn start pegahekhabar -u https://pegahekhabar.ir/45841/همفکری-و-تبادل-نظر-بخش-خصوصی-و-خیریه-با/
 
+yarn dev && yarn start sedayeminab
+yarn dev && yarn start sedayeminab -u https://sedayeminab.ir/گلایه-از-وضعیت-اسفبار-کوچه-۳۴-محله-ولیع/
+
 https://motamem.org/
 /**/
