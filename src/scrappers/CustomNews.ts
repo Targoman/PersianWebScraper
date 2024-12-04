@@ -13201,3 +13201,29 @@ export class feidararia extends clsScrapper {
         })
     }
 }
+
+export class pegahekhabar extends clsScrapper {
+    constructor() {
+        super(enuDomains.pegahekhabar, "pegahekhabar.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: ".text-sin",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+        })
+    }
+}

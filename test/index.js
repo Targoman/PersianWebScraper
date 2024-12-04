@@ -3101,5 +3101,8 @@ yarn dev && yarn start tavannegar -u https://tavannegar.ir/15307/اصفهان؛-
 yarn dev && yarn start feidararia
 yarn dev && yarn start feidararia -u https://feidararia.ir/eghtesadi/6145-نخستین-جلسه-توجیهی-بانوان-متقاضی-همکاری-با-برند-zen-در-مهنورا-برگزار-شد
 
+yarn dev && yarn start pegahekhabar
+yarn dev && yarn start pegahekhabar -u https://pegahekhabar.ir/45841/همفکری-و-تبادل-نظر-بخش-خصوصی-و-خیریه-با/
+
 https://motamem.org/
 /**/
