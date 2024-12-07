@@ -691,6 +691,7 @@ export enum enuDomains {
     payamekhabar = "payamekhabar",
     payamekhanevadeh = "payamekhanevadeh",
     payamgostar = "payamgostar",
+    payarnews = "payarnews",
     paydarymelli = "paydarymelli",
     paziresh24 = "paziresh24",
     pdf = "pdf",

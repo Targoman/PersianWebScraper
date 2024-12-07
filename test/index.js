@@ -3107,5 +3107,8 @@ yarn dev && yarn start pegahekhabar -u https://pegahekhabar.ir/45841/همفکر�
 yarn dev && yarn start sedayeminab
 yarn dev && yarn start sedayeminab -u https://sedayeminab.ir/گلایه-از-وضعیت-اسفبار-کوچه-۳۴-محله-ولیع/
 
+yarn dev && yarn start payarnews
+yarn dev && yarn start payarnews -u https://payarnews.ir/1403/09/08/تشکیل-کارگروه-حل-مسائل-مالیاتی-رسانه-ب/
+
 https://motamem.org/
 /**/
