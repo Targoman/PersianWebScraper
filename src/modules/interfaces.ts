@@ -953,6 +953,7 @@ export enum enuDomains {
     uptvs = "uptvs",
     vaghayerooz = "vaghayerooz",
     vaghteshomal = "vaghteshomal",
+    vajehnews = "vajehnews",
     vakawi = "vakawi",
     vakiltik = "vakiltik",
     vananews = "vananews",

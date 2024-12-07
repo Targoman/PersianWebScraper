@@ -13277,3 +13277,30 @@ export class payarnews extends clsScrapper {
         })
     }
 }
+
+export class vajehnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.vajehnews, "vajehnews.ir", {
+            selectors: {
+                article: ".post-container-content.status-publish",
+                aboveTitle: ".single-title small",
+                title: "h2",
+                subtitle: ".single-except",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".single-post-content",
+                },
+                category: {
+                    selector: "li.news-cat a"
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

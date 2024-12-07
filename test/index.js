@@ -3110,5 +3110,8 @@ yarn dev && yarn start sedayeminab -u https://sedayeminab.ir/گلایه-از-و�
 yarn dev && yarn start payarnews
 yarn dev && yarn start payarnews -u https://payarnews.ir/1403/09/08/تشکیل-کارگروه-حل-مسائل-مالیاتی-رسانه-ب/
 
+yarn dev && yarn start vajehnews 
+yarn dev && yarn start vajehnews -u https://vajehnews.ir/عملکرد-درخشان-مجتمع-مس-سونگون-در-سال-۱۴/
+
 https://motamem.org/
 /**/
