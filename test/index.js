@@ -3113,5 +3113,8 @@ yarn dev && yarn start payarnews -u https://payarnews.ir/1403/09/08/تشکیل-�
 yarn dev && yarn start vajehnews 
 yarn dev && yarn start vajehnews -u https://vajehnews.ir/عملکرد-درخشان-مجتمع-مس-سونگون-در-سال-۱۴/
 
+yarn dev && yarn start khabarvahonar 
+yarn dev && yarn start khabarvahonar -u https://khabarvahonar.ir/رونمایی-از-۱۳۶-اثر-برتر-پوشاک-ایرانی-در/
+
 https://motamem.org/
 /**/

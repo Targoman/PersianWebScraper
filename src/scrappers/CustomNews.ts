@@ -13304,3 +13304,25 @@ export class vajehnews extends clsScrapper {
         })
     }
 }
+
+export class khabarvahonar extends clsScrapper {
+    constructor() {
+        super(enuDomains.khabarvahonar, "khabarvahonar.ir", {
+            selectors: {
+                article: ".post-box-single",
+                aboveTitle: ".post-sub-title",
+                title: "h1",
+                subtitle: "h3",
+                datetime: {
+                    conatiner: "div:nth-child(2) > ul > li:nth-child(1)"
+                },
+                content: {
+                    main: ".post-content",
+                },        
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

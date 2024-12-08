@@ -504,6 +504,7 @@ export enum enuDomains {
     khabarmachine = "khabarmachine",
     khabarnews = "khabarnews",
     khabaronline = "khabaronline",
+    khabarvahonar = "khabarvahonar",
     khabarvarzeshi = "khabarvarzeshi",
     khafnews = "khafnews",
     khamenei = "khamenei",
