@@ -3119,5 +3119,8 @@ yarn dev && yarn start khabarvahonar -u https://khabarvahonar.ir/رونمایی-
 yarn dev && yarn start qaartaal
 yarn dev && yarn start qaartaal -u https://qaartaal.ir/نقره-داغ-متخلفین-استفاده-از-برق-غیرمجا/
 
+yarn dev && yarn start samarehnews
+yarn dev && yarn start samarehnews -u https://samarehnews.ir/لزوم-ایجاد-مراکز-عملیات-اضطراری-در-سطح/
+
 https://motamem.org/
 /**/

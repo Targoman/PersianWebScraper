@@ -13353,3 +13353,30 @@ export class qaartaal extends clsScrapper {
         })
     }
 }
+
+export class samarehnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.samarehnews, "samarehnews.ir", {
+            selectors: {
+                article: "#mydiv",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-anavin"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
+                summary: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".post-summary"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".main-content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("ul.news-list a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='tag']")
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}

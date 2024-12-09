@@ -794,6 +794,7 @@ export enum enuDomains {
     salameno = "salameno",
     salampaveh = "salampaveh",
     samanehha = "samanehha",
+    samarehnews = "samarehnews",
     sanapress = "sanapress",
     sanatsenf = "sanatsenf",
     sangneveshte = "sangneveshte",
