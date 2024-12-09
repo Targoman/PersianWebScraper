@@ -3116,5 +3116,8 @@ yarn dev && yarn start vajehnews -u https://vajehnews.ir/عملکرد-درخشا
 yarn dev && yarn start khabarvahonar 
 yarn dev && yarn start khabarvahonar -u https://khabarvahonar.ir/رونمایی-از-۱۳۶-اثر-برتر-پوشاک-ایرانی-در/
 
+yarn dev && yarn start qaartaal
+yarn dev && yarn start qaartaal -u https://qaartaal.ir/نقره-داغ-متخلفین-استفاده-از-برق-غیرمجا/
+
 https://motamem.org/
 /**/

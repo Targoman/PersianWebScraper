@@ -723,6 +723,7 @@ export enum enuDomains {
     psarena = "psarena",
     pspro = "pspro",
     purson = "purson",
+    qaartaal = "qaartaal",
     qalampress = "qalampress",
     qartalnews = "qartalnews",
     qavanin = "qavanin",

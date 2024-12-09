@@ -13326,3 +13326,30 @@ export class khabarvahonar extends clsScrapper {
         })
     }
 }
+
+export class qaartaal extends clsScrapper {
+    constructor() {
+        super(enuDomains.qaartaal, "qaartaal.ir", {
+            selectors: {
+                article: "body.single-post",
+                aboveTitle: "h3",
+                title: "h1",
+                subtitle: ".short-content",
+                datetime: {
+                    conatiner: "time"
+                },
+                content: {
+                    main: ".full-content",
+                },
+                category: {
+                    selector: ".the-cat a",
+                    lastIndex: 2
+                },
+                tags: ".post-tags .footer ul li a"
+            },
+            url: {
+                removeWWW: true
+            }
+        })
+    }
+}
