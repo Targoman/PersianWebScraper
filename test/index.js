@@ -3122,5 +3122,8 @@ yarn dev && yarn start qaartaal -u https://qaartaal.ir/نقره-داغ-متخل�
 yarn dev && yarn start samarehnews
 yarn dev && yarn start samarehnews -u https://samarehnews.ir/لزوم-ایجاد-مراکز-عملیات-اضطراری-در-سطح/
 
+yarn dev && yarn start sepaskhabar
+yarn dev && yarn start sepaskhabar -u https://sepaskhabar.ir/تصویب-طرح-آباد-دانشگاه-جامع-علمی-کار/
+
 https://motamem.org/
 /**/
