@@ -3125,5 +3125,8 @@ yarn dev && yarn start samarehnews -u https://samarehnews.ir/لزوم-ایجاد
 yarn dev && yarn start sepaskhabar
 yarn dev && yarn start sepaskhabar -u https://sepaskhabar.ir/تصویب-طرح-آباد-دانشگاه-جامع-علمی-کار/
 
+yarn dev && yarn start avaiemihannews
+yarn dev && yarn start avaiemihannews -u https://www.avaiemihannews.ir/510-2/
+
 https://motamem.org/
 /**/

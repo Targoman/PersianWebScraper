@@ -90,6 +90,7 @@ export enum enuDomains {
     avaalborznews = "avaalborznews",
     avablog = "avablog",
     avadiplomatic = "avadiplomatic",
+    avaiemihannews = "avaiemihannews",
     avalpardakht = "avalpardakht",
     avangpress = "avangpress",
     avapress = "avapress",
