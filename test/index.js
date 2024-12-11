@@ -3128,5 +3128,8 @@ yarn dev && yarn start sepaskhabar -u https://sepaskhabar.ir/تصویب-طرح-�
 yarn dev && yarn start avaiemihannews
 yarn dev && yarn start avaiemihannews -u https://www.avaiemihannews.ir/510-2/
 
+yarn dev && yarn start khosroshahnews 
+yarn dev && yarn start khosroshahnews -u https://khosroshahnews.ir/news/22621/14030920101103
+
 https://motamem.org/
 /**/

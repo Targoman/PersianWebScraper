@@ -524,6 +524,7 @@ export enum enuDomains {
     khoramabadfarda = "khoramabadfarda",
     khordad = "khordad",
     khordokalan = "khordokalan",
+    khosroshahnews = "khosroshahnews",
     khuzpress = "khuzpress",
     kidzy = "kidzy",
     kishvandnews = "kishvandnews",
