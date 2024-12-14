@@ -13457,3 +13457,29 @@ export class khosroshahnews extends clsScrapper {
         })
     }
 }
+
+export class sobhezagros extends clsScrapper {
+    constructor() {
+        super(enuDomains.sobhezagros, "sobhezagros.ir", {
+            selectors: {
+                article: ".content.p-4",
+                aboveTitle: ".py-1",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: ".date-into"
+                },
+                content: {
+                    main: ".news-text",
+                },
+                category: {
+                    selector: "li.breadcrumb-item a"
+                },
+                tags: ".tags a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

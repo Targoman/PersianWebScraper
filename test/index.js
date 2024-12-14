@@ -3131,5 +3131,8 @@ yarn dev && yarn start avaiemihannews -u https://www.avaiemihannews.ir/510-2/
 yarn dev && yarn start khosroshahnews 
 yarn dev && yarn start khosroshahnews -u https://khosroshahnews.ir/news/22621/14030920101103
 
+yarn dev && yarn start sobhezagros
+yarn dev && yarn start sobhezagros -u https://sobhezagros.ir/story/آمار-بالای-مصرف-دارو%E2%80%8Cهای-پر-عوارض-در-استان
+
 https://motamem.org/
 /**/

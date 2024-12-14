@@ -877,6 +877,7 @@ export enum enuDomains {
     sobheqazvin = "sobheqazvin",
     sobheqtesad = "sobheqtesad",
     sobhesahel = "sobhesahel",
+    sobhezagros = "sobhezagros",
     sobhtazeh = "sobhtazeh",
     sofiamag = "sofiamag",
     soft98 = "soft98",
