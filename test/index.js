@@ -3134,5 +3134,8 @@ yarn dev && yarn start khosroshahnews -u https://khosroshahnews.ir/news/22621/14
 yarn dev && yarn start sobhezagros
 yarn dev && yarn start sobhezagros -u https://sobhezagros.ir/story/آمار-بالای-مصرف-دارو%E2%80%8Cهای-پر-عوارض-در-استان
 
+yarn dev && yarn start eghtesademoaser
+yarn dev && yarn start eghtesademoaser -u https://eghtesademoaser.ir/fa/news/10176/اخبار-جدید-از-صدور-فیش-حقوقی-بازنشستگان-تامین-اجتماعی-لینک-سایت
+
 https://motamem.org/
 /**/

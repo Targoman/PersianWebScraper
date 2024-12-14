@@ -248,6 +248,7 @@ export enum enuDomains {
     eghtesadbazargani = "eghtesadbazargani",
     eghtesaddaryai = "eghtesaddaryai",
     eghtesadema = "eghtesadema",
+    eghtesademoaser = "eghtesademoaser",
     eghtesadgooya = "eghtesadgooya",
     eghtesadnews = "eghtesadnews",
     eghtesadobimeh = "eghtesadobimeh",
