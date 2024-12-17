@@ -3275,3 +3275,14 @@ export class meydannews extends clsIransamaneh {
         })
     }
 }
+
+export class eghtesademoaser extends clsIransamaneh {
+    constructor() {
+        super(enuDomains.eghtesademoaser, "eghtesademoaser.ir", {
+            selectors: {
+                article: "#news",
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".tags_container a")
+            },
+        })
+    }
+}
