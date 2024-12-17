@@ -3137,5 +3137,8 @@ yarn dev && yarn start sobhezagros -u https://sobhezagros.ir/story/آمار-با
 yarn dev && yarn start eghtesademoaser
 yarn dev && yarn start eghtesademoaser -u https://eghtesademoaser.ir/fa/news/10176/اخبار-جدید-از-صدور-فیش-حقوقی-بازنشستگان-تامین-اجتماعی-لینک-سایت
 
+yarn dev && yarn start mahkhabar
+yarn dev && yarn start mahkhabar -u https://mahkhabar.ir/بندر-ماهشهر؛-قطب-صنعتی-و-تاریخی-جنوب-ا/
+
 https://motamem.org/
 /**/
