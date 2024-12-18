@@ -13506,3 +13506,20 @@ export class mahkhabar extends clsScrapper {
         })
     }
 }
+
+export class mashalnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.mashalnews, "mashalnews.ir", {
+            selectors: {
+                article: ".item-page",
+                title: "h2",
+                datetime: {
+                    acceptNoDate: true
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+            },
+        })
+    }
+}

@@ -3140,5 +3140,8 @@ yarn dev && yarn start eghtesademoaser -u https://eghtesademoaser.ir/fa/news/101
 yarn dev && yarn start mahkhabar
 yarn dev && yarn start mahkhabar -u https://mahkhabar.ir/بندر-ماهشهر؛-قطب-صنعتی-و-تاریخی-جنوب-ا/
 
+yarn dev && yarn start mashalnews
+yarn dev && yarn start mashalnews -u https://www.mashalnews.ir/fa/bartar/14834-لوله%E2%80%8Cهای-گاز؛-بازیگران-جدید-در-سوریه-پسابشار-کریدورهای-گازی-منطقه-بدست-روسیه-و-اسرائیل-می%E2%80%8Cافتد؟-حمایت-مسکو%E2%80%8C-از-تحریم-گازی-ایران
+
 https://motamem.org/
 /**/
