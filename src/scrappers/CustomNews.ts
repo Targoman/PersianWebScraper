@@ -13546,3 +13546,27 @@ export class lijaar extends clsScrapper {
         })
     }
 }
+
+export class mellee extends clsScrapper {
+    constructor() {
+        super(enuDomains.mellee, "mellee.ir", {
+            selectors: {
+                article: ".post-content",
+                title: "h1",
+                subtitle: "h4",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".lead1",
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                    startIndex: 1
+                },
+                tags: ".tags_block .cat_single a"
+            },
+        })
+    }
+}

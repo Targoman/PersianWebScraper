@@ -3146,5 +3146,8 @@ yarn dev && yarn start mashalnews -u https://www.mashalnews.ir/fa/bartar/14834-�
 yarn dev && yarn start lijaar
 yarn dev && yarn start lijaar -u https://lijaar.ir/هدف-تأمین%e2%80%8c-اجتماعی-تحقق-عدالت-اجتماعی/
 
+yarn dev && yarn start mellee
+yarn dev && yarn start mellee -u https://mellee.ir/21599/استثمار-جدید-این-بار-علیه-سفیران؛-این-ش/
+
 https://motamem.org/
 /**/
