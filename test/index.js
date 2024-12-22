@@ -3149,5 +3149,8 @@ yarn dev && yarn start lijaar -u https://lijaar.ir/هدف-تأمین%e2%80%8c-ا
 yarn dev && yarn start mellee
 yarn dev && yarn start mellee -u https://mellee.ir/21599/استثمار-جدید-این-بار-علیه-سفیران؛-این-ش/
 
+yarn dev && yarn start sobhekish
+yarn dev && yarn start technodot -u https://technodot.ir/تغییر-موقعیت-مغناطیسی-قطب-شمال/
+
 https://motamem.org/
 /**/

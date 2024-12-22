@@ -13570,3 +13570,28 @@ export class mellee extends clsScrapper {
         })
     }
 }
+
+export class technodot extends clsScrapper {
+    constructor() {
+        super(enuDomains.technodot, "technodot.ir", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:updated_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreTexts: [/.*مرجع اخبار تکنولوژی.*/]
+                },  
+                category: {
+                    selector: ".s-cats a.p-category",
+                },              
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
