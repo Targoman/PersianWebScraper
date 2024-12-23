@@ -3155,5 +3155,8 @@ yarn dev && yarn start technodot -u https://technodot.ir/تغییر-موقعیت
 yarn dev && yarn start ainew
 yarn dev && yarn start ainews -u https://ainews.ir/inside-the-country/17515/لزوم-نگاه-متوازن-در-عرصه-هوش-مصنوعی/
 
+yarn dev && yarn start iranpl
+yarn dev && yarn start iranpl -u https://iranpl.ir/news/57989/تدوین-بودجه-استان-ها-در-راستای-توزیع-عادلانه-منابع-برای-اولین
+
 https://motamem.org/
 /**/

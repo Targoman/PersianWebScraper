@@ -436,6 +436,7 @@ export enum enuDomains {
     iranicard = "iranicard",
     iranirooz = "iranirooz",
     iranjib = "iranjib",
+    iranpl = "iranpl",
     irasin = "irasin",
     irdc = "irdc",
     irdiplomacy = "irdiplomacy",

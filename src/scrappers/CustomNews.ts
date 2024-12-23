@@ -13620,3 +13620,30 @@ export class ainews extends clsScrapper {
         })
     }
 }
+
+export class iranpl extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranpl, "iranpl.ir", {
+            selectors: {
+                article: "#newscontent",
+                aboveTitle: "h2",
+                title: "h1",
+                subtitle: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: "[itemprop='articleBody']",
+                },
+                category: {
+                    selector: ".glyphicon-tag"
+                },
+                tags: "[rel='tag']"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}
