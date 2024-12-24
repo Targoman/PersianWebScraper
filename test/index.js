@@ -3158,5 +3158,8 @@ yarn dev && yarn start ainews -u https://ainews.ir/inside-the-country/17515/لز
 yarn dev && yarn start iranpl
 yarn dev && yarn start iranpl -u https://iranpl.ir/news/57989/تدوین-بودجه-استان-ها-در-راستای-توزیع-عادلانه-منابع-برای-اولین
 
+yarn dev && yarn start iranpejvak
+yarn dev && yarn start iranpejvak -u https://www.iranpejvak.com/news/41959/نتیجه-جلسه-شورا-درباره-فیلترینگ-امروز-مشخص-می-شود
+
 https://motamem.org/
 /**/

@@ -13647,3 +13647,23 @@ export class iranpl extends clsScrapper {
         })
     }
 }
+
+export class iranpejvak extends clsScrapper {
+    constructor() {
+        super(enuDomains.iranpejvak, "iranpejvak.com", {
+            selectors: {
+                article: "article#item",
+                title: "h1",
+                subtitle: ".summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                tags: "[rel='Index, Tag']"
+            },
+        })
+    }
+}
