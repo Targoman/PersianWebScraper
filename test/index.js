@@ -3152,7 +3152,7 @@ yarn dev && yarn start mellee -u https://mellee.ir/21599/استثمار-جدید
 yarn dev && yarn start technodot
 yarn dev && yarn start technodot -u https://technodot.ir/تغییر-موقعیت-مغناطیسی-قطب-شمال/
 
-yarn dev && yarn start ainew
+yarn dev && yarn start ainews
 yarn dev && yarn start ainews -u https://ainews.ir/inside-the-country/17515/لزوم-نگاه-متوازن-در-عرصه-هوش-مصنوعی/
 
 yarn dev && yarn start iranpl
@@ -3160,6 +3160,9 @@ yarn dev && yarn start iranpl -u https://iranpl.ir/news/57989/تدوین-بود�
 
 yarn dev && yarn start iranpejvak
 yarn dev && yarn start iranpejvak -u https://www.iranpejvak.com/news/41959/نتیجه-جلسه-شورا-درباره-فیلترینگ-امروز-مشخص-می-شود
+
+yarn dev && yarn start sanatghaza
+yarn dev && yarn start sanatghaza -u http://sanatghaza.com/صرفه-اقتصادی-واردات-گوشت-ازپاکستان/
 
 https://motamem.org/
 /**/

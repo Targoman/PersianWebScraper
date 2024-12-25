@@ -13667,3 +13667,30 @@ export class iranpejvak extends clsScrapper {
         })
     }
 }
+
+export class sanatghaza extends clsScrapper {
+    constructor() {
+        super(enuDomains.sanatghaza, "sanatghaza.com", {
+            selectors: {
+                article: ".single-content-txte-post",
+                aboveTitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-anavin"),
+                title: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".single-content-title"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector(".postinfo > ul > li:nth-child(2)"),
+                },
+                content: {
+                    main: ".resize",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#path a"),
+                },
+                tags: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("#tags a"),
+
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
