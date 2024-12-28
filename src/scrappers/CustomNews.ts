@@ -13694,3 +13694,24 @@ export class sanatghaza extends clsScrapper {
         })
     }
 }
+
+export class namayandeganema extends clsScrapper {
+    constructor() {
+        super(enuDomains.namayandeganema, "namayandeganema.ir", {
+            selectors: {
+                article: "article#item",
+                aboveTitle: "h4",
+                title: "h1",
+                subtitle: ".item-summary",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".item-body",
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

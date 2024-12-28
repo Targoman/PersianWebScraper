@@ -3164,5 +3164,8 @@ yarn dev && yarn start iranpejvak -u https://www.iranpejvak.com/news/41959/نت�
 yarn dev && yarn start sanatghaza
 yarn dev && yarn start sanatghaza -u http://sanatghaza.com/صرفه-اقتصادی-واردات-گوشت-ازپاکستان/
 
+yarn dev && yarn start namayandeganema
+yarn dev && yarn start namayandeganema -u https://www.namayandeganema.ir/news/22054/هدایای-غیرمتعارف-دریافتی-نمایندگان-تحویل-مجلس-می-شود
+
 https://motamem.org/
 /**/
