@@ -3170,5 +3170,8 @@ yarn dev && yarn start namayandeganema -u https://www.namayandeganema.ir/news/22
 yarn dev && yarn start nezamqom
 yarn dev && yarn start nezamqom -u https://www.nezamqom.ir/news/1703/امکان-مشاهده-اطلاعات-پروژه-های-ثبت-شده-سازمان-در-سامانه-نماسان
 
+yarn dev && yarn start asretaadol
+yarn dev && yarn start asretaadol -u https://www.asretaadol.ir/news/161230/اگر-ناحق-مرا-متهم-کنید-دفاع-خود-قوانین-تکیه-نمی-کنم
+
 https://motamem.org/
 /**/
