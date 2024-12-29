@@ -3167,5 +3167,8 @@ yarn dev && yarn start sanatghaza -u http://sanatghaza.com/صرفه-اقتصاد
 yarn dev && yarn start namayandeganema
 yarn dev && yarn start namayandeganema -u https://www.namayandeganema.ir/news/22054/هدایای-غیرمتعارف-دریافتی-نمایندگان-تحویل-مجلس-می-شود
 
+yarn dev && yarn start nezamqom
+yarn dev && yarn start nezamqom -u https://www.nezamqom.ir/news/1703/امکان-مشاهده-اطلاعات-پروژه-های-ثبت-شده-سازمان-در-سامانه-نماسان
+
 https://motamem.org/
 /**/
