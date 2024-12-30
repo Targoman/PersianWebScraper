@@ -3173,5 +3173,8 @@ yarn dev && yarn start nezamqom -u https://www.nezamqom.ir/news/1703/امکان-
 yarn dev && yarn start asretaadol
 yarn dev && yarn start asretaadol -u https://www.asretaadol.ir/news/161230/اگر-ناحق-مرا-متهم-کنید-دفاع-خود-قوانین-تکیه-نمی-کنم
 
+yarn dev && yarn start namanews
+yarn dev && yarn start namanews -u https://namanews.com/News/305393/احمد-علی-مقدم-در-گفتگو-با-نما-بودجه-1404-تورم-زا-است
+
 https://motamem.org/
 /**/

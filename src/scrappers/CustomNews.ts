@@ -13740,3 +13740,21 @@ export class asretaadol extends clsScrapper {
         })
     }
 }
+
+export class namanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.namanews, "namanews.com", {
+            selectors: {
+                article: ".newstext",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: "#News_lblDate"
+                },
+                content: {
+                    main: "#News_lblText",
+                },
+            },
+        })
+    }
+}
