@@ -13758,3 +13758,27 @@ export class namanews extends clsScrapper {
         })
     }
 }
+
+export class daroovasalamat extends clsScrapper {
+    constructor() {
+        super(enuDomains.daroovasalamat, "daroovasalamat.ir", {
+            selectors: {
+                article: "#docDataRow",
+                title: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelector("h1"),
+                subtitle: (_, fullHtml: HTMLElement) => fullHtml.querySelector("#docleadarea"),
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[name='dcterms.created']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE",
+                },
+                content: {
+                    main: "#doctextarea article",
+                    ignoreNodeClasses: ["col-lg-18"],
+                    ignoreTexts: [/.*ارسال نظر.*/]
+                },
+                category: {
+                    selector: (_: HTMLElement, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".last_bread_crumb"),
+                },
+            },
+        })
+    }
+}

@@ -3176,5 +3176,8 @@ yarn dev && yarn start asretaadol -u https://www.asretaadol.ir/news/161230/اگ�
 yarn dev && yarn start namanews
 yarn dev && yarn start namanews -u https://namanews.com/News/305393/احمد-علی-مقدم-در-گفتگو-با-نما-بودجه-1404-تورم-زا-است
 
+yarn dev && yarn start daroovasalamat
+yarn dev && yarn start daroovasalamat -u https://www.daroovasalamat.ir/news/57056/درخواست-دوباره-who-چین-کشف-منشا-کووید-۱۹-کمک-کنید
+
 https://motamem.org/
 /**/
