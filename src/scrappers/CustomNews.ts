@@ -13782,3 +13782,27 @@ export class daroovasalamat extends clsScrapper {
         })
     }
 }
+
+export class tolidvaeghtesad extends clsScrapper {
+    constructor() {
+        super(enuDomains.tolidvaeghtesad, "tolidvaeghtesad.ir", {
+            selectors: {
+                article: "#the-post",
+                title: "h1",
+                subtitle: "h2",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["tagcloud", "summary", "mag-box", "post-shortlink", "post-bottom-meta"],
+                },
+                category: {
+                    selector: "#breadcrumb a"
+                },
+                tags: ".tagcloud a"
+            },
+        })
+    }
+}

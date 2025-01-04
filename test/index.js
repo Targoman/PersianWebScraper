@@ -3179,5 +3179,8 @@ yarn dev && yarn start namanews -u https://namanews.com/News/305393/احمد-ع�
 yarn dev && yarn start daroovasalamat
 yarn dev && yarn start daroovasalamat -u https://www.daroovasalamat.ir/news/57056/درخواست-دوباره-who-چین-کشف-منشا-کووید-۱۹-کمک-کنید
 
+yarn dev && yarn start tolidvaeghtesad
+yarn dev && yarn start tolidvaeghtesad -u https://www.tolidvaeghtesad.ir/معاون-فنی-و-پژوهشهای-شرکت-آب-و-نیروی-ا/
+
 https://motamem.org/
 /**/

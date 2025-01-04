@@ -959,6 +959,7 @@ export enum enuDomains {
     titre20 = "titre20",
     titrekootah = "titrekootah",
     tlyn = "tlyn",
+    tolidvaeghtesad = "tolidvaeghtesad",
     tolosiyasat = "tolosiyasat",
     toonblog = "toonblog",
     toranji = "toranji",
