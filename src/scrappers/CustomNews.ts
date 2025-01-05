@@ -13806,3 +13806,28 @@ export class tolidvaeghtesad extends clsScrapper {
         })
     }
 }
+
+export class pezeshkanoghanoon extends clsScrapper {
+    constructor() {
+        super(enuDomains.pezeshkanoghanoon, "pezeshkanoghanoon.ir", {
+            selectors: {
+                article: ".post--single",
+                aboveTitle: ".post--info > ul > li",
+                title: "h1",
+                subtitle: ".checkout--info",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='og:article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post--content",
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[itemprop='name']"),
+                    startIndex: 1,
+                    lastIndex: 3
+                },
+            },
+        })
+    }
+}

@@ -720,6 +720,7 @@ export enum enuDomains {
     petrotahlil = "petrotahlil",
     peydagarnews = "peydagarnews",
     peykeghalam = "peykeghalam",
+    pezeshkanoghanoon = "pezeshkanoghanoon",
     pezeshket = "pezeshket",
     pezhvakkurdestan = "pezhvakkurdestan",
     pgnews = "pgnews",

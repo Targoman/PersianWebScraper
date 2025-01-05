@@ -3182,5 +3182,8 @@ yarn dev && yarn start daroovasalamat -u https://www.daroovasalamat.ir/news/5705
 yarn dev && yarn start tolidvaeghtesad
 yarn dev && yarn start tolidvaeghtesad -u https://www.tolidvaeghtesad.ir/معاون-فنی-و-پژوهشهای-شرکت-آب-و-نیروی-ا/
 
+yarn dev && yarn start pezeshkanoghanoon
+yarn dev && yarn start pezeshkanoghanoon -u https://www.pezeshkanoghanoon.ir/030320151837011/برنامه-سازمان-غذا-و-دارو-برای-ارتقای-سلامت-غذا
+
 https://motamem.org/
 /**/
