@@ -396,6 +396,7 @@ export enum enuDomains {
     hozehonari = "hozehonari",
     huzhkhabar = "huzhkhabar",
     iana = "iana",
+    iann = "iann",
     ibena = "ibena",
     ibna = "ibna",
     icana = "icana",

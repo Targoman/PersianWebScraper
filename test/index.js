@@ -3185,5 +3185,8 @@ yarn dev && yarn start tolidvaeghtesad -u https://www.tolidvaeghtesad.ir/معا�
 yarn dev && yarn start pezeshkanoghanoon
 yarn dev && yarn start pezeshkanoghanoon -u https://www.pezeshkanoghanoon.ir/030320151837011/برنامه-سازمان-غذا-و-دارو-برای-ارتقای-سلامت-غذا
 
+yarn dev && yarn start iann
+yarn dev && yarn start iann -u https://iann.ir/تجهیزات-۵-مرکز-معاینه-فنی-پایتخت-نوساز/
+
 https://motamem.org/
 /**/
