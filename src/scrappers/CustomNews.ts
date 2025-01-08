@@ -13857,3 +13857,32 @@ export class iann extends clsScrapper {
         })
     }
 }
+
+export class ashkezarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.ashkezarnews, "ashkezarnews.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: "small.subtitle",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom", "shorten_url"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    lastIndex: 2
+                },
+                tags: ".tag a"
+            },
+            url: {
+                removeWWW: true,
+            }
+        })
+    }
+}

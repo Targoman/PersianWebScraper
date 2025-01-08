@@ -3188,5 +3188,8 @@ yarn dev && yarn start pezeshkanoghanoon -u https://www.pezeshkanoghanoon.ir/030
 yarn dev && yarn start iann
 yarn dev && yarn start iann -u https://iann.ir/تجهیزات-۵-مرکز-معاینه-فنی-پایتخت-نوساز/
 
+yarn dev && yarn start ashkezarnews
+yarn dev && yarn start ashkezarnews -u https://ashkezarnews.ir/خط-انتقال-آب-اشکذر؛-فرسودگی،-بیعملی/
+
 https://motamem.org/
 /**/
