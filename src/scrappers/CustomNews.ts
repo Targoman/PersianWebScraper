@@ -13886,3 +13886,29 @@ export class ashkezarnews extends clsScrapper {
         })
     }
 }
+
+export class asansafarnews extends clsScrapper {
+    constructor() {
+        super(enuDomains.asansafarnews, "asansafarnews.ir", {
+            selectors: {
+                article: ".single-main",
+                aboveTitle: ".roti",
+                title: "h1",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["post-header", "post-info", "tags-links"]
+                },
+                category: {
+                    selector: "[rel='category tag']",
+                    lastIndex:  2
+                },
+                tags: "[rel='tag']"
+            },
+        })
+    }
+}

@@ -3191,5 +3191,8 @@ yarn dev && yarn start iann -u https://iann.ir/تجهیزات-۵-مرکز-معا
 yarn dev && yarn start ashkezarnews
 yarn dev && yarn start ashkezarnews -u https://ashkezarnews.ir/خط-انتقال-آب-اشکذر؛-فرسودگی،-بیعملی/
 
+yarn dev && yarn start asansafarnews
+yarn dev && yarn start asansafarnews -u https://asansafarnews.ir/تأثیر-طراحی-نرمافزار-گردشگری-بر-رونق/
+
 https://motamem.org/
 /**/
