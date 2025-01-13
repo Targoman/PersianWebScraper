@@ -13912,3 +13912,28 @@ export class asansafarnews extends clsScrapper {
         })
     }
 }
+
+export class rojanews extends clsScrapper {
+    constructor() {
+        super(enuDomains.rojanews, "rojanews.ir", {
+            selectors: {
+                article: "section.single",
+                aboveTitle: "small.subtitle",
+                title: "h2",
+                subtitle: ".lead",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content") || el.getAttribute("datetime")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".post-content",
+                    ignoreNodeClasses: ["lead", "page-bottom"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll("[rel='category tag']"),
+                    lastIndex:  2
+                },
+            },
+        })
+    }
+}

@@ -3194,5 +3194,8 @@ yarn dev && yarn start ashkezarnews -u https://ashkezarnews.ir/خط-انتقال
 yarn dev && yarn start asansafarnews
 yarn dev && yarn start asansafarnews -u https://asansafarnews.ir/تأثیر-طراحی-نرمافزار-گردشگری-بر-رونق/
 
+yarn dev && yarn start rojanews 
+yarn dev && yarn start rojanews -u https://rojanews.ir/12156/تله-کابین-و-آکواریوم-خواسته-دیرینه-مرد/
+
 https://motamem.org/
 /**/

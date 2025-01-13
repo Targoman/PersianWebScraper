@@ -778,6 +778,7 @@ export enum enuDomains {
     rcmajlis = "rcmajlis",
     rcs = "rcs",
     revayatnameh = "revayatnameh",
+    rojanews = "rojanews",
     rokna = "rokna",
     romanman = "romanman",
     rooberunews = "rooberunews",
