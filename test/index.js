@@ -3197,5 +3197,8 @@ yarn dev && yarn start asansafarnews -u https://asansafarnews.ir/تأثیر-طر
 yarn dev && yarn start rojanews 
 yarn dev && yarn start rojanews -u https://rojanews.ir/12156/تله-کابین-و-آکواریوم-خواسته-دیرینه-مرد/
 
+yarn dev && yarn start tourismonline
+yarn dev && yarn start tourismonline -u https://www.tourismonline.co/news/139916/زمستان-باید-به-اندیمشک-رفت
+
 https://motamem.org/
 /**/

@@ -970,6 +970,7 @@ export enum enuDomains {
     toranji = "toranji",
     toseeirani = "toseeirani",
     toseepooya = "toseepooya",
+    tourismonline = "tourismonline",
     tpph = "tpph",
     transis = "transis",
     trip = "trip",

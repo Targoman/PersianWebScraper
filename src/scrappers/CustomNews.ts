@@ -13937,3 +13937,27 @@ export class rojanews extends clsScrapper {
         })
     }
 }
+
+export class tourismonline extends clsScrapper {
+    constructor() {
+        super(enuDomains.tourismonline, "tourismonline.co", {
+            selectors: {
+                article: "body.single-post",
+                title: "h1",
+                datetime: {
+                    conatiner: (_, fullHtml: HTMLElement) => fullHtml.querySelector("meta[property='article:published_time']"),
+                    splitter: (el: HTMLElement) => el.getAttribute("content")?.substring(0, 10) || "NO_DATE"
+                },
+                content: {
+                    main: ".entry-content",
+                    ignoreNodeClasses: ["post-bottom-meta"]
+                },
+                category: {
+                    selector: "#breadcrumb a",
+                    startIndex: 1
+                },
+                tags: ".post-bottom-meta a"
+            },
+        })
+    }
+}
