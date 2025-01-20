@@ -1220,3 +1220,9 @@ export class shabestan extends clsNastoohBased {
         })    
     }
 }
+
+export class nezamqom extends clsNastoohBased {
+    constructor() {
+        super(enuDomains.nezamqom, "nezamqom.ir")    
+    }
+}

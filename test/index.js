@@ -3089,5 +3089,119 @@ yarn dev && yarn start medu -u https://medu.ir/fa/news/بسیاری-از%C2%A0-�
 yarn dev && yarn start farhangnegar
 yarn dev && yarn start farhangnegar -u https://farhangnegar.ir/پلمب-یک-واحد-استخر-به-دلیل-آلودگی-میکرو/
 
+yarn dev && yarn start peydagarnews
+yarn dev && yarn start peydagarnews -u https://peydagarnews.ir/اعمال-قانون-۷۰-هزار-خودرو-با-چراغ-های-غی/
+
+yarn dev && yarn start naghshnews
+yarn dev && yarn start naghshnews -u https://naghshnews.ir/وزیر-علوم-مطرح-کرد-اصلاح-روند-جذب-اعضا/
+
+yarn dev && yarn start tavannegar
+yarn dev && yarn start tavannegar -u https://tavannegar.ir/15307/اصفهان؛-در-آینده-نزدیک-صاحب-درگاه-ارتب/
+
+yarn dev && yarn start feidararia
+yarn dev && yarn start feidararia -u https://feidararia.ir/eghtesadi/6145-نخستین-جلسه-توجیهی-بانوان-متقاضی-همکاری-با-برند-zen-در-مهنورا-برگزار-شد
+
+yarn dev && yarn start pegahekhabar
+yarn dev && yarn start pegahekhabar -u https://pegahekhabar.ir/45841/همفکری-و-تبادل-نظر-بخش-خصوصی-و-خیریه-با/
+
+yarn dev && yarn start sedayeminab
+yarn dev && yarn start sedayeminab -u https://sedayeminab.ir/گلایه-از-وضعیت-اسفبار-کوچه-۳۴-محله-ولیع/
+
+yarn dev && yarn start payarnews
+yarn dev && yarn start payarnews -u https://payarnews.ir/1403/09/08/تشکیل-کارگروه-حل-مسائل-مالیاتی-رسانه-ب/
+
+yarn dev && yarn start vajehnews 
+yarn dev && yarn start vajehnews -u https://vajehnews.ir/عملکرد-درخشان-مجتمع-مس-سونگون-در-سال-۱۴/
+
+yarn dev && yarn start khabarvahonar 
+yarn dev && yarn start khabarvahonar -u https://khabarvahonar.ir/رونمایی-از-۱۳۶-اثر-برتر-پوشاک-ایرانی-در/
+
+yarn dev && yarn start qaartaal
+yarn dev && yarn start qaartaal -u https://qaartaal.ir/نقره-داغ-متخلفین-استفاده-از-برق-غیرمجا/
+
+yarn dev && yarn start samarehnews
+yarn dev && yarn start samarehnews -u https://samarehnews.ir/لزوم-ایجاد-مراکز-عملیات-اضطراری-در-سطح/
+
+yarn dev && yarn start sepaskhabar
+yarn dev && yarn start sepaskhabar -u https://sepaskhabar.ir/تصویب-طرح-آباد-دانشگاه-جامع-علمی-کار/
+
+yarn dev && yarn start avaiemihannews
+yarn dev && yarn start avaiemihannews -u https://www.avaiemihannews.ir/510-2/
+
+yarn dev && yarn start khosroshahnews 
+yarn dev && yarn start khosroshahnews -u https://khosroshahnews.ir/news/22621/14030920101103
+
+yarn dev && yarn start sobhezagros
+yarn dev && yarn start sobhezagros -u https://sobhezagros.ir/story/آمار-بالای-مصرف-دارو%E2%80%8Cهای-پر-عوارض-در-استان
+
+yarn dev && yarn start eghtesademoaser
+yarn dev && yarn start eghtesademoaser -u https://eghtesademoaser.ir/fa/news/10176/اخبار-جدید-از-صدور-فیش-حقوقی-بازنشستگان-تامین-اجتماعی-لینک-سایت
+
+yarn dev && yarn start mahkhabar
+yarn dev && yarn start mahkhabar -u https://mahkhabar.ir/بندر-ماهشهر؛-قطب-صنعتی-و-تاریخی-جنوب-ا/
+
+yarn dev && yarn start mashalnews
+yarn dev && yarn start mashalnews -u https://www.mashalnews.ir/fa/bartar/14834-لوله%E2%80%8Cهای-گاز؛-بازیگران-جدید-در-سوریه-پسابشار-کریدورهای-گازی-منطقه-بدست-روسیه-و-اسرائیل-می%E2%80%8Cافتد؟-حمایت-مسکو%E2%80%8C-از-تحریم-گازی-ایران
+
+yarn dev && yarn start lijaar
+yarn dev && yarn start lijaar -u https://lijaar.ir/هدف-تأمین%e2%80%8c-اجتماعی-تحقق-عدالت-اجتماعی/
+
+yarn dev && yarn start mellee
+yarn dev && yarn start mellee -u https://mellee.ir/21599/استثمار-جدید-این-بار-علیه-سفیران؛-این-ش/
+
+yarn dev && yarn start technodot
+yarn dev && yarn start technodot -u https://technodot.ir/تغییر-موقعیت-مغناطیسی-قطب-شمال/
+
+yarn dev && yarn start ainews
+yarn dev && yarn start ainews -u https://ainews.ir/inside-the-country/17515/لزوم-نگاه-متوازن-در-عرصه-هوش-مصنوعی/
+
+yarn dev && yarn start iranpl
+yarn dev && yarn start iranpl -u https://iranpl.ir/news/57989/تدوین-بودجه-استان-ها-در-راستای-توزیع-عادلانه-منابع-برای-اولین
+
+yarn dev && yarn start iranpejvak
+yarn dev && yarn start iranpejvak -u https://www.iranpejvak.com/news/41959/نتیجه-جلسه-شورا-درباره-فیلترینگ-امروز-مشخص-می-شود
+
+yarn dev && yarn start sanatghaza
+yarn dev && yarn start sanatghaza -u http://sanatghaza.com/صرفه-اقتصادی-واردات-گوشت-ازپاکستان/
+
+yarn dev && yarn start namayandeganema
+yarn dev && yarn start namayandeganema -u https://www.namayandeganema.ir/news/22054/هدایای-غیرمتعارف-دریافتی-نمایندگان-تحویل-مجلس-می-شود
+
+yarn dev && yarn start nezamqom
+yarn dev && yarn start nezamqom -u https://www.nezamqom.ir/news/1703/امکان-مشاهده-اطلاعات-پروژه-های-ثبت-شده-سازمان-در-سامانه-نماسان
+
+yarn dev && yarn start asretaadol
+yarn dev && yarn start asretaadol -u https://www.asretaadol.ir/news/161230/اگر-ناحق-مرا-متهم-کنید-دفاع-خود-قوانین-تکیه-نمی-کنم
+
+yarn dev && yarn start namanews
+yarn dev && yarn start namanews -u https://namanews.com/News/305393/احمد-علی-مقدم-در-گفتگو-با-نما-بودجه-1404-تورم-زا-است
+
+yarn dev && yarn start daroovasalamat
+yarn dev && yarn start daroovasalamat -u https://www.daroovasalamat.ir/news/57056/درخواست-دوباره-who-چین-کشف-منشا-کووید-۱۹-کمک-کنید
+
+yarn dev && yarn start tolidvaeghtesad
+yarn dev && yarn start tolidvaeghtesad -u https://www.tolidvaeghtesad.ir/معاون-فنی-و-پژوهشهای-شرکت-آب-و-نیروی-ا/
+
+yarn dev && yarn start pezeshkanoghanoon
+yarn dev && yarn start pezeshkanoghanoon -u https://www.pezeshkanoghanoon.ir/030320151837011/برنامه-سازمان-غذا-و-دارو-برای-ارتقای-سلامت-غذا
+
+yarn dev && yarn start iann
+yarn dev && yarn start iann -u https://iann.ir/تجهیزات-۵-مرکز-معاینه-فنی-پایتخت-نوساز/
+
+yarn dev && yarn start ashkezarnews
+yarn dev && yarn start ashkezarnews -u https://ashkezarnews.ir/خط-انتقال-آب-اشکذر؛-فرسودگی،-بیعملی/
+
+yarn dev && yarn start asansafarnews
+yarn dev && yarn start asansafarnews -u https://asansafarnews.ir/تأثیر-طراحی-نرمافزار-گردشگری-بر-رونق/
+
+yarn dev && yarn start rojanews 
+yarn dev && yarn start rojanews -u https://rojanews.ir/12156/تله-کابین-و-آکواریوم-خواسته-دیرینه-مرد/
+
+yarn dev && yarn start tourismonline
+yarn dev && yarn start tourismonline -u https://www.tourismonline.co/news/139916/زمستان-باید-به-اندیمشک-رفت
+
+yarn dev && yarn start sedayezanjannews 
+yarn dev && yarn start sedayezanjannews -u http://sedayezanjannews.ir/NewsShow.aspx?nId=13980
+
 https://motamem.org/
 /**/
