@@ -3200,5 +3200,8 @@ yarn dev && yarn start rojanews -u https://rojanews.ir/12156/تله-کابین-�
 yarn dev && yarn start tourismonline
 yarn dev && yarn start tourismonline -u https://www.tourismonline.co/news/139916/زمستان-باید-به-اندیمشک-رفت
 
+yarn dev && yarn start sedayezanjannews 
+yarn dev && yarn start sedayezanjannews -u http://sedayezanjannews.ir/NewsShow.aspx?nId=13980
+
 https://motamem.org/
 /**/

@@ -834,6 +834,7 @@ export enum enuDomains {
     sedayeminab = "sedayeminab",
     sedayemoallem = "sedayemoallem",
     sedayerey = "sedayerey",
+    sedayezanjannews = "sedayezanjannews",
     sedayiran = "sedayiran",
     sedayostan = "sedayostan",
     seemtiyaz = "seemtiyaz",

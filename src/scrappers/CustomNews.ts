@@ -13961,3 +13961,31 @@ export class tourismonline extends clsScrapper {
         })
     }
 }
+
+export class sedayezanjannews extends clsScrapper {
+    constructor() {
+        super(enuDomains.sedayezanjannews, "sedayezanjannews.ir", {
+            selectors: {
+                article: ".NewsShow",
+                aboveTitle: "small.subtitle",
+                title: "a.aTitle2",
+                subtitle: ".pTitle3",
+                datetime: {
+                    conatiner: ".divDateNo"
+                },
+                content: {
+                    main: ".pText",
+                    ignoreNodeClasses: ["divDateNo", "divNewsId"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".boxTitleService a"),
+                    lastIndex:  2
+                },
+            },
+            url: {
+                removeWWW: true,
+                forceHTTP: true
+            }
+        })
+    }
+}
