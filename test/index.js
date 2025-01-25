@@ -3203,5 +3203,8 @@ yarn dev && yarn start tourismonline -u https://www.tourismonline.co/news/139916
 yarn dev && yarn start sedayezanjannews 
 yarn dev && yarn start sedayezanjannews -u http://sedayezanjannews.ir/NewsShow.aspx?nId=13980
 
+yarn dev && yarn start ahlekashanam 
+yarn dev && yarn start ahlekashanam -u https://ahlekashanam.net/هتل-پنج-ستاره-در-کاشان-بزودی-احداث-می/
+
 https://motamem.org/
 /**/

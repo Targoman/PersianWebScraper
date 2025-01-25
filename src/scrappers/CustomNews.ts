@@ -13979,12 +13979,34 @@ export class sedayezanjannews extends clsScrapper {
                 },
                 category: {
                     selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".boxTitleService a"),
-                    lastIndex:  2
                 },
             },
             url: {
                 removeWWW: true,
                 forceHTTP: true
+            }
+        })
+    }
+}
+
+export class ahlekashanam extends clsScrapper {
+    constructor() {
+        super(enuDomains.ahlekashanam, "ahlekashanam.net", {
+            selectors: {
+                article: "#single-post",
+                aboveTitle: ".single-post__kicker",
+                title: ".single-post__title",
+                subtitle: ".single-post__leader",
+                datetime: {
+                    conatiner: ".panel__header > a.panel__title"
+                },
+                content: {
+                    main: ".single-post__content",
+                },
+                tags: "[rel='tag']",         
+            },
+            url: {
+                removeWWW: true
             }
         })
     }
