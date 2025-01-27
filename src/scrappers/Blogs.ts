@@ -6348,3 +6348,25 @@ export class eshomer extends clsScrapper {
         })
     }
 }
+
+export class ramzinex extends clsScrapper {
+    constructor() {
+        super(enuDomains.ramzinex, "ramzinex.com", {
+            basePath: "/blog",
+            selectors: {
+                article: "article.single-article",
+                title: "h1",
+                datetime: {
+                    conatiner: ".date"
+                },
+                content: {
+                    main: ".single-article__body",
+                    ignoreNodeClasses: ["table-of-content"]
+                },
+                category: {
+                    selector: (_, fullHtml: HTMLElement) => fullHtml.querySelectorAll(".rank-math-breadcrumb p a"),
+                },
+            },
+        })
+    }
+}

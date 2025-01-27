@@ -3206,5 +3206,8 @@ yarn dev && yarn start sedayezanjannews -u http://sedayezanjannews.ir/NewsShow.a
 yarn dev && yarn start ahlekashanam 
 yarn dev && yarn start ahlekashanam -u https://ahlekashanam.net/هتل-پنج-ستاره-در-کاشان-بزودی-احداث-می/
 
+yarn dev && yarn start ramzinex
+yarn dev && yarn start ramzinex -u https://ramzinex.com/blog/zero-capital-gains-tax-crypto-us-analysis-news/
+
 https://motamem.org/
 /**/
